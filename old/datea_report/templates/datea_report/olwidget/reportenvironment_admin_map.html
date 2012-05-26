@@ -1,0 +1,21 @@
+<span style='float: left;'>
+<div id="environment_admin_map" style="position:relative"></div>
+{{ layer_html|join:"" }}
+<script type="text/javascript">
+	if (jQuery != undefined) {
+	    var django = {
+	        'jQuery':jQuery,
+	    }
+	}
+	(function($) {
+		$(document).ready(function(){
+			$('.form-row.center').hide();	
+			Datea.admin.environment_admin_map_options = {{ map_opts|safe }};
+			Datea.admin.create_environment_admin_map();
+			$('.form-row.boundary, .form-row.boudary div').css('position', 'relative');
+		});
+		
+	})(django.jQuery);    
+</script>
+</span>
+<div style='clear: both;'></div>

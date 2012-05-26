@@ -1,0 +1,29 @@
+{% load i18n %}
+
+<div class="row tab-pane-inner tab-with-map">
+	
+	<div class="span5 left htarget scrolly">
+		<div class="inner">
+			
+			<div id="report-detail-container" style="display: none">
+				<div class="back-button"><button type="button" onclick="Datea.nav.back_to_list_from_detail('reports', 'reports');" class="btn success chico">Volver al listado</button></div>
+				<div id="report-detail-content"></div>
+			</div>
+			
+			<div id="report-pages-container">
+				{% include "datea_report/_report_list_pages.html" %}
+			</div>
+		</div>
+	</div>
+	
+	<div class="span7 right htarget">
+		<div class="inner">
+			<div class="viewport htarget-padding">
+				<div id="main-report-map"></div>
+				<div class="filters">
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

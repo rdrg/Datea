@@ -1,0 +1,27 @@
+
+<div class="report-teaser-list">
+	
+	{% with view_in_map=True %}
+		{% for report in report_list_page.object_list %}
+			{% include "datea_report/_report_teaser.html" %}
+		{% endfor %}
+	{% endwith %}
+	
+	{% if report_list_page.paginator.num_pages > 1 %}
+	
+	<div class="pages">
+			{% if report_list_page.has_previous %}
+				<a class="previous with-twipsy" data-placement="left" href="{{ base_page_url}}{{ tab_prefix }}{{ report_list_page.previous_page_number }}" rel="nav:reports/{{ active_category.slug }}/{{ tab_prefix }}{{ report_list_page.previous_page_number }}" title="anterior">anterior</a>
+			{% else %}
+				<span class="placeholder">&nbsp;</span>
+			{% endif %}
+				<span class="active">{{ report_list_page.number }} de {{ report_list_page.paginator.num_pages }}</span>
+			{% if report_list_page.has_next %}
+				<a class="next with-twipsy" data-placement="right" href="{{ base_page_url}}{{ tab_prefix }}{{ report_list_page.next_page_number }}" rel="nav:reports/{{ active_category.slug }}/{{ tab_prefix }}{{ report_list_page.next_page_number }}" title="siguiente">siguiente</a> 
+			{% else %}
+				<span class="placeholder">&nbsp;</span>
+			{% endif %}
+	</div>
+	{% endif %}
+	<div class="actual-page" style="display:none">{{ report_list_page.number }}</div>
+</div>

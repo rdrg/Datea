@@ -1,0 +1,34 @@
+
+
+
+<div id="{{ id }}" class="dateapoint_layer_map"></div>
+{{ layer_html|join:"" }}
+<script type="text/javascript">
+if (jQuery != undefined) {
+    var django = {
+        'jQuery':jQuery,
+    }
+}
+(function($) {
+    
+    var map = new olwidget.Map("{{ id }}", [
+            {{ layer_js|join:"," }}
+        ], 
+        {{ map_opts|safe }}
+    );
+    for (var i = 0; i < map.controls.length; i++) {
+    	if (map.controls[i] && map.controls[i].CLASS_NAME =="olwidget.EditableLayerSwitcher") {
+        	map.controls[i].setEditing(map.vectorLayers[0]);
+        	break;
+    	}
+	}
+
+	var pointLayer = map.vectorLayers[0];
+	if (pointLayer.textarea.value == ''){
+		map.zoomToExtent(pointLayer.boundaryBounds);
+		map.zoomTo(Math.min(map.getZoom(), map.opts.zoomToDataExtentMin));
+	}
+	
+})(django.jQuery);   
+</script>
+

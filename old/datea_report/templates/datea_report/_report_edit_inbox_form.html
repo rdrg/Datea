@@ -1,0 +1,85 @@
+<form method="POST" class="inbox-edit-report-form" id="inbox-edit-report-form-{{ edit }}">
+{% csrf_token %}
+<h3 class="form-title">Editar Reporte</h3>
+<div class="control-group">
+	<label class="control-label">Categoría</label>
+	<div class="controls">
+		{{ form.category }}
+	</div>
+</div>
+
+<div class="control-group">
+	<label class="control-label">Status</label>
+	<div class="controls">
+		{{ form.status }}
+		<label class="checkbox inline">
+			{{ form.published }} Publicado
+		</label>
+	</div>
+</div>
+{% comment %}
+<div class="control-group">
+	<label class="control-label">Problema</label>
+	<div class="controls">
+		{{ form.problem }}
+	</div>
+</div>
+
+<div class="control-group">
+	<label class="control-label">Solución</label>
+	<div class="controls">
+		{{ form.solution }}
+	</div>
+</div>
+{% endcomment %}
+
+<div class="position-control control-group">
+	<label class="control-label">Posición</label>
+	<div class="controls">
+		<div id="report-edit-map-{{ edit }}" class="report-edit-map"></div>
+	</div>
+	{{ form.position }}
+</div>
+
+{% comment %}
+<div class="control-group">
+	<label class="control-label">Descripción de ubicación</label>
+	<div class="controls">
+		{{ form.location_description }}
+	</div>
+</div>
+
+<div class="control-group">
+	<label class="control-label">Imágenes</label>
+	<div class="controls">{{ form.images }}</div>
+</div>
+
+<div class="control-group">
+	<label class="control-label">Video</label>
+	<div class="controls">
+	{% for videof in form_video %}
+		{{ videof.video }}
+		<p class="help-block">Introduce aquí la dirección web de un video de youtube o vimeo</p>
+	{% endfor %}
+	</div>
+</div>
+{% endcomment %}
+
+<div class="hide">
+	<input type="hidden" name="report_id" value="{{ report.id }}" />
+	{{ form.problem }}
+	{{ form.solution }}
+	{{ form.location_description }}
+	{{ form.environment }}
+	{{ form.site }}
+	{{ form.author }}
+	{{ form.zone }}
+	{{ form_video.management_form }}
+</div>
+
+<div class="actions">
+	<button class="btn btn-primary" type="button" onclick="Datea.inbox.submit_report(this);">Guardar</button>
+	<button class="btn" type="button" rel="nav:inbox?detail={{ edit }}">Cancelar</button>
+</div>
+
+</form>

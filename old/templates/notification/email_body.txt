@@ -1,0 +1,13 @@
+Hola {{ recipient.username }},
+
+{{ message }}
+
+
+----
+saludos,
+
+El equipo de {{ current_site }}
+
+Si deseas dejar de recibir mensages o cambiar la configuración de tus notificaciones, 
+puedes hacerlo en el siguiente enlace: {{ follow_settings_link }}  
+

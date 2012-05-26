@@ -1,0 +1,15 @@
+{% load thumbnail %}
+
+<div class="dateaimage-field-wrapper" id="{{ css_id }}">
+	<div class="field-data">
+		<input type="hidden" name="dateaimages_max_images" class="max-images" value="{{ max_images }}" />
+		<input type="hidden" name="dateaimages_thumbnail_size" class="thumbnail-size" value="{{ thumbnail_size }}" />
+		<input type="hidden" name="dateaimages_crop" class="crop" value="{{ crop }}" />
+	</div>
+	<table class="field-container">
+	{% for image in image_objects %}
+		{% include "datea_images/image_field.html" %}
+	{% endfor %}
+	</table>
+	{{ new_form }}
+</div>

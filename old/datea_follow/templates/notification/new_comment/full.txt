@@ -1,0 +1,8 @@
+{{ sender.username }} ha comentado el {{ target_object_name }} de {% if target_object_type == 'report'%}{{ target_object.author.username }}{% else %}{{ target_object.user.username }}{% endif %}:
+
+Puedes verlo y responder aquí: http://{{ current_site }}{{ target_object.get_absolute_url }}
+
+{% if target_object_type  == 'report' %}{{ target_object.root_category.name}} -> {{ target_object.leaf_category.name}}: {{ target_object.problem|truncatewords:40 }}{% else %}{{ target_object.get_content}}{% endif %}
+
+Comentario: {{ comment.comment }}
+

@@ -1,0 +1,10 @@
+{% load thumbnail %}
+{% if profile.avatar != None %}
+	{% thumbnail profile.avatar.image "192" as im %}
+		<img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="profile image" />
+	{% endthumbnail %}	
+{% else %}
+	{% thumbnail "datea/img/usuario_icono2.png" "192x147" format="PNG" as im %}
+		<img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="profile image" />
+	{% endthumbnail %}
+{% endif %}	

@@ -1,0 +1,10 @@
+{% spaceless %}
+	{% load thumbnail%}
+	{% thumbnail avatar.image '192' as im %}
+		<img src="{{im.url}}" width="{{ im.width }}" height="{{ im.height }}" alt="" />
+	{% endthumbnail %}
+	|
+	{% thumbnail avatar.image '72x56' as im %}
+		<img src="{{im.url}}" width="{{ im.width }}" height="{{ im.height }}" alt="" />
+	{% endthumbnail %}
+{% endspaceless %}

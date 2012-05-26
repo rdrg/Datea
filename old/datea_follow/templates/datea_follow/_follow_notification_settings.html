@@ -1,0 +1,38 @@
+<div class="notice_settings">
+
+    {% if not user.email %}
+        <div class="alert-message warning">
+            No dispone de una dirección de correo registrada a la cual enviar las notificaciones.
+            Puede agregar un correo electrónico <a href="#" rel="nav:my-profile/edit-account">aquí</a>.
+        </div>
+    {% endif %}
+    
+    <form method="POST" action="" id="notification-settings-form" class="form-horizontal">
+        {% csrf_token %}
+        <table class="notice_settings table">
+            <tr class="head">
+                <th>Tipo de notificación</th>
+                {% for header in notice_settings.column_headers %}
+                    <th>{{ header }}</th>
+                {% endfor %}
+            </tr>
+            {% for row in notice_settings.rows %}
+                <tr>
+                    <td>{{ row.notice_type.display }}<br/>
+                        <span class="notice_type_description">{{ row.notice_type.description }}</span>
+                    </td>
+                    {% for cell in row.cells %}
+                        <td>
+                            <input type="checkbox" name="{{ cell.0 }}" {% if cell.1 %}checked="yes"{% endif %}/>
+                        </td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+            <tr>
+                <td colspan="2"><button type="button" class="btn btn-primary" onclick="Datea.follow.save_notification_settings();">Guardar</button>&nbsp;
+                	<button type="button" class="btn btn-success" rel="nav:my-profile">VER MI PERFIL</button>
+                	</td>
+            </tr>
+        </table>
+    </form>
+</div>

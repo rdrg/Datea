@@ -1,0 +1,17 @@
+{% load datea_profile_tags %}
+{% spaceless %}
+<div class="activity">
+	<div class="button">
+		<a class="btn chico" href="{{ target_object.get_absolute_url }}" rel="nav:{{ target_object.get_nav_url }}">Ver</a>
+	</div>
+	<div class="content">
+		<div class="fecha">el {{ target_object.created|date:"d/mY - H:i" }}</div>
+		<a title="ver perfil de {{sender.username}}" href="{% get_profile_url sender.get_profile target_object.environment.slug %}" 
+		rel="nav:people/detail/{{ sender.username }}">{{ sender.username }}</a> 
+		ha hecho un nuevo aporte: 
+		<span class="label" style="background-color: {{ target_object.root_category.color }}">{{ target_object.root_category.name }}</span> ->
+		<span class="label" style="background-color: {{ target_object.root_category.color }}">{{ target_object.leaf_category.name }}</span> ->
+		{{ target_object.problem|truncatewords:15 }}
+	</div>
+</div>
+{% endspaceless %}

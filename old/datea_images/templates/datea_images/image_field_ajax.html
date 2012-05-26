@@ -1,0 +1,19 @@
+{% load thumbnail %}
+{% load i18n %}
+[starttr] id="image-{{ image.pk }}" class="imagefield" style="display:none"[endtag]
+	[starttd] class="thumb"[endtag]
+		{% if crop != '' %}
+		{% thumbnail image.image thumbnail_size crop=crop as im %}
+			<img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="" />
+		{% endthumbnail %} 
+	{% else %}
+		{% thumbnail image.image thumbnail_size as im %}
+			<img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="" />
+		{% endthumbnail %}
+	{% endif %}
+	[endtd]
+	[starttd] class="control"[endtag]
+		<a class="btn delete chico" href="javascript:dateaimage_delete({{ image.pk }});">{% trans "delete" %}</a>
+		<input type="hidden" name="{{ name }}" value="{{ image.pk }}" />
+	[endtd]
+[endtr]

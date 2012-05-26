@@ -1,0 +1,27 @@
+{% extends "site_base.html" %}
+
+{% block title %}Crear nuevo reporte{% endblock title %}
+
+{% block extra_head %}
+	{{ block.super }}
+	{{ form.media }}
+	<script type="text/javascript">
+		(function() {
+			if (typeof(Datea) == 'undefined') window.Datea = {};
+			
+			Datea['environment'] = {{ environment_data|safe }}; 
+			
+		})();
+	</script>
+{% endblock extra_head %}
+
+{% block body %}
+    <form action="" method="post" enctype="multipart/form-data">
+    	{% csrf_token %}
+    	<table border="0" width="60%">
+        	{{ form.as_table }}
+        	{{ video_formset.as_table }}
+        </table>
+		<tr><td colspan="2"><input type="submit" value="Guardar" /></td></tr>
+    </form>
+{% endblock body %}

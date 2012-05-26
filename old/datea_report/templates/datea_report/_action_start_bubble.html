@@ -1,0 +1,23 @@
+{% load thumbnail %}
+<div id="action-start-bubble" style="display:none">
+	<div class="punta">&nbsp;</div>
+	{% for cat_id, cat in environment_data.categories.items %}
+		<button class="single-action-button" onclick="Datea.nav.action_start_button({{ cat_id }}, this);">
+			<div class="image">
+				<div class="image-off">
+					{% thumbnail cat.image_off "28x28" format="PNG" upscale=False as catimg %}
+						<img src="{{ catimg.url }}" alt="" width="{{ catimg.width }}" height="{{ catimg.height }}"/>
+					{% endthumbnail %}
+				</div>
+				<div class="image-on">
+					{% thumbnail cat.image "28x28" format="PNG" upscale=False as catimg %}
+						<img src="{{ catimg.url }}" alt="" width="{{ catimg.width }}" height="{{ catimg.height }}" />
+					{% endthumbnail %}
+				</div>
+			</div>
+			<div class="name">
+				{{ cat.name }}
+			</div>
+		</button>
+	{% endfor %}
+</div>

@@ -1,0 +1,20 @@
+<div id="share-widget-report-{{ report.id }}" class="report-widget share-widget">
+	<div class="button addthis_toolbox" addthis:url="{{ report.get_full_url }}">
+		<div class="data">
+			<div class="off">
+				<a class="addthis_counter addthis_bubble_style count"></a>
+				<div class="subline">comparten este aporte</div>
+			</div>
+			
+			<div class="hover">
+				<div class="msg">comparte este aporte!</div>
+			</div>
+		</div>
+		<div class="share-services" style="display:none">
+				<a class="addthis_button_facebook servicio servicio-facebook" title="compartir en facebook">facebook</a>
+				<a class="addthis_button_twitter servicio servicio-twitter" title="twittear">twitter</a>
+				<a class="addthis_button_email servicio servicio-email" title="compartir por correo">e-mail</a>
+				<div class="punta">&nbsp;</div>
+		</div>
+	</div>
+</div>

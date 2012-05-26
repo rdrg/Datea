@@ -1,0 +1,16 @@
+{% load thumbnail %}
+<div class="estas-en">Estás en</div>
+<div class="main-cat-small">
+	{% with active_category as maincat %}
+		<div class="image">
+		{% thumbnail maincat.image "33x36" format="PNG" upscale=False as catimg %}
+			<img src="{{ catimg.url }}" alt="" width="{{ catimg.width }}" height="{{ catimg.height }}" />
+		{% empty %}
+			<img src="http://placehold.it/68x71" alt="" width="68" height="71" />
+		{% endthumbnail %}
+		</div>
+		<div class="name">{{ maincat.name }}
+			<span class="help-text">[puedes cambiar arriba]</span>	
+		</div>
+	{% endwith %}
+</div>

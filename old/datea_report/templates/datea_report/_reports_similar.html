@@ -1,0 +1,6 @@
+<div class="report-teaser-list similar-reports">
+	{% if reports|length > 0 %}<div class="list-title">Usuarios que han participado como tu</div>{% endif %}
+	{% for report in reports %}
+		{% include "datea_report/_report_teaser.html" %}
+	{% endfor %}
+</div>

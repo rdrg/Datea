@@ -1,0 +1,50 @@
+{% load i18n datea_report_tags %}
+{% with report_url=report.get_absolute_url report_nav_url=report.get_nav_url %}
+
+<div id="report-teaser-{{ report.id }}" class="report teaser">
+	
+	{% with report as instance %}
+		{% include "datea_report/_post_user_data.html" %}
+	{% endwith %}
+	
+	<div class="content">
+		
+		{# Category #}
+		<div class="category">
+			<span class="label" style="background-color: {{ report.leaf_category.color }}">{{ report.leaf_category.name }}</span>
+		</div>
+		
+		{# Problema #}
+		<div class="field">
+			<span class="field-label">Problema:</span> {{ report.problem|truncatehtmlchars:140 }}
+		</div>
+		
+		{# Ubicacion #}
+		{% if report.location_description %}
+		<div class="field">
+			<span class="field-label">Ubicación:</span> {{ report.location_description|truncatehtmlchars:140 }}
+		</div>
+		{% endif %}
+		
+		{# Solucion #}
+		<div class="field">
+			<span class="field-label">Solución:</span> {{ report.solution|truncatehtmlchars:140 }}
+		</div>
+		
+	</div> {# end content #}
+	
+	{% with report_url=report.get_absolute_url report_nav_url=report.get_nav_url %}
+		{% include "datea_report/_report_widget_stats.html" %}
+	{% endwith %}
+	
+	
+	<div class="buttons">
+		
+		<button type="button" class="btn chico abrir"  rel="nav:{{ report_nav_url }}">Ver detalle</button>&nbsp;
+		{% if view_in_map != False %}
+			<button type="button" class="btn chico abrir"  onclick="Datea.maps.open_popup({{ report.id }});">Ver en mapa</button>
+		{% endif %}
+	</div>
+	
+</div>
+{% endwith %}

@@ -1,0 +1,100 @@
+{% load datea_report_tags %}
+<form action="" method="post" enctype="multipart/form-data" autocomplete="off" id="new-report-form" class="report-form">
+{% csrf_token %}
+
+<div id="report-maincat-select" class="main-category">
+	{% include "datea_report/_report_form_maincat.html" %}
+</div>
+
+<div class="report-step step1">
+	<div class="step-guide">Paso 1 de 3</div>
+	<div class="step-title">1. Elige el tipo de problema</div>
+	<div class="step-inner">
+		
+		<div class="step-error" style="display:none"></div>
+		
+		<div id="report-subcat-select" class="field options-field category-field clearfix">
+				{% include "datea_report/_subcat_select.html" %}
+		</div>
+		
+		<div class="field clearfix">
+			<div class="field-label">{{ report_form.problem.label }}</div>
+			<div class="input">{{ report_form.problem }}</div>
+		</div>
+		<div class="field clearfix">
+			<div class="field-label">{{ report_form.solution.label }}</div>
+			<div class="input">{{ report_form.solution }}</div>
+		</div>
+		<div class="field image-field clearfix">
+			<div class="field-label">{{ report_form.images.label }}</div>
+			<div class="input">{{ report_form.images }}</div>
+		</div>
+		<div class="field video-field clearfix">
+			{% for video_form in report_video_formset %}
+				<div class="field-label">{{ video_form.video.label }}</div>
+				<div class="input">{{ video_form.video }}</div>
+				<div class="help-text">Introduce aquí la dirección web de un video de youtube o vimeo</div>
+			{% endfor %}
+		</div>
+	</div>
+	<div class="step-control">
+		<button type="button" class="next" onclick="Datea.report.open_step(2, this);">siguiente</button>
+	</div>
+</div>	
+
+
+<div class="report-step step2" style="display:none">
+	<div class="step-guide">Paso 2 de 3</div>
+	<div class="step-title">2. Ubica el problema en el mapa</div>
+	
+	<div class="step-inner">
+		
+		<div class="step-error" style="display:none"></div>
+		
+		<div class="step-message">Coloca una marca en el mapa en el punto exacto donde se encuentra el problema:</div>
+		
+		<div class="map-instructions">
+			<img src="{{ STATIC_URL }}datea/img/map_position_instructions.png" width="380" height="116" /> 
+		</div>
+		
+		<div class="hide">{{ report_form.position }}</div>
+		
+		<div class="field clearfix">
+			<div class="field-label">{{ report_form.location_description.label}}</div>
+			<div class="input">{{ report_form.location_description }}</div>
+		</div>
+	</div>
+	<div class="step-control">
+		<button type="button" class="previous" onclick="Datea.report.open_step(1, this);">anterior</button>
+		<button type="button" class="cancel" onclick="Datea.report.cancel(this);">cancelar</button>
+		<button type="button" class="next" onclick="Datea.report.open_step(3, this);">siguiente</button>
+	</div>
+</div>
+
+
+<div class="report-step step3 step-verify" style="display:none">
+	<div class="step-guide">Paso 3 de 3</div>
+	<div class="step-title">3. verifica tu aporte</div>
+	<div class="step-inner">
+		<div class="step-message">Para terminar, verifica los datos ingresados</div>
+		
+		<div class="verify-content">
+		</div>
+	</div>
+	<div class="step-control">
+		<button type="button" class="previous" onclick="Datea.report.open_step(2, this);">anterior</button>
+		<button type="button" class="cancel" onclick="Datea.report.cancel(this);">cancelar</button>
+		<button type="button" class="submit" onclick="Datea.report.submit(this);">enviar</button>
+	</div>
+</div>
+
+<div class="hide hidden-fields">
+	{{ report_form.category }}
+	{{ report_form.environment }}
+	{{ report_form.site }}
+	{{ report_form.author }}
+	{{ report_form.zone }}
+	{{ report_video_formset.management_form }}
+</div>
+
+</form>

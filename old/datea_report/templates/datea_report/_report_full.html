@@ -1,0 +1,22 @@
+<div id="report-full-{{ report.id }}" class="report full">
+	
+	<div class="report-content">
+		{% include "datea_report/_report_detail.html" %}
+	</div>
+	
+	{% if replies|length > 0 %}
+		<div class="replies">
+			{% for reply in replies %}
+				{% include "datea_admin/_reply_full.html" %}
+			{% endfor %}
+		</div>
+	{% endif %}
+	
+	<div class="comments">
+		<h3>Comentarios</h3>
+		{% with report as target_object %}
+			{% include "datea_comments/_comment_list.html" %}
+			{% include "datea_comments/_comment_form.html" %}
+		{% endwith %}	
+	</idv>
+</div>

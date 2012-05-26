@@ -1,0 +1,79 @@
+{% extends "site_base.html" %}
+
+{% load i18n %}
+
+{% block head_title %}{% trans "Welcome" %}{% endblock %}
+
+{% block body_class %}
+	{{ block.super }}
+	{{ environment.slug }}
+{% endblock %}
+
+{% block user_top %}{% endblock %}
+
+{% block body_base %}
+
+	{% block banner %}
+		<div id="home-banner">
+			<div class="container">
+				<div class="row">
+					<div class="left welcome span6">
+						<div class="inner">
+							{{ environment.description|safe }}
+							<div class="start-links">
+								<div class="row">
+									<div class="span2">
+										<a href="{% url acct_signup %}" class="home-icon-link singup">
+											
+										</a>
+									</div>
+									<div class="span2">
+										
+									</div>
+									<div class="span2">
+										
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="right span5 offset1">
+						<div class="inner">
+							<div class="burbuja-registro-home">
+								<div class="inner">
+									<a class="btn btn-success btn-semi-large" href="{% url acct_signup %}">Regístrate</a><br>
+									<a class="btn btn-primary btn-semi-large" href="{% url acct_login %}">Ingresa<i class="icon-play icon-white icono"></i></a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="borde">&nbsp;</div>
+		</div>
+	{% endblock %}
+	
+	{% block category_bar %}
+		{% include "datea_report/_category_bar.html" %}
+	{% endblock %}
+	
+	{% block home_content %}
+		<div id="home_content">
+			<div class="container">
+				<div class="row">
+					<div class="span7 home-latest-reports">
+						<div class="home-action action-3">
+							<h3 class="action-title">Comparte!</h3>
+							<h4>Últimos aportes</h4>
+						</div>
+						{% for report in latest_reports %}
+							{% include "datea_report/_report_teaser_preview.html" %}
+						{% endfor %}
+					</div>
+					<div class="span5"></div>
+				</div>
+			</div>
+		</div>
+	{% endblock %}
+
+{% endblock %}

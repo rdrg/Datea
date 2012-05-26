@@ -1,0 +1,1 @@
+{{ sender.username }} apoya el aporte de {{ target_object.title|truncatewords:10 }}

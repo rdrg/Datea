@@ -1,0 +1,20 @@
+{% load thumbnail %}
+{% load i18n %}
+<tr id="image-{{ image.pk }}" class="imagefield" style="display: block;">
+	<td class="thumb">
+	{% if crop != '' %}
+		{% thumbnail image.image thumbnail_size crop=crop as im %}
+			<img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="" />
+		{% endthumbnail %}
+	{% else %}
+		{% thumbnail image.image thumbnail_size as im %}
+			<img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="" />
+		{% endthumbnail %}
+	{% endif %}
+	
+	</td>
+	<td class="control">
+		<a class="btn delete chico" href="javascript:dateaimage_delete({{ image.pk }});">{% trans "delete" %}</a>
+		<input type="hidden" name="{{ name }}" value="{{ image.pk }}" />
+	</td>
+</tr>

@@ -1,0 +1,32 @@
+{% load bootstrap_tags %}
+{% load datea_report_tags %}
+{% load i18n %}
+{% load account_tags %}
+<div id="new-report" class="row tab-pane-inner tab-with-map">
+	<div class="span6 left htarget scrolly">
+		<div class="inner">
+			{% if user.is_authenticated %}
+				{% include 'datea_report/_report_create_form.html' %}
+			{% else %}
+			<p clas="mensage">
+				Para hacer un aporte es necesario <a class="btn primary" href="/account/login">Ingresar</a> primero.
+			</p>
+			{% endif %}
+		</div>
+	</div>
+	
+	<div class="span6 right htarget">
+		<div class="inner">
+			
+			{% if user.is_authenticated %}
+			<div class="viewport htarget-padding">
+				<div id="new-report-map"></div>
+			</div>
+			{% endif %}
+		</div>
+	</div>
+</div>
+
+
+<div id="new-report-success" style="display:none">
+</div>

@@ -1,0 +1,68 @@
+{% load i18n %}
+{% load thumbnail %}
+{% load datea_report_tags %}
+
+<div class="report teaser report-{{ report.id }}">
+	
+	<div class="head">
+		<div class="user-picture">
+			<a href="#ver-perfil-de-esta-persona">
+				{% if report.autor.get_profile.avatar != None %}
+					{% thumbnail report.author.get_profile.avatar.image "46x37" crop="center" as im %}
+						<img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="profile image" />
+					{% endthumbnail %}	
+				{% else %}
+					{% thumbnail "datea/img/usuario_icono2.png" "46x37" format="PNG" crop="center" as im %}
+						<img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="profile image" />
+					{% endthumbnail %}
+				{% endif %}
+			</a>
+		</div>
+		<div class="data">
+			<div class="username"><a href="javascript:alert('ver perfil')"; title="ver perfil with-twipsy">{% trans 'By' %} {{ report.author.username|default:"Anónimo" }}</a></div>
+			<div class="date">el {{ report.created|date:"d/m/Y - H:i" }}</div>
+		</div>
+	</div> {# end head #}
+	
+	
+	<div class="content">
+		
+		{# Category #}
+		<div class="category">
+			<span class="label" style="background-color: {{ report.leaf_category.color }}">{{ report.leaf_category.name }}</span>
+		</div>
+		
+		{# Problema #}
+		<div class="field">
+			<span class="field-label">Problema:</span> {{ report.problem|truncatehtmlchars:140 }}
+		</div>
+		
+		{# Ubicacion #}
+		<div class="field">
+			<span class="field-label">Ubicación:</span> {{ report.location_description|truncatehtmlchars:140 }}
+		</div>
+		
+		{# Solucion #}
+		<div class="field">
+			<span class="field-label">Solución:</span> {{ report.solution|truncatehtmlchars:140 }}
+		</div>
+		
+	</div> {# end content #}
+	
+	
+	<div class="stats">
+		{% if report.vote_count > 0 %}
+			<div class="vote_count">{{ report.vote_count }} apoyo{% if report.vote_count > 1%}s{% endif %}</div>
+		{% endif %}
+		{% if report.comment_count > 0 %}
+			<div class="comment_count">{{ report.vote_count }} apoyo{% if report.vote_count > 1%}s{% endif %}</div>
+		{% endif %}
+	</div>
+	
+	
+	<div class="buttons">
+		<button type="button" class="btn chico abrir"  onclick="alert('abrir');">Ver detalle</button>
+		<button type="button" class="btn chico abrir"  onclick="Datea.maps.open_popup({{ report.id }});">Ver en mapa</button>
+	</div>
+	
+</div>

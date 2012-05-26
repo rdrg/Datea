@@ -1,0 +1,6 @@
+{{ sender.username }} ha creado un nuevo {{ target_object_name }}:
+
+Puedes verlo aquí: http://{{ current_site }}{{ target_object.get_absolute_url }}
+
+{{ target_object.root_category.name}} -> {{ target_object.leaf_category.name}}: {{ target_object.problem|truncatewords:40 }}
+
