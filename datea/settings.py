@@ -1,4 +1,7 @@
+
 # Django settings for datea project.
+import os
+PROJECT_PATH = os.path.abspath(os.path.dirname(__file__))
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -11,10 +14,10 @@ MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': '',                      # Or path to database file if using sqlite3.
-        'USER': '',                      # Not used with sqlite3.
-        'PASSWORD': '',                  # Not used with sqlite3.
+        'ENGINE': 'django.contrib.gis.db.backends.postgis', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': 'datea4',                      # Or path to database file if using sqlite3.
+        'USER': 'rod',                      # Not used with sqlite3.
+        'PASSWORD': 'kipu7x',                  # Not used with sqlite3.
         'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
         'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
     }
@@ -27,7 +30,7 @@ DATABASES = {
 # timezone as the operating system.
 # If running in a Windows environment this must be set to the same as your
 # system time zone.
-TIME_ZONE = 'America/Chicago'
+TIME_ZONE = 'America/Lima'
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
@@ -48,28 +51,28 @@ USE_TZ = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
-MEDIA_ROOT = ''
+MEDIA_ROOT = os.path.join(PROJECT_PATH, 'media')
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
 # Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
-MEDIA_URL = ''
+MEDIA_URL = '/media/'
 
 # Absolute path to the directory static files should be collected to.
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/home/media/media.lawrence.com/static/"
-STATIC_ROOT = ''
+STATIC_ROOT = os.path.join(PROJECT_PATH, 'static')
 
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
 STATIC_URL = '/static/'
 
+ADMIN_MEDIA_PREFIX = STATIC_URL + "grappelli/"
+
 # Additional locations of static files
 STATICFILES_DIRS = (
-    # Put strings here, like "/home/html/static" or "C:/www/django/static".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
+    os.path.join(PROJECT_PATH, 'site-static'),
 )
 
 # List of finder classes that know how to find static files in
@@ -109,19 +112,39 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
+    os.path.join(PROJECT_PATH, "templates"),
 )
 
 INSTALLED_APPS = (
+    
+    # standard 
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # Uncomment the next line to enable the admin:
-    # 'django.contrib.admin',
-    # Uncomment the next line to enable admin documentation:
-    # 'django.contrib.admindocs',
+
+    'grappelli',
+    'django.contrib.admin',
+    'django.contrib.admindocs',
+    
+    # extensions
+    'south',
+    'mptt',
+    'social_auth',
+    
+    # geodjango / location
+    "django.contrib.gis",
+    
+    # datea
+    'datea.datea_category',
+    'datea.datea_follow',
+    'datea.datea_image',
+    'datea.datea_profile',
+    'datea.datea_report',
+    'datea.datea_subpage',
+    'datea.datea_vote',
 )
 
 # A sample logging configuration. The only tangible logging
@@ -152,3 +175,46 @@ LOGGING = {
         },
     }
 }
+
+
+AUTHENTICATION_BACKENDS = [
+    'social_auth.backends.twitter.TwitterBackend',
+    'social_auth.backends.facebook.FacebookBackend',
+    'social_auth.backends.google.GoogleOAuth2Backend',
+    #"social_auth.backends.contrib.foursquare.FoursquareBackend",
+    'django.contrib.auth.backends.ModelBackend',
+]
+
+AUTH_PROFILE_MODULE = 'datea_profile.DateaProfile'
+
+LOGIN_URL = "/account/login/" 
+#LOGIN_REDIRECT_URLNAME = "/" # CAMBIAR!
+#LOGOUT_REDIRECT_URLNAME = "/"
+
+LOGIN_REDIRECT_URL = '/' # CAMBIAR
+LOGIN_ERROR_URL    = '/account/login'
+
+# SOCIAL AUTH SETTINGS
+from datea_profile.utils import make_social_username
+SOCIAL_AUTH_USERNAME_FIXER = lambda u: make_social_username(u)
+SOCIAL_AUTH_UUID_LENGTH = 16
+SOCIAL_AUTH_EXPIRATION = 'expires'
+SOCIAL_AUTH_ASSOCIATE_BY_MAIL = True
+
+TWITTER_CONSUMER_KEY = 'RJqf4w0hdSusPFrLtfwkA'
+TWITTER_CONSUMER_SECRET = 'drV2eP4zYgx8WqTSqzBAhxf6oeJcSMwTUVbBXpJ0qg'
+
+FACEBOOK_APP_ID = '222271061161837'
+FACEBOOK_API_SECRET = '37bf7dc201567ce71e673925d5891f4e'
+FACEBOOK_EXTENDED_PERMISSIONS = ['email']
+
+GOOGLE_OAUTH2_CLIENT_ID = '324703561333.apps.googleusercontent.com'
+GOOGLE_OAUTH2_CLIENT_SECRET = '8ipQymLrQL3lYnCGwqgxnP37'
+
+
+# local_settings.py can be used to override environment-specific settings
+# like database and email that differ between development and production.
+try:
+    from local_settings import *
+except ImportError:
+    pass
