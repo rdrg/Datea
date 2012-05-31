@@ -5,10 +5,10 @@ MAINTENANCE_MODE = False
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.contrib.gis.db.backends.postgis', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'datea4',                      # Or path to database file if using sqlite3.
-        'USER': 'rod',                      # Not used with sqlite3.
-        'PASSWORD': 'kipu7x',                  # Not used with sqlite3.
+        'ENGINE': 'django.contrib.gis.db.backends.postgis', # POSTGIS!! -> see geodjango
+        'NAME': 'your_postgis_db',          #
+        'USER': 'xxx',                      # Not used with sqlite3.
+        'PASSWORD': 'xxx',                  # Not used with sqlite3.
         'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
         'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
     }
@@ -17,11 +17,11 @@ DATABASES = {
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash if there is a path component (optional in other cases).
 # Examples: "http://media.lawrence.com", "http://example.com/media/"
-MEDIA_URL = ''
+MEDIA_URL = '/media/'
 
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
-STATIC_URL = ''
+STATIC_URL = '/static/'
 
 #mail server settings
 EMAIL_HOST = ''
