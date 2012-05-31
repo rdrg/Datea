@@ -2,10 +2,10 @@
 
 
 {% block body %}
-	<div class="navbar">
-		<div class="inner">
+	<div class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
 			<div class="container">
-				<h1 class="page-title">DATEA</h1>
+				<a class="brand" href="/">DATEA</a>
 				<div class="pull-right">
 					{% block user_login %}{% endblock %}
 				</div>
@@ -15,11 +15,13 @@
 	
 	{% block main_content %}
 		<div class="container">
-			<div class="row">
-				<div class="span6">izquierda</div>
-				<div class="span6">derecha</div>
-			</div>
-		</div>	
+			<header>
+				<div class="row">
+					<div class="span6">izquierda</div>
+					<div class="span6">derecha</div>
+				</div>
+			</header>
+		</div>
 	{% endblock%}
 
 {% endblock %}

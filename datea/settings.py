@@ -126,15 +126,18 @@ INSTALLED_APPS = (
     'django.contrib.admindocs',
     
     # extensions
+    'registration',
+    'social_auth',
     'south',
     'mptt',
-    'social_auth',
     'tastypie',
+    'bootstrap_toolkit',
     
     # geodjango / location
     "django.contrib.gis",
     
     # datea
+    'datea.datea_home',
     'datea.datea_image',
     'datea.datea_category',
     'datea.datea_channel',
