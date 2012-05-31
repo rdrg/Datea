@@ -129,6 +129,7 @@ INSTALLED_APPS = (
     'south',
     'mptt',
     'social_auth',
+    'tastypie',
     
     # geodjango / location
     "django.contrib.gis",
