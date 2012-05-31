@@ -1,5 +1,12 @@
-
 # Django settings for datea project.
+
+# local_settings.py can be used to override environment-specific settings
+# like database and email that differ between development and production.
+try:
+    from datea.local_settings import *
+except ImportError:
+    pass
+
 import os
 PROJECT_PATH = os.path.abspath(os.path.dirname(__file__))
 
@@ -11,17 +18,6 @@ ADMINS = (
 )
 
 MANAGERS = ADMINS
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.contrib.gis.db.backends.postgis', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'datea4',                      # Or path to database file if using sqlite3.
-        'USER': 'rod',                      # Not used with sqlite3.
-        'PASSWORD': 'kipu7x',                  # Not used with sqlite3.
-        'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
-        'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
-    }
-}
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -56,7 +52,7 @@ MEDIA_ROOT = os.path.join(PROJECT_PATH, 'media')
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
 # Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
-MEDIA_URL = '/media/'
+#MEDIA_URL = '/media/'
 
 # Absolute path to the directory static files should be collected to.
 # Don't put anything in this directory yourself; store your static files
@@ -66,7 +62,7 @@ STATIC_ROOT = os.path.join(PROJECT_PATH, 'static')
 
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
-STATIC_URL = '/static/'
+#STATIC_URL = '/static/'
 
 ADMIN_MEDIA_PREFIX = STATIC_URL + "grappelli/"
 
@@ -212,9 +208,4 @@ GOOGLE_OAUTH2_CLIENT_ID = '324703561333.apps.googleusercontent.com'
 GOOGLE_OAUTH2_CLIENT_SECRET = '8ipQymLrQL3lYnCGwqgxnP37'
 
 
-# local_settings.py can be used to override environment-specific settings
-# like database and email that differ between development and production.
-try:
-    from local_settings import *
-except ImportError:
-    pass
+
