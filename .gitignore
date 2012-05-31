@@ -1,3 +1,9 @@
 *.swp
 *.pyc
 local_settings.py
+.pydevproject
+.project
+.db
+env
+datea/media/*
+datea/static/*
