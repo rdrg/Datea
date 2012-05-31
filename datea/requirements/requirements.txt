@@ -5,7 +5,7 @@ argparse==1.2.1
 distribute==0.6.24
 django-extensions==0.8
 django-grappelli==2.3.8
-django-guardian==1.0.4.dev
+-e git://github.com/lukaszb/django-guardian.git@6e88f841c4a8413e1c1202d17e860ba18616126e#egg=django_guardian-dev
 django-mptt==0.5.2
 django-social-auth==0.6.9
 -e git://github.com/toastdriven/django-tastypie.git@fba248c623f9088b8876faf84e94fc5ea7b5eee7#egg=django_tastypie-dev
