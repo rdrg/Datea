@@ -3,8 +3,8 @@
 {% block main_content %}
 	<div id="main-content" class="container">
 		<div class="row">
-			<div class="span6">izquierda</div>
-			<div class="span6">derecha</div>
+			<div class="span6">{% block main_left %}izquierda{% endblock %}</div>
+			<div class="span6">{% block main_right %}derecha{% endblock %}</div>
 		</div>
 	</div>	
 {% endblock%}

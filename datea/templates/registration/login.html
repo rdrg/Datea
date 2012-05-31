@@ -11,9 +11,9 @@
 
 {{ form|as_bootstrap }}
 
-{% comment %}
+
 <p><a href="{% url auth_password_reset %}">{% trans 'Forgot your password?' %}</a>  <a href="{% url registration_register %}">{% trans 'Need an account?' %}</a></p>
-{% endcomment %}
+
 
 <input class="btn" type="submit" value="{% trans 'Login' %}" />
 <input class="btn" type="hidden" name="next" value="{{ next }}" />
