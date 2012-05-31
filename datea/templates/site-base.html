@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+
+{% block body %}
+	<div class="navbar">
+		<div class="inner">
+			<div class="container">
+				<h1 class="page-title">DATEA</h1>
+				<div class="pull-right">
+					{% block user_login %}{% endblock %}
+				</div>
+			</div>
+		</div>
+	</div>	
+	
+	{% block main_content %}
+		<div class="container">
+			<div class="row">
+				<div class="span6">izquierda</div>
+				<div class="span6">derecha</div>
+			</div>
+		</div>	
+	{% endblock%}
+
+{% endblock %}
