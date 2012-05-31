@@ -8,30 +8,15 @@ from django.db import models
 class Migration(SchemaMigration):
 
     def forwards(self, orm):
-        # Adding model 'DateaSubpage'
-        db.create_table('datea_subpage_dateasubpage', (
-            ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('user', self.gf('django.db.models.fields.related.ForeignKey')(related_name='subpages', to=orm['auth.User'])),
-            ('name', self.gf('django.db.models.fields.CharField')(max_length=100)),
-            ('slug', self.gf('django.db.models.fields.SlugField')(max_length=30)),
-            ('published', self.gf('django.db.models.fields.BooleanField')(default=True)),
-            ('created', self.gf('django.db.models.fields.DateTimeField')(auto_now_add=True, blank=True)),
-            ('modified', self.gf('django.db.models.fields.DateTimeField')(auto_now=True, blank=True)),
-            ('short_description', self.gf('django.db.models.fields.CharField')(max_length=140, null=True, blank=True)),
-            ('mission', self.gf('django.db.models.fields.TextField')(max_length=500, null=True, blank=True)),
-            ('information_destiny', self.gf('django.db.models.fields.TextField')(max_length=500)),
-            ('long_description', self.gf('django.db.models.fields.TextField')(null=True, blank=True)),
-            ('report_success_message', self.gf('django.db.models.fields.TextField')(max_length=140, null=True, blank=True)),
-            ('image', self.gf('django.db.models.fields.related.ForeignKey')(blank=True, related_name='subpage_image', null=True, to=orm['datea_image.DateaImage'])),
-            ('logo', self.gf('django.db.models.fields.related.ForeignKey')(blank=True, related_name='subpage_logo', null=True, to=orm['datea_image.DateaImage'])),
-            ('site', self.gf('django.db.models.fields.related.OneToOneField')(to=orm['sites.Site'], unique=True)),
-        ))
-        db.send_create_signal('datea_subpage', ['DateaSubpage'])
+        # Deleting field 'DateaReportEnvironment.subpage'
+        db.delete_column('datea_report_dateareportenvironment', 'subpage_id')
 
 
     def backwards(self, orm):
-        # Deleting model 'DateaSubpage'
-        db.delete_table('datea_subpage_dateasubpage')
+        # Adding field 'DateaReportEnvironment.subpage'
+        db.add_column('datea_report_dateareportenvironment', 'subpage',
+                      self.gf('django.db.models.fields.related.ForeignKey')(to=orm['datea_subpage.DateaSubpage'], null=True, blank=True),
+                      keep_default=False)
 
 
     models = {
@@ -71,6 +56,23 @@ class Migration(SchemaMigration):
             'model': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '100'})
         },
+        'datea_category.dateacategory': {
+            'Meta': {'object_name': 'DateaCategory'},
+            'active': ('django.db.models.fields.BooleanField', [], {'default': 'True'}),
+            'color': ('django.db.models.fields.CharField', [], {'default': "'#cccccc'", 'max_length': '7'}),
+            'description': ('django.db.models.fields.TextField', [], {'max_length': '500', 'null': 'True', 'blank': 'True'}),
+            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'image': ('django.db.models.fields.related.ForeignKey', [], {'blank': 'True', 'related_name': "'category_image'", 'null': 'True', 'to': "orm['datea_image.DateaImage']"}),
+            'level': ('django.db.models.fields.PositiveIntegerField', [], {'db_index': 'True'}),
+            'lft': ('django.db.models.fields.PositiveIntegerField', [], {'db_index': 'True'}),
+            'marker_image': ('django.db.models.fields.related.ForeignKey', [], {'blank': 'True', 'related_name': "'category_marker_image'", 'null': 'True', 'to': "orm['datea_image.DateaImage']"}),
+            'name': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
+            'parent': ('mptt.fields.TreeForeignKey', [], {'blank': 'True', 'related_name': "'children'", 'null': 'True', 'to': "orm['datea_category.DateaCategory']"}),
+            'rght': ('django.db.models.fields.PositiveIntegerField', [], {'db_index': 'True'}),
+            'slug': ('django.db.models.fields.SlugField', [], {'max_length': '50', 'null': 'True', 'blank': 'True'}),
+            'tree_id': ('django.db.models.fields.PositiveIntegerField', [], {'db_index': 'True'}),
+            'user': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['auth.User']"})
+        },
         'datea_image.dateaimage': {
             'Meta': {'object_name': 'DateaImage'},
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
@@ -78,13 +80,32 @@ class Migration(SchemaMigration):
             'order': ('django.db.models.fields.IntegerField', [], {'default': '0', 'null': 'True', 'blank': 'True'}),
             'user': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['auth.User']"})
         },
-        'datea_subpage.dateasubpage': {
-            'Meta': {'object_name': 'DateaSubpage'},
+        'datea_report.dateareport': {
+            'Meta': {'object_name': 'DateaReport'},
+            'address': ('django.db.models.fields.CharField', [], {'max_length': '255', 'null': 'True', 'blank': 'True'}),
+            'category': ('mptt.fields.TreeForeignKey', [], {'default': 'None', 'related_name': "'reports'", 'null': 'True', 'blank': 'True', 'to': "orm['datea_category.DateaCategory']"}),
+            'comment_count': ('django.db.models.fields.IntegerField', [], {'default': '0', 'null': 'True', 'blank': 'True'}),
+            'content': ('django.db.models.fields.TextField', [], {}),
+            'created': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
+            'follow_count': ('django.db.models.fields.IntegerField', [], {'default': '0', 'null': 'True', 'blank': 'True'}),
+            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'images': ('django.db.models.fields.related.ManyToManyField', [], {'blank': 'True', 'related_name': "'report_images'", 'null': 'True', 'symmetrical': 'False', 'to': "orm['datea_image.DateaImage']"}),
+            'modified': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
+            'position': ('django.contrib.gis.db.models.fields.PointField', [], {'null': 'True', 'spatial_index': 'False', 'blank': 'True'}),
+            'published': ('django.db.models.fields.BooleanField', [], {'default': 'True'}),
+            'reply_count': ('django.db.models.fields.IntegerField', [], {'default': '0', 'null': 'True', 'blank': 'True'}),
+            'status': ('django.db.models.fields.CharField', [], {'default': "'new'", 'max_length': '15'}),
+            'user': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'reports'", 'to': "orm['auth.User']"}),
+            'vote_count': ('django.db.models.fields.IntegerField', [], {'default': '0', 'null': 'True', 'blank': 'True'})
+        },
+        'datea_report.dateareportenvironment': {
+            'Meta': {'object_name': 'DateaReportEnvironment'},
+            'boundary': ('django.contrib.gis.db.models.fields.PolygonField', [], {'null': 'True', 'spatial_index': 'False', 'blank': 'True'}),
+            'categories': ('mptt.fields.TreeManyToManyField', [], {'default': 'None', 'to': "orm['datea_category.DateaCategory']", 'null': 'True', 'symmetrical': 'False', 'blank': 'True'}),
+            'center': ('django.contrib.gis.db.models.fields.PointField', [], {'null': 'True', 'spatial_index': 'False', 'blank': 'True'}),
             'created': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'image': ('django.db.models.fields.related.ForeignKey', [], {'blank': 'True', 'related_name': "'subpage_image'", 'null': 'True', 'to': "orm['datea_image.DateaImage']"}),
             'information_destiny': ('django.db.models.fields.TextField', [], {'max_length': '500'}),
-            'logo': ('django.db.models.fields.related.ForeignKey', [], {'blank': 'True', 'related_name': "'subpage_logo'", 'null': 'True', 'to': "orm['datea_image.DateaImage']"}),
             'long_description': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'}),
             'mission': ('django.db.models.fields.TextField', [], {'max_length': '500', 'null': 'True', 'blank': 'True'}),
             'modified': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
@@ -92,16 +113,9 @@ class Migration(SchemaMigration):
             'published': ('django.db.models.fields.BooleanField', [], {'default': 'True'}),
             'report_success_message': ('django.db.models.fields.TextField', [], {'max_length': '140', 'null': 'True', 'blank': 'True'}),
             'short_description': ('django.db.models.fields.CharField', [], {'max_length': '140', 'null': 'True', 'blank': 'True'}),
-            'site': ('django.db.models.fields.related.OneToOneField', [], {'to': "orm['sites.Site']", 'unique': 'True'}),
             'slug': ('django.db.models.fields.SlugField', [], {'max_length': '30'}),
-            'user': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'subpages'", 'to': "orm['auth.User']"})
-        },
-        'sites.site': {
-            'Meta': {'ordering': "('domain',)", 'object_name': 'Site', 'db_table': "'django_site'"},
-            'domain': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
-            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'name': ('django.db.models.fields.CharField', [], {'max_length': '50'})
+            'user': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'report_environments'", 'to': "orm['auth.User']"})
         }
     }
 
-    complete_apps = ['datea_subpage']
+    complete_apps = ['datea_report']

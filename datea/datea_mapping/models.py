@@ -4,14 +4,13 @@ from django.utils.translation import ugettext_lazy as _
 from django.utils.html import strip_tags
 
 from datea.datea_image.models import DateaImage 
-from datea.datea_subpage.models import DateaSubpage
-from datea.datea_category.models import DateaCategory
+from datea.datea_category.models import DateaCategory, DateaFreeCategory
 from mptt.fields import TreeForeignKey, TreeManyToManyField
 
 
-class DateaReport(models.Model):
+class DateaMapItem(models.Model):
     
-    user = models.ForeignKey(User, verbose_name=_('User'), related_name="reports")
+    user = models.ForeignKey(User, verbose_name=_('User'), related_name="map_items")
     
     # timestamps
     created = models.DateTimeField(_('created'), auto_now_add=True)
@@ -28,13 +27,17 @@ class DateaReport(models.Model):
     
     # content
     content = models.TextField(_("Content"))
-    images = models.ManyToManyField(DateaImage, verbose_name=_('Images'), null=True, blank=True, related_name="report_images")
+    images = models.ManyToManyField(DateaImage, verbose_name=_('Images'), null=True, blank=True, related_name="map_item_images")
     
     # location
     position = models.PointField(_('Position'), blank=True, null=True, spatial_index=False)
     address = models.CharField(_('Address'), max_length=255, blank=True, null=True)
     
-    category = TreeForeignKey(DateaCategory, verbose_name=_("Category"), null=True, blank=True, default=None, related_name="reports")
+    # relation to mapping object
+    mapping = models.ForeignKey('DateaMapping', related_name="map_items")
+    
+    # category
+    category = TreeForeignKey(DateaFreeCategory, verbose_name=_("Category"), null=True, blank=True, default=None, related_name="map_items")
     
     # stats
     vote_count = models.IntegerField(default=0, blank=True, null=True)
@@ -46,17 +49,18 @@ class DateaReport(models.Model):
     objects = models.GeoManager()
     
     def __unicode__(self):
-        return strip_tags(self.author.username+': '+self.content)[:100]
+        return self.author.username+': '+strip_tags(self.content)[:100]
     
     class Meta:
-        verbose_name = _('Report')
-        verbose_name_plural = _('Reports')
+        verbose_name = _('Map Item')
+        verbose_name_plural = _('Map Items')
         
     
         
-class DateaReportEnvironment(models.Model):
+        
+class DateaMapping(models.Model):
     
-    user = models.ForeignKey(User, verbose_name=_('User'), related_name="report_environments")
+    user = models.ForeignKey(User, verbose_name=_('User'), related_name="mappings")
     
     name = models.CharField(_("Name"), max_length=100)
     slug = models.SlugField(_("Slug"), max_length=30, help_text=_("A string of text as a short id for use at the url of this map (alphanumeric and dashes only"))
@@ -71,16 +75,14 @@ class DateaReportEnvironment(models.Model):
     mission = models.TextField(_("Mission / Objectives"), blank=True, null=True, max_length=500, help_text=_("max. 500 characters"))
     information_destiny = models.TextField(_("What happens with the data?"), max_length=500, help_text=_("Who receives the information and what happens with it? (max 500 characters)"))
     long_description = models.TextField(_("Description"), blank=True, null=True, help_text=_("Long description (optional)"))
-    report_success_message = models.TextField(_("Report success message"), blank=True, null=True, max_length=140, help_text=_("The message someone sees when succesfully filing a report (max. 140 characters)"))
+    report_success_message = models.TextField(_("Item submitted success message"), blank=True, null=True, max_length=140, help_text=_("The message someone sees when succesfully filing a report (max. 140 characters)"))
     
     # ZONES
     #zones = models.ManyToManyField(Zone, blank=True, null=True, default=None)
     
-    # CATEGORIES
-    categories = TreeManyToManyField(DateaCategory, verbose_name=_("Categories"), blank=True, null=True, default=None, help_text=_("The categories for this environment's reports"))
-    
-    # Sub-page
-    subpage = models.ForeignKey(DateaSubpage, verbose_name=_("Sub-page"), blank=True, null=True, help_text=_("Specify a Sub-page for this Report Environment"))
+    # CATEGORIES / VARIABLES
+    category = TreeForeignKey(DateaCategory, verbose_name=_("Category"), null=True, blank=True, default=None, related_name="mappings", help_text=_("Choose a category for this Mapping")) 
+    item_categories = TreeManyToManyField(DateaFreeCategory, verbose_name=_("Map item Categories"), blank=True, null=True, default=None, help_text=_("Categories for Mapped Items"), related_name="mappings")
     
     # GEO:
     center = models.PointField(_("Center"), blank=True, null=True, spatial_index=False)
@@ -93,14 +95,14 @@ class DateaReportEnvironment(models.Model):
         return self.name
     
     class Meta:
-        verbose_name = _("Report Environment")
-        verbose_name_plural = _("Report Environments")
+        verbose_name = _("Mapping")
+        verbose_name_plural = _("Mappings")
     
     def save(self, *args, **kwargs):
         if self.center == None and self.boundary != None:
             self.center = self.boundary.centroid
             self.center.srid = self.boundary.get_srid()
-        super(DateaReportEnvironment, self).save(*args, **kwargs)
+        super(DateaMapping, self).save(*args, **kwargs)
     
     
     

@@ -7,6 +7,7 @@ from datea.datea_image.models import DateaImage
 class DateaProfile(models.Model):
     
     user = models.ForeignKey(User, verbose_name=_("User"))
+    created = models.DateTimeField( _('created'), auto_now_add=True)
     
     first_name = models.CharField(_("First name"), max_length=50, null=True, blank=True)
     last_name = models.CharField(_("Last name"), max_length=50, null=True, blank=True)

@@ -138,13 +138,13 @@ INSTALLED_APPS = (
     "django.contrib.gis",
     
     # datea
-    'datea.datea_category',
-    'datea.datea_follow',
     'datea.datea_image',
+    'datea.datea_category',
+    'datea.datea_channel',
     'datea.datea_profile',
-    'datea.datea_report',
-    'datea.datea_subpage',
+    'datea.datea_mapping',
     'datea.datea_vote',
+    'datea.datea_follow',
 )
 
 # A sample logging configuration. The only tangible logging
