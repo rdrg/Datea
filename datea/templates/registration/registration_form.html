@@ -1,0 +1,9 @@
+{% extends "registration/registration_base.html" %}
+{% load i18n bootstrap_toolkit %}
+{% block title %}{% trans 'Register for an account' %}{% endblock %}
+{% block content %}
+<form class="well" method='post' action=''>{% csrf_token %}
+        {{ form|as_bootstrap }}
+        <input class="btn" type="submit" value="{% trans 'Register' %}" />
+</form>
+{% endblock %}

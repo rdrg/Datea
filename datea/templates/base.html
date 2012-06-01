@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  	<meta charset="utf-8">
+  	
+  		<title>Components · Twitter Bootstrap</title>
+  		
+  		{# META STUFF #}
+  		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  		<meta name="description" content="">
+    	<meta name="author" content="">
+    	
+  		{# FAVICONS #}
+		<link rel="shortcut icon" href="assets/ico/favicon.ico">	
+		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
+
+		{# CSS #}
+		<link href="{{ STATIC_URL }}css/bootstrap.css" rel="stylesheet">
+				{# <link href="{{ STATIC_URL }}css/bootstrap-responsive.css" rel="stylesheet"> #}
+		<link href="{{ STATIC_URL }}css/datea.css" rel="stylesheet">
+			
+		{% block extra_head %}{% endblock %}
+  
+  </head>
+  <body class="{% block body_class %}{% endblock %}">
+  	
+  	{# BODY BLOCK #}
+  	{% block body %}{% endblock %} 
+  	
+  	{# JAVASCRIPT #}
+  		<script src="{{ STATIC_URL }}js/jquery-1.7.2.min.js"></script>
+  		<script src="{{ STATIC_URL }}js/bootstrap.min.js"></script>
+  		{% block footer_js %}{% endblock %}
+  </body>
+</html>

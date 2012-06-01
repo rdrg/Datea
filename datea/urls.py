@@ -11,7 +11,7 @@ v1_api.register(Dauth())
 
 urlpatterns = patterns('',
     # Examples:
-    # url(r'^$', 'datea.views.home', name='home'),
+    url(r'^$', 'datea.datea_home.views.home', name='home'),
     # url(r'^datea/', include('datea.foo.urls')),
     
     url(r'^api/',include(v1_api.urls)),
@@ -23,4 +23,5 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     (r'^grappelli/', include('grappelli.urls')),
     url(r'', include('social_auth.urls')),
+    (r'^accounts/', include('registration.backends.default.urls')),
 )
