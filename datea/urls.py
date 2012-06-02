@@ -5,9 +5,10 @@ from django.contrib import admin
 admin.autodiscover()
 
 #API resources
-from datea_api.api import Dauth
+from datea_api.auth import Auth,TwitterAuth
 v1_api = Api(api_name='v1')
-v1_api.register(Dauth())
+v1_api.register(Auth())
+v1_api.register(TwitterAuth())
 
 urlpatterns = patterns('',
     # Examples:
