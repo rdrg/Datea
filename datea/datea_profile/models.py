@@ -25,7 +25,7 @@ class DateaProfile(models.Model):
             name = self.fisrt_name + ' ' + self.last_name + ' '
         return name + ' ('+self.user.username+')'
     
-'''    
+
 from django.db.models.signals import post_save
 from django.contrib.auth.signals import user_logged_in
 
@@ -55,54 +55,29 @@ from urllib2 import urlopen, HTTPError
 from django.template.defaultfilters import slugify
 from django.core.files.base import ContentFile
 
-from emailconfirmation.models import EmailAddress
-
-import logging
-
-# SAVE SOCIAL EMAIL
-# deal with pinax email_confirmation and account app, which has a
-# EmailAdress model to deal with confirmation etc 
-def save_social_email(user_instance, social_email):
-    all_emails = EmailAddress.objects.filter(user=user_instance)
-    if len(all_emails) > 0:
-        try:
-            email = all_emails.get(email=social_email)
-        except:
-            email = all_emails.get(primary=True)
-            email.email = social_email
-            email.save()
-    else:
-        email = EmailAddress()
-        email.email = social_email
-        email.user = user_instance
-        email.verified = True
-        email.primary = True
-        email.save()
-        
-    user_instance.email = email.email
-
 #+++++++++++++++++++++    
 # Update Twitter user and profile data with oauth response
 def twitter_user_update(sender, user, response, details, **kwargs):
-    profile_instance, created = Profile.objects.get_or_create(user=user)
+    profile_instance, created = DateaProfile.objects.get_or_create(user=user)
     
     if details['first_name'] != '':
         profile_instance.first_name = details['first_name']
     if details['last_name'] != '':
         profile_instance.last_name = details['last_name']
-    if profile_instance.social_uname == None and details['username'] != '':
-        profile_instance.social_uname = slugify(details['username'])
-        
+    #if profile_instance.social_uname == None and details['username'] != '':
+    #    profile_instance.social_uname = slugify(details['username'])
+    
+    # grabar imagen de avatar   
     try:
-        avatar_img = urlopen(response['profile_image_url'])
-        if profile_instance.avatar == None:
-            avatar = DateaImage(is_avatar=True, author=user)
-            avatar.image.save(slugify(user.username + "_social") + '.jpg', ContentFile(avatar_img.read()))
-            avatar.save()
-            profile_instance.avatar = avatar
+        img = urlopen(response['profile_image_url'])
+        if profile_instance.image_social == None:
+            img_obj = DateaImage(user=user)
+            img_obj.image.save(slugify(user.username + "_tw") + '.jpg', ContentFile(img.read()))
+            img_obj.save()
+            profile_instance.image_social = img_obj
         else:    
-            profile_instance.avatar.image.save(slugify(user.username + "_social") + '.jpg', ContentFile(avatar_img.read()))
-            profile_instance.avatar.save()
+            profile_instance.image_social.image.save(slugify(user.username + "_tw") + '.jpg', ContentFile(img.read()))
+            profile_instance.image_social.save()
     
     except HTTPError:
         pass
@@ -115,29 +90,30 @@ pre_update.connect(twitter_user_update, sender=TwitterBackend)
 #++++++++++++++++++++
 # Update Facebook user and profile data with oauth values
 def facebook_user_update(sender, user, response, details, **kwargs):
-    profile_instance, created = Profile.objects.get_or_create(user=user)
+    profile_instance, created = DateaProfile.objects.get_or_create(user=user)
     
-    save_social_email(user, details['email'])     
+    if not user.email:
+        user.email =  details['email']    
         
     if details['first_name'] != '':
         profile_instance.first_name = details['first_name']
     if details['last_name'] != '':
         profile_instance.last_name = details['last_name']
-    if profile_instance.social_uname == None and details['username'] != '':
-        profile_instance.social_uname = slugify(details['username'])
+    #if profile_instance.social_uname == None and details['username'] != '':
+    #    profile_instance.social_uname = slugify(details['username'])
     
     # grabar imagen de avatar
     try:        
         img_url = "http://graph.facebook.com/%s/picture?type=large" % response["id"]
-        avatar_img = urlopen(img_url)
-        if profile_instance.avatar == None:
-            avatar = DateaImage(is_avatar=True, author=user)
-            avatar.image.save(slugify(user.username + "_social") + '.jpg', ContentFile(avatar_img.read()))
-            avatar.save()
-            profile_instance.avatar = avatar
+        img = urlopen(img_url)
+        if profile_instance.image_social == None:
+            img_obj = DateaImage(user=user)
+            img_obj.image.save(slugify(user.username + "_fb") + '.jpg', ContentFile(img.read()))
+            img_obj.save()
+            profile_instance.image_social = img_obj
         else:    
-            profile_instance.avatar.image.save(slugify(user.username + "_social") + '.jpg', ContentFile(avatar_img.read()))
-            profile_instance.avatar.save()
+            profile_instance.image_social.image.save(slugify(user.username + "_fb") + '.jpg', ContentFile(img_obj.read()))
+            profile_instance.image_social.save()
     except HTTPError:
         pass
     
@@ -150,48 +126,37 @@ pre_update.connect(facebook_user_update, sender=FacebookBackend)
 # Update google user and profile data with oath values
 def google_user_update(sender, user, response, details, **kwargs):
     
-    debug = open("/home/participaya/public_html/datea3/site_media/media/debug.txt", "w")
-    debug.write(str(response)+ "\r\n")
-    debug.write(str(details) + "\r\n")
-    debug.close()
+    profile_instance, created = DateaProfile.objects.get_or_create(user=user)
     
-    profile_instance, created = Profile.objects.get_or_create(user=user)
-    
-    if user.email != details['email']:
+    if not user.email:
         user.email = details['email']
-        defaults = {
-            "user": user,
-            "verified": True,
-            "primary": True,
-        }
-        EmailAddress.objects.get_or_create(email=user.email, **defaults)
+
     if details['first_name'] != '':
         profile_instance.first_name = details['first_name']
     if details['last_name'] != '':
         profile_instance.last_name = details['last_name']
-    if profile_instance.social_uname == None and details['username'] != '':
-        profile_instance.social_uname = slugify(details['username'])
+    #if profile_instance.social_uname == None and details['username'] != '':
+    #    profile_instance.social_uname = slugify(details['username'])
     
     # grabar imagen de avatar
-    
     try:        
-        avatar_img = urlopen(response['picture'])
-        if profile_instance.avatar == None:
-            avatar = DateaImage(is_avatar=True, author=user)
-            avatar.image.save(slugify(user.username + "_social") + '.jpg', ContentFile(avatar_img.read()))
-            avatar.save()
-            profile_instance.avatar = avatar
+        img = urlopen(response['picture'])
+        if profile_instance.image_social == None:
+            img_obj = DateaImage(user=user)
+            img_obj.image.save(slugify(user.username + "_g") + '.jpg', ContentFile(img.read()))
+            img_obj.save()
+            profile_instance.image_social = img_obj
         else:    
-            profile_instance.avatar.image.save(slugify(user.username + "_social") + '.jpg', ContentFile(avatar_img.read()))
-            profile_instance.avatar.save()
+            profile_instance.image_social.image.save(slugify(user.username + "_g") + '.jpg', ContentFile(img.read()))
+            profile_instance.image_social.save()
     except HTTPError:
         pass
         
     profile_instance.save()
     return True
 
-pre_update.connect(facebook_user_update, sender=GoogleOAuth2Backend)
-'''   
+pre_update.connect(google_user_update, sender=GoogleOAuth2Backend)
+
     
 
 

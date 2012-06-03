@@ -99,6 +99,15 @@ MIDDLEWARE_CLASSES = (
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.contrib.auth.context_processors.auth',
+    'django.core.context_processors.debug',
+    'django.core.context_processors.i18n',
+    'django.core.context_processors.media',
+    'django.core.context_processors.static',
+    'django.core.context_processors.request',
+)
+
 ROOT_URLCONF = 'datea.urls'
 
 # Python dotted path to the WSGI application used by Django's runserver.
@@ -185,7 +194,7 @@ AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
 ]
 
-AUTH_PROFILE_MODULE = 'datea_profile.DateaProfile'
+AUTH_PROFILE_MODULE = 'datea.datea_profile.DateaProfile'
 
 LOGIN_URL = "/account/login/" 
 #LOGIN_REDIRECT_URLNAME = "/" # CAMBIAR!
