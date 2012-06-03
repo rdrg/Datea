@@ -1,0 +1,15 @@
+{% load i18n datea_profile_tags %}
+<div class="social-auth-buttons clearfix">
+	<p class="desc">{% trans "You can login with one of your accounts at:" %}</p>
+ 	<div class="button-box"> 
+ 		<a class="login-button facebook" rel="nofollow" href="{% url socialauth_begin 'facebook' %}?next={% get_login_target %}">
+ 		facebook
+ 		</a>
+     	<a class="login-button twitter" rel="nofollow" href="{% url socialauth_begin 'twitter' %}?next={% get_login_target %}">
+     	twitter
+     	</a>
+	 	<a class="login-button google last" rel="nofollow" href="{% url socialauth_begin 'google-oauth2' %}?next={% get_login_target %}">
+	 	google
+	 	</a>
+     </div>
+</div>
