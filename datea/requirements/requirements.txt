@@ -10,6 +10,7 @@ django-extensions==0.8
 django-grappelli==2.3.8
 -e git://github.com/lukaszb/django-guardian.git@6e88f841c4a8413e1c1202d17e860ba18616126e#egg=django_guardian-dev
 django-mptt==0.5.2
+django-registration==0.8
 django-social-auth==0.6.9
 -e git://github.com/toastdriven/django-tastypie.git@fba248c623f9088b8876faf84e94fc5ea7b5eee7#egg=django_tastypie-dev
 httplib2==0.7.4
