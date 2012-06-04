@@ -9,8 +9,7 @@ class DateaProfile(models.Model):
     user = models.OneToOneField(User, verbose_name=_("User"))
     created = models.DateTimeField( _('created'), auto_now_add=True)
     
-    first_name = models.CharField(_("First name"), max_length=50, null=True, blank=True)
-    last_name = models.CharField(_("Last name"), max_length=50, null=True, blank=True)
+    full_name = models.CharField(_("First name"), max_length=50, null=True, blank=True)
     
     image = models.ForeignKey(DateaImage, blank=True, null=True, related_name="profile_image")
     image_social = models.ForeignKey(DateaImage, blank=True, null=True, related_name="profile_image_social")
@@ -21,9 +20,9 @@ class DateaProfile(models.Model):
         
     def __unicode__(self):
         name = ''
-        if self.fisrt_name != '' or self.last_name:
-            name = self.fisrt_name + ' ' + self.last_name + ' '
-        return name + ' ('+self.user.username+')'
+        if self.full_name != None:
+            name = self.full_name
+        return "%s (%s)" % (name, self.user.username)
     
 
 from django.db.models.signals import post_save
