@@ -10,7 +10,7 @@ class DateaImage(models.Model):
     order = models.IntegerField(blank=True, null=True, default=0)
     
     def __unicode__(self):
-        return self.teaser_image.url
+        return self.image.url
     
     class Meta:
         verbose_name = _("Image")

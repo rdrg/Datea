@@ -13,6 +13,7 @@ django-mptt==0.5.2
 django-registration==0.8
 django-social-auth==0.6.9
 -e git://github.com/toastdriven/django-tastypie.git@fba248c623f9088b8876faf84e94fc5ea7b5eee7#egg=django_tastypie-dev
+easy-thumbnails==1.0.3
 httplib2==0.7.4
 mimeparse==0.1.3
 oauth2==1.5.211

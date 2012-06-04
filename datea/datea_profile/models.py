@@ -10,7 +10,7 @@ class DateaProfile(models.Model):
     user = models.OneToOneField(User, verbose_name=_("User"))
     created = models.DateTimeField( _('created'), auto_now_add=True)
     
-    full_name = models.CharField(_("First name"), max_length=50, null=True, blank=True)
+    full_name = models.CharField(_("Full name"), max_length=50, null=True, blank=True)
     
     image = models.ForeignKey(DateaImage, blank=True, null=True, related_name="profile_image")
     image_social = models.ForeignKey(DateaImage, blank=True, null=True, related_name="profile_image_social")

@@ -142,6 +142,7 @@ INSTALLED_APPS = (
     'tastypie',
     'bootstrap_toolkit',
     'django_extensions',
+    'easy_thumbnails',
     
     # geodjango / location
     "django.contrib.gis",
@@ -225,3 +226,9 @@ GOOGLE_OAUTH2_CLIENT_SECRET = '8ipQymLrQL3lYnCGwqgxnP37'
 #DJANGO-REGISTRATION SETTINGS
 ACCOUNT_ACTIVATION_DAYS = 7 
 
+#Thumbnails definitions
+THUMBNAIL_ALIASES = {
+    '': {
+        'profile_image': {'size': (50, 50), 'crop': True},
+    },
+}
