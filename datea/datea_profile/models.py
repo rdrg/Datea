@@ -2,7 +2,8 @@ from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth.models import User
 
-from datea.datea_image.models import DateaImage 
+from datea.datea_image.models import DateaImage
+from datea.datea_action.models import DateaAction 
 
 class DateaProfile(models.Model):
     
@@ -13,6 +14,8 @@ class DateaProfile(models.Model):
     
     image = models.ForeignKey(DateaImage, blank=True, null=True, related_name="profile_image")
     image_social = models.ForeignKey(DateaImage, blank=True, null=True, related_name="profile_image_social")
+    
+    actions_joined = models.ManyToManyField(DateaAction, verbose_name=_("Actions joined"), blank=True, null=True, related_name="users_joined") 
     
     class Meta:
         verbose_name = _("Profile")
