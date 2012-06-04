@@ -156,7 +156,6 @@ INSTALLED_APPS = (
     'datea.datea_mapping',
     'datea.datea_vote',
     'datea.datea_follow',
-    'datea.test_poly',
 )
 
 # A sample logging configuration. The only tangible logging
