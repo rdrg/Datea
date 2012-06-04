@@ -6,11 +6,12 @@ admin.autodiscover()
 
 #API resources
 from datea_api.auth import Accounts
-from datea_api.profile import ProfileResource
+from datea_api.profile import ProfileResource,UserResource
 
 v1_api = Api(api_name='v1')
 v1_api.register(Accounts())
 v1_api.register(ProfileResource())
+v1_api.register(UserResource())
 
 urlpatterns = patterns('',
     # Examples:
