@@ -14,4 +14,12 @@ def getOrCreateKey(user):
         key = ApiKey.objects.get(user=user)
         return key.key
 
+def getUserByKey(key):
+    try:
+        user = ApiKey.objects.get(key=key)
+        return user.user
+    except ApiKey.DoesNotExist:
+        from django.db import connection
+        connection._rollback()
 
+        return None
