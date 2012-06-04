@@ -4,6 +4,7 @@ from django.utils.translation import ugettext_lazy as _
 from django.utils.html import strip_tags
 
 from datea.datea_image.models import DateaImage 
+from datea.datea_action.models import DateaAction
 from datea.datea_category.models import DateaCategory, DateaFreeCategory
 from mptt.fields import TreeForeignKey, TreeManyToManyField
 
@@ -58,20 +59,9 @@ class DateaMapItem(models.Model):
     
         
         
-class DateaMapping(models.Model):
-    
-    user = models.ForeignKey(User, verbose_name=_('User'), related_name="mappings")
-    
-    name = models.CharField(_("Name"), max_length=100)
-    slug = models.SlugField(_("Slug"), max_length=30, help_text=_("A string of text as a short id for use at the url of this map (alphanumeric and dashes only"))
-    published = models.BooleanField(_("Published"), default=True)
-    
-    # timestamps
-    created = models.DateTimeField(_('created'), auto_now_add=True)
-    modified = models.DateTimeField(_('modified'), auto_now=True)
+class DateaMapping(DateaAction):
     
     # text input fields
-    short_description = models.CharField(_("Short description / Slogan"), blank=True, null=True, max_length=140, help_text=_("A short description or slogan (max. 140 characters)."))
     mission = models.TextField(_("Mission / Objectives"), blank=True, null=True, max_length=500, help_text=_("max. 500 characters"))
     information_destiny = models.TextField(_("What happens with the data?"), max_length=500, help_text=_("Who receives the information and what happens with it? (max 500 characters)"))
     long_description = models.TextField(_("Description"), blank=True, null=True, help_text=_("Long description (optional)"))
@@ -81,7 +71,6 @@ class DateaMapping(models.Model):
     #zones = models.ManyToManyField(Zone, blank=True, null=True, default=None)
     
     # CATEGORIES / VARIABLES
-    category = TreeForeignKey(DateaCategory, verbose_name=_("Category"), null=True, blank=True, default=None, related_name="mappings", help_text=_("Choose a category for this Mapping")) 
     item_categories = TreeManyToManyField(DateaFreeCategory, verbose_name=_("Map item Categories"), blank=True, null=True, default=None, help_text=_("Categories for Mapped Items"), related_name="mappings")
     
     # GEO:
@@ -90,18 +79,19 @@ class DateaMapping(models.Model):
     
     # Object Manager from geodjango
     objects = models.GeoManager()
-            
-    def __unicode__(self):
-        return self.name
     
     class Meta:
         verbose_name = _("Mapping")
         verbose_name_plural = _("Mappings")
     
     def save(self, *args, **kwargs):
+        self.action_type = 'mapping'
+        
         if self.center == None and self.boundary != None:
             self.center = self.boundary.centroid
             self.center.srid = self.boundary.get_srid()
+        
+        self.save_base()
         super(DateaMapping, self).save(*args, **kwargs)
     
     

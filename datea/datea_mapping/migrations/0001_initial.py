@@ -38,19 +38,11 @@ class Migration(SchemaMigration):
 
         # Adding model 'DateaMapping'
         db.create_table('datea_mapping_dateamapping', (
-            ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('user', self.gf('django.db.models.fields.related.ForeignKey')(related_name='mappings', to=orm['auth.User'])),
-            ('name', self.gf('django.db.models.fields.CharField')(max_length=100)),
-            ('slug', self.gf('django.db.models.fields.SlugField')(max_length=30)),
-            ('published', self.gf('django.db.models.fields.BooleanField')(default=True)),
-            ('created', self.gf('django.db.models.fields.DateTimeField')(auto_now_add=True, blank=True)),
-            ('modified', self.gf('django.db.models.fields.DateTimeField')(auto_now=True, blank=True)),
-            ('short_description', self.gf('django.db.models.fields.CharField')(max_length=140, null=True, blank=True)),
+            ('dateaaction_ptr', self.gf('django.db.models.fields.related.OneToOneField')(to=orm['datea_action.DateaAction'], unique=True, primary_key=True)),
             ('mission', self.gf('django.db.models.fields.TextField')(max_length=500, null=True, blank=True)),
             ('information_destiny', self.gf('django.db.models.fields.TextField')(max_length=500)),
             ('long_description', self.gf('django.db.models.fields.TextField')(null=True, blank=True)),
             ('report_success_message', self.gf('django.db.models.fields.TextField')(max_length=140, null=True, blank=True)),
-            ('category', self.gf('mptt.fields.TreeForeignKey')(default=None, related_name='mappings', null=True, blank=True, to=orm['datea_category.DateaCategory'])),
             ('center', self.gf('django.contrib.gis.db.models.fields.PointField')(null=True, spatial_index=False, blank=True)),
             ('boundary', self.gf('django.contrib.gis.db.models.fields.PolygonField')(null=True, spatial_index=False, blank=True)),
         ))
@@ -116,6 +108,20 @@ class Migration(SchemaMigration):
             'model': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '100'})
         },
+        'datea_action.dateaaction': {
+            'Meta': {'object_name': 'DateaAction'},
+            'action_type': ('django.db.models.fields.CharField', [], {'max_length': '100', 'null': 'True', 'blank': 'True'}),
+            'category': ('mptt.fields.TreeForeignKey', [], {'default': 'None', 'related_name': "'actions'", 'null': 'True', 'blank': 'True', 'to': "orm['datea_category.DateaCategory']"}),
+            'content_type': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['contenttypes.ContentType']", 'null': 'True'}),
+            'created': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
+            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'modified': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
+            'name': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
+            'published': ('django.db.models.fields.BooleanField', [], {'default': 'True'}),
+            'short_description': ('django.db.models.fields.CharField', [], {'max_length': '140', 'null': 'True', 'blank': 'True'}),
+            'slug': ('django.db.models.fields.SlugField', [], {'max_length': '30'}),
+            'user': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'actions'", 'to': "orm['auth.User']"})
+        },
         'datea_category.dateacategory': {
             'Meta': {'object_name': 'DateaCategory'},
             'active': ('django.db.models.fields.BooleanField', [], {'default': 'True'}),
@@ -177,23 +183,15 @@ class Migration(SchemaMigration):
             'vote_count': ('django.db.models.fields.IntegerField', [], {'default': '0', 'null': 'True', 'blank': 'True'})
         },
         'datea_mapping.dateamapping': {
-            'Meta': {'object_name': 'DateaMapping'},
+            'Meta': {'object_name': 'DateaMapping', '_ormbases': ['datea_action.DateaAction']},
             'boundary': ('django.contrib.gis.db.models.fields.PolygonField', [], {'null': 'True', 'spatial_index': 'False', 'blank': 'True'}),
-            'category': ('mptt.fields.TreeForeignKey', [], {'default': 'None', 'related_name': "'mappings'", 'null': 'True', 'blank': 'True', 'to': "orm['datea_category.DateaCategory']"}),
             'center': ('django.contrib.gis.db.models.fields.PointField', [], {'null': 'True', 'spatial_index': 'False', 'blank': 'True'}),
-            'created': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
-            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'dateaaction_ptr': ('django.db.models.fields.related.OneToOneField', [], {'to': "orm['datea_action.DateaAction']", 'unique': 'True', 'primary_key': 'True'}),
             'information_destiny': ('django.db.models.fields.TextField', [], {'max_length': '500'}),
             'item_categories': ('mptt.fields.TreeManyToManyField', [], {'related_name': "'mappings'", 'default': 'None', 'to': "orm['datea_category.DateaFreeCategory']", 'blank': 'True', 'symmetrical': 'False', 'null': 'True'}),
             'long_description': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'}),
             'mission': ('django.db.models.fields.TextField', [], {'max_length': '500', 'null': 'True', 'blank': 'True'}),
-            'modified': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
-            'name': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
-            'published': ('django.db.models.fields.BooleanField', [], {'default': 'True'}),
-            'report_success_message': ('django.db.models.fields.TextField', [], {'max_length': '140', 'null': 'True', 'blank': 'True'}),
-            'short_description': ('django.db.models.fields.CharField', [], {'max_length': '140', 'null': 'True', 'blank': 'True'}),
-            'slug': ('django.db.models.fields.SlugField', [], {'max_length': '30'}),
-            'user': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'mappings'", 'to': "orm['auth.User']"})
+            'report_success_message': ('django.db.models.fields.TextField', [], {'max_length': '140', 'null': 'True', 'blank': 'True'})
         }
     }
 

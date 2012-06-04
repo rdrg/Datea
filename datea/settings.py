@@ -141,6 +141,7 @@ INSTALLED_APPS = (
     'mptt',
     'tastypie',
     'bootstrap_toolkit',
+    'django_extensions',
     
     # geodjango / location
     "django.contrib.gis",
@@ -151,9 +152,11 @@ INSTALLED_APPS = (
     'datea.datea_category',
     'datea.datea_channel',
     'datea.datea_profile',
+    'datea.datea_action',
     'datea.datea_mapping',
     'datea.datea_vote',
     'datea.datea_follow',
+    'datea.test_poly',
 )
 
 # A sample logging configuration. The only tangible logging

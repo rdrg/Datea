@@ -10,12 +10,19 @@ v1_api = Api(api_name='v1')
 v1_api.register(Auth())
 v1_api.register(TwitterAuth())
 
+from datea.test_poly.api import MealResource, SaladResource 
+meal_resource = MealResource()
+salad_resource = SaladResource()
+
 urlpatterns = patterns('',
     # Examples:
     url(r'^$', 'datea.datea_home.views.home', name='home'),
     # url(r'^datea/', include('datea.foo.urls')),
     
     url(r'^api/',include(v1_api.urls)),
+    
+    url(r'^meal/', include(meal_resource.urls)),
+    url(r'^salad/', include(salad_resource.urls)),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
