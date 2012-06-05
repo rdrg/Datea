@@ -4,11 +4,12 @@ from datea.datea_mapping.models import DateaMapping, DateaMapItem
 from datea.datea_api.category import FreeCategoryResource
 
 class MappingResource(ModelResource):
-    item_categories = fields.ToManyField('datea.datea_api.category.FreeCategoryResource', 'datea_free_category', full=True, null=True)
+    item_categories = fields.ToManyField('datea.datea_api.category.FreeCategoryResource', 'free_category', full=True, null=True)
     
     class Meta:
         queryset = DateaMapping.objects.all()
-        resource_name = 'datea_mapping'
+        resource_name = 'mapping'
+        
         
 class MapItemResource(ModelResource):
     class Meta:
