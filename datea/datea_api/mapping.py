@@ -13,9 +13,8 @@ class MappingResource(ModelResource):
         allowed_methods = ['get', 'post', 'put', 'delete']
         
 class MapItemResource(ModelResource):
-    #TODO: fix this field:
-    #category = fields.ToManyField('datea.datea_api.category.FreeCategoryResource',
-    #        attribute= 'category', related_name='name', null=True, full=True)
+    category = fields.ToOneField('datea.datea_api.category.FreeCategoryResource',
+            attribute= 'category', null=True, full=True)
     image = fields.ToManyField('datea.datea_api.image.ImageResource',
             attribute='images', null=True, full=True)
     mapping = fields.ToOneField('datea.datea_api.mapping.MappingResource',

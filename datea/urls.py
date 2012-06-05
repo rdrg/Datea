@@ -11,6 +11,8 @@ from datea_api.mapping import MappingResource,MapItemResource
 from datea_api.category import FreeCategoryResource
 from datea_api.vote import VoteResource
 from datea_api.image import ImageResource
+from datea_api.action import ActionResource
+from datea_api.contenttypes import ContentTypeResource
 
 v1_api = Api(api_name='v1')
 v1_api.register(Accounts())
@@ -21,7 +23,8 @@ v1_api.register(MapItemResource())
 v1_api.register(FreeCategoryResource())
 v1_api.register(VoteResource())
 v1_api.register(ImageResource())
-
+v1_api.register(ActionResource())
+v1_api.register(ContentTypeResource())
 
 urlpatterns = patterns('',
     # Examples:
