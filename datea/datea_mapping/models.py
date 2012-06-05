@@ -50,7 +50,7 @@ class DateaMapItem(models.Model):
     objects = models.GeoManager()
     
     def __unicode__(self):
-        return self.author.username+': '+strip_tags(self.content)[:100]
+        return self.user.username+': '+strip_tags(self.content)[:100]
     
     class Meta:
         verbose_name = _('Map Item')
