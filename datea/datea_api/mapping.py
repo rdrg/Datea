@@ -16,6 +16,7 @@ class MappingResource(ModelResource):
 
         
 class MapItemResource(ModelResource):
+    
     category = fields.ToOneField('datea.datea_api.category.FreeCategoryResource',
             attribute= 'category', null=True, full=True)
     image = fields.ToManyField('datea.datea_api.image.ImageResource',

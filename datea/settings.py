@@ -147,6 +147,7 @@ INSTALLED_APPS = (
     
     # geodjango / location
     "django.contrib.gis",
+    'olwidget',
     
     # datea
     'datea.datea_home',

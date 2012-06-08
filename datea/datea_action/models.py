@@ -26,7 +26,6 @@ class DateaActionManager(models.GeoManager):
         return SubclassingQuerySet(self.model)
 
 
-
 class DateaAction(models.Model):
     
     user = models.ForeignKey(User, verbose_name=_('User'), related_name="actions")

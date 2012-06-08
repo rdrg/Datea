@@ -85,6 +85,7 @@ class DateaMapping(DateaAction):
         verbose_name_plural = _("Mappings")
     
     def save(self, *args, **kwargs):
+        
         self.action_type = 'mapping'
         
         if self.center == None and self.boundary != None:
