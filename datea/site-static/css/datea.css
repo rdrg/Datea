@@ -1,3 +1,54 @@
+.clearfix {
+  *zoom: 1;
+}
+
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  content: "";
+}
+
+.clearfix:after {
+  clear: both;
+}
+
+.hide-text {
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+
+.input-block-level {
+  display: block;
+  width: 100%;
+  min-height: 28px;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+      -ms-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+#user-header .image {
+  display: block;
+  float: left;
+}
+
+#user-header .image a img {
+  display: block;
+  margin-top: 7px;
+}
+
+#login-header {
+  text-align: center;
+}
+
+#login-header a.btn-login {
+  margin-top: 10px;
+  margin-bottom: 2px;
+}
+
 #main-content {
-  margin-top: 60px;
+  margin-top: 80px;
 }

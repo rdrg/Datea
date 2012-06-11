@@ -1,6 +1,8 @@
 from tastypie import fields
-from tastypie.resources import ModelResource,ALL
+from tastypie.resources import ModelResource, ALL
 from datea.datea_category.models import DateaCategory, DateaFreeCategory
+from api_base import ApiKeyPlusWebAuthentication
+
 
 class CategoryResource(ModelResource):
     class Meta:
@@ -21,3 +23,6 @@ class FreeCategoryResource(ModelResource):
         filtering={
                 'name' : ALL
                 }
+        allowed_methods = ['get', 'put', 'post', 'delete']
+        authentication = ApiKeyPlusWebAuthentication()
+        

@@ -1,0 +1,28 @@
+{% load i18n %}
+{% if request.user.is_authenticated %}
+	{% with request.user.get_profile as profile %}
+	<div id="user-header">
+		<div class="inner">
+			<div class="image">
+				<a href="#">
+					<img src="{{ profile.get_image }}" />
+				</a>
+			</div>
+			<ul class="nav">
+				<li class="dropdown">
+					<a class="dropdown-toggle" href="#" data-toggle="dropdown">{{ request.user.username }} <b class="caret"></b></a>
+					<ul class="dropdown-menu">
+						<li><a href="/accounts/logout">{% trans 'Log out'%}</a></li>
+					</ul>
+				</li>
+				
+			</div>
+		</div>
+	</div>
+	{% endwith %}
+{% else %}
+	<div id="login-header">
+		<a href="/accounts/login/" class="btn-login btn btn-success">{% trans 'Log in' %}</a>
+		<div class="reg-link">{% trans 'no account yet?' %} <a href="/accounts/register/">{% trans 'register!' %}</a></div>
+	</div>
+{% endif %}

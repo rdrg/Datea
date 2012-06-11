@@ -12,6 +12,9 @@ PROJECT_PATH = os.path.abspath(os.path.dirname(__file__))
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
+DEBUG_TOOLBAR_CONFIG = {
+    'INTERCEPT_REDIRECTS': False,
+}
 
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
@@ -98,7 +101,10 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 )
+
+INTERNAL_IPS = ('127.0.0.1',)
 
 TEMPLATE_CONTEXT_PROCESSORS = (
     'django.contrib.auth.context_processors.auth',
@@ -136,6 +142,7 @@ INSTALLED_APPS = (
     'django.contrib.admindocs',
     
     # extensions
+    'debug_toolbar',
     'registration',
     'social_auth',
     'south',
@@ -199,7 +206,7 @@ AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
 ]
 
-AUTH_PROFILE_MODULE = 'datea.datea_profile.DateaProfile'
+AUTH_PROFILE_MODULE = 'datea_profile.DateaProfile'
 
 LOGIN_URL = "/account/login/" 
 #LOGIN_REDIRECT_URLNAME = "/" # CAMBIAR!
@@ -232,5 +239,8 @@ ACCOUNT_ACTIVATION_DAYS = 7
 THUMBNAIL_ALIASES = {
     '': {
         'profile_image': {'size': (50, 50), 'crop': True},
+        'profile_image_small': {'size': (25, 25), 'crop': True},
+        'profile_image_large': {'size': (130, 130), 'crop': True}
     },
 }
+DEFAULT_PROFILE_IMAGE = os.path.join(STATIC_ROOT, 'img/default-user.png')

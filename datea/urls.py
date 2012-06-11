@@ -1,5 +1,7 @@
+from django.conf import settings
 from django.conf.urls import patterns, include, url
 from tastypie.api import Api
+
 
 from django.contrib import admin
 admin.autodiscover()
@@ -42,3 +44,11 @@ urlpatterns = patterns('',
     url(r'', include('social_auth.urls')),
     (r'^accounts/', include('registration.backends.default.urls')),
 )
+
+if settings.DEBUG:
+    urlpatterns = patterns('',
+    url(r'^media/(?P<path>.*)$', 'django.views.static.serve',
+        {'document_root': settings.MEDIA_ROOT, 'show_indexes': True}),
+    url(r'', include('django.contrib.staticfiles.urls')),
+    
+) + urlpatterns

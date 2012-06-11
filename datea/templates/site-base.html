@@ -7,7 +7,9 @@
 			<div class="container">
 				<a class="brand" href="/">DATEA</a>
 				<div class="pull-right">
-					{% block user_login %}{% endblock %}
+					{% block user_login %}
+						{% include "elements/user-head.html" %}
+					{% endblock %}
 				</div>
 			</div>
 		</div>

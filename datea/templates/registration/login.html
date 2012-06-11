@@ -5,6 +5,8 @@
 
 {% include "social_auth/social-auth-login-links.html" %}
 
+{% if request.user.is_authenticated %}<p>{{user.username }}: You are authenticated</p>{% endif %}
+
 <form class="well" method="post" action="{% url django.contrib.auth.views.login %}">{% csrf_token %}
 
 {{ form|as_bootstrap }}

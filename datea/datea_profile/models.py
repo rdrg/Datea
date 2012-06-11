@@ -3,7 +3,10 @@ from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth.models import User
 
 from datea.datea_image.models import DateaImage
-from datea.datea_action.models import DateaAction 
+from datea.datea_action.models import DateaAction
+from easy_thumbnails.files import get_thumbnailer
+from django.core.files.base import ContentFile
+from django.conf import settings
 
 class DateaProfile(models.Model):
     
@@ -26,6 +29,26 @@ class DateaProfile(models.Model):
         if self.full_name != None:
             name = self.full_name
         return "%s (%s)" % (name, self.user.username)
+    
+    def get_image_thumb(self, thumb_preset = 'profile_image'):
+        
+        if self.image:
+            return self.image.image[thumb_preset].url
+        elif self.image_social:
+            return self.image_social.image[thumb_preset].url
+        else:
+            return get_thumbnailer(settings.DEFAULT_PROFILE_IMAGE)[thumb_preset].url
+    
+    def get_image(self):
+        return self.get_image_thumb('profile_image')
+    
+    def get_large_image(self):
+        return self.get_image_thumb('profile_image_large')
+    
+    def get_small_image(self):
+        return self.get_image_thumb('profile_image_small')
+        
+    
     
 
 from django.db.models.signals import post_save
@@ -55,7 +78,6 @@ from social_auth.backends.google import GoogleOAuth2Backend
 
 from urllib2 import urlopen, HTTPError
 from django.template.defaultfilters import slugify
-from django.core.files.base import ContentFile
 
 #+++++++++++++++++++++    
 # Update Twitter user and profile data with oauth response
@@ -114,7 +136,7 @@ def facebook_user_update(sender, user, response, details, **kwargs):
             img_obj.save()
             profile_instance.image_social = img_obj
         else:    
-            profile_instance.image_social.image.save(slugify(user.username + "_fb") + '.jpg', ContentFile(img_obj.read()))
+            profile_instance.image_social.image.save(slugify(user.username + "_fb") + '.jpg', ContentFile(img.read()))
             profile_instance.image_social.save()
     except HTTPError:
         pass

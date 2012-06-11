@@ -1,8 +1,8 @@
 
 include following line in /etc/hosts:
 
-127.0.0.1       datea3.dev
+127.0.0.1       datea.dev
 
-make a tunnel from port 8000 to 80:
+make a tunnel from port 8000 to 80 (non-blocking):
 
-(as root): ssh -L 80:127.0.0.1:8000 127.0.0.1
+(as root): ssh root@localhost -L 80:localhost:8000 -g -N
