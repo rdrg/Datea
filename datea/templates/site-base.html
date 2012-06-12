@@ -1,5 +1,14 @@
 {% extends "base.html" %}
+{% load icanhaz %}
 
+{% block icanhaz %}
+	{# Profile templates#}
+	{% icanhaz "my_profile" %}
+	
+	{# Action templates #}
+	{% icanhaz "action_list" %}
+	{% icanhaz "action_list_item" %}
+{% endblock %}
 
 {% block body %}
 	<div class="navbar navbar-fixed-top">
@@ -16,13 +25,17 @@
 	</div>	
 	
 	{% block main_content %}
-		<div class="container">
-			<header>
+		<div id="main-content" class="container">
+			<div class="inner">
 				<div class="row">
-					<div class="span6">izquierda</div>
-					<div class="span6">derecha</div>
+					<div id="left-content" class="span6">
+						{% block main_left %}izquierda{% endblock %}
+					</div>
+					<div id="right-content" class="span6">
+						{% block main_right %}derecha{% endblock %}
+					</div>
 				</div>
-			</header>
+			</div>
 		</div>
 	{% endblock%}
 

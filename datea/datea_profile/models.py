@@ -37,7 +37,7 @@ class DateaProfile(models.Model):
         elif self.image_social:
             return self.image_social.image[thumb_preset].url
         else:
-            return get_thumbnailer(settings.DEFAULT_PROFILE_IMAGE)[thumb_preset].url
+            return get_thumbnailer(settings.DEFAULT_PROFILE_IMAGE)[thumb_preset].url.replace(settings.PROJECT_PATH,'')
     
     def get_image(self):
         return self.get_image_thumb('profile_image')
@@ -84,12 +84,10 @@ from django.template.defaultfilters import slugify
 def twitter_user_update(sender, user, response, details, **kwargs):
     profile_instance, created = DateaProfile.objects.get_or_create(user=user)
     
-    if details['first_name'] != '':
-        profile_instance.first_name = details['first_name']
-    if details['last_name'] != '':
-        profile_instance.last_name = details['last_name']
-    #if profile_instance.social_uname == None and details['username'] != '':
-    #    profile_instance.social_uname = slugify(details['username'])
+    if details['first_name'] != '' or details['last_name'] != '':
+        profile_instance.full_name = details['first_name']+' '+details['last_name']
+    elif details['username'] != '':
+        profile_instance.full_name = details['username']
     
     # grabar imagen de avatar   
     try:
@@ -119,12 +117,10 @@ def facebook_user_update(sender, user, response, details, **kwargs):
     if not user.email:
         user.email =  details['email']    
         
-    if details['first_name'] != '':
-        profile_instance.first_name = details['first_name']
-    if details['last_name'] != '':
-        profile_instance.last_name = details['last_name']
-    #if profile_instance.social_uname == None and details['username'] != '':
-    #    profile_instance.social_uname = slugify(details['username'])
+    if details['first_name'] != '' or details['last_name'] != '':
+        profile_instance.full_name = details['first_name']+' '+details['last_name']
+    elif details['username'] != '':
+        profile_instance.full_name = details['username']
     
     # grabar imagen de avatar
     try:        
@@ -155,12 +151,10 @@ def google_user_update(sender, user, response, details, **kwargs):
     if not user.email:
         user.email = details['email']
 
-    if details['first_name'] != '':
-        profile_instance.first_name = details['first_name']
-    if details['last_name'] != '':
-        profile_instance.last_name = details['last_name']
-    #if profile_instance.social_uname == None and details['username'] != '':
-    #    profile_instance.social_uname = slugify(details['username'])
+    if details['first_name'] != '' or details['last_name'] != '':
+        profile_instance.full_name = details['first_name']+' '+details['last_name']
+    elif details['username'] != '':
+        profile_instance.full_name = details['username']
     
     # grabar imagen de avatar
     try:        

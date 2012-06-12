@@ -1,10 +1,7 @@
 {% extends "site-base.html" %}
 
-{% block main_content %}
-	<div id="main-content" class="container">
-		<div class="row">
-			<div class="span6">{% block main_left %}izquierda{% endblock %}</div>
-			<div class="span6">{% block main_right %}derecha{% endblock %}</div>
-		</div>
-	</div>	
-{% endblock%}
+{% block footer_js %}
+	<script src="{{ STATIC_URL }}js/models.js"></script>
+{% endblock %}
+
+

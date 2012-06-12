@@ -11,7 +11,7 @@ from django.contrib.gis.geos import Point
 class ApiKeyPlusWebAuthentication(ApiKeyAuthentication):
     
     def is_authenticated(self, request, **kwargs):
-        if request.user.is_authenticated():
+        if request.user.is_authenticated() or request.method == 'GET':
             return True
 
         return super(ApiKeyPlusWebAuthentication, self).is_authenticated(request, **kwargs)

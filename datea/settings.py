@@ -151,10 +151,13 @@ INSTALLED_APPS = (
     'bootstrap_toolkit',
     'django_extensions',
     'easy_thumbnails',
+    'backbone_tastypie',
+    'icanhaz',
     
     # geodjango / location
     "django.contrib.gis",
     'olwidget',
+
     
     # datea
     'datea.datea_home',
@@ -166,6 +169,7 @@ INSTALLED_APPS = (
     'datea.datea_mapping',
     'datea.datea_vote',
     'datea.datea_follow',
+    'datea.datea_api',
 )
 
 # A sample logging configuration. The only tangible logging
@@ -243,4 +247,4 @@ THUMBNAIL_ALIASES = {
         'profile_image_large': {'size': (130, 130), 'crop': True}
     },
 }
-DEFAULT_PROFILE_IMAGE = os.path.join(STATIC_ROOT, 'img/default-user.png')
+DEFAULT_PROFILE_IMAGE = os.path.join(MEDIA_ROOT, 'default/img/default-user.png')

@@ -23,6 +23,8 @@
 		<link href="{{ STATIC_URL }}css/datea.css" rel="stylesheet">
 			
 		{% block extra_head %}{% endblock %}
+		
+		{% block icanhaz %}{% endblock %}
   
   </head>
   <body class="{% block body_class %}{% endblock %}">
@@ -31,8 +33,21 @@
   	{% block body %}{% endblock %} 
   	
   	{# JAVASCRIPT #}
-  		<script src="{{ STATIC_URL }}js/jquery-1.7.2.min.js"></script>
-  		<script src="{{ STATIC_URL }}js/bootstrap.min.js"></script>
+  		<script src="{{ STATIC_URL }}js/libs/jquery-1.7.2.min.js"></script>
+  		<script src="{{ STATIC_URL }}js/libs/modernizr.custom.05031.js"></script>
+  		<script src="{{ STATIC_URL }}js/libs/bootstrap.min.js"></script>
+  		<script src="{{ STATIC_URL }}js/libs/json2.js"></script>
+  		<script src="{{ STATIC_URL }}js/libs/underscore.js"></script>
+  		<script src="{{ STATIC_URL }}js/libs/backbone.js"></script>
+  		<script src="{{ STATIC_URL }}js/backbone-tastypie.js"></script>
+  		<script src="{{ STATIC_URL }}js/libs/ICanHaz.js"></script>
+  		<script type="text/javascript">
+  			Datea = {};
+  			{% if request.user.is_authenticated %}
+  				Datea.user_id = {{ request.user.pk }};
+  			{% endif %}
+  		</script>
+	
   		{% block footer_js %}{% endblock %}
   </body>
 </html>
