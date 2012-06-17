@@ -152,7 +152,6 @@ INSTALLED_APPS = (
     'django_extensions',
     'easy_thumbnails',
     'backbone_tastypie',
-    'icanhaz',
     
     # geodjango / location
     "django.contrib.gis",

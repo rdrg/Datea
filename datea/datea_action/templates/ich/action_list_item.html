@@ -1,0 +1,9 @@
+{% load i18n verbatim_tag %}
+<script id="action_list_item" type="text/html">
+<div class="action-list-item">
+	{% verbatim %}
+	<p>{{ name }}</p>
+	<p>{{ category.name }}</p>
+	{% endverbatim %}
+</div>
+</script>
