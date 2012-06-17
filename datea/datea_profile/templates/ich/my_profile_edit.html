@@ -1,0 +1,42 @@
+{% load i18n verbatim_tag %}
+<script id="my_profile_edit_tpl" type="text/html">
+<div class="modal" id="edit-profile-modal">
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal">×</button>
+		<h3>{% trans 'My Profile' %}</h3>
+	</div>
+	<div class="modal-body">
+		
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="#profile" data-toggle="tab">{% trans 'Edit Profile' %}</a></li>
+			<li><a href="#account" data-toggle="tab">{% trans 'Edit user account' %}</a></li>
+			<li><a href="#messaging" data-toggle="tab">{% trans 'Messaging' %}</a></li>
+			<li><a href="#follow" data-toggle="tab">{% trans 'Following' %}</a></li>
+		</ul>
+		
+		<div class="tab-content">
+			<div class="tab-pane active" id="profile">
+				<div class="control-group">
+					<label class="control-label">{% trans 'Full name' %}</label>
+					<div class="controls">
+						<input id="edit-profile-full-name" type="text" value="{% verbatim %}{{ full_name }}{% endverbatim %}" /> 
+					</div>
+				</div>
+			</div>
+			<div class="tab-pane" id="account">
+				account
+			</div>
+			<div class="tab-pane" id="messaging">
+				messaging
+			</div>
+			<div class="tab-pane" id="follow">
+				follow
+			</div>
+		</div>
+	</div>
+	<div class="modal-footer">
+		<a href="#" class="btn" data-dismiss="modal">{% trans "Close" %}</a>
+		<a href="javascript:void(0);" class="btn btn-primary myprofile-save-action">{% trans "Save" %}</a>
+	</div>
+</div>
+</script>

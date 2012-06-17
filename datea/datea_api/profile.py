@@ -3,6 +3,8 @@ from tastypie.resources import ModelResource, ALL, ALL_WITH_RELATIONS
 from tastypie import fields
 from tastypie.authentication import ApiKeyAuthentication
 from api_base import DateaBaseResource, ApiKeyPlusWebAuthentication, DateaBaseAuthorization
+from tastypie.authentication import Authentication
+from tastypie.authorization import Authorization
 
 from datea.datea_profile.models import DateaProfile
 
@@ -14,7 +16,6 @@ class ProfileResource(DateaBaseResource):
             full=True,
             null=True)
     
-    
     def dehydrate(self, bundle):
         # seeing own profile?
         if bundle.request.user.is_authenticated() and bundle.request.user.pk == bundle.obj.pk:
@@ -23,6 +24,14 @@ class ProfileResource(DateaBaseResource):
         bundle.data['image'] = bundle.obj.get_image()
         bundle.data['image_large'] = bundle.obj.get_large_image()
         
+        return bundle
+    
+    def hydrate(self, bundle):
+        # leave image foreign keys untouched (must be edited through other methods)
+        if 'id' in bundle.data and bundle.data['id']:
+            profile = DateaProfile.objects.get(pk=bundle.data['id'])
+            bundle.obj.image_social = profile.image_social
+            bundle.obj.image = profile.image
         return bundle
     
     class Meta:
@@ -35,10 +44,10 @@ class ProfileResource(DateaBaseResource):
         filtering = {
             'user': ALL_WITH_RELATIONS,
         }
+        exclude = ['image','image_social']
      
        
     # filter own profile with is_own=1
-     
     def obj_get_list(self, request=None, **kwargs):
         
         if hasattr(request, 'GET') and 'is_own' in request.GET:

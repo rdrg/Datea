@@ -101,7 +101,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'debug_toolbar.middleware.DebugToolbarMiddleware',
+    #'debug_toolbar.middleware.DebugToolbarMiddleware',
 )
 
 INTERNAL_IPS = ('127.0.0.1',)
@@ -142,7 +142,7 @@ INSTALLED_APPS = (
     'django.contrib.admindocs',
     
     # extensions
-    'debug_toolbar',
+    #'debug_toolbar',
     'registration',
     'social_auth',
     'south',
@@ -160,6 +160,7 @@ INSTALLED_APPS = (
 
     
     # datea
+    'datea',
     'datea.datea_home',
     'datea.datea_image',
     'datea.datea_category',

@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+  	{% load icanhaz %}
+  	
   	<meta charset="utf-8">
   	
-  		<title>Components · Twitter Bootstrap</title>
+  		<title>DATEA</title>
   		
   		{# META STUFF #}
   		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,7 +26,19 @@
 			
 		{% block extra_head %}{% endblock %}
 		
-		{% block icanhaz %}{% endblock %}
+		{% block icanhaz %}
+				
+				{# Profile templates #}
+				{% include "ich/my_profile.html" %}
+				{% include "ich/my_profile_head.html" %}
+				{% include "ich/my_profile_head_login.html" %}
+				{% include "ich/my_profile_edit.html" %}
+				
+				{# Action templates #}
+				{% icanhaz "action_list" %}
+				{% icanhaz "action_list_item" %}
+				
+		{% endblock %}
   
   </head>
   <body class="{% block body_class %}{% endblock %}">
@@ -32,7 +46,7 @@
   	{# BODY BLOCK #}
   	{% block body %}{% endblock %} 
   	
-  	{# JAVASCRIPT #}
+  	{# JS LIBS #}
   		<script src="{{ STATIC_URL }}js/libs/jquery-1.7.2.min.js"></script>
   		<script src="{{ STATIC_URL }}js/libs/modernizr.custom.05031.js"></script>
   		<script src="{{ STATIC_URL }}js/libs/bootstrap.min.js"></script>
@@ -47,7 +61,12 @@
   				Datea.user_id = {{ request.user.pk }};
   			{% endif %}
   		</script>
+  		{# <script src="{{ STATIC_URL }}js/libs/backbone.tastypie.modelgenerator.js"></script> #}
 	
   		{% block footer_js %}{% endblock %}
+  		
+  	{# MODALS #}
+  	<div id="edit-profile-view"></div>
+  		
   </body>
 </html>

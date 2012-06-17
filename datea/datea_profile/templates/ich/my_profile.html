@@ -1,0 +1,16 @@
+{% load i18n verbatim_tag %}
+<script id="my_profile_tpl" type="text/html">
+<div id="my-profile">
+	<div class="row">
+		<div class="span2 profile-img-large">
+			<img src="{% verbatim %}{{ image_large }}{% endverbatim %}" alt="profile image" />
+		</div>
+		<div class="span4 profile-head-data">
+			<h1>{% verbatim %}{{ user.username }}{% endverbatim %}</h1>
+		</div>
+		<div class="Full name">
+			{% verbatim %}{{ full_name }}{% endverbatim %}
+		</div>
+	</div>
+</div>
+</script>

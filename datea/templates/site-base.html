@@ -1,14 +1,4 @@
 {% extends "base.html" %}
-{% load icanhaz %}
-
-{% block icanhaz %}
-	{# Profile templates#}
-	{% icanhaz "my_profile" %}
-	
-	{# Action templates #}
-	{% icanhaz "action_list" %}
-	{% icanhaz "action_list_item" %}
-{% endblock %}
 
 {% block body %}
 	<div class="navbar navbar-fixed-top">
@@ -16,9 +6,9 @@
 			<div class="container">
 				<a class="brand" href="/">DATEA</a>
 				<div class="pull-right">
-					{% block user_login %}
-						{% include "elements/user-head.html" %}
-					{% endblock %}
+					<div id="profile_head_view">
+						
+					</div>
 				</div>
 			</div>
 		</div>
