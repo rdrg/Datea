@@ -29,6 +29,9 @@ Datea.AppRouter = Backbone.Router.extend({
 
 $(document).ready(function() {
 	
+	// main stuff
+	Datea.modal_view = new Datea.ModalWrapView({'el': $('#modal-wrap-view')});
+	
 	// init myprofile 
 	Datea.init_my_profile();
 	

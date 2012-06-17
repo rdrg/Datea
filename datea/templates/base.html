@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-  	{% load icanhaz %}
   	
   	<meta charset="utf-8">
   	
@@ -27,6 +26,9 @@
 		{% block extra_head %}{% endblock %}
 		
 		{% block icanhaz %}
+		
+				{# main stuff #}
+				{% include "ich/modal_wrap.html" %}
 				
 				{# Profile templates #}
 				{% include "ich/my_profile.html" %}
@@ -46,6 +48,9 @@
   	{# BODY BLOCK #}
   	{% block body %}{% endblock %} 
   	
+  	{# MODAL #}
+  	<div class="modal hide" id="modal-wrap-view"></div>
+  	
   	{# JS LIBS #}
   		<script src="{{ STATIC_URL }}js/libs/jquery-1.7.2.min.js"></script>
   		<script src="{{ STATIC_URL }}js/libs/modernizr.custom.05031.js"></script>
@@ -64,9 +69,6 @@
   		{# <script src="{{ STATIC_URL }}js/libs/backbone.tastypie.modelgenerator.js"></script> #}
 	
   		{% block footer_js %}{% endblock %}
-  		
-  	{# MODALS #}
-  	<div id="edit-profile-view"></div>
   		
   </body>
 </html>

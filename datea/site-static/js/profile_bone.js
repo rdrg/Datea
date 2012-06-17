@@ -103,14 +103,14 @@ window.Datea.MyProfileEditView = Backbone.View.extend({
 		this.model.models[0].set({
 			'full_name': this.$el.find('#edit-profile-full-name').val(),
 		});
-		$('#edit-profile-modal').modal();
 		this.model.models[0].save();
 	},
 	
 	open_window: function () {
-		$('#edit-profile-view').html(this.render().el);
-		$('#edit-profile-modal').modal();
+		Datea.modal_view.set_content(this);
+		Datea.modal_view.open_modal();
 	}
+	
 });
 
 

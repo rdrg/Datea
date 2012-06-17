@@ -84,10 +84,11 @@ from django.template.defaultfilters import slugify
 def twitter_user_update(sender, user, response, details, **kwargs):
     profile_instance, created = DateaProfile.objects.get_or_create(user=user)
     
-    if details['first_name'] != '' or details['last_name'] != '':
-        profile_instance.full_name = details['first_name']+' '+details['last_name']
-    elif details['username'] != '':
-        profile_instance.full_name = details['username']
+    if not profile_instance.full_name:
+        if details['first_name'] != '' or details['last_name'] != '':
+            profile_instance.full_name = details['first_name']+' '+details['last_name']
+        elif details['username'] != '':
+            profile_instance.full_name = details['username']
     
     # grabar imagen de avatar   
     try:
@@ -116,12 +117,13 @@ def facebook_user_update(sender, user, response, details, **kwargs):
     
     if not user.email:
         user.email =  details['email']    
-        
-    if details['first_name'] != '' or details['last_name'] != '':
-        profile_instance.full_name = details['first_name']+' '+details['last_name']
-    elif details['username'] != '':
-        profile_instance.full_name = details['username']
     
+    if not profile_instance.full_name:    
+        if details['first_name'] != '' or details['last_name'] != '':
+            profile_instance.full_name = details['first_name']+' '+details['last_name']
+        elif details['username'] != '':
+            profile_instance.full_name = details['username']
+        
     # grabar imagen de avatar
     try:        
         img_url = "http://graph.facebook.com/%s/picture?type=large" % response["id"]
@@ -150,11 +152,12 @@ def google_user_update(sender, user, response, details, **kwargs):
     
     if not user.email:
         user.email = details['email']
-
-    if details['first_name'] != '' or details['last_name'] != '':
-        profile_instance.full_name = details['first_name']+' '+details['last_name']
-    elif details['username'] != '':
-        profile_instance.full_name = details['username']
+        
+    if not profile_instance.full_name:
+        if details['first_name'] != '' or details['last_name'] != '':
+            profile_instance.full_name = details['first_name']+' '+details['last_name']
+        elif details['username'] != '':
+            profile_instance.full_name = details['username']
     
     # grabar imagen de avatar
     try:        
