@@ -15,6 +15,23 @@
 		
 		<div class="tab-content">
 			<div class="tab-pane active" id="profile">
+				
+				<div class="profile-image">
+					<img src="{% verbatim %}{{ image_large }}{% endverbatim %}" />
+					<form class="form inline-form" action="" method="post" id="profile-image-upload" enctype="multipart/form-data" >
+						{% csrf_token %}
+						<div class="control-group">
+							<label class="control-label">{% trans 'Image' %}</label>
+							<div class="control-group">
+								<input id="profile-image-input" class="input-file" type="file" name="image" />
+								<input type="hidden" name="object_type" value="DateaProfile" />
+								<input type="hidden" name="object_id" value="{% verbatim %}{{ id }}{% endverbatim %}" />
+								<input type="hidden" name="object_field" value="image" />
+							</div>
+						</div>
+					</form>
+				</div>
+				
 				<div class="control-group">
 					<label class="control-label">{% trans 'Full name' %}</label>
 					<div class="controls">

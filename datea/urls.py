@@ -29,11 +29,10 @@ v1_api.register(ActionResource())
 v1_api.register(ContentTypeResource())
 
 urlpatterns = patterns('',
-    # Examples:
     url(r'^$', 'datea.datea_home.views.home', name='home'),
-    # url(r'^datea/', include('datea.foo.urls')),
     
     url(r'^api/',include(v1_api.urls)),
+    url(r"image/", include('datea.datea_image.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),

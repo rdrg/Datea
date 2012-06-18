@@ -109,7 +109,12 @@ window.Datea.MyProfileEditView = Backbone.View.extend({
 	open_window: function () {
 		Datea.modal_view.set_content(this);
 		Datea.modal_view.open_modal();
-	}
+		
+		var img_upload_view = new Datea.ImageUploadView({
+				'el': $('#profile-image-upload', this.$el),
+				'fetch_model': this.model.models[0]
+			});
+	},
 	
 });
 
