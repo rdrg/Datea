@@ -4,21 +4,30 @@ Datea.AppRouter = Backbone.Router.extend({
     routes:{
         "":"home",
         "_=_": "fb_login_redirect",
-        "actions/:id":"action_detail",
+        "action/start": "action_start",
+        "action/create/:action_type": "action_create",
     },
  
     home:function () {
-        this.actionList = new Datea.ActionCollection();
-        this.actionListView = new Datea.ActionListView({ model:this.actionList});
-        this.actionList.fetch();
-        $('#right-content').html(this.actionListView.render().el);
-       
-        $('#left-content').html(Datea.my_profile_view.render().el);
+    	this.my_profile_view = new Datea.MyProfileView({model:Datea.my_profile});
+        $('#main-content-view').html(this.my_profile_view.render().el);
     },
     
     fb_login_redirect:function () {
     	alert("hey");
-    }
+    },
+    
+    action_start: function () {
+    	$('#main-content-view').html(new Datea.ActionStartView().render().el);
+    },
+    
+    action_create: function (action_type) {
+    	if (action_type == 'mapping') {
+    		this.mapping = new Datea.MappingCreateView({model: new Datea.Mapping()});
+    		$('#main-content-view').html(this.mapping.render().el);
+    	}
+    },
+    
  	/*
     wineDetails:function (id) {
         this.wine = this.wineList.get(id);
@@ -37,4 +46,5 @@ $(document).ready(function() {
 	
 	Datea.app = new Datea.AppRouter();
 	Backbone.history.start();
+
 });

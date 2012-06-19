@@ -22,7 +22,7 @@
 						{% csrf_token %}
 						<div class="control-group">
 							<label class="control-label">{% trans 'Image' %}</label>
-							<div class="control-group">
+							<div class="controls">
 								<input id="profile-image-input" class="input-file" type="file" name="image" />
 								<input type="hidden" name="object_type" value="DateaProfile" />
 								<input type="hidden" name="object_id" value="{% verbatim %}{{ id }}{% endverbatim %}" />

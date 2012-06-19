@@ -116,7 +116,7 @@ def facebook_user_update(sender, user, response, details, **kwargs):
     profile_instance, created = DateaProfile.objects.get_or_create(user=user)
     
     if not user.email:
-        user.email =  details['email']    
+        user.email =  details['email']
     
     if not profile_instance.full_name:    
         if details['first_name'] != '' or details['last_name'] != '':

@@ -26,6 +26,7 @@ window.Datea.ActionListView = Backbone.View.extend({
  
     initialize:function () {
         this.model.bind("reset", this.render, this);
+        this.model.fetch();
     },
  
     render:function (eventName) {
@@ -34,6 +35,19 @@ window.Datea.ActionListView = Backbone.View.extend({
         }, this);
         return this;
     }
+});
+
+
+window.Datea.ActionStartView = Backbone.View.extend({
+	
+	tagName: 'div',
+	
+	render: function(eventName) {
+		this.$el.html( ich.fix_base_content_single_tpl());
+		this.$el.find('#content').html( ich.action_create_tpl());
+		return this;	
+	}
+	
 });
 
 

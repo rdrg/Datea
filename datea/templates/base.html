@@ -28,6 +28,8 @@
 		{% block icanhaz %}
 		
 				{# main stuff #}
+				{% include "ich/fix_base_content_single.html" %}
+				{% include "ich/fix_base_content_split.html" %}
 				
 				{# Profile templates #}
 				{% include "ich/my_profile.html" %}
@@ -38,6 +40,10 @@
 				{# Action templates #}
 				{% include "ich/action_list.html" %}
 				{% include "ich/action_list_item.html" %}
+				{% include "ich/action_create.html" %}
+				
+				{# Mapping templates #}
+				{% include "ich/mapping_create.html" %}
 				
 		{% endblock %}
   
@@ -60,6 +66,7 @@
   		<script src="{{ STATIC_URL }}js/backbone-tastypie.js"></script>
   		<script src="{{ STATIC_URL }}js/libs/ICanHaz.js"></script>
   		<script src="{{ STATIC_URL }}js/libs/jquery.iframe-transport.js"></script>
+  		<script src="{{ STATIC_URL }}js/libs/jquery.serializeObject.js"></script>
   		<script type="text/javascript">
   			Datea = {};
   			{% if request.user.is_authenticated %}

@@ -12,7 +12,9 @@
 				<a class="dropdown-toggle" href="#" data-toggle="dropdown">{% verbatim %}{{ user.username }}{% endverbatim %} <b class="caret"></b></a>
 				<ul class="dropdown-menu">
 					<li><a class="myprofile-edit-action" href="javascript:void(0);">{% trans "Edit profile" %}</a></li>
-					<li><a href="/accounts/logout">{% trans 'Log out'%}</a></li>
+					<li><a href="#action/start">{% trans 'Create action' %}</a></li>
+					<li class="divider"></li>
+					<li><a href="/accounts/logout?next=/">{% trans 'Log out'%}</a></li>
 				</ul>
 			</li>
 			
