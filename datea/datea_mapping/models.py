@@ -67,6 +67,7 @@ class DateaMapping(DateaAction):
     long_description = models.TextField(_("Description"), blank=True, null=True, help_text=_("Long description (optional)"))
     report_success_message = models.TextField(_("Item submitted success message"), blank=True, null=True, max_length=140, help_text=_("The message someone sees when succesfully filing a report (max. 140 characters)"))
     
+    image = models.ForeignKey(DateaImage, verbose_name=_('Image'), blank=True, null=True, related_name="mappings")
     # ZONES
     #zones = models.ManyToManyField(Zone, blank=True, null=True, default=None)
     

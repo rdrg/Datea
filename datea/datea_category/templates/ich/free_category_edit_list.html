@@ -1,0 +1,22 @@
+{% load i18n verbatim_tag %}
+<script id="free_category_edit_list_tpl" type="text/html">
+	<table class="table free-category-edit-list">
+		{% comment %}
+		<thead>
+			<tr>
+				<th>{% trans "color" %}</th>
+				<th>{% trans "name" %}</th>
+				<th>{% trans "marker image" %}</th>
+				<th>{% trans "description" %}</th>
+				<th></th>
+			</tr>
+		</thead>
+		{% endcomment %}
+		<tbody class="list-item-views"></tbody>
+	</table>
+	<div class="row">
+		<div class="span3">
+			<button type="button" class="btn add-category">{% trans "Add Category" %}</button>
+		</div>
+	</div>
+</script>

@@ -1,0 +1,31 @@
+{% load i18n verbatim_tag %}
+<script id="mapping_tab_start_tpl" type="text/html">
+{% verbatim %}
+<h2>{{name}}</h2>
+<div class="row mapping-header">
+	
+	<div class="span2-5">
+		<div class="image">
+			<img src="{{ thumb_medium }}" alt="{{name}}" />
+		</div>
+	</div>
+	<div class="span3-5">
+		<div class="short-description">{{short_description}}</div>
+   
+    				<button type="button" class="btn btn-large btn-primary create-report">{% trans "Create Report" %}</button>
+		
+		<div class="info">
+			<div class="stats">
+				<div class="stat-line">{{map_item_count}} {% trans "reports" %}</div>
+				<div class="stat-line">{{comment_count}} {% trans "comments" %}</div>
+				<div class="stat-line">{{participant_count}} {% trans "participants" %}</div>
+			</div> 	
+		</div>
+					
+	</div>
+</div>
+<div class="row mapping-info">
+	
+</div>
+{% endverbatim %}
+</script>

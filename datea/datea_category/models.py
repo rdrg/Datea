@@ -4,6 +4,7 @@ from django.db import models
 from mptt.models import MPTTModel
 from mptt.fields import TreeForeignKey
 from django.contrib.auth.models import User
+#from easy_thumbnails.files import get_thumbnailer
 
 from datea.datea_image.models import DateaImage 
 
@@ -23,6 +24,18 @@ class DateaCategoryBase(MPTTModel):
     
     parent = TreeForeignKey('self', null=True, blank=True, related_name='children')
     
+    def get_image(self):
+        if self.image:
+            return self.image.get_thumb('category_image')
+        else:
+            return None
+    
+    def get_marker_image(self):
+        if self.image:
+            return self.image.get_thumb('marker_image')
+        else:
+            return None
+    
     def __unicode__(self):
         return self.name
     
@@ -40,6 +53,7 @@ class DateaCategory(DateaCategoryBase):
     
     image = models.ForeignKey( DateaImage, verbose_name=_('Image'), blank=True, null=True, related_name="categories_image")
     marker_image = models.ForeignKey( DateaImage, verbose_name=_('Marker image'), blank=True, null=True,related_name="categories_marker")    
+            
     
     class Meta:
         verbose_name = _('Category')

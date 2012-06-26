@@ -1,5 +1,8 @@
+{% load verbatim_tag %}
+{% verbatim %}
 <script id="fix_base_content_single_tpl" type="text/html">
-<div class="row">
+<div class="row" id="{{ content_id }}">
 	<div id="content" class="span12"></div>
 </div>
 </script>
+{% endverbatim %}

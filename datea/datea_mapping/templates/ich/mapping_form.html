@@ -1,0 +1,90 @@
+{% load i18n verbatim_tag datea_category_tags datea_mapping_tags bootstrap_toolkit %}
+{% get_mapping_form as form %}
+<script id="mapping_form_tpl" type="text/html">
+	
+	<div class="page-header"><h2>{% verbatim %}{{action_name}}{% endverbatim %} {% trans 'mapping' %}</h2></div>
+	
+	<form id="new-mapping-form" action="" class="form">	
+		<div class="row">
+			<div class="span6">
+				
+				<div class="hide alert alert-error error-msg">
+					{% trans "Please fill out the fields marked in red." %}
+					<button class="close" data-dismiss="alert">×</button>
+				</div>
+						
+				{% with form.name as field %}
+				<div class="control-group required">
+					<label class="control-label">{{ field.label }}</label>
+					<div class="controls">
+						<input type="text" id="mapping-name-input" name="name" class="input-text span4" value="{% verbatim %}{{name}}{% endverbatim %}" />
+						{% if field.help_text %}<p class="help-block">{{ field.help_text }}</p>{% endif %}
+					</div>
+				</div>
+				{% endwith %}
+				{% with form.short_description as field %}
+				<div class="control-group required">
+					<label class="control-label">{{ field.label }}</label>
+					<div class="controls">
+						<textarea type="text" id="mapping-short-description-input" name="short_description" rows="1" class="span5" maxlength="140" >{% verbatim %}{{short_description}}{% endverbatim %}</textarea>
+						{% if field.help_text %}<p class="help-block">{{ field.help_text }}</p>{% endif %}
+					</div>
+				</div>
+				{% endwith %}
+				{% with form.category as field %}
+				<div class="control-group required">
+					<label class="control-label">{{ field.label }}</label>
+					<div class="controls">
+						{{ field }}
+						{% comment %}
+						<select id="mapping-category-input" name="category" />
+							<option value=""> ---- </option>
+							{{% get_categories as categories %}
+							{% for cat in categories %}
+								<option value="{{ cat.id }}">{{ cat.name }}</option>
+							{% endfor %}}
+						</select>
+						{% endcomment %}
+						{% if field.help_text %}<p class="help-block">{{ field.help_text }}</p>{% endif %}
+					</div>
+				</div>
+				{% endwith %}
+				{% with form.mission as field %}
+				<div class="control-group required">
+					<label class="control-label">{{ field.label }}</label>
+					<div class="controls">
+						<textarea name="mission" id="mapping-mission-input" maxlength="500" class="span5">{% verbatim %}{{mission}}{% endverbatim %}</textarea>
+						{% if field.help_text %}<p class="help-block">{{ field.help_text }}</p>{% endif %}
+					</div>
+				</div>
+				{% endwith %}
+				{% with form.information_destiny as field %}
+				<div class="control-group required">
+					<label class="control-label">{{ field.label }}</label>
+					<div class="controls">
+						<textarea name="information_destiny" id="mapping-mission-input" maxlength="500" class="span5">{% verbatim %}{{information_destiny}}{% endverbatim %}</textarea>
+						{% if field.help_text %}<p class="help-block">{{ field.help_text }}</p>{% endif %}
+					</div>
+				</div>
+				{% endwith %}
+			</div>
+			<div class="span6">
+				<label>{% trans "Item Categories" %}</label>
+				<div id="edit-mapping-categories"></div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="span12">
+				<div class="control-group">
+					<label class="control-label">{% trans "Define center and boundary "%}</label>
+					<div id="edit-mapping-position" class="controls"></div>
+				</div>
+			</div>
+		</div>
+		<div class="form-actions">
+			<button class="btn btn-primary save-mapping" type="button">{% trans "Save" %}</button>
+			<button class="btn" type="button cancel-mapping">Cancel</button>
+		</div>
+	</form>
+
+</script>

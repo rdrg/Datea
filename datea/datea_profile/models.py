@@ -4,13 +4,14 @@ from django.contrib.auth.models import User
 
 from datea.datea_image.models import DateaImage
 from datea.datea_action.models import DateaAction
-from easy_thumbnails.files import get_thumbnailer
+#from easy_thumbnails.files import get_thumbnailer
+from sorl.thumbnail import get_thumbnail
 from django.core.files.base import ContentFile
 from django.conf import settings
 
 class DateaProfile(models.Model):
     
-    user = models.OneToOneField(User, verbose_name=_("User"))
+    user = models.OneToOneField(User, verbose_name=_("User"), related_name="profile")
     created = models.DateTimeField( _('created'), auto_now_add=True)
     
     full_name = models.CharField(_("Full name"), max_length=50, null=True, blank=True)
@@ -31,13 +32,21 @@ class DateaProfile(models.Model):
         return "%s (%s)" % (name, self.user.username)
     
     def get_image_thumb(self, thumb_preset = 'profile_image'):
-        
         if self.image:
-            return self.image.image[thumb_preset].url
+            return self.image.get_thumb(thumb_preset).url
         elif self.image_social:
-            return self.image_social.image[thumb_preset].url
+            return self.image_social.get_thumb(thumb_preset).url
         else:
-            return get_thumbnailer(settings.DEFAULT_PROFILE_IMAGE)[thumb_preset].url.replace(settings.PROJECT_PATH,'')
+            Preset = settings.THUMBNAIL_PRESETS[thumb_preset]
+            url = settings.DEFAULT_PROFILE_IMAGE
+            #preserve format
+            ext = url.split('.')[-1].upper()
+            if ext not in ['PNG', 'JPG']:
+                ext = 'JPG'
+            options = {'format': ext }
+            if 'options' in Preset:
+                options.update(Preset['options'])
+            return get_thumbnail(url, Preset['size'], options=options).url
     
     def get_image(self):
         return self.get_image_thumb('profile_image')

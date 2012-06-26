@@ -1,0 +1,12 @@
+{% load i18n verbatim_tag %}
+<script id="mapping_control_button_tpl" type="text/html">
+	<div class="btn-group">
+		<button class="btn dropdown-toggle" data-toggle="dropdown">
+			<i class="icon-wrench"></i> <span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu">
+			<li><a href="javascript:void(0);" class="edit-mapping">{% trans "Mapping Settings" %}</a></li>
+			{#<li><a href="javascript:void(0);" class="administer-mapping">{% trans "Administer Mapping" %}</a></li>#}
+		</ul>
+	</div>
+</script>

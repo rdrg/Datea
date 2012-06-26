@@ -1,0 +1,74 @@
+{% load i18n verbatim_tag datea_category_tags %}
+{% get_free_category_form as form %}
+<script id="free_category_edit_tpl" type="text/html">
+		
+		<h4>{% trans "create / edit category"%}</h4><br />
+		
+		<div class="free-category-edit-form">
+			<div class="hide alert alert-error error-msg">
+				{% trans "Please fill out the fields marked in red." %}
+				<button class="close" data-dismiss="alert">×</button>
+			</div>
+			<div class="hide alert alert-error delete-error">
+				{% trans "There are reports with this category. You cannot delete it." %}
+				<button class="close" data-dismiss="alert">×</button>
+			</div>
+			
+			{% with form.name as field %}
+			<div class="control-group required">
+				<label class="control-label">{{ field.label }}</label>
+				<div class="controls">
+					<input type="text" id="mapping-name-input" name="name" class="input-text" value="{% verbatim %}{{name}}{% endverbatim %}" />
+					{% if field.help_text %}<p class="help-block">{{ field.help_text }}</p>{% endif %}
+				</div>
+			</div>
+			{% endwith %}
+			{% with form.description as field %}
+			<div class="control-group required">
+				<label class="control-label">{{ field.label }}</label>
+				<div class="controls">
+					<textarea type="text" class="input-xlarge" id="mapping-short-description-input" name="description" rows="1" class="span4" maxlength="500" >{% verbatim %}{{description}}{% endverbatim %}</textarea>
+					{% if field.help_text %}<p class="help-block">{{ field.help_text }}</p>{% endif %}
+				</div>
+			</div>
+			{% endwith %}
+			{% with form.color as field %}
+			<div class="control-group required">
+				<label class="control-label">{{ field.label }}</label>
+				<div class="controls">
+					<input type="text" class="color-input span2" id="mapping-name-input" name="color" value="{% verbatim %}{{color}}{% endverbatim %}" />
+					<div class="color-sample" style="background-color: {{ color }}">&nbsp;</div>
+					{% if field.help_text %}<p class="help-block">{{ field.help_text }}</p>{% endif %}
+				</div>
+			</div>
+			{% endwith %}
+			{% comment %}
+			{% with form.image as field %}
+			<div class="control-group">
+				<label class="control-label">{{ field.label }}</label>
+				<div class="controls">
+					<div class="image-input-view"></div>
+					{% if field.help_text %}<p class="help-block">{{ field.help_text }}</p>{% endif %}
+				</div>
+			</div>
+			{% endwith %}
+			
+			{% with form.marker_image as field %}
+			<div class="control-group">
+				<label class="control-label">{{ field.label }}</label>
+				<div class="controls">
+					<div class="marker-input-view"></div>
+					{% if field.help_text %}<p class="help-block">{{ field.help_text }}</p>{% endif %}
+				</div>
+			</div>
+			{% endwith %}
+			{% endcomment %}
+			
+			<div class="pull-right">
+				<button class="btn btn-small save-category"><i class="icon-ok"></i> {% trans "Save" %}</button> 
+				<button class="btn btn-small cancel-category"><i class="icon-remove"></i> {% trans "Cancel" %}</button> 
+				<button class="btn btn-small delete-category"><i class="icon-trash"></i> {% trans "Delete" %}</button> 
+			</div>
+						
+		</div>
+</script>

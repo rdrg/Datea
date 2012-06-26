@@ -30,6 +30,17 @@
           box-sizing: border-box;
 }
 
+#logo {
+  display: inline-block;
+  *display: inline;
+  margin-top: 14px;
+  *zoom: 1;
+}
+
+#logo img {
+  display: block;
+}
+
 #user-header .image {
   display: block;
   float: left;
@@ -37,7 +48,12 @@
 
 #user-header .image a img {
   display: block;
-  margin-top: 7px;
+  margin-top: 17px;
+}
+
+#user-header ul.nav .dropdown-toggle {
+  padding-top: 18px;
+  font-size: 14px;
 }
 
 #login-header {
@@ -50,5 +66,280 @@
 }
 
 #main-content {
-  margin-top: 80px;
+  margin-top: 90px;
+}
+
+.span1-5 {
+  width: 100px;
+  *width: 99px;
+}
+
+.span1-75 {
+  width: 120px;
+  *width: 119px;
+}
+
+.span2-5 {
+  width: 180px;
+  *width: 179px;
+}
+
+.span3-5 {
+  width: 260px;
+  *width: 259px;
+}
+
+.span9-5 {
+  width: 740px;
+  *width: 739px;
+}
+
+@media (min-width: 768px) and (max-width: 979px) {
+  .span1-5 {
+    width: 73px;
+    *width: 72px;
+  }
+  .span1-75 {
+    width: 88.5px;
+    *width: 87.5px;
+  }
+  .span2-5 {
+    width: 135px;
+    *width: 134px;
+  }
+  .span3-5 {
+    width: 197px;
+    *width: 196px;
+  }
+  .span9-5 {
+    width: 569px;
+    *width: 568px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .span1-5 {
+    width: 120px;
+    *width: 119px;
+  }
+  .span1-75 {
+    width: 145px;
+    *width: 144px;
+  }
+  .span2-5 {
+    width: 220px;
+    *width: 219px;
+  }
+  .span3-5 {
+    width: 320px;
+    *width: 319px;
+  }
+  .span9-5 {
+    width: 920px;
+    *width: 919px;
+  }
+}
+
+span.ajax-loading.small {
+  display: inline-block;
+  *display: inline;
+  width: 16px;
+  padding: 0 10px;
+  background: url(../img/ajax-loader-chico.gif) no-repeat center center;
+  *zoom: 1;
+}
+
+.loading-big-bg,
+.loading-big-img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 10001;
+}
+
+.loading-big-bg {
+  z-index: 10000;
+  background-color: white;
+  opacity: 0.8;
+  filter: alpha(opacity=80);
+}
+
+.loading-big-img {
+  background: url(../img/ajax-loader-grande.gif) no-repeat center center;
+}
+
+.color-sample {
+  width: 30px;
+}
+
+/* POPUP OLWIDGET OVERRIDE */
+
+body {
+  /* position blocks */
+
+}
+
+body .olwidgetPopupStemTL,
+body .olwidgetPopupStemTR {
+  z-index: 2;
+  background: url("../img/olwidget_popup_icons.png") no-repeat scroll -124px 0;
+}
+
+body .olwidgetPopupStemBL,
+body .olwidgetPopupStemBR {
+  z-index: 2;
+  background: url("../img/olwidget_popup_icons.png") no-repeat scroll -96px 0;
+}
+
+body .olwidgetPopupContent {
+  background-color: white;
+  border: 0px solid #ccc;
+  -webkit-border-radius: 10px;
+     -moz-border-radius: 10px;
+          border-radius: 10px;
+  -webkit-box-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
+     -moz-box-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
+          box-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
+}
+
+body .olwidgetPopupPage {
+  padding-top: 15px;
+}
+
+body .olwidgetPopupCloseBox {
+  z-index: 20;
+}
+
+.map-item.popup {
+  position: relative;
+  width: 220px;
+  font-size: 12px;
+  line-height: 15px;
+}
+
+.map-item.popup .head {
+  margin-right: 20px;
+}
+
+.map-item.popup .head .data {
+  padding-top: 0;
+}
+
+.map-item.popup .stats {
+  padding: 0 0 8px 0;
+}
+
+.image-input-item {
+  position: relative;
+  line-height: 28px;
+}
+
+.image-input-item .ajax-loading,
+.image-input-item .image-icon,
+.image-input-item .delete-image {
+  height: 28px;
+  margin-bottom: 9px;
+  line-height: 28px;
+}
+
+.image-input-item .ajax-loading,
+.image-input-item .image-icon {
+  display: inline-block;
+  *display: inline;
+  /* IE7 inline-block hack */
+
+  *zoom: 1;
+}
+
+.image-input-item .delete-image,
+.image-input-item .ajax-loading.hide {
+  display: none;
+}
+
+.image-input-item .delete-image,
+.image-input-item .image-icon,
+.image-input-item .ajax-loading {
+  position: relative;
+  top: -4px;
+}
+
+.image-input-item .image-icon {
+  width: 31px;
+  background: url(../img/datea/image_input_icon.png) no-repeat center center;
+}
+
+.image-input-item.is-full .thumb {
+  margin-right: 5px;
+}
+
+.image-input-item.is-full .image-icon {
+  display: none;
+}
+
+.image-input-item.is-full .delete-image {
+  display: inline-block;
+  *display: inline;
+  margin-left: 5px;
+  *zoom: 1;
+}
+
+.image-input-item.is-empty .thumb {
+  display: none;
+}
+
+.image-input-item.is-empty .image-icon {
+  margin-right: 3px;
+}
+
+.image-input-m2m .add-button {
+  margin-top: 10px;
+}
+
+.image-input-m2m .image-input-item {
+  padding-bottom: 15px;
+}
+
+.image-input-m2m .image-input-item:last-child {
+  padding-bottom: 0;
+}
+
+/*********************
+ * OPENLAYERS / OLWIDGET
+ */
+
+.olwidgetEditableLayerSwitcher div {
+  display: none;
+}
+
+.olwidgetEditableLayerSwitcher .olwidgetContainer {
+  display: block;
+  background-color: black !important;
+}
+
+.olwidgetEditableLayerSwitcher .olwidgetContainer div {
+  display: block;
+}
+
+.olControlLayerSwitcher div {
+  display: none;
+}
+
+.olControlLayerSwitcher .layersDiv {
+  display: block;
+  background-color: black !important;
+}
+
+.olControlLayerSwitcher .layersDiv div {
+  display: block;
+}
+
+.olControlLayerSwitcher .maximizeDiv,
+.olControlLayerSwitcher .minimizeDiv {
+  display: block;
+}
+
+.map-edit-point .olwidgetMaxMin {
+  display: none !important;
 }

@@ -1,0 +1,14 @@
+{% load i18n verbatim_tag %}
+{% verbatim %}
+<script id="free_category_edit_list_item_tpl" type="text/html">
+<td><div class="color-sample" style="background-color: {{ color }}">&nbsp;</td>
+<td><span title="{{ description }}">{{ name }}</span></div>
+{#<td><img src="{{ image.thumb }}" /></td>#}
+{#<td>{{ description }}</td>#}
+<td>
+	{# <button type="button" class="btn btn-small move-up"><i class="icon-arrow-up"></i></button> #}
+	{# <button type="button" class="btn btn-small move-down"><i class="icon-arrow-down"></i></button> #}
+	<button type="button" class="btn btn-small edit-category"><i class="icon-pencil"></i></button> 
+</td>
+</script>
+{% endverbatim %}

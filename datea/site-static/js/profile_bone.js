@@ -1,50 +1,44 @@
 
-//++++++++++++++++++++
-// DateaProfile model
-window.Datea.Profile = Backbone.Model.extend({
-	urlRoot:"/api/v1/profile",
-});
-
-
-//++++++++++++++++++++
-// Profiles Collection
-window.Datea.Profiles = Backbone.Collection.extend({
-	model: Datea.Profile,
-	url: '/api/v1/profile/'
+//++++++++++++++++++++++
+// User model
+window.Datea.User = Backbone.Model.extend({
+	urlRoot: "/api/v1/user",
 });
 
 //++++++++++++++++++++++
-// My profile collection
-window.Datea.MyProfile = Backbone.Collection.extend({
-	model: Datea.Profile,
-	url: '/api/v1/profile/?is_own=1',
+// User Collection
+window.Datea.UserCollection = Backbone.Collection.extend({
+	model: Datea.User,
+	url: "/api/v1/user",
 });
 
-window.Datea.MyProfileHeadView = Backbone.View.extend({
+
+window.Datea.MyUserHeadView = Backbone.View.extend({
 	
-	el: $('#profile_head_view'),
+	el: $('#user_head_view'),
 	
 	events : {
 		'click .myprofile-edit-action': 'edit_profile', 
 	},
 	
 	initialize: function () {
-        this.model.bind("reset", this.render, this);
         this.model.bind("change", this.render, this);
     },
 	
 	render: function (eventName) {
-    	if (this.model.models.length == 1) {
-    		this.$el.html(ich.my_profile_head_tpl(this.model.models[0].toJSON()));
+
+    	if (!this.model.isNew()) {
+    		console.log(this.model);
+    		this.$el.html(ich.my_user_head_tpl(this.model.toJSON()));
     	}else{
-    		this.$el.html(ich.my_profile_head_login_tpl());
+    		this.$el.html(ich.my_user_head_login_tpl());
     	}
         return this;
     },
     
     edit_profile: function (eventName) {
-    	if (this.model.models.length == 1) {
-    		Datea.my_profile_edit_view.open_window();
+    	if (!this.model.isNew()) {
+    		Datea.my_user_edit_view.open_window();
     	}
         return this;
     },
@@ -53,7 +47,7 @@ window.Datea.MyProfileHeadView = Backbone.View.extend({
 
 //++++++++++++++++++++++++++
 // EDIT PROFILE VIEW
-window.Datea.MyProfileEditView = Backbone.View.extend({
+window.Datea.MyUserEditView = Backbone.View.extend({
 	
 	tagName: 'div',
 	
@@ -62,20 +56,19 @@ window.Datea.MyProfileEditView = Backbone.View.extend({
 	},
 	
 	initialize: function () {
-		//this.model.bind("reset", this.render, this);
     	this.model.bind("change", this.render, this);
    	},
 	
 	render: function (eventName) {
-		this.$el.html( ich.my_profile_edit_tpl(this.model.models[0].toJSON()));
+		this.$el.html( ich.my_user_edit_tpl(this.model.toJSON()));
 		return this;
 	},
 	
 	save_profile: function() {
-		this.model.models[0].set({
+		this.model.set({
 			'full_name': this.$el.find('#edit-profile-full-name').val(),
 		});
-		this.model.models[0].save();
+		this.model.save();
 	},
 	
 	open_window: function () {
@@ -84,7 +77,7 @@ window.Datea.MyProfileEditView = Backbone.View.extend({
 		
 		var img_upload_view = new Datea.ImageUploadView({
 				'el': $('#profile-image-upload', this.$el),
-				'fetch_model': this.model.models[0]
+				'fetch_model': this.model
 			});
 	},
 });
@@ -95,27 +88,27 @@ window.Datea.MyProfileBoxView = Backbone.View.extend({
 	tagName: 'div',
 	
 	initialize: function () {
-        this.model.bind("reset", this.render, this);
         this.model.bind("change", this.render, this);
-    },
+   },
     
     render: function (eventName) {
     	
-    	if (this.model.models.length == 1) {
-    		this.$el.html(ich.my_profile_tpl(this.model.models[0].toJSON()));
+    	if (!this.model.isNew()) {
+    		this.$el.html(ich.my_profile_tpl(this.model.toJSON()));
     	}
         return this;
     },
     
     edit_profile: function (eventName) {
-    	if (this.model.models.length == 1) {
-    		Datea.my_profile_edit_view.open_window();
+    	if (!this.model.isNew()) {
+    		Datea.my_user_edit_view.open_window();
     	}
         return this;
     },
 });
 
-window.Datea.MyProfileView = Backbone.View.extend({
+
+window.Datea.MyProfileHomeView = Backbone.View.extend({
 	
 	tagName: 'div',
 	
@@ -124,7 +117,7 @@ window.Datea.MyProfileView = Backbone.View.extend({
 		this.$el.html( ich.fix_base_content_split_tpl());
 		
 		this.$el.find('#left-content').html( 
-			new Datea.MyProfileBoxView({ model: Datea.my_profile }).render().el 
+			new Datea.MyProfileBoxView({ model: Datea.my_user }).render().el 
 		);
 		
 		// ACTIONS
@@ -138,11 +131,8 @@ window.Datea.MyProfileView = Backbone.View.extend({
 
 
 
-// INIT MY PROFILE MODELS/VIEWS FROM THE START
-Datea.init_my_profile = function () {
-	Datea.my_profile = new Datea.MyProfile();
-	Datea.my_profile.fetch();
-	//Datea.my_profile_view = new Datea.MyProfileView({ model: Datea.my_profile});
-	Datea.my_profile_head_view = new Datea.MyProfileHeadView({ model: Datea.my_profile});
-	Datea.my_profile_edit_view = new Datea.MyProfileEditView({ model: Datea.my_profile }); 
+// INIT MY USER MODELS/VIEWS FROM THE START
+Datea.init_my_user_views = function () {
+	Datea.my_user_head_view = new Datea.MyUserHeadView({ model: Datea.my_user});
+	Datea.my_user_edit_view = new Datea.MyUserEditView({ model: Datea.my_user }); 
 }

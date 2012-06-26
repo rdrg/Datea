@@ -1,0 +1,57 @@
+
+.image-input-item {
+	line-height:28px;
+	position:relative;
+	
+	.ajax-loading,
+	.image-icon,
+	.delete-image {
+		height:28px;
+		line-height:28px;
+		margin-bottom:9px;
+	}
+	
+	.ajax-loading, .image-icon {
+		display: inline-block;
+		.ie7-inline-block();
+	}
+	
+	.delete-image, .ajax-loading.hide { display: none}
+	
+	.delete-image, .image-icon, .ajax-loading { 
+		position: relative;
+		top: -4px;
+	}
+	
+	.image-icon {
+		width: 31px;
+		background: url(../img/datea/image_input_icon.png) no-repeat center center;
+	}
+	
+	&.is-full {
+		.thumb { margin-right: 5px;}
+		.image-icon { display: none; }
+		
+		.delete-image {
+			margin-left: 5px;
+			display: inline-block;
+			.ie7-inline-block();
+		}
+	}
+	
+	&.is-empty {
+		.thumb { display: none}
+		.image-icon { margin-right:3px; }
+	}
+	
+}
+
+.image-input-m2m {
+	.add-button {
+		margin-top: 10px;
+	}
+	.image-input-item {
+		padding-bottom: 15px;
+		&:last-child { padding-bottom:0px;}
+	}
+}

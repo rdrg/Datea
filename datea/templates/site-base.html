@@ -4,18 +4,39 @@
 	<div class="navbar navbar-fixed-top">
 		<div class="navbar-inner">
 			<div class="container">
-				<a class="brand" href="/">DATEA</a>
+				<a href="/" id="logo">
+					<img src="{{STATIC_URL}}img/logo_header.png" />
+				</a>
 				<div class="pull-right">
-					<div id="profile_head_view">
+					<div id="user_head_view">
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>	
 	
-	{% block main_content %}
+	{% block main_content_wrap %}
+		<!-- AddThis Button BEGIN -->
+		{% comment %}
+		<div class="addthis_default_style addthis_32x32_style share-widget addthis_toolbox" addthis:url="{{ full_url }}">
+                <a class="addthis_button_preferred_1"></a>
+				<a class="addthis_button_preferred_2"></a>
+			    <a class="addthis_button_preferred_3"></a>
+			    <a class="addthis_button_preferred_4"></a>
+		</div>
+
+		<div class="addthis_default_style addthis_32x32_style share-widget addthis_toolbox" addthis:url="http://datea.dev">
+			<a class="addthis_button_preferred_1"></a>
+			<a class="addthis_button_preferred_2"></a>
+			<a class="addthis_button_preferred_3"></a>
+			<a class="addthis_button_preferred_4"></a>
+		</div>
+		<script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+		<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4ddc386c04f5aa80"></script>
+		{% endcomment %}
+		<!-- AddThis Button END -->
 		<div id="main-content" class="container">
-			<div id="main-content-view" class="inner"></div>
+			<div id="main-content-view" class="inner">{% block main_content %}{% endblock %}</div>
 		</div>
 	{% endblock%}
 

@@ -1,0 +1,45 @@
+
+
+/* POPUP OLWIDGET OVERRIDE */
+body {
+	/* position blocks */
+	.olwidgetPopupStemTL, .olwidgetPopupStemTR {
+		z-index: 2;
+	    background: url("../img/olwidget_popup_icons.png") no-repeat scroll -124px 0px;
+	}
+	.olwidgetPopupStemBL, .olwidgetPopupStemBR {
+		z-index: 2;
+	    background: url("../img/olwidget_popup_icons.png") no-repeat scroll -96px 0px;
+	}
+	.olwidgetPopupContent {
+		background-color: white;
+		border: 0px solid #ccc;
+		.border-radius(10px);
+		.box-shadow(0 1px 10px rgba(0,0,0,.50));	
+	}
+	.olwidgetPopupPage{
+		padding-top: 15px;
+	}
+	.olwidgetPopupCloseBox {
+		z-index: 20;
+	}
+}
+
+.map-item.popup {
+	width: 220px;
+	position: relative;
+	font-size: @baseFontSize - 1px;
+	line-height: @baseLineHeight - 3px;
+	.head {
+		margin-right: 20px;
+		.data {
+			padding-top: 0px;
+		}
+	}
+	.stats {
+			padding: 0 0 8px 0;
+	}
+	.buttons {
+
+	}
+}

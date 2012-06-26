@@ -1,0 +1,95 @@
+{% load i18n verbatim_tag datea_category_tags datea_mapping_tags bootstrap_toolkit %}
+{% get_mapping_form as form %}
+<script id="map_item_form_tpl" type="text/html">
+	{% verbatim %}
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal">×</button>
+		<h3>{{action_name}} {% trans "report" %}</h3>
+		
+		<ul class="nav nav-tabs map-item-step-control">
+		    <li class="active"><a class="open-step" href="#map-item-step-1" data-step="1">1</a></li>
+		    <li><a class="open-step" href="#map-item-step-2" data-step="2">2</a></li>
+		    <li><a class="open-step" href="#map-item-step-3" data-step="3">3</a></li>
+	    </ul>		
+	</div>
+	<div class="tab-content">
+			
+		{# STEP 1 #}
+		<div class="tab-pane active map-item-step" id="map-item-step-1">
+			<div class="modal-body">
+				<div class="inner">
+					<div class="hide alert alert-error error-msg">
+						{% trans "Please fill out the fields marked in red." %}
+						<button class="close" data-dismiss="alert">×</button>
+					</div>
+					
+					<div class="step-title"><strong>{% trans "Step" %} 1:</strong> {% trans "fill the following fields" %}</div>
+					
+					<div class="control-group required">
+						<label class="control-label">{% trans "Select the apropiate category" %}:</label>
+						<div class="controls category-options">
+							
+						</div>
+					</div>
+					
+					<div class="control-group required">
+						<label class="control-label">{% trans "Describe the problem and suggest a way to fix it" %}:</label>
+						<div class="controls">
+							<textarea id="textarea" class="input-xlarge span5" rows="0" name="content">{{content}}</textarea>
+						</div>
+					</div>
+					
+					<div class="control-group">
+						<label class="control-label">{% trans "Add images (optional)" %}</label>
+						<div class="controls item-images-view"></div>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer step-control">
+				<div class="pull-right">
+					<a class="next open-step" href="#" data-step="2">{% trans "next" %}</a>
+				</div>
+			</div>
+		</div>
+		
+		{# STEP 2 #}
+		<div class="tab-pane map-item-step" id="map-item-step-2">
+			<div class="modal-body">
+				<div class="inner">
+					<div class="step-title"><strong>{% trans "Step" %} 2:</strong> {% trans "locate your report" %}</div>
+				
+					<div class="enter-position-view"></div>
+				</div>
+			</div>
+			<div class="step-control modal-footer">
+				<div class="pull-left">
+					<a class="previous open-step" href="#" data-step="1">{% trans "previous" %}</a>
+				</div>
+				<div class="pull-right">
+					<a class="next open-step" href="#" data-step="3">{% trans "next" %}</a>
+				</div>
+			</div>
+		</div>
+		
+		{# STEP 3 #}
+		<div class="tab-pane map-item-step" id="map-item-step-3">
+			<div class="modal-body">
+				<div class="inner">
+					<div class="step-title"><strong>{% trans "Step" %} 3:</strong> {% trans "Verify your data" %}</div>
+					
+					<div class="verify-view"></div>
+				</div>
+			</div>
+			<div class="step-control modal-footer">
+				<div class="pull-left">
+					<a class="previous open-step" href="#" data-step="2">{% trans "previous" %}</a>
+				</div>
+				<div class="pull-right">
+					<a class="save-map-item btn btn-primary" href="#">{% trans "Save" %} {% trans "report" %}</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	{% endverbatim %}
+</script>

@@ -1,0 +1,18 @@
+{% load i18n verbatim_tag %}
+<script id="mapping_tab_map_items_tpl" type="text/html">
+{% verbatim %}
+
+	<div class="item-filters">
+		<div class="pull-right">
+			<button type="button" class="btn btn-primary create-report">{% trans "Create report" %}</button>
+		</div>
+	</div>
+	
+	<div class="item-list">
+		<p>{% trans "No reports yet. Be the first!" %}</p>
+	</div>
+	
+	<div class="item-pager hide"></div>
+	
+{% endverbatim %}
+</script>

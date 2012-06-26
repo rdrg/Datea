@@ -3557,7 +3557,7 @@ input[type="submit"].btn.btn-mini {
 }
 
 .navbar-inner {
-  min-height: 66px;
+  min-height: 80px;
   padding-right: 20px;
   padding-left: 20px;
   background-color: #ecff00;
@@ -3586,7 +3586,7 @@ input[type="submit"].btn.btn-mini {
 }
 
 .navbar {
-  color: #999999;
+  color: #1c1c1a;
 }
 
 .navbar .brand:hover {
@@ -3596,30 +3596,30 @@ input[type="submit"].btn.btn-mini {
 .navbar .brand {
   display: block;
   float: left;
-  padding: 21px 20px 25px;
+  padding: 28px 20px 32px;
   margin-left: -20px;
   font-size: 20px;
   font-weight: 200;
   line-height: 1;
-  color: #999999;
+  color: #1c1c1a;
 }
 
 .navbar .navbar-text {
   margin-bottom: 0;
-  line-height: 66px;
+  line-height: 80px;
 }
 
 .navbar .navbar-link {
-  color: #999999;
+  color: #1c1c1a;
 }
 
 .navbar .navbar-link:hover {
-  color: #ffffff;
+  color: #474742;
 }
 
 .navbar .btn,
 .navbar .btn-group {
-  margin-top: 18px;
+  margin-top: 25px;
 }
 
 .navbar .btn-group .btn {
@@ -3645,7 +3645,7 @@ input[type="submit"].btn.btn-mini {
 .navbar-form select,
 .navbar-form .radio,
 .navbar-form .checkbox {
-  margin-top: 18px;
+  margin-top: 25px;
 }
 
 .navbar-form input,
@@ -3674,7 +3674,7 @@ input[type="submit"].btn.btn-mini {
 .navbar-search {
   position: relative;
   float: left;
-  margin-top: 19px;
+  margin-top: 26px;
   margin-bottom: 0;
 }
 
@@ -3768,9 +3768,9 @@ input[type="submit"].btn.btn-mini {
 
 .navbar .nav > li > a {
   float: none;
-  padding: 22px 10px 24px;
+  padding: 29px 10px 31px;
   line-height: 19px;
-  color: #999999;
+  color: #1c1c1a;
   text-decoration: none;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
 }
@@ -3778,31 +3778,31 @@ input[type="submit"].btn.btn-mini {
 .navbar .btn {
   display: inline-block;
   padding: 4px 10px 4px;
-  margin: 18px 5px 19px;
+  margin: 25px 5px 26px;
   line-height: 18px;
 }
 
 .navbar .btn-group {
-  padding: 18px 5px 19px;
+  padding: 25px 5px 26px;
   margin: 0;
 }
 
 .navbar .nav > li > a:hover {
-  color: #ffffff;
+  color: #474742;
   text-decoration: none;
   background-color: transparent;
 }
 
 .navbar .nav .active > a,
 .navbar .nav .active > a:hover {
-  color: #ffffff;
+  color: #474742;
   text-decoration: none;
   background-color: #ecff00;
 }
 
 .navbar .divider-vertical {
   width: 1px;
-  height: 66px;
+  height: 80px;
   margin: 0 9px;
   overflow: hidden;
   background-color: #ecff00;

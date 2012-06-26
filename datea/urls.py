@@ -30,6 +30,9 @@ v1_api.register(ContentTypeResource())
 
 urlpatterns = patterns('',
     url(r'^$', 'datea.datea_home.views.home', name='home'),
+    #url(r'^(?P<path>[a-z0-9-/]+)', 'datea.datea_home.views.redirect_to_hash'),
+    url(r'^', include('datea.datea_action.urls')),
+    url(r'^', include('datea.datea_mapping.urls')),
     
     url(r'^api/',include(v1_api.urls)),
     url(r"image/", include('datea.datea_image.urls')),
@@ -42,6 +45,12 @@ urlpatterns = patterns('',
     (r'^grappelli/', include('grappelli.urls')),
     url(r'', include('social_auth.urls')),
     (r'^accounts/', include('registration.backends.default.urls')),
+    
+   
+    url(r"png/", include('datea.datea_mapping.urls')),
+    
+    # redirect allother paths to hash path -> backbone
+    #
 )
 
 if settings.DEBUG:

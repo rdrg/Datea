@@ -1,0 +1,36 @@
+{% load i18n verbatim_tag %}
+<script id="image_input_small_tpl" type="text/html">
+	<div class="image-input-small">
+		<div class="input-wrap">
+			<div class="control-group">
+				<label class="control-label">{% trans 'Image' %}</label>
+				<div class="controls">
+					<div class="image">
+						<img src="{% verbatim %}{{ thumb }}{% endverbatim %}" />
+					</div>
+					<input class="input-file" id="profile-image-input" class="input-file" type="file" name="image" />
+					<input type="hidden" name="order" value="{% verbatim %}{{ order }}{% endverbatim %}" />
+				</div>
+			</div>
+		</div>
+	</div>
+</script>
+
+<script id="image_input_tpl" type="text/html">
+	<span class="image-icon">&nbsp;</span>
+	<img class="thumb" src="{% verbatim %}{{ thumb }}{% endverbatim %}" />
+	<input class="input-file" id="profile-image-input" class="input-file" type="file" name="image" />
+	<a class="delete-image" href="#"><i class="icon-remove"></i></a>
+	<span class="ajax-loading small hide">&nbsp;</span>
+	<input type="hidden" name="order" value="{% verbatim %}{{ order }}{% endverbatim %}" />
+</script>
+
+
+<script id="image_input_m2m_tpl" type="text/html">
+	<div class="image-input-m2m">
+		<div class="images"></div>	
+		<div class="add-button">
+			<button class="btn btn-small add-image" type="button"><i class="icon-plus"></i></button>
+		</div>
+	</div>
+</script>

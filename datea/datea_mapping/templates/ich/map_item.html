@@ -1,0 +1,82 @@
+{% load i18n verbatim_tag %}
+
+{# MAP ITEM POPUP VIEW #}
+{% verbatim %}
+<script id="map_item_popup_tpl" type="text/html">
+	<div id="map-item-popup-{{ id }}" class="map-item popup">
+	
+		{% include "ich/_post_user_data.html" %}
+		
+		<div class="content">
+			<div class="category">
+				<span class="label" style="background-color: {{ category_color }}">{{ category_name }}</span>
+			</div>
+			<div class="field">{{ extract }}</div>
+		</div>
+		
+		{% include "ich/_map_item_widget_stats.html" %}
+		
+		<div class="buttons">
+			<a class="btn btn-small" href="#{{ url }}">{% trans "Read more" %}</a>
+		</div>
+	
+	</div>
+</script>
+{% endverbatim %}
+
+
+{# MAP ITEM TEASER VIEW #}
+{% verbatim %}
+<script id="map_item_teaser_tpl" type="text/html">
+	
+		{% include "ich/_post_user_data.html" %}
+		
+		<div class="content">
+			<div class="category">
+				<span class="label" style="background-color: {{ category_color }}">{{ category_name }}</span>
+			</div>
+			<div class="field">{{ extract }}</div>
+		</div>
+		
+		{% include "ich/_map_item_widget_stats.html" %}
+		
+		<div class="buttons">
+			<a class="btn btn-small" href="#{{ url }}">{% trans "Read more" %}</a>
+			<a class="btn btn-small open-popup" href="#" data-id="{{ id }}">{% trans "See in map" %}</a>
+		</div>
+		
+</script>
+{% endverbatim %}
+
+
+{# MAP ITEM FULL VIEW #}
+{% verbatim %}
+<script id="map_item_full_tpl" type="text/html">
+	<div class="map-item-full-header">
+		<div class="pull-right">
+			<button type="button" class="btn edit-map-item hide" data-id="{{id}}">{% trans "Edit" %}</button> 
+			<button type="button" class="btn back-to-list">{% trans "Back to list" %}</button>
+		</div>
+	</div>
+	<div id="map-item-full-{{ id }}" class="map-item full">
+	
+		{% include "ich/_post_user_data.html" %}
+		
+		<div class="content">
+			<div class="category">
+				<span class="label" style="background-color: {{ category_color }}">{{ category_name }}</span>
+			</div>
+			<div class="field">{{ content }}</div>
+		</div>
+		
+		{% include "ich/_map_item_widget_stats.html" %}
+		
+		<div class="images"></div>
+		
+		<div class="buttons">
+			<a class="btn btn-small open-popup" href="#" data-id="{{ id }}">{% trans "See in map" %}</a>
+		</div>
+	
+	</div>
+</script>
+{% endverbatim %}

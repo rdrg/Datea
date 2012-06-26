@@ -150,7 +150,8 @@ INSTALLED_APPS = (
     'tastypie',
     'bootstrap_toolkit',
     'django_extensions',
-    'easy_thumbnails',
+    #'easy_thumbnails',
+    'sorl.thumbnail',
     'backbone_tastypie',
     
     # geodjango / location
@@ -225,25 +226,38 @@ SOCIAL_AUTH_UUID_LENGTH = 16
 SOCIAL_AUTH_EXPIRATION = 'expires'
 SOCIAL_AUTH_ASSOCIATE_BY_MAIL = True
 
-TWITTER_CONSUMER_KEY = 'RJqf4w0hdSusPFrLtfwkA'
-TWITTER_CONSUMER_SECRET = 'drV2eP4zYgx8WqTSqzBAhxf6oeJcSMwTUVbBXpJ0qg'
-
-FACEBOOK_APP_ID = '222271061161837'
-FACEBOOK_API_SECRET = '37bf7dc201567ce71e673925d5891f4e'
-FACEBOOK_EXTENDED_PERMISSIONS = ['email']
-
-GOOGLE_OAUTH2_CLIENT_ID = '324703561333.apps.googleusercontent.com'
-GOOGLE_OAUTH2_CLIENT_SECRET = '8ipQymLrQL3lYnCGwqgxnP37'
-
-#DJANGO-REGISTRATION SETTINGS
 ACCOUNT_ACTIVATION_DAYS = 7 
 
+# EASY THUMBNAILS HAS PROBLEMS WITH TASTYPIE RELATED FIELDS OR DJANGO 1.4!!! 
 #Thumbnails definitions
-THUMBNAIL_ALIASES = {
-    '': {
-        'profile_image': {'size': (50, 50), 'crop': True},
-        'profile_image_small': {'size': (25, 25), 'crop': True},
-        'profile_image_large': {'size': (130, 130), 'crop': True}
-    },
+#THUMBNAIL_ALIASES = {
+#    '': {
+#        'image_thumb': {'size': (90,90)},
+#        'profile_image': {'size': (50, 50), 'crop': True},
+#        'profile_image_small': {'size': (25, 25), 'crop': True},
+#        'profile_image_large': {'size': (130, 130), 'crop': True},
+#        'category_image': {'size':(130,130), 'crop': True},
+#        'marker_image': {'size':(0,38)},
+#    },
+#}
+#THUMBNAIL_PRESERVE_EXTENSIONS = ('png',)
+
+# OWN Implementation of presets for datea_image with sorl.thumbnails
+THUMBNAIL_PRESETS = {
+    'image_thumb': { "size": "90x90" },
+    'image_thumb_medium': {"size": "160x"},
+    'image_thumb_large': {"size": "460x345"},
+    'profile_image': {'size': "54x54", 'options': {'crop': 'center'}},
+    'profile_image_small': {'size': "42x42", 'options': {'crop': 'center'}},
+    'profile_image_large': {'size': "130x130", 'options': {'crop': 'center'}},
+    'category_image': {'size': "130x130", 'options': {'crop': 'center'}},
+    'marker_image': {'size':"x38", "options": {'format': 'PNG'}},
 }
 DEFAULT_PROFILE_IMAGE = os.path.join(MEDIA_ROOT, 'default/img/default-user.png')
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+        'LOCATION': '127.0.0.1:11211',
+    }
+}
