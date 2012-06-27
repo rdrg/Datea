@@ -1,0 +1,40 @@
+.social-auth-buttons {
+			
+	margin-bottom: 30px;
+	.button-box {
+		display: inline-block;
+		.ie7-inline-block();
+		background-color: white;
+		padding: 10px;
+		.login-button {
+			display: inline-block;
+			.ie7-inline-block();
+			width: 219px;
+			height: 30px;
+			margin-bottom: 0px;
+			line-height: 30px;
+			margin-right: 10px;
+			color: transparent !important;
+			
+			&.last {
+				margin-bottom: 0px;
+			}
+			
+			&.facebook {
+				background: url(../img/datea/login_facebook2.png) no-repeat left top;
+			}
+			&.twitter {
+				background: url(../img/datea/login_twitter2.png) no-repeat left top;
+			}
+			&.google {
+				background: url(../img/datea/login_google2.png) no-repeat left top;
+			}
+			.box-shadow(0 1px 3px rgba(0,0,0,.25));
+			
+			&:hover {
+				.opacity(80);
+				.box-shadow(0 0px 0px rgba(0,0,0,.25));
+			}
+		}
+	}
+}

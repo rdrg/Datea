@@ -2,8 +2,18 @@
 {% load i18n bootstrap_toolkit %}
 {% block title %}{% trans 'Register for an account' %}{% endblock %}
 {% block content %}
+<div class="page-header">
+    <h1>{% trans "Register" %}</h1>
+</div>
+
+<h3>{% trans "Welcome!" %}</h3>
+
+{% include "social_auth/social-auth-login-links.html" %}
+
+<p class="desc">{% trans "Or you can register an account here at Datea:" %}</p>
+
 <form class="well" method='post' action=''>{% csrf_token %}
         {{ form|as_bootstrap }}
-        <input class="btn" type="submit" value="{% trans 'Register' %}" />
+        <input class="btn btn-primary btn-large" type="submit" value="{% trans 'Register' %}" />
 </form>
 {% endblock %}

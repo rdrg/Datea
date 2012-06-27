@@ -3,9 +3,17 @@
 {% block title %}{% trans "Login" %}{% endblock %}
 {% block content %}
 
+<div class="page-header">
+    <h1>{% trans "Login" %}</h1>
+</div>
+
+<h3>{% trans "Welcome!" %}</h3>
+
 {% include "social_auth/social-auth-login-links.html" %}
 
 {% if request.user.is_authenticated %}<p>{{user.username }}: You are authenticated</p>{% endif %}
+
+<p class="desc">{% trans "Or with your Datea account:" %}</p>
 
 <form class="well" method="post" action="{% url django.contrib.auth.views.login %}">{% csrf_token %}
 
@@ -14,7 +22,7 @@
 <p><a href="{% url auth_password_reset %}">{% trans 'Forgot your password?' %}</a>  <a href="{% url registration_register %}">{% trans 'Need an account?' %}</a></p>
 
 
-<input class="btn" type="submit" value="{% trans 'Login' %}" />
+<input class="btn btn-primary btn-large" type="submit" value="{% trans 'Login' %}" />
 <input class="btn" type="hidden" name="next" value="{{ next }}" />
 </form>
 

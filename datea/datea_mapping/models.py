@@ -51,7 +51,7 @@ class DateaMapItem(models.Model):
     
     def save(self, *args, **kwargs):
         
-        super(DateaMapping, self).save(*args, **kwargs)
+        super(DateaMapItem, self).save(*args, **kwargs)
         
     
     def __unicode__(self):

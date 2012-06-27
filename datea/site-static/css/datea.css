@@ -77,8 +77,9 @@
 }
 
 #login-header a.btn-login {
-  margin-top: 10px;
+  margin-top: 20px;
   margin-bottom: 2px;
+  line-height: 22px !important;
 }
 
 #main-content {
@@ -205,6 +206,57 @@ textarea {
 
 textarea.autoresize {
   height: 18px;
+}
+
+.social-auth-buttons {
+  margin-bottom: 30px;
+}
+
+.social-auth-buttons .button-box {
+  display: inline-block;
+  *display: inline;
+  padding: 10px;
+  background-color: white;
+  *zoom: 1;
+}
+
+.social-auth-buttons .button-box .login-button {
+  display: inline-block;
+  *display: inline;
+  width: 219px;
+  height: 30px;
+  margin-right: 10px;
+  margin-bottom: 0;
+  line-height: 30px;
+  color: transparent !important;
+  *zoom: 1;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+     -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+}
+
+.social-auth-buttons .button-box .login-button.last {
+  margin-bottom: 0;
+}
+
+.social-auth-buttons .button-box .login-button.facebook {
+  background: url(../img/datea/login_facebook2.png) no-repeat left top;
+}
+
+.social-auth-buttons .button-box .login-button.twitter {
+  background: url(../img/datea/login_twitter2.png) no-repeat left top;
+}
+
+.social-auth-buttons .button-box .login-button.google {
+  background: url(../img/datea/login_google2.png) no-repeat left top;
+}
+
+.social-auth-buttons .button-box .login-button:hover {
+  opacity: 0.8;
+  filter: alpha(opacity=80);
+  -webkit-box-shadow: 0 0 0px rgba(0, 0, 0, 0.25);
+     -moz-box-shadow: 0 0 0px rgba(0, 0, 0, 0.25);
+          box-shadow: 0 0 0px rgba(0, 0, 0, 0.25);
 }
 
 .image-input-item {

@@ -2,8 +2,11 @@
 {% load i18n %}
 {% block title %}{% trans "Activation complete" %}{% endblock %}
 {% block content %}
+<div class="page-header">
+    <h1>{% trans "Account activation" %}</h1>
+</div>
 {% blocktrans %}
-Thanks, activation complete!  You may now{% endblocktrans %} <a href='{% url auth_login %}'>login</a> {% blocktrans %}using the username and password you set at registration.
+Thanks, activation complete!  You may now{% endblocktrans %} <a class="btn btn-large btn-primary" href='{% url auth_login %}'>login</a> {% blocktrans %}using the username and password you set at registration.
 {% endblocktrans %}
 {% endblock %}
 

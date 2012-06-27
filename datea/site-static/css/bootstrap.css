@@ -2734,10 +2734,8 @@ button.close {
 }
 
 .btn-success {
-  /*.gradientBar(@startColor, @endColor);*/
-
-  /*background-color: @startColor;*/
-
+  color: white;
+  background-color: #27bb44;
 }
 
 .btn-success:hover,
@@ -2745,16 +2743,7 @@ button.close {
 .btn-success.active,
 .btn-success.disabled,
 .btn-success[disabled] {
-  /*background-color: @endColor;*/
-
-  /**background-color: darken(@endColor, 5%);*/
-
-  background-color: #9ad99a;
-}
-
-.btn-success:active,
-.btn-success.active {
-  background-color: #408140 \9;
+  background-color: #53db6e;
 }
 
 .btn-info {
@@ -2982,7 +2971,7 @@ input[type="submit"].btn.btn-mini {
 }
 
 .btn-group.open .btn-success.dropdown-toggle {
-  background-color: #51a351;
+  background-color: #27bb44;
 }
 
 .btn-group.open .btn-info.dropdown-toggle {
