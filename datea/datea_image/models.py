@@ -31,8 +31,12 @@ class DateaImage(models.Model):
         return get_thumbnail(self.image, Preset['size'], **options).url
     
     def save(self, *args, **kwargs):
-        image = default.engine.get_image(self.image)
-        (self.width, self.height) = default.engine.get_image_size(image)
+
+        if not self.image._file:
+            print "BEFORE", vars(self.image)
+            image = default.engine.get_image(self.image)
+            print "AFTER", vars(image)
+            (self.width, self.height) = default.engine.get_image_size(image)
         super(DateaImage, self).save(*args, **kwargs)
 
         

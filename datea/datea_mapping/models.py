@@ -49,6 +49,11 @@ class DateaMapItem(models.Model):
     # Object Manager from geodjango
     objects = models.GeoManager()
     
+    def save(self, *args, **kwargs):
+        
+        super(DateaMapping, self).save(*args, **kwargs)
+        
+    
     def __unicode__(self):
         return self.user.username+': '+strip_tags(self.content)[:100]
     

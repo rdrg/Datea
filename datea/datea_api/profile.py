@@ -34,8 +34,6 @@ class ProfileResource(DateaBaseResource):
         if 'image_large' in bundle.data:
             del bundle.data['image_large']
         
-        print "PROFILE DATA", bundle.data
-        
         # leave image foreign keys to images untouched (must be edited through other methods)
         if 'id' in bundle.data and bundle.data['id']:
             profile = DateaProfile.objects.get(pk=bundle.data['id'])
@@ -74,7 +72,11 @@ class UserResource(DateaBaseResource):
             del bundle.data['profile']['image']
         if 'image_large' in bundle.data['profile']:
             del bundle.data['profile']['image_large']
-        print "USER DATA", bundle.data
+        
+        # keep password!!! -> not to be changed here
+        orig_obj = User.objects.get(pk=bundle.data['id'])
+        bundle.obj.password = orig_obj.password
+        
         return bundle
             
     class Meta:

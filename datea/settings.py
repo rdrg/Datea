@@ -245,7 +245,7 @@ ACCOUNT_ACTIVATION_DAYS = 7
 # OWN Implementation of presets for datea_image with sorl.thumbnails
 THUMBNAIL_PRESETS = {
     'image_thumb': { "size": "90x90" },
-    'image_thumb_medium': {"size": "160x"},
+    'image_thumb_medium': {"size": "160"},
     'image_thumb_large': {"size": "460x345"},
     'profile_image': {'size': "54x54", 'options': {'crop': 'center'}},
     'profile_image_small': {'size': "42x42", 'options': {'crop': 'center'}},

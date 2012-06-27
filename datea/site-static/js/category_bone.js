@@ -80,9 +80,9 @@ window.Datea.FreeCategoryEditView  = Backbone.View.extend({
 		this.$el.html( ich.free_category_edit_tpl(this.model.toJSON()));
 		
 		var img = new Datea.Image();
-		if (this.model.attributes.image) img.set(this.model.attributes.image);
+		if (this.model.get('image')) img.set(this.model.get('image'));
 		var marker = new Datea.Image();
-		if (this.model.attributes.marker_image) marker.set(this.model.attributes.marker_image);
+		if (this.model.get('marker_image')) marker.set(this.model('marker_image'));
 		
 		var self = this;
 

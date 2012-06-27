@@ -5,7 +5,7 @@ window.Datea.MappingDataView = Backbone.View.extend({
 	
 	initialize: function () {
 		this.view_mode = 'map';
-		this.mapModel = this.options.mapModel;
+		this.mappingModel = this.options.mappingModel;
 	},
 	
 	render: function (eventName) {
@@ -14,12 +14,20 @@ window.Datea.MappingDataView = Backbone.View.extend({
 		// add map
 		this.mapView = new Datea.MappingDataViewMap({
 			model: this.model,
-			mapModel: this.mapModel,
+			mapModel: this.mappingModel,
 			el: this.$el.find('#map-data-view'),	
 		});
 		this.mapView.render();
 		
 		// add categories
+		var categories = this.mappingModel.get('item_categories');
+		if (categories) {
+			var $cat_el = this.$el.find('.data-view-categories');
+			_.each(categories, function(cat) {
+				$cat_el.append(ich.free_category_leyend_tpl(cat));
+			});
+			$cat_el.removeClass('hide');
+		}
 		
 	}
 	

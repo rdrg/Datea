@@ -137,6 +137,7 @@ def facebook_user_update(sender, user, response, details, **kwargs):
     # grabar imagen de avatar
     try:        
         img_url = "http://graph.facebook.com/%s/picture?type=large" % response["id"]
+        
         img = urlopen(img_url)
         if profile_instance.image_social == None:
             img_obj = DateaImage(user=user)

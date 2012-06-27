@@ -32,10 +32,15 @@ class MappingResource(DateaBaseGeoResource):
     
     def hydrate(self, bundle):
         print "HYDRATING MAPPING!!"
-        # save fks by ourselves, tastypie also saves 
-        # the related object
+        # save fks by ourselves, because tastypie also saves 
+        # the related object -> we don't want that -> set to readonly
         if 'category' in bundle.data and bundle.data['category']:
             bundle.obj.category_id = int(bundle.data['category']) 
+        
+        if ( 'image' in bundle.data 
+              and bundle.data['image']
+              and 'id' in bundle.data['image']):
+            bundle.obj.image_id = int(bundle.data['image']['id'])
     
         if bundle.request.method == 'POST':
             # use request user

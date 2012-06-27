@@ -44,7 +44,7 @@ window.Datea.MappingMainView = Backbone.View.extend({
 		// include data-view
 		this.data_view = new Datea.MappingDataView({
 			model: this.map_items, // MODEL is MAP_ITEM COLLECTION
-			mapModel: this.model,
+			mappingModel: this.model,
 			el: this.$el.find('#right-content')
 		});
 		this.data_view.render();

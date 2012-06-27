@@ -1,0 +1,125 @@
+
+.map-item-form {
+	position: relative;
+	
+	.modal-body {
+		padding-bottom: 0px;
+	}
+	
+	.map-item-step-control {
+		position: absolute;
+		top: 23px;
+		right: 230px;
+		margin-bottom: 0px;
+		border-bottom:0px;
+		padding-bottom:0px;
+		font-size: 18px;
+		font-weight: normal;
+		color: @grayLighter;
+		
+		li {
+			a {  
+				border: 0;
+				color: lighten(@grayLight, 20%);
+				display:inline;
+				background-color: transparent;
+				margin: 0 5px 0 7px;	
+				&:hover {
+					border:0;
+					color: @gray;	
+				}
+			}
+			&.active {
+				a {
+					color: @grayText;
+				}
+			}
+		}
+	}
+	
+	.step-title {
+		font-size: 15px;
+		margin-bottom: 15px;
+	}
+	
+	.category-options {
+		label.radio {
+			font-size: 14px;
+			margin-bottom: 10px;
+		}
+	}
+	
+	.control-group {
+		label.control-label { 
+			font-size: @baseFontSize - 1px;
+			margin-bottom: 1px;
+			color: @grayText;
+		}
+		&.error {
+			label.control-label {
+				color: @errorText;
+			}
+		}
+		
+		margin-bottom:15px;
+	}
+	
+	.verify-item {
+		.change {
+			margin-left: 4px; 
+			line-height: 16px;
+			text-decoration: none; 
+			color: @grayText;
+			.opacity(60);
+			&:hover {
+				.opacity(100);
+			}
+		}
+		margin-bottom: 15px;
+	}
+	
+	.success-msg {
+		font-size: 15px;
+		margin-bottom: 10px;
+	}
+	
+	.share {
+		.share-text {
+			margin-bottom: 5px;
+		}
+		margin-bottom: 10px;
+	}
+	
+}
+
+.step-control {
+	.prev, .next {
+		color: @grayLight;
+		line-height: 30px;
+		text-decoration: none;
+		.icon {
+			display: inline-block;
+			.ie7-inline-block();
+			 width: 30px;
+		}
+		&:hover { color: @gray;}
+	}
+	.prev {
+		.icon {
+			margin-right: 8px; 
+			background: url(../img/datea/prev-next.png) no-repeat 0px center; 
+		}
+		&:hover {
+			.icon { background: url(../img/datea/prev-next.png) no-repeat -30px center; }	
+		}
+	}
+	.next {
+		.icon { 
+			background: url(../img/datea/prev-next.png) no-repeat -60px center;
+			margin-left: 8px;
+		}
+		&:hover {
+			.icon { background: url(../img/datea/prev-next.png) no-repeat -90px center; }	
+		}
+	}
+}

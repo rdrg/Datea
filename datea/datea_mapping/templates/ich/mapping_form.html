@@ -49,6 +49,14 @@
 					</div>
 				</div>
 				{% endwith %}
+				{% with form.image as field %}
+				<div class="control-group required">
+					<label class="control-label">{{ field.label }}</label>
+					<div class="controls">
+						<div id="mapping-image-input-view"></div>
+					</div>
+				</div>
+				{% endwith %}
 				{% with form.mission as field %}
 				<div class="control-group required">
 					<label class="control-label">{{ field.label }}</label>

@@ -38,6 +38,21 @@ window.Datea.MappingFormView = Backbone.View.extend({
 		})
 		cat_view.render();
 		
+		// MAPPING IMAGE
+		var img = new Datea.Image();
+		if (this.model.get('image')) img.set(this.model.get('image'));
+		
+		var self = this;
+		var img_view = new Datea.ImageInputView({
+			model: img, 
+			callback: function(data){
+				if (data.ok) {
+					self.model.set({image: data.resource }, {silent: true});
+				}
+			} 
+		});
+		this.$el.find('#mapping-image-input-view').html(img_view.render().el);
+		
 		return this;	
 	},
 	
