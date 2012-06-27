@@ -9,6 +9,7 @@ from sorl.thumbnail import get_thumbnail
 from django.core.files.base import ContentFile
 from django.conf import settings
 
+
 class DateaProfile(models.Model):
     
     user = models.OneToOneField(User, verbose_name=_("User"), related_name="profile")
@@ -33,9 +34,9 @@ class DateaProfile(models.Model):
     
     def get_image_thumb(self, thumb_preset = 'profile_image'):
         if self.image:
-            return self.image.get_thumb(thumb_preset).url
+            return self.image.get_thumb(thumb_preset)
         elif self.image_social:
-            return self.image_social.get_thumb(thumb_preset).url
+            return self.image_social.get_thumb(thumb_preset)
         else:
             Preset = settings.THUMBNAIL_PRESETS[thumb_preset]
             url = settings.DEFAULT_PROFILE_IMAGE

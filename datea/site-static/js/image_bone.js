@@ -68,6 +68,9 @@ window.Datea.ImageInputView = Backbone.View.extend({
 		if (this.options.template) {
 			this.template = this.options.template;
 		}
+		if (this.options.placeholder){
+			this.$el.addClass('has-placeholder');
+		}
 	},
 	
 	events: {
@@ -76,20 +79,32 @@ window.Datea.ImageInputView = Backbone.View.extend({
 	},
 	
 	render: function (eventName) {
-		
-		this.$el.html( ich[this.template](this.model.toJSON()));
+		var context = this.model.toJSON();
+		if (this.model.isNew() && this.options.placeholder) {
+			context.thumb = this.options.placeholder;
+		}
+		this.$el.html( ich[this.template](context));
 		if (!this.model.isNew()) {
 			this.$el.removeClass('is-empty').addClass('is-full');
 			$('.delete-image', this.$el).removeClass('hide');
 		}else{
 			this.$el.removeClass('is-full').addClass('is-empty');
 		}
+		
+		if (this.options.no_delete) {
+			this.$el.find('.delete-image').hide();
+		}
+		
 		return this
 	},	
 
 	upload: function() {
 		
-		this.$el.find('.ajax-loading').removeClass('hide');
+		if(!this.options.hide_loading) {
+			this.$el.find('.ajax-loading').removeClass('hide');
+		}
+		
+		if (this.options.callfirst) this.options.callfirst();
 		
 		var self = this;
 	    $.ajax('/image/save/', {
@@ -100,14 +115,14 @@ window.Datea.ImageInputView = Backbone.View.extend({
 	        processData: false
 	    
 	    }).complete(function(data) {
+	 
 	        var response = jQuery.parseJSON(data.responseText);
 	        if (response.ok) {
 	        	
 		        self.model.set(response.resource);
+		        
 		        // run callback if present 
 		        if (typeof(self.options.callback) != 'undefined') self.options.callback(response);
-		        // fetch specified models in "fetch_model"
-		        if (typeof(self.options.fetch_model) != 'undefined') self.options.fetch_model.fetch();
 		        
 		        self.render();
 		    }
@@ -181,7 +196,6 @@ window.Datea.ImageInputM2MView = Backbone.View.extend({
 	},
 
 	add_image: function (ev) {
-		console.log("add carajo");
 		ev.preventDefault();
 		this.model.add(new Datea.Image({order: (this.model.length -1)}), {silent:true});
 		this.render();
@@ -204,6 +218,7 @@ window.Datea.ImageInputM2MView = Backbone.View.extend({
 });
 
 
+
 window.Datea.ImageCarousel = Backbone.View.extend({
 	
 	tagName: 'div',
@@ -213,6 +228,7 @@ window.Datea.ImageCarousel = Backbone.View.extend({
 	
 	initialize: function() {
 		this.attributes.id = this.options.carousel_id;
+		this.$el.attr('id',this.attributes.id);  
 	},
 	
 	render: function () {
@@ -221,11 +237,22 @@ window.Datea.ImageCarousel = Backbone.View.extend({
 		}else{
 			this.$el.html(ich.image_carousel_tpl({'carousel_id': this.attributes.id }));
 			var $inner = this.$el.find('.carousel-inner');
+			var i = 0;
 			_.each(this.model.models, function(model) {
-				$inner.append(ich.image_carousel_item_tpl(model.toJSON()));
+				var context = model.toJSON();
+				if (i == 0) {
+					context.active_class = 'active';
+				}
+				$inner.append(ich.image_carousel_item_tpl(context));
+				i++;
 			});
+			this.$el.carousel({'interval': false});
 		}
 		return this;
-	} 
+	},
+	
+	start_carousel: function() {
+		this.$el.carousel({'interval': false});
+	},
 	
 }); 

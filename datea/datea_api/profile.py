@@ -9,8 +9,7 @@ from tastypie.authorization import Authorization
 from datea.datea_profile.models import DateaProfile
 
 class ProfileResource(DateaBaseResource):
-    
-    
+
     #user = fields.ToOneField('datea.datea_api.profile.UserResource',
     #        attribute = 'user', 
     #        related_name='profile',
@@ -26,11 +25,23 @@ class ProfileResource(DateaBaseResource):
         return bundle
     
     def hydrate(self, bundle):
+        
+        # clean stuff
+        if 'image_small' in bundle.data:
+            del bundle.data['image_small']
+        if 'image' in bundle.data:
+            del bundle.data['image']
+        if 'image_large' in bundle.data:
+            del bundle.data['image_large']
+        
+        print "PROFILE DATA", bundle.data
+        
         # leave image foreign keys to images untouched (must be edited through other methods)
         if 'id' in bundle.data and bundle.data['id']:
             profile = DateaProfile.objects.get(pk=bundle.data['id'])
             bundle.obj.image_social = profile.image_social
             bundle.obj.image = profile.image
+            bundle.obj.user = profile.user
         return bundle
     
     class Meta:
@@ -51,9 +62,20 @@ class UserResource(DateaBaseResource):
     
     
     profile = fields.ToOneField('datea.datea_api.profile.ProfileResource',
-            'profile',
+            attribute='profile',
             full=True,
             null=True)
+    
+    def hydrate(self, bundle):
+         # clean stuff
+        if 'image_small' in bundle.data['profile']:
+            del bundle.data['profile']['image_small']
+        if 'image' in bundle.data['profile']:
+            del bundle.data['profile']['image']
+        if 'image_large' in bundle.data['profile']:
+            del bundle.data['profile']['image_large']
+        print "USER DATA", bundle.data
+        return bundle
             
     class Meta:
         queryset = User.objects.all()

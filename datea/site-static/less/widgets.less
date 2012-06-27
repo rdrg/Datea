@@ -1,10 +1,14 @@
 
-span.caret {
-    background-image: url(../img/caret.png) no-repeat center center;
+span.caret2 {
+    background: url(../img/datea/caret.png) no-repeat center center;
     width: 15px;
-    .opacity(70);    
+    display:inline-block;
+    .ie7-inline-block();
+    .opacity(50);    
 }
 
-a:hover span.caret {
-    .opacity(100);
+a {
+	&:hover span.caret2 {
+    	.opacity(100);
+   }
 }

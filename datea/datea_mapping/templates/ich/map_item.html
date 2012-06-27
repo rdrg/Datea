@@ -9,7 +9,7 @@
 		
 		<div class="content">
 			<div class="category">
-				<span class="label" style="background-color: {{ category_color }}">{{ category_name }}</span>
+				<span class="badge" style="background-color: {{ category_color }}">{{ category_name }}</span>
 			</div>
 			<div class="field">{{ extract }}</div>
 		</div>
@@ -17,7 +17,7 @@
 		{% include "ich/_map_item_widget_stats.html" %}
 		
 		<div class="buttons">
-			<a class="btn btn-small" href="#{{ url }}">{% trans "Read more" %}</a>
+			<a class="btn btn-mini" href="#{{ url }}">{% trans "Read more" %}</a>
 		</div>
 	
 	</div>
@@ -33,7 +33,7 @@
 		
 		<div class="content">
 			<div class="category">
-				<span class="label" style="background-color: {{ category_color }}">{{ category_name }}</span>
+				<span class="badge" style="background-color: {{ category_color }}">{{ category_name }}</span>
 			</div>
 			<div class="field">{{ extract }}</div>
 		</div>
@@ -41,8 +41,8 @@
 		{% include "ich/_map_item_widget_stats.html" %}
 		
 		<div class="buttons">
-			<a class="btn btn-small" href="#{{ url }}">{% trans "Read more" %}</a>
-			<a class="btn btn-small open-popup" href="#" data-id="{{ id }}">{% trans "See in map" %}</a>
+			<a class="btn btn-mini" href="#{{ url }}">{% trans "Read more" %}</a>
+			<a class="btn btn-mini open-popup" href="#" data-id="{{ id }}">{% trans "See in map" %}</a>
 		</div>
 		
 </script>
@@ -53,9 +53,10 @@
 {% verbatim %}
 <script id="map_item_full_tpl" type="text/html">
 	<div class="map-item-full-header">
+		<a href="#" class="back-to-list">&lt;&lt;{% trans "back" %}</a>
 		<div class="pull-right">
-			<button type="button" class="btn edit-map-item hide" data-id="{{id}}">{% trans "Edit" %}</button> 
-			<button type="button" class="btn back-to-list">{% trans "Back to list" %}</button>
+			<button type="button" class="btn edit-map-item hide" data-id="{{id}}">{% trans "Edit" %}</button>
+			<button class="btn btn-primary create-report" type="button">{% trans "Create report" %}</button> 
 		</div>
 	</div>
 	<div id="map-item-full-{{ id }}" class="map-item full">
@@ -64,7 +65,7 @@
 		
 		<div class="content">
 			<div class="category">
-				<span class="label" style="background-color: {{ category_color }}">{{ category_name }}</span>
+				<span class="badge" style="background-color: {{ category_color }}">{{ category_name }}</span>
 			</div>
 			<div class="field">{{ content }}</div>
 		</div>

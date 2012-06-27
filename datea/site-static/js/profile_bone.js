@@ -6,6 +6,12 @@ window.Datea.User = Backbone.Model.extend({
 });
 
 //++++++++++++++++++++++
+// User model
+window.Datea.Profile = Backbone.Model.extend({
+	urlRoot: "/api/v1/profile",
+});
+
+//++++++++++++++++++++++
 // User Collection
 window.Datea.UserCollection = Backbone.Collection.extend({
 	model: Datea.User,
@@ -28,7 +34,6 @@ window.Datea.MyUserHeadView = Backbone.View.extend({
 	render: function (eventName) {
 
     	if (!this.model.isNew()) {
-    		console.log(this.model);
     		this.$el.html(ich.my_user_head_tpl(this.model.toJSON()));
     	}else{
     		this.$el.html(ich.my_user_head_login_tpl());
@@ -61,24 +66,62 @@ window.Datea.MyUserEditView = Backbone.View.extend({
 	
 	render: function (eventName) {
 		this.$el.html( ich.my_user_edit_tpl(this.model.toJSON()));
+		if (this.img_upload_view) {
+			this.$el.find('.image-input-view').html(this.img_upload_view.render().el);
+		}
 		return this;
 	},
 	
 	save_profile: function() {
-		this.model.set({
+		
+		var profile = new Datea.Profile(this.model.get('profile'));
+		profile.set({
 			'full_name': this.$el.find('#edit-profile-full-name').val(),
 		});
-		this.model.save();
+		
+		this.model.set({
+			'profile': profile.toJSON(),
+		});
+		Datea.show_big_loading(this.$el);
+		var self = this;
+		this.model.save({
+			success: function (model, response) {
+				Datea.hide_big_loading(self.$el);
+			}
+		});
 	},
 	
 	open_window: function () {
 		Datea.modal_view.set_content(this);
 		Datea.modal_view.open_modal();
 		
-		var img_upload_view = new Datea.ImageUploadView({
-				'el': $('#profile-image-upload', this.$el),
-				'fetch_model': this.model
-			});
+		var img = new Datea.Image();
+		var self = this;
+		this.img_upload_view = new Datea.ImageInputView({
+			model: img,
+			placeholder: this.model.get('profile').image_large,
+			no_delete: true,
+			hide_loading: true,
+			img_data: {
+				object_type: 'DateaProfile',
+				object_id: this.model.get('profile').id,
+				object_field: 'image',
+				thumb_preset: 'profile_image_large',
+			},
+			callfirst:function() {
+				Datea.show_big_loading(self.$el);
+			},
+			callback: function (response) {
+				if (response.ok) {
+					self.model.fetch({
+						success: function () {
+							Datea.hide_big_loading(self.$el);
+						}
+					});
+				}
+			}, 
+		});
+		this.$el.find('.image-input-view').html(this.img_upload_view.render().el);
 	},
 });
 

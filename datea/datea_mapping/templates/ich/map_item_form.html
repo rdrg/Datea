@@ -7,8 +7,8 @@
 		<h3>{{action_name}} {% trans "report" %}</h3>
 		
 		<ul class="nav nav-tabs map-item-step-control">
-		    <li class="active"><a class="open-step" href="#map-item-step-1" data-step="1">1</a></li>
-		    <li><a class="open-step" href="#map-item-step-2" data-step="2">2</a></li>
+		    <li class="active"><a class="open-step" href="#map-item-step-1" data-step="1">1</a> <span class="arrow">&gt;</span></li>
+		    <li><a class="open-step" href="#map-item-step-2" data-step="2">2</a><span class="arrow">&gt;</span></li>
 		    <li><a class="open-step" href="#map-item-step-3" data-step="3">3</a></li>
 	    </ul>		
 	</div>
@@ -35,7 +35,7 @@
 					<div class="control-group required">
 						<label class="control-label">{% trans "Describe the problem and suggest a way to fix it" %}:</label>
 						<div class="controls">
-							<textarea id="textarea" class="input-xlarge span5" rows="0" name="content">{{content}}</textarea>
+							<textarea id="textarea" class="input-xlarge span6-5 autoresize" rows="0" name="content">{{content}}</textarea>
 						</div>
 					</div>
 					
@@ -47,7 +47,7 @@
 			</div>
 			<div class="modal-footer step-control">
 				<div class="pull-right">
-					<a class="next open-step" href="#" data-step="2">{% trans "next" %}</a>
+					<a class="next open-step" href="#" data-step="2">{% trans "next" %}<span data-step="2" class="icon">&nbsp;</span></a>
 				</div>
 			</div>
 		</div>
@@ -56,6 +56,9 @@
 		<div class="tab-pane map-item-step" id="map-item-step-2">
 			<div class="modal-body">
 				<div class="inner">
+					<div class="pull-right">
+						<a class="open-step" data-step="3" href="#">{% trans "has no location" %} <i class="icon-arrow-right"></i></a>
+					</div>
 					<div class="step-title"><strong>{% trans "Step" %} 2:</strong> {% trans "locate your report" %}</div>
 				
 					<div class="enter-position-view"></div>
@@ -63,10 +66,10 @@
 			</div>
 			<div class="step-control modal-footer">
 				<div class="pull-left">
-					<a class="previous open-step" href="#" data-step="1">{% trans "previous" %}</a>
+					<a class="prev open-step" href="#" data-step="1"><span data-step="1" class="icon">&nbsp;</span>{% trans "previous" %}</a>
 				</div>
 				<div class="pull-right">
-					<a class="next open-step" href="#" data-step="3">{% trans "next" %}</a>
+					<a class="next open-step" href="#" data-step="3">{% trans "next" %}<span data-step="3" class="icon">&nbsp;</span></a>
 				</div>
 			</div>
 		</div>
@@ -82,10 +85,10 @@
 			</div>
 			<div class="step-control modal-footer">
 				<div class="pull-left">
-					<a class="previous open-step" href="#" data-step="2">{% trans "previous" %}</a>
+					<a class="prev open-step" href="#" data-step="2"><span data-step="2" class="icon">&nbsp;</span>{% trans "previous" %}</a>
 				</div>
 				<div class="pull-right">
-					<a class="save-map-item btn btn-primary" href="#">{% trans "Save" %} {% trans "report" %}</a>
+					<a class="save-map-item btn btn-large btn-primary" href="#">{% trans "Save" %} {% trans "report" %}</a>
 				</div>
 			</div>
 		</div>

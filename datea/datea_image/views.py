@@ -94,7 +94,7 @@ def save_image(request):
                 data = {'ok': True, 'message':'Everything\'s fine', 'resource': im_bundle.data }
                 if form.cleaned_data['thumb_preset']:
                     try:
-                        data['thumb'] = image_instance.image[form.cleaned_data['thumb_preset']].url
+                        data['resource']['thumb'] = image_instance.get_thumb(form.cleaned_data['thumb_preset'])
                     except:
                         pass
                                
@@ -118,7 +118,7 @@ def save_image(request):
             data = {'ok': True, 'message':'Everything\'s fine', 'resource': im_bundle.data}
             if form.cleaned_data['thumb_preset']:
                     try:
-                        data['thumb'] = image_instance.image[form.cleaned_data['thumb_preset']].url
+                        data['resource']['thumb'] = image_instance.image[form.cleaned_data['thumb_preset']].url
                     except:
                         pass
             

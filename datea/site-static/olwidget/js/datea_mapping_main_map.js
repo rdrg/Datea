@@ -232,7 +232,6 @@ olwidget.DateaMainMapItemLayer = OpenLayers.Class(olwidget.BaseVectorLayer, {
 		
 		// find our feature -> check clusters
 		var found = this.find_item_feature(item_id);
-		
 		if (do_zoom) {
 			this.map.zoomToExtent(found.feature.geometry.getBounds());
 			this.map.zoomTo(Math.min(this.map.getZoom(), this.map.opts.zoomToDataExtentMin));

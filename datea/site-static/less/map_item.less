@@ -1,29 +1,33 @@
 
-
-/* POPUP OLWIDGET OVERRIDE */
-body {
-	/* position blocks */
-	.olwidgetPopupStemTL, .olwidgetPopupStemTR {
-		z-index: 2;
-	    background: url("../img/olwidget_popup_icons.png") no-repeat scroll -124px 0px;
+.post-user-data {
+	.clearfix();
+	padding-bottom: 7px;
+	
+	.user-picture {
+		float: left;
+		margin-right: 9px;
+		a {
+			font-size: @baseFontSize + 1px;
+			font-weight: bold;
+			display: block;
+			text-decoration: none;
+			img { display: block; border: 0; }
+		}
 	}
-	.olwidgetPopupStemBL, .olwidgetPopupStemBR {
-		z-index: 2;
-	    background: url("../img/olwidget_popup_icons.png") no-repeat scroll -96px 0px;
-	}
-	.olwidgetPopupContent {
-		background-color: white;
-		border: 0px solid #ccc;
-		.border-radius(10px);
-		.box-shadow(0 1px 10px rgba(0,0,0,.50));	
-	}
-	.olwidgetPopupPage{
-		padding-top: 15px;
-	}
-	.olwidgetPopupCloseBox {
-		z-index: 20;
+	.data {
+		padding-top:1px;
+		
+		.username {
+			a { .grayLink();  }
+		}
+		.date {
+			color: @verde;
+			line-height: @baseLineHeight - 2px;
+			font-size: @baseFontSize - 3px;
+		} 
 	}
 }
+
 
 .map-item.popup {
 	width: 220px;
@@ -37,9 +41,49 @@ body {
 		}
 	}
 	.stats {
-			padding: 0 0 8px 0;
+			/*padding: 0 0 8px 0;*/
+	}
+	.content {
+		.field {
+			padding: 9px 0 2px 0;
+		}
 	}
 	.buttons {
-
+		padding-top: 5px;
 	}
 }
+
+
+.map-item.full,.map-item.teaser {
+	.head {
+		.data {
+			.username {
+				font-size: @baseFontSize + 1px;
+			}
+		}
+	}
+	
+	.content {
+		.field {
+			padding: 10px 0;
+		}
+	}
+}
+
+
+.map-item.teaser {
+	
+	padding-bottom: 20px;
+	border-bottom: 1px dashed @graySeparator;
+	margin-bottom: 14px;
+}
+
+.map-item-full-header {
+	padding-bottom: 15px;
+}
+
+.map-item.full {
+	
+}
+
+

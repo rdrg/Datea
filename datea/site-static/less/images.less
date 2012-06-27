@@ -42,7 +42,12 @@
 	&.is-empty {
 		.thumb { display: none}
 		.image-icon { margin-right:3px; }
+		&.has-placeholder {
+			.thumb { display: inline-block; margin-right: 5px;}
+			.image-icon { display: none; }
+		}
 	}
+	
 	
 }
 
@@ -54,4 +59,24 @@
 		padding-bottom: 15px;
 		&:last-child { padding-bottom:0px;}
 	}
+}
+
+.icono {
+	width: 20px;
+	height: 16px;
+	line-height: 16px;
+	min-height: 16px;
+	display: inline-block;
+	padding-top: 3px;
+	.ie7-inline-block();
+	
+	.ie7-restore-right-whitespace();
+	vertical-align: text-top;
+	background-repeat: no-repeat;
+	
+	&.dateo { background: url(../img/datea/iconitos.png) no-repeat 0px center;}
+	&.follow { background: url(../img/datea/iconitos.png) no-repeat -20px center;}
+	&.comment { background: url(../img/datea/iconitos.png) no-repeat -40px center;}
+	&.vote { background: url(../img/datea/iconitos.png) no-repeat -60px center;}
+	&.change { background: url(../img/datea/iconitos.png) no-repeat -80px center;}
 }

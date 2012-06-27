@@ -30,6 +30,15 @@
           box-sizing: border-box;
 }
 
+.grayLink {
+  color: #555555;
+}
+
+.grayLink:hover,
+.grayLink.active {
+  color: #222222;
+}
+
 #logo {
   display: inline-block;
   *display: inline;
@@ -89,6 +98,11 @@
   *width: 259px;
 }
 
+.span6-5 {
+  width: 500px;
+  *width: 499px;
+}
+
 .span9-5 {
   width: 740px;
   *width: 739px;
@@ -111,6 +125,10 @@
     width: 197px;
     *width: 196px;
   }
+  .span6-5 {
+    width: 383px;
+    *width: 382px;
+  }
   .span9-5 {
     width: 569px;
     *width: 568px;
@@ -131,6 +149,10 @@
     *width: 219px;
   }
   .span3-5 {
+    width: 320px;
+    *width: 319px;
+  }
+  .span3-6 {
     width: 320px;
     *width: 319px;
   }
@@ -170,65 +192,12 @@ span.ajax-loading.small {
   background: url(../img/ajax-loader-grande.gif) no-repeat center center;
 }
 
-.color-sample {
-  width: 30px;
+textarea {
+  resize: none;
 }
 
-/* POPUP OLWIDGET OVERRIDE */
-
-body {
-  /* position blocks */
-
-}
-
-body .olwidgetPopupStemTL,
-body .olwidgetPopupStemTR {
-  z-index: 2;
-  background: url("../img/olwidget_popup_icons.png") no-repeat scroll -124px 0;
-}
-
-body .olwidgetPopupStemBL,
-body .olwidgetPopupStemBR {
-  z-index: 2;
-  background: url("../img/olwidget_popup_icons.png") no-repeat scroll -96px 0;
-}
-
-body .olwidgetPopupContent {
-  background-color: white;
-  border: 0px solid #ccc;
-  -webkit-border-radius: 10px;
-     -moz-border-radius: 10px;
-          border-radius: 10px;
-  -webkit-box-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
-     -moz-box-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
-          box-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
-}
-
-body .olwidgetPopupPage {
-  padding-top: 15px;
-}
-
-body .olwidgetPopupCloseBox {
-  z-index: 20;
-}
-
-.map-item.popup {
-  position: relative;
-  width: 220px;
-  font-size: 12px;
-  line-height: 15px;
-}
-
-.map-item.popup .head {
-  margin-right: 20px;
-}
-
-.map-item.popup .head .data {
-  padding-top: 0;
-}
-
-.map-item.popup .stats {
-  padding: 0 0 8px 0;
+textarea.autoresize {
+  height: 18px;
 }
 
 .image-input-item {
@@ -293,6 +262,15 @@ body .olwidgetPopupCloseBox {
   margin-right: 3px;
 }
 
+.image-input-item.is-empty.has-placeholder .thumb {
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.image-input-item.is-empty.has-placeholder .image-icon {
+  display: none;
+}
+
 .image-input-m2m .add-button {
   margin-top: 10px;
 }
@@ -303,6 +281,288 @@ body .olwidgetPopupCloseBox {
 
 .image-input-m2m .image-input-item:last-child {
   padding-bottom: 0;
+}
+
+.icono {
+  display: inline-block;
+  *display: inline;
+  width: 20px;
+  height: 16px;
+  min-height: 16px;
+  padding-top: 3px;
+  *margin-right: .3em;
+  line-height: 16px;
+  vertical-align: text-top;
+  background-repeat: no-repeat;
+  *zoom: 1;
+}
+
+.icono:last-child {
+  *margin-left: 0;
+}
+
+.icono.dateo {
+  background: url(../img/datea/iconitos.png) no-repeat 0 center;
+}
+
+.icono.follow {
+  background: url(../img/datea/iconitos.png) no-repeat -20px center;
+}
+
+.icono.comment {
+  background: url(../img/datea/iconitos.png) no-repeat -40px center;
+}
+
+.icono.vote {
+  background: url(../img/datea/iconitos.png) no-repeat -60px center;
+}
+
+.icono.change {
+  background: url(../img/datea/iconitos.png) no-repeat -80px center;
+}
+
+span.caret2 {
+  display: inline-block;
+  *display: inline;
+  width: 15px;
+  background: url(../img/datea/caret.png) no-repeat center center;
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+  *zoom: 1;
+}
+
+a:hover span.caret2 {
+  opacity: 1;
+  filter: alpha(opacity=100);
+}
+
+.post-user-data {
+  padding-bottom: 7px;
+  *zoom: 1;
+}
+
+.post-user-data:before,
+.post-user-data:after {
+  display: table;
+  content: "";
+}
+
+.post-user-data:after {
+  clear: both;
+}
+
+.post-user-data .user-picture {
+  float: left;
+  margin-right: 9px;
+}
+
+.post-user-data .user-picture a {
+  display: block;
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.post-user-data .user-picture a img {
+  display: block;
+  border: 0;
+}
+
+.post-user-data .data {
+  padding-top: 1px;
+}
+
+.post-user-data .data .username a {
+  color: #555555;
+}
+
+.post-user-data .data .username a:hover,
+.post-user-data .data .username a.active {
+  color: #222222;
+}
+
+.post-user-data .data .date {
+  font-size: 10px;
+  line-height: 16px;
+  color: #27bb44;
+}
+
+.map-item.popup {
+  position: relative;
+  width: 220px;
+  font-size: 12px;
+  line-height: 15px;
+}
+
+.map-item.popup .head {
+  margin-right: 20px;
+}
+
+.map-item.popup .head .data {
+  padding-top: 0;
+}
+
+.map-item.popup .stats {
+  /*padding: 0 0 8px 0;*/
+
+}
+
+.map-item.popup .content .field {
+  padding: 9px 0 2px 0;
+}
+
+.map-item.popup .buttons {
+  padding-top: 5px;
+}
+
+.map-item.full .head .data .username,
+.map-item.teaser .head .data .username {
+  font-size: 14px;
+}
+
+.map-item.full .content .field,
+.map-item.teaser .content .field {
+  padding: 10px 0;
+}
+
+.map-item.teaser {
+  padding-bottom: 20px;
+  margin-bottom: 14px;
+  border-bottom: 1px dashed #c3c3c3;
+}
+
+.map-item-full-header {
+  padding-bottom: 15px;
+}
+
+.map-item-form {
+  position: relative;
+}
+
+.map-item-form .modal-body {
+  padding-bottom: 0;
+}
+
+.map-item-form .map-item-step-control {
+  position: absolute;
+  top: 23px;
+  right: 230px;
+  padding-bottom: 0;
+  margin-bottom: 0;
+  font-size: 18px;
+  font-weight: normal;
+  color: #eeeeee;
+  border-bottom: 0;
+}
+
+.map-item-form .map-item-step-control li a {
+  display: inline;
+  margin: 0 5px 0 7px;
+  color: #cccccc;
+  background-color: transparent;
+  border: 0;
+}
+
+.map-item-form .map-item-step-control li a:hover {
+  color: #555555;
+  border: 0;
+}
+
+.map-item-form .map-item-step-control li.active a {
+  color: #5e6e65;
+}
+
+.map-item-form .step-title {
+  margin-bottom: 15px;
+  font-size: 15px;
+}
+
+.map-item-form .category-options label.radio {
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.map-item-form .control-group {
+  margin-bottom: 15px;
+}
+
+.map-item-form .control-group label.control-label {
+  margin-bottom: 1px;
+  font-size: 12px;
+  color: #5e6e65;
+}
+
+.map-item-form .control-group.error label.control-label {
+  color: #b94a48;
+}
+
+.map-item-form .verify-item {
+  margin-bottom: 15px;
+}
+
+.map-item-form .verify-item .change {
+  margin-left: 4px;
+  line-height: 16px;
+  color: #5e6e65;
+  text-decoration: none;
+  opacity: 0.6;
+  filter: alpha(opacity=60);
+}
+
+.map-item-form .verify-item .change:hover {
+  opacity: 1;
+  filter: alpha(opacity=100);
+}
+
+.map-item-form .success-msg {
+  margin-bottom: 10px;
+  font-size: 15px;
+}
+
+.map-item-form .share {
+  margin-bottom: 10px;
+}
+
+.map-item-form .share .share-text {
+  margin-bottom: 5px;
+}
+
+.step-control .prev,
+.step-control .next {
+  line-height: 30px;
+  color: #999999;
+  text-decoration: none;
+}
+
+.step-control .prev .icon,
+.step-control .next .icon {
+  display: inline-block;
+  *display: inline;
+  width: 30px;
+  *zoom: 1;
+}
+
+.step-control .prev:hover,
+.step-control .next:hover {
+  color: #555555;
+}
+
+.step-control .prev .icon {
+  margin-right: 8px;
+  background: url(../img/datea/prev-next.png) no-repeat 0 center;
+}
+
+.step-control .prev:hover .icon {
+  background: url(../img/datea/prev-next.png) no-repeat -30px center;
+}
+
+.step-control .next .icon {
+  margin-left: 8px;
+  background: url(../img/datea/prev-next.png) no-repeat -60px center;
+}
+
+.step-control .next:hover .icon {
+  background: url(../img/datea/prev-next.png) no-repeat -90px center;
 }
 
 /*********************
@@ -342,4 +602,50 @@ body .olwidgetPopupCloseBox {
 
 .map-edit-point .olwidgetMaxMin {
   display: none !important;
+}
+
+/* POPUP OLWIDGET OVERRIDE */
+
+body {
+  /* position blocks */
+
+}
+
+body .olwidgetPopupStemTL,
+body .olwidgetPopupStemTR {
+  z-index: 2;
+  background: url("../img/olwidget_popup_icons.png") no-repeat scroll -124px 0;
+}
+
+body .olwidgetPopupStemBL,
+body .olwidgetPopupStemBR {
+  z-index: 2;
+  background: url("../img/olwidget_popup_icons.png") no-repeat scroll -96px 0;
+}
+
+body .olwidgetPopupContent {
+  background-color: white;
+  border: 0px solid #ccc;
+  -webkit-border-radius: 10px;
+     -moz-border-radius: 10px;
+          border-radius: 10px;
+  -webkit-box-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
+     -moz-box-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
+          box-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
+}
+
+body .olwidgetPopupPage {
+  padding-top: 15px;
+}
+
+body .olwidgetPopupCloseBox {
+  z-index: 20;
+}
+
+.color-sample {
+  display: inline-block;
+  *display: inline;
+  width: 25px;
+  margin-right: 5px;
+  *zoom: 1;
 }

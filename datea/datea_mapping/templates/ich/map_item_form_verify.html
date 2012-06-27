@@ -2,13 +2,13 @@
 <script id="map_item_form_verify_tpl" type="text/html">
 {% verbatim %}
 <div class="verify-item category">
-	<span class="label" style="background-color:{{category.color}};">{{category.name}}</span> 
-	<a href="#" class="change open-step" data-step="1">{% trans "change" %}</a>
+	<span class="badge" style="background-color:{{category.color}};">{{category.name}}</span> 
+	<a href="#" class="change open-step" data-step="1"><i data-step="1" class="icono change"></i>  {% trans "change" %}</a>
 </div>
 
 <div class="verify-item content">
 	{{content}}
-	<a href="#" class="change open-step" data-step="1">{% trans "change" %}</a>
+	<a href="#" class="change open-step" data-step="1"><i data-step="1" class="icono change"></i>  {% trans "change" %}</a>
 </div>
 
 <div class="verify-item verify-images">
@@ -25,7 +25,7 @@
 		<img src="{{thumb}}" alt="" />
 	</span>
 	<span class="change-button">
-		<a href="#" class="change open-step" data-step="1">{% trans "change" %}</a>
+		<a href="#" class="change open-step" data-step="1"><i data-step="1" class="icono change"></i> {% trans "change" %}</a>
 	</span>
 </div>
 {% endverbatim %}
