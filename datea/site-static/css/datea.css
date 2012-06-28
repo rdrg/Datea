@@ -79,6 +79,7 @@
 #login-header a.btn-login {
   margin-top: 20px;
   margin-bottom: 2px;
+  line-height: 24px !important;
 }
 
 #main-content {
@@ -759,6 +760,34 @@ body .olwidgetPopupCloseBox {
   color: #27bb44;
 }
 
+.data-view-head {
+  *zoom: 1;
+}
+
+.data-view-head:before,
+.data-view-head:after {
+  display: table;
+  content: "";
+}
+
+.data-view-head:after {
+  clear: both;
+}
+
+.data-view-head .head-icon {
+  display: inline-block;
+  *display: inline;
+  height: 32px;
+  line-height: 32px;
+  vertical-align: text-bottom;
+  *zoom: 1;
+}
+
+.data-view-head .json {
+  width: 23px;
+  background: url(../img/datea/iconos-mapa-top.png) no-repeat -46px 0;
+}
+
 .data-view-categories {
   margin: 5px 0;
   list-style: none;
@@ -802,6 +831,8 @@ body .olwidgetPopupCloseBox {
   display: inline-block;
   float: left;
   width: 100px;
+  font-size: 12px;
+  line-height: 18px -3px;
 }
 
 .color-sample {
