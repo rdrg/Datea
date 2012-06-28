@@ -10,7 +10,6 @@ except ImportError:
 import os
 PROJECT_PATH = os.path.abspath(os.path.dirname(__file__))
 
-DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 DEBUG_TOOLBAR_CONFIG = {
     'INTERCEPT_REDIRECTS': False,
