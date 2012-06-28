@@ -26,7 +26,7 @@
 				<div class="control-group required">
 					<label class="control-label">{{ field.label }}</label>
 					<div class="controls">
-						<textarea type="text" id="mapping-short-description-input" name="short_description" rows="1" class="span5" maxlength="140" >{% verbatim %}{{short_description}}{% endverbatim %}</textarea>
+						<textarea type="text" class="span6 autoresize" id="mapping-short-description-input" name="short_description" rows="1" maxlength="140" >{% verbatim %}{{short_description}}{% endverbatim %}</textarea>
 						{% if field.help_text %}<p class="help-block">{{ field.help_text }}</p>{% endif %}
 					</div>
 				</div>
@@ -61,7 +61,7 @@
 				<div class="control-group required">
 					<label class="control-label">{{ field.label }}</label>
 					<div class="controls">
-						<textarea name="mission" id="mapping-mission-input" maxlength="500" class="span5">{% verbatim %}{{mission}}{% endverbatim %}</textarea>
+						<textarea name="mission" id="mapping-mission-input" maxlength="500" class="span6 autoresize">{% verbatim %}{{mission}}{% endverbatim %}</textarea>
 						{% if field.help_text %}<p class="help-block">{{ field.help_text }}</p>{% endif %}
 					</div>
 				</div>
@@ -70,7 +70,7 @@
 				<div class="control-group required">
 					<label class="control-label">{{ field.label }}</label>
 					<div class="controls">
-						<textarea name="information_destiny" id="mapping-mission-input" maxlength="500" class="span5">{% verbatim %}{{information_destiny}}{% endverbatim %}</textarea>
+						<textarea name="information_destiny" id="mapping-mission-input" maxlength="500" class="span6 autoresize">{% verbatim %}{{information_destiny}}{% endverbatim %}</textarea>
 						{% if field.help_text %}<p class="help-block">{{ field.help_text }}</p>{% endif %}
 					</div>
 				</div>

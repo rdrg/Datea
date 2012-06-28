@@ -170,6 +170,20 @@
   }
 }
 
+#footer #footer-right .lafactura {
+  font-size: 13px -1px;
+  color: #999999;
+  text-align: right;
+}
+
+#footer #footer-right .lafactura a {
+  color: #999999;
+}
+
+#footer #footer-right .lafactura a:hover {
+  color: #27bb44;
+}
+
 span.ajax-loading.small {
   display: inline-block;
   *display: inline;
@@ -209,13 +223,13 @@ textarea.autoresize {
 }
 
 .social-auth-buttons {
-  margin-bottom: 30px;
+  margin-bottom: 15px;
 }
 
 .social-auth-buttons .button-box {
   display: inline-block;
   *display: inline;
-  padding: 10px;
+  padding: 10px 0;
   background-color: white;
   *zoom: 1;
 }

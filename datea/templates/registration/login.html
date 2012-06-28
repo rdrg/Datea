@@ -18,11 +18,12 @@
 <form class="well" method="post" action="{% url django.contrib.auth.views.login %}">{% csrf_token %}
 
 {{ form|as_bootstrap }}
-
-<p><a href="{% url auth_password_reset %}">{% trans 'Forgot your password?' %}</a>  <a href="{% url registration_register %}">{% trans 'Need an account?' %}</a></p>
-
-
+<p>
 <input class="btn btn-primary btn-large" type="submit" value="{% trans 'Login' %}" />
+</p>
+
+<p><a href="{% url auth_password_reset %}">{% trans 'Forgot your password?' %}</a> &nbsp;|&nbsp; <a href="{% url registration_register %}">{% trans 'Need an account?' %}</a></p>
+
 <input class="btn" type="hidden" name="next" value="{{ next }}" />
 </form>
 
