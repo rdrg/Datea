@@ -95,7 +95,7 @@ msgstr "Mapeo"
 
 #: datea_action/templates/ich/action_create.html:6
 msgid "create new mapping"
-msgstr "Crear nuevo mapeo"
+msgstr "crear nuevo mapeo"
 
 #: datea_category/models.py:21 datea_channel/models.py:17
 #: datea_mapping/models.py:72
@@ -143,7 +143,7 @@ msgstr "Por favor completa los campos marcados con rojo"
 
 #: datea_category/templates/ich/free_category_edit.html:13
 msgid "There are reports with this category. You cannot delete it."
-msgstr "Hay reportes con esta categoría. No puedes borrarla."
+msgstr "Hay dateos con esta categoría. No puedes borrarla."
 
 #: datea_category/templates/ich/free_category_edit.html:69
 #: datea_mapping/templates/ich/map_item_form.html:91
@@ -345,12 +345,12 @@ msgstr "Editar"
 #: datea_mapping/templates/ich/map_item.html:59
 #: datea_mapping/templates/ich/mapping_tab_map_items.html:7
 msgid "Create report"
-msgstr "Crear reporte"
+msgstr "Crear Dateo"
 
 #: datea_mapping/templates/ich/map_item_form.html:7
 #: datea_mapping/templates/ich/map_item_form.html:91
 msgid "report"
-msgstr "reporte"
+msgstr "dateo"
 
 #: datea_mapping/templates/ich/map_item_form.html:26
 #: datea_mapping/templates/ich/map_item_form.html:62
@@ -412,7 +412,7 @@ msgstr "Ahora puedes compartirlo"
 
 #: datea_mapping/templates/ich/map_item_form_success.html:26
 msgid "See my report"
-msgstr "Ver mi reporte"
+msgstr "Ver mi dateo"
 
 #: datea_mapping/templates/ich/map_item_form_verify.html:6
 #: datea_mapping/templates/ich/map_item_form_verify.html:11
@@ -442,19 +442,19 @@ msgstr "Empezar"
 
 #: datea_mapping/templates/ich/mapping_sidebar_main.html:10
 msgid "Reports"
-msgstr "Reportes"
+msgstr "Dateos"
 
 #: datea_mapping/templates/ich/mapping_tab_map_items.html:12
 msgid "No reports yet. Be the first!"
-msgstr "No hay reportes aún. ¡Sé el primero!"
+msgstr "No hay dateos aún. ¡Sé el primero!"
 
 #: datea_mapping/templates/ich/mapping_tab_start.html:15
 msgid "Create Report"
-msgstr "Crear Reporte"
+msgstr "Crear Dateo"
 
 #: datea_mapping/templates/ich/mapping_tab_start.html:19
 msgid "reports"
-msgstr "reportes"
+msgstr "dateos"
 
 #: datea_mapping/templates/ich/mapping_tab_start.html:21
 msgid "participants"
@@ -553,7 +553,7 @@ msgstr "Activación de cuenta"
 #: templates/registration/activate.html:10
 #, python-format
 msgid "Thanks %(account)s, activation complete!  You may now"
-msgstr "¡Gracias %(account)s, activación completa! Ahora puedes "
+msgstr "¡Gracias %(account)s, activación completa! Debes conocer a"
 
 #: templates/registration/activate.html:10
 msgid " using the username and password you set at registration."
@@ -573,11 +573,11 @@ msgid ""
 "Thanks, activation complete!  You may now"
 msgstr ""
 "\n"
-"¡Gracias, activación completa! Ahora puedes"
+" ¡Gracias, activación completa! Ahora puedes"
 
-#: templates/reeinspringengistration/activation_complete.html:9
+#: templates/registration/activation_complete.html:9
 msgid "using the username and password you set at registration.\n"
-msgstr "usando el usuario y la clave que configuraste al registrarte.\n"
+msgstr "usando el usuario y la clave que configuraste al resgistrarte.\n"
 
 #: templates/registration/activation_email.txt:1
 #, python-format
@@ -596,7 +596,7 @@ msgid ""
 "datea.pe Management\n"
 msgstr ""
 "\n"
-"Haz pedido registrar una cuenta en Date-Acceso. Si no lo hiciste, \n"
+"Haz pedido registrar una cuenta en Datea-Acceso. Si no lo hiciste, \n"
 "por favor ignora este correo electrónico y tu dirección será eliminada.\n"
 "\n"
 "Para activar esta cuenta, por favor haz click en el siguiente vínculo durante \n"
@@ -604,7 +604,7 @@ msgstr ""
 "\n"
 "http://acceso.datea.pe/accounts/activate/%(activation_key)s\n"
 "\n"
-"Sinceramente,\n"
+"Atentamente,\n"
 "Equipo datea.pe\n"
 
 #: templates/registration/activation_email_subject.txt:1
@@ -771,7 +771,7 @@ msgstr "Regístrate para obtener una cuenta"
 
 #: templates/registration/registration_form.html:13
 msgid "Or you can register an account here at Datea:"
-msgstr "O puedes registrar una cuenta aquí en Datea"
+msgstr "O puedes registrar una cuenta aquí en Datea:"
 
 #~ msgid "color"
 #~ msgstr "color"

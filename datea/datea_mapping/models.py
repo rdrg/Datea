@@ -50,8 +50,14 @@ class DateaMapItem(models.Model):
     objects = models.GeoManager()
     
     def save(self, *args, **kwargs):
-        
         super(DateaMapItem, self).save(*args, **kwargs)
+        self.mapping.item_count = self.mapping.map_items.count()
+        users = []
+        for item in self.mapping.map_items.all():
+            if item.user.pk not in users:
+                users.append(item.user.pk)
+        self.mapping.user_count = len(users)
+        self.mapping.save()
         
     
     def __unicode__(self):
