@@ -28,9 +28,9 @@ window.Datea.MapItemFormView = Backbone.View.extend({
 		
 		var context = this.model.toJSON();
 		if (this.model.isNew()) {
-			context.action_name = 'Create';
+			context.action_name = 'Crear';
 		}else{
-			context.action_name = 'Edit';
+			context.action_name = 'Editar';
 		}
 		this.$el.html( ich.map_item_form_tpl(context));
 
