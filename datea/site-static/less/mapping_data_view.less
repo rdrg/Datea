@@ -5,8 +5,8 @@
 	.head-icon {
 		display: inline-block;
 		.ie7-inline-block();
-		height: 32px;
-		line-height: 32px;
+		height: 28px;
+		line-height: 28px;
 		vertical-align: text-bottom;
 	}
 	.json {
@@ -23,19 +23,19 @@
 	.clearfix();
 	li {
 		list-style: none;
+		line-height: @baseLineHeight - 3px !important;
 		.clearfix();
 		list-style-position:inside;
 		float: left;
 		.color-sample {
 			float:left;
-			width:20px;
+			width:15px;
 			margin-right:5px;
 		}
 		.name {
 			float:left;
-			width:100px;
+			width:95px;
 			display: inline-block;
-			line-height: @baseLineHeight -3px;
 			font-size: @baseFontSize - 1px;
 		}
 	}
