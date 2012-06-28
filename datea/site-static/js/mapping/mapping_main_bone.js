@@ -92,7 +92,7 @@ window.Datea.MappingMainView = Backbone.View.extend({
 		if (Datea.my_user.isNew()) {
 			
 			var path = document.location.hash.replace('#', '/');
-			document.location.href = '/account/login/?next='+path;
+			document.location.href = '/accounts/login/?next='+path;
 			return
 		}
 		
