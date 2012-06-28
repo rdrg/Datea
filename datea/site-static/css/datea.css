@@ -742,7 +742,7 @@ body .olwidgetPopupCloseBox {
 }
 
 .mapping-content #left-content {
-  margin-top: 10px;
+  margin-top: 18px;
   background: url(../img/datea/dotted-bg.png) repeat;
   -webkit-border-radius: 12px;
      -moz-border-radius: 12px;
@@ -866,8 +866,8 @@ body .olwidgetPopupCloseBox {
 .data-view-head .head-icon {
   display: inline-block;
   *display: inline;
-  height: 28px;
-  line-height: 28px;
+  height: 32px;
+  line-height: 32px;
   vertical-align: text-bottom;
   *zoom: 1;
 }
@@ -894,7 +894,9 @@ body .olwidgetPopupCloseBox {
 }
 
 .data-view-categories li {
+  display: block;
   float: left;
+  height: 35px;
   line-height: 15px !important;
   list-style: none;
   list-style-position: inside;
