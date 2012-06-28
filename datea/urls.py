@@ -44,7 +44,7 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     (r'^grappelli/', include('grappelli.urls')),
     url(r'', include('social_auth.urls')),
-    (r'^account/', include('registration.backends.default.urls')),
+    (r'^accounts/', include('registration.backends.default.urls')),
     
    
     url(r"png/", include('datea.datea_mapping.urls')),

@@ -212,12 +212,12 @@ AUTHENTICATION_BACKENDS = [
 
 AUTH_PROFILE_MODULE = 'datea_profile.DateaProfile'
 
-LOGIN_URL = "/account/login/" 
+LOGIN_URL = "/accounts/login/" 
 #LOGIN_REDIRECT_URLNAME = "/" # CAMBIAR!
 #LOGOUT_REDIRECT_URLNAME = "/"
 
 LOGIN_REDIRECT_URL = '/' # CAMBIAR
-LOGIN_ERROR_URL    = '/account/login'
+LOGIN_ERROR_URL    = '/accounts/login'
 
 # SOCIAL AUTH SETTINGS
 from datea_profile.utils import make_social_username
