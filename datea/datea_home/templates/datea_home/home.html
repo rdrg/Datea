@@ -2,34 +2,7 @@
 {% load datea_profile_tags %}
 
 {% block footer_js %}
-<script src="{{ STATIC_URL }}js/main_bone.js"></script>
-<script src="{{ STATIC_URL }}js/paginator_bone.js"></script>
-<script src="{{ STATIC_URL }}js/image_bone.js"></script>
-<script src="{{ STATIC_URL }}js/category_bone.js"></script>
-<script src="{{ STATIC_URL }}js/action_bone.js"></script>
-<script src="{{ STATIC_URL }}js/profile_bone.js"></script>
-<script src="{{ STATIC_URL }}js/mapping/mapping_main_bone.js"></script>
-<script src="{{ STATIC_URL }}js/mapping/mapping_form_bone.js"></script>
-<script src="{{ STATIC_URL }}js/mapping/mapping_data_view_bone.js"></script>
-<script src="{{ STATIC_URL }}js/mapping/map_item_bone.js"></script>
-<script src="{{ STATIC_URL }}js/mapping/map_item_form_bone.js"></script>
 <script src="{{ STATIC_URL }}js/bone_router.js"></script>
-<script type="text/javascript">
-$(document).ready(function(){
-	
-	// init user (bootstrapped)
-	window.Datea.my_user = new Datea.User();
-	Datea.init_my_user_views();
-	Datea.my_user.set({% get_user_resource %});
-	
-	// init stuff
-	Datea.modal_view = new Datea.ModalWrapView({'el': $('#modal-wrap-view')});
-	
-	// start Router
-	Datea.app = new Datea.AppRouter();
-	Backbone.history.start();
-});
-</script>
 {% endblock %}
 
 
