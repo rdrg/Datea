@@ -119,7 +119,7 @@ window.Datea.FreeCategoryEditView  = Backbone.View.extend({
 	save_category: function(ev) {
 		ev.preventDefault();
 		if (Datea.controls_validate(this.$el)){
-			Datea.show_big_loading($('#new-mapping-form'));
+			Datea.show_big_loading(this.$el);
 			this.model.set({
 				"name": $('input[name="name"]', this.$el).val(),
 				"description": $('textarea[name="description"]',this.$el).val(),
@@ -132,7 +132,7 @@ window.Datea.FreeCategoryEditView  = Backbone.View.extend({
 	},
 	
 	sync: function() {
-		Datea.hide_big_loading($('#new-mapping-form'));
+		Datea.hide_big_loading(this.$el);
 	},
 	
 	delete_category: function(ev) {
