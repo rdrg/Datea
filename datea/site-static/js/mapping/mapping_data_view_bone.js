@@ -9,7 +9,7 @@ window.Datea.MappingDataView = Backbone.View.extend({
 	},
 	
 	render: function (eventName) {
-		this.$el.html( ich.mapping_data_view_tpl( this.model.toJSON()));
+		this.$el.html( ich.mapping_data_view_tpl( this.mappingModel.toJSON()));
 		
 		// add map
 		this.mapView = new Datea.MappingDataViewMap({
@@ -40,7 +40,7 @@ window.Datea.MappingDataViewMap = Backbone.View.extend({
 	initialize: function () {
 		this.model.bind('reset', this.redraw, this);
 		this.model.bind('add', this.redraw, this);
-		this.model.bind('changge', this.redraw, this);
+		this.model.bind('change', this.redraw, this);
 		this.mapModel = this.options.mapModel;
 		this.first_draw = true;
 	},

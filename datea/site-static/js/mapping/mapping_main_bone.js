@@ -85,7 +85,16 @@ window.Datea.MappingMainView = Backbone.View.extend({
 	},
 	
 	create_map_item: function (ev) {
+		
 		ev.preventDefault();
+		
+		if (Datea.my_user.isNew()) {
+			
+			var path = document.location.hash.replace('#', '/');
+			document.location.href = '/account/login/?next='+path;
+			return
+		}
+		
 		var self = this;
 		var create_rep_view = new Datea.MapItemFormView({
 			model: new Datea.MapItem({

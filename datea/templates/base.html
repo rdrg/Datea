@@ -162,7 +162,7 @@
 			Datea.modal_view = new Datea.ModalWrapView({'el': $('#modal-wrap-view')});
 			
 			// start Router
-			if (typeof(Datea.AppRouter()) != 'undefined') {
+			if (typeof(Datea.AppRouter) != 'undefined') {
 				Datea.app = new Datea.AppRouter();
 				Backbone.history.start();
 			}

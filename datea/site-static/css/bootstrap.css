@@ -2603,8 +2603,8 @@ button.close {
 }
 
 .btn-large {
-  padding: 6px 14px;
-  font-size: 17px;
+  padding: 6px 20px;
+  font-size: 16px;
   line-height: normal;
   -webkit-border-radius: 16px;
      -moz-border-radius: 16px;
@@ -2743,7 +2743,8 @@ button.close {
 .btn-success.active,
 .btn-success.disabled,
 .btn-success[disabled] {
-  background-color: #53db6e;
+  color: white;
+  background-color: #47d963;
 }
 
 .btn-info {

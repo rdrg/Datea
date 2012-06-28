@@ -79,7 +79,7 @@
 #login-header a.btn-login {
   margin-top: 20px;
   margin-bottom: 2px;
-  line-height: 22px !important;
+  line-height: 24px !important;
 }
 
 #main-content {
@@ -170,6 +170,20 @@
   }
 }
 
+#footer #footer-right .lafactura {
+  font-size: 13px -1px;
+  color: #999999;
+  text-align: right;
+}
+
+#footer #footer-right .lafactura a {
+  color: #999999;
+}
+
+#footer #footer-right .lafactura a:hover {
+  color: #27bb44;
+}
+
 span.ajax-loading.small {
   display: inline-block;
   *display: inline;
@@ -209,13 +223,13 @@ textarea.autoresize {
 }
 
 .social-auth-buttons {
-  margin-bottom: 30px;
+  margin-bottom: 15px;
 }
 
 .social-auth-buttons .button-box {
   display: inline-block;
   *display: inline;
-  padding: 10px;
+  padding: 10px 0;
   background-color: white;
   *zoom: 1;
 }
@@ -760,6 +774,34 @@ body .olwidgetPopupCloseBox {
   color: #27bb44;
 }
 
+.data-view-head {
+  *zoom: 1;
+}
+
+.data-view-head:before,
+.data-view-head:after {
+  display: table;
+  content: "";
+}
+
+.data-view-head:after {
+  clear: both;
+}
+
+.data-view-head .head-icon {
+  display: inline-block;
+  *display: inline;
+  height: 32px;
+  line-height: 32px;
+  vertical-align: text-bottom;
+  *zoom: 1;
+}
+
+.data-view-head .json {
+  width: 23px;
+  background: url(../img/datea/iconos-mapa-top.png) no-repeat -46px 0;
+}
+
 .data-view-categories {
   margin: 5px 0;
   list-style: none;
@@ -803,6 +845,8 @@ body .olwidgetPopupCloseBox {
   display: inline-block;
   float: left;
   width: 100px;
+  font-size: 12px;
+  line-height: 18px -3px;
 }
 
 .color-sample {
