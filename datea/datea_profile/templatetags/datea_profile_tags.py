@@ -27,7 +27,7 @@ def get_login_target(context):
         if referer[0] == request.META.get('HTTP_HOST') and len(referer) > 1:
             target = "/"+"/".join(referer[1:])
     
-    if target in ['/account/login/','/account/signup/', '/account/password_reset/', '/accounts/logout/','/', '']:
+    if target in ['/accounts/login/','/accounts/signup/', '/accounts/password_reset/', '/accounts/logout/','/', '']:
         target = '/'
         
     return target
