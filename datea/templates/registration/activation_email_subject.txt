@@ -1,1 +1,1 @@
-{% spaceless %}{% load i18n %}{% blocktrans %}Account registration for {{ site.name }}{% endblocktrans %}{% endspaceless %}
+{% spaceless %}{% load i18n %}{% blocktrans %}Account registration for {% endblocktrans %}datea.pe{% endspaceless %}
