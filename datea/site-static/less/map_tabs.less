@@ -1,6 +1,24 @@
 
+.mapping-content {
+	#left-content {
+		margin-top: 4px;
+		background: url(../img/datea/dotted-bg.png) repeat;
+		.inner {
+			margin:15px;
+			.mapping-tab-content {
+				background-color: white;
+			}padding-bottom: 5px;
+		}
+		.border-radius(12px);
+	}	
+}
+
+
 .mapping-tabs {
-	margin-bottom: 10px;
+	margin-bottom: 0px;
+	border-bottom:0px;
+	li a { background-color: #ececec; border:0px;}
+	li.active a { border:0px;}
 }
 
 
@@ -36,4 +54,29 @@
 		
 	}
 	
+}
+
+#mapping-reports-view {
+	.item-filters {
+		padding-top: 10px;
+		padding-bottom: 5px;
+		.clearfix();
+		padding-right: 15px;	
+	}
+	margin: 0 !important;
+
+	.scroll-area {
+
+		max-height: 480px;
+		overflow-y : auto;
+		.item-list {
+			margin: 0px 15px;
+		}
+		.item-pager {
+			padding:10px 0;
+			a { color: @gray;
+				&:hover { @grayDark;}
+			}
+		}
+	}
 }

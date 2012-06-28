@@ -50,6 +50,11 @@ window.Datea.MapItemFullView = Backbone.View.extend({
 				this.$el.find('.edit-map-item').removeClass('hide');
 		}
 		
+		// has position?
+		if (!this.model.get('position') || !this.model.get('position').coordinates) {
+			this.$el.find('.open-popup').hide();
+		}
+		
 		return this;
 	},
 	
@@ -78,6 +83,11 @@ window.Datea.MapItemTeaserView = Backbone.View.extend({
 		// hydrate context 
 		context.created = formatDateFromISO(context.created, "dd.mm.yyyy - H:M");
 		this.$el.html( ich.map_item_teaser_tpl(context) );
+		
+		// has position?
+		if (!this.model.get('position') || !this.model.get('position').coordinates) {
+			this.$el.find('.open-popup').hide();
+		}
 		
 		return this;
 	},

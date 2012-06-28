@@ -31,6 +31,7 @@ window.Datea.MappingMainView = Backbone.View.extend({
 		// include main layout
 		this.$el.html(ich.fix_base_content_split_tpl({
 			'content_id': 'mapping-'+this.model.get('id'),
+			'class': 'mapping-content',
 		}));
 		
 		// include sidebar view 

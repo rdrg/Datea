@@ -86,6 +86,10 @@
   margin-top: 90px;
 }
 
+#main-content-wrap {
+  min-height: 400px;
+}
+
 .span1-5 {
   width: 100px;
   *width: 99px;
@@ -733,8 +737,35 @@ body .olwidgetPopupCloseBox {
   z-index: 20;
 }
 
+.mapping-content #left-content {
+  margin-top: 4px;
+  background: url(../img/datea/dotted-bg.png) repeat;
+  -webkit-border-radius: 12px;
+     -moz-border-radius: 12px;
+          border-radius: 12px;
+}
+
+.mapping-content #left-content .inner {
+  padding-bottom: 5px;
+  margin: 15px;
+}
+
+.mapping-content #left-content .inner .mapping-tab-content {
+  background-color: white;
+}
+
 .mapping-tabs {
-  margin-bottom: 10px;
+  margin-bottom: 0;
+  border-bottom: 0;
+}
+
+.mapping-tabs li a {
+  background-color: #ececec;
+  border: 0;
+}
+
+.mapping-tabs li.active a {
+  border: 0;
 }
 
 #mapping-start h2 {
@@ -773,6 +804,46 @@ body .olwidgetPopupCloseBox {
   font-weight: bold;
   color: #27bb44;
 }
+
+#mapping-reports-view {
+  margin: 0 !important;
+}
+
+#mapping-reports-view .item-filters {
+  padding-top: 10px;
+  padding-right: 15px;
+  padding-bottom: 5px;
+  *zoom: 1;
+}
+
+#mapping-reports-view .item-filters:before,
+#mapping-reports-view .item-filters:after {
+  display: table;
+  content: "";
+}
+
+#mapping-reports-view .item-filters:after {
+  clear: both;
+}
+
+#mapping-reports-view .scroll-area {
+  max-height: 480px;
+  overflow-y: auto;
+}
+
+#mapping-reports-view .scroll-area .item-list {
+  margin: 0 15px;
+}
+
+#mapping-reports-view .scroll-area .item-pager {
+  padding: 10px 0;
+}
+
+#mapping-reports-view .scroll-area .item-pager a {
+  color: #555555;
+}
+
+@gray Dark;
 
 .data-view-head {
   *zoom: 1;

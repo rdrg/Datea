@@ -298,8 +298,8 @@ olwidget.DateaMainMap = OpenLayers.Class(OpenLayers.Map, {
             // Map div stuff
             mapDivClass: '',
             mapDivStyle: {
-                width: '500px',
-                height: '400px'
+                width: '460px',
+                height: '500px'
             },
             layers: ['osm.mapnik'],
             defaultLon: 0,
