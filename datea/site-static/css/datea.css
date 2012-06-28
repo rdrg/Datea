@@ -609,6 +609,10 @@ a:hover span.caret2 {
   filter: alpha(opacity=100);
 }
 
+.map-item-form .verify-item .verify-image {
+  margin-bottom: 10px;
+}
+
 .map-item-form .success-msg {
   margin-bottom: 10px;
   font-size: 15px;
@@ -738,7 +742,7 @@ body .olwidgetPopupCloseBox {
 }
 
 .mapping-content #left-content {
-  margin-top: 4px;
+  margin-top: 10px;
   background: url(../img/datea/dotted-bg.png) repeat;
   -webkit-border-radius: 12px;
      -moz-border-radius: 12px;
@@ -862,8 +866,8 @@ body .olwidgetPopupCloseBox {
 .data-view-head .head-icon {
   display: inline-block;
   *display: inline;
-  height: 32px;
-  line-height: 32px;
+  height: 28px;
+  line-height: 28px;
   vertical-align: text-bottom;
   *zoom: 1;
 }
@@ -891,6 +895,7 @@ body .olwidgetPopupCloseBox {
 
 .data-view-categories li {
   float: left;
+  line-height: 15px !important;
   list-style: none;
   list-style-position: inside;
   *zoom: 1;
@@ -908,16 +913,15 @@ body .olwidgetPopupCloseBox {
 
 .data-view-categories li .color-sample {
   float: left;
-  width: 20px;
+  width: 15px;
   margin-right: 5px;
 }
 
 .data-view-categories li .name {
   display: inline-block;
   float: left;
-  width: 100px;
+  width: 95px;
   font-size: 12px;
-  line-height: 18px -3px;
 }
 
 .color-sample {
