@@ -106,6 +106,7 @@ window.Datea.MappingMainView = Backbone.View.extend({
 			success_callback: function(model) {
 				self.map_items.unshift(model);
 				self.open_popup(model.get('id'));
+				self.model.fetch();
 			}
 		});
 		create_rep_view.open_window();
@@ -234,6 +235,7 @@ window.Datea.MappingStartTab = Backbone.View.extend({
 	initialize: function () {
 		this.model.bind('change', this.render, this);
 		this.model.bind('add', this.render, this);
+		//this.model.bind('reset', this.render, this);
 	}, 
 	
 	render: function(eventName) {
