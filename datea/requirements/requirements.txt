@@ -15,12 +15,15 @@ django-mptt==0.5.2
 django-olwidget==0.50
 django-registration==0.8
 django-social-auth==0.6.9
--e git://github.com/toastdriven/django-tastypie.git@fba248c623f9088b8876faf84e94fc5ea7b5eee7#egg=django_tastypie-dev
-easy-thumbnails==1.0.3
+-e git://github.com/toastdriven/django-tastypie.git@8e8a1bbe4ce271ec1b7526437c7371e173f98e29#egg=django_tastypie-dev
+-e git://github.com/SmileyChris/easy-thumbnails.git@8661b1f30065b8e6c0df4fe3ad55df18a2e4441a#egg=easy_thumbnails-dev
+## FIXME: could not find svn URL in dependency_links for this package:
+flup==1.0.3.dev-20110405
 httplib2==0.7.4
 mimeparse==0.1.3
 oauth2==1.5.211
 psycopg2==2.4.5
 python-dateutil==1.5
 python-openid==2.2.5
+svgwrite==1.0.1
 wsgiref==0.1.2
