@@ -224,9 +224,9 @@ olwidget.DateaMainMapItemLayer = OpenLayers.Class(olwidget.BaseVectorLayer, {
     	this.afterAdd();
     },
     
-    open_popup: function (item_id, do_zoom) {
+    open_popup: function (item_id, do_zoom, force_reload) {
 		
-		if ($('#map-item-popup-'+item_id).size() > 0) return;
+		if (typeof(force_reload) == 'undefined' && $('#map-item-popup-'+item_id).size() > 0) return;
 		
 		this.map.selectControl.unselectAll();
 		

@@ -154,9 +154,9 @@ window.Datea.MappingMainView = Backbone.View.extend({
 		}
 		var model = this.map_items.get(this.map_items.url+id+'/');
 		if (model.get('position') && model.get('position').coordinates) {
-			this.data_view.mapView.itemLayer.open_popup( id , true);
+			this.data_view.mapView.itemLayer.open_popup( id , true, true);
 		}
-	}
+	},
 	
 });
 

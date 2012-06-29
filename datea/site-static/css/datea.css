@@ -484,7 +484,7 @@ a:hover span.caret2 {
 
 .map-item.popup {
   position: relative;
-  width: 260px;
+  min-width: 220px;
   font-size: 12px;
   line-height: 15px;
 }
@@ -785,8 +785,9 @@ body .olwidgetPopupCloseBox {
   border: 0;
 }
 
-.mapping-tabs li.active a {
-  border: 0;
+.mapping-tabs li.active a,
+.mapping-tabs li.active:hover a {
+  border: 0 !important;
 }
 
 #mapping-start h2 {
@@ -885,13 +886,14 @@ body .olwidgetPopupCloseBox {
   *display: inline;
   height: 32px;
   line-height: 32px;
+  text-decoration: none;
   vertical-align: text-bottom;
   *zoom: 1;
 }
 
 .data-view-head .json {
   width: 23px;
-  background: url(../img/datea/iconos-mapa-top.png) no-repeat -46px 0;
+  background: url(../img/datea/iconos-mapa-top.png) no-repeat -47px 0;
 }
 
 .data-view-categories {
@@ -913,11 +915,22 @@ body .olwidgetPopupCloseBox {
 .data-view-categories li {
   display: block;
   float: left;
-  height: 35px;
+  min-height: 35px;
   line-height: 15px !important;
   list-style: none;
   list-style-position: inside;
   *zoom: 1;
+  *zoom: 1;
+}
+
+.data-view-categories li:before,
+.data-view-categories li:after {
+  display: table;
+  content: "";
+}
+
+.data-view-categories li:after {
+  clear: both;
 }
 
 .data-view-categories li:before,
