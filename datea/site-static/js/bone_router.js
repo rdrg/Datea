@@ -1,4 +1,4 @@
-hardcode_map_id = 12;
+hardcode_map_id = 1;
 
 // Router
 Datea.AppRouter = Backbone.Router.extend({
