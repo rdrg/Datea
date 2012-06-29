@@ -36,7 +36,12 @@ window.Datea.MappingDataView = Backbone.View.extend({
 
 
 window.Datea.MappingDataViewMap = Backbone.View.extend({
-
+	
+	
+	events: {
+		'click .popup-zoom': 'popup_zoom',
+	},
+	
 	initialize: function () {
 		this.model.bind('reset', this.redraw, this);
 		this.model.bind('add', this.redraw, this);
@@ -83,6 +88,12 @@ window.Datea.MappingDataViewMap = Backbone.View.extend({
 		if (this.first_draw) {
 			this.map.initCenter();
 		}
+	},
+	
+	popup_zoom: function(ev) {
+		ev.preventDefault();
+		var id = parseInt(ev.target.dataset.id);
+		alert(id);
 	},
 	
 	clean_up: function () {
