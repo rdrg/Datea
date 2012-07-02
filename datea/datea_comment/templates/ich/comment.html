@@ -1,0 +1,44 @@
+{% load i18n verbatim_tag %}
+{% verbatim %}
+<script id="comment_item_tpl" type="text/html">
+	<div class="comment-head">
+		{% comment %}
+		<div class="user-image">
+			<img src="{{ user.profile.image_small }}" />
+		</div>
+		{% endcomment %}
+		<div class="user-data">
+			<strong><a href="#{{ user.url }}">{{ user.username }}</a></strong>
+			<span class="date">{{ created }}</span>
+		</div>
+	</div>
+	<div class="comment-content">{{& comment }}</div>
+</script>
+	
+
+<script id="comments_tpl" type="text/html">
+	<div class="comment-list">
+		<h3>{% trans "Comments" %}</h3>
+	</div>
+	<div class="comment-form"></div>
+</script>
+
+<script id="comment_form_tpl" type="text/html">
+	<form class="form" action="">
+		<div class="control-group required">
+			<div class="controls">
+				<textarea class="autoresize double input-xlarge comment-input" name="comment" placeholder="{% trans 'Make a comment' %}">{{ comment }}</textarea>
+			</div>
+		</div>
+		<button type="button" class="btn btn-small submit-comment">{% trans "Submit" %}</button> <span class="ajax-loading small" style="display:none">&nbsp;</span>
+	</form>
+</script>
+
+
+<script id="comment_login_tpl" type="text/html">
+	<p class="comment-login-msg">
+		<a href="/accounts/login/?next={{ next }}" class="btn">{% trans "Log in" %}</a> {% trans "to post a comment" %}
+	</p>
+</script>
+{% endverbatim %}
+

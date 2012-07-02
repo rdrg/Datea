@@ -23,24 +23,27 @@
 	list-style: none;
 	.clearfix();
 	li {
-		.clearfix();
+		position: relative;
 		list-style: none;
 		line-height: @baseLineHeight - 3px !important;
-		.clearfix();
 		list-style-position:inside;
 		float: left;
 		display: block;
 		min-height: 35px;
+		width:25%;
 		.color-sample {
-			float:left;
+			position: absolute;
+			top:0;
+			left:0;
 			width:15px;
 			margin-right:5px;
 		}
 		.name {
+			margin-left: 21px;
+			display: block;
 			float:left;
-			width:95px;
-			display: inline-block;
 			font-size: @baseFontSize - 1px;
+			padding-right: 6px;
 		}
 	}
 }

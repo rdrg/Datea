@@ -9,7 +9,7 @@
 		
 		<div class="content">
 			<div class="category">
-				<span class="badge" style="background-color: {{ category_color }}">{{ category_name }}</span>
+				<span class="badge badge-truncated" style="background-color: {{ category_color }}">{{ category_name }}</span>
 			</div>
 			<div class="field">{{ extract }}</div>
 		</div>
@@ -68,7 +68,7 @@
 			<div class="category">
 				<span class="badge" style="background-color: {{ category_color }}">{{ category_name }}</span>
 			</div>
-			<div class="field">{{ content }}</div>
+			<div class="field">{{& content }}</div>
 		</div>
 		
 		{% include "ich/_map_item_widget_stats.html" %}
@@ -77,6 +77,10 @@
 		
 		<div class="buttons">
 			<a class="btn btn-small open-popup" href="#" data-id="{{ id }}">{% trans "See in map" %}</a>
+		</div>
+		
+		<div class="comments">
+			
 		</div>
 	
 	</div>

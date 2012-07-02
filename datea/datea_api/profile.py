@@ -86,7 +86,7 @@ class UserResource(DateaBaseResource):
         filtering = {
                 'username':ALL
                 }
-        allowed_methods = ['get', 'put', 'post','delete']
+        allowed_methods = ['get', 'put', 'delete']
         authentication = ApiKeyPlusWebAuthentication()
         authorization = DateaBaseAuthorization()
         filtering = {

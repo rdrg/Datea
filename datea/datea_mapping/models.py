@@ -7,6 +7,46 @@ from datea.datea_image.models import DateaImage
 from datea.datea_action.models import DateaAction
 from datea.datea_category.models import DateaCategory, DateaFreeCategory
 from mptt.fields import TreeForeignKey, TreeManyToManyField
+        
+        
+class DateaMapping(DateaAction):
+    
+    # text input fields
+    mission = models.TextField(_("Mission / Objectives"), blank=True, null=True, max_length=500, help_text=_("max. 500 characters"))
+    information_destiny = models.TextField(_("What happens with the data?"), max_length=500, help_text=_("Who receives the information and what happens with it? (max 500 characters)"))
+    long_description = models.TextField(_("Description"), blank=True, null=True, help_text=_("Long description (optional)"))
+    report_success_message = models.TextField(_("Item submitted success message"), blank=True, null=True, max_length=140, help_text=_("The message someone sees when succesfully filing a report (max. 140 characters)"))
+    
+    image = models.ForeignKey(DateaImage, verbose_name=_('Image'), blank=True, null=True, related_name="mappings")
+    # ZONES
+    #zones = models.ManyToManyField(Zone, blank=True, null=True, default=None)
+    
+    # CATEGORIES / VARIABLES
+    item_categories = TreeManyToManyField(DateaFreeCategory, verbose_name=_("Map item Categories"), blank=True, null=True, default=None, help_text=_("Categories for Mapped Items"), related_name="mappings")
+    
+    # GEO:
+    center = models.PointField(_("Center"), blank=True, null=True, spatial_index=False)
+    boundary = models.PolygonField(_("Boundary"), blank=True, null=True, spatial_index=False)
+    
+    # Object Manager from geodjango
+    objects = models.GeoManager()
+    
+    class Meta:
+        verbose_name = _("Mapping")
+        verbose_name_plural = _("Mappings")
+    
+    def save(self, *args, **kwargs):
+        
+        self.action_type = 'mapping'
+        
+        if self.center == None and self.boundary != None:
+            self.center = self.boundary.centroid
+            self.center.srid = self.boundary.get_srid()
+        
+        self.save_base()
+        super(DateaMapping, self).save(*args, **kwargs)
+    
+    
 
 
 class DateaMapItem(models.Model):
@@ -67,49 +107,34 @@ class DateaMapItem(models.Model):
         verbose_name = _('Map Item')
         verbose_name_plural = _('Map Items')
         
+
+
+class DateaMapItemResponse(models.Model):
     
+    user = models.ForeignKey(User, verbose_name=_("User"), related_name="map_item_responses")
+    created = models.DateTimeField(_("created"), auto_now_add=True)
+    modified = models.DateTimeField(_('modified'), auto_now=True)
+    map_items = models.ManyToManyField('DateaMapItem', verbose_name=_("Map Items"), related_name="responses") 
+    content = models.TextField(_("Response"))
+    
+    # call this after model and m2m fields have been saved    
+    def update_item_stats(self):
+        for item in self.map_items.all():
+            item.reply_count = item.responses.count()
+            item.save()
         
-        
-class DateaMapping(DateaAction):
-    
-    # text input fields
-    mission = models.TextField(_("Mission / Objectives"), blank=True, null=True, max_length=500, help_text=_("max. 500 characters"))
-    information_destiny = models.TextField(_("What happens with the data?"), max_length=500, help_text=_("Who receives the information and what happens with it? (max 500 characters)"))
-    long_description = models.TextField(_("Description"), blank=True, null=True, help_text=_("Long description (optional)"))
-    report_success_message = models.TextField(_("Item submitted success message"), blank=True, null=True, max_length=140, help_text=_("The message someone sees when succesfully filing a report (max. 140 characters)"))
-    
-    image = models.ForeignKey(DateaImage, verbose_name=_('Image'), blank=True, null=True, related_name="mappings")
-    # ZONES
-    #zones = models.ManyToManyField(Zone, blank=True, null=True, default=None)
-    
-    # CATEGORIES / VARIABLES
-    item_categories = TreeManyToManyField(DateaFreeCategory, verbose_name=_("Map item Categories"), blank=True, null=True, default=None, help_text=_("Categories for Mapped Items"), related_name="mappings")
-    
-    # GEO:
-    center = models.PointField(_("Center"), blank=True, null=True, spatial_index=False)
-    boundary = models.PolygonField(_("Boundary"), blank=True, null=True, spatial_index=False)
-    
-    # Object Manager from geodjango
-    objects = models.GeoManager()
+    def __unicode__(self):
+        return strip_tags(self.content)[:80]
     
     class Meta:
-        verbose_name = _("Mapping")
-        verbose_name_plural = _("Mappings")
-    
-    def save(self, *args, **kwargs):
+        verbose_name = _('Response')
+        verbose_name_plural = _('Responses')
         
-        self.action_type = 'mapping'
+
         
-        if self.center == None and self.boundary != None:
-            self.center = self.boundary.centroid
-            self.center.srid = self.boundary.get_srid()
-        
-        self.save_base()
-        super(DateaMapping, self).save(*args, **kwargs)
-    
-    
     
 
+    
 
     
     

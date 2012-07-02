@@ -15,6 +15,7 @@ from datea_api.vote import VoteResource
 from datea_api.image import ImageResource
 from datea_api.action import ActionResource
 from datea_api.contenttypes import ContentTypeResource
+from datea_api.comment import CommentResource
 
 v1_api = Api(api_name='v1')
 v1_api.register(Accounts())
@@ -27,6 +28,7 @@ v1_api.register(VoteResource())
 v1_api.register(ImageResource())
 v1_api.register(ActionResource())
 v1_api.register(ContentTypeResource())
+v1_api.register(CommentResource())
 
 urlpatterns = patterns('',
     url(r'^$', 'datea.datea_home.views.home', name='home'),

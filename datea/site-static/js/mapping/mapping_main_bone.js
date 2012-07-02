@@ -29,7 +29,7 @@ window.Datea.MappingMainView = Backbone.View.extend({
 	
 	render: function (eventName) {
 		// include main layout
-		this.$el.html(ich.fix_base_content_split_tpl({
+		this.$el.html(ich.map_base_content_split_tpl({
 			'content_id': 'mapping-'+this.model.get('id'),
 			'class': 'mapping-content',
 		}));

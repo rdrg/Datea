@@ -4,7 +4,7 @@
 {% block body %}
 	<div class="navbar navbar-fixed-top">
 		<div class="navbar-inner">
-			<div class="container">
+			<div class="container container-target">
 				<a href="/" id="logo">
 					<img src="{{STATIC_URL}}img/datea/logo_header.png" />
 				</a>
@@ -18,7 +18,7 @@
 	
 	{% block main_content_wrap %}
 	<div class="main-content-wrap">
-		<div id="main-content" class="container">
+		<div id="main-content" class="container container-target">
 			<div id="main-content-view" class="inner">{% block main_content %}{% endblock %}</div>
 		</div>
 	</div>
@@ -26,8 +26,8 @@
 	
 	{% block footer %}
 		<div id="footer">
-			<div class="inner container">
-				<div class="row">
+			<div class="inner container container-target">
+				<div class="row row-target">
 					<div id="footer-left" class="span6">&nbsp;</div>
 					
 					<div id="footer-right" class="span6">

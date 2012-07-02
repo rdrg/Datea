@@ -298,7 +298,7 @@ olwidget.DateaMainMap = OpenLayers.Class(OpenLayers.Map, {
             // Map div stuff
             mapDivClass: '',
             mapDivStyle: {
-                width: '460px',
+                width: '100%',
                 height: '500px'
             },
             layers: ['osm.mapnik'],
@@ -498,38 +498,27 @@ olwidget.DateaMainMap = OpenLayers.Class(OpenLayers.Map, {
 
         var popupHTML = [];
         if (feature.cluster) {
-            if (feature.layer && feature.layer.opts &&
-                    feature.layer.opts.clusterDisplay == 'list') {
-                if (feature.cluster.length > 1) {
-                    var html = "<ul class='olwidgetClusterList'>";
-                    for (var i = 0; i < feature.cluster.length; i++) {
-                        html += "<li>" + feature.cluster[i].attributes.html +
-                            "</li>";
-                    }
-                    html += "</ul>";
-                    popupHTML.push(html);
-                } else {
-                    popupHTML.push(feature.cluster[0].attributes.html);
-                }
-            } else {
-                for (var i = 0; i < feature.cluster.length; i++) {
-                	// ROD HACK !!!
-                    //popupHTML.push(feature.cluster[i].attributes.html);
-                    var id = feature.layer.mapItems.url+feature.cluster[i].item_id+'/';
-                    var pop_html = new Datea.MapItemPopupView({
-                    	model: feature.layer.mapItems.get(id),
-                    }).render().$el.html();
-                    popupHTML.push(pop_html);
-                }
+            for (var i = 0; i < feature.cluster.length; i++) {
+            	// ROD HACK !!!
+                var id = feature.layer.mapItems.url+feature.cluster[i].item_id+'/';
+                var pop_html = new Datea.MapItemPopupView({
+                	model: feature.layer.mapItems.get(id),
+                	mapLayer: feature.layer,
+                }).render().el;
+                popupHTML.push(pop_html);
             }
         } else {
-            if (feature.attributes.html) {
-                popupHTML.push(feature.attributes.html);
-            }
+            var id = feature.layer.mapItems.url+feature.item_id+'/';
+            var pop_html = new Datea.MapItemPopupView({
+            	model: feature.layer.mapItems.get(id),
+            	mapLayer: feature.layer,
+            }).render().el;
+            popupHTML.push(pop_html);
         }
+        
         if (popupHTML.length > 0) {
             var infomap = this;
-            var popup = new olwidget.Popup(null,
+            var popup = new olwidget.DateaPopup(null,
                     lonlat, null, popupHTML, null, true,
                     function() { infomap.selectControl.unselect(feature); },
                     this.opts.popupDirection,
@@ -553,6 +542,280 @@ olwidget.DateaMainMap = OpenLayers.Class(OpenLayers.Map, {
     },
     CLASS_NAME: "olwidget.Map"
 });
+
+
+/*
+ * Paginated, framed popup type, CSS stylable.
+ */
+olwidget.DateaPopup = OpenLayers.Class(OpenLayers.Popup.Framed, {
+    autoSize: true,
+    panMapIfOutOfView: true,
+    fixedRelativePosition: false,
+    // Position blocks.  Overriden to include additional "className" parameter,
+    // allowing image paths relative to css rather than relative to the html
+    // file (as paths included in a JS file are computed).
+    positionBlocks: {
+        "tl": {
+            'offset': new OpenLayers.Pixel(44, -6),
+            'padding': new OpenLayers.Bounds(5, 14, 5, 5),
+            'blocks': [
+                { // stem
+                    className: 'olwidgetPopupStemTL',
+                    size: new OpenLayers.Size(24, 14),
+                    anchor: new OpenLayers.Bounds(null, 0, 32, null),
+                    position: new OpenLayers.Pixel(0, -28)
+                }
+            ]
+        },
+        "tr": {
+            'offset': new OpenLayers.Pixel(-44, -6),
+            'padding': new OpenLayers.Bounds(5, 14, 5, 5),
+            'blocks': [
+                { // stem
+                    className: "olwidgetPopupStemTR",
+                    size: new OpenLayers.Size(24, 14),
+                    anchor: new OpenLayers.Bounds(32, 0, null, null),
+                    position: new OpenLayers.Pixel(0, -28)
+                }
+            ]
+        },
+        "bl": {
+            'offset': new OpenLayers.Pixel(44, 6),
+            'padding': new OpenLayers.Bounds(5, 5, 5, 14),
+            'blocks': [
+                { // stem
+                    className: "olwidgetPopupStemBL",
+                    size: new OpenLayers.Size(24, 14),
+                    anchor: new OpenLayers.Bounds(null, null, 32, 0),
+                    position: new OpenLayers.Pixel(0, 0)
+                }
+            ]
+        },
+        "br": {
+            'offset': new OpenLayers.Pixel(-44, 6),
+            'padding': new OpenLayers.Bounds(5, 5, 5, 14),
+            'blocks': [
+                { // stem
+                    className: "olwidgetPopupStemBR",
+                    size: new OpenLayers.Size(24, 14),
+                    anchor: new OpenLayers.Bounds(32, null, null, 0),
+                    position: new OpenLayers.Pixel(0, 0)
+                }
+            ]
+        }
+    },
+
+    initialize: function(id, lonlat, contentSize, contentHTML, anchor, closeBox,
+                    closeBoxCallback, relativePosition, separator) {
+        if (relativePosition && relativePosition != 'auto') {
+            this.fixedRelativePosition = true;
+            this.relativePosition = relativePosition;
+        }
+        if (separator === undefined) {
+            this.separator = ' of ';
+        } else {
+            this.separator = separator;
+        }
+        // we don't use the default close box because we want it to appear in
+        // the content div for easier CSS control.
+        this.olwidgetCloseBox = closeBox;
+        this.olwidgetCloseBoxCallback = closeBoxCallback;
+        this.page = 0;
+        
+        OpenLayers.Popup.Framed.prototype.initialize.apply(this, [id, lonlat,
+            contentSize, contentHTML, anchor, false, null]);
+    },
+
+    /*
+     * Construct the interior of a popup.  If contentHTML is an Array, display
+     * the array element specified by this.page.
+     */
+    setContentHTML: function(contentHTML) {
+        if (contentHTML !== null && contentHTML !== undefined) {
+            this.contentHTML = contentHTML;
+        }
+
+        var pageHTML;
+        var showPagination;
+        if (this.contentHTML.constructor != Array) {
+            pageHTML = this.contentHTML;
+            showPagination = false;
+        } else {
+            pageHTML = this.contentHTML[this.page];
+            showPagination = this.contentHTML.length > 1;
+        }
+
+        if ((this.contentDiv !== null) && (pageHTML !== null)) {
+            var popup = this; // for closures
+
+            // Clear old contents
+            this.contentDiv.innerHTML = "";
+
+            // Build container div
+            var containerDiv = document.createElement("div");
+            containerDiv.className = 'olwidgetPopupContent';
+            this.contentDiv.appendChild(containerDiv);
+
+            // Build close box
+            if (this.olwidgetCloseBox) {
+                var closeDiv = document.createElement("div");
+                closeDiv.className = "olwidgetPopupCloseBox";
+                closeDiv.innerHTML = "close";
+                closeDiv.onclick = function(event) {
+                    popup.olwidgetCloseBoxCallback.apply(popup, arguments);
+                };
+                containerDiv.appendChild(closeDiv);
+            }
+
+            var pageDiv = document.createElement("div");
+            //pageDiv.innerHTML = pageHTML;
+            $(pageDiv).html(pageHTML);
+            pageDiv.className = "olwidgetPopupPage";
+            containerDiv.appendChild(pageDiv);
+
+            if (showPagination) {
+                // Build pagination control
+
+                var paginationDiv = document.createElement("div");
+                paginationDiv.className = "olwidgetPopupPagination";
+                var prev = document.createElement("div");
+                prev.className = "olwidgetPaginationPrevious";
+                prev.innerHTML = "prev";
+                prev.onclick = function(event) {
+                    popup.page = (popup.page - 1 + popup.contentHTML.length) %
+                        popup.contentHTML.length;
+                    popup.setContentHTML();
+                    popup.map.events.triggerEvent("move");
+                };
+
+                var count = document.createElement("div");
+                count.className = "olwidgetPaginationCount";
+                count.innerHTML = (this.page + 1) + this.separator + this.contentHTML.length;
+                var next = document.createElement("div");
+                next.className = "olwidgetPaginationNext";
+                next.innerHTML = "next";
+                next.onclick = function(event) {
+                    popup.page = (popup.page + 1) % popup.contentHTML.length;
+                    popup.setContentHTML();
+                    popup.map.events.triggerEvent("move");
+                };
+
+                paginationDiv.appendChild(prev);
+                paginationDiv.appendChild(count);
+                paginationDiv.appendChild(next);
+                containerDiv.appendChild(paginationDiv);
+
+            }
+            var clearFloat = document.createElement("div");
+            clearFloat.style.clear = "both";
+            containerDiv.appendChild(clearFloat);
+
+            if (this.autoSize) {
+                this.registerImageListeners();
+                this.updateSize();
+            }
+        }
+    },
+
+    /*
+     * Override parent to make the popup more CSS-friendly.  Rather than
+     * specifying img paths in javascript, give position blocks CSS classes
+     * that can be used to apply background images to the divs.
+     */
+    createBlocks: function() {
+        this.blocks = [];
+
+        // since all positions contain the same number of blocks, we can
+        // just pick the first position and use its blocks array to create
+        // our blocks array
+        var firstPosition = null;
+        for(var key in this.positionBlocks) {
+            firstPosition = key;
+            break;
+        }
+
+        var position = this.positionBlocks[firstPosition];
+        for (var i = 0; i < position.blocks.length; i++) {
+
+            var block = {};
+            this.blocks.push(block);
+
+            var divId = this.id + '_FrameDecorationDiv_' + i;
+            block.div = OpenLayers.Util.createDiv(divId,
+                null, null, null, "absolute", null, "hidden", null
+            );
+            this.groupDiv.appendChild(block.div);
+        }
+    },
+    /*
+     * Override parent to make the popup more CSS-friendly, reflecting
+     * modifications to createBlocks.
+     */
+    updateBlocks: function() {
+        if (!this.blocks) {
+            this.createBlocks();
+        }
+        if (this.size && this.relativePosition) {
+            var position = this.positionBlocks[this.relativePosition];
+            for (var i = 0; i < position.blocks.length; i++) {
+
+                var positionBlock = position.blocks[i];
+                var block = this.blocks[i];
+
+                // adjust sizes
+                var l = positionBlock.anchor.left;
+                var b = positionBlock.anchor.bottom;
+                var r = positionBlock.anchor.right;
+                var t = positionBlock.anchor.top;
+
+                // note that we use the isNaN() test here because if the
+                // size object is initialized with a "auto" parameter, the
+                // size constructor calls parseFloat() on the string,
+                // which will turn it into NaN
+                //
+                var w = (isNaN(positionBlock.size.w)) ? this.size.w - (r + l)
+                                                      : positionBlock.size.w;
+
+                var h = (isNaN(positionBlock.size.h)) ? this.size.h - (b + t)
+                                                      : positionBlock.size.h;
+
+                block.div.style.width = (w < 0 ? 0 : w) + 'px';
+                block.div.style.height = (h < 0 ? 0 : h) + 'px';
+
+                block.div.style.left = (l !== null) ? l + 'px' : '';
+                block.div.style.bottom = (b !== null) ? b + 'px' : '';
+                block.div.style.right = (r !== null) ? r + 'px' : '';
+                block.div.style.top = (t !== null) ? t + 'px' : '';
+
+                block.div.className = positionBlock.className;
+            }
+
+            this.contentDiv.style.left = this.padding.left + "px";
+            this.contentDiv.style.top = this.padding.top + "px";
+        }
+    },
+    updateSize: function() {
+        if (this.map.opts.popupsOutside === true) {
+            var preparedHTML = "<div class='" + this.contentDisplayClass+ "'>" +
+                this.contentDiv.innerHTML +
+                "</div>";
+
+            var containerElement = document.body;
+            var realSize = OpenLayers.Util.getRenderedDimensions(
+                preparedHTML, null, {
+                    displayClass: this.displayClass,
+                    containerElement: containerElement
+                }
+            );
+            return this.setSize(realSize);
+        } else {
+            return OpenLayers.Popup.prototype.updateSize.apply(this, arguments);
+        }
+    },
+
+    CLASS_NAME: "olwidget.Popup"
+});
+
 
 
 

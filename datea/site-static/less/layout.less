@@ -32,6 +32,14 @@
   .gridCoreSpan( 6.5, @gridColumnWidth, @gridGutterWidth);
 }
 
+.span6-fix {
+  .gridCoreSpan( 6, @gridColumnWidth, @gridGutterWidth);
+}
+
+.span6-fix-complement {
+  .gridCoreSpan( 6, @gridColumnWidth, @gridGutterWidth);
+}
+
 
 .span9-5 {
   .gridCoreSpan( 9.5, @gridColumnWidth, @gridGutterWidth);
@@ -62,6 +70,12 @@
   .span9-5 {
       .gridCoreSpan( 9.5, 42px, 20px);
   }
+  .span6-fix {
+  	.gridCoreSpan( 6, 42px, 20px);
+  }
+  .span6-fix-complement {
+      .gridCoreSpan( 6, 42px, 20px);
+  }
 }
 
 // LARGE DESKTOP & UP
@@ -85,5 +99,13 @@
   }
   .span9-5 {
       .gridCoreSpan( 9.5, 70px, 30px);
+  }
+  
+  .span6-fix {
+  	.gridCoreSpan( 6, 60px, 20px);
+  }
+  
+  .span6-fix-complement {
+      width: 680px;
   }
 }

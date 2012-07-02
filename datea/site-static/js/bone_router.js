@@ -1,6 +1,6 @@
 hardcode_map_id = 1;
 
-// Router
+// Main App Router for the Datea Plattform in the client
 Datea.AppRouter = Backbone.Router.extend({
  
     routes:{
@@ -23,14 +23,16 @@ Datea.AppRouter = Backbone.Router.extend({
     },
     
     fb_login_redirect:function () {
-    	this.open_mapping_tab(hardcode_map_id);
-    	//this.navigate('');
+    	//this.open_mapping_tab(hardcode_map_id);
+    	this.navigate('/');
     },
     
+    // new action homeview -> select which action type to create
     action_start: function () {
     	$('#main-content-view').html(new Datea.ActionStartView().render().el);
     },
     
+    // create new action (mapping or whatever)
     action_create: function (action_type) {
     	
     	if (action_type == 'mapping') {
@@ -42,6 +44,7 @@ Datea.AppRouter = Backbone.Router.extend({
     	
     },
     
+    // open a mapping tab on the mapping action
     open_mapping_tab: function(map_id, tab_id, method_id) {
 		console.log("open_map_tab");
     	var params = {
@@ -59,12 +62,13 @@ Datea.AppRouter = Backbone.Router.extend({
     		
     	}else{
     		var self = this;
-    		this.create_mapping(map_id, function () {
+    		this.build_mapping(map_id, function () {
     			self.mapping_view.render_tab(params);
     		})
     	}
     },
     
+    // open a single map item in detail view
     open_mapping_item: function(map_id, tab_id, item_id) {
 
     	var params = {
@@ -80,13 +84,15 @@ Datea.AppRouter = Backbone.Router.extend({
     		this.mapping_view.render_item(params);
     	}else{
     		var self = this;
-    		this.create_mapping(map_id, function () {
+    		this.build_mapping(map_id, function () {
     			self.mapping_view.render_item(params);
     		})
     	}
     },
     
-    create_mapping: function(map_id, callback) {
+    // Build mapping and add it to the dom
+    build_mapping: function(map_id, callback) {
+    	//Datea.layout_view.make_fluid();
     	var self = this;
     	var mapping_model = new Datea.Mapping({id: map_id});
     	
@@ -101,13 +107,4 @@ Datea.AppRouter = Backbone.Router.extend({
 			}
     	}});
     }
-    
-    
-    
- 	/*
-    wineDetails:function (id) {
-        this.wine = this.wineList.get(id);
-        this.wineView = new WineView({model:this.wine});
-        $('#content').html(this.wineView.render().el);
-    }*/
 });

@@ -176,6 +176,7 @@ INSTALLED_APPS = (
     'datea.datea_vote',
     'datea.datea_follow',
     'datea.datea_api',
+    'datea.datea_comment',
 )
 
 # A sample logging configuration. The only tangible logging

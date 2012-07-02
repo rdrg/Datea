@@ -115,6 +115,16 @@
   *width: 499px;
 }
 
+.span6-fix {
+  width: 460px;
+  *width: 459px;
+}
+
+.span6-fix-complement {
+  width: 460px;
+  *width: 459px;
+}
+
 .span9-5 {
   width: 740px;
   *width: 739px;
@@ -145,6 +155,14 @@
     width: 569px;
     *width: 568px;
   }
+  .span6-fix {
+    width: 352px;
+    *width: 351px;
+  }
+  .span6-fix-complement {
+    width: 352px;
+    *width: 351px;
+  }
 }
 
 @media (min-width: 1200px) {
@@ -171,6 +189,13 @@
   .span9-5 {
     width: 920px;
     *width: 919px;
+  }
+  .span6-fix {
+    width: 460px;
+    *width: 459px;
+  }
+  .span6-fix-complement {
+    width: 680px;
   }
 }
 
@@ -224,6 +249,10 @@ textarea {
 
 textarea.autoresize {
   height: 18px;
+}
+
+textarea.autoresize.double {
+  height: 36px;
 }
 
 .social-auth-buttons {
@@ -484,7 +513,6 @@ a:hover span.caret2 {
 
 .map-item.popup {
   position: relative;
-  max-width: 280px;
   min-width: 220px;
   font-size: 12px;
   line-height: 15px;
@@ -504,6 +532,7 @@ a:hover span.caret2 {
 }
 
 .map-item.popup .content .field {
+  max-width: 280px;
   padding: 9px 0 2px 0;
 }
 
@@ -914,46 +943,29 @@ body .olwidgetPopupCloseBox {
 }
 
 .data-view-categories li {
+  position: relative;
   display: block;
   float: left;
+  width: 25%;
   min-height: 35px;
   line-height: 15px !important;
   list-style: none;
   list-style-position: inside;
-  *zoom: 1;
-  *zoom: 1;
-}
-
-.data-view-categories li:before,
-.data-view-categories li:after {
-  display: table;
-  content: "";
-}
-
-.data-view-categories li:after {
-  clear: both;
-}
-
-.data-view-categories li:before,
-.data-view-categories li:after {
-  display: table;
-  content: "";
-}
-
-.data-view-categories li:after {
-  clear: both;
 }
 
 .data-view-categories li .color-sample {
-  float: left;
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 15px;
   margin-right: 5px;
 }
 
 .data-view-categories li .name {
-  display: inline-block;
+  display: block;
   float: left;
-  width: 95px;
+  padding-right: 6px;
+  margin-left: 21px;
   font-size: 12px;
 }
 
@@ -963,4 +975,35 @@ body .olwidgetPopupCloseBox {
   width: 25px;
   margin-right: 5px;
   *zoom: 1;
+}
+
+.badge-truncated {
+  display: inline-block;
+  max-width: 260px;
+  white-space: normal !important;
+}
+
+.comments {
+  margin-top: 25px;
+}
+
+.comments h3 {
+  font-size: 14px;
+}
+
+.comments .comment-list .comment-item {
+  margin-bottom: 15px;
+}
+
+.comments .comment-list .comment-item .comment-head .user-data span.date {
+  font-size: 11px;
+  color: #999999;
+}
+
+.comments .comment-form .control-group {
+  margin-bottom: 10px;
+}
+
+.comments .comment-form .control-group textarea {
+  margin-bottom: 0;
 }

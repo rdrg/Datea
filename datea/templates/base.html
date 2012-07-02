@@ -20,7 +20,7 @@
 
 		{# CSS #}
 		<link href="{{ STATIC_URL }}css/bootstrap.css" rel="stylesheet">
-		{#<link href="{{ STATIC_URL }}css/bootstrap-responsive.css" rel="stylesheet">#}
+		<link href="{{ STATIC_URL }}css/bootstrap-responsive.css" rel="stylesheet">
 		<link href="{{ STATIC_URL }}css/datea.css" rel="stylesheet">
 		<link rel="stylesheet" href="{{ STATIC_URL }}openlayers-dev/theme/default/style.css" />
 		<link rel="stylesheet" href="{{ STATIC_URL }}openlayers-dev/theme/default/google.css" />
@@ -33,6 +33,7 @@
 				{# main stuff #}
 				{% include "ich/fix_base_content_single.html" %}
 				{% include "ich/fix_base_content_split.html" %}
+				{% include "ich/fluid_base_content_split.html" %}
 				{% include "ich/pagination.html" %}
 				
 				{# Image templates #}
@@ -70,6 +71,10 @@
 				{% include "ich/map_item_form.html" %}
 				{% include "ich/map_item_form_verify.html" %}
 				{% include "ich/map_item_form_success.html" %}
+				{% include "ich/map_base_content_split.html" %}
+				
+				{# comment templates #}
+				{% include "ich/comment.html" %}
 
 				
 		{% endblock %}
@@ -136,6 +141,7 @@
   		<script src="{{ STATIC_URL }}js/datea_share.js"></script>
   		
 		<script src="{{ STATIC_URL }}js/main_bone.js"></script>
+		<script src="{{ STATIC_URL }}js/layout_bone.js"></script>
 		<script src="{{ STATIC_URL }}js/paginator_bone.js"></script>
 		<script src="{{ STATIC_URL }}js/image_bone.js"></script>
 		<script src="{{ STATIC_URL }}js/category_bone.js"></script>
@@ -146,6 +152,7 @@
 		<script src="{{ STATIC_URL }}js/mapping/mapping_data_view_bone.js"></script>
 		<script src="{{ STATIC_URL }}js/mapping/map_item_bone.js"></script>
 		<script src="{{ STATIC_URL }}js/mapping/map_item_form_bone.js"></script>
+		<script src="{{ STATIC_URL }}js/comment_bone.js"></script>
 		
   		{% block footer_js %}{% endblock %}
   		
@@ -160,6 +167,7 @@
 			
 			// init stuff
 			Datea.modal_view = new Datea.ModalWrapView({'el': $('#modal-wrap-view')});
+			Datea.layout_view = new Datea.LayoutView({el:$('body')});
 			
 			// start Router
 			if (typeof(Datea.AppRouter) != 'undefined') {

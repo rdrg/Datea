@@ -1,5 +1,7 @@
 from tastypie import fields
 from tastypie.constants import ALL, ALL_WITH_RELATIONS
+from tastypie.cache import SimpleCache
+from tastypie.throttle import BaseThrottle
 #from tastypie.contrib.gis.resources import ModelResource
 from datea.datea_mapping.models import DateaMapping, DateaMapItem
 from datea.datea_image.models import DateaImage
@@ -9,6 +11,7 @@ from api_base import ApiKeyPlusWebAuthentication, DateaBaseAuthorization, DateaB
 from django.contrib.auth.models import User
 from django.utils.html import strip_tags
 from django.utils.text import Truncator
+
 
 
 class MappingResource(DateaBaseGeoResource):
@@ -31,7 +34,6 @@ class MappingResource(DateaBaseGeoResource):
     
     
     def hydrate(self, bundle):
-        print "HYDRATING MAPPING!!"
         # save fks by ourselves, because tastypie also saves 
         # the related object -> we don't want that -> set to readonly
         if 'category' in bundle.data and bundle.data['category']:
@@ -64,12 +66,15 @@ class MappingResource(DateaBaseGeoResource):
         
         return bundle
         
+        
     class Meta:
         queryset = DateaMapping.objects.all()
         resource_name = 'mapping'
         allowed_methods = ['get', 'post', 'put', 'delete']
         authentication = ApiKeyPlusWebAuthentication()
         authorization = DateaBaseAuthorization()
+        cache = SimpleCache(timeout=10)
+        limit = 20
 
 
         
@@ -110,6 +115,7 @@ class MapItemResource(DateaBaseGeoResource):
             bundle.obj.user = orig_object.user
         return bundle
     
+    
     # do our own saving of related fields (see MappingResource)
     def hydrate_m2m(self, bundle):
         #print bundle.data
@@ -127,7 +133,11 @@ class MapItemResource(DateaBaseGeoResource):
         authorization = DateaBaseAuthorization()
         filtering = {
             'mapping': ALL_WITH_RELATIONS,
-            'id': ('exact',),
+            'id': ['exact'],
+            'created': ['range', 'gt', 'gte', 'lt', 'lte'],
+            'position': ['distance', 'contained','latitude', 'longitude']
         }
+        limit = 500
+        cache = SimpleCache(timeout=10)
 
 

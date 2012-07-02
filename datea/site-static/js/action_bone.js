@@ -1,28 +1,39 @@
 
 
-//+++++++++++++++++++++++++
+
 // DateaAction backbone model 
 window.Datea.Action = Backbone.Model.extend();
 
+// Action Collection
 window.Datea.ActionCollection = Backbone.Collection.extend({
 	model: Datea.Action,
 	url: '/api/v1/action/',
 });
 
+// ACtion list item
 window.Datea.ActionListItemView = Backbone.View.extend({
   
   tagName: 'li',
+  
+  attributes: {
+  	'class': 'action-item',
+  },
  
   render: function(){
       $(this.el).html(ich.action_list_item_tpl(this.model.toJSON()));
       return this;
   }
-                                          
+                                
 });
 
+// Action list view -> of action items
 window.Datea.ActionListView = Backbone.View.extend({
  
     tagName:'ul',
+    
+    attributes: {
+    	'class': 'action-list',
+    },
  
     initialize:function () {
         this.model.bind("reset", this.render, this);
@@ -38,6 +49,7 @@ window.Datea.ActionListView = Backbone.View.extend({
 });
 
 
+// Start action view -> create new action
 window.Datea.ActionStartView = Backbone.View.extend({
 	
 	tagName: 'div',
@@ -49,7 +61,6 @@ window.Datea.ActionStartView = Backbone.View.extend({
 	}
 	
 });
-
 
 
 

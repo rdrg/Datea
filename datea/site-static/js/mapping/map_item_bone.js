@@ -29,7 +29,8 @@ window.Datea.MapItemFullView = Backbone.View.extend({
 		
 		var context = this.model.toJSON();
 		// hydrate context 
-		context.created = formatDateFromISO(context.created, "dd.mm.yyyy - H:M");
+		context.created = formatDateFromISO(context.created, "dd.mm.yyyy - H:MM");
+		context.content = context.content.replace(/\n/g, '<br />');
 		this.$el.html( ich.map_item_full_tpl(context) );
 		
 		// images
@@ -54,6 +55,19 @@ window.Datea.MapItemFullView = Backbone.View.extend({
 		if (!this.model.get('position') || !this.model.get('position').coordinates) {
 			this.$el.find('.open-popup').hide();
 		}
+		
+		// comments
+		this.comments = new Datea.CommentCollection();
+		this.comment_view = new Datea.CommentsView({
+			el: this.$el.find('.comments'),
+			model: this.comments,
+			object_type: 'DateaMapItem',
+			object_id: this.model.get('id'),
+		})
+
+		this.comments.fetch({
+			data: {'object_type': 'DateaMapItem', 'object_id': this.model.get('id'), order_by: 'created'} 
+		});
 		
 		return this;
 	},
@@ -81,7 +95,7 @@ window.Datea.MapItemTeaserView = Backbone.View.extend({
 		
 		var context = this.model.toJSON();
 		// hydrate context 
-		context.created = formatDateFromISO(context.created, "dd.mm.yyyy - H:M");
+		context.created = formatDateFromISO(context.created, "dd.mm.yyyy - H:MM");
 		this.$el.html( ich.map_item_teaser_tpl(context) );
 		
 		// has position?
@@ -105,6 +119,10 @@ window.Datea.MapItemPopupView = Backbone.View.extend({
 	
 	tagName: 'div',
 	
+	events: {
+		'click .popup-zoom': 'zoom',
+	},
+	
 	initialize: function () {
 		this.model.bind('sync', this.render, this);
 	},
@@ -113,9 +131,14 @@ window.Datea.MapItemPopupView = Backbone.View.extend({
 		
 		var context = this.model.toJSON();
 		// hydrate context 
-		context.created = formatDateFromISO(context.created, "dd.mm.yyyy - H:M");
+		context.created = formatDateFromISO(context.created, "dd.mm.yyyy - H:MM");
 		this.$el.html( ich.map_item_popup_tpl(context) );
 		return this;
+	},
+	
+	zoom: function(ev) {
+		ev.preventDefault();
+		this.options.mapLayer.open_popup( this.model.get('id') , true, true);
 	},
 	
 	clean_up: function () {
@@ -124,6 +147,8 @@ window.Datea.MapItemPopupView = Backbone.View.extend({
 	}
 	
 });
+
+
 
 
 

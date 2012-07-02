@@ -1,14 +1,16 @@
 
+// Free category Model
 window.Datea.FreeCategory = Backbone.Model.extend({
 	urlRoot:"/api/v1/free_category",
 });
 
+// Free Category Collection 
 window.Datea.FreeCategoryCollection = Backbone.Collection.extend({
 	model: Datea.FreeCategory,
 	url: "/api/v1/free_category"
 });
 
-
+// edit list free category item view (listed item)
 window.Datea.FreeCategoryEditListItemView = Backbone.View.extend({
 	
 	tagName: 'tr',
@@ -56,13 +58,14 @@ window.Datea.FreeCategoryEditListItemView = Backbone.View.extend({
 });
 
 
+// edit free category list item (edit view -> form)
 window.Datea.FreeCategoryEditView  = Backbone.View.extend({
 	
 	tagName: 'td',
 	
 	attributes: {
 		'class': 'edit-item',
-		'colspan': 4,
+		'colspan': 3,
 	},
 	
 	events: {
@@ -78,13 +81,13 @@ window.Datea.FreeCategoryEditView  = Backbone.View.extend({
 	render: function (eventName) {
 
 		this.$el.html( ich.free_category_edit_tpl(this.model.toJSON()));
-		console.log(this.model);
+
+		// ADD IMAGE EDIT VIEWS TO THE FORM 
+		var self = this;
 		var img = new Datea.Image();
 		if (this.model.get('image')) img.set(this.model.get('image'));
 		var marker = new Datea.Image();
 		if (this.model.get('marker_image')) marker.set(this.model.get('marker_image'));
-		
-		var self = this;
 
 		var img_view = new Datea.ImageInputView({
 			model: img, 
@@ -106,14 +109,14 @@ window.Datea.FreeCategoryEditView  = Backbone.View.extend({
 			} 
 		});
 		this.$el.find('.marker-input-view').html(marker_view.render().el);
-		
 		marker_view.render();
 		
+		// adjust edit controls
 		if (this.model.isNew()) {
 			this.$el.find('.delete-category').hide();
 		}
 		
-		return this
+		return this;
 	},
 	
 	save_category: function(ev) {
@@ -125,7 +128,6 @@ window.Datea.FreeCategoryEditView  = Backbone.View.extend({
 				"description": $('textarea[name="description"]',this.$el).val(),
 				"color": $('input[name="color"]', this.$el).val()
 			});
-			var self = this;
 			this.model.save();
 			return false;
 		}
@@ -157,10 +159,10 @@ window.Datea.FreeCategoryEditView  = Backbone.View.extend({
 	
 });
 
-
+// free category edit list
 window.Datea.FreeCategoryEditListView = Backbone.View.extend({
 	
-	tagName: 'div',
+	tagName: 'table',
 	
 	initialize: function() {
 		//this.model.bind("change", this.render, this);
