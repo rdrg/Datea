@@ -21,6 +21,14 @@ class DateaComment(models.Model):
     object_type = models.CharField(_('Object Name'), max_length=50) # object typeid -> whatever
     object_id = models.PositiveIntegerField(_('Object id')) # object id
     
+    def save(self, *args, **kwargs):
+        
+        ctype = ContentType.objects.get(model=self.object_type.lower())
+        receiver_object = ctype.get_object_for_this_type(pk=self.object_id)
+        
+        
+        super(DateaComment, self).save(*args, **kwargs)
+    
     def __unicode__(self):
         return "Datea vote"
     

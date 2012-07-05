@@ -57,7 +57,6 @@ class DateaProfile(models.Model):
     
     def get_small_image(self):
         return self.get_image_thumb('profile_image_small')
-        
     
     
 
@@ -65,18 +64,16 @@ from django.db.models.signals import post_save
 from django.contrib.auth.signals import user_logged_in
 
 
-
 #++++++++++++++++++++++++++++++++++++      
 # SIGNALS
 #
-# CREATE PROFILE AFTER SAVING NEW USER
+# CREATE PROFILE and Notify Settings AFTER SAVING NEW USER
 def create_profile(sender, instance=None, **kwargs):
     if instance is None:
         return
     profile, created = DateaProfile.objects.get_or_create(user=instance)
 # connect to post save signal        
 post_save.connect(create_profile, sender=User)
-
 
 
 ###############################################

@@ -11,9 +11,12 @@ class DateaVote(models.Model):
     value = models.IntegerField(default=1)
     
     # generic content type relation to voted object
-    content_type = models.ForeignKey(ContentType)
+    # content_type = models.ForeignKey(ContentType)
+    # object_id = models.PositiveIntegerField()
+    # content_object = generic.GenericForeignKey('content_type', 'object_id')
+    
+    object_type = models.CharField(max_length=255)
     object_id = models.PositiveIntegerField()
-    content_object = generic.GenericForeignKey('content_type', 'object_id')
     
     def __unicode__(self):
         return "Datea vote"
