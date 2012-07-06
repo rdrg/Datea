@@ -77,9 +77,8 @@ class DateaHistoryNotice(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     
     url = models.URLField(verify_exists=False)
+    title = models.TextField(_('Title'), blank=True, null=True)
     extract = models.TextField(_('Extract'), blank=True, null=True)
-    
-    #action = models.ForeignKey(DateaAction, blank=True, null=True, related_name="notices")
     
     # generic content type relation to the object which receives an action:
     # for example: the content which receives a vote
@@ -107,7 +106,7 @@ class DateaHistoryNotice(models.Model):
                 'url': self.url       
             }
             self.extract = render_to_string((
-                'notice/%s/%s/extract.html' % (self.content_type.app_label, self.content_type.model), 
+                'notice/%s/extract.html' % self.content_type.model, 
                 'notice/extract.html'), context)
         
         self.check_published(save=False)
