@@ -11,6 +11,8 @@ from mptt.fields import TreeForeignKey, TreeManyToManyField
         
 class DateaMapping(DateaAction):
     
+    label = _('mapping')
+    
     # text input fields
     mission = models.TextField(_("Mission / Objectives"), blank=True, null=True, max_length=500, help_text=_("max. 500 characters"))
     information_destiny = models.TextField(_("What happens with the data?"), max_length=500, help_text=_("Who receives the information and what happens with it? (max 500 characters)"))
@@ -51,6 +53,8 @@ class DateaMapping(DateaAction):
 
 class DateaMapItem(models.Model):
     
+    label = _('report')
+    
     user = models.ForeignKey(User, verbose_name=_('User'), related_name="map_items")
     
     # timestamps
@@ -74,8 +78,9 @@ class DateaMapItem(models.Model):
     position = models.PointField(_('Position'), blank=True, null=True, spatial_index=False)
     address = models.CharField(_('Address'), max_length=255, blank=True, null=True)
     
-    # relation to mapping object
-    mapping = models.ForeignKey('DateaMapping', related_name="map_items")
+    # relation to mapping object: UPDATE -> refer to mapping as an action. More generic!!
+    #mapping = models.ForeignKey('DateaMapping', related_name="map_items_old")
+    action = models.ForeignKey('DateaMapping', related_name="map_items")
     
     # category
     category = TreeForeignKey(DateaFreeCategory, verbose_name=_("Category"), null=True, blank=True, default=None, related_name="map_items")

@@ -1,2 +1,5 @@
 eclipse.preferences.version=1
+encoding//datea/datea_comment/migrations/0004_object_type_lowercase.py=utf-8
+encoding//datea/datea_mapping/migrations/0007_auto__add_field_dateamapitem_action.py=utf-8
+encoding//datea/datea_mapping/migrations/0008_change_mapping_to_action_field.py=utf-8
 encoding//datea/datea_profile/migrations/0004_auto.py=utf-8

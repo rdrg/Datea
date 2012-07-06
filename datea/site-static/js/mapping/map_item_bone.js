@@ -61,12 +61,12 @@ window.Datea.MapItemFullView = Backbone.View.extend({
 		this.comment_view = new Datea.CommentsView({
 			el: this.$el.find('.comments'),
 			model: this.comments,
-			object_type: 'DateaMapItem',
+			object_type: 'dateamapitem',
 			object_id: this.model.get('id'),
 		})
 
 		this.comments.fetch({
-			data: {'object_type': 'DateaMapItem', 'object_id': this.model.get('id'), order_by: 'created'} 
+			data: {'object_type': 'dateamapitem', 'object_id': this.model.get('id'), order_by: 'created'} 
 		});
 		
 		return this;

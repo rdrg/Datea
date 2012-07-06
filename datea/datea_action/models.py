@@ -20,13 +20,14 @@ class SubclassingQuerySet(models.query.GeoQuerySet):
             yield item.as_leaf_class()
 
 
-
 class DateaActionManager(models.GeoManager):
     def get_query_set(self):
         return SubclassingQuerySet(self.model)
 
 
 class DateaAction(models.Model):
+    
+    label = _('action')
     
     user = models.ForeignKey(User, verbose_name=_('User'), related_name="actions")
     

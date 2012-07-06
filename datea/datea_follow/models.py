@@ -22,6 +22,8 @@ from datea.datea_mapping.models import DateaMapping, DateaMapItem
 
 class DateaFollow(models.Model):
     
+    label = _('follow')
+    
     user = models.ForeignKey(User, related_name="follows")
     created = models.DateTimeField(_('created'), auto_now_add=True)
     
@@ -202,12 +204,9 @@ def on_comment_save(sender, instance, created, **kwargs):
         hist_notice.send_mail('comment')
         
         # create notice on the action, if relevant
-        if hasattr(receiver_obj, 'action') or hasattr(receiver_obj, 'mapping'): # not clean: change in future
-            if hasattr(receiver_obj, 'action'):
-                action = getattr(receiver_obj, 'action')
-            else:
-                action = getattr(receiver_obj, 'mapping')
+        if hasattr(receiver_obj, 'action'):
             
+            action = getattr(receiver_obj, 'action')
             action_follow_id = 'dateaaction.'+str(action.pk)
             # create notice on commented object's action
             action_hist_notice = DateaHistoryNotice(
@@ -299,12 +298,9 @@ def on_vote_save(sender, instance, created, **kwargs):
         hist_notice.send_mail('vote')
         
         # create notice on the action, if relevant
-        if hasattr(receiver_obj, 'action') or hasattr(receiver_obj, 'mapping'): # not clean: change in future
-            if hasattr(receiver_obj, 'action'):
-                action = getattr(receiver_obj, 'action')
-            else:
-                action = getattr(receiver_obj, 'mapping')
-            
+        if hasattr(receiver_obj, 'action'): 
+
+            action = getattr(receiver_obj, 'action')
             action_follow_id = 'dateaaction.'+str(action.pk)
             # create notice on commented object's action
             action_hist_notice = DateaHistoryNotice(

@@ -57,7 +57,7 @@ window.Datea.MappingMainView = Backbone.View.extend({
 		var self = this;
 		if (!this.items_fetched) {
 			this.map_items.fetch({ 
-				data: {'mapping': this.model.get('id')}, 
+				data: {'action': this.model.get('id')}, 
 				success: function(collection, response) {
 					self.sidebar_view.render_tab(params);
 					self.items_fetched = true;
@@ -72,7 +72,7 @@ window.Datea.MappingMainView = Backbone.View.extend({
 		var self = this;
 		if (!this.items_fetched) {
 			this.map_items.fetch({ 
-				data: {'mapping': this.model.get('id')}, 
+				data: {'action': this.model.get('id')}, 
 				success: function(collection, response) {
 					self.sidebar_view.render_item(params);
 					self.open_popup(params.item_id);
@@ -99,7 +99,7 @@ window.Datea.MappingMainView = Backbone.View.extend({
 		var self = this;
 		var create_rep_view = new Datea.MapItemFormView({
 			model: new Datea.MapItem({
-				mapping: this.model.get('resource_uri'),
+				action: this.model.get('resource_uri'),
 			}),
 			mappingModel: this.model,
 		

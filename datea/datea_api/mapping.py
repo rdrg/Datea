@@ -84,8 +84,8 @@ class MapItemResource(DateaBaseGeoResource):
             attribute= 'category', null=True, full=False, readonly=True)
     images = fields.ToManyField('datea.datea_api.image.ImageResource',
             attribute='images', null=True, full=True, readonly=True)
-    mapping = fields.ToOneField('datea.datea_api.mapping.MappingResource',
-            attribute='mapping', null=True, full=False, readonly=True)
+    action = fields.ToOneField('datea.datea_api.mapping.MappingResource',
+            attribute='action', null=True, full=False, readonly=True)
     user = fields.ToOneField('datea.datea_api.profile.UserResource',
             attribute="user", null=False, full=True, readonly=True)
 
@@ -99,7 +99,7 @@ class MapItemResource(DateaBaseGeoResource):
     
     def hydrate(self, bundle):
 
-        bundle.obj.mapping_id = int(bundle.data['mapping'].strip('/').split('/')[-1]) # UGLY HACK -> tatstypie can't find resource by resource uri???
+        bundle.obj.action_id = int(bundle.data['action'].strip('/').split('/')[-1]) # UGLY HACK -> tatstypie can't find resource by resource uri???
         if ( 'category' in bundle.data 
             and bundle.data['category'] 
             and 'id' in bundle.data['category']):
@@ -132,7 +132,7 @@ class MapItemResource(DateaBaseGeoResource):
         authentication = ApiKeyPlusWebAuthentication()
         authorization = DateaBaseAuthorization()
         filtering = {
-            'mapping': ALL_WITH_RELATIONS,
+            'action': ALL_WITH_RELATIONS,
             'id': ['exact'],
             'created': ['range', 'gt', 'gte', 'lt', 'lte'],
             'position': ['distance', 'contained','latitude', 'longitude']
