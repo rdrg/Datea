@@ -77,7 +77,6 @@ class DateaHistoryNotice(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     
     url = models.URLField(verify_exists=False)
-    title = models.TextField(_('Title'), blank=True, null=True)
     extract = models.TextField(_('Extract'), blank=True, null=True)
     
     # generic content type relation to the object which receives an action:
