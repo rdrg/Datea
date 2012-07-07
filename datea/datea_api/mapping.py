@@ -94,7 +94,7 @@ class MapItemResource(DateaBaseGeoResource):
         bundle.data['category_name'] = bundle.obj.category.name
         bundle.data['category_color'] = bundle.obj.category.color
         bundle.data['extract'] = Truncator( strip_tags(bundle.obj.content) ).chars(140)
-        bundle.data['url'] = '/mapping/'+str(bundle.obj.mapping_id)+'/reports/item'+str(bundle.obj.id)
+        bundle.data['url'] = bundle.obj.get_absolute_url()
         return bundle
     
     def hydrate(self, bundle):

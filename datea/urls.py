@@ -16,7 +16,7 @@ from datea_api.image import ImageResource
 from datea_api.action import ActionResource
 from datea_api.contenttypes import ContentTypeResource
 from datea_api.comment import CommentResource
-from datea_api.follow import FollowResource
+from datea_api.follow import FollowResource,HistoryResource
 
 v1_api = Api(api_name='v1')
 v1_api.register(Accounts())
@@ -31,6 +31,7 @@ v1_api.register(ActionResource())
 v1_api.register(ContentTypeResource())
 v1_api.register(CommentResource())
 v1_api.register(FollowResource())
+v1_api.register(HistoryResource())
 
 
 urlpatterns = patterns('',

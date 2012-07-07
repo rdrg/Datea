@@ -26,9 +26,9 @@ class DateaFollow(models.Model):
     created = models.DateTimeField(_('created'), auto_now_add=True)
     
     # generic content type relation to followed object
-    #content_type = models.ForeignKey(ContentType)
-    #object_id = models.PositiveIntegerField()
-    #followed_object = generic.GenericForeignKey()
+    # content_type = models.ForeignKey(ContentType)
+    # object_id = models.PositiveIntegerField()
+    # followed_object = generic.GenericForeignKey()
     
     object_type = models.CharField(max_length=255)
     object_id = models.PositiveIntegerField()
@@ -219,7 +219,7 @@ def on_comment_save(sender, instance, created, **kwargs):
                         user=instance.user, 
                         receiver_obj=receiver_obj, 
                         acting_obj=instance,
-                        url = receiver_obj.get_absolute_url()+'?comment='+str(instance.pk),
+                        url = receiver_obj.get_absolute_url()+'/comment'+str(instance.pk),
                         follow_key = follow_key,
                         history_key = history_key,
                         history_type = 'comment',
@@ -240,7 +240,7 @@ def on_comment_save(sender, instance, created, **kwargs):
                         user=instance.user, 
                         receiver_obj=receiver_obj, 
                         acting_obj=instance,
-                        url = receiver_obj.get_absolute_url()+'?comment='+str(instance.pk),
+                        url = receiver_obj.get_absolute_url()+'/comment'+str(instance.pk),
                         follow_key = action_follow_key,
                         history_key = history_key,
                         history_type = 'comment',

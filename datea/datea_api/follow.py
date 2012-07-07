@@ -10,6 +10,7 @@ class FollowResource(DateaBaseResource):
     user = fields.ToOneField('datea.datea_api.profile.UserResource', 
             attribute='user', full=True, readonly=True)
     
+    
     def hydrate(self,bundle):
         
         if bundle.request.method == 'PUT':
@@ -31,7 +32,8 @@ class FollowResource(DateaBaseResource):
                 'id' : ['exact'],
                 'user': ALL_WITH_RELATIONS,
                 'object_type': ['exact'],
-                'object_id': ['exact']
+                'object_id': ['exact'],
+                'follow_key': ['exact']
                 }
         authentication = ApiKeyPlusWebAuthentication()
         authorization = DateaBaseAuthorization()
@@ -43,14 +45,32 @@ class HistoryResource(DateaBaseResource):
     class Meta:
         queryset= DateaHistory.objects.all()
         resource_name= 'history'
+        allowed_methods = ['get']
+        exclude = ['receiver_id', 'acting_id']
         filtering = {
                      'id': ['exact'],
                      'user': ALL_WITH_RELATIONS,
                      'action': ALL_WITH_RELATIONS,
                      'object_type': ['exact'],
                      'object_id': ['exact'],
-                     'follow_id': ['exact'],
-                     'history_id': ['exact'],
+                     'follow_key': ['exact'],
+                     'history_key': ['exact'],
+                     'history_type': ['exact'],
+                     'created': ['exact', 'range', 'gt', 'gte', 'lt', 'lte'],
                      }
+        limit = 20
+        
+
+
+class NotifySettingsResource(DateaBaseResource):
+    
+    class Meta:
+        queryset = DateaNotifySettings.objects.all()
+        resource_name = 'notify_settings'
+        allowed_methods = ['get', 'post', 'put']
+        filtering = {
+                     'user': ALL_WITH_RELATIONS,
+                     }
+        limit = 1
     
         

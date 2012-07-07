@@ -52,6 +52,9 @@ class DateaAction(models.Model):
     content_type = models.ForeignKey(ContentType,editable=False,null=True)
     objects = DateaActionManager()
     
+    def get_absolute_url(self):
+        return '/'+self.action_type+'/'+str(self.pk)
+    
     def __unicode__(self):
         return self.name
     

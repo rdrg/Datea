@@ -101,7 +101,9 @@ class DateaMapItem(models.Model):
                 users.append(item.user.pk)
         self.mapping.user_count = len(users)
         self.mapping.save()
-        
+    
+    def get_absolute_url(self):
+        return self.action.get_absolute_url()+'/reports/item'+self.pk  
     
     def __unicode__(self):
         return self.user.username+': '+strip_tags(self.content)[:100]
