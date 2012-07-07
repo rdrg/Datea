@@ -22,20 +22,41 @@ from datea.datea_mapping.models import DateaMapping, DateaMapItem
 
 class DateaFollow(models.Model):
     
-    verb = _('now follows')
-    
     user = models.ForeignKey(User, related_name="follows")
     created = models.DateTimeField(_('created'), auto_now_add=True)
     
     # generic content type relation to followed object
-    content_type = models.ForeignKey(ContentType)
+    #content_type = models.ForeignKey(ContentType)
+    #object_id = models.PositiveIntegerField()
+    #followed_object = generic.GenericForeignKey()
+    
+    object_type = models.CharField(max_length=255)
     object_id = models.PositiveIntegerField()
-    followed_object = generic.GenericForeignKey()
     
     # a sort of natural key by which easily and fast 
     # identify the followed object and it's related historyNotices
     # for example: 'dateamapitem.15'
-    follow_id = models.CharField(max_length=255)
+    follow_key = models.CharField(max_length=255)
+    
+    def save(self, *args, **kwargs):
+        # update comment stats on voted object  
+        if self.pk == None:
+            ctype = ContentType.objects.get(model=self.object_type.lower())
+            receiver_obj = ctype.get_object_for_this_type(pk=self.object_id)
+            if hasattr(receiver_obj, 'follow_count'):
+                receiver_obj.follow_count += 1
+                receiver_obj.save()
+        super(DateaFollow, self).save(*args, **kwargs)
+       
+        
+    def delete(self, using=None):
+        # update comment stats on voted object 
+        ctype = ContentType.objects.get(model=self.object_type.lower())
+        receiver_obj = ctype.get_object_for_this_type(pk=self.object_id)
+        if hasattr(receiver_obj, 'follow_count'):
+            receiver_obj.follow_count -= 1
+            receiver_obj.save()
+        super(DateaVote, self).delete(using=using)
     
     class Meta:
         verbose_name = _('Follow')
@@ -70,7 +91,7 @@ post_save.connect(create_notify_settings, sender=User)
         
      
         
-class DateaHistoryNotice(models.Model):
+class DateaHistory(models.Model):
 
     user = models.ForeignKey(User, related_name="sent_notices")
     published = models.BooleanField(default=True)
@@ -79,7 +100,7 @@ class DateaHistoryNotice(models.Model):
     url = models.URLField(verify_exists=False)
     extract = models.TextField(_('Extract'), blank=True, null=True)
     
-    notice_type = models.CharField(max_length=50)
+    history_type = models.CharField(max_length=50)
     
     # generic content type relation to the object which receives an action:
     # for example: the content which receives a vote
@@ -94,9 +115,9 @@ class DateaHistoryNotice(models.Model):
     
     action = models.ForeignKey(DateaAction, blank=True, null=True, related_name="notices")
     
-    # follow_id 
-    follow_id = models.CharField(max_length=255) # can be an action or a content instance
-    history_item_id =  models.CharField(max_length=255) # a content object
+    # follow_key
+    follow_key = models.CharField(max_length=255) # can be an action or a content instance
+    history_key =  models.CharField(max_length=255) # a content object
     
     def save(self, *args, **kwargs):
         
@@ -113,7 +134,7 @@ class DateaHistoryNotice(models.Model):
                 'notice/extract.html'), context)
         
         self.check_published(save=False)
-        super(DateaHistoryNotice, self).save(*args, **kwargs)
+        super(DateaHistory, self).save(*args, **kwargs)
         
         
     def check_published(self, save=True):
@@ -160,12 +181,12 @@ class DateaHistoryNotice(models.Model):
                 }
             
             mail_subject = render_to_string((
-                    'notice/%s/%s/mail_subject.txt' % (self.receiver_type.app_label, self.receiver_type.model), 
-                    'notice/mail_body.html'), context)
+                    'history/%s/mail_subject.txt' % self.receiver_type.model, 
+                    'history/mail_body.html'), context)
             
             mail_body = render_to_string((
-                    'notice/%s/%s/mail_body.txt' % (self.receiver_type.app_label, self.receiver_type.model), 
-                    'notice/mail_body.html'), context)
+                    'history/%s/mail_body.txt' % self.receiver_type.model, 
+                    'history/mail_body.html'), context)
             
             email = EmailMessage(
                     mail_subject, 
@@ -189,52 +210,52 @@ def on_comment_save(sender, instance, created, **kwargs):
     
     ctype = ContentType.objects.get(model=instance.object_type.lower())
     receiver_obj = ctype.get_object_for_this_type(pk=instance.object_id)
-    follow_id = ctype.model+'.'+str(receiver_obj.pk)
-    history_item_id = follow_id+'_dateacomment.'+str(instance.pk)
+    follow_key = ctype.model+'.'+str(receiver_obj.pk)
+    history_key = follow_key+'_dateacomment.'+str(instance.pk)
     
     if created:
         # create notice on commented object
-        hist_notice = DateaHistoryNotice(
+        hist_item = DateaHistory(
                         user=instance.user, 
                         receiver_obj=receiver_obj, 
                         acting_obj=instance,
                         url = receiver_obj.get_absolute_url()+'?comment='+str(instance.pk),
-                        follow_id = follow_id,
-                        history_item_id = history_item_id
+                        follow_key = follow_key,
+                        history_key = history_key
                     )
         if hasattr(receiver_obj, 'action'):
-            hist_notice.action = receiver_obj.action
+            hist_item.action = receiver_obj.action
             
-        hist_notice.save()
-        hist_notice.send_mail('comment')
+        hist_item.save()
+        hist_item.send_mail('comment')
         
         # create notice on the action, if relevant
         if hasattr(receiver_obj, 'action'):
             
             action = getattr(receiver_obj, 'action')
-            action_follow_id = 'dateaaction.'+str(action.pk)
+            action_follow_key = 'dateaaction.'+str(action.pk)
             # create notice on commented object's action
-            action_hist_notice = DateaHistoryNotice(
+            action_hist_item = DateaHistory(
                         user=instance.user, 
                         receiver_obj=receiver_obj, 
                         acting_obj=instance,
                         url = receiver_obj.get_absolute_url()+'?comment='+str(instance.pk),
-                        follow_id = action_follow_id,
-                        history_item_id = history_item_id,
+                        follow_key = action_follow_key,
+                        history_key = history_key,
                         action = action
                     )
-            action_hist_notice.save()
+            action_hist_item.save()
             if action.user != receiver_obj.user:
-                action_hist_notice.send_mail('comment')
+                action_hist_item.send_mail('comment')
         
     else:
-        hist_notice = DateaHistoryNotice.objects.get(history_item_id=history_item_id)
-        hist_notice.check_published()
+        hist_item = DateaHistory.objects.get(history_key=history_key)
+        hist_item.check_published()
         
               
 def on_comment_delete(sender, instance, **kwargs):
-    hist_item_id =  instance.object_type.lower()+'.'+str(instance.object_id)+'_dateacomment.'+str(instance.pk)
-    DateaHistoryNotice.objects.filter(history_item_id=hist_item_id).delete()
+    key =  instance.object_type.lower()+'.'+str(instance.object_id)+'_dateacomment.'+str(instance.pk)
+    DateaHistory.objects.filter(history_key=key).delete()
 
 
 post_save.connect(on_comment_save, sender=DateaComment)
@@ -247,33 +268,33 @@ pre_delete.connect(on_comment_delete, sender=DateaComment)
 def on_map_item_save(sender, instance, created, **kwargs):
     if instance is None: return
     
-    follow_id = 'dateaaction.'+str(instance.action.pk)
-    history_item_id = follow_id+'_dateamapitem.'+str(instance.pk)
+    follow_key = 'dateaaction.'+str(instance.action.pk)
+    history_key = follow_key+'_dateamapitem.'+str(instance.pk)
     
     if created:
-        hist_notice = DateaHistoryNotice(
+        hist_item = DateaHistory(
                         user=instance.user, 
                         receiver_obj=instance.action, 
                         acting_obj=instance,
                         url = instance.get_absolute_url(),
-                        follow_id = follow_id,
-                        history_item_id = history_item_id,
+                        follow_key = follow_key,
+                        history_key = history_key,
                         action = instance.action
                     )
-        hist_notice.save()
-        hist_notice.send_mail('content')
+        hist_item.save()
+        hist_item.send_mail('content')
     else:
         # publish or unpublish all DateaHistoryNotice objects 
         # associated with this mapitem 
-        for hnotice in DateaHistoryNotice.objects.filter(follow_id=follow_id):
+        for hnotice in DateaHistory.objects.filter(follow_key=follow_key):
             hnotice.check_published()
         
 def on_map_item_delete(sender, instance, **kwargs):
     # delete history items
-    hist_item_id =  'dateaaction.'+str(instance.action.pk)+'_dateamapitem.'+str(instance.pk)
-    DateaHistoryNotice.objects.filter(history_item_id=hist_item_id).delete()
+    key = 'dateaaction.'+str(instance.action.pk)+'_dateamapitem.'+str(instance.pk)
+    DateaHistory.objects.filter(history_key=key).delete()
     # delete follows on this map item
-    DateaFollow.objects.filter(follow_id='dateamapitem.'+str(instance.pk)).delete()
+    DateaFollow.objects.filter(follow_key='dateamapitem.'+str(instance.pk)).delete()
     
 post_save.connect(on_map_item_save, sender=DateaMapItem)
 pre_delete.connect(on_map_item_delete, sender=DateaMapItem)
@@ -287,53 +308,108 @@ def on_vote_save(sender, instance, created, **kwargs):
     
     ctype = ContentType.objects.get(model=instance.object_type.lower())
     receiver_obj = ctype.get_object_for_this_type(pk=instance.object_id)
-    follow_id = ctype.model+'.'+str(receiver_obj.pk)
-    history_item_id = follow_id+'_dateavote.'+str(instance.pk)
+    follow_key = ctype.model+'.'+str(receiver_obj.pk)
+    history_key = follow_key+'_dateavote.'+str(instance.pk)
     
     if created:
         # create notice on commented object
-        hist_notice = DateaHistoryNotice(
+        hist_item = DateaHistory(
                         user=instance.user, 
                         receiver_obj=receiver_obj, 
                         acting_obj=instance,
                         url = receiver_obj.get_absolute_url(),
-                        follow_id = follow_id,
-                        history_item_id = history_item_id
+                        follow_key = follow_key,
+                        history_key = history_key
                     )
         
         if hasattr(receiver_obj, 'action'): 
-            hist_notice.action = receiver_obj.action
+            hist_item.action = receiver_obj.action
         
-        hist_notice.save()
-        hist_notice.send_mail('vote')
+        hist_item.save()
+        hist_item.send_mail('vote')
         
         # create notice on the action, if relevant
         if hasattr(receiver_obj, 'action'): 
 
             action = getattr(receiver_obj, 'action')
-            action_follow_id = 'dateaaction.'+str(action.pk)
+            action_follow_key = 'dateaaction.'+str(action.pk)
             # create notice on commented object's action
-            action_hist_notice = DateaHistoryNotice(
+            action_hist_item = DateaHistory(
                         user=instance.user, 
                         receiver_obj=receiver_obj, 
                         acting_obj=instance,
                         url = receiver_obj.get_absolute_url(),
-                        follow_id = action_follow_id,
-                        history_item_id = history_item_id,
+                        follow_key = action_follow_key,
+                        history_key = history_key,
                         action = action
                     )
-            action_hist_notice.save()
+            action_hist_item.save()
             if action.user != receiver_obj.user:
-                action_hist_notice.send_mail('vote')
+                action_hist_item.send_mail('vote')
         
     else:
-        hist_notice = DateaHistoryNotice.objects.get(history_item_id=history_item_id)
-        hist_notice.check_published()
+        hist_item = DateaHistory.objects.get(history_key=history_key)
+        hist_item.check_published()
         
 def on_vote_delete(sender, instance, **kwargs):
-    hist_item_id =  instance.object_type.lower()+'.'+str(instance.object_id)+'_dateavote.'+str(instance.pk)
-    DateaHistoryNotice.objects.filter(history_item_id=hist_item_id).delete()
+    key =  instance.object_type.lower()+'.'+str(instance.object_id)+'_dateavote.'+str(instance.pk)
+    DateaHistory.objects.filter(history_key=key).delete()
         
 post_save.connect(on_vote_save, sender=DateaVote)
 pre_delete.connect(on_vote_save, sender=DateaVote)
+
+
+
+#########################################
+# DATEA FOLLOW Signals
+def on_follow_save(sender, instance, created, **kwargs):
+    if instance is None: return  
     
+    ctype = ContentType.objects.get(model=instance.object_type.lower())
+    receiver_obj = ctype.get_object_for_this_type(pk=instance.object_id)
+    follow_key = ctype.model+'.'+str(receiver_obj.pk)
+    history_key = follow_key+'_dateafollow.'+str(instance.pk)
+    
+    if created:
+        # create notice on commented object
+        hist_item = DateaHistory(
+                        user=instance.user, 
+                        receiver_obj=receiver_obj, 
+                        acting_obj=instance,
+                        url = receiver_obj.get_absolute_url(),
+                        follow_key = follow_key,
+                        history_key = history_key
+                    )
+        
+        if hasattr(receiver_obj, 'action'): 
+            hist_item.action = receiver_obj.action
+        
+        hist_item.save()
+        hist_item.send_mail('follow')
+        
+        # create notice on the action, if relevant
+        if hasattr(receiver_obj, 'action'): 
+
+            action = getattr(receiver_obj, 'action')
+            action_follow_key = 'dateaaction.'+str(action.pk)
+            # create notice on commented object's action
+            action_hist_item = DateaHistory(
+                        user=instance.user, 
+                        receiver_obj=receiver_obj, 
+                        acting_obj=instance,
+                        url = receiver_obj.get_absolute_url(),
+                        follow_key = action_follow_key,
+                        history_key = history_key,
+                        action = action
+                    )
+            action_hist_item.save()
+            if action.user != receiver_obj.user:
+                action_hist_item.send_mail('follow')
+        
+    else:
+        hist_item = DateaHistory.objects.get(history_key=history_key)
+        hist_item.check_published()
+        
+def on_follow_delete(sender, instance, **kwargs):
+    key =  instance.object_type.lower()+'.'+str(instance.object_id)+'_dateafollow.'+str(instance.pk)
+    DateaHistory.objects.filter(history_key=key).delete() 

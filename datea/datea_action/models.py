@@ -46,7 +46,7 @@ class DateaAction(models.Model):
     item_count = models.PositiveIntegerField(_("Item count"), default=0)
     user_count = models.PositiveIntegerField(_("Participant count"), default=0)
     comment_count = models.PositiveIntegerField(_('Comment count'), default=0)
-    follower_count = models.PositiveIntegerField(_('Follower count'), default=0)
+    follow_count = models.PositiveIntegerField(_('Follower count'), default=0)
     
     # generic relation to subclasses
     content_type = models.ForeignKey(ContentType,editable=False,null=True)

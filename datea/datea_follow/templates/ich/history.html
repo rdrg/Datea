@@ -1,0 +1,17 @@
+{% load i18n verbatim_tag %}
+{% verbatim %}
+
+{# MAP ITEMS #}
+<script id="map_item_history_receiver" type="text/html"><a href="{{url}}">{{ user.username }}{% trans "'s report" %}</script>
+<script id="map_item_history_new" type="text/html"><a href="{{ user.url }}">{{ user.username }}</a> {% trans "created a new report in" %} <a href="{{url}}">{{ action_name }}</a></script>
+
+{# COMMENT #}
+<script id="comment_history_new" type="text/html"><a href="{{ user.url }}">{{ user.username }}</a> {% trans "made a comment in" %} {{ receiver_object }}</script>
+
+{# VOTE #}
+<script id="vote_history_new" type="text/html"><a href="{{ user.url }}">{{ user.username }}</a> {% trans "now supports" %} {{ receiver_object }}</script>
+
+{# FOLLOW #}
+<script id="follow_history_new" type="text/html"><a href="{{ user.url }}">{{ user.username }}</a> {% trans "now follows" %} {{ receiver_object }}</script>
+
+
