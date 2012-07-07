@@ -221,7 +221,8 @@ def on_comment_save(sender, instance, created, **kwargs):
                         acting_obj=instance,
                         url = receiver_obj.get_absolute_url()+'?comment='+str(instance.pk),
                         follow_key = follow_key,
-                        history_key = history_key
+                        history_key = history_key,
+                        history_type = 'comment',
                     )
         if hasattr(receiver_obj, 'action'):
             hist_item.action = receiver_obj.action
@@ -242,6 +243,7 @@ def on_comment_save(sender, instance, created, **kwargs):
                         url = receiver_obj.get_absolute_url()+'?comment='+str(instance.pk),
                         follow_key = action_follow_key,
                         history_key = history_key,
+                        history_type = 'comment',
                         action = action
                     )
             action_hist_item.save()
@@ -279,6 +281,7 @@ def on_map_item_save(sender, instance, created, **kwargs):
                         url = instance.get_absolute_url(),
                         follow_key = follow_key,
                         history_key = history_key,
+                        history_type = 'map_item',
                         action = instance.action
                     )
         hist_item.save()
@@ -319,7 +322,8 @@ def on_vote_save(sender, instance, created, **kwargs):
                         acting_obj=instance,
                         url = receiver_obj.get_absolute_url(),
                         follow_key = follow_key,
-                        history_key = history_key
+                        history_key = history_key,
+                        history_type = 'vote',
                     )
         
         if hasattr(receiver_obj, 'action'): 
@@ -341,6 +345,7 @@ def on_vote_save(sender, instance, created, **kwargs):
                         url = receiver_obj.get_absolute_url(),
                         follow_key = action_follow_key,
                         history_key = history_key,
+                        history_type = 'vote',
                         action = action
                     )
             action_hist_item.save()
@@ -378,7 +383,8 @@ def on_follow_save(sender, instance, created, **kwargs):
                         acting_obj=instance,
                         url = receiver_obj.get_absolute_url(),
                         follow_key = follow_key,
-                        history_key = history_key
+                        history_key = history_key,
+                        history_type = 'follow',
                     )
         
         if hasattr(receiver_obj, 'action'): 
@@ -400,6 +406,7 @@ def on_follow_save(sender, instance, created, **kwargs):
                         url = receiver_obj.get_absolute_url(),
                         follow_key = action_follow_key,
                         history_key = history_key,
+                        history_type = 'follow',
                         action = action
                     )
             action_hist_item.save()
