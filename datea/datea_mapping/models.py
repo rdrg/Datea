@@ -53,8 +53,6 @@ class DateaMapping(DateaAction):
 
 class DateaMapItem(models.Model):
     
-    label = _('report')
-    
     user = models.ForeignKey(User, verbose_name=_('User'), related_name="map_items")
     
     # timestamps

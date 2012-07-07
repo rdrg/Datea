@@ -27,8 +27,6 @@ class DateaActionManager(models.GeoManager):
 
 class DateaAction(models.Model):
     
-    label = _('action')
-    
     user = models.ForeignKey(User, verbose_name=_('User'), related_name="actions")
     
     name = models.CharField(_("Name"), max_length=100)

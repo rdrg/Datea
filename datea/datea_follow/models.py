@@ -22,7 +22,7 @@ from datea.datea_mapping.models import DateaMapping, DateaMapItem
 
 class DateaFollow(models.Model):
     
-    label = _('follow')
+    verb = _('now follows')
     
     user = models.ForeignKey(User, related_name="follows")
     created = models.DateTimeField(_('created'), auto_now_add=True)
@@ -79,16 +79,20 @@ class DateaHistoryNotice(models.Model):
     url = models.URLField(verify_exists=False)
     extract = models.TextField(_('Extract'), blank=True, null=True)
     
+    notice_type = models.CharField(max_length=50)
+    
     # generic content type relation to the object which receives an action:
     # for example: the content which receives a vote
     receiver_type = models.ForeignKey(ContentType, null=True, blank=True, related_name="receiver_types")
     receiver_id = models.PositiveIntegerField(null=True, blank=True)
     receiver_obj = generic.GenericForeignKey('receiver_type', 'receiver_id')
     
-    # generic content type relation to the acting object
+    # generic content type relation to the acting object, for example a "comment"
     acting_type = models.ForeignKey(ContentType, null=True, blank=True, related_name="acting_types")
     acting_id = models.PositiveIntegerField(null=True, blank=True)
     acting_obj = generic.GenericForeignKey('acting_type', 'acting_id')
+    
+    action = models.ForeignKey(DateaAction, blank=True, null=True, related_name="notices")
     
     # follow_id 
     follow_id = models.CharField(max_length=255) # can be an action or a content instance
@@ -198,6 +202,9 @@ def on_comment_save(sender, instance, created, **kwargs):
                         follow_id = follow_id,
                         history_item_id = history_item_id
                     )
+        if hasattr(receiver_obj, 'action'):
+            hist_notice.action = receiver_obj.action
+            
         hist_notice.save()
         hist_notice.send_mail('comment')
         
@@ -213,7 +220,8 @@ def on_comment_save(sender, instance, created, **kwargs):
                         acting_obj=instance,
                         url = receiver_obj.get_absolute_url()+'?comment='+str(instance.pk),
                         follow_id = action_follow_id,
-                        history_item_id = history_item_id
+                        history_item_id = history_item_id,
+                        action = action
                     )
             action_hist_notice.save()
             if action.user != receiver_obj.user:
@@ -239,18 +247,18 @@ pre_delete.connect(on_comment_delete, sender=DateaComment)
 def on_map_item_save(sender, instance, created, **kwargs):
     if instance is None: return
     
-    receiver_obj = instance.mapping
-    follow_id = 'dateaaction.'+str(instance.mapping.pk)
+    follow_id = 'dateaaction.'+str(instance.action.pk)
     history_item_id = follow_id+'_dateamapitem.'+str(instance.pk)
     
     if created:
         hist_notice = DateaHistoryNotice(
                         user=instance.user, 
-                        receiver_obj=receiver_obj, 
+                        receiver_obj=instance.action, 
                         acting_obj=instance,
                         url = instance.get_absolute_url(),
                         follow_id = follow_id,
                         history_item_id = history_item_id,
+                        action = instance.action
                     )
         hist_notice.save()
         hist_notice.send_mail('content')
@@ -262,9 +270,9 @@ def on_map_item_save(sender, instance, created, **kwargs):
         
 def on_map_item_delete(sender, instance, **kwargs):
     # delete history items
-    hist_item_id =  'dateaaction.'+str(instance.mapping.pk)+'_dateamapitem.'+str(instance.pk)
+    hist_item_id =  'dateaaction.'+str(instance.action.pk)+'_dateamapitem.'+str(instance.pk)
     DateaHistoryNotice.objects.filter(history_item_id=hist_item_id).delete()
-    # delete follows on this map items
+    # delete follows on this map item
     DateaFollow.objects.filter(follow_id='dateamapitem.'+str(instance.pk)).delete()
     
 post_save.connect(on_map_item_save, sender=DateaMapItem)
@@ -292,6 +300,10 @@ def on_vote_save(sender, instance, created, **kwargs):
                         follow_id = follow_id,
                         history_item_id = history_item_id
                     )
+        
+        if hasattr(receiver_obj, 'action'): 
+            hist_notice.action = receiver_obj.action
+        
         hist_notice.save()
         hist_notice.send_mail('vote')
         
@@ -307,7 +319,8 @@ def on_vote_save(sender, instance, created, **kwargs):
                         acting_obj=instance,
                         url = receiver_obj.get_absolute_url(),
                         follow_id = action_follow_id,
-                        history_item_id = history_item_id
+                        history_item_id = history_item_id,
+                        action = action
                     )
             action_hist_notice.save()
             if action.user != receiver_obj.user:
@@ -324,26 +337,3 @@ def on_vote_delete(sender, instance, **kwargs):
 post_save.connect(on_vote_save, sender=DateaVote)
 pre_delete.connect(on_vote_save, sender=DateaVote)
     
-
-
-    
-        
-
-
-
-
-    
-    
-    
-         
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-        

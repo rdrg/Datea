@@ -9,8 +9,6 @@ from django.utils.html import strip_tags
 
 class DateaComment(models.Model):
     
-    label = _('comment')
-    
     user = models.ForeignKey(User, verbose_name=_('User'), related_name='comments')
     created = models.DateTimeField(_('created'), auto_now_add=True)
     comment = models.TextField(_('Comment'))

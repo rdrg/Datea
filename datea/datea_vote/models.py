@@ -7,8 +7,6 @@ from django.utils.translation import ugettext_lazy as _
 
 class DateaVote(models.Model):
     
-    label = _('vote')
-    
     user = models.ForeignKey(User, related_name="votes")
     created = models.DateTimeField(auto_now_add=True)
     value = models.IntegerField(default=1)
