@@ -199,7 +199,6 @@ window.Datea.ImageInputM2MView = Backbone.View.extend({
 		ev.preventDefault();
 		this.model.add(new Datea.Image({order: (this.model.length -1)}), {silent:true});
 		this.render();
-		console.log(this.model);
 	},
 	
 	check_add_button: function(ev) {

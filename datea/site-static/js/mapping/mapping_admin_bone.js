@@ -316,7 +316,6 @@ window.Datea.MapItemResponseView = Backbone.View.extend({
 	},
 	
 	save: function() {
-		console.log(this.model);
 		this.model.set({
 			content: $('[name="content"]', this.$el).val(),
 		});

@@ -93,7 +93,6 @@ window.Datea.MappingDataViewMap = Backbone.View.extend({
 	popup_zoom: function(ev) {
 		ev.preventDefault();
 		var id = parseInt(ev.target.dataset.id);
-		alert(id);
 	},
 	
 	clean_up: function () {

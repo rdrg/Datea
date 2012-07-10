@@ -149,8 +149,6 @@ window.Datea.MapItemFormView = Backbone.View.extend({
 			this.options.success_callback(this.model);
 		}
 		if (this.was_new) {
-			console.log("NEW DATEO");
-			console.log(this.model);
 			var base_url = window.location.protocol+'//'+window.location.host;
 			var full_url = base_url + this.model.get('url');
 			var context = {
