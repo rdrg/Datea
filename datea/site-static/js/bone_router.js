@@ -112,7 +112,7 @@ Datea.AppRouter = Backbone.Router.extend({
 			});
 			self.mapping_view.render();
 			self.map_items.fetch({
-				data: {'action': map_id, 'order_by': 'created'},
+				data: {'action': map_id, 'order_by': '-created'},
 				success: function ( ) {
 					if (typeof(callback) != 'undefined') {
 						callback();
@@ -132,7 +132,7 @@ Datea.AppRouter = Backbone.Router.extend({
 				map_items: self.map_items,
 			});
 			self.map_items.fetch({
-				data: {'action': map_id, 'order_by': 'created'},
+				data: {'action': map_id, 'order_by': '-created'},
 				success: function ( ) {
 					self.mapping_admin_view.render();
 					if (typeof(callback) != 'undefined') {
