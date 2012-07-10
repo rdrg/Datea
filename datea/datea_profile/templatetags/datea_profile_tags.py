@@ -2,6 +2,8 @@
 from django import template
 import re
 from datea.datea_api.profile import UserResource
+from datea.datea_follow.models import DateaFollow 
+from datea.datea_api.follow import NotifySettingsResource
 from django.utils import simplejson
 from django.utils.translation import ugettext as _
 from datea.datea_image.utils import get_image_thumb
@@ -45,6 +47,16 @@ def get_user_resource(context):
         user_bundle = user_rsc.full_dehydrate(user_bundle)
         if request.user.is_staff:
             user_bundle.data['is_staff'] = True
+        
+        # notify_settings
+        notify_settings_rsc = NotifySettingsResource()
+        notify_settings_bundle = notify_settings_rsc.build_bundle(obj=request.user.notify_settings)
+        notify_settings_bundle = notify_settings_rsc.full_dehydrate(notify_settings_bundle)
+        user_bundle.data['notify_settings'] = notify_settings_bundle.data
+        
+        # follow keys
+        user_bundle.data['follow'] = [f['follow_key'] for f in DateaFollow.objects.filter(user=request.user)]
+        
         user_json = user_rsc.serialize(None, user_bundle, 'application/json')
         
     else:

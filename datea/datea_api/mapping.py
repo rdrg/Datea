@@ -3,15 +3,14 @@ from tastypie.constants import ALL, ALL_WITH_RELATIONS
 from tastypie.cache import SimpleCache
 from tastypie.throttle import BaseThrottle
 #from tastypie.contrib.gis.resources import ModelResource
-from datea.datea_mapping.models import DateaMapping, DateaMapItem
+from datea.datea_mapping.models import DateaMapping, DateaMapItem, DateaMapItemResponse
 from datea.datea_image.models import DateaImage
 from datea.datea_category.models import DateaCategory, DateaFreeCategory
 from datea.datea_api.category import FreeCategoryResource
-from api_base import ApiKeyPlusWebAuthentication, DateaBaseAuthorization, DateaBaseGeoResource
+from api_base import ApiKeyPlusWebAuthentication, DateaBaseAuthorization, DateaBaseGeoResource, DateaBaseResource
 from django.contrib.auth.models import User
 from django.utils.html import strip_tags
 from django.utils.text import Truncator
-
 
 
 class MappingResource(DateaBaseGeoResource):
@@ -30,6 +29,9 @@ class MappingResource(DateaBaseGeoResource):
             bundle.data['image_thumb'] = bundle.obj.image.get_thumb('image_thumb_medium')
         else:
             bundle.data['image_thumb']= None
+        
+        bundle.data['url'] = bundle.obj.get_absolute_url()
+        
         return bundle
     
     
@@ -63,7 +65,6 @@ class MappingResource(DateaBaseGeoResource):
         if 'item_categories' in bundle.data and bundle.data['item_categories']:
             cats = [c['id'] for c in bundle.data['item_categories'] if 'id' in c]
             bundle.obj.item_categories = DateaFreeCategory.objects.filter(pk__in=cats)
-        
         return bundle
         
         
@@ -126,7 +127,7 @@ class MapItemResource(DateaBaseGeoResource):
 
 
     class Meta:
-        queryset = DateaMapItem.objects.all().order_by('-created')
+        queryset = DateaMapItem.objects.all()
         resource_name = 'map_item'
         allowed_methods = ['get','post','put','delete']
         authentication = ApiKeyPlusWebAuthentication()
@@ -137,7 +138,49 @@ class MapItemResource(DateaBaseGeoResource):
             'created': ['range', 'gt', 'gte', 'lt', 'lte'],
             'position': ['distance', 'contained','latitude', 'longitude']
         }
+        ordering = ['created']
         limit = 500
         cache = SimpleCache(timeout=10)
+        
+        
 
-
+class MapItemResponseResource(DateaBaseResource):
+    
+    user = fields.ToOneField('datea.datea_api.profile.UserResource',
+            attribute="user", null=False, full=True, readonly=True)
+    map_items = fields.ToManyField('datea.datea_api.mapping.MapItemResource',
+            attribute='map_items', null=True, full=True, readonly=True)
+    
+    def hydrate(self, bundle):
+        if bundle.request.method == 'POST':
+            # use request user
+            bundle.obj.user = bundle.request.user
+            
+        elif bundle.request.method == 'PUT':
+            #preserve owner
+            orig_object = DateaMapItemResponse.objects.get(pk=bundle.data['id'])
+            bundle.obj.user = orig_object.user
+        return bundle
+    
+    # do our own saving of related fields (see MappingResource)
+    def hydrate_m2m(self, bundle):
+        if 'map_items' in bundle.data and bundle.data['map_items']:
+            item_pks = [item['id'] for item in bundle.data['map_items'] if 'id' in item]
+            bundle.obj.map_items = DateaMapItem.objects.filter(pk__in=item_pks)
+        return bundle
+    
+    
+    class Meta:
+        queryset = DateaMapItemResponse.objects.all()
+        resource_name = 'map_item_response'
+        allowed_methods = ['get', 'post', 'put', 'delete']
+        authentication = ApiKeyPlusWebAuthentication()
+        authorization = DateaBaseAuthorization()
+        filtering = {
+            'user': ALL_WITH_RELATIONS,
+            'map_items': ALL_WITH_RELATIONS,
+            'id': ['exact'],
+            'created': ['range', 'gt', 'gte', 'lt', 'lte'],
+        }
+        ordering = ['created']
+        limit = 20

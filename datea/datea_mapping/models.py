@@ -7,6 +7,7 @@ from datea.datea_image.models import DateaImage
 from datea.datea_action.models import DateaAction
 from datea.datea_category.models import DateaCategory, DateaFreeCategory
 from mptt.fields import TreeForeignKey, TreeManyToManyField
+from django.db.models.signals import post_save
         
         
 class DateaMapping(DateaAction):
@@ -14,17 +15,39 @@ class DateaMapping(DateaAction):
     label = _('mapping')
     
     # text input fields
-    mission = models.TextField(_("Mission / Objectives"), blank=True, null=True, max_length=500, help_text=_("max. 500 characters"))
-    information_destiny = models.TextField(_("What happens with the data?"), max_length=500, help_text=_("Who receives the information and what happens with it? (max 500 characters)"))
-    long_description = models.TextField(_("Description"), blank=True, null=True, help_text=_("Long description (optional)"))
-    report_success_message = models.TextField(_("Item submitted success message"), blank=True, null=True, max_length=140, help_text=_("The message someone sees when succesfully filing a report (max. 140 characters)"))
+    mission = models.TextField(_("Mission / Objectives"), 
+                            blank=True, 
+                            null=True, 
+                            max_length=500, 
+                            help_text=_("max. 500 characters"))
+    
+    information_destiny = models.TextField(_("What happens with the data?"), 
+                            max_length=500, 
+                            help_text=_("Who receives the information and what happens with it? (max 500 characters)")
+                        )
+    
+    long_description = models.TextField(_("Description"), 
+                            blank=True, 
+                            null=True, 
+                            help_text=_("Long description (optional)"))
+    
+    report_success_message = models.TextField(_("Item submitted success message"), 
+                            blank=True, 
+                            null=True, 
+                            max_length=140, 
+                            help_text=_("The message someone sees when succesfully filing a report (max. 140 characters)"))
     
     image = models.ForeignKey(DateaImage, verbose_name=_('Image'), blank=True, null=True, related_name="mappings")
     # ZONES
     #zones = models.ManyToManyField(Zone, blank=True, null=True, default=None)
     
     # CATEGORIES / VARIABLES
-    item_categories = TreeManyToManyField(DateaFreeCategory, verbose_name=_("Map item Categories"), blank=True, null=True, default=None, help_text=_("Categories for Mapped Items"), related_name="mappings")
+    item_categories = TreeManyToManyField(DateaFreeCategory, 
+                            verbose_name=_("Map item Categories"), 
+                            blank=True, null=True, 
+                            default=None, 
+                            help_text=_("Categories for Mapped Items"), 
+                            related_name="mappings")
     
     # GEO:
     center = models.PointField(_("Center"), blank=True, null=True, spatial_index=False)
@@ -32,7 +55,7 @@ class DateaMapping(DateaAction):
     
     # Object Manager from geodjango
     objects = models.GeoManager()
-    
+        
     class Meta:
         verbose_name = _("Mapping")
         verbose_name_plural = _("Mappings")
@@ -48,10 +71,11 @@ class DateaMapping(DateaAction):
         self.save_base()
         super(DateaMapping, self).save(*args, **kwargs)
     
-    
 
 
 class DateaMapItem(models.Model):
+    
+    label = _('map_item')
     
     user = models.ForeignKey(User, verbose_name=_('User'), related_name="map_items")
     
@@ -94,16 +118,16 @@ class DateaMapItem(models.Model):
     
     def save(self, *args, **kwargs):
         super(DateaMapItem, self).save(*args, **kwargs)
-        self.mapping.item_count = self.mapping.map_items.count()
+        self.action.item_count = self.action.map_items.count()
         users = []
-        for item in self.mapping.map_items.all():
+        for item in self.action.map_items.all():
             if item.user.pk not in users:
                 users.append(item.user.pk)
-        self.mapping.user_count = len(users)
-        self.mapping.save()
+        self.action.user_count = len(users)
+        self.action.save()
     
     def get_absolute_url(self):
-        return self.action.get_absolute_url()+'/reports/item'+self.pk  
+        return self.action.get_absolute_url()+'/reports/item'+str(self.pk)  
     
     def __unicode__(self):
         return self.user.username+': '+strip_tags(self.content)[:100]
@@ -134,6 +158,13 @@ class DateaMapItemResponse(models.Model):
     class Meta:
         verbose_name = _('Response')
         verbose_name_plural = _('Responses')
+
+
+def on_response_save(sender, instance, created, **kwargs):
+    if created:
+        instance.update_item_stats()
+post_save.connect(on_response_save, sender=DateaMapItemResponse)
+
         
 
         

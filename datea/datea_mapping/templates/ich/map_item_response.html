@@ -1,0 +1,61 @@
+{% load i18n verbatim_tag datea_category_tags datea_mapping_tags bootstrap_toolkit %}
+{% get_map_item_response_form as form %}
+{% verbatim %}
+<script id="map_item_response_form_tpl" type="text/html">
+	
+	<form action="" class="form">
+			
+		<h3>{% trans "New reply" %}</h3>
+		
+		{% with form.content as field %}
+			<div class="control-group required">
+				{#<label class="control-label">{{ field.label }}</label>#}
+				<div class="controls">
+					<textarea type="text" class="span6 autoresize" id="content-input" name="content" rows="1">{{ content }}</textarea>
+					{% if field.help_text %}<p class="help-block">{{ field.help_text }}</p>{% endif %}
+				</div>
+			</div>
+		{% endwith %}
+	
+		<div class="buttons">
+			<button type="button" class="btn btn-primary btn-small save-response">{% trans "Save" %}</button>
+			&nbsp; 
+			<button type="button" class="btn btn-small cancel">{% trans "Cancel" %}</button>
+		</div>
+	</form>
+</script>
+
+<script id="map_item_response_tpl" type="text/html">
+	
+	<div class="pull-right edit" style="display:none">
+		<button type="button" class="btn btn-small edit-response"><i class="icon-pencil"></i></button>
+	</div>
+	
+	{{>post_user_data_tpl}}
+	
+	<div class="content">{{& content }}</div>
+	
+</script>
+
+<script id="map_item_response_edit_tpl" type="text/html">
+	
+	<div class="pull-right edit" style="display:none">
+		<button type="button" class="btn btn-small edit-response"><i class="icon-pencil"></i></button>
+	</div>
+	
+	{{>post_user_data_tpl}}
+	
+	<div class="content"><textarea type="text" class="text-xlarge span4 autoresize" id="content-input" name="content" rows="1">{{ content }}</textarea></div>
+	
+	<div class="buttons">
+		<button type="button" class="btn btn-primary btn-small save-response">{% trans 'Save' %}</button>
+		&nbsp; <button type="button" class="btn btn-small cancel">{% trans 'Cancel' %}</button>
+	</div>
+	
+</script>
+
+{% endverbatim %}
+
+
+
+

@@ -44,7 +44,7 @@ window.Datea.MapItemFormView = Backbone.View.extend({
 				context['extra_attr'] = 'checked="checked"';
 			}
 			context['input_name'] = 'category';
-			$cat_el.append(ich.free_category_select_option_tpl(context));
+			$cat_el.append(ich.free_category_radio_option_tpl(context));
 		});
 		
 		// populate images

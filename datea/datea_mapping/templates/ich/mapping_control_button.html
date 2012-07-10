@@ -1,4 +1,5 @@
 {% load i18n verbatim_tag %}
+{% verbatim %}
 <script id="mapping_control_button_tpl" type="text/html">
 	<div class="btn-group">
 		<button class="btn dropdown-toggle" data-toggle="dropdown">
@@ -6,7 +7,8 @@
 		</button>
 		<ul class="dropdown-menu">
 			<li><a href="javascript:void(0);" class="edit-mapping">{% trans "Mapping Settings" %}</a></li>
-			{#<li><a href="javascript:void(0);" class="administer-mapping">{% trans "Administer Mapping" %}</a></li>#}
+			<li><a href="#{{ url }}/admin" class="administer-mapping">{% trans "Administer Mapeo" %}</a></li>
 		</ul>
 	</div>
 </script>
+{% endverbatim %}

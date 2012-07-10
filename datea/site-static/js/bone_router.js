@@ -10,8 +10,9 @@ Datea.AppRouter = Backbone.Router.extend({
         "action/create/:action_type": "action_create",
         
         "mapping/:map_id": 'open_mapping_tab',
+        "mapping/:map_id/admin": 'open_mapping_admin',
         "mapping/:map_id/:tab_id": 'open_mapping_tab',
-        "mapping/:map_id/:tab_id/item:report_id": 'open_mapping_item',
+        "mapping/:map_id/reports/item:report_id": 'open_mapping_item',
        	"mapping/:map_id/:tab_id/:method_id": 'open_mapping_tab',
     },
  
@@ -23,7 +24,6 @@ Datea.AppRouter = Backbone.Router.extend({
     },
     
     fb_login_redirect:function () {
-    	//this.open_mapping_tab(hardcode_map_id);
     	this.navigate('/');
     },
     
@@ -40,13 +40,12 @@ Datea.AppRouter = Backbone.Router.extend({
     		this.mapping = new Datea.MappingFormView({model: new Datea.Mapping()});
     		$('#content').html(this.mapping.render().el);
     		this.mapping.attach_map();
-    	}
-    	
+    	}	
     },
     
     // open a mapping tab on the mapping action
     open_mapping_tab: function(map_id, tab_id, method_id) {
-		console.log("open_map_tab");
+    	
     	var params = {
     		tab_id: tab_id,
 			method_id: method_id,
@@ -62,17 +61,17 @@ Datea.AppRouter = Backbone.Router.extend({
     		
     	}else{
     		var self = this;
-    		this.build_mapping(map_id, function () {
+    		this.build_mapping_main_view(map_id, function () {
     			self.mapping_view.render_tab(params);
-    		})
+    		});
     	}
     },
     
     // open a single map item in detail view
-    open_mapping_item: function(map_id, tab_id, item_id) {
+    open_mapping_item: function(map_id, item_id) {
 
     	var params = {
-    		tab_id: tab_id,
+    		tab_id: 'reports',
 			item_id: item_id,
     	}
     	// check if mapping already exists (not drawing everything again!)
@@ -84,27 +83,89 @@ Datea.AppRouter = Backbone.Router.extend({
     		this.mapping_view.render_item(params);
     	}else{
     		var self = this;
-    		this.build_mapping(map_id, function () {
+    		this.build_mapping_main_view(map_id, function () {
     			self.mapping_view.render_item(params);
     		})
     	}
     },
     
-    // Build mapping and add it to the dom
-    build_mapping: function(map_id, callback) {
-    	//Datea.layout_view.make_fluid();
+        
+    fetch_mapping_data: function (map_id, callback) {
     	var self = this;
-    	var mapping_model = new Datea.Mapping({id: map_id});
-    	
-    	mapping_model.fetch({success: function(model, response){
+    	this.mapping_model = new Datea.Mapping({id: map_id});
+    	this.map_items = new Datea.MapItemCollection();
+    	this.mapping_model.fetch({
+    		success: function () {
+    			callback();
+    		},
+    	});
+    },
+    
+    // Build mapping and add it to the dom
+    build_mapping_main_view: function(map_id, callback) {
+    	var self = this;
+    	this.fetch_mapping_data(map_id, function(){
 			self.mapping_view = new Datea.MappingMainView({
 				el: $('#main-content-view'),
-				model: model,
+				model: self.mapping_model,
+				map_items: self.map_items,
 			});
 			self.mapping_view.render();
-			if (typeof(callback) != 'undefined') {
-				callback();
-			}
-    	}});
-    }
+			self.map_items.fetch({
+				data: {'action': map_id, 'order_by': 'created'},
+				success: function ( ) {
+					if (typeof(callback) != 'undefined') {
+						callback();
+					}
+				}
+			});
+		});
+    },
+    
+    // Build mapping admin view and addit to the dom
+    build_mapping_admin_view: function(map_id, callback) {
+    	var self = this;
+    	this.fetch_mapping_data(map_id, function(){
+			self.mapping_admin_view = new Datea.MappingAdminView({
+				el: $('#main-content-view'),
+				model: self.mapping_model,
+				map_items: self.map_items,
+			});
+			self.map_items.fetch({
+				data: {'action': map_id, 'order_by': 'created'},
+				success: function ( ) {
+					self.mapping_admin_view.render();
+					if (typeof(callback) != 'undefined') {
+						callback();
+					}
+				}
+			});
+		});
+    },
+
+    open_mapping_admin: function(map_id) {
+    	// check if mapping already exists
+    	if (this.map_items && this.mapping_model.get('id') == map_id) {
+    		// test admin view created
+    		if (this.mapping_admin_view) {
+    			this.mapping_admin_view.render();
+    		}else{
+    			this.mapping_admin_view = new Datea.MappingAdminView({
+    				el: $('#main-content-view'),
+    				model: this.mapping_model,
+    				map_items: this.map_items,
+    			});
+    			this.mapping_admin_view.render();
+    			
+    		}
+    		
+    	}else{
+    		var self = this;
+    		this.build_mapping_admin_view(map_id, function () {
+    			self.mapping_admin_view.render();
+    		})
+    	}
+    },
+    
+    
 });

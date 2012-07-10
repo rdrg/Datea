@@ -20,17 +20,7 @@ class DateaProfile(models.Model):
     image = models.ForeignKey(DateaImage, blank=True, null=True, related_name="profile_image")
     image_social = models.ForeignKey(DateaImage, blank=True, null=True, related_name="profile_image_social")
     
-    actions_joined = models.ManyToManyField(DateaAction, verbose_name=_("Actions joined"), blank=True, null=True, related_name="users_joined") 
-    
-    class Meta:
-        verbose_name = _("Profile")
-        verbose_name_plural = _("Profiles")
-        
-    def __unicode__(self):
-        name = ''
-        if self.full_name != None:
-            name = self.full_name
-        return "%s (%s)" % (name, self.user.username)
+    actions_joined = models.ManyToManyField(DateaAction, verbose_name=_("Actions joined"), blank=True, null=True, related_name="users_joined")  
     
     def get_image_thumb(self, thumb_preset = 'profile_image'):
         if self.image:
@@ -57,6 +47,16 @@ class DateaProfile(models.Model):
     
     def get_small_image(self):
         return self.get_image_thumb('profile_image_small')
+    
+    class Meta:
+        verbose_name = _("Profile")
+        verbose_name_plural = _("Profiles")
+        
+    def __unicode__(self):
+        name = ''
+        if self.full_name != None:
+            name = self.full_name
+        return "%s (%s)" % (name, self.user.username)
     
     
 

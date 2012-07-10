@@ -13,11 +13,9 @@ window.Datea.ActionCollection = Backbone.Collection.extend({
 // ACtion list item
 window.Datea.ActionListItemView = Backbone.View.extend({
   
-  tagName: 'li',
+  tagName: 'div',
   
-  attributes: {
-  	'class': 'action-item',
-  },
+  className: 'action-item',
  
   render: function(){
       $(this.el).html(ich.action_list_item_tpl(this.model.toJSON()));

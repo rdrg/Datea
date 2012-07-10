@@ -83,7 +83,7 @@
 }
 
 #main-content {
-  margin-top: 90px;
+  margin-top: 70px;
 }
 
 #main-content-wrap {
@@ -115,6 +115,26 @@
   *width: 499px;
 }
 
+.span9-5 {
+  width: 740px;
+  *width: 739px;
+}
+
+.span2-fix {
+  width: 140px;
+  *width: 139px;
+}
+
+.span3-fix {
+  width: 220px;
+  *width: 219px;
+}
+
+.span4-fix {
+  width: 300px;
+  *width: 299px;
+}
+
 .span6-fix {
   width: 460px;
   *width: 459px;
@@ -123,11 +143,6 @@
 .span6-fix-complement {
   width: 460px;
   *width: 459px;
-}
-
-.span9-5 {
-  width: 740px;
-  *width: 739px;
 }
 
 @media (min-width: 768px) and (max-width: 979px) {
@@ -577,6 +592,14 @@ a:hover span.caret2 {
   padding: 15px;
 }
 
+.map-item-reply {
+  max-width: 400px;
+  padding: 15px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  background-color: #efefef;
+}
+
 .map-item-form {
   position: relative;
 }
@@ -967,6 +990,59 @@ body .olwidgetPopupCloseBox {
   padding-right: 6px;
   margin-left: 21px;
   font-size: 12px;
+}
+
+.mapping-items-admin .filters .filter {
+  padding-left: 20px;
+}
+
+.map-item-admin-table .map-item.admin-full table {
+  width: 100%;
+  max-width: auto;
+  border: 0;
+}
+
+.map-item-admin-table .map-item.admin-full table td {
+  background-color: transparent;
+  border: 0;
+}
+
+.map-item-admin-table .map-item.admin-full table .item-content-left .field {
+  margin-top: 10px;
+}
+
+.map-item-admin-table .map-item.admin-full table .item-content-left .images {
+  margin-top: 15px;
+}
+
+.map-item-admin-table .map-item.admin-full table .item-content-right {
+  width: 280px;
+  padding-left: 20px;
+}
+
+.map-item-admin-table .item-admin-form {
+  padding: 5px 10px;
+  background-color: #ccc;
+}
+
+.map-item-admin-table .item-admin-form span {
+  display: inline-block;
+  *display: inline;
+  /* IE7 inline-block hack */
+
+  *zoom: 1;
+}
+
+.map-item-admin-table .item-admin-form .field {
+  margin-left: 15px;
+}
+
+.map-item-admin-table .item-admin-form .free-space {
+  width: 45px;
+}
+
+.map-item-admin-table .item-admin-form .buttons button {
+  margin-right: 15px;
 }
 
 .color-sample {

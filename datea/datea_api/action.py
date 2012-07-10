@@ -7,6 +7,11 @@ class ActionResource(ModelResource):
     category = fields.ToOneField('datea.datea_api.category.CategoryResource',
             attribute='category', null=True, full=True, readonly=True)
     
+    def dehydrate(self, bundle):
+        bundle.data['url'] = bundle.obj.get_absolute_url()
+        bundle.data['type'] = bundle.obj.action_type
+        return bundle
+    
     class Meta:
         queryset = DateaAction.objects.all()
         resource_name = 'action'

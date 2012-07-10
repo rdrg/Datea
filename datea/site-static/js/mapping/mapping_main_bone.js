@@ -15,9 +15,10 @@ window.Datea.MappingMainView = Backbone.View.extend({
 	
 	initialize: function () {
 		// get map items
-		this.map_items = new Datea.MapItemCollection();
-		self.items_fetched = false;
-		//this.map_items.bind('reset', this.render_map_items, this);
+		//this.map_items = new Datea.MapItemCollection();
+		this.map_items = this.options.map_items;
+		//this.items_fetched = false;
+		//this.map_items.bind('reset', this.render, this);
 	},
 	
 	events: {
@@ -39,7 +40,7 @@ window.Datea.MappingMainView = Backbone.View.extend({
 			el: this.$el.find('#left-content'),
 			model: this.model,
 			map_items: this.map_items,
-		})
+		});
 		//this.sidebar_view.render();
 		
 		// include data-view
@@ -54,35 +55,12 @@ window.Datea.MappingMainView = Backbone.View.extend({
 	},
 	
 	render_tab: function(params) {
-		var self = this;
-		if (!this.items_fetched) {
-			this.map_items.fetch({ 
-				data: {'action': this.model.get('id')}, 
-				success: function(collection, response) {
-					self.sidebar_view.render_tab(params);
-					self.items_fetched = true;
-					}
-			});
-		}else{
-			self.sidebar_view.render_tab(params);
-		}
+		this.sidebar_view.render_tab(params);
 	},
 	
 	render_item: function (params) {
-		var self = this;
-		if (!this.items_fetched) {
-			this.map_items.fetch({ 
-				data: {'action': this.model.get('id')}, 
-				success: function(collection, response) {
-					self.sidebar_view.render_item(params);
-					self.open_popup(params.item_id);
-					self.items_fetched = true;
-				}
-			});
-		}else{
-			self.sidebar_view.render_item(params);
-			self.open_popup(params.item_id);
-		}
+		this.sidebar_view.render_item(params);
+		this.open_popup(params.item_id);
 	},
 	
 	create_map_item: function (ev) {
@@ -176,8 +154,11 @@ window.Datea.MappingSidebar = Backbone.View.extend({
 		this.$el.html( ich.mapping_sidebar_main_tpl(this.model.toJSON()));
 		
 		// add mapping admin controls
-		if (!Datea.my_user.isNew() && this.model.get('user').id == Datea.my_user.get('id')) {
-			this.$el.find('.mapping-control-button').html( ich.mapping_control_button_tpl());	
+		if (!Datea.my_user.isNew() &&
+			( this.model.get('user').id == Datea.my_user.get('id')
+			  || Datea.my_user.get('is_staff')
+			)) {
+			this.$el.find('.mapping-control-button').html( ich.mapping_control_button_tpl(this.model.toJSON()));	
 		}
 		
 		this.start_tab_view = new Datea.MappingStartTab({

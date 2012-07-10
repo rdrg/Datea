@@ -1,9 +1,10 @@
 {% load i18n verbatim_tag %}
+{% verbatim %}
 <script id="action_list_item_tpl" type="text/html">
-<div class="action-list-item">
-	{% verbatim %}
-	<p>{{ name }}</p>
-	<p>{{ category.name }}</p>
-	{% endverbatim %}
-</div>
+	<div class="category">{{ category.name }}</div>
+	<div class="action-type">{{ type }}</div>
+	<h3 class="title"><a href="#{{ url }}">{{ name }}</a></h3>
+	<div class="description">{{ short_description }}</div>
+	<div class="stats"></div>
 </script>
+{% endverbatim %}

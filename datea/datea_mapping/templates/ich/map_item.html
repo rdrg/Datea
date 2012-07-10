@@ -1,12 +1,11 @@
 {% load i18n verbatim_tag %}
 {% verbatim %}
 
-
 {# MAP ITEM POPUP VIEW #}
 <script id="map_item_popup_tpl" type="text/html">
 	<div id="map-item-popup-{{ id }}" class="map-item popup">
 	
-		{% include "ich/_post_user_data.html" %}
+		{{>post_user_data_tpl}}
 		
 		<div class="content">
 			<div class="category">
@@ -29,7 +28,7 @@
 {# MAP ITEM TEASER VIEW #}
 <script id="map_item_teaser_tpl" type="text/html">
 	
-		{% include "ich/_post_user_data.html" %}
+		{{>post_user_data_tpl}}
 		
 		<div class="content">
 			<div class="category">
@@ -59,7 +58,7 @@
 	</div>
 	<div id="map-item-full-{{ id }}" class="map-item full">
 	
-		{% include "ich/_post_user_data.html" %}
+		{{>post_user_data_tpl}}
 		
 		<div class="content">
 			<div class="category">
@@ -76,10 +75,42 @@
 			<a class="btn btn-small open-popup" href="#" data-id="{{ id }}">{% trans "See in map" %}</a>
 		</div>
 		
-		<div class="comments">
-			
-		</div>
+		<div class="replies" style="display:none"></div>
+		
+		<div class="comments"></div>
 	
+	</div>
+</script>
+
+{# MAP ITEM ADMIN FULL VIEW #}
+<script id="map_item_admin_full_tpl" type="text/html">
+	<div id="map-item-admin-full{{ id }}" class="map-item admin-full">
+		<table>
+			<tr>
+				<td class="item-content-left">
+					
+					{{>post_user_data_tpl}}
+					
+					<div class="images"></div>
+					
+					<div class="content">
+						<div class="category">
+							<span class="badge" style="background-color: {{ category_color }}">{{ category_name }}</span>
+						</div>
+						<div class="field">{{& content }}</div>
+					</div>
+					
+					{% include "ich/_map_item_widget_stats.html" %}
+					
+					<div class="replies" style="display:none"></div>
+		
+					<div class="comments"></div>
+			    </td>
+				<td class="item-content-right">
+					<div id="item-map-{{id}}"></div>
+				</td>
+			</tr>
+		</table>
 	</div>
 </script>
 {% endverbatim %}

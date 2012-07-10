@@ -64,10 +64,19 @@ class HistoryResource(DateaBaseResource):
 
 class NotifySettingsResource(DateaBaseResource):
     
+    def hydrate(self,bundle):
+        
+        if bundle.request.method == 'PUT':
+            #preserve original owner
+            orig_object = DateaFollow.objects.get(pk=bundle.data['id'])
+            bundle.obj.user = orig_object.user
+            
+        return bundle
+    
     class Meta:
         queryset = DateaNotifySettings.objects.all()
         resource_name = 'notify_settings'
-        allowed_methods = ['get', 'post', 'put']
+        allowed_methods = ['get', 'put']
         filtering = {
                      'user': ALL_WITH_RELATIONS,
                      }

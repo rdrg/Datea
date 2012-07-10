@@ -30,56 +30,63 @@
 		
 		{% block icanhaz %}
 		
-				{# main stuff #}
-				{% include "ich/fix_base_content_single.html" %}
-				{% include "ich/fix_base_content_split.html" %}
-				{% include "ich/fluid_base_content_split.html" %}
-				{% include "ich/pagination.html" %}
-				
-				{# Image templates #}
-				{% include "ich/image_input.html" %}
-				{% include "ich/image_carousel.html" %}
-				
-				{# User templates #}
-				{% include "ich/my_profile.html" %}
-				{% include "ich/my_user_head.html" %}
-				{% include "ich/my_user_edit.html" %}
-				
-				{# Action templates #}
-				{% include "ich/action_list.html" %}
-				{% include "ich/action_list_item.html" %}
-				{% include "ich/action_create.html" %}
-				
-				{# Category Templates #}
-				{% include "ich/free_category_edit.html" %}
-				{% include "ich/free_category_edit_list.html" %}
-				{% include "ich/free_category_edit_list_item.html" %}
-				{% include "ich/free_category_select_option.html" %}
-				{% include "ich/free_category_leyend.html" %}
-				
-				{# Mapping templates #}
-				{% include "ich/mapping_form.html" %}
-				{% include "ich/mapping_edit_boundary.html" %}
-				{% include "ich/mapping_edit_point.html" %}
-				{% include "ich/mapping_control_button.html" %}
-				{% include "ich/mapping_sidebar_main.html" %}
-				{% include "ich/mapping_data_view.html" %}
-				{% include "ich/mapping_tab_start.html" %}
-				{% include "ich/mapping_tab_map_items.html" %}
-				
-				{% include "ich/map_item.html" %}
-				{% include "ich/map_item_form.html" %}
-				{% include "ich/map_item_form_verify.html" %}
-				{% include "ich/map_item_form_success.html" %}
-				{% include "ich/map_base_content_split.html" %}
-				
-				{# comment templates #}
-				{% include "ich/comment.html" %}
-
-				
-		{% endblock %}
-  
+			{# main stuff #}
+			{% include "ich/fix_base_content_single.html" %}
+			{% include "ich/fix_base_content_split.html" %}
+			{% include "ich/fluid_base_content_split.html" %}
+			{% include "ich/pagination.html" %}
+			
+			{# Image templates #}
+			{% include "ich/image_input.html" %}
+			{% include "ich/image_carousel.html" %}
+			
+			{# User/Profile templates #}
+			{% include "ich/my_profile.html" %}
+			{% include "ich/my_user_head.html" %}
+			{% include "ich/my_user_edit.html" %}
+			{% include "ich/post_user_data.html" %}
+			
+			{# Action templates #}
+			{% include "ich/action_list.html" %}
+			{% include "ich/action_list_item.html" %}
+			{% include "ich/action_create.html" %}
+			
+			{# Category Templates #}
+			{% include "ich/free_category_edit.html" %}
+			{% include "ich/free_category_edit_list.html" %}
+			{% include "ich/free_category_edit_list_item.html" %}
+			{% include "ich/free_category_form_options.html" %}
+			{% include "ich/free_category_leyend.html" %}
+			
+			{# Mapping templates #}
+			{% include "ich/mapping_form.html" %}
+			{% include "ich/mapping_edit_boundary.html" %}
+			{% include "ich/mapping_edit_point.html" %}
+			{% include "ich/mapping_control_button.html" %}
+			{% include "ich/mapping_sidebar_main.html" %}
+			{% include "ich/mapping_data_view.html" %}
+			{% include "ich/mapping_tab_start.html" %}
+			{% include "ich/mapping_tab_map_items.html" %}
+			
+			{% include "ich/map_item.html" %}
+			{% include "ich/map_item_form.html" %}
+			{% include "ich/map_item_form_verify.html" %}
+			{% include "ich/map_item_form_success.html" %}
+			{% include "ich/map_base_content_split.html" %}
+			
+			{% include "ich/mapping_admin.html" %}
+			{% include "ich/map_item_response.html" %}
+			
+			{# comment templates #}
+			{% include "ich/comment.html" %}
+			
+			{# follow/history templates #}
+			[# include "ich/follow_widgets.html" #]
+			{% include "ich/history.html" %}
+	
+		{% endblock %}  
   </head>
+  
   <body class="{% block body_class %}{% endblock %}">
   	
   	{# BODY BLOCK #}
@@ -132,8 +139,8 @@
 			};
 			addthis_share =
 			{
-		   		description: 'Comparte este aporte',
-		   		templates: { twitter: 'nuevo #dateo en datea.pe (@datea)'},
+		   		description: 'Comparte este dateo',
+		   		templates: { twitter: 'nuevo #dateo en datea.pe'},
 				email_template: 'dateo',
 			}
 		</script>
@@ -152,6 +159,7 @@
 		<script src="{{ STATIC_URL }}js/mapping/mapping_data_view_bone.js"></script>
 		<script src="{{ STATIC_URL }}js/mapping/map_item_bone.js"></script>
 		<script src="{{ STATIC_URL }}js/mapping/map_item_form_bone.js"></script>
+		<script src="{{ STATIC_URL }}js/mapping/mapping_admin_bone.js"></script>
 		<script src="{{ STATIC_URL }}js/comment_bone.js"></script>
 		
   		{% block footer_js %}{% endblock %}

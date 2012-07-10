@@ -56,6 +56,22 @@ window.Datea.MapItemFullView = Backbone.View.extend({
 			this.$el.find('.open-popup').hide();
 		}
 		
+		// get replies
+		var responses = new Datea.MapItemResponseCollection();
+		var self = this;
+		responses.fetch({
+			data: {map_items__in: this.model.get('id'), order_by:'created'},
+			success: function (collection, response) {
+				if (collection.length > 0) {
+					var $replies = self.$el.find('.replies');
+					_.each(collection.models, function(model){
+						$replies.append(new Datea.MapItemResponseView({model: model}).render().el); 
+					});
+					$replies.show();
+				}
+			}
+		})
+		
 		// comments
 		this.comments = new Datea.CommentCollection();
 		this.comment_view = new Datea.CommentsView({

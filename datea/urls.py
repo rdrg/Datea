@@ -9,14 +9,14 @@ admin.autodiscover()
 #API resources
 from datea_api.auth import Accounts
 from datea_api.profile import ProfileResource,UserResource
-from datea_api.mapping import MappingResource,MapItemResource
+from datea_api.mapping import MappingResource,MapItemResource,MapItemResponseResource
 from datea_api.category import FreeCategoryResource
 from datea_api.vote import VoteResource
 from datea_api.image import ImageResource
 from datea_api.action import ActionResource
 from datea_api.contenttypes import ContentTypeResource
 from datea_api.comment import CommentResource
-from datea_api.follow import FollowResource,HistoryResource
+from datea_api.follow import FollowResource,HistoryResource,NotifySettingsResource
 
 v1_api = Api(api_name='v1')
 v1_api.register(Accounts())
@@ -24,6 +24,7 @@ v1_api.register(ProfileResource())
 v1_api.register(UserResource())
 v1_api.register(MappingResource())
 v1_api.register(MapItemResource())
+v1_api.register(MapItemResponseResource())
 v1_api.register(FreeCategoryResource())
 v1_api.register(VoteResource())
 v1_api.register(ImageResource())
@@ -32,6 +33,7 @@ v1_api.register(ContentTypeResource())
 v1_api.register(CommentResource())
 v1_api.register(FollowResource())
 v1_api.register(HistoryResource())
+v1_api.register(NotifySettingsResource())
 
 
 urlpatterns = patterns('',
@@ -51,12 +53,9 @@ urlpatterns = patterns('',
     (r'^grappelli/', include('grappelli.urls')),
     url(r'', include('social_auth.urls')),
     (r'^accounts/', include('registration.backends.default.urls')),
-    
    
     url(r"png/", include('datea.datea_mapping.urls')),
     
-    # redirect allother paths to hash path -> backbone
-    #
 )
 
 if settings.DEBUG:
