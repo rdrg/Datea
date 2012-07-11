@@ -15,7 +15,7 @@ from django.db.models.signals import post_save, pre_delete
 
 from datea.datea_comment.models import DateaComment
 from datea.datea_vote.models import DateaVote
-from datea.datea_mapping.models import DateaMapping, DateaMapItem
+from datea.datea_mapping.models import DateaMapping, DateaMapItem, DateaMapItemResponse
 
 
 # Create your models here.
@@ -97,7 +97,7 @@ class DateaHistory(models.Model):
     published = models.BooleanField(default=True)
     created = models.DateTimeField(auto_now_add=True)
     
-    url = models.URLField(verify_exists=False)
+    url = models.URLField(verify_exists=False, blank=True, null=True)
     extract = models.TextField(_('Extract'), blank=True, null=True)
     
     history_type = models.CharField(max_length=50)
@@ -194,7 +194,7 @@ class DateaHistory(models.Model):
                     current_site.name+' <'+settings.DEFAULT_EMAIL_FROM+'>',
                     [owner.email]
                     )
-            email.send()
+            #email.send()
    
    
    
@@ -269,7 +269,7 @@ pre_delete.connect(on_comment_delete, sender=DateaComment)
 # DATEA MAP ITEM Signals 
 def on_map_item_save(sender, instance, created, **kwargs):
     if instance is None: return
-    
+
     follow_key = 'dateaaction.'+str(instance.action.pk)
     history_key = follow_key+'_dateamapitem.'+str(instance.pk)
     
@@ -301,6 +301,64 @@ def on_map_item_delete(sender, instance, **kwargs):
     
 post_save.connect(on_map_item_save, sender=DateaMapItem)
 pre_delete.connect(on_map_item_delete, sender=DateaMapItem)
+
+
+# MAP ITEM RESPONSE SIGNALS
+def on_map_item_response_save(sender, instance, created, **kwargs):
+    if instance is None: return
+    
+    map_items = instance.map_items.all()
+    action = map_items[0].action
+    history_key = 'dateaaction.'+str(action.pk)+'_dateamapitemresponse.'+str(instance.pk)
+    
+    if created:
+        # create notice on replied objects
+        for item in map_items:
+            
+            follow_key = 'dateamapitem.'+str(item.pk)
+            
+            hist_item = DateaHistory(
+                    user=instance.user, 
+                    receiver_obj=item, 
+                    acting_obj=instance,
+                    url = item.get_absolute_url(),
+                    follow_key = follow_key,
+                    history_key = history_key,
+                    history_type = 'mapitemresponse',
+                )
+                  
+            if hasattr(item, 'action'):
+                hist_item.action = item.action
+                
+            hist_item.save()
+            hist_item.send_mail('mapitemresponse')
+        
+        # create notice on the action
+        action_follow_key = 'dateaaction.'+str(action.pk)
+        # create notice on commented object's action
+        action_hist_item = DateaHistory(
+                    user=instance.user, 
+                    #receiver_obj=receiver_obj, 
+                    acting_obj=instance,
+                    #url = receiver_obj.get_absolute_url()+'/comment'+str(instance.pk),
+                    follow_key = action_follow_key,
+                    history_key = history_key,
+                    history_type = 'comment',
+                    action = action
+                )
+        action_hist_item.save()
+        action_hist_item.send_mail('mapitemresponse')
+        
+    else:
+        hist_item = DateaHistory.objects.get(history_key=history_key)
+        hist_item.check_published()
+        
+              
+def on_map_item_response_delete(sender, instance, **kwargs):
+    map_items = instance.map_items.all()
+    action = map_items[0].action
+    key = 'dateaaction.'+str(action.pk)+'_dateamapitemresponse.'+str(instance.pk)
+    DateaHistory.objects.filter(history_key=key).delete()
 
 
 
@@ -419,4 +477,7 @@ def on_follow_save(sender, instance, created, **kwargs):
         
 def on_follow_delete(sender, instance, **kwargs):
     key =  instance.object_type.lower()+'.'+str(instance.object_id)+'_dateafollow.'+str(instance.pk)
-    DateaHistory.objects.filter(history_key=key).delete() 
+    DateaHistory.objects.filter(history_key=key).delete()
+    
+    
+ 

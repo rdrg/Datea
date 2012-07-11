@@ -123,16 +123,18 @@ window.Datea.MapItemAdminView = Backbone.View.extend({
 		this.render();
 		
 		// map
-		var itemLayer = new olwidget.DateaMainMapItemLayer(
-				this.options.mapping_model, {'models': [this.model]},
-				{'name': 'Aportes', 'cluster': true}
-			);
-		var mapOptions = {
-			"layers": ['google.streets', 'google.hybrid'],
-			'defaultZoom': 12,
-			'mapDivStyle': {'width': '280px', 'height': '220px'},
+		if (this.model.get('position')) {
+			var itemLayer = new olwidget.DateaMainMapItemLayer(
+					this.options.mapping_model, {'models': [this.model]},
+					{'name': 'Aportes', 'cluster': true}
+				);
+			var mapOptions = {
+				"layers": ['google.streets', 'google.hybrid'],
+				'defaultZoom': 12,
+				'mapDivStyle': {'width': '280px', 'height': '220px'},
+			}
+			var map = new olwidget.DateaMainMap("item-map-"+this.model.get('id'), [itemLayer], mapOptions);
 		}
-		var map = new olwidget.DateaMainMap("item-map-"+this.model.get('id'), [itemLayer], mapOptions);
 		
 		// images
 		if (this.model.get('images') && this.model.get('images').length > 0) {
