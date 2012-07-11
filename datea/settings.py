@@ -174,7 +174,7 @@ INSTALLED_APPS = (
     'datea.datea_action',
     'datea.datea_mapping',
     'datea.datea_vote',
-    'datea.datea_follow',
+    #'datea.datea_follow',
     'datea.datea_api',
     'datea.datea_comment',
 )
