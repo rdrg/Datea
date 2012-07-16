@@ -43,7 +43,7 @@ class DateaComment(models.Model):
     def update_comment_stats(self):
         ctype = ContentType.objects.get(model=self.object_type.lower())
         receiver_obj = ctype.get_object_for_this_type(pk=self.object_id)
-        
+
         value = 0
         if ((self.pk == None and self.published)
           or (self.__orig_published == False and self.published and self.pk)): 
@@ -59,7 +59,6 @@ class DateaComment(models.Model):
             if hasattr(receiver_obj, 'action'):
                 receiver_obj.action.comment_count += value
                 receiver_obj.action.save()
-    
     
     def delete_comment_stats(self):
         if self.published and self.__orig_published:

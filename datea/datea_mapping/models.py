@@ -7,7 +7,9 @@ from datea.datea_image.models import DateaImage
 from datea.datea_action.models import DateaAction
 from datea.datea_category.models import DateaCategory, DateaFreeCategory
 from mptt.fields import TreeForeignKey, TreeManyToManyField
-from django.db.models.signals import post_save
+from django.db.models.signals import post_save, m2m_changed
+from signals import map_item_response_created
+
         
         
 class DateaMapping(DateaAction):
@@ -160,12 +162,9 @@ class DateaMapItemResponse(models.Model):
         verbose_name_plural = _('Responses')
 
 
-def on_response_save(sender, instance, created, **kwargs):
-    if created:
-        instance.update_item_stats()
-post_save.connect(on_response_save, sender=DateaMapItemResponse)
-
-        
+def on_response_save(sender, instance, **kwargs):
+    instance.update_item_stats()
+map_item_response_created.connect(on_response_save, sender=DateaMapItemResponse)
 
         
     

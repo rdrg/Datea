@@ -150,7 +150,8 @@ window.Datea.CommentFormView = Backbone.View.extend({
 			},
 			'error': function(error) {
 				// redirect to login
-				document.location.href = document.location.protocol+'//'+document.location.hostname+"/accounts/login/?next=/"+document.location.hash;
+				console.log(error);
+				//document.location.href = document.location.protocol+'//'+document.location.hostname+"/accounts/login/?next="+document.location.hash.replace('#','');
 			}
 		});
 	}

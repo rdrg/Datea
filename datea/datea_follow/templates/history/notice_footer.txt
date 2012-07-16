@@ -1,0 +1,2 @@
+{% load i18n %}-----------------------------------
+{% blocktrans with site.domain as domain and settings_url as url %}In order to stop receiving email, you can change your notification settings at: http://{{ domain }}{{ url }}{% endblocktrans %} 

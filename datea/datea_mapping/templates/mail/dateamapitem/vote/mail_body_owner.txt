@@ -1,0 +1,14 @@
+{% load i18n %}{% trans "Hi" %} {{ user.username }},
+
+{% blocktrans with acting_obj.user.username as username %}{{ username }} now supports your report:{% endblocktrans %} 
+
+{% if receiver_obj.category %}{{ receiver_obj.category.name }}: {% endif %}{{ receiver_obj.content|striptags|truncatewords:10 }}
+
+{% blocktrans with site.domain as domain and receiver_obj.get_absolute_url as url %}
+You can access your report at: http://{{ domain }}{{ url }}
+{% endblocktrans %}
+{% trans 'best' %},
+
+{% blocktrans with site.name as sitename %}The {{sitename}} Team{% endblocktrans %}
+
+{% include 'history/notice_footer.txt' %}

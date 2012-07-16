@@ -11,6 +11,7 @@ from api_base import ApiKeyPlusWebAuthentication, DateaBaseAuthorization, DateaB
 from django.contrib.auth.models import User
 from django.utils.html import strip_tags
 from django.utils.text import Truncator
+from datea.datea_mapping.signals import map_item_response_created
 
 
 class MappingResource(DateaBaseGeoResource):
@@ -167,6 +168,8 @@ class MapItemResponseResource(DateaBaseResource):
         if 'map_items' in bundle.data and bundle.data['map_items']:
             item_pks = [item['id'] for item in bundle.data['map_items'] if 'id' in item]
             bundle.obj.map_items = DateaMapItem.objects.filter(pk__in=item_pks)
+            bundle.obj.method = bundle.request.method
+            map_item_response_created.send(sender=DateaMapItemResponse, instance=bundle.obj)
         return bundle
     
     

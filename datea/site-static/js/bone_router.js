@@ -17,10 +17,10 @@ Datea.AppRouter = Backbone.Router.extend({
     },
  
     home:function () {
-    	this.open_mapping_tab(hardcode_map_id);
-    	return;
-    	//this.my_profile_home_view = new Datea.MyProfileHomeView({model:Datea.my_user});
-        //$('#main-content-view').html(this.my_profile_home_view.render().el);
+    	//this.open_mapping_tab(hardcode_map_id);
+    	//return;
+    	this.my_profile_home_view = new Datea.MyProfileHomeView({model:Datea.my_user});
+        $('#main-content-view').html(this.my_profile_home_view.render().el);
     },
     
     fb_login_redirect:function () {

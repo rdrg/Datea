@@ -1,0 +1,1 @@
+{% load i18n %}[{{site.name}}] {% blocktrans with acting_obj.user.username as aname %}{{ aname }} replied to your report:{% endblocktrans %} {{ receiver_obj.content|striptags|truncatewords:5}}
