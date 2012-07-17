@@ -1,6 +1,6 @@
 {% load i18n %}{% trans "Hi" %} {{ user.username }},
 
-{% blocktrans with acting_obj.user.username as uname and receiver_obj.user.username as runame %}{{ uname }} now supports {{ runame }}'s report:{% endblocktrans %} 
+{% blocktrans with acting_obj.user.username as uname and receiver_obj.user.username as runame %}{{ uname }} now follows {{ runame }}'s report:{% endblocktrans %} 
 
 {% if receiver_obj.category %}{{ receiver_obj.category.name }}: {% endif %}{{ receiver_obj.content|striptags|truncatewords:10 }}
 
