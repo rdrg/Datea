@@ -3,15 +3,15 @@
 <script id="follow_widget_tpl" type="text/html">
 	<div class="icon"></div>
 	<div class="text">
-		<div class="hover-msg hide"></div>
+		<div class="hover-msg"></div>
 		<div class="info">
 			<div class="counter">{{ follow_count }}</div>
-			<div class="info-label">{% trans "following" %}</div>
+			<div class="info-label">{% trans "followers" %}</div>
 		</div>
 	</div>
 </script>
 
-<script id="follow_hover_msg_tpl" type="text/html">{% trans "follow this" %} {{ object_name }}</script>
-<script id="unfollow_hover_msg_tpl" type="text/html">{% trans "stop following" %}</script>
+<script id="follow_hover_msg_tpl" type="text/html"><span>{% trans "follow this" %} {{ object_name }}</span></script>
+<script id="unfollow_hover_msg_tpl" type="text/html"><span>{% trans "stop following" %}</span></script>
 {% endverbatim %}
 

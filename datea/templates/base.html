@@ -81,8 +81,11 @@
 			{% include "ich/comment.html" %}
 			
 			{# follow/history templates #}
-			{# include "ich/follow_widgets.html" #}
-			{# include "ich/history.html" #}
+			{% include "ich/follow_widgets.html" %}
+			{% include "ich/history.html" %}
+			
+			{# vote templates #}
+			{% include "ich/vote_widgets.html" %}
 	
 		{% endblock %}  
   </head>
@@ -161,10 +164,12 @@
 		<script src="{{ STATIC_URL }}js/mapping/map_item_form_bone.js"></script>
 		<script src="{{ STATIC_URL }}js/mapping/mapping_admin_bone.js"></script>
 		<script src="{{ STATIC_URL }}js/comment_bone.js"></script>
+		<script src="{{ STATIC_URL }}js/follow_bone.js"></script>
+		<script src="{{ STATIC_URL }}js/vote_bone.js"></script>
 		
   		{% block footer_js %}{% endblock %}
   		
-  		{% load datea_profile_tags %}
+  		{% load datea_profile_tags datea_follow_tags datea_vote_tags %}
   		<script type="text/javascript">
 		$(document).ready(function(){
 			
@@ -172,6 +177,14 @@
 			window.Datea.my_user = new Datea.User();
 			Datea.init_my_user_views();
 			Datea.my_user.set({% get_user_resource %});
+			
+		{% if request.user.is_authenticated %}
+			window.Datea.my_user_notify_settings = new Datea.NotifySettings();
+			Datea.my_user_notify_settings.set({% get_user_notify_settings %});
+			
+			window.Datea.my_user_follows = new Datea.FollowCollection({% get_user_follows %});
+			window.Datea.my_user_votes = new Datea.VoteCollection({% get_user_votes %});
+		{% endif %}
 			
 			// init stuff
 			Datea.modal_view = new Datea.ModalWrapView({'el': $('#modal-wrap-view')});

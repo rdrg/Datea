@@ -7,18 +7,12 @@ from api_base import DateaBaseResource, ApiKeyPlusWebAuthentication, DateaBaseAu
 
 class FollowResource(DateaBaseResource):
     
-    user = fields.ToOneField('datea.datea_api.profile.UserResource', 
-            attribute='user', full=False, readonly=True)
-    
+    #user = fields.ToOneField('datea.datea_api.profile.UserResource', 
+    #        attribute='user', full=False, readonly=True)
     
     def hydrate(self,bundle):
-        
-        if bundle.request.method == 'PUT':
-            #preserve original owner
-            orig_object = DateaFollow.objects.get(pk=bundle.data['id'])
-            bundle.obj.user = orig_object.user 
             
-        elif bundle.request.method == 'POST':
+        if bundle.request.method == 'POST':
             bundle.obj.user = bundle.request.user  
             
         return bundle
@@ -27,7 +21,7 @@ class FollowResource(DateaBaseResource):
     class Meta:
         queryset = DateaFollow.objects.all()
         resource_name = 'follow'
-        allowed_methods = ['get', 'post', 'put', 'delete']
+        allowed_methods = ['get', 'post', 'delete']
         filtering={
                 'id' : ['exact'],
                 'user': ALL_WITH_RELATIONS,

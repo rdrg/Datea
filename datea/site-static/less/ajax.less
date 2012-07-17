@@ -7,21 +7,38 @@ span.ajax-loading.small {
 	padding: 0 10px;
 }
 
-.loading-big-bg, .loading-big-img {
+.loading-bg, .loading-img {
 	position:absolute;
 	left:0;
 	right: 0;
 	top:0;
 	bottom:0;
-	z-index: 10001;
 }
 
 .loading-big-bg {
+	.loading-bg;
 	z-index: 10000;
 	background-color: white;
 	.opacity(80);
 }
 
 .loading-big-img {
+	.loading-img;
 	background: url(../img/ajax-loader-grande.gif) no-repeat center center;
+	z-index: 10001;
 }
+
+.loading-small-bg {
+	.loading-bg;
+	z-index: 10000;
+	background-color: white;
+}
+
+.loading-small-img {
+	.loading-img;
+	background: url(../img/ajax-loader-chico.gif) no-repeat center center;
+	z-index: 10001;
+}
+
+
+

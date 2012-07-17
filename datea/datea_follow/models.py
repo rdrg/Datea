@@ -57,7 +57,7 @@ class DateaFollow(models.Model):
         if hasattr(receiver_obj, 'follow_count'):
             receiver_obj.follow_count -= 1
             receiver_obj.save()
-        super(DateaVote, self).delete(using=using)
+        super(DateaFollow, self).delete(using=using)
     
     class Meta:
         verbose_name = _('Follow')
@@ -73,6 +73,7 @@ class DateaNotifySettings(models.Model):
     new_comment = models.BooleanField(_('new comment on my content'), default=True)
     new_vote = models.BooleanField(_('new vote on my content'), default=True)
     new_reply = models.BooleanField(_('new reply on my content'), default=True)
+    new_follow = models.BooleanField(_('new follower on my content'), default=True)
      
     notice_from_site = models.BooleanField(_('general news by the site'), default=True)
     notice_from_action = models.BooleanField(_('news from actions I joined'), default=True)
@@ -343,7 +344,6 @@ def on_comment_save(sender, instance, created, **kwargs):
             
             if action.user != receiver_obj.user:
                 action_hist_item.send_mail_to_action_owner('comment')
-        
     else:
         hist_item = DateaHistory.objects.get(history_key=history_key)
         hist_item.check_published()
@@ -570,8 +570,8 @@ def on_vote_delete(sender, instance, **kwargs):
     key =  instance.object_type.lower()+'.'+str(instance.object_id)+'_dateavote.'+str(instance.pk)
     DateaHistory.objects.filter(history_key=key).delete()
         
-#post_save.connect(on_vote_save, sender=DateaVote)
-#pre_delete.connect(on_vote_save, sender=DateaVote)
+post_save.connect(on_vote_save, sender=DateaVote)
+pre_delete.connect(on_vote_delete, sender=DateaVote)
 
 
 
@@ -648,6 +648,9 @@ def on_follow_save(sender, instance, created, **kwargs):
 def on_follow_delete(sender, instance, **kwargs):
     key =  instance.object_type.lower()+'.'+str(instance.object_id)+'_dateafollow.'+str(instance.pk)
     DateaHistory.objects.filter(history_key=key).delete()
+    
+post_save.connect(on_follow_save, sender=DateaFollow)
+pre_delete.connect(on_follow_delete, sender=DateaFollow)
     
     
  

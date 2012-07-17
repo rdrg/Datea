@@ -2,12 +2,13 @@
  *
  *  MAP ITEM
  *
- * */
+ **/
 window.Datea.MapItem = Backbone.Model.extend({
 	urlRoot:"/api/v1/map_item/",
 });
 
 window.Datea.MapItemCollection = Backbone.Collection.extend({
+	
 	model: Datea.MapItem,
 	url:"/api/v1/map_item/",
 	
@@ -22,7 +23,7 @@ window.Datea.MapItemCollection = Backbone.Collection.extend({
 window.Datea.MapItemFullView = Backbone.View.extend({
 	
 	initialize: function () {
-		this.model.bind('sync', this.render, this)
+		this.model.bind('sync', this.render, this);
 	},
 	
 	render: function() {
@@ -80,10 +81,51 @@ window.Datea.MapItemFullView = Backbone.View.extend({
 			object_type: 'dateamapitem',
 			object_id: this.model.get('id'),
 		})
-
 		this.comments.fetch({
 			data: {'object_type': 'dateamapitem', 'object_id': this.model.get('id'), order_by: 'created'} 
 		});
+		
+		//***************
+		// widgets
+		var $widgets = this.$el.find('.datea-widgets');
+		
+		// FOLLOW WIDGET
+		var follow_key = 'dateamapitem.'+this.model.get('id');
+		var follow = Datea.my_user_follows.find(function(item){
+			return item.get('follow_key') == follow_key;
+		});
+		if (typeof(follow) == 'undefined') {
+			follow = new Datea.Follow({
+				follow_key: follow_key,
+				object_type: 'dateamapitem',
+				object_id: this.model.get('id'),
+			});
+		}
+		this.follow_widget = new Datea.FollowWidgetView({
+			model: follow,
+			followed_model: this.model,
+			size: 'small' 
+		});
+		$widgets.append(this.follow_widget.render().el);
+		
+		
+		// VOTE WIDGET
+		var id = this.model.get('id');
+		var vote = Datea.my_user_votes.find(function(item){
+			return item.get('object_type') == 'dateamapitem' && item.get('object_id') == id;
+		});
+		if (typeof(vote) == 'undefined') {
+			vote = new Datea.Vote({
+				object_type: 'dateamapitem',
+				object_id: this.model.get('id'),
+			});
+		}
+		this.vote_widget = new Datea.VoteWidgetView({
+			model: vote,
+			voted_model: this.model,
+			size: 'small' 
+		});
+		$widgets.append(this.vote_widget.render().el);
 		
 		return this;
 	},
@@ -104,6 +146,7 @@ window.Datea.MapItemTeaserView = Backbone.View.extend({
 	
 	initialize: function () {
 		this.model.bind('sync', this.render, this);
+		this.model.bind('change', this.render, this);
 		this.attributes.id = 'map-item-teaser-'+this.model.get('id');
 	},
 	
@@ -141,6 +184,7 @@ window.Datea.MapItemPopupView = Backbone.View.extend({
 	
 	initialize: function () {
 		this.model.bind('sync', this.render, this);
+		this.model.bind('change', this.render, this);
 	},
 	
 	render: function() {

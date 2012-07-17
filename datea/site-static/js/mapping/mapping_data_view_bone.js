@@ -45,7 +45,7 @@ window.Datea.MappingDataViewMap = Backbone.View.extend({
 	initialize: function () {
 		this.model.bind('reset', this.redraw, this);
 		this.model.bind('add', this.redraw, this);
-		this.model.bind('change', this.redraw, this);
+		this.model.bind('sync', this.redraw, this);
 		this.mapModel = this.options.mapModel;
 		this.first_draw = true;
 	},

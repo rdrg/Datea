@@ -1,5 +1,34 @@
 {% load i18n verbatim_tag %}
 {% verbatim %}
+{# MAP ITEM WIDGET STATS #}
+<script id="map_item_widget_stats_tpl" type="text/html">
+	<div class="stats">
+		{{#vote_count}}
+		<span class="stat vote_count">
+			<a title="ver detalle" href="#{{ url }}">
+				{{ vote_count }} {% trans "votes" %}
+			</a>
+			<span class="separator">|</span>
+		</span>
+		{{/vote_count}}
+		{{#comment_count}}
+		<span class="stat comment_count hide">
+			<a title="ver detalle" href="#{{ url }}">
+				{{ comment_count }} {% trans "comments" %}"
+			</a>
+			<span class="separator">|</span>
+		</span>
+		{{/comment_count }}
+		{{#follow_count}}
+		<span class="stat follow_count hide">
+			<a title="ver detalle" href="#{{ url }}">
+				{{ follow_count }} {% trans "following" %}
+			</a>
+			<span class="separator">|</span>
+		</span>
+		{{/follow_count}}
+	</div>
+</script>
 
 {# MAP ITEM POPUP VIEW #}
 <script id="map_item_popup_tpl" type="text/html">
@@ -14,15 +43,15 @@
 			<div class="field">{{ extract }}</div>
 		</div>
 		
-		{% include "ich/_map_item_widget_stats.html" %}
+		{{>map_item_widget_stats_tpl}}
 		
 		<div class="buttons">
 			<a class="btn btn-mini" href="#{{ url }}">{% trans "Read more" %}</a>
 			<a class="btn btn-mini popup-zoom" data-id="{{ id }}" href="#">{% trans "Zoom in" %}</a>
 		</div>
-	
 	</div>
 </script>
+
 
 
 {# MAP ITEM TEASER VIEW #}
@@ -37,7 +66,7 @@
 			<div class="field">{{ extract }}</div>
 		</div>
 		
-		{% include "ich/_map_item_widget_stats.html" %}
+		{{>map_item_widget_stats_tpl}}
 		
 		<div class="buttons">
 			<a class="btn btn-mini" href="#{{ url }}">{% trans "Read more" %}</a>
@@ -67,7 +96,11 @@
 			<div class="field">{{& content }}</div>
 		</div>
 		
-		{% include "ich/_map_item_widget_stats.html" %}
+		<div class="widgets">
+			<div class="datea-widgets">
+			</div>
+			<div class="share"></div>
+		</div>
 		
 		<div class="images"></div>
 		
@@ -100,8 +133,8 @@
 						<div class="field">{{& content }}</div>
 					</div>
 					
-					{% include "ich/_map_item_widget_stats.html" %}
-					
+					{{>map_item_widget_stats_tpl}}
+										
 					<div class="replies" style="display:none"></div>
 		
 					<div class="comments"></div>

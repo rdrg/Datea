@@ -234,7 +234,7 @@ window.Datea.MappingMapItemTab = Backbone.View.extend({
 	},
 	
 	initialize: function() {
-		this.model.bind('change', this.render,this);
+		//this.model.bind('change', this.render, this);
 		//this.model.bind('reset', this.render, this);
 		this.model.bind('add', this.render, this);
 		this.model.bind('sync', this.render,this);
