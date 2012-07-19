@@ -15,6 +15,11 @@ DEBUG_TOOLBAR_CONFIG = {
     'INTERCEPT_REDIRECTS': False,
 }
 
+#add middelware path to sys path
+import sys
+
+sys.path.append('middleware')
+
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
 )
@@ -103,6 +108,8 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
+    #middleware for cross domain sharing
+    'django-crossdomainxhr-middleware.XsSharing',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     # Uncomment the next line for simple clickjacking protection:
