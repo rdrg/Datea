@@ -10,6 +10,7 @@ Datea.AppRouter = Backbone.Router.extend({
         "action/create/:action_type": "action_create",
         
         "mapping/:map_id": 'open_mapping_tab',
+        "mapping/:map_id/edit": 'open_mapping_edit',
         "mapping/:map_id/admin": 'open_mapping_admin',
         "mapping/:map_id/:tab_id": 'open_mapping_tab',
         "mapping/:map_id/reports/item:report_id": 'open_mapping_item',
@@ -19,22 +20,25 @@ Datea.AppRouter = Backbone.Router.extend({
     home:function () {
     	//this.open_mapping_tab(hardcode_map_id);
     	//return;
+    	clear_admin_controls();
     	this.my_profile_home_view = new Datea.MyProfileHomeView({model:Datea.my_user});
         $('#main-content-view').html(this.my_profile_home_view.render().el);
     },
     
     fb_login_redirect:function () {
+    	clear_admin_controls();
     	this.navigate('/');
     },
     
     // new action homeview -> select which action type to create
     action_start: function () {
+    	clear_admin_controls();
     	$('#main-content-view').html(new Datea.ActionStartView().render().el);
     },
     
     // create new action (mapping or whatever)
     action_create: function (action_type) {
-    	
+    	clear_admin_controls();
     	if (action_type == 'mapping') {
 			$('#main-content-view').html( ich.fix_base_content_single_tpl());
     		this.mapping = new Datea.MappingFormView({model: new Datea.Mapping()});
@@ -61,6 +65,7 @@ Datea.AppRouter = Backbone.Router.extend({
     		
     	}else{
     		var self = this;
+    		clear_admin_controls();
     		this.build_mapping_main_view(map_id, function () {
     			self.mapping_view.render_tab(params);
     		});
@@ -83,6 +88,7 @@ Datea.AppRouter = Backbone.Router.extend({
     		this.mapping_view.render_item(params);
     	}else{
     		var self = this;
+    		clear_admin_controls();
     		this.build_mapping_main_view(map_id, function () {
     			self.mapping_view.render_item(params);
     		})
@@ -142,11 +148,48 @@ Datea.AppRouter = Backbone.Router.extend({
 			});
 		});
     },
+    
+    // Build mapping EDIT view and addit to the dom
+    build_mapping_edit_view: function(map_id, callback) {
+    	var self = this;
+    	this.fetch_mapping_data(map_id, function(){
+			self.mapping_edit_view = new Datea.MappingFormView({
+				el: $('#main-content-view'),
+				model: self.mapping_model,
+			});
+			if (typeof(callback) != 'undefined') {
+				callback();
+			}
+		});
+    },
+    
+    open_mapping_edit: function(map_id) {
+    	// check if mapping already exists
+    	if (this.mapping_model && this.mapping_model.get('id') == map_id) {
+    		// edit view created
+    		if (this.mapping_edit_view) {
+    			this.mapping_edit_view.render();
+    		}else{
+    			this.mapping_edit_view = new Datea.MappingFormView({
+    				el: $('#main-content-view'),
+    				model: this.mapping_model,
+    			});
+    			this.mapping_edit_view.render();
+    		}
+    		
+    	}else{
+    		var self = this;
+    		clear_admin_controls();
+    		this.build_mapping_edit_view(map_id, function () {
+    			self.mapping_edit_view.render();
+    		})
+    	}
+    },
 
     open_mapping_admin: function(map_id) {
     	// check if mapping already exists
-    	if (this.map_items && this.mapping_model.get('id') == map_id) {
-    		// test admin view created
+    	if (this.mapping_model && this.map_items && this.mapping_model.get('id') == map_id) {
+    		// admin view created
     		if (this.mapping_admin_view) {
     			this.mapping_admin_view.render();
     		}else{
@@ -161,11 +204,14 @@ Datea.AppRouter = Backbone.Router.extend({
     		
     	}else{
     		var self = this;
+    		clear_admin_controls();
     		this.build_mapping_admin_view(map_id, function () {
     			self.mapping_admin_view.render();
     		})
     	}
-    },
-    
-    
+    }, 
 });
+
+function clear_admin_controls() {
+	$('#setting-controls').empty();
+}

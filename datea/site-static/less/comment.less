@@ -8,29 +8,44 @@
 	}
 	
 	.comment-list {
+		background-color: #f1f1ef;
+		.border-radius(8px);
+		padding: 16px 12px;
+		
 		.comment-item {
-			margin-bottom: 15px;
-			.comment-head{
-				.user-image {
-					
-				}
-				.user-data {
-					span.date {
-						font-size: @baseFontSize - 2px;
-						color: @grayLight;
-					}
-				}
+			margin-bottom: 13px;
+			padding-bottom: 8px;
+			.clearfix();
+			border-bottom: 1px solid #d5d5d3;
+			&:last-child { border-bottom: 0px; margin-bottom: 0px;}
+			
+			.user-image {
+				float:left;
+				display: block;
+				margin-right: 9px;
+				padding-top: 3px;	
 			}
 			.comment-content {
+				float: left;
+				.comment-text {
+					font-size: @baseFontSize;
+					word-wrap: break-word;
+				}
+				.date {
+					font-size: @baseFontSize - 2px;
+					color: @verde;
+				}
 			}
 		}
 	}
 	
 	.comment-form {
+		margin-top: 15px;
 		.control-group {
-			margin-bottom:10px;
+			margin-bottom: 5px;
 			textarea {
 				margin-bottom: 0px;
+				width: 96%;
 			}
 		}
 	}

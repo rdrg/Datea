@@ -1,0 +1,49 @@
+{% load i18n verbatim_tag %}
+{% verbatim %}
+<script id="image_carousel_tpl" type="text/html">
+	<div class="carousel-inner">
+	</div>
+	<a class="left carousel-control" data-slide="prev" href="#{{ carousel_id }}">‹</a>
+	<a class="right carousel-control" data-slide="next" href="#{{ carousel_id }}">›</a>
+</script>
+
+<script id="image_carousel_item_tpl" type="text/html">
+	<div class="item {{ active_class }}">
+		<img src="{{image}}" alt="" />
+	</div>
+</script>
+
+
+<script id="thumb_row_tpl" type="text/html">
+	<div class="image-row">
+	{{#images}}
+		<a class="start-lightbox" href="#image-lightbox-{{lightbox_id}}" data-order="{{order}}" title="{% trans 'click to enlarge' %}">
+			<img src="{{ image }}" alt="" />
+		</a>
+	{{/images}}
+	</div>
+	<div class="lightbox fade" id="image-lightbox-{{id}}" style="display: none;">
+		<div class='lightbox-content'>
+		</div>
+	</div>
+</script>
+
+<script id="image_single_tpl" type="text/html">
+	<img src="{{image}}" alt="" />
+</script>
+
+<script id="image_carousel2_tpl" type="text/html">
+	<div id="{{ carousel_id }}" class="carousel">
+		<div class="carousel-inner">
+			{{#images}}
+				<div class="item order-{{ order }}">
+					<img src="{{image}}" alt="" />
+				</div>
+			{{/images}}
+		</div>
+		<a class="left carousel-control" data-slide="prev" href="#{{ carousel_id }}">‹</a>
+		<a class="right carousel-control" data-slide="next" href="#{{ carousel_id }}">›</a>
+	</div>
+</script>
+
+{% endverbatim %}

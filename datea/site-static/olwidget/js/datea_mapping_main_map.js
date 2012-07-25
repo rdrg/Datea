@@ -125,6 +125,7 @@ olwidget.DateaMainMapItemLayer = OpenLayers.Class(olwidget.BaseVectorLayer, {
                 	}
                 },
                 getSize: function (feature) {
+
                 	return Datea.map_functions.getClusterSize(feature);
                 },
                 getClusterWidth: function(feature) {
@@ -132,7 +133,7 @@ olwidget.DateaMainMapItemLayer = OpenLayers.Class(olwidget.BaseVectorLayer, {
                 		if (!feature.cluster[0].category.marker_image) {
                 			return Datea.map_functions.getClusterSize(feature);
                 		}else{
-                			feature.cluster[0].category.marker_image.width;
+                			return feature.cluster[0].category.marker_image.width;
                 		}
                 	}else if (feature.cluster){
                 		return Datea.map_functions.getClusterSize(feature);
@@ -149,7 +150,7 @@ olwidget.DateaMainMapItemLayer = OpenLayers.Class(olwidget.BaseVectorLayer, {
                 		if (!feature.cluster[0].category.marker_image) {
                 			return Datea.map_functions.getClusterSize(feature);
                 		}else{
-                			feature.cluster[0].category.marker_image.height;
+                			return feature.cluster[0].category.marker_image.height;
                 		}
                 	}else if (feature.cluster){
                 		return Datea.map_functions.getClusterSize(feature);
@@ -157,7 +158,7 @@ olwidget.DateaMainMapItemLayer = OpenLayers.Class(olwidget.BaseVectorLayer, {
                 		if (!feature.cluster[0].category.marker_image) {
                 			return Datea.map_functions.getClusterSize(feature);
                 		}else{
-                			feature.cluster[0].category.marker_image.height;
+                			return feature.cluster[0].category.marker_image.height;
                 		}
                 	}
                 },
@@ -167,7 +168,7 @@ olwidget.DateaMainMapItemLayer = OpenLayers.Class(olwidget.BaseVectorLayer, {
                 	}else{
                 		return 0.75;
                 	}
-                }
+                },
                 
             };
         }
@@ -219,6 +220,7 @@ olwidget.DateaMainMapItemLayer = OpenLayers.Class(olwidget.BaseVectorLayer, {
         }
         this.addFeatures(features);
     },
+    
     reload: function () {
     	this.destroyFeatures();
     	this.afterAdd();
@@ -276,6 +278,7 @@ olwidget.DateaMainMapItemLayer = OpenLayers.Class(olwidget.BaseVectorLayer, {
  * The Map.  Extends an OpenLayers map.
  */
 olwidget.DateaMainMap = OpenLayers.Class(OpenLayers.Map, {
+    
     initialize: function(mapDivID, vectorLayers, options) {
         this.vectorLayers = vectorLayers;
         this.opts = this.initOptions(options);

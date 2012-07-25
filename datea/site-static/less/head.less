@@ -9,23 +9,33 @@
 	}
 }
 
-#user-header {
-	.image {
-		float: left;
-		display: block;
-		a img {
-			margin-top:17px;
+#user_head_view {
+	float: left;
+	
+	#user-header {
+		.image {
+			float: left;
 			display: block;
+			a img {
+				margin-top:17px;
+				display: block;
+			}
+		}
+		ul.nav .dropdown-toggle {
+			padding-top: 18px;
+			font-size: 14px;
 		}
 	}
-	ul.nav .dropdown-toggle {
-		padding-top: 18px;
-		font-size: 14px;
+	
+	#login-header {
+		display: inline-block;
+		.ie7-inline-block();
+		text-align: center;
+		a.btn-login { margin-top:20px; margin-bottom: 2px; line-height: 24px !important;}
+		.reg-link { }
 	}
 }
 
-#login-header {
-	text-align: center;
-	a.btn-login { margin-top:20px; margin-bottom: 2px; line-height: 24px !important;}
-	.reg-link { }
+#setting-controls {
+	float: left;
 }

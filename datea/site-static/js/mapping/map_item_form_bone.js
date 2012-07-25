@@ -37,6 +37,7 @@ window.Datea.MapItemFormView = Backbone.View.extend({
 		// populate category options with mapping categories
 		var $cat_el = this.$el.find('.category-options');
 		var self = this;
+		
 		// populate category options
 		_.each(this.mappingModel.get('item_categories'), function( cat ){
 			var context = jQuery.extend(true, {}, cat);

@@ -19,15 +19,15 @@ window.Datea.MappingFormView = Backbone.View.extend({
   	},
 	
 	render: function(eventName) {
-		
-		this.$el.html( ich.mapping_form_tpl(this.model.toJSON()));
+		this.$el.html(ich.fix_base_content_single_tpl());
+		this.$el.find('#content').html( ich.mapping_form_tpl(this.model.toJSON()));
 		
 		// select category if set
 		if (this.model.get('category')) {
 			var $sel = this.$el.find('#id_category');
+			console.log($sel);
 			Datea.set_select_control($sel, this.model.get('category').id);
 		}
-		
 		
 		// Item Categories
 		var cat_items = [];
@@ -53,6 +53,8 @@ window.Datea.MappingFormView = Backbone.View.extend({
 		});
 		this.$el.find('#mapping-image-input-view').html(img_view.render().el);
 		
+		this.attach_map();
+		
 		return this;	
 	},
 	
@@ -75,8 +77,8 @@ window.Datea.MappingFormView = Backbone.View.extend({
 			this.model.save(set_data,
 				  {
 					success: function(model, response){
-						Datea.app.navigate('mapping/'+model.attributes.id);
-						if (self.options.success_callback) self.options.success_callback();
+						Datea.app.navigate('/mapping/'+model.attributes.id, {trigger: true});
+						/*if (self.options.success_callback) self.options.success_callback();*/
 					},
 					error: function(model,response) {
 						console.log("error")	

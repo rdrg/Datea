@@ -2616,7 +2616,7 @@ button.close {
 }
 
 .btn-small {
-  padding: 5px 9px;
+  padding: 4px 9px;
   font-size: 11px;
   line-height: 16px;
 }
@@ -3190,17 +3190,18 @@ input[type="submit"].btn.btn-mini {
 }
 
 .nav-tabs > li {
+  margin-right: 1px;
   margin-bottom: -1px;
 }
 
 .nav-tabs > li > a {
-  padding-top: 8px;
-  padding-bottom: 8px;
+  padding-top: 4px;
+  padding-bottom: 4px;
   line-height: 18px;
   border: 1px solid transparent;
-  -webkit-border-radius: 4px 4px 0 0;
-     -moz-border-radius: 4px 4px 0 0;
-          border-radius: 4px 4px 0 0;
+  -webkit-border-radius: 6px 6px 0 0;
+     -moz-border-radius: 6px 6px 0 0;
+          border-radius: 6px 6px 0 0;
 }
 
 .nav-tabs > li > a:hover {
@@ -3462,20 +3463,6 @@ input[type="submit"].btn.btn-mini {
   padding-right: 20px;
   padding-left: 20px;
   background-color: #ecff00;
-  background-image: -moz-linear-gradient(top, #ecff00, #ecff00);
-  background-image: -ms-linear-gradient(top, #ecff00, #ecff00);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ecff00), to(#ecff00));
-  background-image: -webkit-linear-gradient(top, #ecff00, #ecff00);
-  background-image: -o-linear-gradient(top, #ecff00, #ecff00);
-  background-image: linear-gradient(top, #ecff00, #ecff00);
-  background-repeat: repeat-x;
-  -webkit-border-radius: 4px;
-     -moz-border-radius: 4px;
-          border-radius: 4px;
-  filter: progid:dximagetransform.microsoft.gradient(startColorstr='#ecff00', endColorstr='#ecff00', GradientType=0);
-  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
-     -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
-          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
 }
 
 .navbar .container {
@@ -3621,7 +3608,8 @@ input[type="submit"].btn.btn-mini {
 
 .navbar-fixed-top,
 .navbar-fixed-bottom {
-  position: fixed;
+  /*position: fixed;*/
+
   right: 0;
   left: 0;
   z-index: 1030;
@@ -3758,6 +3746,10 @@ input[type="submit"].btn.btn-mini {
 
 .btn-navbar .icon-bar + .icon-bar {
   margin-top: 3px;
+}
+
+.navbar .dropdown-menu {
+  top: 70%;
 }
 
 .navbar .dropdown-menu:before {

@@ -1,6 +1,6 @@
 {% load i18n %}{% trans "Hi" %} {{ user.username }},
 
-{% blocktrans with acting_object.user.username as aname and reciever_obj.user.username as rname %}{{ aname }} made a comment on {{ rname }}'s report:{% endblocktrans %} 
+{% blocktrans with acting_obj.user.username as aname and receiver_obj.user.username as rname %}{{ aname }} made a comment on {{ rname }}'s report:{% endblocktrans %} 
 
 {% if receiver_obj.category %}{{ receiver_obj.category.name }}: {% endif %}{{ receiver_obj.content|striptags|truncatewords:10 }}
 

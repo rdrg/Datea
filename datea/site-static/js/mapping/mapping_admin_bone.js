@@ -121,6 +121,7 @@ window.Datea.MapItemAdminView = Backbone.View.extend({
 		this.$el.addClass('expanded');
 		this.template = 'map_item_admin_list_item_full_tpl';
 		this.render();
+		Datea.CheckMapItemStats(this.$el, this.model);
 		
 		// map
 		if (this.model.get('position')) {
@@ -138,12 +139,7 @@ window.Datea.MapItemAdminView = Backbone.View.extend({
 		
 		// images
 		if (this.model.get('images') && this.model.get('images').length > 0) {
-			var image_col = new Datea.ImageCollection(this.model.get('images'));
-			var carousel_view = new Datea.ImageCarousel({
-				model: image_col,
-				carousel_id: 'map-item-carousel-'+this.model.get('id'),
-			});
-			this.$el.find('.images').html(carousel_view.render().el);
+			this.$el.find('.images').html(new Datea.ThumbRow({ model: this.model}).render().el);
 		}
 		
 		// form init

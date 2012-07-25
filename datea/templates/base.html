@@ -35,10 +35,11 @@
 			{% include "ich/fix_base_content_split.html" %}
 			{% include "ich/fluid_base_content_split.html" %}
 			{% include "ich/pagination.html" %}
+			{% include "ich/form_widgets.html" %}
 			
 			{# Image templates #}
 			{% include "ich/image_input.html" %}
-			{% include "ich/image_carousel.html" %}
+			{% include "ich/image.html" %}
 			
 			{# User/Profile templates #}
 			{% include "ich/my_profile.html" %}
@@ -131,6 +132,7 @@
   		<script src="{{ STATIC_URL }}olwidget/js/datea_editable_point_layer.js"></script>
   		<script src="{{ STATIC_URL }}olwidget/js/datea_mapping_main_map.js"></script>
   		<script src="{{ STATIC_URL }}js/ajax_load.js"></script>
+  		<script src="{{ STATIC_URL }}js/libs/bootstrap-lightbox.js"></script>
 		
 		<script type="text/javascript">
 		  	addthis_config = 
@@ -151,6 +153,7 @@
   		<script src="{{ STATIC_URL }}js/datea_share.js"></script>
   		
 		<script src="{{ STATIC_URL }}js/main_bone.js"></script>
+		<script src="{{ STATIC_URL }}js/form_widget_bone.js"></script>
 		<script src="{{ STATIC_URL }}js/layout_bone.js"></script>
 		<script src="{{ STATIC_URL }}js/paginator_bone.js"></script>
 		<script src="{{ STATIC_URL }}js/image_bone.js"></script>
@@ -163,6 +166,7 @@
 		<script src="{{ STATIC_URL }}js/mapping/map_item_bone.js"></script>
 		<script src="{{ STATIC_URL }}js/mapping/map_item_form_bone.js"></script>
 		<script src="{{ STATIC_URL }}js/mapping/mapping_admin_bone.js"></script>
+		<script src="{{ STATIC_URL }}js/mapping/mapping_layout.js"></script>
 		<script src="{{ STATIC_URL }}js/comment_bone.js"></script>
 		<script src="{{ STATIC_URL }}js/follow_bone.js"></script>
 		<script src="{{ STATIC_URL }}js/vote_bone.js"></script>

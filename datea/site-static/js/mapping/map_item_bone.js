@@ -16,9 +16,25 @@ window.Datea.MapItemCollection = Backbone.Collection.extend({
        var result = _.rest(this.models, perPage*page);
        return _.first(result, perPage);    
     }
-}); 
+});
 
-
+window.Datea.CheckMapItemStats = function ($el, model) {
+	// votes
+	if (model.get('vote_count') == 1) {
+		$('.vote_count .singular', $el).show();
+		$('.vote_count .plural', $el).hide();
+	}
+	// comment
+	if (model.get('comment_count') == 1) {
+		$('.comment_count .singular', $el).show();
+		$('.comment_count .plural', $el).hide();
+	}
+	// followers
+	if (model.get('follow_count') == 1) {
+		$('.follow_count .singular', $el).show();
+		$('.follow_count .plural', $el).hide();
+	}
+}
 
 window.Datea.MapItemFullView = Backbone.View.extend({
 	
@@ -36,12 +52,7 @@ window.Datea.MapItemFullView = Backbone.View.extend({
 		
 		// images
 		if (context.images && context.images.length > 0) {
-			var image_col = new Datea.ImageCollection(context.images);
-			var carousel_view = new Datea.ImageCarousel({
-				model: image_col,
-				carousel_id: 'map-item-carousel-'+this.model.get('id'),
-			});
-			this.$el.find('.images').html(carousel_view.render().el);
+			this.$el.find('.images').html(new Datea.ThumbRow({ model: this.model}).render().el);
 		}
 		
 		// can edit?
@@ -91,9 +102,11 @@ window.Datea.MapItemFullView = Backbone.View.extend({
 		
 		// FOLLOW WIDGET
 		var follow_key = 'dateamapitem.'+this.model.get('id');
-		var follow = Datea.my_user_follows.find(function(item){
-			return item.get('follow_key') == follow_key;
-		});
+		if (Datea.my_user_follows) {
+			var follow = Datea.my_user_follows.find(function(item){
+				return item.get('follow_key') == follow_key;
+			});
+		}
 		if (typeof(follow) == 'undefined') {
 			follow = new Datea.Follow({
 				follow_key: follow_key,
@@ -111,9 +124,11 @@ window.Datea.MapItemFullView = Backbone.View.extend({
 		
 		// VOTE WIDGET
 		var id = this.model.get('id');
-		var vote = Datea.my_user_votes.find(function(item){
-			return item.get('object_type') == 'dateamapitem' && item.get('object_id') == id;
-		});
+		if (Datea.my_user_votes) {
+			var vote = Datea.my_user_votes.find(function(item){
+				return item.get('object_type') == 'dateamapitem' && item.get('object_id') == id;
+			});
+		}
 		if (typeof(vote) == 'undefined') {
 			vote = new Datea.Vote({
 				object_type: 'dateamapitem',
@@ -156,6 +171,7 @@ window.Datea.MapItemTeaserView = Backbone.View.extend({
 		// hydrate context 
 		context.created = formatDateFromISO(context.created, "dd.mm.yyyy - H:MM");
 		this.$el.html( ich.map_item_teaser_tpl(context) );
+		Datea.CheckMapItemStats(this.$el, this.model);
 		
 		// has position?
 		if (!this.model.get('position') || !this.model.get('position').coordinates) {
@@ -193,6 +209,7 @@ window.Datea.MapItemPopupView = Backbone.View.extend({
 		// hydrate context 
 		context.created = formatDateFromISO(context.created, "dd.mm.yyyy - H:MM");
 		this.$el.html( ich.map_item_popup_tpl(context) );
+		Datea.CheckMapItemStats(this.$el, this.model);
 		return this;
 	},
 	

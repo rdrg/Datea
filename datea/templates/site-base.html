@@ -2,12 +2,12 @@
 {% load i18n %} 
 
 {% block body %}
-	<div class="navbar navbar-fixed-top">
+	<div id="head-nav" class="navbar navbar-fixed-top">
 		<div class="navbar-inner">
 			<div class="container container-target">
 				<div class="pull-right">
-					<div id="user_head_view">
-					</div>
+					<div id="user_head_view"></div>
+					<div id="setting-controls"></div>
 				</div>
 				<a href="/" id="logo">
 					<img src="{{STATIC_URL}}img/datea/logo_header.png" />
@@ -17,7 +17,7 @@
 	</div>	
 	
 	{% block main_content_wrap %}
-	<div class="main-content-wrap">
+	<div id="main-content-wrap">
 		<div id="main-content" class="container container-target">
 			<div id="main-content-view" class="inner">{% block main_content %}{% endblock %}</div>
 		</div>

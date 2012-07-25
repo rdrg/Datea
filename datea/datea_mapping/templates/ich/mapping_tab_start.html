@@ -1,15 +1,16 @@
 {% load i18n verbatim_tag %}
 <script id="mapping_tab_start_tpl" type="text/html">
 {% verbatim %}
+<div class="resize-target scroll-area">
 <h2>{{name}}</h2>
-<div class="row mapping-header">
+<div class="mapping-header">
 	
-	<div class="span2-fix">
+	<div class="left-start-head">
 		<div class="image">
 			<img src="{{ image_thumb }}" alt="{{name}}" />
 		</div>
 	</div>
-	<div class="span3-fix">
+	<div class="right-start-head">
 		<div class="short-description">{{short_description}}</div>
    
     	<button type="button" class="btn btn-large btn-primary create-report">{% trans "Create Report" %}</button>
@@ -17,7 +18,7 @@
 		<div class="info">
 			<div class="stats">
 				<div class="stat-line"><i class="icono dateo"></i> {{item_count}} {% trans "reports" %}</div>
-				{#<div class="stat-line">{{comment_count}} {% trans "comments" %}</div>#}
+				<div class="stat-line"><i class="icono comment"></i> {{comment_count}} {% trans "comments" %}</div>
 				<div class="stat-line"><i class="icono follow"></i> {{user_count}} {% trans "participants" %}</div>
 			</div> 	
 		</div>
@@ -43,4 +44,5 @@
 	
 </div>
 {% endverbatim %}
+</div>
 </script>

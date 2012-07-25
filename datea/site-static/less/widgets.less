@@ -14,12 +14,21 @@ a {
 }
 
 .paginator {
-	font-size: @baseFontSize + 1px;
-	li { 
+	li {
+		a {
+			padding: 1px 5px;
+		}
 		float:left; display: block; 
-		padding: 0 10px;
+		padding: 0 4px;
 		&.separator { padding: 0px}
 		&.dots { padding: 0 10px;}
+		
+		&.first, &.last, &.next, &.prev {
+			padding: 0;
+		}
+		&.active a {
+			background-color: @amarillo;
+		}
 	}
 }
 
@@ -112,7 +121,7 @@ a {
 	
 	&:hover .icon { background: url(../img/widgets_icons_small.png) no-repeat -115px center; }
 	
-	&.voted {
+	&.active {
 		.icon { background: url(../img/widgets_icons_small.png) no-repeat -138px center; }
 		&:hover .icon { background: url(../img/widgets_icons_small.png) no-repeat -138px center; }
 	}

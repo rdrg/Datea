@@ -28,6 +28,17 @@
 	}
 }
 
+.map-item {
+	.stats {
+		font-size: @baseFontSize - 2px;
+		padding: 0 0 10px 0;
+		.separator {
+			margin:0 4px;
+			&:last-child { display: none;}	
+		}
+	}
+}
+
 
 .map-item.popup {
 	min-width: 220px;
@@ -41,7 +52,7 @@
 		}
 	}
 	.stats {
-			/*padding: 0 0 8px 0;*/
+		/*padding: 0 0 8px 0;*/
 	}
 	.content {
 		.field {
@@ -81,22 +92,26 @@
 
 .map-item-full-header {
 	.clearfix();
-	padding: 10px;
-	padding-bottom: 2px;
-	padding-left: 15px;
+	padding-top: 10px;
+	padding-bottom: 4px;
+	margin: 0 15px;
+	border-bottom: 1px solid #dfdfdf;
 }
 
 .map-item.full {
-	padding: 15px;
+	padding: 0 15px;
+	
 }
 
 
 .map-item-reply {
-	background-color: #efefef;
+	background-color: white;
+	border: 1px solid #c4c4c4;
 	max-width: 400px;
 	padding: 15px;
 	margin-top: 20px;
 	margin-bottom:10px;
+	.border-radius(8px);
 }
 
 

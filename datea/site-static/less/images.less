@@ -74,9 +74,20 @@
 	vertical-align: text-top;
 	background-repeat: no-repeat;
 	
-	&.dateo { background: url(../img/datea/iconitos.png) no-repeat 0px center;}
-	&.follow { background: url(../img/datea/iconitos.png) no-repeat -20px center;}
-	&.comment { background: url(../img/datea/iconitos.png) no-repeat -40px center;}
-	&.vote { background: url(../img/datea/iconitos.png) no-repeat -60px center;}
-	&.change { background: url(../img/datea/iconitos.png) no-repeat -80px center;}
+	&.dateo { background: url(../img/datea/iconitos.png) no-repeat 0px 0;}
+	&.follow { background: url(../img/datea/iconitos.png) no-repeat -20px 0;}
+	&.comment { background: url(../img/datea/iconitos.png) no-repeat -40px 0;}
+	&.vote { background: url(../img/datea/iconitos.png) no-repeat -60px 0;}
+	&.change { background: url(../img/datea/iconitos.png) no-repeat -80px 0;}
+}
+
+.image-row {
+	margin-bottom: 18px;
+	.clearfix();
+	a {
+		margin-right: 4px;
+		&:last-child { margin-right: 0px;}
+		float:left;
+		img { width: 137px; display:block;}
+	}
 }

@@ -1,4 +1,9 @@
 
+window.Datea.paginate = function (list, page, items_per_page) {
+	var result = _.rest(list, items_per_page*page);
+    return _.first(result, items_per_page);
+}
+
 
 window.Datea.PaginatorView = Backbone.View.extend({
 	
@@ -36,7 +41,7 @@ window.Datea.PaginatorView = Backbone.View.extend({
 		
 		if (this.has_first()) {
 			this.$el.append( ich.paginator_first());
-			this.$el.append(ich.paginator_separator());
+			//this.$el.append(ich.paginator_separator());
 		}
 		if (this.has_prev()) {
 			var ctx = {'page': this.page -1, 'page_name': this.page}
@@ -57,7 +62,6 @@ window.Datea.PaginatorView = Backbone.View.extend({
 				this.$el.append(ich.paginator_separator());
 			}
 		}
-		
 		if (p_range[p_range.length -1] != this.num_pages -1) {
 			this.$el.append(ich.paginator_dots());
 		}else{
@@ -69,7 +73,7 @@ window.Datea.PaginatorView = Backbone.View.extend({
 			this.$el.append( ich.paginator_next(ctx));
 		}
 		if (this.has_last()) {
-			this.$el.append(ich.paginator_separator());
+			//this.$el.append(ich.paginator_separator());
 			var ctx = {'page': this.num_pages-1, 'page_name': this.num_pages}
 			this.$el.append( ich.paginator_last(ctx));
 		}

@@ -1,0 +1,13 @@
+{% load i18n verbatim_tag %}
+{% verbatim %}
+<script id="dropdown_select_tpl" type="text/html">
+    <button class="btn dropdown-toggle btn-dropdown-select" data-toggle="dropdown">
+    	<span class="name"></span> <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu options">
+    	{{#options}}
+    		<li><a href="#" data-value="{{ value }}">{{& name }}</a></li>
+    	{{/options}}
+    </ul>
+</script>
+{% endverbatim %}

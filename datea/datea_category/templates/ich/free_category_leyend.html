@@ -1,6 +1,23 @@
 {% load verbatim_tag %}
 {% verbatim %}
+
+<script id="free_category_leyend__group_tpl" type="text/html">
+	<ul class="category-leyend-group">
+		{{#categories}}
+			{{>free_category_leyend_tpl}}
+		{{/categories}}
+	</ul>
+</script>
+
 <script id="free_category_leyend_tpl" type="text/html">
-	<li><span class="color-sample" style="background-color: {{color}}">&nbsp;</span> <span class="name">{{name}}</span></li>
+	<li>{{>category_name_with_color_tpl}}</li>
+</script>
+
+<script id="category_name_with_color_tpl" type="text/html">
+	<span class="color-sample" style="background-color: {{color}}">&nbsp;</span> <span class="name" title="{{ title }}">{{name}}</span>
+</script>
+
+<script id="category_name_with_color2_tpl" type="text/html">
+	<span class="color-sample" style="background-color: {{color}}">&nbsp;</span> {{name}}
 </script>
 {% endverbatim %}

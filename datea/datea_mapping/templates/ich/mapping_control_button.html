@@ -1,12 +1,12 @@
 {% load i18n verbatim_tag %}
 {% verbatim %}
 <script id="mapping_control_button_tpl" type="text/html">
-	<div class="btn-group">
-		<button class="btn dropdown-toggle" data-toggle="dropdown">
-			<i class="icon-wrench"></i> <span class="caret"></span>
+	<div class="btn-group inline">
+		<button class="btn btn-large btn-success dropdown-toggle" data-toggle="dropdown">
+			 <img src="{% endverbatim %}{{STATIC_URL}}{% verbatim %}/img/tuerca.png" alt="" /> <span class="caret"></span>
 		</button>
 		<ul class="dropdown-menu">
-			<li><a href="javascript:void(0);" class="edit-mapping">{% trans "Mapping Settings" %}</a></li>
+			<li><a href="#{{ url }}/edit" class="edit-mapping">{% trans "Mapping Settings" %}</a></li>
 			<li><a href="#{{ url }}/admin" class="administer-mapping">{% trans "Administer Content" %}</a></li>
 		</ul>
 	</div>

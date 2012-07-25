@@ -1,24 +1,36 @@
 
 .mapping-content {
 	#left-content {
-		margin-top: 18px;
+		margin-top: 0px;
 		background: url(../img/datea/dotted-bg.png) repeat;
 		.inner {
 			margin:15px;
 			.mapping-tab-content {
 				background-color: white;
-			}padding-bottom: 5px;
+			}
+			padding-bottom: 15px;
 		}
-		.border-radius(12px);
+		.border-radius(5px);
 	}	
 }
 
 
 .mapping-tabs {
+	margin-left: 15px;
 	margin-bottom: 0px;
-	border-bottom:0px;
-	li a { background-color: #ececec; border:0px;}
-	li.active a, li.active:hover a { border:0px !important;}
+	border-bottom:1px solid transparent;
+	li a { 
+		background-color: #ececec; 
+		/*border:0px; */
+		color: @grayText;
+		border-color: #ececec;
+	}
+	li.active a, li.active:hover a { /*border:0px !important;*/}
+}
+
+.mapping-tab-content {
+	.border-radius(8px);
+	.box-shadow(1px -1px 2px rgba(0,0,0,.15));
 }
 
 
@@ -38,6 +50,14 @@
 			.stat-line { color: @verde; font-size: @baseFontSize - 2px; line-height: @baseLineHeight - 2px;}
 		}
 	}
+	
+	.mapping-header {
+		.clearfix();
+		.left-start-head { float: left; display:block;}
+		.right-start-head { float:left; display: block; margin-left: 15px;}
+	}
+	
+	.scroll-area { height: 480px; overflow-y : auto; overflow-x: hidden;}
 	
 	.mapping-about {
 		padding: 15px 0;
@@ -59,21 +79,21 @@
 #mapping-reports-view {
 	.item-filters {
 		padding-top: 10px;
-		padding-bottom: 5px;
+		padding-bottom: 4px;
 		.clearfix();
-		padding-right: 15px;	
+		border-bottom: 1px solid #dfdfdf;
+		margin: 0 15px;
 	}
 	margin: 0 !important;
 
 	.scroll-area {
-
-		max-height: 480px;
+		padding-top: 15px;
+		height: 480px;
 		overflow-y : auto;
-		.item-list {
-			margin: 0px 15px;
-		}
+		overflow-x: hidden;
+		.item-list { margin: 0px 15px; }
 		.item-pager {
-			padding:10px 0;
+			padding:10px 15px;
 			a { color: @gray;
 				&:hover { @grayDark;}
 			}

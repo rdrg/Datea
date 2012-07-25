@@ -96,33 +96,10 @@
 }
 
 .step-control {
-	.prev, .next {
-		color: @grayLight;
-		line-height: 30px;
-		text-decoration: none;
-		.icon {
-			display: inline-block;
-			.ie7-inline-block();
-			 width: 30px;
-		}
-		&:hover { color: @gray;}
-	}
 	.prev {
-		.icon {
-			margin-right: 8px; 
-			background: url(../img/datea/prev-next.png) no-repeat 0px center; 
-		}
-		&:hover {
-			.icon { background: url(../img/datea/prev-next.png) no-repeat -30px center; }	
-		}
+		.prev-link;
 	}
 	.next {
-		.icon { 
-			background: url(../img/datea/prev-next.png) no-repeat -60px center;
-			margin-left: 8px;
-		}
-		&:hover {
-			.icon { background: url(../img/datea/prev-next.png) no-repeat -90px center; }	
-		}
+		.next-link;
 	}
 }

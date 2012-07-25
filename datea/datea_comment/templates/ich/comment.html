@@ -2,25 +2,19 @@
 {% verbatim %}
 
 <script id="comment_item_tpl" type="text/html">
-	<div class="comment-head">
-		{% comment %}
-		<div class="user-image">
+	<div class="user-image">
 			<img src="{{ user.profile.image_small }}" />
-		</div>
-		{% endcomment %}
-		<div class="user-data">
-			<strong><a href="#{{ user.url }}">{{ user.username }}</a></strong>
-			<span class="date">{{ created }}</span>
-		</div>
 	</div>
-	<div class="comment-content">{{& comment }}</div>
+	<div class="comment-content">
+		<div class="user"><strong><a href="#{{ user.url }}">{{ user.username }}</a></strong></div>
+		<div class="comment-text">{{& comment }}</div>
+		<div class="date">{{ created }}</div>
+	</div>
 </script>
 	
 
 <script id="comments_tpl" type="text/html">
-	<div class="comment-list">
-		<h3>{% trans "Comments" %}</h3>
-	</div>
+	<div class="comment-list"></div>
 	<div class="comment-form"></div>
 </script>
 
@@ -28,10 +22,10 @@
 	<form class="form" action="">
 		<div class="control-group required">
 			<div class="controls">
-				<textarea class="autoresize double input-xlarge comment-input" name="comment" placeholder="{% trans 'Make a comment' %}">{{ comment }}</textarea>
+				<textarea class="autoresize double comment-input" name="comment" placeholder="{% trans 'Make a comment' %}">{{ comment }}</textarea>
 			</div>
 		</div>
-		<button type="button" class="btn btn-small submit-comment">{% trans "Submit" %}</button> <span class="ajax-loading small" style="display:none">&nbsp;</span>
+		<button type="button" class="btn btn-small submit-comment">{% trans "comment" %}</button> <span class="ajax-loading small" style="display:none">&nbsp;</span>
 	</form>
 </script>
 

@@ -8,10 +8,11 @@ window.Datea.VoteCollection = Backbone.Collection.extend({
 });
 
 
-/* INIT WITH
+/* 
+ * INIT WITH
  * {
- * 	model: <follow model instance> 	
- * 	followed_model: <model_instance_to_follow>,
+ * 	model: <voted model instance> 	
+ * 	voted_model: <model_instance_to_vote_on>,
  * }
  */
 
@@ -59,10 +60,9 @@ window.Datea.VoteWidgetView = Backbone.View.extend({
 
 	
 	vote: function(ev) {
-		Datea.show_small_loading(this.$el);
-		
 		// for the moment, votes cannot be deleted
 		if (this.model.isNew()) {
+			Datea.show_small_loading(this.$el);
 			var self = this;
 			this.model.save({},{
 				success: function (model, response) {

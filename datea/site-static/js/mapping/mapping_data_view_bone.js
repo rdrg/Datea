@@ -4,16 +4,21 @@
 window.Datea.MappingDataView = Backbone.View.extend({
 	
 	initialize: function () {
+		this.model.bind('reset', this.render, this);
 		this.view_mode = 'map';
 		this.mappingModel = this.options.mappingModel;
 	},
 	
 	render: function (eventName) {
+		
 		this.$el.html( ich.mapping_data_view_tpl( this.mappingModel.toJSON()));
+		
+		this.filter_items();
 		
 		// add map
 		this.mapView = new Datea.MappingDataViewMap({
 			model: this.model,
+			render_items: this.render_items,
 			mapModel: this.mappingModel,
 			el: this.$el.find('#map-data-view'),	
 		});
@@ -21,15 +26,117 @@ window.Datea.MappingDataView = Backbone.View.extend({
 		
 		// add categories
 		var categories = this.mappingModel.get('item_categories');
-		if (categories) {
-			var $cat_el = this.$el.find('.data-view-categories');
-			_.each(categories, function(cat) {
-				$cat_el.append(ich.free_category_leyend_tpl(cat));
-			});
+		
+		if (typeof(categories) != 'undefined' && categories.length > 0) {
+			var per_row = 4;
+			var $cat_el = this.$el.find('.data-view-category-leyend');
+			var rows = Math.ceil(categories.length / per_row);
+			for (var i=0; i<rows; i++) {
+				console.log("round");
+				var cat_row = _.rest(categories, i*per_row);
+				cat_row =  _.first(cat_row, per_row);
+				var row = [];
+				for (var j in cat_row) {
+					var cat = {name: cat_row[j]['name'], color: cat_row[j]['color']};
+					if (cat.name.length > 36) {
+						cat.title = cat.name;
+						cat.name = cat.name.substr(0,36)+'...';
+					}
+					row.push(cat);
+				}
+				$cat_el.append( ich.free_category_leyend__group_tpl({categories: row}));
+			}
 			$cat_el.removeClass('hide');
 		}
 		
-	}
+		var self = this;
+		
+		// category filter
+		if (typeof(categories) != 'undefined' && categories.length > 0) {
+
+			var options = [{value:'all', name: 'All categories'}];
+			_.each(categories, function(cat) {
+				if (cat.active == true) {
+					options.push({value: cat.id, name: ich.category_name_with_color2_tpl(cat, true)});
+				}
+			});
+			this.category_filter = new Datea.DropdownSelect({
+				options: options,
+				div_class: 'dropup no-bg',
+				callback: function () { self.filter_items(); self.mapView.redraw(self.render_items); },
+				box_text_max_length: 95,
+			});
+			this.$el.find('.category-filter').html(this.category_filter.render().el);
+		}
+		
+		
+		// status filter
+		var options = [
+			{value: 'new', name: 'new'},
+			{value: 'reviewed', name: 'reviewed'},
+			{value: 'solved', name: 'solved'}
+		];
+		this.status_filter = new Datea.DropdownSelect({
+			options: options,
+			div_class: 'dropup no-bg',
+			callback: function () { self.filter_items(); self.mapView.redraw(self.render_items);}
+		});
+		this.$el.find('.status-filter').html(this.status_filter.render().el);
+		
+		
+		// time filter
+		var options = [
+			{value: 'all', name: 'All since action started' },
+			{value: 'last_week', name: 'last week'},
+			{value: 'last_month', name: 'last month'}
+		];
+		this.time_filter = new Datea.DropdownSelect({
+			options: options,
+			div_class: 'dropup no-bg',
+			callback: function () { self.filter_items(); self.mapView.redraw(self.render_items); }
+		});
+		this.$el.find('.time-filter').html(this.time_filter.render().el);
+				
+	},
+	
+	filter_items: function () {
+		
+		var self = this;
+		var render_items = this.model.models;
+		
+		// category filter
+		if (this.category_filter && this.category_filter.value != 'all') {
+			render_items = _.filter(render_items, function (item){ 
+				return item.get('category_id') == self.category_filter.value;
+			});
+		}
+		
+		// status filter
+		if (this.status_filter && this.status_filter.value != 'all') {
+			render_items = _.filter(render_items, function (item){ 
+				return item.get('status') == self.status_filter.value;
+			});
+		}
+		
+		// Time filter
+		
+		if (this.time_filter && this.time_filter.value != 'all') {
+			var d = new Date();
+			if (this.time_filter.value == 'last_month') {
+				d.setMonth(d.getMonth()-1,d.getDate());  
+			} else if (this.time_filter.value == 'last_week') {
+				d.setDate(d.getDate()-7); 
+			}
+			render_items = _.filter(render_items, function (item){
+				var item_created = dateFromISO(item.get('created')); 
+				return item_created >= d;
+			});
+		}
+		
+		this.render_items = new Datea.MapItemCollection(render_items);
+	},
+	
+	
 	
 	
 });
@@ -43,7 +150,6 @@ window.Datea.MappingDataViewMap = Backbone.View.extend({
 	},
 	
 	initialize: function () {
-		this.model.bind('reset', this.redraw, this);
 		this.model.bind('add', this.redraw, this);
 		this.model.bind('sync', this.redraw, this);
 		this.mapModel = this.options.mapModel;
@@ -61,8 +167,9 @@ window.Datea.MappingDataViewMap = Backbone.View.extend({
 			this.map.updateSize();
 			this.map.initCenter();
 		}else{
+
 			this.itemLayer = new olwidget.DateaMainMapItemLayer(
-				this.mapModel, this.model,
+				this.mapModel, this.options.render_items,
 				{'name': 'Aportes', 'cluster': true}
 			);
 			
@@ -83,7 +190,11 @@ window.Datea.MappingDataViewMap = Backbone.View.extend({
 		}
 	},
 	
-	redraw: function () {
+	redraw: function (render_items) {
+		
+		if (typeof(render_items) != 'undefined') {
+			this.itemLayer.mapItems = render_items;
+		}
 		this.itemLayer.reload();
 		if (this.first_draw) {
 			this.map.initCenter();
@@ -101,5 +212,8 @@ window.Datea.MappingDataViewMap = Backbone.View.extend({
 		this.$el.unbind();
         this.$el.remove();
 	}
+});
+
+window.Datea.MappingDataViewFilter = Backbone.View.extend({
 	
 });

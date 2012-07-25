@@ -6,26 +6,32 @@
 		{{#vote_count}}
 		<span class="stat vote_count">
 			<a title="ver detalle" href="#{{ url }}">
-				{{ vote_count }} {% trans "votes" %}
+				{{ vote_count }}
+				<span class="plural">{% trans "votes" %}</span>
+				<span class="singular" style="display:none">{% trans "vote" %}</span>
 			</a>
-			<span class="separator">|</span>
 		</span>
+		<span class="separator">|</span>
 		{{/vote_count}}
 		{{#comment_count}}
-		<span class="stat comment_count hide">
+		<span class="stat comment_count">
 			<a title="ver detalle" href="#{{ url }}">
-				{{ comment_count }} {% trans "comments" %}"
+				{{ comment_count }}
+				<span class="plural">{% trans "comments" %}</span>
+				<span class="singular" style="display:none">{% trans "comment" %}</span>
 			</a>
-			<span class="separator">|</span>
 		</span>
+		<span class="separator">|</span>
 		{{/comment_count }}
 		{{#follow_count}}
-		<span class="stat follow_count hide">
+		<span class="stat follow_count">
 			<a title="ver detalle" href="#{{ url }}">
-				{{ follow_count }} {% trans "following" %}
+				{{ follow_count }} 
+				<span class="plural">{% trans "followers" %}</span>
+				<span class="singular" style="display:none">{% trans "follower" %}</span>
 			</a>
-			<span class="separator">|</span>
 		</span>
+		<span class="separator">|</span>
 		{{/follow_count}}
 	</div>
 </script>
@@ -79,39 +85,43 @@
 {# MAP ITEM FULL VIEW #}
 <script id="map_item_full_tpl" type="text/html">
 	<div class="map-item-full-header">
-		<a href="#" class="back-to-list">&lt;&lt;{% trans "back" %}</a>
+		<a href="#" class="back-to-list">&lt;&lt; {% trans "back to list" %}</a>
 		<div class="pull-right">
-			<button type="button" class="btn edit-map-item hide" data-id="{{id}}">{% trans "Edit" %}</button>
-			<button class="btn btn-primary create-report" type="button">{% trans "Create report" %}</button> 
+			<button class="btn btn-primary create-report" type="button">{% trans "Create new report" %}</button> 
 		</div>
 	</div>
-	<div id="map-item-full-{{ id }}" class="map-item full">
-	
-		{{>post_user_data_tpl}}
-		
-		<div class="content">
-			<div class="category">
-				<span class="badge" style="background-color: {{ category_color }}">{{ category_name }}</span>
+	<div class="scroll-area resize-target">
+		<div id="map-item-full-{{ id }}" class="map-item full">
+			<div class="pull-right edit-map-item hide">
+				<button type="button" class="btn btn-mini" data-id="{{id}}"><i class="icon-pencil"></i></button>
 			</div>
-			<div class="field">{{& content }}</div>
-		</div>
-		
-		<div class="widgets">
-			<div class="datea-widgets">
+			
+			{{>post_user_data_tpl}}
+			
+			<div class="content">
+				<div class="category">
+					<div class="pull-right">
+						<a class="btn btn-mini open-popup" href="#" data-id="{{ id }}" title="{% trans "See in map" %}">
+							<i data-id="{{ id }}" class="icon-map-marker"></i>
+						</a>
+					</div>
+					<span class="badge" style="background-color: {{ category_color }}">{{ category_name }}</span>
+				</div>
+				<div class="field">{{& content }}</div>
 			</div>
-			<div class="share"></div>
-		</div>
-		
-		<div class="images"></div>
-		
-		<div class="buttons">
-			<a class="btn btn-small open-popup" href="#" data-id="{{ id }}">{% trans "See in map" %}</a>
-		</div>
-		
-		<div class="replies" style="display:none"></div>
-		
-		<div class="comments"></div>
+			
+			<div class="images"></div>
+			
+			<div class="widgets">
+				<div class="datea-widgets">
+				</div>
+				<div class="share"></div>
+			</div>
 	
+			<div class="replies" style="display:none"></div>
+			
+			<div class="comments"></div>
+		</div>
 	</div>
 </script>
 
