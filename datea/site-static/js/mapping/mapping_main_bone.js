@@ -121,8 +121,43 @@ window.Datea.MappingMainView = Backbone.View.extend({
 		}else{
 			var id = parseInt(arg);
 		}
+		
+		// find model
 		var model = this.map_items.get(this.map_items.url+id+'/');
+		
 		if (model.get('position') && model.get('position').coordinates) {
+			// check data view filters
+			// time filter
+			if (this.data_view.time_filter.value != 'all') {
+				var d = new Date();
+				if (this.time_filter.value == 'last_month') {
+					d.setMonth(d.getMonth()-1,d.getDate());  
+				} else if (this.time_filter.value == 'last_week') {
+					d.setDate(d.getDate()-7); 
+				}
+				var item_created = dateFromISO(model.get('created')); 
+				if (item_created < d) {
+					this.data_view.time_filter.set_value('all');
+					this.data_view.filter_items();
+					this.data_view.mapView.redraw(this.data_view.render_items);
+				};
+			}
+			// status filter
+			if (this.data_view.status_filter.value != 'all'
+				&& this.data_view.status_filter.value != model.get('status')) {
+				this.data_view.status_filter.set_value('all');
+				this.data_view.filter_items();
+				this.data_view.mapView.redraw(this.data_view.render_items);
+			}
+			// category filter
+			if (this.data_view.category_filter
+				&& this.data_view.category_filter.value != 'all'
+				&& this.data_view.category_filter.value != model.get('category').id) {
+				this.data_view.category_filter.set_value('all');
+				this.data_view.filter_items();
+				this.data_view.mapView.redraw(this.data_view.render_items);	
+			}
+		
 			this.data_view.mapView.itemLayer.open_popup( id , true, true);
 		}
 	},
@@ -158,7 +193,7 @@ window.Datea.MappingSidebar = Backbone.View.extend({
 	},
 	
 	render_tab: function (params) {
-		console.log('render tab');
+		
 		// render everything the first time
 		if (!this.start_tab_view) this.render();
 		

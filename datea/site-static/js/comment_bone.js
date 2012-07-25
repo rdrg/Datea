@@ -92,6 +92,7 @@ window.Datea.CommentsView = Backbone.View.extend({
 		new_comment.$el.hide();
 		$com_list.append(new_comment.el);
 		new_comment.$el.slideDown('normal');
+		if (this.options.callback) this.options.callback(model);
 	}
 	
 });

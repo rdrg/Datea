@@ -74,7 +74,8 @@ window.Datea.MappingDataView = Backbone.View.extend({
 		var options = [
 			{value: 'new', name: 'new'},
 			{value: 'reviewed', name: 'reviewed'},
-			{value: 'solved', name: 'solved'}
+			{value: 'solved', name: 'solved'},
+			{value: 'all', name: 'any state'},
 		];
 		this.status_filter = new Datea.DropdownSelect({
 			options: options,
@@ -119,7 +120,6 @@ window.Datea.MappingDataView = Backbone.View.extend({
 		}
 		
 		// Time filter
-		
 		if (this.time_filter && this.time_filter.value != 'all') {
 			var d = new Date();
 			if (this.time_filter.value == 'last_month') {
@@ -135,9 +135,6 @@ window.Datea.MappingDataView = Backbone.View.extend({
 		
 		this.render_items = new Datea.MapItemCollection(render_items);
 	},
-	
-	
-	
 	
 });
 
@@ -214,6 +211,3 @@ window.Datea.MappingDataViewMap = Backbone.View.extend({
 	}
 });
 
-window.Datea.MappingDataViewFilter = Backbone.View.extend({
-	
-});

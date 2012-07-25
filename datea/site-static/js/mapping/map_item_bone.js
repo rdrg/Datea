@@ -86,11 +86,15 @@ window.Datea.MapItemFullView = Backbone.View.extend({
 		
 		// comments
 		this.comments = new Datea.CommentCollection();
+		var self = this;
 		this.comment_view = new Datea.CommentsView({
 			el: this.$el.find('.comments'),
 			model: this.comments,
 			object_type: 'dateamapitem',
 			object_id: this.model.get('id'),
+			callback: function () {
+				self.model.set({comment_count: (self.model.get('comment_count') + 1)});
+			}
 		})
 		this.comments.fetch({
 			data: {'object_type': 'dateamapitem', 'object_id': this.model.get('id'), order_by: 'created'} 
