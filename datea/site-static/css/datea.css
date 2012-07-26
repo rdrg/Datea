@@ -1001,6 +1001,45 @@ a:hover span.caret2 {
   padding: 0 15px;
 }
 
+.map-item.full .widgets {
+  *zoom: 1;
+}
+
+.map-item.full .widgets:before,
+.map-item.full .widgets:after {
+  display: table;
+  content: "";
+}
+
+.map-item.full .widgets:after {
+  clear: both;
+}
+
+.map-item.full .widgets .share-group {
+  float: left;
+  margin-right: 25px;
+}
+
+.map-item.full .widgets .share-group .share-button {
+  width: 120px;
+  padding-bottom: 7px;
+}
+
+.map-item.full .widgets .share-group .share-button:last-child {
+  padding-bottom: 0;
+}
+
+.map-item.full .widgets .share-group .connect_comment_widget,
+.map-item.full .widgets .share-group .fb_iframe_widget {
+  max-width: 200px !important;
+}
+
+.map-item.full .widgets .datea-widgets {
+  float: left;
+  padding-top: 10px;
+  padding-left: 0;
+}
+
 .map-item-reply {
   max-width: 400px;
   padding: 15px;
@@ -1102,11 +1141,38 @@ a:hover span.caret2 {
 }
 
 .map-item-form .share {
+  padding-top: 15px;
   margin-bottom: 10px;
 }
 
 .map-item-form .share .share-text {
   margin-bottom: 5px;
+}
+
+.map-item-form .share .share-group {
+  padding: 10px 0;
+  *zoom: 1;
+}
+
+.map-item-form .share .share-group:before,
+.map-item-form .share .share-group:after {
+  display: table;
+  content: "";
+}
+
+.map-item-form .share .share-group:after {
+  clear: both;
+}
+
+.map-item-form .share .share-group .share-button {
+  display: block;
+  float: left;
+  width: 110px;
+}
+
+.map-item-form .share .share-group .connect_comment_widget,
+.map-item-form .share .share-group .fb_iframe_widget {
+  max-width: 200px !important;
 }
 
 .step-control .prev {
@@ -1329,9 +1395,35 @@ body .olwidgetPopupCloseBox {
   margin-left: 15px;
 }
 
+#mapping-start .share-group {
+  padding-top: 15px;
+  *zoom: 1;
+}
+
+#mapping-start .share-group:before,
+#mapping-start .share-group:after {
+  display: table;
+  content: "";
+}
+
+#mapping-start .share-group:after {
+  clear: both;
+}
+
+#mapping-start .share-group .share-button {
+  display: block;
+  float: left;
+  width: 120px;
+}
+
+#mapping-start .share-group .connect_comment_widget,
+#mapping-start .share-group .fb_iframe_widget {
+  max-width: 200px !important;
+}
+
 #mapping-start .scroll-area {
   height: 480px;
-  overflow-x: hidden;
+  overflow-x: visible;
   overflow-y: auto;
 }
 
@@ -1370,6 +1462,14 @@ body .olwidgetPopupCloseBox {
 
 #mapping-reports-view .item-filters:after {
   clear: both;
+}
+
+#mapping-reports-view .item-filters .filter-controls .btn-group {
+  display: inline-block;
+  *display: inline;
+  /* IE7 inline-block hack */
+
+  *zoom: 1;
 }
 
 #mapping-reports-view .scroll-area {
@@ -1447,7 +1547,6 @@ body .olwidgetPopupCloseBox {
   display: block;
   float: left;
   width: 25%;
-  min-height: 35px;
   line-height: 15px !important;
   list-style: none;
   list-style-position: inside;

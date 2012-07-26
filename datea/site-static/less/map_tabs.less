@@ -57,7 +57,20 @@
 		.right-start-head { float:left; display: block; margin-left: 15px;}
 	}
 	
-	.scroll-area { height: 480px; overflow-y : auto; overflow-x: hidden;}
+	.share-group {
+		padding-top: 15px;
+		.clearfix();
+		.share-button {
+			float:left;
+			display: block;
+			width:120px;
+		}
+		.connect_comment_widget, .fb_iframe_widget {
+			max-width: 200px !important;
+		}
+	}
+	
+	.scroll-area { height: 480px; overflow-y : auto; overflow-x: visible;}
 	
 	.mapping-about {
 		padding: 15px 0;
@@ -83,6 +96,12 @@
 		.clearfix();
 		border-bottom: 1px solid #dfdfdf;
 		margin: 0 15px;
+		.filter-controls {
+			.btn-group {
+				display: inline-block;
+				.ie7-inline-block();
+			}
+		}
 	}
 	margin: 0 !important;
 

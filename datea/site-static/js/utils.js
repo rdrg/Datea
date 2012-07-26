@@ -8,5 +8,11 @@ function formatDateFromISO(isostr, format) {
 	return  dateFromISO(isostr).format(format);
 }
 
+function get_base_url() {
+	return window.location.protocol+'//'+window.location.host;
+}
+
+
+
 
 

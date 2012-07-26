@@ -1,4 +1,15 @@
 
+function init_share_buttons() {
+	
+	twttr.widgets.load();
+	
+	$('.fb-share').not('.processed').each( function() {
+		$(this).addClass('processed');
+		FB.XFBML.parse( this );
+	});
+}
+
+/*
 Datea.share = {};
 // DATEO INIT ADDtea.share.THIS
 Datea.share.init_add_this = function () {
@@ -36,8 +47,8 @@ Datea.share.init_add_this = function () {
 		function () {
 			$('.share-services', $(this)).hide();
 		}
-	);*/
+	);
 	addthis.init();
 	//window.addthis.ost = 0;
     //window.addthis.ready();
-}
+}*/

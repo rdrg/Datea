@@ -156,10 +156,12 @@ window.Datea.MapItemFormView = Backbone.View.extend({
 				'id': this.model.get('id'),
 				'success_msg': this.options.mappingModel.get('"report_success_message'),
 				'full_url': full_url,
+				'hashtag': this.options.mappingModel.get('hashtag'),
+				'tweet_text': this.model.get('extract'),
 				'url': this.model.get('url'),
 			}
 			this.$el.html( ich.map_item_form_success_tpl(context));
-			Datea.share.init_add_this();
+			init_share_buttons();
 		}else{
 			Datea.modal_view.close_modal();
 		}

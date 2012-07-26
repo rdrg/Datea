@@ -100,7 +100,26 @@
 
 .map-item.full {
 	padding: 0 15px;
-	
+	.widgets {
+		.clearfix();
+		.share-group {
+			float: left;
+			margin-right: 25px;
+			.share-button {
+				padding-bottom: 7px;
+				width:120px;
+				&:last-child {padding-bottom:0px;}
+			}
+			.connect_comment_widget, .fb_iframe_widget {
+				max-width: 200px !important;
+			}
+		}
+		.datea-widgets {
+			float: left;
+			padding-left: 0px;
+			padding-top: 10px;
+		}
+	}
 }
 
 

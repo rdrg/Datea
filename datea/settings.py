@@ -44,7 +44,6 @@ LANGUAGES = (
     ('es', 'Spanish'),
 )
 
-
 SITE_ID = 1
 
 # If you set this to False, Django will make some optimizations so as not
@@ -114,7 +113,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    #'debug_toolbar.middleware.DebugToolbarMiddleware',
+    # 'debug_toolbar.middleware.DebugToolbarMiddleware',
 )
 
 INTERNAL_IPS = ('127.0.0.1',)

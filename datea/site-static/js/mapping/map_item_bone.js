@@ -48,6 +48,9 @@ window.Datea.MapItemFullView = Backbone.View.extend({
 		// hydrate context 
 		context.created = formatDateFromISO(context.created, "dd.mm.yyyy - H:MM");
 		context.content = context.content.replace(/\n/g, '<br />');
+		context.full_url = get_base_url() + this.model.get('url');
+		context.tweet_text = this.model.get('extract');
+		context.hashtag = this.options.mappingModel.get('hashtag');
 		this.$el.html( ich.map_item_full_tpl(context) );
 		
 		// images

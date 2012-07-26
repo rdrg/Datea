@@ -12,6 +12,13 @@
 	
 	<div class="share">
 		<div class="share-text">{% trans "Now you can share it" %}</div>
+		
+		<div class="share-group">
+			{{>tw_button_tpl}}
+			{{>fb_button_tpl}}
+		</div>
+		
+		{% comment %}
 		<div class="share-buttons">
 			<div class="addthis_default_style addthis_32x32_style share-widget addthis_toolbox" addthis:url="{{ full_url }}">
                 <a class="addthis_button_facebook"></a>
@@ -20,6 +27,7 @@
 			    <a class="addthis_button_email"></a>
 			</div>
 		</div>
+		{% endcomment %}
 	</div>
 </div>
 <div class="modal-footer">

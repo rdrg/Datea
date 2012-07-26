@@ -21,10 +21,14 @@
 				<div class="stat-line"><i class="icono comment"></i> {{comment_count}} {% trans "comments" %}</div>
 				<div class="stat-line"><i class="icono follow"></i> {{user_count}} {% trans "participants" %}</div>
 			</div> 	
-		</div>
-					
+		</div>	
 	</div>
 </div>
+<div class="share-group">
+	{{>fb_button_tpl}}
+	{{>tw_button_tpl}}
+</div>
+
 <div class="mapping-about">
 
 	<div class="field">

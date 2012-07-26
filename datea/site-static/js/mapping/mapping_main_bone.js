@@ -64,11 +64,13 @@ window.Datea.MappingMainView = Backbone.View.extend({
 	
 	render_tab: function(params) {
 		this.sidebar_view.render_tab(params);
+		init_share_buttons();
 	},
 	
 	render_item: function (params) {
 		this.sidebar_view.render_item(params);
 		this.open_popup(params.item_id);
+		init_share_buttons();
 	},
 	
 	create_map_item: function (ev) {
@@ -239,7 +241,10 @@ window.Datea.MappingStartTab = Backbone.View.extend({
 	}, 
 	
 	render: function(eventName) {
-		this.$el.html( ich.mapping_tab_start_tpl(this.model.toJSON()));
+		var context = this.model.toJSON();
+		context.full_url = get_base_url() + this.model.get('url');
+		context.tweet_text = this.model.get('short_description');
+		this.$el.html( ich.mapping_tab_start_tpl(context));
 	} 
 	
 });

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  	
+  	<meta charset="utf-8">
+  	
+  	<title>{{ site.name}} ::: {{ title }}</title>
+	<meta name="description" content="{{ description }}">
+	<meta name="author" content="Datea / Todos somos dateros">
+  	
+	{% include "share/og-tags.html" %}
+	
+  </head>
+  <body>
+  	<script type="text/javascript">
+  		document.location.href = 'http://{{ site.domain }}/#{{ url }}';
+  	</script>
+  </body>
+</html>

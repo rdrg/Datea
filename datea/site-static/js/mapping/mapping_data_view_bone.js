@@ -5,8 +5,14 @@ window.Datea.MappingDataView = Backbone.View.extend({
 	
 	initialize: function () {
 		this.model.bind('reset', this.render, this);
+		this.model.bind('add', this.add_event, this);
 		this.view_mode = 'map';
 		this.mappingModel = this.options.mappingModel;
+	},
+	
+	add_event: function(model) {
+		this.filter_items();
+		this.mapView.redraw(this.render_items);
 	},
 	
 	render: function (eventName) {
@@ -32,7 +38,6 @@ window.Datea.MappingDataView = Backbone.View.extend({
 			var $cat_el = this.$el.find('.data-view-category-leyend');
 			var rows = Math.ceil(categories.length / per_row);
 			for (var i=0; i<rows; i++) {
-				console.log("round");
 				var cat_row = _.rest(categories, i*per_row);
 				cat_row =  _.first(cat_row, per_row);
 				var row = [];
@@ -147,7 +152,7 @@ window.Datea.MappingDataViewMap = Backbone.View.extend({
 	},
 	
 	initialize: function () {
-		this.model.bind('add', this.redraw, this);
+		//this.model.bind('add', this.redraw, this);
 		this.model.bind('sync', this.redraw, this);
 		this.mapModel = this.options.mapModel;
 		this.first_draw = true;

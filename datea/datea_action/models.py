@@ -38,6 +38,7 @@ class DateaAction(models.Model):
     modified = models.DateTimeField(_('modified'), auto_now=True)
     
     short_description = models.CharField(_("Short description / Slogan"), blank=True, null=True, max_length=140, help_text=_("A short description or slogan (max. 140 characters)."))
+    hashtag = models.CharField(_("Hashtag"), blank=True, null=True, max_length=100, help_text=_("A twitter hashtag for your action"))
     category = TreeForeignKey(DateaCategory, verbose_name=_("Category"), null=True, blank=True, default=None, related_name="actions", help_text=_("Choose a category for this action")) 
     
     action_type = models.CharField(_('Action type'), max_length=100, blank=True, null=True)

@@ -11,7 +11,6 @@ from django.db.models.signals import post_save, m2m_changed
 from signals import map_item_response_created
 
         
-        
 class DateaMapping(DateaAction):
     
     label = _('mapping')

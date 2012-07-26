@@ -39,7 +39,7 @@ window.Datea.ImageUploadView = Backbone.View.extend({
 /*
  * Create with following data:
  * 
- * var image_view = new Datea.ImageFormView({
+ * var image_view = new Datea.ImageInputView({
  * 		model = image_model,
  * 		img_data: {
  * 			object_type: 'type_of_object' // some model - optional
