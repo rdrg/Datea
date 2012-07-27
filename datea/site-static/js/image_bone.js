@@ -229,6 +229,7 @@ window.Datea.ImageCarousel = Backbone.View.extend({
 	},
 });
 
+
 window.Datea.ThumbRow = Backbone.View.extend({
 	tagName: 'div',
 	

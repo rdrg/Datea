@@ -23,7 +23,13 @@ window.Datea.MappingAdminView = Backbone.View.extend({
 	
 	render: function(ev) {
 		this.$el.html( ich.mapping_admin_main_tpl());
-		this.$el.find('#right-content').html( ich.mapping_admin_list_tpl(this.model.toJSON()));
+		var context = this.model.toJSON();
+		if (this.model.get('item_categories').length > 0) {
+			context.has_categories = true;
+		}else{
+			context.has_categories = false;
+		}
+		this.$el.find('#right-content').html( ich.mapping_admin_list_tpl(context));
 		if (!this.filtered_items) {
 			this.filtered_items = this.map_items.filter(function(item) {
   				return item.get("status") == 'new';
@@ -144,16 +150,18 @@ window.Datea.MapItemAdminView = Backbone.View.extend({
 		
 		// form init
 		// populate category options with mapping categories
-		var $cat_el = this.$el.find('.category-select');
-		var self = this;
-		_.each(this.options.mapping_model.get('item_categories'), function( cat ){
-			var context = jQuery.extend(true, {}, cat);
-			if (self.model.get('category_id') && self.model.get('category_id') ==  cat.id ){
-				context['extra_attr'] = 'selected="selected"';
-			}
-			context['input_name'] = 'category';
-			$cat_el.append(ich.free_category_select_option_tpl(context));
-		});
+		if (this.options.mapping_model.get('item_categories').length > 0) {
+			var $cat_el = this.$el.find('.category-select');
+			var self = this;
+			_.each(this.options.mapping_model.get('item_categories'), function( cat ){
+				var context = jQuery.extend(true, {}, cat);
+				if (self.model.get('category_id') && self.model.get('category_id') ==  cat.id ){
+					context['extra_attr'] = 'selected="selected"';
+				}
+				context['input_name'] = 'category';
+				$cat_el.append(ich.free_category_select_option_tpl(context));
+			});
+		}
 		
 		// set status
 		$('[name="status"]', this.$el).val(this.model.get('status'));
@@ -184,16 +192,20 @@ window.Datea.MapItemAdminView = Backbone.View.extend({
 	save_item: function () { 
 		Datea.show_big_loading(this.$el.find('.item-edit-wrap'));
 		
-		var cat_id = $('[name="category"]', this.$el).val();
-		var cat = null;
-		var categories = this.options.mapping_model.get('item_categories');
-		var cat = _.find(categories,function(c){ return c.id == cat_id});
+		if (this.options.mapping_model.get('item_categories').length > 0) {
+			var cat_id = $('[name="category"]', this.$el).val();
+			var cat = null;
+			var categories = this.options.mapping_model.get('item_categories');
+			var cat = _.find(categories,function(c){ return c.id == cat_id});
+			this.model.set({
+				category: cat,
+				category_id: cat.id,
+				category_name: cat.name,
+				color: cat.color
+			}, {silent: true});
+		}
 		
 		this.model.set({
-			category: cat,
-			category_id: cat.id,
-			category_name: cat.name,
-			category_color: cat.color,
 			status: $('[name="status"]', this.$el).val(), 
 		});
 		this.model.save();

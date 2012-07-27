@@ -43,9 +43,11 @@
 		{{>post_user_data_tpl}}
 		
 		<div class="content">
-			<div class="category">
-				<span class="badge badge-truncated" style="background-color: {{ category_color }}">{{ category_name }}</span>
-			</div>
+			{{#category}}
+				<div class="category">
+					<span class="badge badge-truncated" style="background-color: {{ color }}">{{ category_name }}</span>
+				</div>
+			{{/category}}
 			<div class="field">{{ extract }}</div>
 		</div>
 		
@@ -66,9 +68,11 @@
 		{{>post_user_data_tpl}}
 		
 		<div class="content">
-			<div class="category">
-				<span class="badge" style="background-color: {{ category_color }}">{{ category_name }}</span>
-			</div>
+			{{#category}}
+				<div class="category">
+					<span class="badge" style="background-color: {{ color }}">{{ category_name }}</span>
+				</div>
+			{{/category}}
 			<div class="field">{{ extract }}</div>
 		</div>
 		
@@ -92,21 +96,21 @@
 	</div>
 	<div class="scroll-area resize-target">
 		<div id="map-item-full-{{ id }}" class="map-item full">
-			<div class="pull-right edit-map-item hide">
-				<button type="button" class="btn btn-mini" data-id="{{id}}"><i class="icon-pencil"></i></button>
+			<div class="pull-right">
+				<a class="btn btn-mini open-popup" href="#" data-id="{{ id }}" title="{% trans "See in map" %}">
+					<i data-id="{{ id }}" class="icon-map-marker"></i>
+				</a>
+				<button type="button" class="btn btn-mini hide edit-map-item" data-id="{{id}}"><i class="icon-pencil"></i></button>
 			</div>
 			
 			{{>post_user_data_tpl}}
 			
 			<div class="content">
+				{{#category}}
 				<div class="category">
-					<div class="pull-right">
-						<a class="btn btn-mini open-popup" href="#" data-id="{{ id }}" title="{% trans "See in map" %}">
-							<i data-id="{{ id }}" class="icon-map-marker"></i>
-						</a>
-					</div>
-					<span class="badge" style="background-color: {{ category_color }}">{{ category_name }}</span>
+					<span class="badge" style="background-color: {{ color }}">{{ category_name }}</span>
 				</div>
+				{{/category}}
 				<div class="field">{{& content }}</div>
 			</div>
 			
@@ -140,9 +144,11 @@
 					<div class="images"></div>
 					
 					<div class="content">
-						<div class="category">
-							<span class="badge" style="background-color: {{ category_color }}">{{ category_name }}</span>
-						</div>
+						{{#category}}
+							<div class="category">
+								<span class="badge" style="background-color: {{ color }}">{{ category_name }}</span>
+							</div>
+						{{/category}}
 						<div class="field">{{& content }}</div>
 					</div>
 					

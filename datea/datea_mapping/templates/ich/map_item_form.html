@@ -1,5 +1,7 @@
 {% load i18n verbatim_tag datea_category_tags datea_mapping_tags bootstrap_toolkit %}
 {% get_mapping_form as form %}
+
+{# MAP ITEM FORM BASE #}
 <script id="map_item_form_tpl" type="text/html">
 	{% verbatim %}
 	<div class="modal-header">
@@ -25,12 +27,16 @@
 					
 					<div class="step-title"><strong>{% trans "Step" %} 1:</strong> {% trans "fill the following fields" %}</div>
 					
+					{{#has_categories}}
 					<div class="control-group required">
 						<label class="control-label">{% trans "Select the apropiate category" %}:</label>
 						<div class="controls category-options">
-							
+							{{#categories}}
+								{{>free_category_radio_option_tpl }}
+							{{/categories}}
 						</div>
 					</div>
+					{{/has_categories}}
 					
 					<div class="control-group required">
 						<label class="control-label">{% trans "Describe the problem and suggest a way to fix it" %}:</label>
@@ -94,5 +100,84 @@
 		</div>
 	</div>
 	
+	{% endverbatim %}
+</script>
+
+
+
+{# VERIFY FORM #}
+<script id="map_item_form_verify_tpl" type="text/html">
+	{% verbatim %}
+	{{#category}}
+	<div class="verify-item category">
+		<span class="badge" style="background-color:{{category.color}};">{{category.name}}</span> 
+		<a href="#" class="change open-step" data-step="1"><i data-step="1" class="icono change"></i>  {% trans "change" %}</a>
+	</div>
+	{{/category}}
+	
+	<div class="verify-item content">
+		{{content}}
+		<a href="#" class="change open-step" data-step="1"><i data-step="1" class="icono change"></i>  {% trans "change" %}</a>
+	</div>
+	
+	<div class="verify-item verify-images">
+		{{#images}}
+			{{> map_item_form_verify_image_tpl}}
+		{{/images}}
+	</div>
+	{% endverbatim %}
+</script>
+
+
+{# VERIFY IMAGE #}
+<script id="map_item_form_verify_image_tpl" type="text/html">
+	{% verbatim %}
+	<div class="verify-image">
+		<span class="thumb">
+			<img src="{{thumb}}" alt="" />
+		</span>
+		<span class="change-button">
+			<a href="#" class="change open-step" data-step="1"><i data-step="1" class="icono change"></i> {% trans "change" %}</a>
+		</span>
+	</div>
+	{% endverbatim %}
+</script>
+
+
+{# FORM SUCCESS TEMPLATE #}
+<script id="map_item_form_success_tpl" type="text/html">
+	{% verbatim %}
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal">×</button>
+		<h3>{% trans "Thank you!" %}</h3>
+	</div>
+	
+	<div class="modal-body">
+		<div class="success-msg">{% trans "Your report has been successfully submitted." %}</div>
+		<div class="custom-success-msg">{{success_msg}}</div>
+		
+		<div class="share">
+			<div class="share-text">{% trans "Now you can share it" %}</div>
+			
+			<div class="share-group">
+				{{>tw_button_tpl}}
+				{{>fb_button_tpl}}
+			</div>
+			
+			{% comment %}
+			<div class="share-buttons">
+				<div class="addthis_default_style addthis_32x32_style share-widget addthis_toolbox" addthis:url="{{ full_url }}">
+	                <a class="addthis_button_facebook"></a>
+					<a class="addthis_button_twitter"></a>
+				    <a class="addthis_button_google"></a>
+				    <a class="addthis_button_email"></a>
+				</div>
+			</div>
+			{% endcomment %}
+		</div>
+	</div>
+	<div class="modal-footer">
+		<a href="#{{ url }}" class="btn btn-primary btn-large close-modal">{% trans 'See my report' %}</a>
+	</div>
 	{% endverbatim %}
 </script>

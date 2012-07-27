@@ -35,18 +35,27 @@ window.Datea.MapItemFormView = Backbone.View.extend({
 		this.$el.html( ich.map_item_form_tpl(context));
 
 		// populate category options with mapping categories
-		var $cat_el = this.$el.find('.category-options');
 		var self = this;
 		
 		// populate category options
+		var categories = []; 
 		_.each(this.mappingModel.get('item_categories'), function( cat ){
-			var context = jQuery.extend(true, {}, cat);
+			var cat_row = jQuery.extend(true, {}, cat);
 			if (self.model.get('category_id') && self.model.get('category_id') ==  cat.id ){
-				context['extra_attr'] = 'checked="checked"';
+				cat_row['extra_attr'] = 'checked="checked"';
 			}
-			context['input_name'] = 'category';
-			$cat_el.append(ich.free_category_radio_option_tpl(context));
+			cat_row['input_name'] = 'category';
+			categories.push(cat_row);
+			//$cat_el.append(ich.free_category_radio_option_tpl(context));
 		});
+		if (categories.length > 0) {
+			context.has_categories = true;
+			context.categories = categories;
+		}else{
+			context.has_categories = false;
+		}
+		// render base template
+		this.$el.html( ich.map_item_form_tpl(context) );
 		
 		// populate images
 		this.images_view = new Datea.ImageInputM2MView({
@@ -54,12 +63,6 @@ window.Datea.MapItemFormView = Backbone.View.extend({
 			el: this.$el.find('.item-images-view'),
 		});
 		this.images_view.render();
-		
-		// Verify Step view
-		this.verify_view = new Datea.MapItemFormVerifyView({
-			model: this.model,
-			el: this.$el.find('.verify-view')
-		})
 		
 		return this;
 	},
@@ -83,7 +86,7 @@ window.Datea.MapItemFormView = Backbone.View.extend({
 		// if step == 3 -> set data to model to trigger verify view
 		if (step == 3) {
 			this.set_model_data();
-			this.verify_view.render();
+			this.$el.find('.verify-view').html(ich.map_item_form_verify_tpl(this.model.toJSON()));
 		}
 		
 		// if everything ok -> open_step
@@ -97,19 +100,23 @@ window.Datea.MapItemFormView = Backbone.View.extend({
 	
 	set_model_data: function () {
 		
-		// find selected category
-		var cat_id = $('[name="category"]:checked', this.$el).val()
-		var cat = null;
-		var categories = this.options.mappingModel.get('item_categories');
-		var cat = _.find(categories,function(c){ return c.id == cat_id});
-
 		var data = {
-			category: cat,
-			category_id: cat.id,
-			category_name: cat.name,
-			category_color: cat.color,
 			content: $('[name="content"]', this.$el).val(),
 			images: this.image_col.toJSON(),
+		}
+		
+		// find selected category, if any
+		if (this.mappingModel.get('item_categories').length > 0) {
+			var cat_id = $('[name="category"]:checked', this.$el).val();
+			var cat = null;
+			var categories = this.options.mappingModel.get('item_categories');
+			var cat = _.find(categories,function(c){ return c.id == cat_id});
+			this.model.set({
+				category: cat,
+				category_id: cat.id,
+				category_name: cat.name,
+				color: cat.color
+			},{silent: true});
 		}
 		this.model.set(data, {silent: true});
 	},
@@ -176,28 +183,6 @@ window.Datea.MapItemFormView = Backbone.View.extend({
 	}
 	
 });
-
-
-window.Datea.MapItemFormVerifyView = Backbone.View.extend({
-	
-	render: function () {
-		this.$el.html(ich.map_item_form_verify_tpl(this.model.toJSON()));
-		
-		// include images
-		var $img_el = this.$el.find('.verify-images');
-		_.each(this.model.get('images'), function(image) {
-			if (image.thumb){
-				$img_el.append( ich.map_item_form_verify_image_tpl(image) );
-			}
-		});
-	},
-	
-	clean_up: function() {
-		this.$el.unbind();
-        this.$el.remove();
-	}
-});
-
 
 
 window.Datea.MapItemPointFieldView = Backbone.View.extend({

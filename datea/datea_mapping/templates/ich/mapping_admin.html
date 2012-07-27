@@ -23,8 +23,8 @@
 			<tr>
 				<th></th>
 				<th>#</th>
-				<th>{{ form.category.label }}</th>
-				<th>{{ form.created.label }}</th>
+				{% verbatim %}{{#has_category}}<th>{{ form.category.label }}</th>{{/has_category}}{% endverbatim %}
+				<th>{% trans "Date" %}</th>
 				<th>{{ form.user.label }}</th>
 				<th>{{ form.content.label }}</th>
 				<th>{{ form.published.label }}</th>
@@ -40,11 +40,13 @@
 <script id="map_item_admin_list_item_tpl" type="text/html">
 	<td><input type="checkbox" name="select-report-id" value="{{ id }}" /></td>
 	<td>{{ id }}</td>
-	<td>
-		<span class="badge badge-truncated" style="background-color: {{ category_color }}">
-			{{ category_name }}
-		</span>
-	</td>
+	{{#category}}
+		<td>
+			<span class="badge badge-truncated" style="background-color: {{ color }}">
+				{{ category_name }}
+			</span>
+		</td>
+	{{/category}}
 	<td>{{ created }}</td>
 	<td>{{ user.username }}</td>
 	<td>{{ extract }}</td>
@@ -68,10 +70,12 @@
 					<button class="btn btn-small save-item" type="button">{% trans "Save" %}</button>
 					<button class="btn btn-small respond-item" type="button">{% trans "New Reply" %}</button> 
 				</span>
-				<span class="field">
-					<label class="checkbox">{% trans "Change category" %}</label>
-					<select class="category-select input" name="category"></select>
-				</span>
+				{{#category}}
+					<span class="field">
+						<label class="checkbox">{% trans "Change category" %}</label>
+						<select class="category-select input" name="category"></select>
+					</span>
+				{{/category}}
 				{% endverbatim %}
 				<span class="field">
 					<label class="checkbox">{% trans "Set status" %}</label>

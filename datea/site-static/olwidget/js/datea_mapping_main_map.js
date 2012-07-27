@@ -22,13 +22,18 @@ olwidget.DateaMainMapItemLayer = OpenLayers.Class(olwidget.BaseVectorLayer, {
     
     initialize: function(mappingModel, mapItems, options) {
         olwidget.BaseVectorLayer.prototype.initialize.apply(this, [options]);
-        this.mappingModel = mappingModel,
-        this.mapItems = mapItems,
-        this.categories = {}
-        var self = this;
-        _.each(this.mappingModel.get('item_categories'), function(cat){
-        	self.categories[cat.id] = cat;
-        });
+        this.mappingModel = mappingModel;
+        this.mapItems = mapItems;
+        
+        if (this.mappingModel.get('item_categories').length > 0) {
+	        this.categories = {};
+	        var self = this;
+	        _.each(this.mappingModel.get('item_categories'), function(cat){
+	        	self.categories[cat.id] = cat;
+	        });
+	    }else{
+	    	this.categories = false;
+	    }
     },
     
     setMap: function(map) {
@@ -84,30 +89,30 @@ olwidget.DateaMainMapItemLayer = OpenLayers.Class(olwidget.BaseVectorLayer, {
                 color: function (feature) {
                 	if (feature.cluster) {
                 		if(feature.cluster.length == 1) {
-	                		return feature.cluster[0].category.color;
+	                		return feature.cluster[0].color;
 	                	}else{
 	                		return '#cccccc';
 	                	}
                 	}else{
-	                	return feature.cluster[0].category.color;
+	                	return feature.cluster[0].color;
                 	}
                 },
                 external: function (feature) {
                 	
                 	if (feature.cluster && feature.cluster.length == 1){
-                		if (!feature.cluster[0].category.marker_image) {
+                		if (!feature.cluster[0].marker_image) {
                 			var size = parseInt(Datea.map_functions.getClusterSize(feature) / 2);
-                			var color = feature.cluster[0].category.color.replace('#','');
+                			var color = feature.cluster[0].color.replace('#','');
                 			return '/png/svgcircle?radius='+size+'&color='+color;
                 		}else{
-                			return feature.cluster[0].category.marker_image.image;
+                			return feature.cluster[0].marker_image.image;
                 		}
                 	
                 	}else{
                 		var size = parseInt(Datea.map_functions.getClusterSize(feature) / 2);
                 		var count_cat = {}
                 		for (i in feature.cluster) {
-                			var color = feature.cluster[i].category.color;
+                			var color = feature.cluster[i].color;
                 			if (typeof(count_cat[color]) == 'undefined') {
                 				count_cat[color] = 1;
                 			}else{
@@ -130,35 +135,35 @@ olwidget.DateaMainMapItemLayer = OpenLayers.Class(olwidget.BaseVectorLayer, {
                 },
                 getClusterWidth: function(feature) {
                 	if (feature.cluster && feature.cluster.length == 1) {
-                		if (!feature.cluster[0].category.marker_image) {
+                		if (!feature.cluster[0].marker_image) {
                 			return Datea.map_functions.getClusterSize(feature);
                 		}else{
-                			return feature.cluster[0].category.marker_image.width;
+                			return feature.cluster[0].marker_image.width;
                 		}
                 	}else if (feature.cluster){
                 		return Datea.map_functions.getClusterSize(feature);
                 	}else{
-                		if (!feature.cluster[0].category.marker_image) {
+                		if (!feature.cluster[0].marker_image) {
                 			return Datea.map_functions.getClusterSize(feature);
                 		}else{
-                			return feature.cluster[0].category.marker_image.width;
+                			return feature.cluster[0].marker_image.width;
                 		}
                 	}
                 },
                 getClusterHeight: function (feature) {
                 	if (feature.cluster && feature.cluster.length == 1) {
-                		if (!feature.cluster[0].category.marker_image) {
+                		if (!feature.cluster[0].marker_image) {
                 			return Datea.map_functions.getClusterSize(feature);
                 		}else{
-                			return feature.cluster[0].category.marker_image.height;
+                			return feature.cluster[0].marker_image.height;
                 		}
                 	}else if (feature.cluster){
                 		return Datea.map_functions.getClusterSize(feature);
                 	}else{
-                		if (!feature.cluster[0].category.marker_image) {
+                		if (!feature.cluster[0].marker_image) {
                 			return Datea.map_functions.getClusterSize(feature);
                 		}else{
-                			return feature.cluster[0].category.marker_image.height;
+                			return feature.cluster[0].marker_image.height;
                 		}
                 	}
                 },
@@ -212,7 +217,16 @@ olwidget.DateaMainMapItemLayer = OpenLayers.Class(olwidget.BaseVectorLayer, {
 	            for (var k = 0; k < feature.length; k++) {
                     feature[k].attributes = {};
                     feature[k].item_id = map_item.get('id');
-                    feature[k].category = this.categories[map_item.get('category_id')];
+                    if (this.categories) {
+                    	var category = this.categories[map_item.get('category_id')];
+                    	feature[k].color = category.color;
+                    	if (category.marker_image) feature[k].marker_image = category.marker_image;
+                    }else{
+                    	feature[k].color = this.mappingModel.get('default_color');
+                    	if (this.mappingModel.get('marker_image')) {
+                    		feature[k].marker_image = this.mappingModel.get('marker_image');
+                    	}
+                    }
 	                 
 	                features.push(feature[k]);
 	            }

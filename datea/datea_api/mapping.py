@@ -92,9 +92,14 @@ class MapItemResource(DateaBaseGeoResource):
             attribute="user", null=False, full=True, readonly=True)
 
     def dehydrate(self, bundle):
-        bundle.data['category_id'] = bundle.obj.category_id
-        bundle.data['category_name'] = bundle.obj.category.name
-        bundle.data['category_color'] = bundle.obj.category.color
+        
+        if bundle.obj.category:
+            bundle.data['category_id'] = bundle.obj.category_id
+            bundle.data['category_name'] = bundle.obj.category.name
+            bundle.data['color'] = bundle.obj.category.color
+        else:
+            bundle.data['color'] = bundle.obj.action.default_color
+            
         bundle.data['extract'] = Truncator( strip_tags(bundle.obj.content) ).chars(140).replace("\n",' ')
         bundle.data['url'] = bundle.obj.get_absolute_url()
         return bundle
