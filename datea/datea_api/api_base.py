@@ -39,6 +39,8 @@ class DateaBaseAuthorization(Authorization):
             return object_list
         
         if request and request.method == 'DELETE':
+            if request.user.is_staff:
+                return object_list
             return object_list.filter(user=request.user)
  
         if isinstance(object_list, Bundle):
@@ -46,7 +48,6 @@ class DateaBaseAuthorization(Authorization):
             
             #if request.method == 'PUT':
             #    print vars(bundle.obj)
-            
  
         return []
     

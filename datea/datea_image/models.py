@@ -5,6 +5,8 @@ from django.utils.translation import ugettext_lazy as _
 #from easy_thumbnails.files import get_thumbnailer
 from sorl.thumbnail import default, ImageField, get_thumbnail
 from django.conf import settings
+from django.db.models.deletion import Collector
+from django.db import router
 
 
 class DateaImage(models.Model):
@@ -38,6 +40,26 @@ class DateaImage(models.Model):
             image = default.engine.get_image(self.image)
             (self.width, self.height) = default.engine.get_image_size(image)
         super(DateaImage, self).save(*args, **kwargs)
+        
+    def delete(self, using=None):
+        self.clear_nullable_related()
+        super(DateaImage, self).delete(using=using)
+        
+    def clear_nullable_related(self):
+        """
+        Recursively clears any nullable foreign key fields on related objects.
+        Django is hard-wired for cascading deletes, which is very dangerous for
+        us. This simulates ON DELETE SET NULL behavior manually.
+        """
+        for related in self._meta.get_all_related_objects():
+            accessor = related.get_accessor_name()
+            related_set = getattr(self, accessor)
+
+            if related.field.null:
+                related_set.clear()
+            else:
+                for related_object in related_set.all():
+                    related_object.clear_nullable_related()
 
         
     class Meta:

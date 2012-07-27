@@ -10,32 +10,6 @@ window.Datea.ImageCollection = Backbone.Collection.extend({
 });
 
 
-// create with image form element: new Datea.ImageUploadView({'el':$('#some-form')}) 
-window.Datea.ImageUploadView = Backbone.View.extend({
-	
-	events: {
-		'change .input-file': 'upload'
-	},	
-
-	upload: function() {
-		var self = this;
-	    $.ajax('/image/save/', {
-	    	type: "POST",
-	        data: $(":hidden", this.$el).serializeArray(),
-	        files: $(":file", this.$el),
-	        iframe: true,
-	        processData: false
-	    }).complete(function(data) {
-	        var response = jQuery.parseJSON(data.responseText);
-	        // run callback if present 
-	        if (typeof(self.options.callback) != 'undefined') self.options.callback(response);
-	        // fetch specified models in "fetch_model"
-	        if (typeof(self.options.fetch_model) != 'undefined') self.options.fetch_model.fetch();
-	    });
-	}
-});
-
-
 /*
  * Create with following data:
  * 
@@ -135,9 +109,9 @@ window.Datea.ImageInputView = Backbone.View.extend({
 		ev.preventDefault();
 		this.$el.find('.ajax-loading').removeClass('hide');
 		var self = this;
-		this.model.destroy({success:function(model, response) { 
+		this.model.destroy({success:function(model, response) {
 				if (typeof(self.options.destroy_callback) != 'undefined') self.options.destroy_callback(model, response);
-				self.model.unset();
+				self.model = new Datea.Image();
 				self.render();
 				self.$el.find('.ajax-loading').addClass('hide');
 		}});

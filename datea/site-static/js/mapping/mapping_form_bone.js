@@ -90,7 +90,7 @@ window.Datea.MappingFormView = Backbone.View.extend({
 	
 	attach_map: function (e) {
 		
-		if (e.currentTarget.hash == '#mapping-boundary' && !this.map_view) {
+		if (typeof(e) != 'undefined' && e.currentTarget.hash == '#mapping-boundary' && !this.map_view) {
 			this.map_view = new Datea.MapEditMultiLayerView({
 				el: this.$el.find('#edit-mapping-position'),
 				mapModel: this.model,
