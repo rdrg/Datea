@@ -25,7 +25,6 @@ window.Datea.MappingFormView = Backbone.View.extend({
 		// select category if set
 		if (this.model.get('category')) {
 			var $sel = this.$el.find('#id_category');
-			console.log($sel);
 			Datea.set_select_control($sel, this.model.get('category').id);
 		}
 		
@@ -61,6 +60,7 @@ window.Datea.MappingFormView = Backbone.View.extend({
 	save_mapping: function(ev) {
 		ev.preventDefault();
 		if (Datea.controls_validate(this.$el)){
+			var hashtag = $('[name="hashtag"]', this.$el).val().replace('#','');
 			var set_data = {
 				name: $('[name="name"]', this.$el).val(),
 				short_description: $('[name="short_description"]', this.$el).val(),
@@ -68,6 +68,8 @@ window.Datea.MappingFormView = Backbone.View.extend({
 				information_destiny: $('[name="information_destiny"]', this.$el).val(),
 				category: $('[name="category"]', this.$el).val(),
 				item_categories: this.item_cat_col.toJSON(),
+				color: $('[name="color"]', this.$el).val(),
+				hashtag: hashtag,
 			}
 			if (set_data['category'] == '') set_data['category'] = null;
 			

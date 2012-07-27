@@ -57,6 +57,26 @@
 					</div>
 				</div>
 				{% endwith %}
+				{% with form.hashtag as field %}
+				<div class="control-group">
+					<label class="control-label">{{ field.label }}</label>
+					<div class="controls">
+						<input type="text" id="mapping-hashtag-input" name="hashtag" class="input-text span2" value="{% verbatim %}{{hashtag}}{% endverbatim %}" />
+						{% if field.help_text %}<p class="help-block">{{ field.help_text }}</p>{% endif %}
+					</div>
+				</div>
+				{% endwith %}
+				{% with form.default_color as field %}
+				<div class="control-group required">
+					<label class="control-label">{{ field.label }}</label>
+					<div class="controls">
+						{% verbatim %}
+					    <input name="color" type="text" class="span2 colorfield" value="{{default_color}}" style="background-color: {{default_color}}" data-color-format="hex">
+					    {% endverbatim %}
+						{% if field.help_text %}<p class="help-block">{{ field.help_text }}</p>{% endif %}
+					</div>
+				</div>
+				{% endwith %}
 				{% with form.mission as field %}
 				<div class="control-group required">
 					<label class="control-label">{{ field.label }}</label>

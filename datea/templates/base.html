@@ -23,11 +23,12 @@
 		{# CSS #}
 		<link href="{{ STATIC_URL }}css/bootstrap.css" rel="stylesheet">
 		<link href="{{ STATIC_URL }}css/bootstrap-responsive.css" rel="stylesheet">
+		<link href="{{ STATIC_URL }}colorpicker/css/colorpicker.css" rel="stylesheet">
+		
 		<link href="{{ STATIC_URL }}css/datea.css" rel="stylesheet">
 		<link rel="stylesheet" href="{{ STATIC_URL }}openlayers-dev/theme/default/style.css" />
 		<link rel="stylesheet" href="{{ STATIC_URL }}openlayers-dev/theme/default/google.css" />
 		<link rel="stylesheet" href="{{ STATIC_URL }}olwidget/css/olwidget.css" />
-		
 		
 			
 		{% block extra_head %}{% endblock %}
@@ -142,7 +143,12 @@
   		<script src="{{ STATIC_URL }}olwidget/js/datea_editable_point_layer.js"></script>
   		<script src="{{ STATIC_URL }}olwidget/js/datea_mapping_main_map.js"></script>
   		<script src="{{ STATIC_URL }}js/ajax_load.js"></script>
+  		
+  		{# BOOTSTRAP ADD-ONS #}
   		<script src="{{ STATIC_URL }}js/libs/bootstrap-lightbox.js"></script>
+  		<script src="{{ STATIC_URL }}colorpicker/js/bootstrap-colorpicker.js"></script>
+  		<script src="{{ STATIC_URL }}js/colorpicker.js"></script>
+		
 		{% comment %}
 		<script type="text/javascript">
 		  	addthis_config = 

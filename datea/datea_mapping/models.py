@@ -39,6 +39,8 @@ class DateaMapping(DateaAction):
                             help_text=_("The message someone sees when succesfully filing a report (max. 140 characters)"))
     
     image = models.ForeignKey(DateaImage, verbose_name=_('Image'), blank=True, null=True, related_name="mappings")
+   
+    default_color = models.CharField(_('Default Item Color'), max_length=7, blank=True, default="#ff9c00", help_text=_("Default color for map items (used when there's no categories defined)."))
     # ZONES
     #zones = models.ManyToManyField(Zone, blank=True, null=True, default=None)
     

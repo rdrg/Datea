@@ -36,8 +36,7 @@
 			<div class="control-group required">
 				<label class="control-label">{{ field.label }}</label>
 				<div class="controls">
-					<input type="text" class="color-input span2" id="mapping-name-input" name="color" value="{% verbatim %}{{color}}{% endverbatim %}" />
-					<div class="color-sample" style="background-color: {{ color }}">&nbsp;</div>
+					{% verbatim %}<input type="text" name="color" class="span2 colorfield" value="{{color}}" style="background-color: {{color}}" data-color-format="hex">{% endverbatim %}
 					{% if field.help_text %}<p class="help-block">{{ field.help_text }}</p>{% endif %}
 				</div>
 			</div>
