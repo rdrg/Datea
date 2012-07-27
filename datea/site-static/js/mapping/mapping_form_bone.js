@@ -5,8 +5,9 @@ window.Datea.MappingFormView = Backbone.View.extend({
 	
 	events: {
 		'click .save-mapping': 'save_mapping',
+		'shown [data-toggle="tab"]': 'attach_map'
 	},
-	
+
 	initialize: function() {
 		//this.model.bind("reset", this.render, this);
         //this.model.bind("sync", this.sync_event, this);
@@ -52,8 +53,6 @@ window.Datea.MappingFormView = Backbone.View.extend({
 		});
 		this.$el.find('#mapping-image-input-view').html(img_view.render().el);
 		
-		this.attach_map();
-		
 		return this;	
 	},
 	
@@ -89,12 +88,15 @@ window.Datea.MappingFormView = Backbone.View.extend({
 		}
 	},
 	
-	attach_map: function () {
-		var map_view = new Datea.MapEditMultiLayerView({
-			el: this.$el.find('#edit-mapping-position'),
-			mapModel: this.model,
-		});
-		map_view.render();
+	attach_map: function (e) {
+		
+		if (e.currentTarget.hash == '#mapping-boundary' && !this.map_view) {
+			this.map_view = new Datea.MapEditMultiLayerView({
+				el: this.$el.find('#edit-mapping-position'),
+				mapModel: this.model,
+			});
+			this.map_view.render();
+		}
 	},
 	
 });
@@ -119,7 +121,11 @@ window.Datea.MapEditMultiLayerView = Backbone.View.extend({
         	),
     	], { 
     		'overlayStyle': { 'fillColor': "#ff0000" }, 
-    		'layers': ['google.streets', 'google.hybrid']
+    		'layers': ['google.streets', 'google.hybrid'],
+    		'mapDivStyle': {
+                'width': '100%',
+                'height': '550px'
+            	}
     		}
     	);
     	return this;

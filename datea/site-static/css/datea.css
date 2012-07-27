@@ -120,11 +120,11 @@
 
 #user_head_view #user-header .image a img {
   display: block;
-  margin-top: 17px;
+  margin-top: 8px;
 }
 
 #user_head_view #user-header ul.nav .dropdown-toggle {
-  padding-top: 18px;
+  padding: 6px 0 0 6px;
   font-size: 14px;
 }
 
@@ -377,6 +377,13 @@ textarea.autoresize.double {
 .dropdown-select.no-bg button.dropdown-toggle:hover {
   background-color: transparent;
   box-shadow: none;
+}
+
+.form .control-group p.help-block,
+.form-horizontal .control-group p.help-block {
+  margin-top: 4px;
+  margin-bottom: 0;
+  color: #999999;
 }
 
 .social-auth-buttons {
@@ -1612,6 +1619,18 @@ body .olwidgetPopupCloseBox {
 
 .data-view-filters ul.filters li.filter:last-child {
   margin-right: 0;
+}
+
+#mapping-form .tab-content {
+  padding-top: 15px;
+}
+
+#mapping-form #mapping-categories {
+  padding-bottom: 20px;
+}
+
+#mapping-form #mapping-settings .control-group {
+  margin-bottom: 20px;
 }
 
 .mapping-items-admin .filters .filter {

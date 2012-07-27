@@ -4,114 +4,130 @@
 	
 	<div class="page-header"><h2>{% verbatim %}{{action_name}}{% endverbatim %} {% trans 'mapping' %}</h2></div>
 	
-	<form id="new-mapping-form" action="" class="form">	
-		<div class="row">
-			<div class="span6">
-				
-				<div class="hide alert alert-error error-msg">
-					{% trans "Please fill out the fields marked in red." %}
-					<button class="close" data-dismiss="alert">×</button>
-				</div>
+	<ul class="nav nav-tabs">
+		<li class="active"><a href="#mapping-settings" data-toggle="tab">{% trans 'Mapping settings' %}</a></li>
+		<li><a href="#mapping-categories" data-toggle="tab">{% trans 'Categories' %}</a></li>
+		<li><a href="#mapping-boundary" data-toggle="tab" class="edit-mapping-boundary">{% trans 'Positioning' %}</a></li>
+	</ul>
+	
+	<form id="mapping-form" action="" class="form form-horizontal">
+		
+		<div class="tab-content">
+			<div class="tab-pane active" id="mapping-settings">
+		
+				<div class="row">
+					<div class="span8">
 						
-				{% with form.name as field %}
-				<div class="control-group required">
-					<label class="control-label">{{ field.label }}</label>
-					<div class="controls">
-						<input type="text" id="mapping-name-input" name="name" class="input-text span4" value="{% verbatim %}{{name}}{% endverbatim %}" />
-						{% if field.help_text %}<p class="help-block">{{ field.help_text }}</p>{% endif %}
+						<div class="hide alert alert-error error-msg">
+							{% trans "Please fill out the fields marked in red." %}
+							<button class="close" data-dismiss="alert">×</button>
+						</div>
+								
+						{% with form.name as field %}
+						<div class="control-group required">
+							<label class="control-label">{{ field.label }}</label>
+							<div class="controls">
+								<input type="text" id="mapping-name-input" name="name" class="input-text span4" value="{% verbatim %}{{name}}{% endverbatim %}" />
+								{% if field.help_text %}<p class="help-block">{{ field.help_text }}</p>{% endif %}
+							</div>
+						</div>
+						{% endwith %}
+						{% with form.short_description as field %}
+						<div class="control-group required">
+							<label class="control-label">{{ field.label }}</label>
+							<div class="controls">
+								<textarea type="text" class="span6 autoresize" id="mapping-short-description-input" name="short_description" rows="1" maxlength="140" >{% verbatim %}{{short_description}}{% endverbatim %}</textarea>
+								{% if field.help_text %}<p class="help-block">{{ field.help_text }}</p>{% endif %}
+							</div>
+						</div>
+						{% endwith %}
+						{% with form.category as field %}
+						<div class="control-group required">
+							<label class="control-label">{{ field.label }}</label>
+							<div class="controls">
+								{{ field }}
+								{% comment %}
+								<select id="mapping-category-input" name="category" />
+									<option value=""> ---- </option>
+									{{% get_categories as categories %}
+									{% for cat in categories %}
+										<option value="{{ cat.id }}">{{ cat.name }}</option>
+									{% endfor %}}
+								</select>
+								{% endcomment %}
+								{% if field.help_text %}<p class="help-block">{{ field.help_text }}</p>{% endif %}
+							</div>
+						</div>
+						{% endwith %}
+						{% with form.image as field %}
+						<div class="control-group required">
+							<label class="control-label">{{ field.label }}</label>
+							<div class="controls">
+								<div id="mapping-image-input-view"></div>
+							</div>
+						</div>
+						{% endwith %}
+						{% with form.hashtag as field %}
+						<div class="control-group">
+							<label class="control-label">{{ field.label }}</label>
+							<div class="controls">
+								<input type="text" id="mapping-hashtag-input" name="hashtag" class="input-text span2" value="{% verbatim %}{{hashtag}}{% endverbatim %}" />
+								{% if field.help_text %}<p class="help-block">{{ field.help_text }}</p>{% endif %}
+							</div>
+						</div>
+						{% endwith %}
+						{% with form.default_color as field %}
+						<div class="control-group required">
+							<label class="control-label">{{ field.label }}</label>
+							<div class="controls">
+								{% verbatim %}
+							    <input name="color" type="text" class="span2 colorfield" value="{{default_color}}" style="background-color: {{default_color}}" data-color-format="hex">
+							    {% endverbatim %}
+								{% if field.help_text %}<p class="help-block">{{ field.help_text }}</p>{% endif %}
+							</div>
+						</div>
+						{% endwith %}
+						{% with form.mission as field %}
+						<div class="control-group required">
+							<label class="control-label">{{ field.label }}</label>
+							<div class="controls">
+								<textarea name="mission" id="mapping-mission-input" maxlength="500" class="span6 autoresize double">{% verbatim %}{{mission}}{% endverbatim %}</textarea>
+								{% if field.help_text %}<p class="help-block">{{ field.help_text }}</p>{% endif %}
+							</div>
+						</div>
+						{% endwith %}
+						{% with form.information_destiny as field %}
+						<div class="control-group required">
+							<label class="control-label">{{ field.label }}</label>
+							<div class="controls">
+								<textarea name="information_destiny" id="mapping-mission-input" maxlength="500" class="span6 autoresize double">{% verbatim %}{{information_destiny}}{% endverbatim %}</textarea>
+								{% if field.help_text %}<p class="help-block">{{ field.help_text }}</p>{% endif %}
+							</div>
+						</div>
+						{% endwith %}
 					</div>
-				</div>
-				{% endwith %}
-				{% with form.short_description as field %}
-				<div class="control-group required">
-					<label class="control-label">{{ field.label }}</label>
-					<div class="controls">
-						<textarea type="text" class="span6 autoresize" id="mapping-short-description-input" name="short_description" rows="1" maxlength="140" >{% verbatim %}{{short_description}}{% endverbatim %}</textarea>
-						{% if field.help_text %}<p class="help-block">{{ field.help_text }}</p>{% endif %}
-					</div>
-				</div>
-				{% endwith %}
-				{% with form.category as field %}
-				<div class="control-group required">
-					<label class="control-label">{{ field.label }}</label>
-					<div class="controls">
-						{{ field }}
-						{% comment %}
-						<select id="mapping-category-input" name="category" />
-							<option value=""> ---- </option>
-							{{% get_categories as categories %}
-							{% for cat in categories %}
-								<option value="{{ cat.id }}">{{ cat.name }}</option>
-							{% endfor %}}
-						</select>
-						{% endcomment %}
-						{% if field.help_text %}<p class="help-block">{{ field.help_text }}</p>{% endif %}
-					</div>
-				</div>
-				{% endwith %}
-				{% with form.image as field %}
-				<div class="control-group required">
-					<label class="control-label">{{ field.label }}</label>
-					<div class="controls">
-						<div id="mapping-image-input-view"></div>
-					</div>
-				</div>
-				{% endwith %}
-				{% with form.hashtag as field %}
-				<div class="control-group">
-					<label class="control-label">{{ field.label }}</label>
-					<div class="controls">
-						<input type="text" id="mapping-hashtag-input" name="hashtag" class="input-text span2" value="{% verbatim %}{{hashtag}}{% endverbatim %}" />
-						{% if field.help_text %}<p class="help-block">{{ field.help_text }}</p>{% endif %}
-					</div>
-				</div>
-				{% endwith %}
-				{% with form.default_color as field %}
-				<div class="control-group required">
-					<label class="control-label">{{ field.label }}</label>
-					<div class="controls">
-						{% verbatim %}
-					    <input name="color" type="text" class="span2 colorfield" value="{{default_color}}" style="background-color: {{default_color}}" data-color-format="hex">
-					    {% endverbatim %}
-						{% if field.help_text %}<p class="help-block">{{ field.help_text }}</p>{% endif %}
-					</div>
-				</div>
-				{% endwith %}
-				{% with form.mission as field %}
-				<div class="control-group required">
-					<label class="control-label">{{ field.label }}</label>
-					<div class="controls">
-						<textarea name="mission" id="mapping-mission-input" maxlength="500" class="span6 autoresize">{% verbatim %}{{mission}}{% endverbatim %}</textarea>
-						{% if field.help_text %}<p class="help-block">{{ field.help_text }}</p>{% endif %}
-					</div>
-				</div>
-				{% endwith %}
-				{% with form.information_destiny as field %}
-				<div class="control-group required">
-					<label class="control-label">{{ field.label }}</label>
-					<div class="controls">
-						<textarea name="information_destiny" id="mapping-mission-input" maxlength="500" class="span6 autoresize">{% verbatim %}{{information_destiny}}{% endverbatim %}</textarea>
-						{% if field.help_text %}<p class="help-block">{{ field.help_text }}</p>{% endif %}
-					</div>
-				</div>
-				{% endwith %}
+				</div>	
 			</div>
-			<div class="span6">
-				<label>{% trans "Item Categories" %}</label>
-				<div id="edit-mapping-categories"></div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="span12">
-				<div class="control-group">
-					<label class="control-label">{% trans "Define center and boundary "%}</label>
-					<div id="edit-mapping-position" class="controls"></div>
+			<div class="tab-pane" id="mapping-categories">
+				<div class="row">
+					<div class="span8">
+						<label>{% trans "Item Categories" %}</label>
+						<div id="edit-mapping-categories"></div>
+					</div>
 				</div>
 			</div>
-		</div>
-		<div class="form-actions">
-			<button class="btn btn-primary save-mapping" type="button">{% trans "Save" %}</button>
-			<a class="btn cancel-mapping" href="#{% verbatim %}{{ url }}{% endverbatim %}">Cancel</a>
+			<div class="tab-pane" id="mapping-boundary">
+				<div class="row">
+					<div class="span12">
+						<label>{% trans "Define center and boundary "%}</label>
+						<div id="edit-mapping-position"></div>
+					</div>
+				</div>
+			</div>		
+			<div class="form-actions">
+				<button class="btn btn-large btn-primary save-mapping" type="button">{% trans "Save" %}</button>
+				<a class="btn btn-large  cancel-mapping" href="#{% verbatim %}{{ url }}{% endverbatim %}">Cancel</a>
+			</div>
 		</div>
 	</form>
 

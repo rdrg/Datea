@@ -3459,7 +3459,7 @@ input[type="submit"].btn.btn-mini {
 }
 
 .navbar-inner {
-  min-height: 80px;
+  min-height: 70px;
   padding-right: 20px;
   padding-left: 20px;
   background-color: #ecff00;
@@ -3484,7 +3484,7 @@ input[type="submit"].btn.btn-mini {
 .navbar .brand {
   display: block;
   float: left;
-  padding: 28px 20px 32px;
+  padding: 23px 20px 27px;
   margin-left: -20px;
   font-size: 20px;
   font-weight: 200;
@@ -3494,7 +3494,7 @@ input[type="submit"].btn.btn-mini {
 
 .navbar .navbar-text {
   margin-bottom: 0;
-  line-height: 80px;
+  line-height: 70px;
 }
 
 .navbar .navbar-link {
@@ -3507,7 +3507,7 @@ input[type="submit"].btn.btn-mini {
 
 .navbar .btn,
 .navbar .btn-group {
-  margin-top: 25px;
+  margin-top: 20px;
 }
 
 .navbar .btn-group .btn {
@@ -3533,7 +3533,7 @@ input[type="submit"].btn.btn-mini {
 .navbar-form select,
 .navbar-form .radio,
 .navbar-form .checkbox {
-  margin-top: 25px;
+  margin-top: 20px;
 }
 
 .navbar-form input,
@@ -3562,7 +3562,7 @@ input[type="submit"].btn.btn-mini {
 .navbar-search {
   position: relative;
   float: left;
-  margin-top: 26px;
+  margin-top: 21px;
   margin-bottom: 0;
 }
 
@@ -3657,7 +3657,7 @@ input[type="submit"].btn.btn-mini {
 
 .navbar .nav > li > a {
   float: none;
-  padding: 29px 10px 31px;
+  padding: 24px 10px 26px;
   line-height: 19px;
   color: #1c1c1a;
   text-decoration: none;
@@ -3667,12 +3667,12 @@ input[type="submit"].btn.btn-mini {
 .navbar .btn {
   display: inline-block;
   padding: 4px 10px 4px;
-  margin: 25px 5px 26px;
+  margin: 20px 5px 21px;
   line-height: 18px;
 }
 
 .navbar .btn-group {
-  padding: 25px 5px 26px;
+  padding: 16px 5px 17px;
   margin: 0;
 }
 
@@ -3691,7 +3691,7 @@ input[type="submit"].btn.btn-mini {
 
 .navbar .divider-vertical {
   width: 1px;
-  height: 80px;
+  height: 70px;
   margin: 0 9px;
   overflow: hidden;
   background-color: #ecff00;
