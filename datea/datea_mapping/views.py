@@ -18,7 +18,7 @@ def get_mapping(request, mapping_id):
     else:
         image = settings.OPENGRAPH_DEFAULT_IMAGE
         
-    return render_to_response("og/og-base.html",{
+    return render_to_response("share/og-base.html",{
             'site': Site.objects.get_current(),
             'title': mapping.name,
             'url': mapping.get_absolute_url(),
@@ -37,7 +37,7 @@ def get_map_item(request, mapping_id, map_item_id):
         image = settings.OPENGRAPH_DEFAULT_IMAGE
     
     extract = Truncator( strip_tags(map_item.content) ).chars(140)
-    return render_to_response("og/og-base.html",{
+    return render_to_response("share/og-base.html",{
             'site': Site.objects.get_current(),
             'title': map_item.user.username+': '+extract[:25]+'...',
             'url': map_item.get_absolute_url(),

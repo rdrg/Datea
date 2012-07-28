@@ -10,8 +10,11 @@
 
 <script id="mapping_admin_list_tpl" type="text/html">
 	<div class="page-header"><h2>{% trans 'content admin' %}: {% verbatim %}{{name}}{% endverbatim %}</h2></div>
-	<form class="form form-inline filters">
+	<form id="mapping-admin-head-form" class="form form-inline">
 		{% verbatim %}
+		<div class="pull-right back-button">
+			<a href="#{{ url }}" class="prev-link"><span class="icon">&nbsp;</span>{% trans "back to mapping" %}</a>
+		</div>
 		{# <span class="backlink"><a href="{{url}}">&lt;&lt; {% trans "back"%}</a></span> #}
 		<div class="mapping-filters">
 			<span class="title">{% trans 'filter' %}:</span>
@@ -24,6 +27,9 @@
 		</div>
 		{% endverbatim %}
 	</form>
+	
+	<div class="no-results-msg alert hide">{% trans "No results were found. Check the filters above." %}</div>
+	
 	<table class="table table-striped map-item-admin-table">
 		<thead>
 			<tr>
@@ -103,4 +109,6 @@
 		<button class="btn btn-small collapse-view"><i class="icon-chevron-up"></i></button>
 	</td>
 </script>
+
 {% endverbatim %}
+

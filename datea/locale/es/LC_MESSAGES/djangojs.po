@@ -1,0 +1,89 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-07-28 12:39-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+#: site-static/js/mapping/map_item_form_bone.js:31
+#: site-static/js/mapping/mapping_form_bone.js:27
+msgid "Create"
+msgstr "Crear"
+
+#: site-static/js/mapping/map_item_form_bone.js:33
+#: site-static/js/mapping/mapping_form_bone.js:29
+msgid "Edit"
+msgstr "Editar"
+
+#: site-static/js/mapping/mapping_admin_bone.js:39
+#: site-static/js/mapping/mapping_data_view_bone.js:62
+msgid "All categories"
+msgstr "Todas las categorías"
+
+#: site-static/js/mapping/mapping_admin_bone.js:56
+#: site-static/js/mapping/mapping_admin_bone.js:278
+#: site-static/js/mapping/mapping_data_view_bone.js:80
+msgid "new"
+msgstr "nuevo"
+
+#: site-static/js/mapping/mapping_admin_bone.js:57
+#: site-static/js/mapping/mapping_admin_bone.js:279
+#: site-static/js/mapping/mapping_data_view_bone.js:81
+msgid "reviewed"
+msgstr "revisado"
+
+#: site-static/js/mapping/mapping_admin_bone.js:58
+#: site-static/js/mapping/mapping_admin_bone.js:280
+#: site-static/js/mapping/mapping_data_view_bone.js:82
+msgid "solved"
+msgstr "solucionado"
+
+#: site-static/js/mapping/mapping_admin_bone.js:59
+#: site-static/js/mapping/mapping_data_view_bone.js:83
+msgid "any state"
+msgstr "Todos los estados"
+
+#: site-static/js/mapping/mapping_admin_bone.js:71
+msgid "published"
+msgstr "publicado"
+
+#: site-static/js/mapping/mapping_admin_bone.js:72
+msgid "un-published"
+msgstr "despublicado"
+
+#: site-static/js/mapping/mapping_admin_bone.js:260
+msgid "-- none --"
+msgstr "-- ninguno --"
+
+#: site-static/js/mapping/mapping_data_view_bone.js:95
+msgid "All since action started"
+msgstr "Todos desde comienzo de acción"
+
+#: site-static/js/mapping/mapping_data_view_bone.js:96
+msgid "last week"
+msgstr "última semana"
+
+#: site-static/js/mapping/mapping_data_view_bone.js:97
+msgid "last month"
+msgstr "último mes"
+
+#: site-static/js/mapping/mapping_form_bone.js:128
+msgid "Center"
+msgstr "Centro"
+
+#: site-static/js/mapping/mapping_form_bone.js:133
+msgid "Boundary"
+msgstr "Límites"

@@ -59,7 +59,7 @@ window.Datea.MappingDataView = Backbone.View.extend({
 		// category filter
 		if (typeof(categories) != 'undefined' && categories.length > 0) {
 
-			var options = [{value:'all', name: 'All categories'}];
+			var options = [{value:'all', name: gettext('All categories')}];
 			_.each(categories, function(cat) {
 				if (cat.active == true) {
 					options.push({value: cat.id, name: ich.category_name_with_color2_tpl(cat, true)});
@@ -77,10 +77,10 @@ window.Datea.MappingDataView = Backbone.View.extend({
 		
 		// status filter
 		var options = [
-			{value: 'new', name: 'new'},
-			{value: 'reviewed', name: 'reviewed'},
-			{value: 'solved', name: 'solved'},
-			{value: 'all', name: 'any state'},
+			{value: 'new', name: gettext('new')},
+			{value: 'reviewed', name: gettext('reviewed')},
+			{value: 'solved', name: gettext('solved')},
+			{value: 'all', name: gettext('any state')},
 		];
 		this.status_filter = new Datea.DropdownSelect({
 			options: options,
@@ -92,9 +92,9 @@ window.Datea.MappingDataView = Backbone.View.extend({
 		
 		// time filter
 		var options = [
-			{value: 'all', name: 'All since action started' },
-			{value: 'last_week', name: 'last week'},
-			{value: 'last_month', name: 'last month'}
+			{value: 'all', name: gettext('All since action started') },
+			{value: 'last_week', name: gettext('last week') },
+			{value: 'last_month', name: gettext('last month') }
 		];
 		this.time_filter = new Datea.DropdownSelect({
 			options: options,

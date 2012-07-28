@@ -35,6 +35,9 @@ v1_api.register(FollowResource())
 v1_api.register(HistoryResource())
 v1_api.register(NotifySettingsResource())
 
+js_info_dict = {
+    'packages': ('datea',),
+}
 
 urlpatterns = patterns('',
     url(r'^$', 'datea.datea_home.views.home', name='home'),
@@ -56,7 +59,9 @@ urlpatterns = patterns('',
    
     url(r"png/", include('datea.datea_mapping.urls')),
     
+    (r'^jsi18n/$', 'django.views.i18n.javascript_catalog', js_info_dict),
 )
+
 
 if settings.DEBUG:
     urlpatterns = patterns('',

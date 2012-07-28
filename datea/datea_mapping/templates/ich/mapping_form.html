@@ -2,13 +2,19 @@
 {% get_mapping_form as form %}
 <script id="mapping_form_tpl" type="text/html">
 	
-	<div class="page-header"><h2>{% verbatim %}{{action_name}}{% endverbatim %} {% trans 'mapping' %}</h2></div>
+	<div class="page-header"><h2>{% verbatim %}{{action_name}} {% trans 'mapping' %}: {{name}}{% endverbatim %}</h2></div>
 	
-	<ul class="nav nav-tabs">
-		<li class="active"><a href="#mapping-settings" data-toggle="tab">{% trans 'Mapping settings' %}</a></li>
-		<li><a href="#mapping-categories" data-toggle="tab">{% trans 'Categories' %}</a></li>
-		<li><a href="#mapping-boundary" data-toggle="tab" class="edit-mapping-boundary">{% trans 'Positioning' %}</a></li>
-	</ul>
+	<div id="mapping-head-form">
+		<div class="pull-right back-button">
+				<a href="#{% verbatim %}{{ url }}{% endverbatim %}" class="prev-link"><span class="icon">&nbsp;</span>{% trans "back to mapping" %}</a>
+		</div>
+		
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="#mapping-settings" data-toggle="tab">{% trans 'Mapping settings' %}</a></li>
+			<li><a href="#mapping-categories" data-toggle="tab">{% trans 'Categories' %}</a></li>
+			<li><a href="#mapping-boundary" data-toggle="tab" class="edit-mapping-boundary">{% trans 'Positioning' %}</a></li>
+		</ul>
+	</div>
 	
 	<form id="mapping-form" action="" class="form form-horizontal">
 		

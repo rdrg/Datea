@@ -54,6 +54,7 @@
 
 .prev-link:hover {
   color: #555555;
+  text-decoration: none;
 }
 
 .prev-link .icon {
@@ -80,6 +81,7 @@
 
 .next-link:hover {
   color: #555555;
+  text-decoration: none;
 }
 
 .next-link .icon {
@@ -1205,6 +1207,7 @@ a:hover span.caret2 {
 
 .step-control .prev:hover {
   color: #555555;
+  text-decoration: none;
 }
 
 .step-control .prev .icon {
@@ -1231,6 +1234,7 @@ a:hover span.caret2 {
 
 .step-control .next:hover {
   color: #555555;
+  text-decoration: none;
 }
 
 .step-control .next .icon {
@@ -1633,6 +1637,10 @@ body .olwidgetPopupCloseBox {
   margin-right: 0;
 }
 
+#mapping-head-form .nav-tabs {
+  padding-top: 10px;
+}
+
 #mapping-form .tab-content {
   padding-top: 15px;
 }
@@ -1643,6 +1651,22 @@ body .olwidgetPopupCloseBox {
 
 #mapping-form #mapping-settings .control-group {
   margin-bottom: 20px;
+}
+
+#mapping-admin-head-form {
+  border-bottom: 1px solid #EEEEEE;
+}
+
+#mapping-admin-head-form .mapping-filters {
+  font-size: 15px;
+}
+
+#mapping-admin-head-form .mapping-filters .btn {
+  font-size: 15px !important;
+}
+
+#mapping-admin-head-form .back-button {
+  padding: 5px 0;
 }
 
 .mapping-items-admin .filters .filter {

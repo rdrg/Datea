@@ -36,7 +36,7 @@ window.Datea.MappingAdminView = Backbone.View.extend({
 		// category filter
 		if (context.has_categories) {
 			var categories = this.model.get('item_categories');
-			var options = [{value:'all', name: 'All categories'}];
+			var options = [{value:'all', name: gettext('All categories')}];
 			_.each(categories, function(cat) {
 				if (cat.active == true) {
 					options.push({value: cat.id, name: ich.category_name_with_color2_tpl(cat, true)});
@@ -53,10 +53,10 @@ window.Datea.MappingAdminView = Backbone.View.extend({
 		
 		// status filter
 		var options = [
-			{value: 'new', name: 'new'},
-			{value: 'reviewed', name: 'reviewed'},
-			{value: 'solved', name: 'solved'},
-			{value: 'all', name: 'any state'},
+			{value: 'new', name: gettext('new')},
+			{value: 'reviewed', name: gettext('reviewed')},
+			{value: 'solved', name: gettext('solved')},
+			{value: 'all', name: gettext('any state')},
 		];
 		this.status_filter = new Datea.DropdownSelect({
 			options: options,
@@ -68,8 +68,8 @@ window.Datea.MappingAdminView = Backbone.View.extend({
 		
 		// published filter
 		var options = [
-			{value: 1, name: 'published'},
-			{value: 0, name: 'un-published'},
+			{value: 1, name: gettext('published')},
+			{value: 0, name: gettext('un-published')},
 		];
 		this.published_filter = new Datea.DropdownSelect({
 			options: options,
@@ -110,18 +110,27 @@ window.Datea.MappingAdminView = Backbone.View.extend({
 		
 		var $item_list = this.$el.find('.item-list');
 		$item_list.empty();
-		var self = this;
-		_.each(items, function(item) {
-			$item_list.append(new Datea.MapItemAdminView({ 
-				model:item, 
-				mapping_model: self.model,
-				change_callback: function () {
-					self.filter_items();
-					self.render_page();
-				} 
-			}).render().el);
-		});
 		
+		if (items.length == 0) {
+			$('.no-results-msg', this.$el).show();
+			$('.map-item-admin-table').hide();
+			
+		} else {
+			$('.no-results-msg', this.$el).hide();
+			$('.map-item-admin-table').show();
+			
+			var self = this;
+			_.each(items, function(item) {
+				$item_list.append(new Datea.MapItemAdminView({ 
+					model:item, 
+					mapping_model: self.model,
+					change_callback: function () {
+						self.filter_items();
+						self.render_page();
+					} 
+				}).render().el);
+			});
+		}
 		// PAGER
 		var $pager_div = this.$el.find('.item-pager');
 		if (add_pager) {
@@ -130,6 +139,7 @@ window.Datea.MappingAdminView = Backbone.View.extend({
 		}else{
 			$pager_div.addClass('hide');
 		}
+
 	},
 	
 	get_page: function (ev) {
@@ -142,6 +152,7 @@ window.Datea.MappingAdminView = Backbone.View.extend({
 		
 		var self = this;
 		var fitems = this.map_items.models;
+		console.log(fitems);
 		
 		// category filter
 		if (this.category_filter && this.category_filter.value != 'all') {
@@ -246,7 +257,7 @@ window.Datea.MapItemAdminView = Backbone.View.extend({
 		var self = this;	
 		// category field
 		if (this.options.mapping_model.get('item_categories').length > 0) {
-			var options = [{value:'', name: '-- none --'}];
+			var options = [{value:'', name: gettext('-- none --')}];
 			var categories = this.options.mapping_model.get('item_categories');
 			_.each(categories, function(cat) {
 				if (cat.active == true) {
@@ -264,9 +275,9 @@ window.Datea.MapItemAdminView = Backbone.View.extend({
 		
 		// status field
 		var options = [
-			{value: 'new', name: 'new'},
-			{value: 'reviewed', name: 'reviewed'},
-			{value: 'solved', name: 'solved'},
+			{value: 'new', name: gettext('new')},
+			{value: 'reviewed', name: gettext('reviewed')},
+			{value: 'solved', name: gettext('solved')},
 		];
 		this.status_field = new Datea.DropdownSelect({
 			options: options,

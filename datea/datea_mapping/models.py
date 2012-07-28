@@ -121,10 +121,10 @@ class DateaMapItem(models.Model):
     
     def save(self, *args, **kwargs):
         super(DateaMapItem, self).save(*args, **kwargs)
-        self.action.item_count = self.action.map_items.count()
+        self.action.item_count = self.action.map_items.filter(published=True).count()
         users = []
         for item in self.action.map_items.all():
-            if item.user.pk not in users:
+            if item.user.is_active and item.user.pk not in users:
                 users.append(item.user.pk)
         self.action.user_count = len(users)
         self.action.save()

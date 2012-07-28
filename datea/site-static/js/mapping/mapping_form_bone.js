@@ -21,7 +21,14 @@ window.Datea.MappingFormView = Backbone.View.extend({
 	
 	render: function(eventName) {
 		this.$el.html(ich.fix_base_content_single_tpl());
-		this.$el.find('#content').html( ich.mapping_form_tpl(this.model.toJSON()));
+		
+		var context = this.model.toJSON();
+		if (this.model.isNew()) {
+			context.action_name = gettext('Create');
+		}else{
+			context.action_name = gettext('Edit');
+		}
+		this.$el.find('#content').html( ich.mapping_form_tpl(context));
 		
 		// select category if set
 		if (this.model.get('category')) {
@@ -118,12 +125,12 @@ window.Datea.MapEditMultiLayerView = Backbone.View.extend({
 		var map = new olwidget.Map('map_edit_boundary', [
         	new olwidget.DateaEditableMultiLayer( this.options.mapModel, 'center', 
         		{
-        		 'name': "Center", 'geometry': 'point', 'hideTextarea': false, 
+        		 'name': gettext("Center"), 'geometry': 'point', 'hideTextarea': false, 
         		 'overlayStyle': {'fillColor': "#ff0000", 'strokeColor': "#ff0000"},  
         		}
         	),
         	new olwidget.DateaEditableMultiLayer( this.options.mapModel, 'boundary', 
-        		{'name': "Boundary", 'geometry': 'polygon', 'hideTextarea': false,
+        		{'name': gettext("Boundary"), 'geometry': 'polygon', 'hideTextarea': false,
         		 'overlayStyle': {'fillColor': "#ecff00", 'strokeColor': "#ecff00"},  
   				}
         	),
