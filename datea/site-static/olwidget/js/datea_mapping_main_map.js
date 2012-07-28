@@ -213,11 +213,10 @@ olwidget.DateaMainMapItemLayer = OpenLayers.Class(olwidget.BaseVectorLayer, {
 	                feature = [feature];
 	            }
 	
-
 	            for (var k = 0; k < feature.length; k++) {
                     feature[k].attributes = {};
                     feature[k].item_id = map_item.get('id');
-                    if (this.categories) {
+                    if (map_item.get('category')) {
                     	var category = this.categories[map_item.get('category_id')];
                     	feature[k].color = category.color;
                     	if (category.marker_image) feature[k].marker_image = category.marker_image;

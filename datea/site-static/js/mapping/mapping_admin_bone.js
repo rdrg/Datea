@@ -25,10 +25,11 @@ window.Datea.MappingAdminView = Backbone.View.extend({
 		var context = this.model.toJSON();
 		
 		if (this.model.get('item_categories').length > 0) {
-			context.has_categories = true;
+			this.has_categories = true;
 		}else{
-			context.has_categories = false;
+			this.has_categories = false;
 		}
+		context.has_categories = this.has_categories;
 		this.$el.find('#right-content').html( ich.mapping_admin_list_tpl(context));
 			
 		var self = this;	
@@ -190,6 +191,11 @@ window.Datea.MapItemAdminView = Backbone.View.extend({
 	
 	render: function (ev) {
 		var context =  this.model.toJSON();
+		if (this.options.mapping_model.get('item_categories').length > 0) {
+			context.has_categories = true;
+		}else{
+			context.has_categories = false;
+		}
 		context.created = formatDateFromISO(context.created, "dd.mm.yyyy - H:MM");
 		context.url = this.options.mapping_model.get('url')+'/admin/item'+this.model.get('id');
 		context.content = context.content.replace(/\n/g, '<br />');
@@ -240,6 +246,7 @@ window.Datea.MapItemAdminView = Backbone.View.extend({
 		var self = this;	
 		// category field
 		if (this.options.mapping_model.get('item_categories').length > 0) {
+			var options = [{value:'', name: '-- none --'}];
 			var categories = this.options.mapping_model.get('item_categories');
 			_.each(categories, function(cat) {
 				if (cat.active == true) {
@@ -296,15 +303,22 @@ window.Datea.MapItemAdminView = Backbone.View.extend({
 		var set_fields = {};
 		if (this.options.mapping_model.get('item_categories').length > 0) {
 			var cat_id = this.category_field.value;
-			var cat = null;
-			var categories = this.options.mapping_model.get('item_categories');
-			var cat = _.find(categories,function(c){ return c.id == cat_id});
-			set_fields = {
-				category: cat,
-				category_id: cat.id,
-				category_name: cat.name,
-				color: cat.color
-			};
+			if (cat_id == '') {
+				set_fields.category = null;
+				set_fields.color = this.options.mapping_model.get('default_color');
+				this.model.unset('category_name', {silent: true});
+				this.model.unset('category_id', {silent: true});
+			}else{
+				var cat = null;
+				var categories = this.options.mapping_model.get('item_categories');
+				var cat = _.find(categories,function(c){ return c.id == cat_id});
+				set_fields = {
+					category: cat,
+					category_id: cat.id,
+					category_name: cat.name,
+					color: cat.color
+				};
+			}
 		}
 		
 		set_fields.status = this.status_field.value;

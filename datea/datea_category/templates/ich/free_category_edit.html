@@ -27,7 +27,7 @@
 			<div class="control-group required">
 				<label class="control-label">{{ field.label }}</label>
 				<div class="controls">
-					<textarea type="text" class="input-xlarge" id="mapping-short-description-input" name="description" rows="1" class="span4" maxlength="500" >{% verbatim %}{{description}}{% endverbatim %}</textarea>
+					<textarea type="text" class="input-xlarge autoresize" id="mapping-short-description-input" name="description" rows="1" class="span4" maxlength="500" >{% verbatim %}{{description}}{% endverbatim %}</textarea>
 					{% if field.help_text %}<p class="help-block">{{ field.help_text }}</p>{% endif %}
 				</div>
 			</div>

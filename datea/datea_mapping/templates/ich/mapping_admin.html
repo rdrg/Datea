@@ -16,7 +16,7 @@
 		<div class="mapping-filters">
 			<span class="title">{% trans 'filter' %}:</span>
 			<ul class="filters">
-				{{#has_category}}<li class="filter category-filter"></li>{{/has_category}}
+				{{#has_categories}}<li class="filter category-filter"></li>{{/has_categories}}
 				<li class="filter status-filter"></li>
 				<li class="filter published-filter"></li>
 				{#<li class="filter time-filter"></li>#}
@@ -29,7 +29,7 @@
 			<tr>
 				<th></th>
 				<th>#</th>
-				{% verbatim %}{{#has_category}}<th>{{ form.category.label }}</th>{{/has_category}}{% endverbatim %}
+				{% verbatim %}{{#has_categories}}{% endverbatim %}<th>{{ form.category.label }}</th>{% verbatim %}{{/has_categories}}{% endverbatim %}
 				<th>{% trans "Date" %}</th>
 				<th>{{ form.user.label }}</th>
 				<th>{{ form.content.label }}</th>
@@ -46,13 +46,15 @@
 <script id="map_item_admin_list_item_tpl" type="text/html">
 	<td><input type="checkbox" name="select-report-id" value="{{ id }}" /></td>
 	<td>{{ id }}</td>
-	{{#category}}
+	{{#has_categories}}
 		<td>
+			{{#category}}
 			<span class="badge badge-truncated" style="background-color: {{ color }}">
 				{{ category_name }}
 			</span>
+			{{/category}}
 		</td>
-	{{/category}}
+	{{/has_categories}}
 	<td>{{ created }}</td>
 	<td>{{ user.username }}</td>
 	<td>{{ extract }}</td>
@@ -66,7 +68,7 @@
 <script id="map_item_admin_list_item_full_tpl" type="text/html">
 	<td><input type="checkbox" name="select-report-id" value="{{ id }}" /></td>
 	<td>{{ id }}</td>
-	<td colspan="3">
+	<td colspan="{{#has_categories}}4{{/has_categories}}{{^has_categories}}3{{/has_categories}}">
 		<div class="item-edit-wrap">
 			
 			{{>map_item_admin_full_tpl}}
@@ -78,10 +80,12 @@
 					<button class="btn save-item" type="button">{% trans "Save" %}</button>
 					<button class="btn respond-item" type="button">{% trans "New Reply" %}</button> 
 				</span>
-				{{#category}}
-					<span class="field category-field">
+				{{#has_categories}}
+					<span class="field">
+						<label>{% trans "Category" %}:</label>
+						<span class="category-field"></span>
 					</span>
-				{{/category}}
+				{{/has_categories}}
 				
 				<span class="field">
 					<label>{% trans "Status" %}:</label>

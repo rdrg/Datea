@@ -1407,6 +1407,7 @@ body .olwidgetPopupCloseBox {
 #mapping-start .mapping-header .right-start-head {
   display: block;
   float: left;
+  width: 205px;
   margin-left: 15px;
 }
 
@@ -1682,6 +1683,7 @@ body .olwidgetPopupCloseBox {
 
 .map-item-admin-table .map-item.admin-full .item-right {
   float: left;
+  padding-bottom: 15px;
   padding-left: 20px;
 }
 
@@ -1714,7 +1716,7 @@ body .olwidgetPopupCloseBox {
 }
 
 .map-item-admin-table .item-admin-form .field {
-  margin-right: 20px;
+  margin-right: 25px;
 }
 
 .map-item-admin-table .item-admin-form .field label {
@@ -1723,7 +1725,7 @@ body .olwidgetPopupCloseBox {
 
 .map-item-admin-table .item-admin-form .field .dropdown-select button {
   position: relative;
-  top: 5px;
+  top: 4px;
   display: inline-block !important;
   height: 18px;
   line-height: inherit !important;
