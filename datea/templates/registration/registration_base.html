@@ -5,7 +5,16 @@
 {% endblock %}
 
 {% block main_content %}
-	{% block content %}{% endblock %}
+	<div id="registration" class="row dotted-bg">
+		<div class="span6">
+			<div class="inner dotted-inner">
+				{% block content_left %}{% endblock %}
+			</div>
+		</div>
+		<div class="span6">
+			{% block content_right %}{% endblock %}
+		</div>
+	</div>
 {% endblock %}
 
 

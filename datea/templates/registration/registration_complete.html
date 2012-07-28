@@ -1,10 +1,10 @@
 {% extends "registration/registration_base.html" %}
 {% load i18n %}
 {% block title %}{% trans 'Activation email sent' %}{% endblock %}
-{% block content %}
-<div class="page-header">
-    <h1>{% trans "Register" %}</h1>
-</div>
+{% block content_left %}
+
+<h1>{% trans "Register" %}</h1>
+
 <p>
 <div class="alert alert-success">
 {% blocktrans %}
@@ -12,5 +12,18 @@ An activation email has been sent.  Please check your email and click on the lin
 {% endblocktrans %}
 </p>
 </div>
+{% endblock %}
+
+{% block content_right %}
+	<div class="registration-bubble">
+		<div class="inner">
+			<div class="msg">
+				{% trans "Already have an account?"%}
+			</div>
+			<div class="button">
+				<a class="btn btn-pointy btn-large" href="{% url auth_login %}">{% trans "Login" %}</a>
+			</div>
+		</div>
+	</div>
 {% endblock %}
 

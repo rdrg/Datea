@@ -93,6 +93,31 @@
   background: url(../img/datea/prev-next.png) no-repeat -90px center;
 }
 
+h1 {
+  margin-bottom: 15px;
+  font-weight: 400;
+  color: #27bb44;
+}
+
+.dotted-bg {
+  background: url(../img/datea/dotted-bg.png) repeat left top;
+  -webkit-border-radius: 3px;
+     -moz-border-radius: 3px;
+          border-radius: 3px;
+}
+
+.dotted-inner {
+  padding: 20px 18px;
+  margin: 18px 0 15px 0px;
+  background-color: white;
+  -webkit-border-radius: 10px;
+     -moz-border-radius: 10px;
+          border-radius: 10px;
+  -webkit-box-shadow: 1px -1px 2px rgba(0, 0, 0, 0.15);
+     -moz-box-shadow: 1px -1px 2px rgba(0, 0, 0, 0.15);
+          box-shadow: 1px -1px 2px rgba(0, 0, 0, 0.15);
+}
+
 #footer {
   padding-top: 11px;
   padding-bottom: 10px;
@@ -138,7 +163,7 @@
 }
 
 #user_head_view #login-header a.btn-login {
-  margin-top: 20px;
+  margin-top: 10px;
   margin-bottom: 2px;
   line-height: 24px !important;
 }
@@ -396,28 +421,57 @@ textarea.autoresize.double {
   color: #999999;
 }
 
+#registration p.desc {
+  font-size: 15px;
+}
+
+.registration-bubble {
+  position: relative;
+  width: 358px;
+  height: 141px;
+  margin-top: 16px;
+  background: url(../img/datea/fondo_registro.png) no-repeat left top;
+}
+
+.registration-bubble .inner {
+  padding: 30px 150px 26px 25px;
+}
+
+.registration-bubble .inner .msg {
+  font-size: 16px;
+  color: white;
+}
+
+.registration-bubble .inner .button {
+  position: absolute;
+  bottom: 27px;
+}
+
 .social-auth-buttons {
-  margin-bottom: 15px;
+  margin-bottom: 25px;
 }
 
 .social-auth-buttons .button-box {
+  position: relative;
+  left: -6px;
   display: inline-block;
   *display: inline;
-  padding: 10px 0;
-  background-color: white;
+  padding: 12px 12px;
+  background-color: #f9f9f9;
   *zoom: 1;
 }
 
 .social-auth-buttons .button-box .login-button {
-  display: inline-block;
-  *display: inline;
-  width: 219px;
+  display: block;
+  /*.ie7-inline-block();*/
+
+  width: 218px;
   height: 30px;
-  margin-right: 10px;
-  margin-bottom: 0;
+  margin-bottom: 15px;
   line-height: 30px;
+  /*margin-right: 10px;*/
+
   color: transparent !important;
-  *zoom: 1;
   -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
      -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
           box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);

@@ -1,19 +1,46 @@
+
+#registration {
+	
+	p.desc { font-size: @baseFontSize + 2px;}	
+}
+
+.registration-bubble {
+	background: url(../img/datea/fondo_registro.png) no-repeat left top;
+	margin-top: 16px;
+	width: 358px;
+	height: 141px;
+	position: relative;
+	.inner {
+		padding: 30px 150px 26px 25px;
+		.msg {
+			font-size: @baseFontSize + 3px;
+			color: white;
+		}
+		.button{
+			position: absolute;
+			bottom: 27px;
+		}
+	}
+}
+
 .social-auth-buttons {
 			
-	margin-bottom: 15px;
+	margin-bottom: 25px;
 	.button-box {
 		display: inline-block;
 		.ie7-inline-block();
-		background-color: white;
-		padding: 10px 0px;
+		background-color: #f9f9f9;
+		padding: 12px 12px;
+		position: relative;
+		left: -6px;
 		.login-button {
-			display: inline-block;
-			.ie7-inline-block();
-			width: 219px;
+			display: block;
+			/*.ie7-inline-block();*/
+			width: 218px;
 			height: 30px;
-			margin-bottom: 0px;
+			margin-bottom: 15px;
 			line-height: 30px;
-			margin-right: 10px;
+			/*margin-right: 10px;*/
 			color: transparent !important;
 			
 			&.last {
