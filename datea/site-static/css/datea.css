@@ -370,13 +370,21 @@ textarea.autoresize.double {
 
 .dropdown-select.no-bg button.dropdown-toggle {
   padding-left: 0;
-  background-color: transparent;
+  background-color: transparent !important;
   box-shadow: none;
 }
 
 .dropdown-select.no-bg button.dropdown-toggle:hover {
   background-color: transparent;
   box-shadow: none;
+}
+
+.dropdown-select.no-bg.on button.dropdown-toggle {
+  background-color: transparent;
+}
+
+.dropdown-select.flat button {
+  padding: 0 0px;
 }
 
 .form .control-group p.help-block,
@@ -1576,22 +1584,25 @@ body .olwidgetPopupCloseBox {
 }
 
 .data-view-filters {
-  padding: 5px 0;
   border-top: 1px solid #7f7f7f;
+}
+
+.mapping-filters {
+  padding: 5px 0;
   *zoom: 1;
 }
 
-.data-view-filters:before,
-.data-view-filters:after {
+.mapping-filters:before,
+.mapping-filters:after {
   display: table;
   content: "";
 }
 
-.data-view-filters:after {
+.mapping-filters:after {
   clear: both;
 }
 
-.data-view-filters .title {
+.mapping-filters .title {
   display: block;
   float: left;
   padding: 5px 0;
@@ -1599,25 +1610,25 @@ body .olwidgetPopupCloseBox {
   color: black;
 }
 
-.data-view-filters ul.filters {
+.mapping-filters ul.filters {
   float: left;
   margin-bottom: 0;
   margin-left: 10px;
   list-style: none;
 }
 
-.data-view-filters ul.filters li.filter {
+.mapping-filters ul.filters li.filter {
   display: block;
   float: left;
   margin-right: 25px;
   list-style: none;
 }
 
-.data-view-filters ul.filters li.filter button .name {
+.mapping-filters ul.filters li.filter button .name {
   color: #5e6e65;
 }
 
-.data-view-filters ul.filters li.filter:last-child {
+.mapping-filters ul.filters li.filter:last-child {
   margin-right: 0;
 }
 
@@ -1637,33 +1648,61 @@ body .olwidgetPopupCloseBox {
   padding-left: 20px;
 }
 
-.map-item-admin-table .map-item.admin-full table {
-  width: 100%;
-  max-width: auto;
-  border: 0;
+.map-item-admin-table .map-item.admin-full {
+  padding-top: 15px;
+  *zoom: 1;
 }
 
-.map-item-admin-table .map-item.admin-full table td {
-  background-color: transparent;
-  border: 0;
+.map-item-admin-table .map-item.admin-full:before,
+.map-item-admin-table .map-item.admin-full:after {
+  display: table;
+  content: "";
 }
 
-.map-item-admin-table .map-item.admin-full table .item-content-left .field {
+.map-item-admin-table .map-item.admin-full:after {
+  clear: both;
+}
+
+.map-item-admin-table .map-item.admin-full .item-left {
+  float: left;
+  width: 540px;
+}
+
+.map-item-admin-table .map-item.admin-full .item-left .field {
   margin-top: 10px;
 }
 
-.map-item-admin-table .map-item.admin-full table .item-content-left .images {
+.map-item-admin-table .map-item.admin-full .item-left .images {
   margin-top: 15px;
 }
 
-.map-item-admin-table .map-item.admin-full table .item-content-right {
-  width: 280px;
+.map-item-admin-table .map-item.admin-full .item-left .images .image-row {
+  margin-bottom: 0;
+}
+
+.map-item-admin-table .map-item.admin-full .item-right {
+  float: left;
   padding-left: 20px;
 }
 
 .map-item-admin-table .item-admin-form {
-  padding: 5px 10px;
+  padding: 10px 15px;
+  margin-bottom: 0;
   background-color: #ccc;
+  -webkit-border-radius: 8px;
+     -moz-border-radius: 8px;
+          border-radius: 8px;
+  *zoom: 1;
+}
+
+.map-item-admin-table .item-admin-form:before,
+.map-item-admin-table .item-admin-form:after {
+  display: table;
+  content: "";
+}
+
+.map-item-admin-table .item-admin-form:after {
+  clear: both;
 }
 
 .map-item-admin-table .item-admin-form span {
@@ -1675,7 +1714,20 @@ body .olwidgetPopupCloseBox {
 }
 
 .map-item-admin-table .item-admin-form .field {
-  margin-left: 15px;
+  margin-right: 20px;
+}
+
+.map-item-admin-table .item-admin-form .field label {
+  margin-right: 5px;
+}
+
+.map-item-admin-table .item-admin-form .field .dropdown-select button {
+  position: relative;
+  top: 5px;
+  display: inline-block !important;
+  height: 18px;
+  line-height: inherit !important;
+  vertical-align: bottom;
 }
 
 .map-item-admin-table .item-admin-form .free-space {
@@ -1683,7 +1735,11 @@ body .olwidgetPopupCloseBox {
 }
 
 .map-item-admin-table .item-admin-form .buttons button {
-  margin-right: 15px;
+  margin-right: 10px;
+}
+
+.map-item-admin-table .item-admin-form .status-field select {
+  width: 85px;
 }
 
 .color-sample {

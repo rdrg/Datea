@@ -385,6 +385,11 @@ window.Datea.MappingMapItemTab = Backbone.View.extend({
 			items = _.sortBy(items, function(item) { return item.get('comment_count')}).reverse();
 		}
 		
+		// published filter
+		items = _.filter(items, function (item) {
+			return item.get('published');
+		});
+		
 		this.filtered_items = items;
 	},
 	

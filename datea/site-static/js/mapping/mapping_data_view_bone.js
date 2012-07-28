@@ -112,14 +112,14 @@ window.Datea.MappingDataView = Backbone.View.extend({
 		
 		// category filter
 		if (this.category_filter && this.category_filter.value != 'all') {
-			render_items = _.filter(render_items, function (item){ 
+			render_items = _.filter(render_items, function (item) { 
 				return item.get('category_id') == self.category_filter.value;
 			});
 		}
 		
 		// status filter
 		if (this.status_filter && this.status_filter.value != 'all') {
-			render_items = _.filter(render_items, function (item){ 
+			render_items = _.filter(render_items, function (item) { 
 				return item.get('status') == self.status_filter.value;
 			});
 		}
@@ -132,11 +132,16 @@ window.Datea.MappingDataView = Backbone.View.extend({
 			} else if (this.time_filter.value == 'last_week') {
 				d.setDate(d.getDate()-7); 
 			}
-			render_items = _.filter(render_items, function (item){
+			render_items = _.filter(render_items, function (item) {
 				var item_created = dateFromISO(item.get('created')); 
 				return item_created >= d;
 			});
 		}
+		
+		// published filter
+		render_items = _.filter(render_items, function (item) {
+			return item.get('published');
+		});
 		
 		this.render_items = new Datea.MapItemCollection(render_items);
 	},

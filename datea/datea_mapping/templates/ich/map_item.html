@@ -135,13 +135,8 @@
 {# MAP ITEM ADMIN FULL VIEW #}
 <script id="map_item_admin_full_tpl" type="text/html">
 	<div id="map-item-admin-full{{ id }}" class="map-item admin-full">
-		<table>
-			<tr>
-				<td class="item-content-left">
-					
+			<div class="item-left">	
 					{{>post_user_data_tpl}}
-					
-					<div class="images"></div>
 					
 					<div class="content">
 						{{#category}}
@@ -152,17 +147,17 @@
 						<div class="field">{{& content }}</div>
 					</div>
 					
+					<div class="images"></div>
+					
 					{{>map_item_widget_stats_tpl}}
 										
 					<div class="replies" style="display:none"></div>
 		
 					<div class="comments"></div>
-			    </td>
-				<td class="item-content-right">
-					<div id="item-map-{{id}}"></div>
-				</td>
-			</tr>
-		</table>
+			</div>
+			<div class="item-right">		
+				<div id="item-map-{{id}}"></div>
+			</div>
 	</div>
 </script>
 {% endverbatim %}

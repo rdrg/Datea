@@ -5,8 +5,6 @@ window.Datea.MappingAdminView = Backbone.View.extend({
 	
 	events: {
 		'click .get-page': 'get_page',
-		//'click .back-to-list': 'back_to_list',
-		'change .filter-status select': 'filter_status',
 	},
 	
 	initialize: function () {
@@ -22,20 +20,74 @@ window.Datea.MappingAdminView = Backbone.View.extend({
 	},
 	
 	render: function(ev) {
+		
 		this.$el.html( ich.mapping_admin_main_tpl());
 		var context = this.model.toJSON();
+		
 		if (this.model.get('item_categories').length > 0) {
 			context.has_categories = true;
 		}else{
 			context.has_categories = false;
 		}
 		this.$el.find('#right-content').html( ich.mapping_admin_list_tpl(context));
-		if (!this.filtered_items) {
-			this.filtered_items = this.map_items.filter(function(item) {
-  				return item.get("status") == 'new';
-  			});
+			
+		var self = this;	
+		// category filter
+		if (context.has_categories) {
+			var categories = this.model.get('item_categories');
+			var options = [{value:'all', name: 'All categories'}];
+			_.each(categories, function(cat) {
+				if (cat.active == true) {
+					options.push({value: cat.id, name: ich.category_name_with_color2_tpl(cat, true)});
+				}
+			});
+			this.category_filter = new Datea.DropdownSelect({
+				options: options,
+				div_class: 'no-bg',
+				callback: function () { self.filter_items(); self.render_page(0); },
+				box_text_max_length: 95,
+			});
+			this.$el.find('.category-filter').html(this.category_filter.render().el);
 		}
-		this.render_page(); 
+		
+		// status filter
+		var options = [
+			{value: 'new', name: 'new'},
+			{value: 'reviewed', name: 'reviewed'},
+			{value: 'solved', name: 'solved'},
+			{value: 'all', name: 'any state'},
+		];
+		this.status_filter = new Datea.DropdownSelect({
+			options: options,
+			div_class: 'no-bg',
+			callback: function () { self.filter_items(); self.render_page(0);}
+		});
+		this.$el.find('.status-filter').html(this.status_filter.render().el);
+		
+		
+		// published filter
+		var options = [
+			{value: 1, name: 'published'},
+			{value: 0, name: 'un-published'},
+		];
+		this.published_filter = new Datea.DropdownSelect({
+			options: options,
+			div_class: 'no-bg',
+			callback: function () { self.filter_items(); self.render_page(0);}
+		});
+		this.$el.find('.published-filter').html(this.published_filter.render().el);
+		
+		this.filter_items();
+		this.render_page();
+		
+		// mapping setting controls
+		if (!Datea.my_user.isNew() &&
+			( this.model.get('user').id == Datea.my_user.get('id')
+			  || Datea.my_user.get('is_staff')
+			)) {
+			$('#setting-controls').html( ich.mapping_control_button_tpl(this.model.toJSON()));	
+		}
+		 
 		return this;
 	},
 	
@@ -62,7 +114,8 @@ window.Datea.MappingAdminView = Backbone.View.extend({
 			$item_list.append(new Datea.MapItemAdminView({ 
 				model:item, 
 				mapping_model: self.model,
-				status_changed_callback: function () {
+				change_callback: function () {
+					self.filter_items();
 					self.render_page();
 				} 
 			}).render().el);
@@ -84,13 +137,34 @@ window.Datea.MappingAdminView = Backbone.View.extend({
 		$(document).scrollTop(0);
 	},
 	
-	filter_status: function() {
-		var status = $('.filter-status select').val();
-		this.filtered_items = this.map_items.filter(function(item) {
-  			return item.get("status") == status;
-		});
-		this.render_page(0);
-	}
+	filter_items: function() {
+		
+		var self = this;
+		var fitems = this.map_items.models;
+		
+		// category filter
+		if (this.category_filter && this.category_filter.value != 'all') {
+			fitems = _.filter(fitems, function (item){ 
+				return item.get('category_id') == self.category_filter.value;
+			});
+		}
+		
+		// status filter
+		if (this.status_filter && this.status_filter.value != 'all') {
+			fitems = _.filter(fitems, function (item){ 
+				return item.get('status') == self.status_filter.value;
+			});
+		}
+		
+		// published filter
+		if (this.published_filter && this.published_filter.value != 'all') {
+			fitems = _.filter(fitems, function (item){ 
+				return item.get('published') == self.published_filter.value;
+			});
+		}
+		
+		this.filtered_items = fitems;
+	},
 	
 });
 
@@ -138,7 +212,7 @@ window.Datea.MapItemAdminView = Backbone.View.extend({
 			var mapOptions = {
 				"layers": ['google.streets', 'google.hybrid'],
 				'defaultZoom': 12,
-				'mapDivStyle': {'width': '280px', 'height': '220px'},
+				'mapDivStyle': {'width': '320px', 'height': '240px'},
 			}
 			var map = new olwidget.DateaMainMap("item-map-"+this.model.get('id'), [itemLayer], mapOptions);
 		}
@@ -163,8 +237,36 @@ window.Datea.MapItemAdminView = Backbone.View.extend({
 			});
 		}
 		
-		// set status
-		$('[name="status"]', this.$el).val(this.model.get('status'));
+		var self = this;	
+		// category field
+		if (this.options.mapping_model.get('item_categories').length > 0) {
+			var categories = this.options.mapping_model.get('item_categories');
+			_.each(categories, function(cat) {
+				if (cat.active == true) {
+					options.push({value: cat.id, name: ich.category_name_with_color2_tpl(cat, true)});
+				}
+			});
+			this.category_field = new Datea.DropdownSelect({
+				options: options,
+				div_class: 'no-bg flat',
+				box_text_max_length: 95,
+			});
+			this.category_field.set_value(this.model.get('category_id'));
+			this.$el.find('.category-field').html(this.category_field.render().el);
+		}
+		
+		// status field
+		var options = [
+			{value: 'new', name: 'new'},
+			{value: 'reviewed', name: 'reviewed'},
+			{value: 'solved', name: 'solved'},
+		];
+		this.status_field = new Datea.DropdownSelect({
+			options: options,
+			div_class: 'no-bg flat',
+		});
+		this.status_field.set_value(this.model.get('status'));
+		this.$el.find('.status-field').html(this.status_field.render().el);
 		
 		// get replies
 		var responses = new Datea.MapItemResponseCollection();
@@ -190,24 +292,24 @@ window.Datea.MapItemAdminView = Backbone.View.extend({
 	},
 	
 	save_item: function () { 
-		Datea.show_big_loading(this.$el.find('.item-edit-wrap'));
 		
+		var set_fields = {};
 		if (this.options.mapping_model.get('item_categories').length > 0) {
-			var cat_id = $('[name="category"]', this.$el).val();
+			var cat_id = this.category_field.value;
 			var cat = null;
 			var categories = this.options.mapping_model.get('item_categories');
 			var cat = _.find(categories,function(c){ return c.id == cat_id});
-			this.model.set({
+			set_fields = {
 				category: cat,
 				category_id: cat.id,
 				category_name: cat.name,
 				color: cat.color
-			}, {silent: true});
+			};
 		}
 		
-		this.model.set({
-			status: $('[name="status"]', this.$el).val(), 
-		});
+		set_fields.status = this.status_field.value;
+		set_fields.published = $('[name="published"]', this.$el).is(':checked');
+		this.model.set(set_fields);
 		this.model.save();
 	},
 	
@@ -228,13 +330,14 @@ window.Datea.MapItemAdminView = Backbone.View.extend({
 	},
 	
 	sync_event: function () {
-		this.expand();
+		//this.expand();
 	},
 	
 	change_event: function () {
-		if (this.model.hasChanged('status')) {
-			if (this.options.status_changed_callback) {
-				this.options.status_changed_callback();
+		if (this.model.hasChanged()) {
+			//Datea.show_big_loading(this.$el.find('.item-edit-wrap'));
+			if (this.options.change_callback) {
+				this.options.change_callback();
 			}
 		}
 	}
@@ -262,7 +365,8 @@ window.Datea.MapItemResponseFormView = Backbone.View.extend({
 	},
 	
 	events: {
-		'click .save-response': 'save_response'
+		'click .save-response': 'save_response',
+		'click .cancel': 'cancel',
 	},
 	
 	render: function(ev) {
@@ -272,13 +376,20 @@ window.Datea.MapItemResponseFormView = Backbone.View.extend({
 	
 	save_response: function() {
 		
-		var items = [];
-		this.model.set({
-			'user': Datea.my_user.toJSON(),
-			'map_items': this.map_items.toJSON(),
-			'content': $('[name="content"]',this.$el).val(), 
-		});
-		this.model.save();
+		var content = $('[name="content"]',this.$el).val();
+		if (jQuery.trim(content) != '') {
+			this.model.set({
+				'user': Datea.my_user.toJSON(),
+				'map_items': this.map_items.toJSON(),
+				'content': $('[name="content"]',this.$el).val(), 
+			});
+			this.model.save();
+		}
+	},
+	
+	cancel: function (ev) {
+		this.$el.unbind();
+        this.$el.empty();
 	},
 	
 	sync_event: function() {

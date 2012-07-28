@@ -425,7 +425,6 @@ def on_map_item_response_save(sender, instance, **kwargs):
         hist_item = DateaHistory(
                 user=instance.user, 
                 acting_obj=instance,
-                url = item.get_absolute_url(),
                 follow_key = follow_key,
                 history_key = history_key,
                 history_type = 'mapitemresponse',

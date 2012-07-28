@@ -15,12 +15,23 @@ textarea.autoresize.double {
 	&.no-bg {
 		button.dropdown-toggle {
 			padding-left: 0px;
-			background-color: transparent;
+			background-color: transparent !important;
 			box-shadow: none;
 			&:hover {
 				background-color: transparent;
 				box-shadow: none;
 			}
+		}
+		&.on {
+			button.dropdown-toggle {
+				background-color: transparent;
+			}
+		}
+	}
+	
+	&.flat {
+		button {
+			padding: 0px 0px;
 		}
 	}
 }

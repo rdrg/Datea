@@ -26,26 +26,55 @@
 .map-item-admin-table {
 	
 	.map-item.admin-full {
-		table {
-			border:0;
-			width: 100%;
-			max-width: auto;
-			td { border:0; background-color: transparent}
-			.item-content-left {
-				.field { margin-top: 10px;}
-				.images {margin-top: 15px;}
+		padding-top: 15px;
+		.clearfix();
+		.item-left {
+			width: (@gridColumnWidth * 7 ) + (@gridGutterWidth * 6);
+			float: left;
+			.field { margin-top: 10px;}
+			.images {
+				margin-top: 15px;
+				.image-row {
+					margin-bottom: 0px;
+				}
 			}
-			.item-content-right {width:280px; padding-left: 20px;}
+		}
+		.item-right {
+			float: left;
+			padding-left: 20px;
 		}
 	}
+	
 	.item-admin-form {
 		background-color: #ccc;
-		padding: 5px 10px;
+		padding: 10px 15px;
+		margin-bottom: 0px;
+		.border-radius(8px);
+		.clearfix();
 		span {display: inline-block; .ie7-inline-block();}
-		.field { margin-left: 15px;}
+		.field { 
+			margin-right: 20px;
+			label { margin-right: 5px;}
+			.dropdown-select {
+				button {
+					line-height: inherit !important;
+					height: @baseLineHeight;
+					display: inline-block !important;
+					vertical-align: bottom;
+					position:relative;
+					top:5px;
+				}
+			}
+		}
 		.free-space { width: 45px;}
 		.buttons {
-			button {margin-right: 15px;}
+			button {margin-right: 10px;}
+		}
+		.status-field {
+			select {
+				width: 85px;
+			}
 		}
 	}
+	
 }

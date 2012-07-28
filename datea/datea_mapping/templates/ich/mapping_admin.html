@@ -10,13 +10,19 @@
 
 <script id="mapping_admin_list_tpl" type="text/html">
 	<div class="page-header"><h2>{% trans 'content admin' %}: {% verbatim %}{{name}}{% endverbatim %}</h2></div>
-	<form class="form well form-inline filters">
-		<span class="backlink">{% verbatim %}<a href="{{url}}">&lt;&lt; {% trans "back"%}</a>{% endverbatim %}</span>
-		
-		<span class="filter filter-status">
-			{{ form.status.label }} 
-			{{ form.status }}
-		</span>
+	<form class="form form-inline filters">
+		{% verbatim %}
+		{# <span class="backlink"><a href="{{url}}">&lt;&lt; {% trans "back"%}</a></span> #}
+		<div class="mapping-filters">
+			<span class="title">{% trans 'filter' %}:</span>
+			<ul class="filters">
+				{{#has_category}}<li class="filter category-filter"></li>{{/has_category}}
+				<li class="filter status-filter"></li>
+				<li class="filter published-filter"></li>
+				{#<li class="filter time-filter"></li>#}
+			</ul>
+		</div>
+		{% endverbatim %}
 	</form>
 	<table class="table table-striped map-item-admin-table">
 		<thead>
@@ -27,7 +33,7 @@
 				<th>{% trans "Date" %}</th>
 				<th>{{ form.user.label }}</th>
 				<th>{{ form.content.label }}</th>
-				<th>{{ form.published.label }}</th>
+				{#<th>{{ form.published.label }}</th>#}
 				<th></th>
 			</tr>
 		</thead>
@@ -50,7 +56,7 @@
 	<td>{{ created }}</td>
 	<td>{{ user.username }}</td>
 	<td>{{ extract }}</td>
-	<td>{{# published }}akjakjakj{{/published}}</td>
+	{#<td>{{# published }}{{ published }}{{/published}}</td>#}
 	<td>
 		<button class="btn btn-small expand-view"><i class="icon-chevron-down"></i></button>
 	</td>
@@ -60,34 +66,37 @@
 <script id="map_item_admin_list_item_full_tpl" type="text/html">
 	<td><input type="checkbox" name="select-report-id" value="{{ id }}" /></td>
 	<td>{{ id }}</td>
-	<td colspan="5">
+	<td colspan="3">
 		<div class="item-edit-wrap">
 			
 			{{>map_item_admin_full_tpl}}
 			
+			<div class="response"></div>
+			
 			<form class="form form-inline item-admin-form" action="">
 				<span class="buttons pull-right">
-					<button class="btn btn-small save-item" type="button">{% trans "Save" %}</button>
-					<button class="btn btn-small respond-item" type="button">{% trans "New Reply" %}</button> 
+					<button class="btn save-item" type="button">{% trans "Save" %}</button>
+					<button class="btn respond-item" type="button">{% trans "New Reply" %}</button> 
 				</span>
 				{{#category}}
-					<span class="field">
-						<label class="checkbox">{% trans "Change category" %}</label>
-						<select class="category-select input" name="category"></select>
+					<span class="field category-field">
 					</span>
 				{{/category}}
-				{% endverbatim %}
+				
 				<span class="field">
-					<label class="checkbox">{% trans "Set status" %}</label>
-					{{ form.status }}
+					<label>{% trans "Status" %}:</label>
+					<span class="status-field"></span>
+				</span>
+				<span class="field">
+					<label class="checkbox">{% trans "Published" %}:</label>
+					<input type="checkbox" name="published" {{#published}}checked="checked"{{/published}} />
 				</span>
 				<span class="free-space">&nbsp;</span>
 			</form>
-			
-			<div class="response"></div>
 		</div>
 	</td>
 	<td style="vertical-align:bottom">
 		<button class="btn btn-small collapse-view"><i class="icon-chevron-up"></i></button>
 	</td>
 </script>
+{% endverbatim %}
