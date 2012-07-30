@@ -1,20 +1,34 @@
-{% load i18n verbatim_tag %}
+{% load i18n verbatim_tag datea_follow_tags %}
 <script id="my_user_edit_tpl" type="text/html">
-	<div class="modal-header">
+	<div id="user-edit-window-head" class="modal-header">
 		<button type="button" class="close" data-dismiss="modal">×</button>
 		<h3>{% trans 'My Profile' %}</h3>
 	</div>
-	<div class="modal-body">
+	<div id="user-edit-window-body" class="modal-body">
 		
-		<ul class="nav nav-tabs hide">
-			<li class="active"><a href="#profile" data-toggle="tab">{% trans 'Edit Profile' %}</a></li>
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="#edit-profile" data-toggle="tab">{% trans 'Edit Profile' %}</a></li>
 			{#<li><a href="#account" data-toggle="tab">{% trans 'Edit user account' %}</a></li>#}
-			{#<li><a href="#messaging" data-toggle="tab">{% trans 'Messaging' %}</a></li>#}
+			<li><a href="#edit-notifications" data-toggle="tab">{% trans 'Notifications' %}</a></li>
 			{#<li><a href="#follow" data-toggle="tab">{% trans 'Following' %}</a></li>#}
 		</ul>
 		
 		<div class="tab-content">
-			<div class="tab-pane active" id="profile">
+			<div class="tab-pane active" id="edit-profile">
+				
+				<div class="control-group">
+					<label class="control-label">{% trans 'Full name' %}</label>
+					<div class="controls">
+						<input id="edit-profile-full-name" name="full_name" class="input-text span4" type="text" value="{% verbatim %}{{ profile.full_name }}{% endverbatim %}" /> 
+					</div>
+				</div>
+				
+				<div class="control-group">
+					<label class="control-label">{% trans 'Personal Message' %}</label>
+					<div class="controls">
+						<textarea id="edit-profile-message" name="message" class="autoresize input-text span4" maxlength="140">{% verbatim %}{{ profile.message }}{% endverbatim %}</textarea> 
+					</div>
+				</div>
 				
 				<div class="profile-image">
 					<div class="control-group">
@@ -25,20 +39,74 @@
 					</div>
 				</div>
 				
-				<div class="control-group">
-					<label class="control-label">{% trans 'Full name' %}</label>
-					<div class="controls">
-						<input id="edit-profile-full-name" type="text" value="{% verbatim %}{{ profile.full_name }}{% endverbatim %}" /> 
-					</div>
-				</div>
 			</div>
 			{% comment %}
 			<div class="tab-pane" id="account">
 				account
 			</div>
-			<div class="tab-pane" id="messaging">
-				messaging
+			{% endcomment %}
+			<div class="tab-pane" id="edit-notifications">
+				{% get_notify_settings_form as nsform %}
+				<form id="notify-settings-form" action="" method="post" class="form form-horizontal">
+					
+					<p class="instructions">
+						{% trans "Define which type of events trigger notifications sent to you by email." %}
+					</p>
+					
+				{% with nsform.new_content as field %}
+					<div class="control-group">
+						<label class="control-label">{{ field.label }}</label>
+						<div class="controls">
+							<label class="checkbox">
+               				 	<input type="checkbox" value="1" name="new_content" {% verbatim %}{{#new_content}}checked="checked"{{/new_content}}{% endverbatim %}>{% if field.help_text %}{{ field.help_text }}{% endif %}
+              				</label>
+						</div>
+					</div>
+				{% endwith %}
+				{% with nsform.new_comment as field %}
+					<div class="control-group">
+						<label class="control-label">{{ field.label }}</label>
+						<div class="controls">
+							<label class="checkbox">
+               				 	<input type="checkbox" value="1" name="new_comment" {% verbatim %}{{#new_comment}}checked="checked"{{/new_comment}}{% endverbatim %}>{% if field.help_text %}{{ field.help_text }}{% endif %}
+              				</label>
+						</div>
+					</div>
+				{% endwith %}
+				{% with nsform.new_reply as field %}
+					<div class="control-group">
+						<label class="control-label">{{ field.label }}</label>
+						<div class="controls">
+							<label class="checkbox">
+               				 	<input type="checkbox" value="1" name="new_reply"  {% verbatim %}{{#new_reply}}checked="checked"{{/new_reply}}{% endverbatim %}>{% if field.help_text %}{{ field.help_text }}{% endif %}
+              				</label>
+						</div>
+					</div>
+				{% endwith %}
+				{% with nsform.new_vote as field %}
+					<div class="control-group">
+						<label class="control-label">{{ field.label }}</label>
+						<div class="controls">
+							<label class="checkbox">
+               				 	<input type="checkbox" value="1" name="new_vote"  {% verbatim %}{{#new_vote}}checked="checked"{{/new_vote}}{% endverbatim %}>{% if field.help_text %}{{ field.help_text }}{% endif %}
+              				</label>
+						</div>
+					</div>
+				{% endwith %}
+				{% with nsform.new_follow as field %}
+					<div class="control-group">
+						<label class="control-label">{{ field.label }}</label>
+						<div class="controls">
+							<label class="checkbox">
+               				 	<input type="checkbox" value="1" name="new_follow"  {% verbatim %}{{#new_follow}}checked="checked"{{/new_follow}}{% endverbatim %}>{% if field.help_text %}{{ field.help_text }}{% endif %}
+              				</label>
+						</div>
+					</div>
+				{% endwith %}
+				</form>
+				
 			</div>
+			{% comment %}
 			<div class="tab-pane" id="follow">
 				follow
 			</div>
@@ -47,6 +115,6 @@
 	</div>
 	<div class="modal-footer">
 		<a href="#" class="btn" data-dismiss="modal">{% trans "Close" %}</a>
-		<a href="javascript:void(0);" class="btn btn-primary myprofile-save-action">{% trans "Save" %}</a>
+		<a href="javascript:void(0);" class="btn btn-primary save-action">{% trans "Save" %}</a>
 	</div>
 </script>

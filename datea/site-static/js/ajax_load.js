@@ -5,7 +5,7 @@ Datea.show_big_loading = function ($over_el) {
 }
 
 Datea.hide_big_loading = function ($over_el) {
-	$over_el.find('.loading-big-bg, loading-big-img').remove();
+	$over_el.find('.loading-big-bg, .loading-big-img').remove();
 }
 
 Datea.show_small_loading = function ($over_el) {
@@ -14,5 +14,5 @@ Datea.show_small_loading = function ($over_el) {
 }
 
 Datea.hide_small_loading = function ($over_el) {
-	$over_el.find('.loading-big-bg, loading-big-img').remove();
+	$over_el.find('.loading-small-bg, .loading-small-img').remove();
 }

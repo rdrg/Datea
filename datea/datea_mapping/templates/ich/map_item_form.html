@@ -132,6 +132,7 @@
 {# VERIFY IMAGE #}
 <script id="map_item_form_verify_image_tpl" type="text/html">
 	{% verbatim %}
+	{{#thumb}}
 	<div class="verify-image">
 		<span class="thumb">
 			<img src="{{thumb}}" alt="" />
@@ -140,6 +141,7 @@
 			<a href="#" class="change open-step" data-step="1"><i data-step="1" class="icono change"></i> {% trans "change" %}</a>
 		</span>
 	</div>
+	{{/thumb}}
 	{% endverbatim %}
 </script>
 

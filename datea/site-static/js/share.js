@@ -1,7 +1,9 @@
 
 function init_share_buttons() {
-	
-	twttr.widgets.load();
+	try {
+		twttr.widgets.load();
+	}
+	catch(err) {}
 	
 	$('.fb-share').not('.processed').each( function() {
 		$(this).addClass('processed');

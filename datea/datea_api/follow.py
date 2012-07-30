@@ -39,6 +39,10 @@ class HistoryResource(DateaBaseResource):
     receiver_items = fields.ToManyField('datea.datea_api.follow.HistoryReceiverResource', 
             attribute="receiver_items",related_name='receiver_items', full=True, readonly=True)
     
+    def dehydrate(self, bundle):
+        bundle.data['username'] = bundle.obj.user.username
+        return bundle
+    
     class Meta:
         queryset= DateaHistory.objects.all()
         resource_name= 'history'
@@ -48,7 +52,7 @@ class HistoryResource(DateaBaseResource):
                      'id': ['exact'],
                      'user': ALL_WITH_RELATIONS,
                      'action': ALL_WITH_RELATIONS,
-                     'follow_key': ['exact'],
+                     'follow_key': ['exact','in'],
                      'history_key': ['exact'],
                      'history_type': ['exact'],
                      'created': ['exact', 'range', 'gt', 'gte', 'lt', 'lte'],
@@ -74,8 +78,9 @@ class NotifySettingsResource(DateaBaseResource):
         
         if bundle.request.method == 'PUT':
             #preserve original owner
-            orig_object = DateaFollow.objects.get(pk=bundle.data['id'])
+            orig_object = DateaNotifySettings.objects.get(pk=bundle.data['id'])
             bundle.obj.user = orig_object.user
+            print vars(bundle.obj)
             
         return bundle
     
@@ -87,5 +92,7 @@ class NotifySettingsResource(DateaBaseResource):
                      'user': ALL_WITH_RELATIONS,
                      }
         limit = 1
+        authentication = ApiKeyPlusWebAuthentication()
+        authorization = DateaBaseAuthorization()
     
         

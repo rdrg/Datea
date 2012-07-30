@@ -16,11 +16,10 @@ class DateaProfile(models.Model):
     created = models.DateTimeField( _('created'), auto_now_add=True)
     
     full_name = models.CharField(_("Full name"), max_length=50, null=True, blank=True)
+    message = models.TextField(_('Personal Message'), max_length=140, null=True, blank=True)
     
     image = models.ForeignKey(DateaImage, blank=True, null=True, related_name="profile_image")
     image_social = models.ForeignKey(DateaImage, blank=True, null=True, related_name="profile_image_social")
-    
-    actions_joined = models.ManyToManyField(DateaAction, verbose_name=_("Actions joined"), blank=True, null=True, related_name="users_joined")  
     
     # statistics
     item_count = models.PositiveIntegerField(_("Item count"), default=0)

@@ -1050,27 +1050,27 @@ a:hover span.caret2 {
 }
 
 .vote-widget.small .icon {
-  background: url(../img/widgets_icons_small.png) no-repeat -92px center;
+  background: url(../img/datea/widgets_icons_small.png) no-repeat -92px center;
 }
 
 .vote-widget.small:hover .icon {
-  background: url(../img/widgets_icons_small.png) no-repeat -115px center;
+  background: url(../img/datea/widgets_icons_small.png) no-repeat -115px center;
 }
 
 .vote-widget.small.active .icon {
-  background: url(../img/widgets_icons_small.png) no-repeat -138px center;
+  background: url(../img/datea/widgets_icons_small.png) no-repeat -138px center;
 }
 
 .vote-widget.small.active:hover .icon {
-  background: url(../img/widgets_icons_small.png) no-repeat -138px center;
+  background: url(../img/datea/widgets_icons_small.png) no-repeat -138px center;
 }
 
 .vote-widget.small.after-click .icon {
-  background: url(../img/widgets_icons_small.png) no-repeat -115px center;
+  background: url(../img/datea/widgets_icons_small.png) no-repeat -115px center;
 }
 
-.vote-widget.small.after-click.voted .icon {
-  background: url(../img/widgets_icons_small.png) no-repeat -138px center;
+.vote-widget.small.after-click.active .icon {
+  background: url(../img/datea/widgets_icons_small.png) no-repeat -138px center;
 }
 
 .user-profile .head {
@@ -1093,6 +1093,27 @@ a:hover span.caret2 {
 
 .user-profile .head .profile-head-data {
   margin-left: 145px;
+}
+
+.user-profile .head .profile-head-data h1 {
+  margin-bottom: 5px;
+}
+
+#user-edit-window-head {
+  border-bottom: 0;
+}
+
+#user-edit-window-body {
+  padding-top: 0;
+}
+
+#user-edit-window-body #notify-settings-form .control-group .control-label {
+  width: 250px;
+  text-align: left;
+}
+
+#user-edit-window-body #notify-settings-form .control-group .controls {
+  margin-left: 250px;
 }
 
 .action-list {
@@ -1647,6 +1668,7 @@ body .olwidgetPopupCloseBox {
 #mapping-start .short-description {
   margin-bottom: 10px;
   font-size: 18px;
+  line-height: 22px;
   color: #434c3e;
 }
 
@@ -1814,7 +1836,7 @@ body .olwidgetPopupCloseBox {
 }
 
 .data-view-category-leyend {
-  margin: 5px 0;
+  margin: 10px 0;
   list-style: none;
 }
 

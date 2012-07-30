@@ -8,47 +8,46 @@
 		</div>
 		<div class="profile-head-data">
 			<h1>{{ username }}</h1>
+			<div class="message">{{ profile.message }}</div>
 			{{>profile_stats_tpl}}
 		</div>
+	</div>
+	
+	<div class="history">
+		
 	</div>
 </div>
 </script>
 
 <script id="profile_stats_tpl" type="text/html">
 	<div class="stats">
-		{{#item_count}}
+		{{#profile.item_count}}
 		<span class="stat item_count">
-			<a title="{% trans 'see details' %}" href="#{{ url }}">
-				<i class="icono dateo"></i>
-				{{ item_count }} 
-				<span class="plural">{% trans "contributions" %}</span>
-				<span class="singular" style="display:none">{% trans "contribution" %}</span>
-			</a>
+			<i class="icono dateo"></i>
+			{{ profile.item_count }} 
+			<span class="plural">{% trans "contributions" %}</span>
+			<span class="singular" style="display:none">{% trans "contribution" %}</span>
 		</span>
 		<span class="separator">|</span>
-		{{/item_count}}
-		{{#comment_count}}
+		{{/profile.item_count}}
+		{{#profile.comment_count}}
 		<span class="stat comment_count">
-			<a title="{% trans 'see details' %}" href="#{{ url }}">
-				<i class="icono comment"></i>
-				{{ comment_count }}
-				<span class="plural">{% trans "comments" %}</span>
-				<span class="singular" style="display:none">{% trans "comment" %}</span>
-			</a>
+			<i class="icono comment"></i>
+			{{ profile.comment_count }}
+			<span class="plural">{% trans "comments" %}</span>
+			<span class="singular" style="display:none">{% trans "comment" %}</span>
 		</span>
 		<span class="separator">|</span>
-		{{/comment_count }}
-		{{#vote_count}}
+		{{/profile.comment_count }}
+		{{#profile.vote_count}}
 		<span class="stat vote_count">
-			<a title="{% trans 'see details' %}" href="#{{ url }}">
-				<i class="icono vote"></i>
-				{{ vote_count }} 
-				<span class="plural">{% trans "votes" %}</span>
-				<span class="singular" style="display:none">{% trans "vote" %}</span>
-			</a>
+			<i class="icono vote"></i>
+			{{ profile.vote_count }} 
+			<span class="plural">{% trans "votes" %}</span>
+			<span class="singular" style="display:none">{% trans "vote" %}</span>
 		</span>
 		<span class="separator">|</span>
-		{{/vote_count}}
+		{{/profile.vote_count}}
 	</div>
 </script>
 {% endverbatim %}
