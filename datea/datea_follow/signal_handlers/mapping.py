@@ -120,13 +120,14 @@ def on_map_item_response_save(sender, instance, **kwargs):
         recv_item.save()
 
 
-def on_map_item_response_update(sender, instance, created, **kwargs):
-    if not created:
-        map_items = instance.map_items.all()
-        action = map_items[0].action
-        history_key = 'dateaaction.'+str(action.pk)+'_dateamapitemresponse.'+str(instance.pk) 
-        hist_item = DateaHistory.objects.get(history_key=history_key)
-        hist_item.check_published()
+def on_map_item_response_update(sender, instance, **kwargs):
+    map_items = instance.map_items.all()
+    action = map_items[0].action
+    history_key = 'dateaaction.'+str(action.pk)+'_dateamapitemresponse.'+str(instance.pk) 
+    hist_item = DateaHistory.objects.get(history_key=history_key)
+    hist_item.check_published()
+    hist_item.generate_extract('dateamapitemresponse', instance)       
+    hist_item.save()
               
 def on_map_item_response_delete(sender, instance, **kwargs):
     map_items = instance.map_items.all()
@@ -135,6 +136,6 @@ def on_map_item_response_delete(sender, instance, **kwargs):
     DateaHistory.objects.filter(history_key=key).delete()
 
 map_item_response_created.connect(on_map_item_response_save, sender=DateaMapItemResponse)
-post_save.connect(on_map_item_response_update, sender=DateaMapItemResponse)
+map_item_response_updated.connect(on_map_item_response_update, sender=DateaMapItemResponse)
 pre_delete.connect(on_map_item_response_delete, sender=DateaMapItemResponse)
 

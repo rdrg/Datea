@@ -19,7 +19,6 @@ from datea.datea_mapping.models import DateaMapping, DateaMapItem, DateaMapItemR
 from datea.datea_mapping.signals import map_item_response_created
 
 
-# Create your models here.
 
 class DateaFollow(models.Model):
     
