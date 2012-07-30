@@ -119,16 +119,58 @@ class DateaMapItem(models.Model):
     # Object Manager from geodjango
     objects = models.GeoManager()
     
-    def save(self, *args, **kwargs):
-        super(DateaMapItem, self).save(*args, **kwargs)
-        self.action.item_count = self.action.map_items.filter(published=True).count()
-        users = []
-        for item in self.action.map_items.all():
-            if item.user.is_active and item.user.pk not in users:
-                users.append(item.user.pk)
-        self.action.user_count = len(users)
-        self.action.save()
+    # provide a way to know if published was changed
+    def __init__(self, *args, **kwargs):
+        super(DateaMapItem, self).__init__(*args, **kwargs)
+        self.__orig_published = self.published
     
+    def save(self, *args, **kwargs):
+        self.update_stats()
+        super(DateaMapItem, self).save(*args, **kwargs)
+        
+    def delete(self, using=None):
+        self.delete_stats()
+        super(DateaMapItem, self).delete(using=using)
+        
+    def update_stats(self):
+
+        value = 0
+        if ((self.pk == None and self.published)
+          or (self.__orig_published == False and self.published and self.pk)): 
+            value = 1
+        elif (self.pk and self.published == False and self.__orig_published):
+            value = -1
+        
+        if value != 0:
+            
+            prof = self.user.get_profile()
+            prof.item_count += value 
+            prof.save()
+        
+            self.action.item_count += value 
+            
+            users = []
+            for item in self.action.map_items.all():
+                if item.user.is_active and item.user.pk not in users:
+                    users.append(item.user.pk)
+            self.action.user_count = len(users)
+            self.action.save()
+    
+    def delete_stats(self):
+        if self.published and self.__orig_published:
+            prof = self.user.get_profile()
+            prof.item_count -= 1 
+            prof.save()
+            
+            self.action.item_count -= 1
+            
+            users = []
+            for item in self.action.map_items.all():
+                if item.user.is_active and item.user.pk not in users:
+                    users.append(item.user.pk)
+            self.action.user_count = len(users)
+            self.action.save()
+            
     def get_absolute_url(self):
         return self.action.get_absolute_url()+'/reports/item'+str(self.pk)  
     

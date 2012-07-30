@@ -4,3 +4,5 @@ encoding//datea/datea_mapping/migrations/0007_auto__add_field_dateamapitem_actio
 encoding//datea/datea_mapping/migrations/0008_change_mapping_to_action_field.py=utf-8
 encoding//datea/datea_mapping/migrations/0009_auto__del_field_dateamapitem_mapping.py=utf-8
 encoding//datea/datea_profile/migrations/0004_auto.py=utf-8
+encoding//datea/datea_profile/migrations/0005_auto__del_field_dateaprofile_first_name__del_field_dateaprofile_last_n.py=utf-8
+encoding//datea/datea_profile/migrations/0006_auto__add_field_dateaprofile_item_count__add_field_dateaprofile_commen.py=utf-8

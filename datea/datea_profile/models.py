@@ -22,6 +22,13 @@ class DateaProfile(models.Model):
     
     actions_joined = models.ManyToManyField(DateaAction, verbose_name=_("Actions joined"), blank=True, null=True, related_name="users_joined")  
     
+    # statistics
+    item_count = models.PositiveIntegerField(_("Item count"), default=0)
+    comment_count = models.PositiveIntegerField(_('Comment count'), default=0)
+    vote_count = models.PositiveIntegerField(_('Comment count'), default=0)
+    #follower_count = models.PositiveIntegerField(_('Follower count'), default=0)
+    #follow_count = models.PositiveIntegerField(_('Follow count'), default=0)
+    
     def get_image_thumb(self, thumb_preset = 'profile_image'):
         if self.image:
             return self.image.get_thumb(thumb_preset)

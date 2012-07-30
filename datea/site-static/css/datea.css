@@ -309,6 +309,100 @@ h1 {
   }
 }
 
+#datea-presentation h1 {
+  color: #434c3e;
+}
+
+#datea-presentation .share-group {
+  margin-top: 10px;
+  margin-bottom: 25px;
+  *zoom: 1;
+}
+
+#datea-presentation .share-group:before,
+#datea-presentation .share-group:after {
+  display: table;
+  content: "";
+}
+
+#datea-presentation .share-group:after {
+  clear: both;
+}
+
+#datea-presentation .share-group .share-button {
+  display: block;
+  float: left;
+  width: 130px;
+}
+
+#datea-presentation .steps {
+  margin-bottom: 25px;
+  *zoom: 1;
+}
+
+#datea-presentation .steps:before,
+#datea-presentation .steps:after {
+  display: table;
+  content: "";
+}
+
+#datea-presentation .steps:after {
+  clear: both;
+}
+
+#datea-presentation .steps .step {
+  float: left;
+  width: 30%;
+}
+
+#datea-presentation .steps .step .inner {
+  padding: 0 15px;
+}
+
+#datea-presentation .steps .step .inner .icon {
+  height: 65px;
+  margin-left: 15px;
+}
+
+#datea-presentation .steps .create .icon {
+  background: url(../img/datea/home-icon-create.png) no-repeat left center;
+}
+
+#datea-presentation .steps .participate .icon {
+  background: url(../img/datea/home-icon-participate.png) no-repeat left center;
+}
+
+#datea-presentation .steps .visualize .icon {
+  background: url(../img/datea/home-icon-visualize.png) no-repeat left center;
+}
+
+#datea-presentation .footer {
+  *zoom: 1;
+}
+
+#datea-presentation .footer:before,
+#datea-presentation .footer:after {
+  display: table;
+  content: "";
+}
+
+#datea-presentation .footer:after {
+  clear: both;
+}
+
+#datea-presentation .footer .left {
+  display: block;
+  float: left;
+  width: 50%;
+}
+
+#datea-presentation .footer .right {
+  display: block;
+  float: left;
+  width: 50%;
+  text-align: right;
+}
+
 #footer #footer-right .lafactura {
   font-size: 13px -1px;
   color: #999999;
@@ -745,7 +839,7 @@ a:hover span.caret2 {
   background-color: #ecff00;
 }
 
-.follow-widget.small {
+.follow-widget.full-small {
   display: inline-block;
   *display: inline;
   overflow: hidden;
@@ -753,94 +847,132 @@ a:hover span.caret2 {
   *zoom: 1;
 }
 
-.follow-widget.small .icon {
+.follow-widget.full-small .icon {
   display: block;
   float: left;
 }
 
-.follow-widget.small .text {
+.follow-widget.full-small .text {
   display: block;
   float: left;
 }
 
-.follow-widget.small .hover-msg {
+.follow-widget.full-small .hover-msg {
   display: none;
 }
 
-.follow-widget.small.force-hover .hover-msg {
+.follow-widget.full-small.force-hover .hover-msg {
   display: block;
 }
 
-.follow-widget.small.force-hover .info {
+.follow-widget.full-small.force-hover .info {
   display: none;
 }
 
-.follow-widget.small:hover .hover-msg {
+.follow-widget.full-small:hover .hover-msg {
   display: block;
 }
 
-.follow-widget.small:hover .info {
+.follow-widget.full-small:hover .info {
   display: none;
 }
 
-.follow-widget.small.after-click .hover-msg {
+.follow-widget.full-small.after-click .hover-msg {
   display: none;
 }
 
-.follow-widget.small.after-click .info {
+.follow-widget.full-small.after-click .info {
   display: block;
 }
 
-.follow-widget.small .icon {
+.follow-widget.full-small .icon {
   width: 23px;
   height: 24px;
 }
 
-.follow-widget.small .text {
+.follow-widget.full-small .text {
   width: 60px;
   height: 28px;
   padding-left: 5px;
 }
 
-.follow-widget.small .text .hover-msg {
+.follow-widget.full-small .text .hover-msg {
   font-size: 11px;
   line-height: 13px;
 }
 
-.follow-widget.small .text .info {
+.follow-widget.full-small .text .info {
   line-height: 14px;
 }
 
-.follow-widget.small .text .info .counter {
+.follow-widget.full-small .text .info .counter {
   padding-left: 5px;
 }
 
-.follow-widget.small .text .info .info-label {
+.follow-widget.full-small .text .info .info-label {
   font-size: 11px;
 }
 
-.follow-widget.small .icon {
-  background: url(../img/widgets_icons_small.png) no-repeat 0 center;
+.follow-widget.full-small .icon {
+  background: url(../img/datea/widgets_icons_small.png) no-repeat 0 center;
 }
 
-.follow-widget.small:hover .icon {
-  background: url(../img/widgets_icons_small.png) no-repeat -23px center;
+.follow-widget.full-small:hover .icon {
+  background: url(../img/datea/widgets_icons_small.png) no-repeat -23px center;
 }
 
-.follow-widget.small.active .icon {
-  background: url(../img/widgets_icons_small.png) no-repeat -46px center;
+.follow-widget.full-small.active .icon {
+  background: url(../img/datea/widgets_icons_small.png) no-repeat -46px center;
 }
 
-.follow-widget.small.active:hover .icon {
-  background: url(../img/widgets_icons_small.png) no-repeat -69px center;
+.follow-widget.full-small.active:hover .icon {
+  background: url(../img/datea/widgets_icons_small.png) no-repeat -69px center;
 }
 
-.follow-widget.small.after-click .icon {
-  background: url(../img/widgets_icons_small.png) no-repeat 0 center;
+.follow-widget.full-small.after-click .icon {
+  background: url(../img/datea/widgets_icons_small.png) no-repeat 0 center;
 }
 
-.follow-widget.small.after-click.following .icon {
-  background: url(../img/widgets_icons_small.png) no-repeat -46px center;
+.follow-widget.full-small.after-click.active .icon {
+  background: url(../img/datea/widgets_icons_small.png) no-repeat -46px center;
+}
+
+.follow-widget.button-small {
+  width: 18px;
+  cursor: pointer;
+}
+
+.follow-widget.button-small a {
+  display: inline-block;
+  *display: inline;
+  width: 18px;
+  *zoom: 1;
+}
+
+.follow-widget.button-small a:hover {
+  text-decoration: none;
+}
+
+.follow-widget.button-small .icon {
+  width: 18px;
+  height: 18px;
+  background: url(../img/datea/seguir_estados.png) no-repeat -18px center;
+}
+
+.follow-widget.button-small.active .icon {
+  background: url(../img/datea/seguir_estados.png) no-repeat 0 center;
+}
+
+.follow-widget.button-small.active:hover .icon {
+  background: url(../img/datea/seguir_estados.png) no-repeat -36px center;
+}
+
+.follow-widget.button-small.after-click .icon {
+  background: url(../img/datea/seguir_estados.png) no-repeat -18px center;
+}
+
+.follow-widget.button-small.after-click.active .icon {
+  background: url(../img/datea/seguir_estados.png) no-repeat 0 center;
 }
 
 .vote-widget.small {
@@ -939,6 +1071,91 @@ a:hover span.caret2 {
 
 .vote-widget.small.after-click.voted .icon {
   background: url(../img/widgets_icons_small.png) no-repeat -138px center;
+}
+
+.user-profile .head {
+  *zoom: 1;
+}
+
+.user-profile .head:before,
+.user-profile .head:after {
+  display: table;
+  content: "";
+}
+
+.user-profile .head:after {
+  clear: both;
+}
+
+.user-profile .head .profile-img-large {
+  float: left;
+}
+
+.user-profile .head .profile-head-data {
+  margin-left: 145px;
+}
+
+.action-list {
+  margin-left: 0;
+}
+
+.action-list .action-item {
+  padding: 20px 18px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin: 18px 0 15px 0px;
+  margin-right: 15px;
+  background-color: white;
+  -webkit-border-radius: 10px;
+     -moz-border-radius: 10px;
+          border-radius: 10px;
+  -webkit-box-shadow: 1px -1px 2px rgba(0, 0, 0, 0.15);
+     -moz-box-shadow: 1px -1px 2px rgba(0, 0, 0, 0.15);
+          box-shadow: 1px -1px 2px rgba(0, 0, 0, 0.15);
+}
+
+.action-list .action-item h3 a {
+  color: #434c3e;
+}
+
+.action-list .action-item h3 a:hover {
+  color: #27bb44;
+  text-decoration: none;
+}
+
+.action-list .action-item .right-corner div {
+  float: left;
+}
+
+.action-list .action-item .right-corner .follow-button {
+  margin-right: 10px;
+}
+
+.action-list .action-item .description {
+  margin-bottom: 10px;
+}
+
+.action-list .action-item .footer {
+  *zoom: 1;
+}
+
+.action-list .action-item .footer .stats {
+  padding-top: 10px;
+  font-size: 11px;
+}
+
+.action-list .action-item .footer .stats .separator:last-child {
+  display: none;
+}
+
+.action-list .action-item .footer:before,
+.action-list .action-item .footer:after {
+  display: table;
+  content: "";
+}
+
+.action-list .action-item .footer:after {
+  clear: both;
 }
 
 .post-user-data {

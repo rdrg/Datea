@@ -10,16 +10,49 @@ window.Datea.ActionCollection = Backbone.Collection.extend({
 	url: '/api/v1/action/',
 });
 
+window.Datea.CheckActionStats = function ($el, model) {
+	// items
+	if (model.get('item_count') == 1) {
+		$('.item_count .singular', $el).show();
+		$('.item_count .plural', $el).hide();
+	}
+	// comment
+	if (model.get('comment_count') == 1) {
+		$('.comment_count .singular', $el).show();
+		$('.comment_count .plural', $el).hide();
+	}
+	// users
+	if (model.get('user_count') == 1) {
+		$('.user_count .singular', $el).show();
+		$('.user_count .plural', $el).hide();
+	}
+}
+
 // ACtion list item
 window.Datea.ActionListItemView = Backbone.View.extend({
   
-  tagName: 'div',
+	tagName: 'div',
   
-  className: 'action-item',
- 
-  render: function(){
-      $(this.el).html(ich.action_list_item_tpl(this.model.toJSON()));
-      return this;
+	className: 'action-item',
+
+	render: function(){
+  		this.$el.html(ich.action_list_item_tpl(this.model.toJSON()));
+  
+  		// follow widget
+  		if (!Datea.my_user.isNew()) {
+			this.follow_widget = new Datea.FollowWidgetView({
+				object_type: 'dateaaction',
+				object_id: this.model.get('id'),
+				object_name: gettext('action'),
+				followed_model: this.model,
+				type: 'button',
+				style: 'button-small', 
+			});
+			this.$el.find('.follow-button').html(this.follow_widget.render().el);
+		}
+      
+		Datea.CheckActionStats(this.$el, this.model);
+		return this;
   }
                                 
 });

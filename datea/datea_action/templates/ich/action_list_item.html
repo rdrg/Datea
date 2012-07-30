@@ -1,10 +1,56 @@
 {% load i18n verbatim_tag %}
 {% verbatim %}
 <script id="action_list_item_tpl" type="text/html">
-	<div class="category">{{ category.name }}</div>
-	<div class="action-type">{{ type }}</div>
+	{#<div class="category">{{ category.name }}</div>#}
+	<div class="pull-right right-corner">
+		<div class="follow-button"></div>
+		<div class="action-type">{{ type }}</div>
+	</div>
+	
 	<h3 class="title"><a href="#{{ url }}">{{ name }}</a></h3>
 	<div class="description">{{ short_description }}</div>
-	<div class="stats"></div>
+	
+	<div class="footer">
+		<div class="pull-right">
+			<a href="#{{ url }}" class="btn btn-pointy">{% trans "Go" %}</a>
+		</div>	
+		{{>action_stats_tpl}}
+	</div>
+</script>
+
+
+<script id="action_stats_tpl" type="text/html">
+	<div class="stats">
+		{{#item_count}}
+		<span class="stat item_count">
+			<a title="ver detalle" href="#{{ url }}">
+				{{ item_count }} 
+				<span class="plural">{% trans "contributions" %}</span>
+				<span class="singular" style="display:none">{% trans "contribution" %}</span>
+			</a>
+		</span>
+		<span class="separator">|</span>
+		{{/item_count}}
+		{{#comment_count}}
+		<span class="stat comment_count">
+			<a title="ver detalle" href="#{{ url }}">
+				{{ comment_count }}
+				<span class="plural">{% trans "comments" %}</span>
+				<span class="singular" style="display:none">{% trans "comment" %}</span>
+			</a>
+		</span>
+		<span class="separator">|</span>
+		{{/comment_count }}
+		{{#user_count}}
+		<span class="stat user_count">
+			<a title="ver detalle" href="#{{ url }}">
+				{{ user_count }} 
+				<span class="plural">{% trans "users" %}</span>
+				<span class="singular" style="display:none">{% trans "user" %}</span>
+			</a>
+		</span>
+		<span class="separator">|</span>
+		{{/user_count}}
+	</div>
 </script>
 {% endverbatim %}

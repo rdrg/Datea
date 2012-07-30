@@ -23,21 +23,25 @@ class DateaVote(models.Model):
     def save(self, *args, **kwargs):
         # update comment stats on voted object  
         if self.pk == None:
-            ctype = ContentType.objects.get(model=self.object_type.lower())
-            receiver_obj = ctype.get_object_for_this_type(pk=self.object_id)
-            if hasattr(receiver_obj, 'vote_count'):
-                receiver_obj.vote_count += 1
-                receiver_obj.save()
+            self.update_stats(1)
         super(DateaVote, self).save(*args, **kwargs)
+        
+
+    def update_stats(self, value):
+        prof = self.user.get_profile()
+        prof.vote_count += value
+        prof.save()
+        
+        ctype = ContentType.objects.get(model=self.object_type.lower())
+        receiver_obj = ctype.get_object_for_this_type(pk=self.object_id)
+        if hasattr(receiver_obj, 'vote_count'):
+            receiver_obj.vote_count += value
+            receiver_obj.save()
         
         
     def delete(self, using=None):
         # update comment stats on voted object 
-        ctype = ContentType.objects.get(model=self.object_type.lower())
-        receiver_obj = ctype.get_object_for_this_type(pk=self.object_id)
-        if hasattr(receiver_obj, 'vote_count'):
-            receiver_obj.vote_count -= 1
-            receiver_obj.save()
+        self.update_stats(-1)
         super(DateaVote, self).delete(using=using)
     
     def __unicode__(self):

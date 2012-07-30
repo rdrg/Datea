@@ -1,16 +1,54 @@
 {% load i18n verbatim_tag %}
+{% verbatim %}
 <script id="my_profile_tpl" type="text/html">
-<div id="my-profile">
-	<div class="row">
-		<div class="span2 profile-img-large">
-			<img src="{% verbatim %}{{ profile.image_large }}{% endverbatim %}" alt="profile image" />
+<div class="user-profile dotted-inner">
+	<div class="head">
+		<div class="profile-img-large">
+			<img src="{{ profile.image_large }}" alt="profile image" />
 		</div>
-		<div class="span4 profile-head-data">
-			<h1>{% verbatim %}{{ username }}{% endverbatim %}</h1>
-		</div>
-		<div class="Full name">
-			{% verbatim %}{{ profile.full_name }}{% endverbatim %}
+		<div class="profile-head-data">
+			<h1>{{ username }}</h1>
+			{{>profile_stats_tpl}}
 		</div>
 	</div>
 </div>
 </script>
+
+<script id="profile_stats_tpl" type="text/html">
+	<div class="stats">
+		{{#item_count}}
+		<span class="stat item_count">
+			<a title="{% trans 'see details' %}" href="#{{ url }}">
+				<i class="icono dateo"></i>
+				{{ item_count }} 
+				<span class="plural">{% trans "contributions" %}</span>
+				<span class="singular" style="display:none">{% trans "contribution" %}</span>
+			</a>
+		</span>
+		<span class="separator">|</span>
+		{{/item_count}}
+		{{#comment_count}}
+		<span class="stat comment_count">
+			<a title="{% trans 'see details' %}" href="#{{ url }}">
+				<i class="icono comment"></i>
+				{{ comment_count }}
+				<span class="plural">{% trans "comments" %}</span>
+				<span class="singular" style="display:none">{% trans "comment" %}</span>
+			</a>
+		</span>
+		<span class="separator">|</span>
+		{{/comment_count }}
+		{{#vote_count}}
+		<span class="stat vote_count">
+			<a title="{% trans 'see details' %}" href="#{{ url }}">
+				<i class="icono vote"></i>
+				{{ vote_count }} 
+				<span class="plural">{% trans "votes" %}</span>
+				<span class="singular" style="display:none">{% trans "vote" %}</span>
+			</a>
+		</span>
+		<span class="separator">|</span>
+		{{/vote_count}}
+	</div>
+</script>
+{% endverbatim %}

@@ -24,7 +24,7 @@ def get_mapping(request, mapping_id):
             'url': mapping.get_absolute_url(),
             'description': mapping.short_description,
             'image': image,
-            'app_id': settings.FACEBOOK_APP_ID
+            'FACEBOOK_APP_ID': settings.FACEBOOK_APP_ID
             }, context_instance=RequestContext(request))
 
 
@@ -43,7 +43,7 @@ def get_map_item(request, mapping_id, map_item_id):
             'url': map_item.get_absolute_url(),
             'description': extract,
             'image': image,
-            'app_id': settings.FACEBOOK_APP_ID
+            'FACEBOOK_APP_ID': settings.FACEBOOK_APP_ID
             }, context_instance=RequestContext(request))
 
 

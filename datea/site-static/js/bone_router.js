@@ -23,6 +23,7 @@ Datea.AppRouter = Backbone.Router.extend({
     	clear_admin_controls();
     	this.my_profile_home_view = new Datea.MyProfileHomeView({model:Datea.my_user});
         $('#main-content-view').html(this.my_profile_home_view.render().el);
+        init_share_buttons();
     },
     
     fb_login_redirect:function () {

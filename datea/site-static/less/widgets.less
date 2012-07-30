@@ -92,22 +92,50 @@ a {
 }
 
 
-.follow-widget.small {
+.follow-widget.full-small {
 	.datea_widget_base();
 	.datea_widget_small_base();
 	
-	.icon { background: url(../img/widgets_icons_small.png) no-repeat 0px center; }
+	.icon { background: url(../img/datea/widgets_icons_small.png) no-repeat 0px center; }
 	
-	&:hover .icon { background: url(../img/widgets_icons_small.png) no-repeat -23px center; }
+	&:hover .icon { background: url(../img/datea/widgets_icons_small.png) no-repeat -23px center; }
 	
 	&.active {
-		.icon { background: url(../img/widgets_icons_small.png) no-repeat -46px center; }
-		&:hover .icon { background: url(../img/widgets_icons_small.png) no-repeat -69px center; }
+		.icon { background: url(../img/datea/widgets_icons_small.png) no-repeat -46px center; }
+		&:hover .icon { background: url(../img/datea/widgets_icons_small.png) no-repeat -69px center; }
 	}
 	
 	&.after-click {
-		.icon { background: url(../img/widgets_icons_small.png) no-repeat 0px center; }
-		&.following .icon { background: url(../img/widgets_icons_small.png) no-repeat -46px center; }
+		.icon { background: url(../img/datea/widgets_icons_small.png) no-repeat 0px center; }
+		&.active .icon { background: url(../img/datea/widgets_icons_small.png) no-repeat -46px center; }
+	}
+}
+
+.follow-widget.button-small {
+	cursor: pointer;
+	width: 18px;
+	a { width: 18px; display: inline-block; .ie7-inline-block(); &:hover {text-decoration: none}}
+	.icon {
+		width: 18px;
+		height: 18px;
+		background: url(../img/datea/seguir_estados.png) no-repeat -18px center;
+	}
+	
+	/*
+	&:hover .icon {
+		background: url(../img/datea/seguir_estados.png) no-repeat 0px center;
+	}*/
+	
+	&.active {
+		.icon {
+			background: url(../img/datea/seguir_estados.png) no-repeat 0px center;
+		}
+		&:hover .icon { background: url(../img/datea/seguir_estados.png) no-repeat -36px center; }
+	}
+	
+	&.after-click {
+		.icon { background: url(../img/datea/seguir_estados.png) no-repeat -18px center; }
+		&.active .icon { background: url(../img/datea/seguir_estados.png) no-repeat 0px center; }
 	}
 }
 

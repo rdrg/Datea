@@ -138,6 +138,15 @@ window.Datea.MyProfileBoxView = Backbone.View.extend({
     	
     	if (!this.model.isNew()) {
     		this.$el.html(ich.my_profile_tpl(this.model.toJSON()));
+    	}else{
+    		var title = gettext('Datea, a platform to activate and channel community engagements.');
+    		context = {
+    			title: title,
+    			hashtag: 'datea',
+    			tweet_text: title,
+    			full_url: get_base_url()
+    		}
+    		this.$el.html(ich.datea_presentation_tpl(context));
     	}
         return this;
     },
@@ -157,7 +166,7 @@ window.Datea.MyProfileHomeView = Backbone.View.extend({
 	
 	render: function (eventName) {
 		// set base template
-		this.$el.html( ich.fix_base_content_split_tpl());
+		this.$el.html( ich.fix_base_content_split_tpl({'class':'dotted-bg'}));
 		
 		this.$el.find('#left-content').html( 
 			new Datea.MyProfileBoxView({ model: Datea.my_user }).render().el 

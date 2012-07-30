@@ -15,8 +15,12 @@ window.Datea.NotifySettings = Backbone.Model.extend({
 
 /* INIT WITH
  * {
- * 	model: <follow model instance> 	
+ * 	object_type: <string: follow model type>
+ *  object_id: <int: follow model pk>
+ *  object_name: <string: follow model verbose name>  	
  * 	followed_model: <model_instance_to_follow>,
+ *  type: <'full' or 'button'>
+ *  style: <'full-small' or 'button-small'>
  * }
  */
 
@@ -27,9 +31,25 @@ window.Datea.FollowWidgetView = Backbone.View.extend({
 	className: 'follow-widget',
 	
 	initialize: function () {
+		var follow_key = this.options.object_type+'.'+this.options.object_id;
+		
+		if (Datea.my_user_follows) {
+			this.model = Datea.my_user_follows.find(function(item){
+				return item.get('follow_key') == follow_key;
+			});
+		}
+		if (typeof(this.model) == 'undefined') {
+			this.model = new Datea.Follow({
+				follow_key: follow_key,
+				object_type: this.options.object_type,
+				object_id: this.options.object_id,
+			});
+		}
+		
 		this.followed_model = this.options.followed_model;
 		//this.model.bind('sync', this.sync, this);
-		this.$el.addClass(this.options.size);
+		this.$el.addClass(this.options.style);
+		
 	},
 	
 	events: {
@@ -40,13 +60,12 @@ window.Datea.FollowWidgetView = Backbone.View.extend({
 	render: function (ev) {
 		var context = this.model.toJSON();
 		context.follow_count = this.followed_model.get('follow_count');
-		this.$el.html( ich.follow_widget_tpl(context));
-		
 		if (this.model.isNew()) {
-			this.$el.find('.hover-msg').html( ich.follow_hover_msg_tpl({object_name: 'report'}) );
+			context.msg = gettext('follow this')+ ' ' + this.options.object_name;
 		}else{
-			this.$el.find('.hover-msg').html( ich.unfollow_hover_msg_tpl() );
+			context.msg = gettext('stop following');
 		}
+		this.$el.html( ich['follow_widget_'+this.options.type+'_tpl'](context));
 
 		if (!this.model.isNew()) {
 			this.$el.addClass('active');
@@ -64,6 +83,8 @@ window.Datea.FollowWidgetView = Backbone.View.extend({
 	},
 	
 	follow: function(ev) {
+		ev.preventDefault();
+		
 		Datea.show_small_loading(this.$el);
 		
 		if (this.model.isNew()) {

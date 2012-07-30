@@ -1,0 +1,51 @@
+{% load verbatim_tag i18n %}
+{% verbatim %}
+<script id="datea_presentation_tpl" type="text/html">
+	<div id="datea-presentation" class="dotted-inner">
+		
+		<h1>{{ title }}</h1>
+		
+		<div class="share-group">
+			{{>fb_button_tpl}}
+			{{>tw_button_tpl}}
+		</div>
+		
+		<div class="steps">
+			
+			<div class="step create">
+				<div class="inner">
+					<div class="icon"></div>
+					<div class="text">{% trans "initiate collective actions" %}</div>
+				</div>
+			</div>
+		
+			<div class="step participate">
+				<div class="inner">
+					<div class="icon"></div>
+					<div class="text">{% trans "participate, share, support, comment" %}</div>
+				</div>
+			</div>
+			
+			<div class="step visualize">
+				<div class="inner">
+					<div class="icon"></div>
+					<div class="text">{% trans "visualize actions in maps and charts" %}</div>
+				</div>
+			</div>
+		
+		</div>
+		
+		<div class="footer">
+			<div class="left">
+				<div class="inner">&nbsp;</div>
+			</div>
+			<div class="right">
+				<div class="inner">
+					<a class="btn btn-success btn-large btn-pointy" href="{% url auth_login %}">{% trans "Login" %}</a>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+</script>
+{% endverbatim %}

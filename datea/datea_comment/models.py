@@ -31,16 +31,16 @@ class DateaComment(models.Model):
     
     
     def save(self, *args, **kwargs):
-        self.update_comment_stats()
+        self.update_stats()
         super(DateaComment, self).save(*args, **kwargs)
         
     
     def delete(self, using=None):
-        self.delete_comment_stats()
+        self.delete_stats()
         super(DateaComment, self).delete(using=using)
         
     
-    def update_comment_stats(self):
+    def update_stats(self):
         ctype = ContentType.objects.get(model=self.object_type.lower())
         receiver_obj = ctype.get_object_for_this_type(pk=self.object_id)
 
@@ -52,6 +52,10 @@ class DateaComment(models.Model):
             value = -1
         
         if value != 0:
+            prof = self.user.get_profile()
+            prof.comment_count += value 
+            prof.save() 
+            
             if hasattr(receiver_obj, 'comment_count'):
                 receiver_obj.comment_count += value
                 receiver_obj.save()
@@ -60,8 +64,12 @@ class DateaComment(models.Model):
                 receiver_obj.action.comment_count += value
                 receiver_obj.action.save()
     
-    def delete_comment_stats(self):
+    def delete_stats(self):
         if self.published and self.__orig_published:
+            prof = self.user.get_profile()
+            prof.comment_count -= 1
+            prof.save() 
+            
             ctype = ContentType.objects.get(model=self.object_type.lower())
             receiver_obj = ctype.get_object_for_this_type(pk=self.object_id)
             if hasattr(receiver_obj, 'comment_count'):
