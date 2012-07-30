@@ -134,7 +134,6 @@ class DateaHistory(models.Model):
         
     def generate_extract(self, object_type, object_instance):
         context = {'instance': object_instance}
-        print vars(object_instance)
         self.extract = render_to_string('history/%s/extract.html' % object_type, context)
         
         
