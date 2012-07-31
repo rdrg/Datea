@@ -10,12 +10,13 @@ class ActionResource(ModelResource):
             attribute="user", null=False, full=False, readonly=True)
     category = fields.ToOneField('datea.datea_api.category.CategoryResource',
             attribute='category', null=True, full=True, readonly=True)
-    image = fields.ToOneField('datea.datea_api.image.ImageResource', 
-            attribute='image', full=True, null=True, readonly=True)
+    #image = fields.ToOneField('datea.datea_api.image.ImageResource', 
+    #        attribute='image', full=True, null=True, readonly=True)
     
     def dehydrate(self, bundle):
         bundle.data['url'] = bundle.obj.get_absolute_url()
         bundle.data['type'] = bundle.obj.action_type
+        bundle.data['image'] = bundle.obj.image.get_thumb('action_image')
         return bundle
     
     class Meta:

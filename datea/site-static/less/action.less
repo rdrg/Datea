@@ -14,30 +14,36 @@
 		.dotted-inner;
 		padding-top:10px;
 		padding-bottom:10px;
-		h3 a {
-			color: @grayTextDark;
-			&:hover {
-				color: @green;
-				text-decoration: none;
-			}
-		}
-		.right-corner {
-			div { float:left}
-			.follow-button {
-				margin-right: 10px;
-			}
-		}
 		
-		.description {
-			margin-bottom: 10px;
+		.teaser-image {
+			float: left;
 		}
-		.footer {
-			.stats {
-				padding-top: 10px;
-				font-size: @baseFontSize - 2px;
-				.separator:last-child { display:none;}
+		.teaser-content {
+			h3 a {
+				color: @grayTextDark;
+				&:hover {
+					color: @green;
+					text-decoration: none;
+				}
 			}
-			.clearfix();
+			.right-corner {
+				div { float:left}
+				.follow-button {
+					margin-right: 10px;
+				}
+			}
+			
+			.description {
+				margin-bottom: 10px;
+			}
+			.footer {
+				.stats {
+					padding-top: 10px;
+					font-size: @baseFontSize - 2px;
+					.separator:last-child { display:none;}
+				}
+				.clearfix();
+			}
 		}
 	}
 }

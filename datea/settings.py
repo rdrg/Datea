@@ -265,6 +265,7 @@ THUMBNAIL_PRESETS = {
     'profile_image_large': {'size': "130x130", 'options': {'crop': 'center'}},
     'category_image': {'size': "130x130", 'options': {'crop': 'center'}},
     'marker_image': {'size':"x38", "options": {'format': 'PNG'}},
+    'action_image': {'size': "110x110", 'options': {'crop': 'center'}}
 }
 DEFAULT_PROFILE_IMAGE = os.path.join(MEDIA_ROOT, 'default/img/default-user.png')
 

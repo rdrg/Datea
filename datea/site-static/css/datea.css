@@ -1151,47 +1151,51 @@ a:hover span.caret2 {
           box-shadow: 1px -1px 2px rgba(0, 0, 0, 0.15);
 }
 
-#action-list .action-item h3 a {
+#action-list .action-item .teaser-image {
+  float: left;
+}
+
+#action-list .action-item .teaser-content h3 a {
   color: #434c3e;
 }
 
-#action-list .action-item h3 a:hover {
+#action-list .action-item .teaser-content h3 a:hover {
   color: #27bb44;
   text-decoration: none;
 }
 
-#action-list .action-item .right-corner div {
+#action-list .action-item .teaser-content .right-corner div {
   float: left;
 }
 
-#action-list .action-item .right-corner .follow-button {
+#action-list .action-item .teaser-content .right-corner .follow-button {
   margin-right: 10px;
 }
 
-#action-list .action-item .description {
+#action-list .action-item .teaser-content .description {
   margin-bottom: 10px;
 }
 
-#action-list .action-item .footer {
+#action-list .action-item .teaser-content .footer {
   *zoom: 1;
 }
 
-#action-list .action-item .footer .stats {
+#action-list .action-item .teaser-content .footer .stats {
   padding-top: 10px;
   font-size: 11px;
 }
 
-#action-list .action-item .footer .stats .separator:last-child {
+#action-list .action-item .teaser-content .footer .stats .separator:last-child {
   display: none;
 }
 
-#action-list .action-item .footer:before,
-#action-list .action-item .footer:after {
+#action-list .action-item .teaser-content .footer:before,
+#action-list .action-item .teaser-content .footer:after {
   display: table;
   content: "";
 }
 
-#action-list .action-item .footer:after {
+#action-list .action-item .teaser-content .footer:after {
   clear: both;
 }
 
@@ -1725,6 +1729,7 @@ body .olwidgetPopupCloseBox {
 }
 
 #mapping-start .mapping-header {
+  display: table-row;
   *zoom: 1;
 }
 
@@ -1740,14 +1745,15 @@ body .olwidgetPopupCloseBox {
 
 #mapping-start .mapping-header .left-start-head {
   display: block;
+  display: table-cell;
   float: left;
+  margin-right: 15px;
+  vertical-align: top;
 }
 
 #mapping-start .mapping-header .right-start-head {
-  display: block;
-  float: left;
-  width: 205px;
-  margin-left: 15px;
+  display: table-cell;
+  vertical-align: top;
 }
 
 #mapping-start .share-group {

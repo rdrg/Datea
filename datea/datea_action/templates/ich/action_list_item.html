@@ -2,18 +2,19 @@
 {% verbatim %}
 <script id="action_list_item_tpl" type="text/html">
 	{#<div class="category">{{ category.name }}</div>#}
-	<div class="pull-right right-corner">
-		<div class="follow-button"></div>
-		<div class="action-type">{{ type }}</div>
-	</div>
 	
 	<div class="teaser-image">
 		<a href="#{{ url }}">
-			<img src="{{image.thumb}}" alt="">
+			<img src="{{image}}" alt="">
 		</a>
 	</div>
 	
 	<div class="teaser-content">
+		<div class="pull-right right-corner">
+			<div class="follow-button"></div>
+			<div class="action-type">{{ type }}</div>
+		</div>
+		
 		<h3 class="title"><a href="#{{ url }}">{{ name }}</a></h3>
 		<div class="description">{{ short_description }}</div>
 		

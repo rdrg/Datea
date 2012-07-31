@@ -56,6 +56,9 @@ window.Datea.MappingFormView = Backbone.View.extend({
 				if (data.ok) {
 					self.model.set({image: data.resource }, {silent: true});
 				}
+			},
+			destroy_callback: function(response) {
+				self.model.set('image', null,{ silent: true });
 			} 
 		});
 		this.$el.find('#mapping-image-input-view').html(img_view.render().el);
@@ -93,20 +96,23 @@ window.Datea.MappingFormView = Backbone.View.extend({
 			this.model.save(set_data,
 				  {
 					success: function(model, response){
-						// add follow object to my follows
-						if (is_new) {
-							var follow = new Datea.Follow();
-							follow.save({
-								follow_key: 'dateaaction.'+model.get('id'),
-								object_type: 'dateaaction',
-								object_id: model.get('id'),
-							}, {
-								success: function (model, response) {
-									Datea.my_user_follows.add(model);
-								}
-							})
-						}
-						Datea.app.navigate('/mapping/'+model.attributes.id, {trigger: true});
+						console.log(response);
+						self.model.fetch({'success': function(){
+							// add follow object to my follows
+							if (is_new) {
+								var follow = new Datea.Follow();
+								follow.save({
+									follow_key: 'dateaaction.'+model.get('id'),
+									object_type: 'dateaaction',
+									object_id: model.get('id'),
+								}, {
+									success: function (model, response) {
+										Datea.my_user_follows.add(model);
+									}
+								})
+							}
+							Datea.app.navigate('/mapping/'+model.attributes.id, {trigger: true});
+						}});
 					},
 					error: function(model,response) {
 						console.log("error")	
