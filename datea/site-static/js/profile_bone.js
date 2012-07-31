@@ -68,7 +68,9 @@ window.Datea.MyUserEditView = Backbone.View.extend({
 	
 	render: function (eventName) {
 		context = this.model.toJSON();
-		jQuery.extend(context, Datea.my_user_notify_settings.toJSON());
+		if (!Datea.my_user.isNew()) {
+			jQuery.extend(context, Datea.my_user_notify_settings.toJSON());
+		}
 		this.$el.html( ich.my_user_edit_tpl(context));
 		if (this.img_upload_view) {
 			this.$el.find('.image-input-view').html(this.img_upload_view.render().el);
@@ -199,9 +201,8 @@ window.Datea.MyProfileHomeView = Backbone.View.extend({
 		);
 		
 		// ACTIONS
-		this.actionList = new Datea.ActionCollection();
 		this.$el.find('#right-content').html(
-			new Datea.ActionListView({ model:this.actionList}).render().el
+			new Datea.ActionListView().render().el
 		);
 		return this;
 	},	

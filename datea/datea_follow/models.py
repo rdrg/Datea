@@ -99,7 +99,7 @@ class DateaHistory(models.Model):
     published = models.BooleanField(default=True)
     created = models.DateTimeField(auto_now_add=True)
     
-    title = models.TextField(_('Title'), blank=True, null=True)
+    #title = models.TextField(_('Title'), blank=True, null=True)
     extract = models.TextField(_('Extract'), blank=True, null=True)
     
     history_type = models.CharField(max_length=50)
@@ -276,7 +276,6 @@ class DateaHistoryReceiver(models.Model):
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 from signal_handlers import comment, follow, mapping, vote
-
     
     
  
