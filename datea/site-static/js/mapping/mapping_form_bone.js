@@ -96,7 +96,6 @@ window.Datea.MappingFormView = Backbone.View.extend({
 			this.model.save(set_data,
 				  {
 					success: function(model, response){
-						console.log(response);
 						self.model.fetch({'success': function(){
 							// add follow object to my follows
 							if (is_new) {
