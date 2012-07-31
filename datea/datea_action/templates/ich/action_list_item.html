@@ -7,14 +7,22 @@
 		<div class="action-type">{{ type }}</div>
 	</div>
 	
-	<h3 class="title"><a href="#{{ url }}">{{ name }}</a></h3>
-	<div class="description">{{ short_description }}</div>
+	<div class="teaser-image">
+		<a href="#{{ url }}">
+			<img src="{{image.thumb}}" alt="">
+		</a>
+	</div>
 	
-	<div class="footer">
-		<div class="pull-right">
-			<a href="#{{ url }}" class="btn btn-pointy">{% trans "Go" %}</a>
-		</div>	
-		{{>action_stats_tpl}}
+	<div class="teaser-content">
+		<h3 class="title"><a href="#{{ url }}">{{ name }}</a></h3>
+		<div class="description">{{ short_description }}</div>
+		
+		<div class="footer">
+			<div class="pull-right">
+				<a href="#{{ url }}" class="btn btn-pointy">{% trans "Go" %}</a>
+			</div>	
+			{{>action_stats_tpl}}
+		</div>
 	</div>
 </script>
 

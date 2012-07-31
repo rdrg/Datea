@@ -17,9 +17,9 @@
 		
 		<div class="info">
 			<div class="stats">
-				<div class="stat-line"><i class="icono dateo"></i> {{item_count}} {% trans "reports" %}</div>
-				<div class="stat-line"><i class="icono comment"></i> {{comment_count}} {% trans "comments" %}</div>
-				<div class="stat-line"><i class="icono follow"></i> {{user_count}} {% trans "participants" %}</div>
+				{{#item_count}}<div class="stat-line"><i class="icono dateo"></i> {{item_count}} {% trans "reports" %}</div>{{/item_count}} 
+				{{#comment_count}}<div class="stat-line"><i class="icono comment"></i> {{comment_count}} {% trans "comments" %}</div>{{/comment_count}}
+				{{#user_count}}<div class="stat-line"><i class="icono follow"></i> {{user_count}} {% trans "participants" %}</div>{{/user_count}}
 			</div> 	
 		</div>	
 	</div>

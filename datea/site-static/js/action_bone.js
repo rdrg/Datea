@@ -58,7 +58,7 @@ window.Datea.ActionListItemView = Backbone.View.extend({
 });
 
 
-// Action list view -> of action items
+// Action list view
 window.Datea.ActionListView = Backbone.View.extend({
  
     tagName:'div',
@@ -66,16 +66,18 @@ window.Datea.ActionListView = Backbone.View.extend({
     attributes: {
     	'class': 'actions',
     },
+    
+    events: {
+    	'click .get-page': 'get_page',
+    },
  
-    initialize:function () {
-    	
+    initialize: function () {
     	this.model = new Datea.ActionCollection();
     	this.model.bind("reset", this.reset_event, this);
     	this.selected_mode = 'my_actions';
     	this.items_per_page = 10;
     	this.page = 0;
 		this.pager_view = new Datea.PaginatorView({
-			model: this.model, 
 			items_per_page: this.items_per_page,
 			adjacent_pages: 1,
 		});
@@ -175,9 +177,37 @@ window.Datea.ActionListView = Backbone.View.extend({
     render_page: function(page) {
     	var $list = this.$el.find('#action-list');
     	$list.empty();
-    	_.each(this.render_actions, function (model) {
-            	$list.append(new Datea.ActionListItemView({model:model}).render().el);
+    	
+    	if (typeof(page) != 'undefined') {
+    		this.page = page;
+    	}
+    	
+    	var add_pager = false;
+    	if (this.render_actions.length > this.items_per_page) {
+    		var items = _.rest(this.render_actions, this.items_per_page*this.page);
+       		items = _.first(items, this.items_per_page);
+       		add_pager = true;  
+    	}else{
+    		items = this.render_actions;
+    	}
+    	
+    	_.each(items, function (item) {
+            	$list.append(new Datea.ActionListItemView({model:item}).render().el);
         }, this);
+        
+        var $pager_div = this.$el.find('.action-pager');
+		if (add_pager) {
+			$pager_div.html( this.pager_view.render_for_page(this.page,this.render_actions.length).el);
+			$pager_div.removeClass('hide');
+		}else{
+			$pager_div.addClass('hide');
+		}
+    },
+    
+    get_page: function(ev) {
+    	ev.preventDefault();
+		this.render_page(parseInt(ev.target.dataset.page));
+		this.$el.find('.scroll-area').scrollTop(0);
     },
     
     reset_event: function(ev) {

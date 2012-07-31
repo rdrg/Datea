@@ -5,6 +5,7 @@ from django.utils.translation import ugettext_lazy as _
 from datea.datea_category.models import DateaCategory
 from mptt.fields import TreeForeignKey
 from django.contrib.contenttypes.models import ContentType
+from datea.datea_image.models import DateaImage
 # Create your models here.
 
 
@@ -41,6 +42,8 @@ class DateaAction(models.Model):
     hashtag = models.CharField(_("Hashtag"), blank=True, null=True, max_length=100, help_text=_("A twitter hashtag for your action"))
     category = TreeForeignKey(DateaCategory, verbose_name=_("Category"), null=True, blank=True, default=None, related_name="actions", help_text=_("Choose a category for this action")) 
     featured = models.BooleanField(_('Featured'), default=False)
+    
+    image = models.ForeignKey(DateaImage, verbose_name=_('Image'), blank=True, null=True, related_name="actions")
     
     action_type = models.CharField(_('Action type'), max_length=100, blank=True, null=True)
     

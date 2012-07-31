@@ -9,13 +9,14 @@ django-bootstrap-toolkit==2.5.3
 django-compressor==1.1.2
 django-debug-toolbar==0.9.4
 django-extensions==0.8
-django-grappelli==2.3.8
+-e git://github.com/sehmaschine/django-grappelli.git@233f27746cee5cf17dc5c770e763a72c35bdc790#egg=django_grappelli-dev
 -e git://github.com/lukaszb/django-guardian.git@6e88f841c4a8413e1c1202d17e860ba18616126e#egg=django_guardian-dev
 django-mptt==0.5.2
 django-olwidget==0.50
 django-registration==0.8
 django-social-auth==0.6.9
--e git://github.com/toastdriven/django-tastypie.git@8e8a1bbe4ce271ec1b7526437c7371e173f98e29#egg=django_tastypie-dev
+-e git://github.com/toastdriven/django-tastypie.git@e08b4f683ea907328538598a33626503d30f8075#egg=django_tastypie-dev
+django-templated-email==0.4.7
 -e git://github.com/SmileyChris/easy-thumbnails.git@8661b1f30065b8e6c0df4fe3ad55df18a2e4441a#egg=easy_thumbnails-dev
 ## FIXME: could not find svn URL in dependency_links for this package:
 flup==1.0.3.dev-20110405
@@ -25,4 +26,6 @@ oauth2==1.5.211
 psycopg2==2.4.5
 python-dateutil==1.5
 python-openid==2.2.5
+sorl-thumbnail==11.12
+svgwrite==1.0.1
 wsgiref==0.1.2
