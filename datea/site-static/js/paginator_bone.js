@@ -23,11 +23,11 @@ window.Datea.PaginatorView = Backbone.View.extend({
 		if (this.options.items_per_page) {
 			this.items_per_page= this.options.items_per_page;
 		}
-		this.num_pages = Math.ceil(this.model.length / this.items_per_page);
 	},
 	
-	render_for_page: function(active_page) {
-		this.num_pages = Math.ceil(this.model.length / this.items_per_page);
+	render_for_page: function(active_page, num_items) {
+		this.num_items = num_items;
+		this.num_pages = Math.ceil(this.num_items / this.items_per_page);
 		this.page = parseInt(active_page);
 		this.render();
 		return this;

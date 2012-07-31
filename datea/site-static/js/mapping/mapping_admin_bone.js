@@ -13,8 +13,8 @@ window.Datea.MappingAdminView = Backbone.View.extend({
 		this.page = 0;
 		this.items_per_page = 25;
 		this.pager_view = new Datea.PaginatorView({
-			model: this.map_items, 
-			items_per_page: this.items_per_page
+			items_per_page: this.items_per_page,
+			adjacent_pages: 2
 		});
 		this.$el.addClass("mapping-items-admin");
 	},
@@ -134,7 +134,7 @@ window.Datea.MappingAdminView = Backbone.View.extend({
 		// PAGER
 		var $pager_div = this.$el.find('.item-pager');
 		if (add_pager) {
-			$pager_div.html( this.pager_view.render_for_page(this.page).el);
+			$pager_div.html( this.pager_view.render_for_page(this.page, this.filtered_items.length).el);
 			$pager_div.removeClass('hide');
 		}else{
 			$pager_div.addClass('hide');

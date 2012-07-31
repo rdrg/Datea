@@ -260,12 +260,11 @@ window.Datea.MappingMapItemTab = Backbone.View.extend({
 	initialize: function() {
 		//this.model.bind('change', this.render, this);
 		//this.model.bind('reset', this.render, this);
-		this.model.bind('add', this.render, this);
+		this.model.bind('add', this.add_event, this);
 		this.model.bind('sync', this.render,this);
 
 		this.items_per_page = 10;
 		this.pager_view = new Datea.PaginatorView({
-			model: this.model, 
 			items_per_page: this.items_per_page,
 			adjacent_pages: 1,
 		});
@@ -275,9 +274,9 @@ window.Datea.MappingMapItemTab = Backbone.View.extend({
 		
 		// ORDER BY
 		var options = [
-			{value: 'created', name: 'last added'},
-			{value: 'vote_count', name: 'most supported'},
-			{value: 'comment_count', name: 'most commented'},
+			{value: 'created', name: gettext('last added')},
+			{value: 'vote_count', name: gettext('most supported')},
+			{value: 'comment_count', name: gettext('most commented')},
 		];
 		var self = this;	
 		this.orderby_filter = new Datea.DropdownSelect({
@@ -325,12 +324,17 @@ window.Datea.MappingMapItemTab = Backbone.View.extend({
 		// PAGER
 		var $pager_div = this.$el.find('.item-pager');
 		if (add_pager) {
-			$pager_div.html( this.pager_view.render_for_page(this.page).el);
+			$pager_div.html( this.pager_view.render_for_page(this.page,this.filtered_items.length).el);
 			$pager_div.removeClass('hide');
 		}else{
 			$pager_div.addClass('hide');
 		}	
+	},
 	
+	add_event: function(ev) {
+		this.orderby_filter.set_value('created');		
+		this.filter_items();
+		this.render_item_page(0);
 	},
 	
 	render_item: function (params) {

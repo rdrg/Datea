@@ -72,6 +72,13 @@ window.Datea.ActionListView = Backbone.View.extend({
     	this.model = new Datea.ActionCollection();
     	this.model.bind("reset", this.reset_event, this);
     	this.selected_mode = 'my_actions';
+    	this.items_per_page = 10;
+    	this.page = 0;
+		this.pager_view = new Datea.PaginatorView({
+			model: this.model, 
+			items_per_page: this.items_per_page,
+			adjacent_pages: 1,
+		});
     },
  
     render:function (ev) {
