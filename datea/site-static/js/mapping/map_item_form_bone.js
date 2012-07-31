@@ -86,7 +86,6 @@ window.Datea.MapItemFormView = Backbone.View.extend({
 		// if step == 3 -> set data to model to trigger verify view
 		if (step == 3) {
 			this.set_model_data();
-			console.log(this.model.toJSON());
 			this.$el.find('.verify-view').html(ich.map_item_form_verify_tpl(this.model.toJSON()));
 		}
 		
