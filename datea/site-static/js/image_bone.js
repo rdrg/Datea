@@ -258,10 +258,16 @@ window.Datea.ThumbRow = Backbone.View.extend({
 	
 	start_lightbox: function(ev) {
 		ev.preventDefault();
+		var self = this;
+		var img = parseInt(ev.currentTarget.dataset.order);
+		$('#image-lightbox-'+this.model.get('id')).on('show',function(){
+			if (self.model.get('images').length > 1) {
+				var $carousel = self.$el.find('.carousel');
+				$carousel.carousel({interval: false});
+				self.$el.find('.carousel').carousel(img); 
+			}
+		});
 		$('#image-lightbox-'+this.model.get('id')).lightbox();
-		if (this.model.get('images').length > 1) {
-			this.$el.find('.carousel').carousel(ev.currentTarget.dataset.order); 
-		}
 	}
 	
 });
