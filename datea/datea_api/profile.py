@@ -73,11 +73,12 @@ class UserResource(DateaBaseResource):
         if 'image_large' in bundle.data['profile']:
             del bundle.data['profile']['image_large']
         
-        # keep password!!! -> not to be changed here
-        orig_obj = User.objects.get(pk=bundle.data['id'])
-        bundle.obj.password = orig_obj.password
+        # keep original object fields not in resource!!! -> not to be changed here
+        bundle.obj = User.objects.get(pk=bundle.data['id'])
+        
         # save email
         bundle.obj.email = bundle.data['email']
+        #is staff setting
         
         return bundle
             
