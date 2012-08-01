@@ -39,7 +39,8 @@ window.Datea.CheckMapItemStats = function ($el, model) {
 window.Datea.MapItemFullView = Backbone.View.extend({
 	
 	initialize: function () {
-		this.model.bind('sync', this.render, this);
+		this.model.bind('change', this.change_event, this);
+		this.model.bind('sync', this.change_event, this);
 	},
 	
 	render: function() {
@@ -132,10 +133,16 @@ window.Datea.MapItemFullView = Backbone.View.extend({
 		return this;
 	},
 	
+	change_event: function(ev){
+		this.render();
+		init_share_buttons();
+	},
+	
 	clean_up: function () {
 		this.$el.unbind();
         this.$el.remove();
 	}
+	
 });
 
 

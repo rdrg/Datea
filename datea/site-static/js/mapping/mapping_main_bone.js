@@ -64,13 +64,11 @@ window.Datea.MappingMainView = Backbone.View.extend({
 	
 	render_tab: function(params) {
 		this.sidebar_view.render_tab(params);
-		init_share_buttons();
 	},
 	
 	render_item: function (params) {
 		this.sidebar_view.render_item(params);
 		this.open_popup(params.item_id);
-		init_share_buttons();
 	},
 	
 	create_map_item: function (ev) {
@@ -264,6 +262,8 @@ window.Datea.MappingStartTab = Backbone.View.extend({
 			this.follow_widget = new Datea.FollowWidgetView(data);
 			this.$el.find('.follow-button').html(this.follow_widget.render().el);
 		}
+		
+		init_share_buttons();
 	} 
 	
 });
@@ -368,6 +368,7 @@ window.Datea.MappingMapItemTab = Backbone.View.extend({
 			}); 
 			this.$el.html(this.item_full_view.render().el);
 		}
+		init_share_buttons();
 	},
 	
 	get_page: function (ev) {
