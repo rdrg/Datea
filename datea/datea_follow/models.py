@@ -82,7 +82,7 @@ class DateaNotifySettings(models.Model):
     notice_from_action = models.BooleanField(_('news from actions I joined'), default=True)
     
     def get_absolute_url(self):
-        return '/?edit_profile=notify_settings'
+        return '/#/?edit_profile=notify_settings'
     
     def __unicode__(self):
         return _('notify settings for')+' '+self.user.username
