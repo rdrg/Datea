@@ -61,6 +61,9 @@ urlpatterns = patterns('',
     url(r"png/", include('datea.datea_mapping.urls')),
     
     (r'^jsi18n/$', 'django.views.i18n.javascript_catalog', js_info_dict),
+    
+    #wysiwyg editor
+    (r'^ckeditor/', include('ckeditor.urls')),
 )
 
 
