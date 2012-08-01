@@ -43,6 +43,8 @@ class DateaFollow(models.Model):
         if self.pk == None:
             ctype = ContentType.objects.get(model=self.object_type.lower())
             receiver_obj = ctype.get_object_for_this_type(pk=self.object_id)
+            if hasattr(receiver_obj, 'as_leaf_class'):
+                receiver_obj = receiver_obj.as_leaf_class()
             if hasattr(receiver_obj, 'follow_count'):
                 receiver_obj.follow_count += 1
                 receiver_obj.save()
@@ -53,6 +55,8 @@ class DateaFollow(models.Model):
         # update comment stats on voted object 
         ctype = ContentType.objects.get(model=self.object_type.lower())
         receiver_obj = ctype.get_object_for_this_type(pk=self.object_id)
+        if hasattr(receiver_obj, 'as_leaf_class'):
+            receiver_obj = receiver_obj.as_leaf_class()
         if hasattr(receiver_obj, 'follow_count'):
             receiver_obj.follow_count -= 1
             receiver_obj.save()
@@ -78,7 +82,7 @@ class DateaNotifySettings(models.Model):
     notice_from_action = models.BooleanField(_('news from actions I joined'), default=True)
     
     def get_absolute_url(self):
-        return '/?edit_profile=notify_settings'
+        return '/#/?edit_profile=notify_settings'
     
     def __unicode__(self):
         return _('notify settings for')+' '+self.user.username
@@ -204,7 +208,7 @@ class DateaHistory(models.Model):
             
             #notify_settings = owner.notify_settings
             notify_settings, created = DateaNotifySettings.objects.get_or_create(user=owner)
-        
+            
             if (getattr(owner.notify_settings, 'new_'+context_name)
                 and owner != self.user 
                 and owner.email):
@@ -277,5 +281,9 @@ class DateaHistoryReceiver(models.Model):
 
 from signal_handlers import comment, follow, mapping, vote
     
+comment.connect()
+follow.connect()
+mapping.connect()
+vote.connect()
     
  

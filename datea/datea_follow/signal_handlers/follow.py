@@ -77,7 +77,8 @@ def on_follow_save(sender, instance, created, **kwargs):
 def on_follow_delete(sender, instance, **kwargs):
     key =  instance.object_type.lower()+'.'+str(instance.object_id)+'_dateafollow.'+str(instance.pk)
     DateaHistory.objects.filter(history_key=key).delete()
-    
-post_save.connect(on_follow_save, sender=DateaFollow)
-pre_delete.connect(on_follow_delete, sender=DateaFollow)
+
+def connect():
+    post_save.connect(on_follow_save, sender=DateaFollow)
+    pre_delete.connect(on_follow_delete, sender=DateaFollow)
 

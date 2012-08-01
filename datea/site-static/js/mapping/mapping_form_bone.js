@@ -114,7 +114,7 @@ window.Datea.MappingFormView = Backbone.View.extend({
 						}});
 					},
 					error: function(model,response) {
-						console.log("error")	
+						console.log("error");	
 					}
 			});
 		}

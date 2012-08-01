@@ -9,7 +9,7 @@ from datea.datea_mapping.signals import map_item_response_created, map_item_resp
 # DATEA MAP ITEM Signals 
 def on_map_item_save(sender, instance, created, **kwargs):
     if instance is None: return
-
+  
     follow_key = 'dateaaction.'+str(instance.action.pk)
     history_key = follow_key+'_dateamapitem.'+str(instance.pk)
     
@@ -36,7 +36,6 @@ def on_map_item_save(sender, instance, created, **kwargs):
             history_item = hist_item,
         )
         recv_item.save()
-        
         hist_item.send_mail_to_action_owner('content')
     else:
         # publish or unpublish all DateaHistoryNotice objects 
@@ -52,9 +51,7 @@ def on_map_item_delete(sender, instance, **kwargs):
     DateaHistory.objects.filter(history_key=key).delete()
     # delete follows on this map item
     DateaFollow.objects.filter(follow_key='dateamapitem.'+str(instance.pk)).delete()
-    
-post_save.connect(on_map_item_save, sender=DateaMapItem)
-pre_delete.connect(on_map_item_delete, sender=DateaMapItem)
+
 
 
 # MAP ITEM RESPONSE SIGNALS
@@ -135,7 +132,10 @@ def on_map_item_response_delete(sender, instance, **kwargs):
     key = 'dateaaction.'+str(action.pk)+'_dateamapitemresponse.'+str(instance.pk)
     DateaHistory.objects.filter(history_key=key).delete()
 
-map_item_response_created.connect(on_map_item_response_save, sender=DateaMapItemResponse)
-map_item_response_updated.connect(on_map_item_response_update, sender=DateaMapItemResponse)
-pre_delete.connect(on_map_item_response_delete, sender=DateaMapItemResponse)
+def connect():
+    post_save.connect(on_map_item_save, sender=DateaMapItem)
+    pre_delete.connect(on_map_item_delete, sender=DateaMapItem)
+    map_item_response_created.connect(on_map_item_response_save, sender=DateaMapItemResponse)
+    map_item_response_updated.connect(on_map_item_response_update, sender=DateaMapItemResponse)
+    pre_delete.connect(on_map_item_response_delete, sender=DateaMapItemResponse)
 

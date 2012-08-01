@@ -17,13 +17,22 @@ Datea.AppRouter = Backbone.Router.extend({
        	"mapping/:map_id/:tab_id/:method_id": 'open_mapping_tab',
     },
  
-    home:function () {
-    	//this.open_mapping_tab(hardcode_map_id);
-    	//return;
+    home: function (params) {
+
     	clear_admin_controls();
     	this.my_profile_home_view = new Datea.MyProfileHomeView({model:Datea.my_user});
         $('#main-content-view').html(this.my_profile_home_view.render().el);
         init_share_buttons();
+        
+        if (typeof(params) != 'undefined') {
+        	if (params.edit_profile && params.edit_profile == 'notify_settings') {
+        		if (!Datea.my_user.isNew()) {
+        			Datea.my_user_edit_view.open_window('edit-notifications');
+        		}else{
+        			document.location.href = '/accounts/login/?next=/edit_profile/notify_settings/';
+        		}
+        	}
+        }
     },
     
     fb_login_redirect:function () {

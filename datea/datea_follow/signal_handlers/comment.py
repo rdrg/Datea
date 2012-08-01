@@ -85,7 +85,7 @@ def on_comment_delete(sender, instance, **kwargs):
     key =  instance.object_type.lower()+'.'+str(instance.object_id)+'_dateacomment.'+str(instance.pk)
     DateaHistory.objects.filter(history_key=key).delete()
 
-
-post_save.connect(on_comment_save, sender=DateaComment)
-pre_delete.connect(on_comment_delete, sender=DateaComment)
+def connect():
+    post_save.connect(on_comment_save, sender=DateaComment)
+    pre_delete.connect(on_comment_delete, sender=DateaComment)
 

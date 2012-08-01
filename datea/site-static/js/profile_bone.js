@@ -119,7 +119,7 @@ window.Datea.MyUserEditView = Backbone.View.extend({
 		}
 	},
 	
-	open_window: function () {
+	open_window: function (tab) {
 		Datea.modal_view.set_content(this);
 		Datea.modal_view.open_modal();
 		
@@ -150,6 +150,11 @@ window.Datea.MyUserEditView = Backbone.View.extend({
 			}, 
 		});
 		this.$el.find('.image-input-view').html(this.img_upload_view.render().el);
+		
+		if (typeof(tab) != 'unedfined') {
+    		$('a[href="#'+tab+'"]').tab('show');
+		}
+		
 	},
 });
 

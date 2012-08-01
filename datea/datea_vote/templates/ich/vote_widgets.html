@@ -1,17 +1,14 @@
 {% load i18n verbatim_tag %}
 {% verbatim %}
 <script id="vote_widget_tpl" type="text/html">
-	<div class="icon"></div>
-	<div class="text">
-		<div class="hover-msg"></div>
-		<div class="info">
-			<div class="counter">{{ vote_count }}</div>
-			<div class="info-label">{% trans "supporters" %}</div>
+	<div class="widget-icon"></div>
+	<div class="widget-text">
+		<div class="widget-hover-msg">{{msg}}</div>
+		<div class="widget-info">
+			<div class="widget-counter">{{ vote_count }}</div>
+			<div class="widget-info-label">{% trans "supporters" %}</div>
 		</div>
 	</div>
 </script>
-
-<script id="vote_hover_msg_tpl" type="text/html"><span>{% trans "support this" %} {{ object_name }}</span></script>
-<script id="unvote_hover_msg_tpl" type="text/html"><span>{% trans "already supporting" %}</span></script>
 {% endverbatim %}
 
