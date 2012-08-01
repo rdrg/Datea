@@ -15,30 +15,37 @@
 		
 		<div class="tab-content">
 			<div class="tab-pane active" id="edit-profile">
-				
-				<div class="control-group">
-					<label class="control-label">{% trans 'Full name' %}</label>
-					<div class="controls">
-						<input id="edit-profile-full-name" name="full_name" class="input-text span4" type="text" value="{% verbatim %}{{ profile.full_name }}{% endverbatim %}" /> 
-					</div>
-				</div>
-				
-				<div class="control-group">
-					<label class="control-label">{% trans 'Personal Message' %}</label>
-					<div class="controls">
-						<textarea id="edit-profile-message" name="message" class="autoresize input-text span4" maxlength="140">{% verbatim %}{{ profile.message }}{% endverbatim %}</textarea> 
-					</div>
-				</div>
-				
-				<div class="profile-image">
+				<form id="user-edit-form" class="form">
 					<div class="control-group">
-						<label class="control-label">{% trans 'Image' %}</label>
+						<label class="control-label">{% trans 'Full name' %}</label>
 						<div class="controls">
-							<div class="image-input-view"></div>
+							<input id="edit-profile-full-name" name="full_name" class="input-text span4" type="text" value="{% verbatim %}{{ profile.full_name }}{% endverbatim %}" /> 
 						</div>
 					</div>
-				</div>
-				
+					
+					<div class="control-group required">
+						<label class="control-label">{% trans 'Email' %}</label>
+						<div class="controls">
+							<input id="edit-user-email" name="email" class="input-text span4 validate-email" type="text" value="{% verbatim %}{{ email }}{% endverbatim %}" /> 
+						</div>
+					</div>
+					
+					<div class="control-group">
+						<label class="control-label">{% trans 'Personal Message' %}</label>
+						<div class="controls">
+							<textarea id="edit-profile-message" name="message" class="autoresize input-text span4" maxlength="140">{% verbatim %}{{ profile.message }}{% endverbatim %}</textarea> 
+						</div>
+					</div>
+					
+					<div class="profile-image">
+						<div class="control-group">
+							<label class="control-label">{% trans 'Image' %}</label>
+							<div class="controls">
+								<div class="image-input-view"></div>
+							</div>
+						</div>
+					</div>
+				</form>
 			</div>
 			{% comment %}
 			<div class="tab-pane" id="account">

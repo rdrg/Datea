@@ -65,7 +65,7 @@ class UserResource(DateaBaseResource):
             null=True)
     
     def hydrate(self, bundle):
-         # clean stuff
+        # clean stuff
         if 'image_small' in bundle.data['profile']:
             del bundle.data['profile']['image_small']
         if 'image' in bundle.data['profile']:
@@ -76,6 +76,8 @@ class UserResource(DateaBaseResource):
         # keep password!!! -> not to be changed here
         orig_obj = User.objects.get(pk=bundle.data['id'])
         bundle.obj.password = orig_obj.password
+        # save email
+        bundle.obj.email = bundle.data['email']
         
         return bundle
             

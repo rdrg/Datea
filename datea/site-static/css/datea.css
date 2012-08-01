@@ -516,6 +516,11 @@ textarea.autoresize.double {
   color: #999999;
 }
 
+.form .control-group.error .error-block,
+.form-horizontal .control-group.error .error-block {
+  color: #b94a48;
+}
+
 #registration p.desc {
   font-size: 15px;
 }

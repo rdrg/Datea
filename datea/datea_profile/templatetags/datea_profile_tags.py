@@ -45,6 +45,7 @@ def get_user_resource(context):
         user_bundle = user_rsc.full_dehydrate(user_bundle)
         if request.user.is_staff:
             user_bundle.data['is_staff'] = True
+        user_bundle.data['email'] = request.user.email
         
         user_json = user_rsc.serialize(None, user_bundle, 'application/json')
         

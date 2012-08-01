@@ -80,23 +80,26 @@ window.Datea.MyUserEditView = Backbone.View.extend({
 	
 	save_action: function() {
 		
-		Datea.show_big_loading(this.$el);
 		var self = this;
 		if (this.save_mode == 'profile') {
-			var profile = new Datea.Profile(this.model.get('profile'));
-			profile.set({
-				'full_name': $('[name="full_name"]', this.$el).val(),
-				'message': $('[name="message"]', this.$el).val(),
-			});
-			this.model.set({
-				'profile': profile.toJSON(),
-			});
-			this.model.save({
-				success: function (model, response) {
-					Datea.hide_big_loading(self.$el);
-				}
-			});
+			if (Datea.controls_validate(this.$el.find('#user-edit-form'))) {
+				Datea.show_big_loading(this.$el);
+				var profile = new Datea.Profile(this.model.get('profile'));
+				profile.set({
+					'full_name': $('[name="full_name"]', this.$el).val(),
+					'message': $('[name="message"]', this.$el).val(),
+				});
+				this.model.save({
+					'profile': profile.toJSON(),
+					'email': $('[name="email"]', this.$el).val()
+					}, {
+					success: function (model, response) {
+						Datea.hide_big_loading(self.$el);
+					}
+				});
+			}
 		}else if (this.save_mode == 'notify_settings') {
+			Datea.show_big_loading(this.$el);
 			var set = {};
 			$('#notify-settings-form input[type="checkbox"]').each(function (){
 				set[$(this).attr('name')] = $(this).is(':checked');
