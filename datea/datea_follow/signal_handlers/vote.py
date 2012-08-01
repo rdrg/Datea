@@ -82,6 +82,7 @@ def on_vote_save(sender, instance, created, **kwargs):
 def on_vote_delete(sender, instance, **kwargs):
     key =  instance.object_type.lower()+'.'+str(instance.object_id)+'_dateavote.'+str(instance.pk)
     DateaHistory.objects.filter(history_key=key).delete()
-        
-post_save.connect(on_vote_save, sender=DateaVote)
-pre_delete.connect(on_vote_delete, sender=DateaVote)
+
+def connect():        
+    post_save.connect(on_vote_save, sender=DateaVote)
+    pre_delete.connect(on_vote_delete, sender=DateaVote)

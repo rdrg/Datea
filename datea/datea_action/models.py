@@ -64,7 +64,6 @@ class DateaAction(models.Model):
         return self.name
     
     def save(self, *args, **kwargs):
-        print "SAVE"
         if(not self.content_type):
             self.content_type = ContentType.objects.get_for_model(self.__class__)
             super(DateaAction, self).save(*args, **kwargs)

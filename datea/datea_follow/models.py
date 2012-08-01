@@ -208,7 +208,7 @@ class DateaHistory(models.Model):
             
             #notify_settings = owner.notify_settings
             notify_settings, created = DateaNotifySettings.objects.get_or_create(user=owner)
-        
+            
             if (getattr(owner.notify_settings, 'new_'+context_name)
                 and owner != self.user 
                 and owner.email):
@@ -281,5 +281,9 @@ class DateaHistoryReceiver(models.Model):
 
 from signal_handlers import comment, follow, mapping, vote
     
+comment.connect()
+follow.connect()
+mapping.connect()
+vote.connect()
     
  

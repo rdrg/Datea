@@ -1329,6 +1329,25 @@ a:hover span.caret2 {
   display: none;
 }
 
+.map-item .status {
+  display: block;
+  float: right;
+  width: 22px;
+  height: 23px;
+}
+
+.map-item .status-new {
+  display: none;
+}
+
+.map-item .status-reviewed {
+  background: url(../img/datea/dateo_estados.png) no-repeat -22px top;
+}
+
+.map-item .status-solved {
+  background: url(../img/datea/dateo_estados.png) no-repeat -44px top;
+}
+
 .map-item.popup {
   position: relative;
   min-width: 220px;
