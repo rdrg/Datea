@@ -7,6 +7,7 @@ distribute==0.6.24
 django-appconf==0.5
 django-bootstrap-toolkit==2.5.3
 django-compressor==1.1.2
+django-ckeditor==3.6.2.1
 django-debug-toolbar==0.9.4
 django-extensions==0.8
 -e git://github.com/sehmaschine/django-grappelli.git@233f27746cee5cf17dc5c770e763a72c35bdc790#egg=django_grappelli-dev
