@@ -38,53 +38,54 @@ a {
 	display: inline-block;
 	.ie7-inline-block();
 	
-	.icon {
+	.widget-icon {
 		display: block;
 		float: left;
 	}
 	
-	.text {
+	.widget-text {
 		display: block;
 		float: left;
 	}
 	
-	.hover-msg {
+	.widget-hover-msg {
 		display: none;
 	}
 	
 	&.force-hover {
-		.hover-msg { display: block;}
-		.info { display: none;}
+		.widget-hover-msg { display: block;}
+		.widget-info { display: none;}
 	}
 	
 	&:hover {
-		.hover-msg { display:block;}
-		.info { display: none }
+		.widget-hover-msg { display:block;}
+		.widget-info { display: none }
 	}
 	
 	&.after-click {
-		.hover-msg { display: none}
-		.info {display:block}
+		.widget-hover-msg { display: none}
+		.widget-info {display:block}
 	}
 }
 
 .datea_widget_small_base() {
-	.icon {
+	.widget-icon {
 		width: 23px;
 		height: 24px;
 	}
-	.text {
+	.widget-text {
 		width: 60px;
 		height: @baseLineHeight +  @baseLineHeight - 8px;
 		padding-left: 5px;
-		.hover-msg {
+		.widget-hover-msg {
 			font-size: @baseFontSize - 2px;
 			line-height: @baseLineHeight - 5px;
 		}
-		.info {
+		.widget-info {
 			line-height: @baseLineHeight - 4px;
+			margin:0px;
 			.counter {padding-left:5px; }
-			.info-label {
+			.widget-info-label {
 				font-size: @baseFontSize - 2px;
 			}
 		}
@@ -96,18 +97,27 @@ a {
 	.datea_widget_base();
 	.datea_widget_small_base();
 	
-	.icon { background: url(../img/datea/widgets_icons_small.png) no-repeat 0px center; }
+	.widget-icon { background: url(../img/datea/widgets_icons_small.png) no-repeat 0px center; }
 	
-	&:hover .icon { background: url(../img/datea/widgets_icons_small.png) no-repeat -23px center; }
+	&:hover .widget-icon { background: url(../img/datea/widgets_icons_small.png) no-repeat -23px center; }
 	
 	&.active {
-		.icon { background: url(../img/datea/widgets_icons_small.png) no-repeat -46px center; }
-		&:hover .icon { background: url(../img/datea/widgets_icons_small.png) no-repeat -69px center; }
+		.widget-icon { background: url(../img/datea/widgets_icons_small.png) no-repeat -46px center; }
+		&:hover .widget-icon { background: url(../img/datea/widgets_icons_small.png) no-repeat -69px center; }
 	}
 	
 	&.after-click {
-		.icon { background: url(../img/datea/widgets_icons_small.png) no-repeat 0px center; }
-		&.active .icon { background: url(../img/datea/widgets_icons_small.png) no-repeat -46px center; }
+		.widget-icon { background: url(../img/datea/widgets_icons_small.png) no-repeat 0px center; }
+		&.active .widget-icon { background: url(../img/datea/widgets_icons_small.png) no-repeat -46px center; }
+	}
+	
+	&.read-only {
+		cursor: default;
+		.widget-icon, &:hover .widget-icon { background: url(../img/datea/widgets_icons_small.png) no-repeat 0px center; }
+		&.active {
+			.widget-icon { background: url(../img/datea/widgets_icons_small.png) no-repeat -23px center; }
+			&:hover .widget-icon { background: url(../img/datea/widgets_icons_small.png) no-repeat -23px center; }
+		}
 	}
 }
 
@@ -115,47 +125,46 @@ a {
 	cursor: pointer;
 	width: 18px;
 	a { width: 18px; display: inline-block; .ie7-inline-block(); &:hover {text-decoration: none}}
-	.icon {
+	.widget-icon {
 		width: 18px;
 		height: 18px;
 		background: url(../img/datea/seguir_estados.png) no-repeat -18px center;
 	}
 	
 	/*
-	&:hover .icon {
+	&:hover .widget-icon {
 		background: url(../img/datea/seguir_estados.png) no-repeat 0px center;
 	}*/
 	
 	&.active {
-		.icon {
+		.widget-icon {
 			background: url(../img/datea/seguir_estados.png) no-repeat 0px center;
 		}
-		&:hover .icon { background: url(../img/datea/seguir_estados.png) no-repeat -36px center; }
+		&:hover .widget-icon { background: url(../img/datea/seguir_estados.png) no-repeat -36px center; }
 	}
 	
 	&.after-click {
-		.icon { background: url(../img/datea/seguir_estados.png) no-repeat -18px center; }
-		&.active .icon { background: url(../img/datea/seguir_estados.png) no-repeat 0px center; }
+		.widget-icon { background: url(../img/datea/seguir_estados.png) no-repeat -18px center; }
+		&.active .widget-icon { background: url(../img/datea/seguir_estados.png) no-repeat 0px center; }
 	}
 }
 
 
-
-.vote-widget.small {
+.vote-widget.full-small {
 	.datea_widget_base();
 	.datea_widget_small_base();
 	
-	.icon { background: url(../img/datea/widgets_icons_small.png) no-repeat -92px center; }
+	.widget-icon { background: url(../img/datea/widgets_icons_small.png) no-repeat -92px center; }
 	
-	&:hover .icon { background: url(../img/datea/widgets_icons_small.png) no-repeat -115px center; }
+	&:hover .widget-icon { background: url(../img/datea/widgets_icons_small.png) no-repeat -115px center; }
 	
 	&.active {
-		.icon { background: url(../img/datea/widgets_icons_small.png) no-repeat -138px center; }
-		&:hover .icon { background: url(../img/datea/widgets_icons_small.png) no-repeat -138px center; }
+		.widget-icon { background: url(../img/datea/widgets_icons_small.png) no-repeat -138px center; }
+		&:hover .widget-icon { background: url(../img/datea/widgets_icons_small.png) no-repeat -138px center; }
 	}
 	
 	&.after-click {
-		.icon { background: url(../img/datea/widgets_icons_small.png) no-repeat -115px center; }
-		&.active .icon { background: url(../img/datea/widgets_icons_small.png) no-repeat -138px center; }
+		.widget-icon { background: url(../img/datea/widgets_icons_small.png) no-repeat -115px center; }
+		&.active .widget-icon { background: url(../img/datea/widgets_icons_small.png) no-repeat -138px center; }
 	}
 }

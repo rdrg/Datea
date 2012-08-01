@@ -12,37 +12,48 @@
 	.action-item {
 		margin-right: 15px;
 		.dotted-inner;
-		padding-top:10px;
-		padding-bottom:10px;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		padding-left: 15px;
+		padding-right: 15px;
 		
-		.teaser-image {
-			float: left;
-		}
-		.teaser-content {
-			h3 a {
-				color: @grayTextDark;
-				&:hover {
-					color: @green;
-					text-decoration: none;
-				}
-			}
-			.right-corner {
-				div { float:left}
-				.follow-button {
-					margin-right: 10px;
-				}
-			}
+		.action-teaser {
+			.clearfix();
 			
-			.description {
-				margin-bottom: 10px;
+			.teaser-image {
+				display: block;
+				float:left;
 			}
-			.footer {
-				.stats {
-					padding-top: 10px;
-					font-size: @baseFontSize - 2px;
-					.separator:last-child { display:none;}
+			.teaser-content {
+				&.with-image {
+					margin-left: 120px;
 				}
-				.clearfix();
+				
+				h3 a {
+					color: @grayTextDark;
+					&:hover {
+						color: @green;
+						text-decoration: none;
+					}
+				}
+				.right-corner {
+					div { float:left}
+					.follow-button {
+						margin-right: 10px;
+					}
+				}
+				
+				.description {
+					margin-bottom: 10px;
+				}
+				.footer {
+					.stats {
+						padding-top: 10px;
+						font-size: @baseFontSize - 2px;
+						.separator:last-child { display:none;}
+					}
+					.clearfix();
+				}
 			}
 		}
 	}

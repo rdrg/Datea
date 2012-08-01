@@ -39,7 +39,7 @@ window.Datea.ActionListItemView = Backbone.View.extend({
   		this.$el.html(ich.action_list_item_tpl(this.model.toJSON()));
   
   		// follow widget
-  		if (!Datea.my_user.isNew()) {
+  		if (!Datea.my_user.isNew() && Datea.my_user.get('resource_uri') != this.model.get('user')) {
 			this.follow_widget = new Datea.FollowWidgetView({
 				object_type: 'dateaaction',
 				object_id: this.model.get('id'),
@@ -119,7 +119,7 @@ window.Datea.ActionListView = Backbone.View.extend({
     render_filter: function() {
     	this.build_filter_options();
     	var self = this;
-    	//console.log(this.selected_mode);
+    	
 		this.action_filter = new Datea.DropdownSelect({
 			options: this.filter_options,
 			div_class: 'no-bg',

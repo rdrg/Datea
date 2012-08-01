@@ -49,7 +49,7 @@ window.Datea.FollowWidgetView = Backbone.View.extend({
 		this.followed_model = this.options.followed_model;
 		//this.model.bind('sync', this.sync, this);
 		this.$el.addClass(this.options.style);
-		
+		if (this.options.read_only) this.$el.addClass('read-only');
 	},
 	
 	events: {
@@ -62,9 +62,12 @@ window.Datea.FollowWidgetView = Backbone.View.extend({
 		context.follow_count = this.followed_model.get('follow_count');
 		if (this.model.isNew()) {
 			context.msg = gettext('follow this')+ ' ' + this.options.object_name;
+		}else if (this.options.read_only) {
+			context.msg = gettext('no followers yet');
 		}else{
 			context.msg = gettext('stop following');
 		}
+		if (this.options.is_own) context.follow_count--; 
 		this.$el.html( ich['follow_widget_'+this.options.type+'_tpl'](context));
 
 		if (!this.model.isNew()) {
@@ -85,7 +88,12 @@ window.Datea.FollowWidgetView = Backbone.View.extend({
 	follow: function(ev) {
 		ev.preventDefault();
 		
+		if (this.options.read_only) return;
+		
 		Datea.show_small_loading(this.$el);
+		
+		var set_options = {}
+		if (this.options.silent) set_options.silent = true; 
 		
 		if (this.model.isNew()) {
 			var self = this;
@@ -95,7 +103,7 @@ window.Datea.FollowWidgetView = Backbone.View.extend({
 				}
 			});
 			Datea.my_user_follows.add(this.model);
-			this.followed_model.set('follow_count', this.followed_model.get('follow_count') + 1);
+			this.followed_model.set('follow_count', this.followed_model.get('follow_count') + 1, set_options);
 		}else {
 			Datea.my_user_follows.remove(this.model);
 			this.model.destroy();
@@ -104,7 +112,7 @@ window.Datea.FollowWidgetView = Backbone.View.extend({
 				object_id: this.model.get('object_id'),
 				follow_key: this.model.get('follow_key'),
 			});
-			this.followed_model.set('follow_count', this.followed_model.get('follow_count') - 1);
+			this.followed_model.set('follow_count', this.followed_model.get('follow_count') - 1, set_options);
 			this.render();
 		}
 		this.$el.addClass('after-click');

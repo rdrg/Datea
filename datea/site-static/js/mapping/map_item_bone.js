@@ -120,22 +120,12 @@ window.Datea.MapItemFullView = Backbone.View.extend({
 		
 		
 		// VOTE WIDGET
-		var id = this.model.get('id');
-		if (Datea.my_user_votes) {
-			var vote = Datea.my_user_votes.find(function(item){
-				return item.get('object_type') == 'dateamapitem' && item.get('object_id') == id;
-			});
-		}
-		if (typeof(vote) == 'undefined') {
-			vote = new Datea.Vote({
-				object_type: 'dateamapitem',
-				object_id: this.model.get('id'),
-			});
-		}
 		this.vote_widget = new Datea.VoteWidgetView({
-			model: vote,
+			object_type: 'dateamapitem',
+			object_id: this.model.get('id'),
+			object_name: gettext('report'),
 			voted_model: this.model,
-			size: 'small' 
+			style: 'full-small' 
 		});
 		$widgets.append(this.vote_widget.render().el);
 		

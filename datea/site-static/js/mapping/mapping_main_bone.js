@@ -245,6 +245,25 @@ window.Datea.MappingStartTab = Backbone.View.extend({
 		context.full_url = get_base_url() + this.model.get('url');
 		context.tweet_text = this.model.get('short_description');
 		this.$el.html( ich.mapping_tab_start_tpl(context));
+		
+		// follow widget
+  		if (!Datea.my_user.isNew()) {
+  			var data = {
+  				object_type: 'dateaaction',
+				object_id: this.model.get('id'),
+				object_name: gettext('action'),
+				followed_model: this.model,
+				silent: true,
+				type: 'full',
+				style: 'full-small', 
+  			}
+  			if (Datea.my_user.get('id') == this.model.get('user').id) {
+  				data.read_only = true;
+  				data.is_own = true;
+  			}
+			this.follow_widget = new Datea.FollowWidgetView(data);
+			this.$el.find('.follow-button').html(this.follow_widget.render().el);
+		}
 	} 
 	
 });

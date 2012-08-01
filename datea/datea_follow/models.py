@@ -43,6 +43,8 @@ class DateaFollow(models.Model):
         if self.pk == None:
             ctype = ContentType.objects.get(model=self.object_type.lower())
             receiver_obj = ctype.get_object_for_this_type(pk=self.object_id)
+            if hasattr(receiver_obj, 'as_leaf_class'):
+                receiver_obj = receiver_obj.as_leaf_class()
             if hasattr(receiver_obj, 'follow_count'):
                 receiver_obj.follow_count += 1
                 receiver_obj.save()
@@ -53,6 +55,8 @@ class DateaFollow(models.Model):
         # update comment stats on voted object 
         ctype = ContentType.objects.get(model=self.object_type.lower())
         receiver_obj = ctype.get_object_for_this_type(pk=self.object_id)
+        if hasattr(receiver_obj, 'as_leaf_class'):
+            receiver_obj = receiver_obj.as_leaf_class()
         if hasattr(receiver_obj, 'follow_count'):
             receiver_obj.follow_count -= 1
             receiver_obj.save()
