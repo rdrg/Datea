@@ -126,6 +126,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.media',
     'django.core.context_processors.static',
     'django.core.context_processors.request',
+    'datea.datea_menu.context_processors.menu_items',
 )
 
 ROOT_URLCONF = 'datea.urls'
@@ -186,6 +187,7 @@ INSTALLED_APPS = (
     'datea.datea_follow',
     'datea.datea_api',
     'datea.datea_comment',
+    'datea.datea_menu',
 )
 
 # A sample logging configuration. The only tangible logging
@@ -279,6 +281,7 @@ CACHES = {
     }
 }
 
+#Ckeditor settings
 CKEDITOR_UPLOAD_PATH = os.path.join(MEDIA_ROOT, 'uploads')
 CKEDITOR_CONFIGS = {
     'default': {
