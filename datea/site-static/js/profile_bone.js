@@ -200,7 +200,7 @@ window.Datea.MyProfileHomeView = Backbone.View.extend({
 	
 	tagName: 'div',
 	
-	render: function (eventName) {
+	render: function (ev) {
 		// set base template
 		this.$el.html( ich.fix_base_content_split_tpl({'class':'dotted-bg'}));
 		
@@ -210,10 +210,31 @@ window.Datea.MyProfileHomeView = Backbone.View.extend({
 		
 		// ACTIONS
 		this.$el.find('#right-content').html(
-			new Datea.ActionListView().render().el
+			new Datea.MyActionListView().render().el
 		);
 		return this;
 	},	
+});
+
+
+window.Datea.ProfileView = Backbone.View.extend({
+	
+	tagName: 'div',
+	
+	render: function (ev) {
+		
+		this.$el.html( ich.fix_base_content_split_tpl({'class':'dotted-bg'}));
+		
+		// profile data -> left
+		this.$el.find('#left-content').html(ich.my_profile_tpl(this.model.toJSON()));
+		
+		// action data -> right
+		// ACTIONS
+		this.$el.find('#right-content').html(
+			new Datea.ProfileActionListView({user_model: this.model}).render().el
+		);
+		return this;
+	}	
 });
 
 

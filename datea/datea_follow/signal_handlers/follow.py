@@ -21,7 +21,8 @@ def on_follow_save(sender, instance, created, **kwargs):
                         acting_obj=instance,
                         follow_key = follow_key,
                         history_key = history_key,
-                        history_type = 'follow',
+                        sender_type = 'follow',
+                        receiver_type = receiver_obj.get_api_name(mode='base'),
                     )
         
         if hasattr(receiver_obj, 'action'): 
@@ -52,7 +53,8 @@ def on_follow_save(sender, instance, created, **kwargs):
                         acting_obj=instance,
                         follow_key = action_follow_key,
                         history_key = history_key,
-                        history_type = 'follow',
+                        sender_type = 'follow',
+                        receiver_type = receiver_obj.get_api_name(mode='base'),
                         action = action
                     )
             action_hist_item.save()

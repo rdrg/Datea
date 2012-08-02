@@ -64,6 +64,10 @@ class UserResource(DateaBaseResource):
             full=True,
             null=True)
     
+    def dehydrate(self, bundle):
+        bundle.data['url'] = bundle.obj.profile.get_absolute_url()
+        return bundle
+    
     def hydrate(self, bundle):
         # clean stuff
         if 'image_small' in bundle.data['profile']:

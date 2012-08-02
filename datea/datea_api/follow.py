@@ -11,12 +11,9 @@ class FollowResource(DateaBaseResource):
     #        attribute='user', full=False, readonly=True)
     
     def hydrate(self,bundle):
-            
         if bundle.request.method == 'POST':
             bundle.obj.user = bundle.request.user  
-            
         return bundle
-     
      
     class Meta:
         queryset = DateaFollow.objects.all()
@@ -41,13 +38,14 @@ class HistoryResource(DateaBaseResource):
     
     def dehydrate(self, bundle):
         bundle.data['username'] = bundle.obj.user.username
+        bundle.data['user_url'] = bundle.obj.user.profile.get_absolute_url()
         return bundle
     
     class Meta:
         queryset= DateaHistory.objects.all()
         resource_name= 'history'
         allowed_methods = ['get']
-        exclude = ['receiver_id', 'acting_id']
+        excludes = ['receiver_id', 'acting_id']
         filtering = {
                      'id': ['exact'],
                      'user': ALL_WITH_RELATIONS,
@@ -75,7 +73,6 @@ class HistoryReceiverResource(DateaBaseResource):
 class NotifySettingsResource(DateaBaseResource):
     
     def hydrate(self,bundle):
-        
         if bundle.request.method == 'PUT':
             #preserve original owner
             orig_object = DateaNotifySettings.objects.get(pk=bundle.data['id'])

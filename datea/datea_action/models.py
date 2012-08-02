@@ -60,6 +60,9 @@ class DateaAction(models.Model):
     def get_absolute_url(self):
         return '/'+self.action_type+'/'+str(self.pk)
     
+    def get_api_name(self,mode=None):
+        return 'action'
+    
     def __unicode__(self):
         return self.name
     
