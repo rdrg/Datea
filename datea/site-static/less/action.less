@@ -1,16 +1,23 @@
 
 #action-control {
-	.dotted-inner;
-	background-color: #e2e2dd;
-	padding-top:5px;
-	padding-bottom:5px;
+	background-color: @verde;
+	padding: 5px 15px;
+	margin-top: 18px;
+	.border-radius(10px);
+	color: white;
+	.filters {
+		.btn-dropdown-select {
+			color: white;
+			font-size: @baseFontSize + 2px;
+			font-weight: bold;
+		}
+	}
 }
 
 #action-list {
 	margin-left: 0px;
 	
 	.action-item {
-		margin-right: 15px;
 		.dotted-inner;
 		padding-top: 10px;
 		padding-bottom: 10px;

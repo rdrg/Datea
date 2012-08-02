@@ -202,7 +202,7 @@ window.Datea.MyProfileHomeView = Backbone.View.extend({
 	
 	render: function (ev) {
 		// set base template
-		this.$el.html( ich.fix_base_content_split_tpl({'class':'dotted-bg'}));
+		this.$el.html( ich.fix_base_content_split_tpl({dotted_bg:true}));
 		
 		this.$el.find('#left-content').html( 
 			new Datea.MyProfileBoxView({ model: Datea.my_user }).render().el 
@@ -228,7 +228,7 @@ window.Datea.ProfileView = Backbone.View.extend({
 	
 	render: function (ev) {
 		
-		this.$el.html( ich.fix_base_content_split_tpl({'class':'dotted-bg'}));
+		this.$el.html( ich.fix_base_content_split_tpl({dotted_bg:true}));
 		
 		// profile data -> left
 		this.$el.find('#left-content').html(ich.my_profile_tpl(this.model.toJSON()));

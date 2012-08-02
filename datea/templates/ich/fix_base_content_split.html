@@ -1,9 +1,11 @@
 {% load verbatim_tag %}
 {% verbatim %}
 <script id="fix_base_content_split_tpl" type="text/html">
-<div class="row {{class}}" id="{{ content_id }}">
-	<div id="left-content" class="span6"></div>
-	<div id="right-content" class="span6"></div>
+<div class="row {{#class}} {{class}}{{/class}}" id="{{ content_id }}">
+	{{#dotted_bg}}<div class="span12 dotted-bg-container"><div class="dotted-bg">&nbsp;</div><div class="row">{{/dotted_bg}}
+			<div id="left-content" class="span6"></div>
+			<div id="right-content" class="span6"></div>
+	{{#dotted_bg}}</div></div>{{/dotted_bg}}
 </div>
 </script>
 {% endverbatim %}
