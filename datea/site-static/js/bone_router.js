@@ -9,6 +9,8 @@ Datea.AppRouter = Backbone.Router.extend({
         "action/start": "action_start",
         "action/create/:action_type": "action_create",
         
+        "user/:user_id/": "open_user_profile",
+        
         "mapping/:map_id": 'open_mapping_tab',
         "mapping/:map_id/edit": 'open_mapping_edit',
         "mapping/:map_id/admin": 'open_mapping_admin',
@@ -16,6 +18,8 @@ Datea.AppRouter = Backbone.Router.extend({
         "mapping/:map_id/reports/item:report_id": 'open_mapping_item',
        	"mapping/:map_id/:tab_id/:method_id": 'open_mapping_tab',
     },
+ 
+ 	/////////////////////////////  HOME ///////////////////////////////
  
     home: function (params) {
 
@@ -40,6 +44,8 @@ Datea.AppRouter = Backbone.Router.extend({
     	this.navigate('/');
     },
     
+    /////////////////////////////// ACTIONS /////////////////////////////////
+    
     // new action homeview -> select which action type to create
     action_start: function () {
     	clear_admin_controls();
@@ -56,6 +62,27 @@ Datea.AppRouter = Backbone.Router.extend({
     		this.mapping.attach_map();
     	}	
     },
+    
+    //////////////////////// PROFILES ////////////////////////////////
+    
+    open_user_profile: function (user_id) {
+
+    	if (!Datea.my_user.isNew() && user_id == Datea.my_user.get('id')) {
+    		this.navigate('/', {trigger: true});
+    	}else{
+    		clear_admin_controls();
+    		var user = new Datea.User({id: user_id});
+    		var profile_view = new Datea.ProfileView({model: user});
+    		user.fetch({
+    			success: function (model, response) {
+    				$('#main-content-view').html(profile_view.render().el);
+    				init_share_buttons();
+	        	}
+	        });
+    	}
+    },
+    
+    ///////////////////////  MAPPING ////////////////////////////////
     
     // open a mapping tab on the mapping action
     open_mapping_tab: function(map_id, tab_id, method_id) {

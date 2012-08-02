@@ -106,13 +106,14 @@ class DateaHistory(models.Model):
     #title = models.TextField(_('Title'), blank=True, null=True)
     extract = models.TextField(_('Extract'), blank=True, null=True)
     
-    history_type = models.CharField(max_length=50)
+    sender_type = models.CharField(max_length=50)
+    receiver_type = models.CharField(max_length=50)
     
     # generic content type relation to the object which receives an action:
     # for example: the content which receives a vote
-    #receiver_type = models.ForeignKey(ContentType, null=True, blank=True, related_name="receiver_types")
-    #receiver_id = models.PositiveIntegerField(null=True, blank=True)
-    #receiver_obj = generic.GenericForeignKey('receiver_type', 'receiver_id')
+    # receiver_type = models.ForeignKey(ContentType, null=True, blank=True, related_name="receiver_types")
+    # receiver_id = models.PositiveIntegerField(null=True, blank=True)
+    # receiver_obj = generic.GenericForeignKey('receiver_type', 'receiver_id')
     
     # generic content type relation to the acting object, for example a "comment"
     acting_type = models.ForeignKey(ContentType, null=True, blank=True, related_name="acting_types")

@@ -58,6 +58,9 @@ class DateaProfile(models.Model):
         verbose_name = _("Profile")
         verbose_name_plural = _("Profiles")
         
+    def get_absolute_url(self):
+        return '/user/'+str(self.pk)+'/'
+        
     def __unicode__(self):
         name = ''
         if self.full_name != None:

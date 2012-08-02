@@ -1,0 +1,56 @@
+
+.history-view-container {
+	margin-top:10px;
+	border-top: 1px solid #9d9d9d
+}
+
+
+.history-view {
+	
+	.filter {
+		float: right;
+	}
+	
+	h3 {
+		font-size: @baseFontSize + 2px;
+	}
+	
+	.history-item {
+		padding: 12px 0;
+		border-bottom: 1px dashed #a3a3a3;
+		&:last-child { border-bottom: 0}
+		
+		.item-row {
+			display: table-row;
+			
+			.item-image {
+				padding-top: 4px;
+				display:table-cell;
+				width: 42px;
+				padding-right: 12px;
+				vertical-align: top;
+			}
+			.item-content {
+				display: table-cell;
+				vertical-align: top;
+				.item-date { 
+					font-size: @baseFontSize - 3px;
+					line-height: @baseLineHeight - 5px;
+					color: @grayLight;
+				}
+				
+				.item-extract {
+					padding:5px 0 5px 0;
+				}
+				.more-link {
+					margin-top:10px;
+				}
+			}
+		}
+	}
+	
+	.item-pager {
+		margin-top:10px;
+		.clearfix();
+	}
+}

@@ -14,14 +14,18 @@ def on_follow_save(sender, instance, created, **kwargs):
     follow_key = ctype.model+'.'+str(receiver_obj.pk)
     history_key = follow_key+'_dateafollow.'+str(instance.pk)
     
-    if created:
+    if created and instance.user != receiver_obj.user:
         # create notice on commented object
+        
+        recv_type = receiver_obj.get_api_name(mode='base')
+        
         hist_item = DateaHistory(
                         user=instance.user, 
                         acting_obj=instance,
                         follow_key = follow_key,
                         history_key = history_key,
-                        history_type = 'follow',
+                        sender_type = 'follow',
+                        receiver_type = recv_type,
                     )
         
         if hasattr(receiver_obj, 'action'): 
@@ -30,9 +34,14 @@ def on_follow_save(sender, instance, created, **kwargs):
         hist_item.save()
         
         # create receiver item
+        if recv_type == 'action':
+            recv_name = receiver_obj.name
+        else:
+            recv_name = receiver_obj.user.username
+        
         recv_item = DateaHistoryReceiver(
             user = receiver_obj.user,
-            name = receiver_obj.user.username,
+            name = recv_name,
             url = receiver_obj.get_absolute_url(),
             content_obj = receiver_obj,
             history_item = hist_item,
@@ -52,7 +61,8 @@ def on_follow_save(sender, instance, created, **kwargs):
                         acting_obj=instance,
                         follow_key = action_follow_key,
                         history_key = history_key,
-                        history_type = 'follow',
+                        sender_type = 'follow',
+                        receiver_type = receiver_obj.get_api_name(mode='base'),
                         action = action
                     )
             action_hist_item.save()
@@ -60,7 +70,7 @@ def on_follow_save(sender, instance, created, **kwargs):
             # create receiver item
             recv_item = DateaHistoryReceiver(
                 user = receiver_obj.user,
-                name = receiver_obj.user.username,
+                name = recv_name,
                 url = receiver_obj.get_absolute_url(),
                 content_obj = receiver_obj,
                 history_item = action_hist_item,

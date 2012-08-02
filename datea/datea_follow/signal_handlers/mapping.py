@@ -20,7 +20,8 @@ def on_map_item_save(sender, instance, created, **kwargs):
                         acting_obj=instance,
                         follow_key = follow_key,
                         history_key = history_key,
-                        history_type = 'map_item',
+                        sender_type = 'map_item',
+                        receiver_type = 'action',
                         action = instance.action
                     )
         
@@ -72,7 +73,8 @@ def on_map_item_response_save(sender, instance, **kwargs):
                 acting_obj=instance,
                 follow_key = follow_key,
                 history_key = history_key,
-                history_type = 'mapitemresponse',
+                sender_type = 'map_item_response',
+                receiver_type = 'map_item',
                 action = action
             )
         hist_item.generate_extract('dateamapitemresponse', instance)       
@@ -99,7 +101,8 @@ def on_map_item_response_save(sender, instance, **kwargs):
                 acting_obj=instance,
                 follow_key = action_follow_key,
                 history_key = history_key,
-                history_type = 'mapitemresponse',
+                sender_type = 'map_item_response',
+                receiver_type = 'map_item',
                 action = action
             )
     action_hist_item.generate_extract('dateamapitemresponse', instance)

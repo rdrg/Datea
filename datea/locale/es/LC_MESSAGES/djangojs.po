@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-07-28 12:39-0500\n"
+"POT-Creation-Date: 2012-08-02 07:01-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,88 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+#: site-static/js/action_bone.js:46
+#: site-static/js/mapping/mapping_main_bone.js:252
+msgid "action"
+msgstr ""
+
+#: site-static/js/action_bone.js:99
+msgid "my actions"
+msgstr ""
+
+#: site-static/js/action_bone.js:104
+msgid "actions created"
+msgstr ""
+
+#: site-static/js/action_bone.js:107
+msgid "featured actions"
+msgstr ""
+
+#: site-static/js/action_bone.js:108
+msgid "all actions"
+msgstr ""
+
+#: site-static/js/action_bone.js:256
+msgid "actions"
+msgstr ""
+
+#: site-static/js/action_bone.js:260
+msgid "created actions"
+msgstr ""
+
+#: site-static/js/follow_bone.js:64
+msgid "follow this"
+msgstr ""
+
+#: site-static/js/follow_bone.js:66
+msgid "no followers yet"
+msgstr ""
+
+#: site-static/js/follow_bone.js:68
+msgid "stop following"
+msgstr ""
+
+#: site-static/js/history_bone.js:74
+msgid "my"
+msgstr ""
+
+#: site-static/js/history_bone.js:80
+msgid "combined view"
+msgstr ""
+
+#: site-static/js/history_bone.js:81
+msgid "contributions"
+msgstr ""
+
+#: site-static/js/history_bone.js:82
+msgid "comments"
+msgstr ""
+
+#: site-static/js/history_bone.js:83
+msgid "supports"
+msgstr ""
+
+#: site-static/js/main_bone.js:44
+msgid "Please enter a valid email address."
+msgstr ""
+
+#: site-static/js/profile_bone.js:178
+msgid "Datea, a platform to activate and channel community engagements."
+msgstr ""
+
+#: site-static/js/vote_bone.js:53
+msgid "support this"
+msgstr ""
+
+#: site-static/js/vote_bone.js:55
+msgid "already supporting"
+msgstr ""
+
+#: site-static/js/mapping/map_item_bone.js:115
+#: site-static/js/mapping/map_item_bone.js:127
+msgid "report"
+msgstr ""
 
 #: site-static/js/mapping/map_item_form_bone.js:31
 #: site-static/js/mapping/mapping_form_bone.js:27
@@ -80,10 +162,23 @@ msgstr "última semana"
 msgid "last month"
 msgstr "último mes"
 
-#: site-static/js/mapping/mapping_form_bone.js:128
+#: site-static/js/mapping/mapping_form_bone.js:145
 msgid "Center"
 msgstr "Centro"
 
-#: site-static/js/mapping/mapping_form_bone.js:133
+#: site-static/js/mapping/mapping_form_bone.js:150
 msgid "Boundary"
 msgstr "Límites"
+
+#: site-static/js/mapping/mapping_main_bone.js:296
+#, fuzzy
+msgid "last added"
+msgstr "última semana"
+
+#: site-static/js/mapping/mapping_main_bone.js:297
+msgid "most supported"
+msgstr ""
+
+#: site-static/js/mapping/mapping_main_bone.js:298
+msgid "most commented"
+msgstr ""

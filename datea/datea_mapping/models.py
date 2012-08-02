@@ -56,6 +56,12 @@ class DateaMapping(DateaAction):
     
     # Object Manager from geodjango
     objects = models.GeoManager()
+    
+    def get_api_name(self, mode=None):
+        if mode == 'base':
+            return 'action'
+        else:
+            return 'mapping'
         
     class Meta:
         verbose_name = _("Mapping")
@@ -116,6 +122,9 @@ class DateaMapItem(models.Model):
     
     # Object Manager from geodjango
     objects = models.GeoManager()
+    
+    def get_api_name(self, mode=None):
+        return 'map_item'
     
     # provide a way to know if published was changed
     def __init__(self, *args, **kwargs):
@@ -188,6 +197,9 @@ class DateaMapItemResponse(models.Model):
     modified = models.DateTimeField(_('modified'), auto_now=True)
     map_items = models.ManyToManyField('DateaMapItem', verbose_name=_("Map Items"), related_name="responses") 
     content = models.TextField(_("Response"))
+    
+    def get_api_name(self, mode=None):
+        return 'map_item_response'
     
     # call this after model and m2m fields have been saved    
     def update_item_stats(self):
