@@ -824,6 +824,7 @@ a:hover span.caret2 {
 
 .paginator li a {
   padding: 1px 5px;
+  color: #434c3e;
 }
 
 .paginator li.separator {
@@ -1122,6 +1123,24 @@ a:hover span.caret2 {
 
 .user-profile .head .profile-head-data h1 {
   margin-bottom: 5px;
+}
+
+.user-profile .head .profile-head-data .message {
+  font-size: 14px;
+  color: #434c3e;
+}
+
+.user-profile .head .profile-head-data .stats {
+  padding: 10px 0;
+  font-size: 12px;
+}
+
+.user-profile .head .profile-head-data .stats .stat {
+  color: #27bb44;
+}
+
+.user-profile .head .profile-head-data .stats .separator:last-child {
+  display: none;
 }
 
 #user-edit-window-head {
@@ -2288,7 +2307,8 @@ body .olwidgetPopupCloseBox {
 .history-view .history-item .item-row .item-image {
   display: table-cell;
   width: 42px;
-  padding-right: 13px;
+  padding-top: 4px;
+  padding-right: 12px;
   vertical-align: top;
 }
 
@@ -2297,12 +2317,18 @@ body .olwidgetPopupCloseBox {
   vertical-align: top;
 }
 
+.history-view .history-item .item-row .item-content .item-date {
+  font-size: 10px;
+  line-height: 13px;
+  color: #999999;
+}
+
 .history-view .history-item .item-row .item-content .item-extract {
-  padding: 10px 0 5px 0;
+  padding: 5px 0 5px 0;
 }
 
 .history-view .history-item .item-row .item-content .more-link {
-  margin-top: 5px;
+  margin-top: 10px;
 }
 
 .history-view .item-pager {

@@ -29,6 +29,7 @@ window.Datea.HistoryItemView = Backbone.View.extend({
 		context.receiver_html = recv_arr.join(', ');
 		context.title_html = ich[stype+'_history_sender'](context, true);
 		context.link = context.receiver_items[0].url;
+		context.created = formatDateFromISO(context.created, "dd.mm.yyyy - H:MM");
 		
 		this.$el.html(ich.history_item_tpl(context));
 		

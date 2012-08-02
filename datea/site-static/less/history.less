@@ -24,19 +24,26 @@
 			display: table-row;
 			
 			.item-image {
+				padding-top: 4px;
 				display:table-cell;
 				width: 42px;
-				padding-right: 13px;
+				padding-right: 12px;
 				vertical-align: top;
 			}
 			.item-content {
 				display: table-cell;
 				vertical-align: top;
+				.item-date { 
+					font-size: @baseFontSize - 3px;
+					line-height: @baseLineHeight - 5px;
+					color: @grayLight;
+				}
+				
 				.item-extract {
-					padding:10px 0 5px 0;
+					padding:5px 0 5px 0;
 				}
 				.more-link {
-					margin-top:5px;
+					margin-top:10px;
 				}
 			}
 		}
