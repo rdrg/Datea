@@ -61,9 +61,9 @@ window.Datea.FollowWidgetView = Backbone.View.extend({
 		var context = this.model.toJSON();
 		context.follow_count = this.followed_model.get('follow_count');
 		if (this.model.isNew()) {
-			context.msg = gettext('follow this')+ ' ' + this.options.object_name;
+			context.msg = gettext('follow!');
 		}else if (this.options.read_only) {
-			context.msg = gettext('no followers yet');
+			context.msg = gettext('follow');
 		}else{
 			context.msg = gettext('stop following');
 		}

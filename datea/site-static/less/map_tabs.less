@@ -2,23 +2,24 @@
 .mapping-content {
 	#left-content {
 		margin-top: 0px;
-		background: url(../img/datea/dotted-bg.png) repeat;
+		/*background: url(../img/datea/dotted-bg.png) repeat;*/
 		.inner {
-			margin:15px;
+			position: relative;
 			.mapping-tab-content {
 				background-color: white;
 			}
-			padding-bottom: 15px;
+			/*padding-bottom: 15px;*/
 		}
 		.border-radius(5px);
 	}	
 }
 
-
 .mapping-tabs {
 	margin-left: 15px;
 	margin-bottom: 0px;
 	border-bottom:1px solid transparent;
+	position: relative;
+	bottom: -1px;
 	li a { 
 		background-color: #ececec; 
 		/*border:0px; */
@@ -26,15 +27,26 @@
 		border-color: #ececec;
 	}
 	li.active a, li.active:hover a { /*border:0px !important;*/}
+	z-index: 2;
 }
+
 
 .mapping-tab-content {
 	.border-radius(8px);
-	.box-shadow(1px -1px 2px rgba(0,0,0,.15));
+	.box-shadow(1px 1px 2px rgba(0,0,0,.15));
+	border: 1px solid #dddddd;
+	z-index: 1;
+	.tab-pane {
+		.inner {
+			margin-bottom: 15px;
+		}
+	}
 }
 
 
 #mapping-start {
+	
+	margin-top:15px;
 	
 	h2 { color: @verde; margin-bottom:5px; font-size:20px;}
 	
@@ -46,16 +58,23 @@
 	}
 	
 	.info {
+		display: table-row;
 		margin-top: 10px;
 		.stats {
+			/*padding-right:12px;*/
+			display: table-cell;
 			.stat-line { color: @verde; font-size: @baseFontSize - 2px; line-height: @baseLineHeight - 2px;}
+		}
+		.create-button {
+			display: table-cell;
+			vertical-align: middle;
 		}
 	}
 	
 	.mapping-header {
 		.clearfix();
 		display: table-row;
-		.left-start-head { float: left; display:block; margin-right: 15px; display: table-cell; vertical-align:top;}
+		.left-start-head { float: left; display:block; margin-right: 10px; display: table-cell; vertical-align:top;}
 		.right-start-head { display: table-cell; vertical-align: top}
 	}
 	
@@ -72,17 +91,41 @@
 		}
 	}
 	
-	.scroll-area { height: 480px; overflow-y : auto; overflow-x: visible;}
+	.scroll-area { height: 480px; padding: 0 15px; overflow-y : auto; overflow-x: visible;}
 	
 	.mapping-about {
-		padding: 15px 0;
+		padding: 10px 0;
+		border-top: 1px solid #dfdfdf;
+		
+		h3 { color: @grayLight; font-size: @baseFontSize + 3px; font-weight:normal; margin-bottom: 5px;}
+		
+		.user-info {
+			margin-bottom: 20px;
+			.clearfix();
+			.image {
+				padding-top:5px;
+				float: left;
+			}
+			.user-data {
+				margin-left: 69px;
+				.sub { color:@grayLight;}
+				.uname {
+					font-size: @baseFontSize + 8px;
+					a {
+						color: @grayText;
+					}
+					margin-bottom:6px;
+				}
+			}
+		}
+		
 		.field {
 			margin-bottom: 15px;
 			.field-label {
 				margin-bottom: 3px;
 				color: @verde;
 				font-weight: bold;
-				font-size: @baseFontSize;
+				font-size: @baseFontSize + 2px;
 			}
 			.field-content {}
 		}
@@ -105,7 +148,6 @@
 			}
 		}
 	}
-	margin: 0 !important;
 
 	.scroll-area {
 		padding-top: 15px;

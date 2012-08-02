@@ -3,12 +3,12 @@
 <script id="post_user_data_tpl" type="text/html">
 	<div class="head post-user-data">
 		<div class="user-picture">
-			<a href="#" class="none-op">
+			<a href="#{{user.url}}">
 				<img src="{{user.profile.image_small}}" alt="{{user.username}}" />
 			</a>
 		</div>
 		<div class="data">
-			<div class="username">{% trans 'by' %} <a href="#" class="none-op">{{user.username}}</a></div>
+			<div class="username">{% trans 'by' %} <a href="#{{user.url}}">{{user.username}}</a></div>
 			<div class="date">{{ created }}</div>
 		</div>
 	</div>

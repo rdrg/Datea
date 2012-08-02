@@ -253,7 +253,7 @@ window.Datea.MappingStartTab = Backbone.View.extend({
 				followed_model: this.model,
 				silent: true,
 				type: 'full',
-				style: 'full-small', 
+				style: 'full-large', 
   			}
   			if (Datea.my_user.get('id') == this.model.get('user').id) {
   				data.read_only = true;

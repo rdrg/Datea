@@ -50,7 +50,7 @@ window.Datea.VoteWidgetView = Backbone.View.extend({
 		context.vote_count = this.voted_model.get('vote_count');
 		
 		if (this.model.isNew()) {
-			context.msg = gettext("support this") + " " +this.options.object_name;
+			context.msg = gettext("support!");
 		}else{
 			context.msg = gettext("already supporting");
 		}

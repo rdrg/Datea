@@ -81,8 +81,8 @@
 		{{>map_item_widget_stats_tpl}}
 		
 		<div class="buttons">
-			<a class="btn btn-mini" href="#{{ url }}">{% trans "Read more" %}</a>
-			<a class="btn btn-mini open-popup" href="#" data-id="{{ id }}">{% trans "See in map" %}</a>
+			<a class="btn btn-mini" href="#{{ url }}">{% trans "Read more" %}</a>&nbsp;
+			<a class="open-popup" href="#" data-id="{{ id }}" title="{% trans 'open in map'%}"><i class="mira"></i></a>
 		</div>
 		
 </script>
@@ -91,11 +91,11 @@
 {# MAP ITEM FULL VIEW #}
 <script id="map_item_full_tpl" type="text/html">
 	<div class="map-item-full-header">
-		<a href="#" class="back-to-list">&lt;&lt; {% trans "back to list" %}</a>
 		<div class="pull-right">
 			<button type="button" class="btn hide edit-map-item" data-id="{{id}}" title="{% trans 'edit' %}"><i class="icon-pencil"></i></button>
 			<button class="btn btn-primary create-report" type="button">{% trans "Create new report" %}</button> 
 		</div>
+		<a href="#" class="back-to-list back-link"><span class="icon" data-step="1">&nbsp;</span>{% trans "back" %}</a>
 	</div>
 	<div class="scroll-area resize-target">
 		<div id="map-item-full-{{ id }}" class="map-item full">
@@ -107,9 +107,9 @@
 			<div class="content">
 				
 				<div class="category">
-					{{#category}}<span class="badge" style="background-color: {{ color }}">{{ category_name }}</span>{{/category}}
-					<a class="open-popup" href="#" data-id="{{ id }}" title="{% trans 'see in map' %}">
-						<i data-id="{{ id }}" class="icon-map-marker"></i>
+					{{#category}}<span class="badge" style="background-color: {{ color }}">{{ category_name }}</span>&nbsp;{{/category}}
+					<a class="open-popup" href="#" data-id="{{ id }}" title="{% trans 'open in map' %}">
+						<i data-id="{{ id }}" class="mira"></i>
 					</a>
 				</div>
 				<div class="field">{{& content }}</div>

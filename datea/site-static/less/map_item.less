@@ -108,31 +108,36 @@
 .map-item-full-header {
 	.clearfix();
 	padding-top: 10px;
-	padding-bottom: 4px;
+	padding-bottom: 9px;
 	margin: 0 15px;
 	border-bottom: 1px solid #dfdfdf;
+	.back-link { padding-top: 3px;}
 }
 
 .map-item.full {
 	padding: 0 15px;
 	.widgets {
+		margin-top:10px;
 		.clearfix();
 		.share-group {
 			float: left;
-			margin-right: 25px;
 			.share-button {
-				padding-bottom: 7px;
-				width:120px;
-				&:last-child {padding-bottom:0px;}
+				float:left;
+				&.fb-share {
+					width:120px;
+				}
+				&.tw-share {
+					width: 100px;
+				} 				
 			}
 			.connect_comment_widget, .fb_iframe_widget {
 				max-width: 200px !important;
 			}
 		}
 		.datea-widgets {
+			margin-left: 15px;
 			float: left;
 			padding-left: 0px;
-			padding-top: 10px;
 		}
 	}
 }
@@ -146,6 +151,16 @@
 	margin-top: 20px;
 	margin-bottom:10px;
 	.border-radius(8px);
+	position:relative;
+	.esquina {
+		left: 20px;
+		top: -9px;
+		position: absolute;
+		display: block;
+		width: 18px;
+		height: 9px;
+		background: url(../img/datea/esquina_respuesta.png) no-repeat top left;
+	}
 }
 
 

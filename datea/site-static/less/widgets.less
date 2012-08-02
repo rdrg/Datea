@@ -71,23 +71,64 @@ a {
 
 .datea_widget_small_base() {
 	.widget-icon {
-		width: 23px;
-		height: 24px;
+		width: 19px;
+		height: 16px;
 	}
 	.widget-text {
-		width: 60px;
+		width: 51px;
 		height: @baseLineHeight +  @baseLineHeight - 8px;
-		padding-left: 5px;
+		padding-left: 4px;
 		.widget-hover-msg {
 			font-size: @baseFontSize - 2px;
-			line-height: @baseLineHeight - 5px;
+			line-height: @baseLineHeight - 6px;
 		}
 		.widget-info {
-			line-height: @baseLineHeight - 4px;
+			font-size: @baseFontSize - 2px;
+			line-height: @baseLineHeight - 6px;
 			margin:0px;
-			.counter {padding-left:5px; }
-			.widget-info-label {
-				font-size: @baseFontSize - 2px;
+			.widget-counter {padding-left:0px; color: @verde;}
+		}
+	}
+	&.read-only {
+		.widget-text {
+			.widget-hover-msg {
+				display: none !important;
+			}
+			.widget-info {
+				display: block !important;
+			}
+		}
+	}
+}
+
+.datea_widget_large_base() {
+	.widget-icon {
+		width: 35px;
+		height: 37px;
+	}
+	.widget-text {
+		padding-top: 2px;
+		width: 50px;
+		height: @baseLineHeight +  @baseLineHeight;
+		padding-left: 8px;
+		.widget-hover-msg {
+			font-size: @baseFontSize - 1px;
+			line-height: @baseLineHeight - 4px;
+		}
+		.widget-info {
+			font-size: @baseFontSize - 2px;
+			line-height: @baseLineHeight - 2px;
+			margin:0px;
+			.widget-counter {padding-left:0px; font-size: @baseFontSize + 2px;}
+		}
+	}
+	&.read-only {
+		.widget-text {
+			.widget-hover-msg {
+				display: none !important;
+			}
+			.widget-info {
+				display: block !important;
 			}
 		}
 	}
@@ -98,26 +139,54 @@ a {
 	.datea_widget_base();
 	.datea_widget_small_base();
 	
-	.widget-icon { background: url(../img/datea/widgets_icons_small.png) no-repeat 0px center; }
+	.widget-icon { background: url(../img/datea/seguir.png) no-repeat 0px center; }
 	
-	&:hover .widget-icon { background: url(../img/datea/widgets_icons_small.png) no-repeat -23px center; }
+	&:hover .widget-icon { background: url(../img/datea/seguir.png) no-repeat -19px center; }
 	
 	&.active {
-		.widget-icon { background: url(../img/datea/widgets_icons_small.png) no-repeat -46px center; }
-		&:hover .widget-icon { background: url(../img/datea/widgets_icons_small.png) no-repeat -69px center; }
+		.widget-icon { background: url(../img/datea/seguir.png) no-repeat -19px center; }
+		&:hover .widget-icon { background: url(../img/datea/seguir.png) no-repeat -38px center; }
 	}
 	
 	&.after-click {
-		.widget-icon { background: url(../img/datea/widgets_icons_small.png) no-repeat 0px center; }
-		&.active .widget-icon { background: url(../img/datea/widgets_icons_small.png) no-repeat -46px center; }
+		.widget-icon { background: url(../img/datea/seguir.png) no-repeat 0px center; }
+		&.active .widget-icon { background: url(../img/datea/seguir.png) no-repeat -19px center; }
 	}
 	
 	&.read-only {
 		cursor: default;
-		.widget-icon, &:hover .widget-icon { background: url(../img/datea/widgets_icons_small.png) no-repeat 0px center; }
+		.widget-icon, &:hover .widget-icon { background: url(../img/datea/seguir.png) no-repeat -19px center; }
 		&.active {
-			.widget-icon { background: url(../img/datea/widgets_icons_small.png) no-repeat -23px center; }
-			&:hover .widget-icon { background: url(../img/datea/widgets_icons_small.png) no-repeat -23px center; }
+			.widget-icon { background: url(../img/datea/seguir.png) no-repeat -19px center; }
+			&:hover .widget-icon { background: url(../img/datea/seguir.png) no-repeat -19px center; }
+		}
+	}
+}
+
+.follow-widget.full-large {
+	.datea_widget_base();
+	.datea_widget_large_base();
+	
+	.widget-icon { background: url(../img/datea/seguir_large.png) no-repeat 0px center; }
+	
+	&:hover .widget-icon { background: url(../img/datea/seguir_large.png) no-repeat -35px center; }
+	
+	&.active {
+		.widget-icon { background: url(../img/datea/seguir_large.png) no-repeat -35px center; }
+		&:hover .widget-icon { background: url(../img/datea/seguir_large.png) no-repeat -70px center; }
+	}
+	
+	&.after-click {
+		.widget-icon { background: url(../img/datea/seguir_large.png) no-repeat 0px center; }
+		&.active .widget-icon { background: url(../img/datea/seguir_large.png) no-repeat -35px center; }
+	}
+	
+	&.read-only {
+		cursor: default;
+		.widget-icon, &:hover .widget-icon { background: url(../img/datea/seguir_large.png) no-repeat -35px center; }
+		&.active {
+			.widget-icon { background: url(../img/datea/seguir_large.png) no-repeat -35px center; }
+			&:hover .widget-icon { background: url(../img/datea/seguir_large.png) no-repeat -35px center; }
 		}
 	}
 }
@@ -155,17 +224,17 @@ a {
 	.datea_widget_base();
 	.datea_widget_small_base();
 	
-	.widget-icon { background: url(../img/datea/widgets_icons_small.png) no-repeat -92px center; }
+	.widget-icon { background: url(../img/datea/apoyar.png) no-repeat 0px center; }
 	
-	&:hover .widget-icon { background: url(../img/datea/widgets_icons_small.png) no-repeat -115px center; }
+	&:hover .widget-icon { background: url(../img/datea/apoyar.png) no-repeat -19px center; }
 	
 	&.active {
-		.widget-icon { background: url(../img/datea/widgets_icons_small.png) no-repeat -138px center; }
-		&:hover .widget-icon { background: url(../img/datea/widgets_icons_small.png) no-repeat -138px center; }
+		.widget-icon { background: url(../img/datea/apoyar.png) no-repeat -19px center; }
+		&:hover .widget-icon { background: url(../img/datea/apoyar.png) no-repeat -19px center; }
 	}
 	
 	&.after-click {
-		.widget-icon { background: url(../img/datea/widgets_icons_small.png) no-repeat -115px center; }
-		&.active .widget-icon { background: url(../img/datea/widgets_icons_small.png) no-repeat -138px center; }
+		.widget-icon { background: url(../img/datea/apoyar.png) no-repeat -19px center; }
+		&.active .widget-icon { background: url(../img/datea/apoyar.png) no-repeat 0px center; }
 	}
 }
