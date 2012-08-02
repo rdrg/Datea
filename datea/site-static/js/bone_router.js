@@ -66,7 +66,7 @@ Datea.AppRouter = Backbone.Router.extend({
     //////////////////////// PROFILES ////////////////////////////////
     
     open_user_profile: function (user_id) {
-    	console.log(user_id);
+
     	if (!Datea.my_user.isNew() && user_id == Datea.my_user.get('id')) {
     		this.navigate('/', {trigger: true});
     	}else{

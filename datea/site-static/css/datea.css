@@ -2258,3 +2258,64 @@ body .olwidgetPopupCloseBox {
   width: 96%;
   margin-bottom: 0;
 }
+
+.history-view-container {
+  margin-top: 10px;
+  border-top: 1px solid #9d9d9d;
+}
+
+.history-view .filter {
+  float: right;
+}
+
+.history-view h3 {
+  font-size: 15px;
+}
+
+.history-view .history-item {
+  padding: 12px 0;
+  border-bottom: 1px dashed #a3a3a3;
+}
+
+.history-view .history-item:last-child {
+  border-bottom: 0;
+}
+
+.history-view .history-item .item-row {
+  display: table-row;
+}
+
+.history-view .history-item .item-row .item-image {
+  display: table-cell;
+  width: 42px;
+  padding-right: 13px;
+  vertical-align: top;
+}
+
+.history-view .history-item .item-row .item-content {
+  display: table-cell;
+  vertical-align: top;
+}
+
+.history-view .history-item .item-row .item-content .item-extract {
+  padding: 10px 0 5px 0;
+}
+
+.history-view .history-item .item-row .item-content .more-link {
+  margin-top: 5px;
+}
+
+.history-view .item-pager {
+  margin-top: 10px;
+  *zoom: 1;
+}
+
+.history-view .item-pager:before,
+.history-view .item-pager:after {
+  display: table;
+  content: "";
+}
+
+.history-view .item-pager:after {
+  clear: both;
+}

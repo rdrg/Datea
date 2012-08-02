@@ -39,7 +39,15 @@ class HistoryResource(DateaBaseResource):
     def dehydrate(self, bundle):
         bundle.data['username'] = bundle.obj.user.username
         bundle.data['user_url'] = bundle.obj.user.profile.get_absolute_url()
+        bundle.data['user_image'] = bundle.obj.user.profile.get_small_image()
         return bundle
+    
+    def apply_filters(self, request, applicable_filters):
+        if hasattr(request, 'GET') and 'following_user' in request.GET:
+            follow_keys = [f.follow_key for f in DateaFollow.objects.filter(user__id=int(request.GET['following_user']))]
+            applicable_filters['follow_key__in'] = follow_keys
+            
+        return super(HistoryResource, self).apply_filters(request, applicable_filters)
     
     class Meta:
         queryset= DateaHistory.objects.all()
@@ -52,7 +60,8 @@ class HistoryResource(DateaBaseResource):
                      'action': ALL_WITH_RELATIONS,
                      'follow_key': ['exact','in'],
                      'history_key': ['exact'],
-                     'history_type': ['exact'],
+                     'sender_type': ['exact','in'],
+                     'receiver_type': ['exact','in'],
                      'created': ['exact', 'range', 'gt', 'gte', 'lt', 'lte'],
                      }
         limit = 20

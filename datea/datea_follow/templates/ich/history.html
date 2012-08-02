@@ -2,17 +2,48 @@
 {% verbatim %}
 
 {# MAP ITEMS #}
-<script id="map_item_history_receiver" type="text/html"><a href="{{url}}">{{ user.username }}{% trans "'s report" %}</script>
-<script id="map_item_history_new" type="text/html"><a href="{{ user.url }}">{{ user.username }}</a> {% trans "created a new report in" %} <a href="{{url}}">{{ action_name }}</a></script>
+<script id="map_item_history_receiver" type="text/html"><a href="#/{{url}}">{% trans "{{ name }}'s report" %}</script>
+<script id="map_item_history_sender" type="text/html"><a href="#/{{ user_url }}">{{ username }}</a> {% trans "created a new report in" %} {{& receiver_html }}</script>
 
 {# COMMENT #}
-<script id="comment_history_new" type="text/html"><a href="{{ user.url }}">{{ user.username }}</a> {% trans "made a comment in" %} {{ receiver_object }}</script>
+<script id="comment_history_sender" type="text/html"><a href="#/{{ user_url }}">{{ username }}</a> {% trans "commented" %} {{& receiver_html }}</script>
 
 {# VOTE #}
-<script id="vote_history_new" type="text/html"><a href="{{ user.url }}">{{ user.username }}</a> {% trans "now supports" %} {{ receiver_object }}</script>
+<script id="vote_history_sender" type="text/html"><a href="#/{{ user_url }}">{{ username }}</a> {% trans "now supports" %} {{& receiver_html }}</script>
 
 {# FOLLOW #}
-<script id="follow_history_new" type="text/html"><a href="{{ user.url }}">{{ user.username }}</a> {% trans "now follows" %} {{ receiver_object }}</script>
+<script id="follow_history_sender" type="text/html"><a href="#/{{ user_url }}">{{ username }}</a> {% trans "now follows" %} {{& receiver_html }}</script>
+
+{# ACTION #}
+<script id="action_history_receiver" type="text/html"><a href="#/{{url}}">{{ name }}</a></script>
+
+
+{# HISTORY ITEM #}
+<script id="history_item_tpl" type="text/html">
+	<div class="item-row">
+		<div class="item-image">
+			<a href="#/{{ user_url }}" title="{{ username }}">
+				<img src="{{ user_image }}" alt="">
+			</a>
+		</div>
+		<div class="item-content">
+			<div class="item-title">{{& title_html }}</div>
+			<div class="item-date">{{ date }}</div>
+			{{#extract}}<div class="item-extract">{{& extract }}</div>{{/extract}}
+			<a class="more-link" href="#/{{ link }}">{% trans "read more" %}</a>
+		</div>
+	</div>
+</script>
+
+{# HISTORY LIST VIEW #}
+<script id="history_view_tpl" type="text/html">
+	<div class="head">
+		<div class="filter"></div>
+		<h3 class="history-title">{% trans "Latest events" %}</h3>
+	</div>
+	<div class="item-list"></div>
+	<div class="item-pager hide"></div>
+</script>
 
 {% endverbatim %}
 
