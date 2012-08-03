@@ -5,18 +5,19 @@
 	<div id="head-nav" class="navbar navbar-fixed-top">
 		<div class="navbar-inner">
 			<div class="container container-target">
-				<div class="pull-right">
+				<div id="head-nav-right" class="pull-right">
+					<div id="navbar-items">
+                    	{% for item in datea_menu %}
+                        	<a href="{{item.name}}" alt="{{item.alt}}">{{item.name}}</a> 
+                        	{% if not forloop.last %}<span class="separator">|</span>{% endif %}
+                    	{% endfor %}
+               		 </div>
 					<div id="user_head_view"></div>
 					<div id="setting-controls"></div>
 				</div>
 				<a href="/" id="logo">
 					<img src="{{STATIC_URL}}img/datea/logo_header2.png" />
                 </a>
-                <div id="navbar-items">
-                    {% for item in datea_menu %}
-                        <a href="{{item.name}}" alt="{{item.alt}}">{{item.name}}</a>
-                    {% endfor %}
-                </div>
 			</div>
 		</div>
 	</div>	

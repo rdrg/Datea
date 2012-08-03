@@ -76,3 +76,53 @@ a.open-popup {
 }
 
 
+.btn.btn-pointy {
+	.border-radius(0px);
+	position: relative;
+	
+	padding: 0px 15px;
+	height: 30px;
+	line-height: 30px;
+	margin-right: 18px;
+	
+	font-size: @baseFontSize + 4px;
+	font-weight: bold;
+	
+	background-color: #e2e2dd;
+	
+	&.btn-uppercase {
+		text-transform: uppercase;
+	}
+	
+	.pointer {
+		position: absolute;
+		right: -18px;
+		top: 0px;
+		width: 18px;
+		height: 30px;
+		display: block;
+		background: url(../img/datea/boton_flecha.gif) no-repeat 0px center;
+	}
+	&:hover {
+		background-color: @amarillo;
+		.pointer {
+			background: url(../img/datea/boton_flecha.gif) no-repeat -18px center;
+		}
+	}
+	
+	&.btn-success {
+		background-color: @verde;
+		.pointer {
+			background: url(../img/datea/boton_flecha.gif) no-repeat -36px center;
+		}
+		&:hover {
+			background-color: @verde;
+			.opacity(85);
+			.pointer {
+				background: url(../img/datea/boton_flecha.gif) no-repeat -36px center;
+			}
+		}
+	}	
+}
+
+

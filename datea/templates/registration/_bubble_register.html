@@ -1,0 +1,11 @@
+{% load i18n %}
+<div class="registration-bubble">
+	<div class="inner">
+		<div class="msg">
+			{% trans "Need an account?"%}
+		</div>
+		<div class="button">
+			<a class="btn btn-pointy btn-large" href="{% url registration_register %}">{% trans "register" %}<div class="pointer"></div></a>
+		</div>
+	</div>
+</div>

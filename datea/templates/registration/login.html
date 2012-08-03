@@ -15,24 +15,15 @@
 	
 		{{ form|as_bootstrap }}
 		<p>
-			<input class="btn btn-primary btn-large" type="submit" value="{% trans 'Login' %}" />
+			<button class="btn btn-primary btn-large btn-pointy" type="submit" value="login">{% trans 'Login' %}<div class="pointer"></div></button>
 		</p>
 		
 		<p><a href="{% url auth_password_reset %}">{% trans 'Forgot your password?' %}</a> &nbsp;|&nbsp; <a href="{% url registration_register %}">{% trans 'Need an account?' %}</a></p>
 	
-		<input class="btn" type="hidden" name="next" value="{{ next }}" />
+		<input type="hidden" name="next" value="{{ next }}" />
 	</form>
 {% endblock %}
 
 {% block content_right %}
-	<div class="registration-bubble">
-		<div class="inner">
-			<div class="msg">
-				{% trans "Need an account?"%}
-			</div>
-			<div class="button">
-				<a class="btn btn-pointy btn-large" href="{% url registration_register %}">{% trans "register" %}</a>
-			</div>
-		</div>
-	</div>
+	{% include "registration/_bubble_register.html" %}
 {% endblock %}
