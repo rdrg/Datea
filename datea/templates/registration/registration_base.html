@@ -6,13 +6,19 @@
 
 {% block main_content %}
 	<div id="registration" class="row dotted-bg">
-		<div class="span6">
-			<div class="inner dotted-inner">
-				{% block content_left %}{% endblock %}
+		
+		<div class="span12 dotted-bg-container">
+			<div class="dotted-bg">&nbsp;</div>
+			<div class="row">
+				<div class="span6">
+					<div class="inner dotted-inner">
+						{% block content_left %}{% endblock %}
+					</div>
+				</div>
+				<div class="span6">
+					{% block content_right %}{% endblock %}
+				</div>
 			</div>
-		</div>
-		<div class="span6">
-			{% block content_right %}{% endblock %}
 		</div>
 	</div>
 {% endblock %}
