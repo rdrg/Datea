@@ -57,6 +57,7 @@ class DateaImage(models.Model):
 
             if related.field.null:
                 related_set.clear()
+                print vars(related_set.all())
             else:
                 for related_object in related_set.all():
                     related_object.clear_nullable_related()

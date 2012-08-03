@@ -44,6 +44,7 @@ urlpatterns = patterns('',
     #url(r'^(?P<path>[a-z0-9-/]+)', 'datea.datea_home.views.redirect_to_hash'),
     url(r'^', include('datea.datea_action.urls')),
     url(r'^', include('datea.datea_mapping.urls')),
+    url(r'^', include('datea.datea_profile.urls')),
     
     url(r'^api/',include(v1_api.urls)),
     url(r"image/", include('datea.datea_image.urls')),
@@ -60,6 +61,9 @@ urlpatterns = patterns('',
     url(r"png/", include('datea.datea_mapping.urls')),
     
     (r'^jsi18n/$', 'django.views.i18n.javascript_catalog', js_info_dict),
+    
+    #wysiwyg editor
+    (r'^ckeditor/', include('ckeditor.urls')),
 )
 
 

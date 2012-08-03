@@ -9,6 +9,8 @@ Datea.AppRouter = Backbone.Router.extend({
         "action/start": "action_start",
         "action/create/:action_type": "action_create",
         
+        "user/:user_id/": "open_user_profile",
+        
         "mapping/:map_id": 'open_mapping_tab',
         "mapping/:map_id/edit": 'open_mapping_edit',
         "mapping/:map_id/admin": 'open_mapping_admin',
@@ -17,19 +19,32 @@ Datea.AppRouter = Backbone.Router.extend({
        	"mapping/:map_id/:tab_id/:method_id": 'open_mapping_tab',
     },
  
-    home:function () {
-    	//this.open_mapping_tab(hardcode_map_id);
-    	//return;
+ 	/////////////////////////////  HOME ///////////////////////////////
+ 
+    home: function (params) {
+
     	clear_admin_controls();
     	this.my_profile_home_view = new Datea.MyProfileHomeView({model:Datea.my_user});
         $('#main-content-view').html(this.my_profile_home_view.render().el);
         init_share_buttons();
+        
+        if (typeof(params) != 'undefined') {
+        	if (params.edit_profile && params.edit_profile == 'notify_settings') {
+        		if (!Datea.my_user.isNew()) {
+        			Datea.my_user_edit_view.open_window('edit-notifications');
+        		}else{
+        			document.location.href = '/accounts/login/?next=/edit_profile/notify_settings/';
+        		}
+        	}
+        }
     },
     
     fb_login_redirect:function () {
     	clear_admin_controls();
     	this.navigate('/');
     },
+    
+    /////////////////////////////// ACTIONS /////////////////////////////////
     
     // new action homeview -> select which action type to create
     action_start: function () {
@@ -47,6 +62,27 @@ Datea.AppRouter = Backbone.Router.extend({
     		this.mapping.attach_map();
     	}	
     },
+    
+    //////////////////////// PROFILES ////////////////////////////////
+    
+    open_user_profile: function (user_id) {
+
+    	if (!Datea.my_user.isNew() && user_id == Datea.my_user.get('id')) {
+    		this.navigate('/', {trigger: true});
+    	}else{
+    		clear_admin_controls();
+    		var user = new Datea.User({id: user_id});
+    		var profile_view = new Datea.ProfileView({model: user});
+    		user.fetch({
+    			success: function (model, response) {
+    				$('#main-content-view').html(profile_view.render().el);
+    				init_share_buttons();
+	        	}
+	        });
+    	}
+    },
+    
+    ///////////////////////  MAPPING ////////////////////////////////
     
     // open a mapping tab on the mapping action
     open_mapping_tab: function(map_id, tab_id, method_id) {

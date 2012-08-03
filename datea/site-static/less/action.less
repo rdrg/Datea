@@ -1,37 +1,83 @@
 
-.action-list {
+#action-control {
+	background-color: @verde;
+	padding: 5px 15px;
+	margin-top: 18px;
+	.border-radius(10px);
+	color: white;
+	.filters {
+		.btn-dropdown-select {
+			color: white;
+			font-size: @baseFontSize + 2px;
+			font-weight: bold;
+		}
+	}
+}
+
+#action-list {
 	margin-left: 0px;
 	
 	.action-item {
-		margin-right: 15px;
 		.dotted-inner;
-		padding-top:10px;
-		padding-bottom:10px;
-		h3 a {
-			color: @grayTextDark;
-			&:hover {
-				color: @green;
-				text-decoration: none;
-			}
-		}
-		.right-corner {
-			div { float:left}
-			.follow-button {
-				margin-right: 10px;
-			}
-		}
+		padding-top: 10px;
+		padding-bottom: 10px;
+		padding-left: 15px;
+		padding-right: 15px;
 		
-		.description {
-			margin-bottom: 10px;
-		}
-		.footer {
-			.stats {
-				padding-top: 10px;
-				font-size: @baseFontSize - 2px;
-				.separator:last-child { display:none;}
-			}
+		.action-teaser {
 			.clearfix();
+			
+			.teaser-image {
+				display: block;
+				float:left;
+			}
+			.teaser-content {
+				&.with-image {
+					margin-left: 120px;
+				}
+				
+				h3 a {
+					color: @grayTextDark;
+					&:hover {
+						color: @green;
+						text-decoration: none;
+					}
+				}
+				.right-corner {
+					div { float:left}
+					.follow-button {
+						margin-right: 10px;
+					}
+				}
+				
+				.description {
+					margin-bottom: 10px;
+				}
+				.footer {
+					.stats {
+						padding-top: 10px;
+						font-size: @baseFontSize - 2px;
+						.separator:last-child { display:none;}
+					}
+					.clearfix();
+				}
+			}
 		}
 	}
-	
+}
+
+#create-mapping {
+	.top {
+		.clearfix();
+		.icon {
+			width: 60px;
+			height: 50px;
+			background: url(../img/datea/mapeo_on.png) no-repeat left top;
+			margin-bottom:10px;
+		}
+		.text {
+			float:left;
+			margin-left: 10px;
+		}
+	}
 }

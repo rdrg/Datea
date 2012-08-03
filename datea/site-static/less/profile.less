@@ -8,6 +8,42 @@
 		}
 		.profile-head-data {
 			margin-left: 145px;
+			
+			h1 {
+				margin-bottom: 5px;
+			}
+			
+			.message { color: @grayTextDark; font-size: @baseFontSize + 1px;}
+			
+			.stats {
+				padding:10px 0;
+				font-size: @baseFontSize - 1px;
+				.stat {
+					color: @verde;
+				}
+				.separator:last-child {display:none}
+			}
+		}
+	}
+}
+
+#user-edit-window-head {
+	border-bottom: 0px;
+}
+
+#user-edit-window-body {
+	
+	padding-top:0px;
+	
+	#notify-settings-form {
+		.control-group {
+			.control-label {
+				width: 250px;
+				text-align: left;
+			}
+			.controls {
+				margin-left: 250px;
+			}
 		}
 	}
 	

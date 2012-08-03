@@ -38,8 +38,6 @@ class DateaMapping(DateaAction):
                             max_length=140, 
                             help_text=_("The message someone sees when succesfully filing a report (max. 140 characters)"))
     
-    image = models.ForeignKey(DateaImage, verbose_name=_('Image'), blank=True, null=True, related_name="mappings")
-   
     default_color = models.CharField(_('Default Item Color'), max_length=7, blank=True, default="#ff9c00", help_text=_("Default color for map items (used when there's no categories defined)."))
     # ZONES
     #zones = models.ManyToManyField(Zone, blank=True, null=True, default=None)
@@ -58,6 +56,12 @@ class DateaMapping(DateaAction):
     
     # Object Manager from geodjango
     objects = models.GeoManager()
+    
+    def get_api_name(self, mode=None):
+        if mode == 'base':
+            return 'action'
+        else:
+            return 'mapping'
         
     class Meta:
         verbose_name = _("Mapping")
@@ -118,6 +122,9 @@ class DateaMapItem(models.Model):
     
     # Object Manager from geodjango
     objects = models.GeoManager()
+    
+    def get_api_name(self, mode=None):
+        return 'map_item'
     
     # provide a way to know if published was changed
     def __init__(self, *args, **kwargs):
@@ -190,6 +197,9 @@ class DateaMapItemResponse(models.Model):
     modified = models.DateTimeField(_('modified'), auto_now=True)
     map_items = models.ManyToManyField('DateaMapItem', verbose_name=_("Map Items"), related_name="responses") 
     content = models.TextField(_("Response"))
+    
+    def get_api_name(self, mode=None):
+        return 'map_item_response'
     
     # call this after model and m2m fields have been saved    
     def update_item_stats(self):

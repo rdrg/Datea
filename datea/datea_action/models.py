@@ -5,6 +5,7 @@ from django.utils.translation import ugettext_lazy as _
 from datea.datea_category.models import DateaCategory
 from mptt.fields import TreeForeignKey
 from django.contrib.contenttypes.models import ContentType
+from datea.datea_image.models import DateaImage
 # Create your models here.
 
 
@@ -40,6 +41,9 @@ class DateaAction(models.Model):
     short_description = models.CharField(_("Short description / Slogan"), blank=True, null=True, max_length=140, help_text=_("A short description or slogan (max. 140 characters)."))
     hashtag = models.CharField(_("Hashtag"), blank=True, null=True, max_length=100, help_text=_("A twitter hashtag for your action"))
     category = TreeForeignKey(DateaCategory, verbose_name=_("Category"), null=True, blank=True, default=None, related_name="actions", help_text=_("Choose a category for this action")) 
+    featured = models.BooleanField(_('Featured'), default=False)
+    
+    image = models.ForeignKey(DateaImage, verbose_name=_('Image'), blank=True, null=True, related_name="actions")
     
     action_type = models.CharField(_('Action type'), max_length=100, blank=True, null=True)
     
@@ -55,6 +59,9 @@ class DateaAction(models.Model):
     
     def get_absolute_url(self):
         return '/'+self.action_type+'/'+str(self.pk)
+    
+    def get_api_name(self,mode=None):
+        return 'action'
     
     def __unicode__(self):
         return self.name

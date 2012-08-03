@@ -57,41 +57,72 @@ window.Datea.MyUserEditView = Backbone.View.extend({
 	tagName: 'div',
 	
 	events: {
-		'click .myprofile-save-action': 'save_profile', 
+		'click .save-action': 'save_action',
+		'click .nav li a': 'tab_click',
 	},
 	
 	initialize: function () {
     	this.model.bind("change", this.render, this);
+    	this.save_mode = 'profile';
    	},
 	
 	render: function (eventName) {
-		this.$el.html( ich.my_user_edit_tpl(this.model.toJSON()));
+		context = this.model.toJSON();
+		if (!Datea.my_user.isNew()) {
+			jQuery.extend(context, Datea.my_user_notify_settings.toJSON());
+		}
+		this.$el.html( ich.my_user_edit_tpl(context));
 		if (this.img_upload_view) {
 			this.$el.find('.image-input-view').html(this.img_upload_view.render().el);
 		}
 		return this;
 	},
 	
-	save_profile: function() {
+	save_action: function() {
 		
-		var profile = new Datea.Profile(this.model.get('profile'));
-		profile.set({
-			'full_name': this.$el.find('#edit-profile-full-name').val(),
-		});
-		
-		this.model.set({
-			'profile': profile.toJSON(),
-		});
-		Datea.show_big_loading(this.$el);
 		var self = this;
-		this.model.save({
-			success: function (model, response) {
-				Datea.hide_big_loading(self.$el);
+		if (this.save_mode == 'profile') {
+			if (Datea.controls_validate(this.$el.find('#user-edit-form'))) {
+				Datea.show_big_loading(this.$el);
+				var profile = new Datea.Profile(this.model.get('profile'));
+				profile.set({
+					'full_name': $('[name="full_name"]', this.$el).val(),
+					'message': $('[name="message"]', this.$el).val(),
+				});
+				this.model.save({
+					'profile': profile.toJSON(),
+					'email': $('[name="email"]', this.$el).val()
+					}, {
+					success: function (model, response) {
+						Datea.hide_big_loading(self.$el);
+					}
+				});
 			}
-		});
+		}else if (this.save_mode == 'notify_settings') {
+			Datea.show_big_loading(this.$el);
+			var set = {};
+			$('#notify-settings-form input[type="checkbox"]').each(function (){
+				set[$(this).attr('name')] = $(this).is(':checked');
+			});
+			Datea.my_user_notify_settings.save(set, {
+				success: function (model, response) {
+					Datea.hide_big_loading(self.$el);
+				}
+			})
+		}
 	},
 	
-	open_window: function () {
+	
+	tab_click: function (ev) {
+		var id = $(ev.currentTarget).attr('href');
+		if (id == '#edit-notifications') {
+			this.save_mode = 'notify_settings';
+		}else if (id == '#edit-profile') {
+			this.save_mode = 'profile';
+		}
+	},
+	
+	open_window: function (tab) {
 		Datea.modal_view.set_content(this);
 		Datea.modal_view.open_modal();
 		
@@ -122,6 +153,11 @@ window.Datea.MyUserEditView = Backbone.View.extend({
 			}, 
 		});
 		this.$el.find('.image-input-view').html(this.img_upload_view.render().el);
+		
+		if (typeof(tab) != 'unedfined') {
+    		$('a[href="#'+tab+'"]').tab('show');
+		}
+		
 	},
 });
 
@@ -164,21 +200,49 @@ window.Datea.MyProfileHomeView = Backbone.View.extend({
 	
 	tagName: 'div',
 	
-	render: function (eventName) {
+	render: function (ev) {
 		// set base template
-		this.$el.html( ich.fix_base_content_split_tpl({'class':'dotted-bg'}));
+		this.$el.html( ich.fix_base_content_split_tpl({dotted_bg:true}));
 		
 		this.$el.find('#left-content').html( 
 			new Datea.MyProfileBoxView({ model: Datea.my_user }).render().el 
 		);
+		if (!Datea.my_user.isNew()) {
+			this.$el.find('.history-view-container').html(
+				new DateaHistoryView({user_model: Datea.my_user}).render().el
+			);
+		}
 		
 		// ACTIONS
-		this.actionList = new Datea.ActionCollection();
 		this.$el.find('#right-content').html(
-			new Datea.ActionListView({ model:this.actionList}).render().el
+			new Datea.MyActionListView().render().el
 		);
 		return this;
 	},	
+});
+
+
+window.Datea.ProfileView = Backbone.View.extend({
+	
+	tagName: 'div',
+	
+	render: function (ev) {
+		
+		this.$el.html( ich.fix_base_content_split_tpl({dotted_bg:true}));
+		
+		// profile data -> left
+		this.$el.find('#left-content').html(ich.my_profile_tpl(this.model.toJSON()));
+		this.$el.find('.history-view-container').html(
+			new DateaHistoryView({user_model:this.model}).render().el
+		);
+		
+		// action data -> right
+		// ACTIONS
+		this.$el.find('#right-content').html(
+			new Datea.ProfileActionListView({user_model: this.model}).render().el
+		);
+		return this;
+	}	
 });
 
 

@@ -2,19 +2,31 @@
 {% verbatim %}
 <script id="action_list_item_tpl" type="text/html">
 	{#<div class="category">{{ category.name }}</div>#}
-	<div class="pull-right right-corner">
-		<div class="follow-button"></div>
-		<div class="action-type">{{ type }}</div>
-	</div>
-	
-	<h3 class="title"><a href="#{{ url }}">{{ name }}</a></h3>
-	<div class="description">{{ short_description }}</div>
-	
-	<div class="footer">
-		<div class="pull-right">
-			<a href="#{{ url }}" class="btn btn-pointy">{% trans "Go" %}</a>
-		</div>	
-		{{>action_stats_tpl}}
+	<div class="action-teaser">
+		{{#image}}
+		<div class="teaser-image">
+			<a href="#{{ url }}">
+				<img src="{{image}}" alt="">
+			</a>
+		</div>
+		{{/image}}
+		
+		<div class="teaser-content {{#image}}with-image{{/image}}">
+			<div class="pull-right right-corner">
+				<div class="follow-button"></div>
+				<div class="action-type">{{ type }}</div>
+			</div>
+			
+			<h3 class="title"><a href="#{{ url }}">{{ name }}</a></h3>
+			<div class="description">{{ short_description }}</div>
+			
+			<div class="footer">
+				<div class="pull-right">
+					<a href="#{{ url }}" class="btn btn-pointy">{% trans "Go" %}</a>
+				</div>	
+				{{>action_stats_tpl}}
+			</div>
+		</div>
 	</div>
 </script>
 

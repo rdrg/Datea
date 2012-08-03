@@ -8,7 +8,7 @@
 		.ie7-inline-block();
 		 width: 30px;
 	}
-	&:hover { color: @gray; text-decoration: none}
+	&:hover { color: @gray; text-decoration: none }
 }
 
 .prev-link {
@@ -30,6 +30,48 @@
 	}
 	&:hover {
 		.icon { background: url(../img/datea/prev-next.png) no-repeat -90px center; }	
+	}
+}
+
+.back-link {
+	color: @grayLight;
+	&:hover { color: @gray; text-decoration: none }
+	line-height: 22px;
+	text-decoration: none;
+	display:inline-block;
+	.ie7-inline-block();
+	
+	.icon {
+		float:left;
+		display: block;
+		width: 22px;
+		margin-right: 6px; 
+		background: url(../img/datea/boton_regresar.png) no-repeat 0px center; 
+	}
+	&:hover {
+		.icon { background: url(../img/datea/boton_regresar.png) no-repeat -22px center; }	
+	}
+}
+
+
+a.open-popup {
+	.mira { 
+		width: 19px;
+		height: 19px;
+		line-height: 19px;
+		min-height: 19px;
+		display: inline-block;
+		.ie7-inline-block();
+		vertical-align: text-top;
+		.ie7-restore-right-whitespace();
+		background: url(../img/datea/mira.png) no-repeat left top;
+		.opacity(50);	
+	}
+	&:hover { 
+		text-decoration: none;
+		.mira {
+			.opacity(100);
+		}	
 	}
 }
 

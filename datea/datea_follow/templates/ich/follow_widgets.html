@@ -1,17 +1,17 @@
 {% load i18n verbatim_tag %}
 {% verbatim %}
 <script id="follow_widget_full_tpl" type="text/html">
-	<div class="icon"></div>
-	<div class="text">
-		<div class="hover-msg">{{ msg }}</div>
-		<div class="info">
-			<div class="counter">{{ follow_count }}</div>
-			<div class="info-label">{% trans "followers" %}</div>
+	<div class="widget-icon"></div>
+	<div class="widget-text">
+		<div class="widget-hover-msg">{{ msg }}</div>
+		<div class="widget-info">
+			<div class="widget-counter">{{ follow_count }}</div>
+			<div class="widget-info-label">{% trans "follow" %}</div>
 		</div>
 	</div>
 </script>
 
 <script id="follow_widget_button_tpl" type="text/html">
-	<a class="icon" title="{{ msg }}" href="#">&nbsp;</a>
+	<a class="widget-icon" title="{{ msg }}" href="#">&nbsp;</a>
 </script>
 {% endverbatim %}

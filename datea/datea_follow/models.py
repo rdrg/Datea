@@ -19,7 +19,6 @@ from datea.datea_mapping.models import DateaMapping, DateaMapItem, DateaMapItemR
 from datea.datea_mapping.signals import map_item_response_created
 
 
-# Create your models here.
 
 class DateaFollow(models.Model):
     
@@ -44,6 +43,8 @@ class DateaFollow(models.Model):
         if self.pk == None:
             ctype = ContentType.objects.get(model=self.object_type.lower())
             receiver_obj = ctype.get_object_for_this_type(pk=self.object_id)
+            if hasattr(receiver_obj, 'as_leaf_class'):
+                receiver_obj = receiver_obj.as_leaf_class()
             if hasattr(receiver_obj, 'follow_count'):
                 receiver_obj.follow_count += 1
                 receiver_obj.save()
@@ -54,6 +55,8 @@ class DateaFollow(models.Model):
         # update comment stats on voted object 
         ctype = ContentType.objects.get(model=self.object_type.lower())
         receiver_obj = ctype.get_object_for_this_type(pk=self.object_id)
+        if hasattr(receiver_obj, 'as_leaf_class'):
+            receiver_obj = receiver_obj.as_leaf_class()
         if hasattr(receiver_obj, 'follow_count'):
             receiver_obj.follow_count -= 1
             receiver_obj.save()
@@ -79,7 +82,7 @@ class DateaNotifySettings(models.Model):
     notice_from_action = models.BooleanField(_('news from actions I joined'), default=True)
     
     def get_absolute_url(self):
-        return '/?edit_profile=notify_settings'
+        return '/#/?edit_profile=notify_settings'
     
     def __unicode__(self):
         return _('notify settings for')+' '+self.user.username
@@ -100,16 +103,17 @@ class DateaHistory(models.Model):
     published = models.BooleanField(default=True)
     created = models.DateTimeField(auto_now_add=True)
     
-    title = models.TextField(_('Title'), blank=True, null=True)
+    #title = models.TextField(_('Title'), blank=True, null=True)
     extract = models.TextField(_('Extract'), blank=True, null=True)
     
-    history_type = models.CharField(max_length=50)
+    sender_type = models.CharField(max_length=50)
+    receiver_type = models.CharField(max_length=50)
     
     # generic content type relation to the object which receives an action:
     # for example: the content which receives a vote
-    #receiver_type = models.ForeignKey(ContentType, null=True, blank=True, related_name="receiver_types")
-    #receiver_id = models.PositiveIntegerField(null=True, blank=True)
-    #receiver_obj = generic.GenericForeignKey('receiver_type', 'receiver_id')
+    # receiver_type = models.ForeignKey(ContentType, null=True, blank=True, related_name="receiver_types")
+    # receiver_id = models.PositiveIntegerField(null=True, blank=True)
+    # receiver_obj = generic.GenericForeignKey('receiver_type', 'receiver_id')
     
     # generic content type relation to the acting object, for example a "comment"
     acting_type = models.ForeignKey(ContentType, null=True, blank=True, related_name="acting_types")
@@ -205,7 +209,7 @@ class DateaHistory(models.Model):
             
             #notify_settings = owner.notify_settings
             notify_settings, created = DateaNotifySettings.objects.get_or_create(user=owner)
-        
+            
             if (getattr(owner.notify_settings, 'new_'+context_name)
                 and owner != self.user 
                 and owner.email):
@@ -277,7 +281,10 @@ class DateaHistoryReceiver(models.Model):
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 from signal_handlers import comment, follow, mapping, vote
-
     
+comment.connect()
+follow.connect()
+mapping.connect()
+vote.connect()
     
  

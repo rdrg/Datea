@@ -29,7 +29,7 @@ class MappingResource(DateaBaseGeoResource):
         if bundle.obj.image:
             bundle.data['image_thumb'] = bundle.obj.image.get_thumb('image_thumb_medium')
         else:
-            bundle.data['image_thumb']= None
+            bundle.data['image_thumb'] = None
         
         bundle.data['url'] = bundle.obj.get_absolute_url()
         

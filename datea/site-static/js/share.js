@@ -1,12 +1,16 @@
 
 function init_share_buttons() {
+	try {
+		twttr.widgets.load();
+	}
+	catch(err) {}
 	
-	twttr.widgets.load();
-	
-	$('.fb-share').not('.processed').each( function() {
-		$(this).addClass('processed');
-		FB.XFBML.parse( this );
-	});
+	try {
+		$('.fb-share').not('.processed').each( function() {
+			FB.XFBML.parse( this );
+			$(this).addClass('processed');
+		});
+	}catch (err) {}
 }
 
 /*

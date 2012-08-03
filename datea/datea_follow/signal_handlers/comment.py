@@ -23,7 +23,8 @@ def on_comment_save(sender, instance, created, **kwargs):
                         acting_obj=instance,
                         follow_key = follow_key,
                         history_key = history_key,
-                        history_type = 'comment',
+                        sender_type = 'comment',
+                        receiver_type = receiver_obj.get_api_name(mode='base')
                     )
         if hasattr(receiver_obj, 'action'):
             hist_item.action = receiver_obj.action
@@ -55,7 +56,8 @@ def on_comment_save(sender, instance, created, **kwargs):
                         acting_obj=instance,
                         follow_key = action_follow_key,
                         history_key = history_key,
-                        history_type = 'comment',
+                        sender_type = 'comment',
+                        receiver_type = receiver_obj.get_api_name(mode='base'),
                         action = action
                     )
             action_hist_item.generate_extract('dateacomment', instance)
@@ -85,7 +87,7 @@ def on_comment_delete(sender, instance, **kwargs):
     key =  instance.object_type.lower()+'.'+str(instance.object_id)+'_dateacomment.'+str(instance.pk)
     DateaHistory.objects.filter(history_key=key).delete()
 
-
-post_save.connect(on_comment_save, sender=DateaComment)
-pre_delete.connect(on_comment_delete, sender=DateaComment)
+def connect():
+    post_save.connect(on_comment_save, sender=DateaComment)
+    pre_delete.connect(on_comment_delete, sender=DateaComment)
 

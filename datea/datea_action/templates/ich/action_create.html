@@ -1,9 +1,21 @@
 {% load i18n %}
 <script id="action_create_tpl" type="text/html">
-	<div class="row">
-		<div class="span6">
-			<h3>{% trans "Mapping" %}</h3>
-			<a href="#action/create/mapping">{% trans 'create new mapping' %}</a>
+	<div class="dotted-bg">&nbsp;</div>
+	<div id="create-mapping" class="inner dotted-inner">
+		
+		<h1>{% trans "Create action" %}</h1>
+		
+		<div class="top">
+			<div class="pull-left">
+				<div class="icon">&nbsp;</div>
+			</div>
+			<div class="text">
+				<h3>{% trans "Mapping" %}</h3>
+				<p>{% trans "community mapping of problems and solutions to improve your city" %}</p>
+			</div>
+		</div>
+		<div class="bottom">
+			<a class="btn" href="#action/create/mapping">{% trans 'create mapping' %}</a>
 		</div>
 	</div>
 </script>

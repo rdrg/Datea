@@ -64,13 +64,11 @@ window.Datea.MappingMainView = Backbone.View.extend({
 	
 	render_tab: function(params) {
 		this.sidebar_view.render_tab(params);
-		init_share_buttons();
 	},
 	
 	render_item: function (params) {
 		this.sidebar_view.render_item(params);
 		this.open_popup(params.item_id);
-		init_share_buttons();
 	},
 	
 	create_map_item: function (ev) {
@@ -245,6 +243,27 @@ window.Datea.MappingStartTab = Backbone.View.extend({
 		context.full_url = get_base_url() + this.model.get('url');
 		context.tweet_text = this.model.get('short_description');
 		this.$el.html( ich.mapping_tab_start_tpl(context));
+		
+		// follow widget
+  		if (!Datea.my_user.isNew()) {
+  			var data = {
+  				object_type: 'dateaaction',
+				object_id: this.model.get('id'),
+				object_name: gettext('action'),
+				followed_model: this.model,
+				silent: true,
+				type: 'full',
+				style: 'full-large', 
+  			}
+  			if (Datea.my_user.get('id') == this.model.get('user').id) {
+  				data.read_only = true;
+  				data.is_own = true;
+  			}
+			this.follow_widget = new Datea.FollowWidgetView(data);
+			this.$el.find('.follow-button').html(this.follow_widget.render().el);
+		}
+		
+		init_share_buttons();
 	} 
 	
 });
@@ -260,12 +279,11 @@ window.Datea.MappingMapItemTab = Backbone.View.extend({
 	initialize: function() {
 		//this.model.bind('change', this.render, this);
 		//this.model.bind('reset', this.render, this);
-		this.model.bind('add', this.render, this);
+		this.model.bind('add', this.add_event, this);
 		this.model.bind('sync', this.render,this);
 
 		this.items_per_page = 10;
 		this.pager_view = new Datea.PaginatorView({
-			model: this.model, 
 			items_per_page: this.items_per_page,
 			adjacent_pages: 1,
 		});
@@ -275,9 +293,9 @@ window.Datea.MappingMapItemTab = Backbone.View.extend({
 		
 		// ORDER BY
 		var options = [
-			{value: 'created', name: 'last added'},
-			{value: 'vote_count', name: 'most supported'},
-			{value: 'comment_count', name: 'most commented'},
+			{value: 'created', name: gettext('last added')},
+			{value: 'vote_count', name: gettext('most supported')},
+			{value: 'comment_count', name: gettext('most commented')},
 		];
 		var self = this;	
 		this.orderby_filter = new Datea.DropdownSelect({
@@ -325,12 +343,17 @@ window.Datea.MappingMapItemTab = Backbone.View.extend({
 		// PAGER
 		var $pager_div = this.$el.find('.item-pager');
 		if (add_pager) {
-			$pager_div.html( this.pager_view.render_for_page(this.page).el);
+			$pager_div.html( this.pager_view.render_for_page(this.page,this.filtered_items.length).el);
 			$pager_div.removeClass('hide');
 		}else{
 			$pager_div.addClass('hide');
 		}	
+	},
 	
+	add_event: function(ev) {
+		this.orderby_filter.set_value('created');		
+		this.filter_items();
+		this.render_item_page(0);
 	},
 	
 	render_item: function (params) {
@@ -345,6 +368,7 @@ window.Datea.MappingMapItemTab = Backbone.View.extend({
 			}); 
 			this.$el.html(this.item_full_view.render().el);
 		}
+		init_share_buttons();
 	},
 	
 	get_page: function (ev) {

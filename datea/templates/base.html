@@ -124,6 +124,7 @@
   		<script src="{{ STATIC_URL }}js/libs/underscore.js"></script>
   		<script src="{{ STATIC_URL }}js/libs/backbone.js"></script>
   		<script src="{{ STATIC_URL }}js/backbone-tastypie.js"></script>
+  		<script src="{{ STATIC_URL }}js/libs/backbone.queryparams.js"></script>
   		<script src="{{ STATIC_URL }}js/libs/ICanHaz.js"></script>
   		<script src="{{ STATIC_URL }}js/libs/jquery.iframe-transport.js"></script>
   		<script src="{{ STATIC_URL }}js/libs/jquery.serializeObject.js"></script>
@@ -148,27 +149,9 @@
   		<script src="{{ STATIC_URL }}js/libs/bootstrap-lightbox.js"></script>
   		<script src="{{ STATIC_URL }}colorpicker/js/bootstrap-colorpicker.js"></script>
   		<script src="{{ STATIC_URL }}js/colorpicker.js"></script>
-		
-		{% comment %}
-		<script type="text/javascript">
-		  	addthis_config = 
-			{
-				pubid: 'ra-4dde786746213764',
-				ui_language: 'es',
-				data_track_clickback: true,
-				async: 1
-			};
-			addthis_share =
-			{
-		   		description: 'Comparte este dateo',
-		   		templates: { twitter: 'nuevo #dateo en datea.pe'},
-				email_template: 'dateo',
-			}
-		</script>
-  		<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#async=1&pubid=ra-4dde786746213764"></script>
-  		{% endcomment %}
-  		<script src="{{ STATIC_URL }}js/share.js"></script>
   		
+  		
+  		<script src="{{ STATIC_URL }}js/share.js"></script>
 		<script src="{{ STATIC_URL }}js/main_bone.js"></script>
 		<script src="{{ STATIC_URL }}js/form_widget_bone.js"></script>
 		<script src="{{ STATIC_URL }}js/layout_bone.js"></script>
@@ -187,6 +170,7 @@
 		<script src="{{ STATIC_URL }}js/comment_bone.js"></script>
 		<script src="{{ STATIC_URL }}js/follow_bone.js"></script>
 		<script src="{{ STATIC_URL }}js/vote_bone.js"></script>
+		<script src="{{ STATIC_URL }}js/history_bone.js"></script>
 		
   		{% block footer_js %}{% endblock %}
   		
@@ -196,8 +180,6 @@
 			
 			// init user (bootstrapped)
 			window.Datea.my_user = new Datea.User();
-			Datea.init_my_user_views();
-			Datea.my_user.set({% get_user_resource %});
 			
 		{% if request.user.is_authenticated %}
 			window.Datea.my_user_notify_settings = new Datea.NotifySettings();
@@ -206,6 +188,8 @@
 			window.Datea.my_user_follows = new Datea.FollowCollection({% get_user_follows %});
 			window.Datea.my_user_votes = new Datea.VoteCollection({% get_user_votes %});
 		{% endif %}
+			Datea.init_my_user_views();
+			Datea.my_user.set({% get_user_resource %});
 			
 			// init stuff
 			Datea.modal_view = new Datea.ModalWrapView({'el': $('#modal-wrap-view')});

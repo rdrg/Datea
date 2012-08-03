@@ -107,6 +107,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
     #middleware for cross domain sharing
     'datea.middleware.django-crossdomainxhr-middleware.XsSharing',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -125,6 +126,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.media',
     'django.core.context_processors.static',
     'django.core.context_processors.request',
+    'datea.datea_menu.context_processors.menu_items',
 )
 
 ROOT_URLCONF = 'datea.urls'
@@ -148,6 +150,7 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.flatpages',
 
     'grappelli',
     'django.contrib.admin',
@@ -165,6 +168,7 @@ INSTALLED_APPS = (
     #'easy_thumbnails',
     'sorl.thumbnail',
     'backbone_tastypie',
+    'ckeditor',
     
     # geodjango / location
     "django.contrib.gis",
@@ -183,6 +187,7 @@ INSTALLED_APPS = (
     'datea.datea_follow',
     'datea.datea_api',
     'datea.datea_comment',
+    'datea.datea_menu',
 )
 
 # A sample logging configuration. The only tangible logging
@@ -265,6 +270,7 @@ THUMBNAIL_PRESETS = {
     'profile_image_large': {'size': "130x130", 'options': {'crop': 'center'}},
     'category_image': {'size': "130x130", 'options': {'crop': 'center'}},
     'marker_image': {'size':"x38", "options": {'format': 'PNG'}},
+    'action_image': {'size': "110x110", 'options': {'crop': 'center'}}
 }
 DEFAULT_PROFILE_IMAGE = os.path.join(MEDIA_ROOT, 'default/img/default-user.png')
 
@@ -277,3 +283,13 @@ CACHES = {
 #Allowed headers for cross domain requests
 #XS_SHARING_ALLOWED_HEADERS = ['Origin', 'Content-Type', 'Accept', 'Authorization']
 
+
+#Ckeditor settings
+CKEDITOR_UPLOAD_PATH = os.path.join(MEDIA_ROOT, 'uploads')
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'Full',
+        'height': 300,
+        'width': 600,
+    },
+}

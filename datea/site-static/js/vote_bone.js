@@ -25,7 +25,19 @@ window.Datea.VoteWidgetView = Backbone.View.extend({
 	initialize: function () {
 		this.voted_model = this.options.voted_model;
 		//this.model.bind('sync', this.sync, this);
-		this.$el.addClass(this.options.size);
+		var id = this.options.object_id;
+		if (Datea.my_user_votes) {
+			this.model = Datea.my_user_votes.find(function(item){
+				return item.get('object_type') == 'dateamapitem' && item.get('object_id') == id;
+			});
+		}
+		if (typeof(this.model) == 'undefined') {
+			this.model = new Datea.Vote({
+				object_type: this.options.object_type,
+				object_id: this.options.object_id,
+			});
+		}
+		this.$el.addClass(this.options.style);
 	},
 	
 	events: {
@@ -36,13 +48,13 @@ window.Datea.VoteWidgetView = Backbone.View.extend({
 	render: function (ev) {
 		var context = this.model.toJSON();
 		context.vote_count = this.voted_model.get('vote_count');
-		this.$el.html( ich.vote_widget_tpl(context));
 		
 		if (this.model.isNew()) {
-			this.$el.find('.hover-msg').html( ich.vote_hover_msg_tpl({object_name: 'report'}) );
+			context.msg = gettext("support!");
 		}else{
-			this.$el.find('.hover-msg').html( ich.unvote_hover_msg_tpl() );
+			context.msg = gettext("already supporting");
 		}
+		this.$el.html( ich.vote_widget_tpl(context));
 
 		if (!this.model.isNew()) {
 			this.$el.addClass('active');

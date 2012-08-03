@@ -36,30 +36,39 @@ Datea.control_validate_required = function ($control){
 	var result = true;
 	if ($('input[type="text"]', $control).size() > 0) {
 		var $input = $('input[type="text"]', $control);
-		if ($.trim($input.val()) == '') {
+		if ($input.hasClass('validate-email')) {
+			var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+			if (!reg.test($.trim($input.val()))) {
+				$control.addClass('error');
+				remove_error_on_change($input);
+				var error_msg = gettext('Please enter a valid email address.');
+				$control.find('.controls').append('<div class="error-block">'+error_msg+'</div>');
+				return {valid: false, msg: error_msg};
+			}
+		} else if ($.trim($input.val()) == '') {
 			$control.addClass('error');
 			remove_error_on_change($input);
-			return false;
+			return {valid:false};
 		}
 	} else if ($('textarea', $control).size() > 0) {
 		var $input = $('textarea', $control);
 		if ($.trim($input.val()) == '') {
 			$control.addClass('error');
 			remove_error_on_change($input);
-			return false;
+			return {valid: false};
 		}
 	} else if ($('select', $control).size() > 0) {
 		var $input = $('select', $control);
 		if ($input.val() == '') {
 			$control.addClass('error');
 			remove_error_on_change($input);
-			return false;
+			return {valid: false};
 		}
 	} else if ($('input[type="radio"]', $control).size() > 0) {
 		if ($('input:checked', $control).size() == 0) {
 			$control.addClass('error');
 			remove_error_on_change_radio($('input[type="radio"]', $control));
-			return false;
+			return {valid: false};
 		}
 	}
 	return true;
@@ -73,12 +82,12 @@ Datea.controls_validate = function ($form_chunk) {
 	$controls.removeClass('error');
 	
 	// validate
-	var test = true;
+	var is_valid = true;
 	$controls.each(function(e){
-		 var valid = Datea.control_validate_required($(this));
-		 if (valid == false) test = false;	
+		 var test = Datea.control_validate_required($(this));
+		 if (test.valid == false) is_valid = false;	
 	});
-	if (test == false) {
+	if (is_valid == false) {
 		$form_chunk.find('.error-msg').removeClass('hide');
 		return false;
 	}
@@ -95,6 +104,7 @@ function remove_error_on_change($element) {
 		if ($.trim($(this).val()) != "") {
 			$(this).closest('.control-group').removeClass('error');
 			$(this).unbind('change.validation');
+			$(this).find('.error-block').remove();
 		} 
 	});
 }
@@ -104,6 +114,7 @@ function remove_error_on_change_radio($element) {
 		if ($(this).filter(':checked').size() > 0) {
 			$(this).closest('.control-group').removeClass('error');
 			$(this).unbind('change.validation');
+			$(this).find('.error-block').remove();
 		} 
 	});
 }

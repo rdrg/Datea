@@ -17,6 +17,7 @@ a {
 	li {
 		a {
 			padding: 1px 5px;
+			color: @grayTextDark;
 		}
 		float:left; display: block; 
 		padding: 0 4px;
@@ -38,54 +39,96 @@ a {
 	display: inline-block;
 	.ie7-inline-block();
 	
-	.icon {
+	.widget-icon {
 		display: block;
 		float: left;
 	}
 	
-	.text {
+	.widget-text {
 		display: block;
 		float: left;
 	}
 	
-	.hover-msg {
+	.widget-hover-msg {
 		display: none;
 	}
 	
 	&.force-hover {
-		.hover-msg { display: block;}
-		.info { display: none;}
+		.widget-hover-msg { display: block;}
+		.widget-info { display: none;}
 	}
 	
 	&:hover {
-		.hover-msg { display:block;}
-		.info { display: none }
+		.widget-hover-msg { display:block;}
+		.widget-info { display: none }
 	}
 	
 	&.after-click {
-		.hover-msg { display: none}
-		.info {display:block}
+		.widget-hover-msg { display: none}
+		.widget-info {display:block}
 	}
 }
 
 .datea_widget_small_base() {
-	.icon {
-		width: 23px;
-		height: 24px;
+	.widget-icon {
+		width: 19px;
+		height: 16px;
 	}
-	.text {
-		width: 60px;
+	.widget-text {
+		width: 51px;
 		height: @baseLineHeight +  @baseLineHeight - 8px;
-		padding-left: 5px;
-		.hover-msg {
+		padding-left: 4px;
+		.widget-hover-msg {
 			font-size: @baseFontSize - 2px;
-			line-height: @baseLineHeight - 5px;
+			line-height: @baseLineHeight - 6px;
 		}
-		.info {
+		.widget-info {
+			font-size: @baseFontSize - 2px;
+			line-height: @baseLineHeight - 6px;
+			margin:0px;
+			.widget-counter {padding-left:0px; color: @verde;}
+		}
+	}
+	&.read-only {
+		.widget-text {
+			.widget-hover-msg {
+				display: none !important;
+			}
+			.widget-info {
+				display: block !important;
+			}
+		}
+	}
+}
+
+.datea_widget_large_base() {
+	.widget-icon {
+		width: 35px;
+		height: 37px;
+	}
+	.widget-text {
+		padding-top: 2px;
+		width: 50px;
+		height: @baseLineHeight +  @baseLineHeight;
+		padding-left: 8px;
+		.widget-hover-msg {
+			font-size: @baseFontSize - 1px;
 			line-height: @baseLineHeight - 4px;
-			.counter {padding-left:5px; }
-			.info-label {
-				font-size: @baseFontSize - 2px;
+		}
+		.widget-info {
+			font-size: @baseFontSize - 2px;
+			line-height: @baseLineHeight - 2px;
+			margin:0px;
+			.widget-counter {padding-left:0px; font-size: @baseFontSize + 2px;}
+		}
+	}
+	&.read-only {
+		.widget-text {
+			.widget-hover-msg {
+				display: none !important;
+			}
+			.widget-info {
+				display: block !important;
 			}
 		}
 	}
@@ -96,18 +139,55 @@ a {
 	.datea_widget_base();
 	.datea_widget_small_base();
 	
-	.icon { background: url(../img/datea/widgets_icons_small.png) no-repeat 0px center; }
+	.widget-icon { background: url(../img/datea/seguir.png) no-repeat 0px center; }
 	
-	&:hover .icon { background: url(../img/datea/widgets_icons_small.png) no-repeat -23px center; }
+	&:hover .widget-icon { background: url(../img/datea/seguir.png) no-repeat -19px center; }
 	
 	&.active {
-		.icon { background: url(../img/datea/widgets_icons_small.png) no-repeat -46px center; }
-		&:hover .icon { background: url(../img/datea/widgets_icons_small.png) no-repeat -69px center; }
+		.widget-icon { background: url(../img/datea/seguir.png) no-repeat -19px center; }
+		&:hover .widget-icon { background: url(../img/datea/seguir.png) no-repeat -38px center; }
 	}
 	
 	&.after-click {
-		.icon { background: url(../img/datea/widgets_icons_small.png) no-repeat 0px center; }
-		&.active .icon { background: url(../img/datea/widgets_icons_small.png) no-repeat -46px center; }
+		.widget-icon { background: url(../img/datea/seguir.png) no-repeat 0px center; }
+		&.active .widget-icon { background: url(../img/datea/seguir.png) no-repeat -19px center; }
+	}
+	
+	&.read-only {
+		cursor: default;
+		.widget-icon, &:hover .widget-icon { background: url(../img/datea/seguir.png) no-repeat -19px center; }
+		&.active {
+			.widget-icon { background: url(../img/datea/seguir.png) no-repeat -19px center; }
+			&:hover .widget-icon { background: url(../img/datea/seguir.png) no-repeat -19px center; }
+		}
+	}
+}
+
+.follow-widget.full-large {
+	.datea_widget_base();
+	.datea_widget_large_base();
+	
+	.widget-icon { background: url(../img/datea/seguir_large.png) no-repeat 0px center; }
+	
+	&:hover .widget-icon { background: url(../img/datea/seguir_large.png) no-repeat -35px center; }
+	
+	&.active {
+		.widget-icon { background: url(../img/datea/seguir_large.png) no-repeat -35px center; }
+		&:hover .widget-icon { background: url(../img/datea/seguir_large.png) no-repeat -70px center; }
+	}
+	
+	&.after-click {
+		.widget-icon { background: url(../img/datea/seguir_large.png) no-repeat 0px center; }
+		&.active .widget-icon { background: url(../img/datea/seguir_large.png) no-repeat -35px center; }
+	}
+	
+	&.read-only {
+		cursor: default;
+		.widget-icon, &:hover .widget-icon { background: url(../img/datea/seguir_large.png) no-repeat -35px center; }
+		&.active {
+			.widget-icon { background: url(../img/datea/seguir_large.png) no-repeat -35px center; }
+			&:hover .widget-icon { background: url(../img/datea/seguir_large.png) no-repeat -35px center; }
+		}
 	}
 }
 
@@ -115,47 +195,46 @@ a {
 	cursor: pointer;
 	width: 18px;
 	a { width: 18px; display: inline-block; .ie7-inline-block(); &:hover {text-decoration: none}}
-	.icon {
+	.widget-icon {
 		width: 18px;
 		height: 18px;
 		background: url(../img/datea/seguir_estados.png) no-repeat -18px center;
 	}
 	
 	/*
-	&:hover .icon {
+	&:hover .widget-icon {
 		background: url(../img/datea/seguir_estados.png) no-repeat 0px center;
 	}*/
 	
 	&.active {
-		.icon {
+		.widget-icon {
 			background: url(../img/datea/seguir_estados.png) no-repeat 0px center;
 		}
-		&:hover .icon { background: url(../img/datea/seguir_estados.png) no-repeat -36px center; }
+		&:hover .widget-icon { background: url(../img/datea/seguir_estados.png) no-repeat -36px center; }
 	}
 	
 	&.after-click {
-		.icon { background: url(../img/datea/seguir_estados.png) no-repeat -18px center; }
-		&.active .icon { background: url(../img/datea/seguir_estados.png) no-repeat 0px center; }
+		.widget-icon { background: url(../img/datea/seguir_estados.png) no-repeat -18px center; }
+		&.active .widget-icon { background: url(../img/datea/seguir_estados.png) no-repeat 0px center; }
 	}
 }
 
 
-
-.vote-widget.small {
+.vote-widget.full-small {
 	.datea_widget_base();
 	.datea_widget_small_base();
 	
-	.icon { background: url(../img/widgets_icons_small.png) no-repeat -92px center; }
+	.widget-icon { background: url(../img/datea/apoyar.png) no-repeat 0px center; }
 	
-	&:hover .icon { background: url(../img/widgets_icons_small.png) no-repeat -115px center; }
+	&:hover .widget-icon { background: url(../img/datea/apoyar.png) no-repeat -19px center; }
 	
 	&.active {
-		.icon { background: url(../img/widgets_icons_small.png) no-repeat -138px center; }
-		&:hover .icon { background: url(../img/widgets_icons_small.png) no-repeat -138px center; }
+		.widget-icon { background: url(../img/datea/apoyar.png) no-repeat -19px center; }
+		&:hover .widget-icon { background: url(../img/datea/apoyar.png) no-repeat -19px center; }
 	}
 	
 	&.after-click {
-		.icon { background: url(../img/widgets_icons_small.png) no-repeat -115px center; }
-		&.voted .icon { background: url(../img/widgets_icons_small.png) no-repeat -138px center; }
+		.widget-icon { background: url(../img/datea/apoyar.png) no-repeat -19px center; }
+		&.active .widget-icon { background: url(../img/datea/apoyar.png) no-repeat 0px center; }
 	}
 }
