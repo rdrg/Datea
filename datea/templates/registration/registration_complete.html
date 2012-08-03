@@ -15,15 +15,6 @@ An activation email has been sent.  Please check your email and click on the lin
 {% endblock %}
 
 {% block content_right %}
-	<div class="registration-bubble">
-		<div class="inner">
-			<div class="msg">
-				{% trans "Already have an account?"%}
-			</div>
-			<div class="button">
-				<a class="btn btn-pointy btn-large" href="{% url auth_login %}">{% trans "Login" %}</a>
-			</div>
-		</div>
-	</div>
+	{% include "registration/_bubble_login.html" %}
 {% endblock %}
 
