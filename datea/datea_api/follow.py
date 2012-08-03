@@ -46,8 +46,7 @@ class HistoryResource(DateaBaseResource):
         if hasattr(request, 'GET') and 'following_user' in request.GET:
             follow_keys = [f.follow_key for f in DateaFollow.objects.filter(user__id=int(request.GET['following_user']))]
             applicable_filters['follow_key__in'] = follow_keys
-            
-        return super(HistoryResource, self).apply_filters(request, applicable_filters)
+        return self.get_object_list(request).filter(**applicable_filters).distinct('history_key')
     
     class Meta:
         queryset= DateaHistory.objects.all()
@@ -86,7 +85,6 @@ class NotifySettingsResource(DateaBaseResource):
             #preserve original owner
             orig_object = DateaNotifySettings.objects.get(pk=bundle.data['id'])
             bundle.obj.user = orig_object.user
-            print vars(bundle.obj)
             
         return bundle
     
