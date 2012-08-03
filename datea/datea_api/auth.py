@@ -86,7 +86,9 @@ class Accounts(ModelResource):
             if user.is_active:
                 key = getOrCreateKey(user)
                 return self.create_response(request,{'status':OK,
-                                                    'token': key})
+                                                    'token': key,
+                                                    'userid': user.id
+                                                    })
             else:
                 return self.create_response(request,{'status':FORBIDDEN,
                                                     'error': 'Account disabled'})
