@@ -7,9 +7,44 @@ span.caret2 {
     .opacity(50);    
 }
 
-a {
+a.btn.dropdown-toggle span.caret, button.btn.dropdown-toggle span.caret {
+    background: url(../img/datea/caret.png) no-repeat top center;
+    width: 15px;
+    height: 10px;
+    display:inline-block;
+    .ie7-inline-block();
+    .opacity(25);
+    border:0px;
+    margin-top:5px;    
+}
+
+.btn-group.white {
+	a.btn.dropdown-toggle, button.btn.dropdown-toggle{
+		span.caret {
+			background: url(../img/datea/caret-white.png) no-repeat top center;
+			.opacity(95);
+		}
+		&:hover span.caret {
+   			.opacity(95);
+   		}
+	}
+}
+
+.btn-group.dropup {
+	a.btn.dropdown-toggle,  button.btn.dropdown-toggle { 
+		span.caret {
+			margin-top: 4px;
+			background: url(../img/datea/caret-invert.png) no-repeat top center;
+		}
+	}
+}
+
+a.btn.dropdown-toggle, button.btn.dropdown-toggle, {
 	&:hover span.caret2 {
     	.opacity(100);
+   }
+   &:hover span.caret {
+   		.opacity(50);
    }
 }
 

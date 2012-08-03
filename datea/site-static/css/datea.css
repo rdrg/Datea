@@ -277,6 +277,17 @@ h1 {
 #user_head_view {
   float: left;
   margin-right: 25px;
+  *zoom: 1;
+}
+
+#user_head_view:before,
+#user_head_view:after {
+  display: table;
+  content: "";
+}
+
+#user_head_view:after {
+  clear: both;
 }
 
 #user_head_view #user-header .image {
@@ -292,6 +303,11 @@ h1 {
 #user_head_view #user-header ul.nav .dropdown-toggle {
   padding: 6px 0 0 6px;
   font-size: 14px;
+}
+
+#user_head_view #user-header ul.nav .dropdown-menu {
+  top: 30px;
+  right: -12px;
 }
 
 #user_head_view #login-header {
@@ -948,9 +964,49 @@ span.caret2 {
   *zoom: 1;
 }
 
-a:hover span.caret2 {
+a.btn.dropdown-toggle span.caret,
+button.btn.dropdown-toggle span.caret {
+  display: inline-block;
+  *display: inline;
+  width: 15px;
+  height: 10px;
+  margin-top: 5px;
+  background: url(../img/datea/caret.png) no-repeat top center;
+  border: 0;
+  opacity: 0.25;
+  filter: alpha(opacity=25);
+  *zoom: 1;
+}
+
+.btn-group.white a.btn.dropdown-toggle span.caret,
+.btn-group.white button.btn.dropdown-toggle span.caret {
+  background: url(../img/datea/caret-white.png) no-repeat top center;
+  opacity: 0.95;
+  filter: alpha(opacity=95);
+}
+
+.btn-group.white a.btn.dropdown-toggle:hover span.caret,
+.btn-group.white button.btn.dropdown-toggle:hover span.caret {
+  opacity: 0.95;
+  filter: alpha(opacity=95);
+}
+
+.btn-group.dropup a.btn.dropdown-toggle span.caret,
+.btn-group.dropup button.btn.dropdown-toggle span.caret {
+  margin-top: 4px;
+  background: url(../img/datea/caret-invert.png) no-repeat top center;
+}
+
+a.btn.dropdown-toggle:hover span.caret2,
+button.btn.dropdown-toggle:hover span.caret2 {
   opacity: 1;
   filter: alpha(opacity=100);
+}
+
+a.btn.dropdown-toggle:hover span.caret,
+button.btn.dropdown-toggle:hover span.caret {
+  opacity: 0.5;
+  filter: alpha(opacity=50);
 }
 
 .paginator li {
@@ -2120,6 +2176,7 @@ body .olwidgetPopupCloseBox {
 }
 
 #mapping-start .info .stats .stat-line {
+  margin-right: 10px;
   font-size: 11px;
   line-height: 16px;
   color: #27bb44;
