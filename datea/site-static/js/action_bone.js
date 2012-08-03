@@ -122,7 +122,7 @@ window.Datea.MyActionListView = Backbone.View.extend({
     	
 		this.action_filter = new Datea.DropdownSelect({
 			options: this.filter_options,
-			div_class: 'no-bg',
+			div_class: 'no-bg white',
 			init_value: this.selected_mode,
 			callback: function (val) {
 				self.selected_mode = val; 
