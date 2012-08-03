@@ -6,14 +6,14 @@ from django.utils.cache import patch_vary_headers
 from django import http
 
 try:
-    import settings 
-    XS_SHARING_ALLOWED_ORIGINS = settings.XS_SHARING_ALLOWED_ORIGINS
-    XS_SHARING_ALLOWED_METHODS = settings.XS_SHARING_ALLOWED_METHODS
-    XS_SHARING_ALLOWED_HEADERS = settings.XS_SHARING_ALLOWED_HEADERS
+    import datea.settings 
+    XS_SHARING_ALLOWED_ORIGINS = datea.settings.XS_SHARING_ALLOWED_ORIGINS
+    XS_SHARING_ALLOWED_METHODS = datea.settings.XS_SHARING_ALLOWED_METHODS
+    XS_SHARING_ALLOWED_HEADERS = datea.settings.XS_SHARING_ALLOWED_HEADERS
 except:
     XS_SHARING_ALLOWED_ORIGINS = '*'
     XS_SHARING_ALLOWED_METHODS = ['POST','GET','OPTIONS', 'PUT', 'DELETE']
-    XS_SHARING_ALLOWED_HEADERS = ['Origin', 'Content-Type', 'Accept']
+    XS_SHARING_ALLOWED_HEADERS = ['Origin', 'Content-Type', 'Accept', 'Authorization', 'X-CSRFToken']
 
 
 class XsSharing(object):

@@ -280,6 +280,9 @@ CACHES = {
         'LOCATION': '127.0.0.1:11211',
     }
 }
+#Allowed headers for cross domain requests
+#XS_SHARING_ALLOWED_HEADERS = ['Origin', 'Content-Type', 'Accept', 'Authorization']
+
 
 #Ckeditor settings
 CKEDITOR_UPLOAD_PATH = os.path.join(MEDIA_ROOT, 'uploads')
