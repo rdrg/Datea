@@ -10,23 +10,6 @@ window.Datea.ActionCollection = Backbone.Collection.extend({
 	url: '/api/v1/action/',
 });
 
-window.Datea.CheckActionStats = function ($el, model) {
-	// items
-	if (model.get('item_count') == 1) {
-		$('.item_count .singular', $el).show();
-		$('.item_count .plural', $el).hide();
-	}
-	// comment
-	if (model.get('comment_count') == 1) {
-		$('.comment_count .singular', $el).show();
-		$('.comment_count .plural', $el).hide();
-	}
-	// users
-	if (model.get('user_count') == 1) {
-		$('.user_count .singular', $el).show();
-		$('.user_count .plural', $el).hide();
-	}
-}
 
 // ACtion list item
 window.Datea.ActionListItemView = Backbone.View.extend({
@@ -51,7 +34,7 @@ window.Datea.ActionListItemView = Backbone.View.extend({
 			this.$el.find('.follow-button').html(this.follow_widget.render().el);
 		}
       
-		Datea.CheckActionStats(this.$el, this.model);
+		Datea.CheckStatsPlural(this.$el, this.model);
 		return this;
   }
                                 

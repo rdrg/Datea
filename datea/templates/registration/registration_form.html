@@ -12,7 +12,7 @@
 <form class="form" method='post' action=''>
 		{% csrf_token %}
         {{ form|as_bootstrap }}
-        <input class="btn btn-primary btn-large" type="submit" value="{% trans 'Register' %}" />
+        <button class="btn btn-primary btn-large btn-pointy btn-uppercase" type="submit">{% trans 'Register' %}<div class="pointer">&nbsp;</div></button>
 </form>
 {% endblock %}
 

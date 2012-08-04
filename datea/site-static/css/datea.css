@@ -155,6 +155,7 @@ a.open-popup:hover .mira {
   font-size: 17px;
   font-weight: bold;
   line-height: 30px;
+  color: #999999;
   background-color: #e2e2dd;
   -webkit-border-radius: 0;
      -moz-border-radius: 0;
@@ -172,7 +173,7 @@ a.open-popup:hover .mira {
   display: block;
   width: 18px;
   height: 30px;
-  background: url(../img/datea/boton_flecha.gif) no-repeat 0 center;
+  background: url(../img/datea/boton_flecha.png) no-repeat 0 center;
 }
 
 .btn.btn-pointy:hover {
@@ -180,25 +181,56 @@ a.open-popup:hover .mira {
 }
 
 .btn.btn-pointy:hover .pointer {
-  background: url(../img/datea/boton_flecha.gif) no-repeat -18px center;
+  background: url(../img/datea/boton_flecha.png) no-repeat -18px center;
 }
 
 .btn.btn-pointy.btn-success {
+  color: white;
   background-color: #27bb44;
 }
 
 .btn.btn-pointy.btn-success .pointer {
-  background: url(../img/datea/boton_flecha.gif) no-repeat -36px center;
+  background: url(../img/datea/boton_flecha.png) no-repeat -36px center;
 }
 
 .btn.btn-pointy.btn-success:hover {
+  color: white;
   background-color: #27bb44;
   opacity: 0.85;
   filter: alpha(opacity=85);
 }
 
 .btn.btn-pointy.btn-success:hover .pointer {
-  background: url(../img/datea/boton_flecha.gif) no-repeat -36px center;
+  background: url(../img/datea/boton_flecha.png) no-repeat -36px center;
+}
+
+.btn.btn-pointy.btn-large {
+  height: 45px;
+  padding: 0 20px;
+  margin-right: 25px;
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 45px;
+}
+
+.btn.btn-pointy.btn-large .pointer {
+  top: 0;
+  right: -23px;
+  width: 23px;
+  height: 45px;
+  background: url(../img/datea/boton_flecha_large.png) no-repeat 0 center;
+}
+
+.btn.btn-pointy.btn-large:hover .pointer {
+  background: url(../img/datea/boton_flecha_large.png) no-repeat -23px center;
+}
+
+.btn.btn-pointy.btn-large.btn-success .pointer {
+  background: url(../img/datea/boton_flecha_large.png) no-repeat -46px center;
+}
+
+.btn.btn-pointy.btn-large.btn-success:hover .pointer {
+  background: url(../img/datea/boton_flecha_large.png) no-repeat -46px center;
 }
 
 h1 {
@@ -243,6 +275,35 @@ h1 {
   border-top: 1px solid #7f7f7f;
 }
 
+#footer #footer-menu a {
+  font-size: 14px;
+  color: #1a1a1a;
+}
+
+#footer #footer-menu .separator {
+  padding: 0 6px;
+}
+
+#footer #footer-right .copyfight {
+  font-size: 14px;
+  color: #1a1a1a;
+}
+
+#footer #footer-right .lafactura {
+  font-size: 13px -2px;
+  line-height: 13px;
+  color: #999999;
+  text-align: right;
+}
+
+#footer #footer-right .lafactura a {
+  color: #999999;
+}
+
+#footer #footer-right .lafactura a:hover {
+  color: #27bb44;
+}
+
 #head-nav #head-nav-right #navbar-items {
   float: left;
   padding-top: 38px;
@@ -267,6 +328,7 @@ h1 {
   display: inline-block;
   *display: inline;
   margin-top: 14px;
+  margin-left: 15px;
   *zoom: 1;
 }
 
@@ -313,6 +375,7 @@ h1 {
 #user_head_view #login-header {
   display: inline-block;
   *display: inline;
+  margin-left: 40px;
   text-align: center;
   *zoom: 1;
 }
@@ -557,18 +620,8 @@ h1 {
   text-align: right;
 }
 
-#footer #footer-right .lafactura {
-  font-size: 13px -1px;
-  color: #999999;
-  text-align: right;
-}
-
-#footer #footer-right .lafactura a {
-  color: #999999;
-}
-
-#footer #footer-right .lafactura a:hover {
-  color: #27bb44;
+#datea-presentation .footer .right .inner {
+  padding-right: 20px;
 }
 
 span.ajax-loading.small {
@@ -1428,6 +1481,7 @@ button.btn.dropdown-toggle:hover span.caret {
 }
 
 .user-profile .head {
+  margin-bottom: 10px;
   *zoom: 1;
 }
 
@@ -1465,6 +1519,10 @@ button.btn.dropdown-toggle:hover span.caret {
 
 .user-profile .head .profile-head-data .stats .stat {
   color: #27bb44;
+}
+
+.user-profile .head .profile-head-data .stats .separator {
+  padding: 0 4px;
 }
 
 .user-profile .head .profile-head-data .stats .separator:last-child {
@@ -2121,20 +2179,29 @@ body .olwidgetPopupCloseBox {
 }
 
 .mapping-tabs li a {
-  color: #5e6e65;
+  color: #555555;
   background-color: #ececec;
-  border-color: #ececec;
+  border-color: #c5c5c5;
 }
 
-.mapping-tabs li.active a,
-.mapping-tabs li.active:hover a {
-  /*border:0px !important;*/
+.mapping-tabs li a:hover {
+  border-color: #c5c5c5;
+}
 
+.mapping-tabs li.active a {
+  color: #5e6e65;
+  border-color: #c5c5c5;
+  border-bottom-color: transparent;
+}
+
+.mapping-tabs li.active a:hover {
+  border-color: #c5c5c5;
+  border-bottom-color: transparent;
 }
 
 .mapping-tab-content {
   z-index: 1;
-  border: 1px solid #dddddd;
+  border: 1px solid #c5c5c5;
   -webkit-border-radius: 8px;
      -moz-border-radius: 8px;
           border-radius: 8px;
@@ -2154,6 +2221,7 @@ body .olwidgetPopupCloseBox {
 #mapping-start h2 {
   margin-bottom: 5px;
   font-size: 20px;
+  line-height: 30px;
   color: #27bb44;
 }
 
@@ -2708,6 +2776,7 @@ body .olwidgetPopupCloseBox {
 }
 
 .history-view-container {
+  padding-top: 3px;
   margin-top: 10px;
   border-top: 1px solid #9d9d9d;
 }

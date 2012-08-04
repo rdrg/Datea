@@ -7,7 +7,7 @@
 
 {% if account %}
 <p class="desc">
-{% blocktrans %}Thanks {{ account }}, activation complete!  You may now{% endblocktrans %} <a class="btn btn-primary btn-pointy btn-large" href='{% url auth_login %}'>login<div class="pointer"></div></a> {% blocktrans %} using the username and password you set at registration.{% endblocktrans %}
+{% blocktrans %}Thanks {{ account }}, activation complete!  You may now{% endblocktrans %} <a class="btn btn-primary btn-pointy btn-large btn-uppercase" href='{% url auth_login %}'>login<div class="pointer"></div></a> {% blocktrans %} using the username and password you set at registration.{% endblocktrans %}
 {% else %}
 {% trans "Oops &ndash; it seems that your activation key is invalid.  Please check the url again." %}
 {% endif %}

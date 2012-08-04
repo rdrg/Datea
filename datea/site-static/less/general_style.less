@@ -32,6 +32,34 @@ h1 {
 	padding-top: 11px;
 	padding-bottom: 10px;
 	border-top: 1px solid #7f7f7f;
+	
+	#footer-menu {
+		a {
+			color: @grayTextDarker;
+			font-size: @baseFontSize + 1px;
+		}
+		.separator { padding:0 6px;}
+	}
+	
+	#footer-right {
+		.copyfight {
+			color: @grayTextDarker;
+			font-size: @baseFontSize + 1px;
+		}
+		
+		.lafactura {
+			font-size: @baseFontSize -2px;
+			line-height: @baseFontSize;
+			color: @grayLight;
+			text-align: right;
+			a {
+				color: @grayLight;
+				&:hover {
+					color: @green;
+				}
+			}
+		}
+	}
 }
 
 

@@ -218,7 +218,7 @@ window.Datea.MapItemAdminView = Backbone.View.extend({
 		this.$el.addClass('expanded');
 		this.template = 'map_item_admin_list_item_full_tpl';
 		this.render();
-		Datea.CheckMapItemStats(this.$el, this.model);
+		Datea.CheckStatsPlural(this.$el, this.model);
 		
 		// map
 		if (this.model.get('position')) {

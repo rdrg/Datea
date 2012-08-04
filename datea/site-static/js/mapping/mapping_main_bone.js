@@ -243,6 +243,7 @@ window.Datea.MappingStartTab = Backbone.View.extend({
 		context.full_url = get_base_url() + this.model.get('url');
 		context.tweet_text = this.model.get('short_description');
 		this.$el.html( ich.mapping_tab_start_tpl(context));
+		Datea.CheckStatsPlural(this.$el, this.model);
 		
 		// follow widget
   		if (!Datea.my_user.isNew()) {

@@ -25,10 +25,18 @@
 	li a { 
 		background-color: #ececec; 
 		/*border:0px; */
-		color: @grayText;
-		border-color: #ececec;
+		color: @gray;
+		border-color: #c5c5c5;
+		&:hover {
+			border-color: #c5c5c5;
+		}
 	}
-	li.active a, li.active:hover a { /*border:0px !important;*/}
+	li.active a {
+		color: @grayText;
+		border-color: #c5c5c5;
+		border-bottom-color: transparent;
+		&:hover { border-color: #c5c5c5; border-bottom-color: transparent;}
+	}
 	z-index: 2;
 }
 
@@ -36,7 +44,7 @@
 .mapping-tab-content {
 	.border-radius(8px);
 	.box-shadow(1px 1px 2px rgba(0,0,0,.15));
-	border: 1px solid #dddddd;
+	border: 1px solid #c5c5c5;
 	z-index: 1;
 	.tab-pane {
 		.inner {
@@ -50,7 +58,7 @@
 	
 	margin-top:15px;
 	
-	h2 { color: @verde; margin-bottom:5px; font-size:20px;}
+	h2 { color: @verde; margin-bottom:5px; font-size:20px; line-height: 30px}
 	
 	.short-description {
 		color: @grayTextDark;

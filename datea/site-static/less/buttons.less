@@ -89,6 +89,7 @@ a.open-popup {
 	font-weight: bold;
 	
 	background-color: #e2e2dd;
+	color: @grayLight;
 	
 	&.btn-uppercase {
 		text-transform: uppercase;
@@ -101,25 +102,60 @@ a.open-popup {
 		width: 18px;
 		height: 30px;
 		display: block;
-		background: url(../img/datea/boton_flecha.gif) no-repeat 0px center;
+		background: url(../img/datea/boton_flecha.png) no-repeat 0px center;
 	}
 	&:hover {
 		background-color: @amarillo;
 		.pointer {
-			background: url(../img/datea/boton_flecha.gif) no-repeat -18px center;
+			background: url(../img/datea/boton_flecha.png) no-repeat -18px center;
 		}
 	}
 	
 	&.btn-success {
+		color: white;
 		background-color: @verde;
 		.pointer {
-			background: url(../img/datea/boton_flecha.gif) no-repeat -36px center;
+			background: url(../img/datea/boton_flecha.png) no-repeat -36px center;
 		}
 		&:hover {
 			background-color: @verde;
+			color: white;
 			.opacity(85);
 			.pointer {
-				background: url(../img/datea/boton_flecha.gif) no-repeat -36px center;
+				background: url(../img/datea/boton_flecha.png) no-repeat -36px center;
+			}
+		}
+	}
+	
+	&.btn-large {
+		padding: 0px 20px;
+		height: 45px;
+		line-height: 45px;
+		margin-right: 25px;
+		
+		font-size: @baseFontSize + 5px;
+		font-weight: bold;
+		
+		.pointer {
+			right: -23px;
+			top: 0px;
+			width: 23px;
+			height: 45px;
+			background: url(../img/datea/boton_flecha_large.png) no-repeat 0px center;
+		}
+		&:hover {
+			.pointer {
+				background: url(../img/datea/boton_flecha_large.png) no-repeat -23px center;
+			}
+		}
+		&.btn-success {
+			.pointer {
+				background: url(../img/datea/boton_flecha_large.png) no-repeat -46px center;
+			}
+			&:hover {
+				.pointer {
+					background: url(../img/datea/boton_flecha_large.png) no-repeat -46px center;
+				}
 			}
 		}
 	}	

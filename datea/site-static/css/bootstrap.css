@@ -3195,13 +3195,16 @@ input[type="submit"].btn.btn-mini {
 }
 
 .nav-tabs > li > a {
-  padding-top: 4px;
-  padding-bottom: 4px;
+  padding-top: 5px;
+  padding-right: 18px;
+  padding-bottom: 5px;
+  padding-left: 18px;
+  font-size: 14px;
   line-height: 18px;
   border: 1px solid transparent;
-  -webkit-border-radius: 6px 6px 0 0;
-     -moz-border-radius: 6px 6px 0 0;
-          border-radius: 6px 6px 0 0;
+  -webkit-border-radius: 8px 8px 0 0;
+     -moz-border-radius: 8px 8px 0 0;
+          border-radius: 8px 8px 0 0;
 }
 
 .nav-tabs > li > a:hover {

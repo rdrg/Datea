@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load i18n %} 
+{% load i18n datea_menu_tags %} 
 
 {% block body %}
 	<div id="head-nav" class="navbar navbar-fixed-top">
@@ -7,10 +7,13 @@
 			<div class="container container-target">
 				<div id="head-nav-right" class="pull-right">
 					<div id="navbar-items">
-                    	{% for item in datea_menu %}
-                        	<a href="{{item.name}}" alt="{{item.alt}}">{{item.name}}</a> 
+						{% get_menu "main_menu_es" as main_menu %}
+							<a href="{{item.url}}" alt="{% trans "Home"%}" title="{% trans "Home"%}">{% trans "Home"%}</a> 
+							<span class="separator">|</span>
+						{% for item in main_menu %}
+							<a href="{{item.url}}" alt="{{item.name}}" title="{{item.page_title}}">{{item.name}}</a> 
                         	{% if not forloop.last %}<span class="separator">|</span>{% endif %}
-                    	{% endfor %}
+                        {% endfor %}
                		 </div>
 					<div id="user_head_view"></div>
 					<div id="setting-controls"></div>
@@ -34,7 +37,17 @@
 		<div id="footer">
 			<div class="inner container container-target">
 				<div class="row row-target">
-					<div id="footer-left" class="span6">&nbsp;</div>
+					<div id="footer-left" class="span6">
+						<div id="footer-menu">
+							{% get_menu "footer_menu_es" as footer_menu %}
+								<a href="{{item.url}}" alt="{% trans "Home"%}" title="{% trans "Home"%}">{% trans "Home"%}</a> 
+								<span class="separator">|</span>
+							{% for item in footer_menu %}
+								<a href="{{item.url}}" alt="{{item.name}}" title="{{item.page_title}}">{{item.name}}</a> 
+	                        	{% if not forloop.last %}<span class="separator">|</span>{% endif %}
+	                        {% endfor %}
+                        </div>
+					</div>
 					
 					<div id="footer-right" class="span6">
 						<div class="pull-right">

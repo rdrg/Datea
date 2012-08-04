@@ -18,23 +18,6 @@ window.Datea.MapItemCollection = Backbone.Collection.extend({
     }
 });
 
-window.Datea.CheckMapItemStats = function ($el, model) {
-	// votes
-	if (model.get('vote_count') == 1) {
-		$('.vote_count .singular', $el).show();
-		$('.vote_count .plural', $el).hide();
-	}
-	// comment
-	if (model.get('comment_count') == 1) {
-		$('.comment_count .singular', $el).show();
-		$('.comment_count .plural', $el).hide();
-	}
-	// followers
-	if (model.get('follow_count') == 1) {
-		$('.follow_count .singular', $el).show();
-		$('.follow_count .plural', $el).hide();
-	}
-}
 
 window.Datea.MapItemFullView = Backbone.View.extend({
 	
@@ -165,7 +148,7 @@ window.Datea.MapItemTeaserView = Backbone.View.extend({
 		// hydrate context 
 		context.created = formatDateFromISO(context.created, "dd.mm.yyyy - H:MM");
 		this.$el.html( ich.map_item_teaser_tpl(context) );
-		Datea.CheckMapItemStats(this.$el, this.model);
+		Datea.CheckStatsPlural(this.$el, this.model);
 		
 		// has position?
 		if (!this.model.get('position') || !this.model.get('position').coordinates) {
@@ -203,7 +186,7 @@ window.Datea.MapItemPopupView = Backbone.View.extend({
 		// hydrate context 
 		context.created = formatDateFromISO(context.created, "dd.mm.yyyy - H:MM");
 		this.$el.html( ich.map_item_popup_tpl(context) );
-		Datea.CheckMapItemStats(this.$el, this.model);
+		Datea.CheckStatsPlural(this.$el, this.model);
 		return this;
 	},
 	

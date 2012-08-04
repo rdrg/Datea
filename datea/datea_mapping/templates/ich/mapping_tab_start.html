@@ -17,9 +17,27 @@
 		<div class="short-description">{{short_description}}</div>
 		<div class="info">
 			<div class="stats">
-				{{#item_count}}<div class="stat-line"><i class="icono dateo"></i> {{item_count}} {% trans "reports" %}</div>{{/item_count}} 
-				{{#comment_count}}<div class="stat-line"><i class="icono comment"></i> {{comment_count}} {% trans "comments" %}</div>{{/comment_count}}
-				{{#user_count}}<div class="stat-line"><i class="icono follow"></i> {{user_count}} {% trans "participants" %}</div>{{/user_count}}
+				{{#item_count}}
+					<div class="stat-line item_count">
+						<i class="icono comment"></i> {{item_count}} 
+						<span class="plural">{% trans "reports" %}</span>
+						<span class="singular" style="display:none">{% trans "report" %}</span>	
+					</div>
+				{{/item_count}} 
+				{{#comment_count}}
+					<div class="stat-line comment_count">
+						<i class="icono comment"></i> {{comment_count}} 
+						<span class="plural">{% trans "comments" %}</span>
+						<span class="singular" style="display:none">{% trans "comment" %}</span>	
+					</div>
+				{{/comment_count}}
+				{{#user_count}}
+					<div class="stat-line user_count">
+						<i class="icono follow"></i> {{user_count}} 
+						<span class="plural">{% trans "participants" %}</span>
+						<span class="singular" style="display:none">{% trans "participant" %}</span>	
+					</div>
+				{{/user_count}}
 			</div>
 			<div class="create-button">
 				 <button type="button" class="btn btn-large btn-primary create-report">{% trans "Create Report" %}</button>
