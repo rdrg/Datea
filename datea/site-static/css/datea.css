@@ -636,6 +636,51 @@ h1 {
   padding-right: 20px;
 }
 
+.logged-intro h3 {
+  margin-bottom: 10px;
+}
+
+.logged-intro .intro-item {
+  margin-bottom: 10px;
+  *zoom: 1;
+}
+
+.logged-intro .intro-item:before,
+.logged-intro .intro-item:after {
+  display: table;
+  content: "";
+}
+
+.logged-intro .intro-item:after {
+  clear: both;
+}
+
+.logged-intro .intro-item:last-child {
+  margin-bottom: 0;
+}
+
+.logged-intro .intro-item .icon {
+  float: left;
+  width: 39px;
+  height: 43px;
+}
+
+.logged-intro .intro-item .text {
+  margin-left: 55px;
+}
+
+.logged-intro .intro-item.intro-join .icon {
+  background: url(../img/datea/logged-intro-icons.png) no-repeat 0 top;
+}
+
+.logged-intro .intro-item.intro-contribute .icon {
+  background: url(../img/datea/logged-intro-icons.png) no-repeat -39px top;
+}
+
+.logged-intro .intro-item.intro-create .icon {
+  background: url(../img/datea/logged-intro-icons.png) no-repeat -78px top;
+}
+
 span.ajax-loading.small {
   display: inline-block;
   *display: inline;

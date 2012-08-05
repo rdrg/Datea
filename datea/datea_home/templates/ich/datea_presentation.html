@@ -1,4 +1,4 @@
-{% load verbatim_tag i18n %}
+{% load verbatim_tag i18n datea_menu_tags %}
 {% verbatim %}
 <script id="datea_presentation_tpl" type="text/html">
 	<div id="datea-presentation" class="dotted-inner">
@@ -37,7 +37,16 @@
 		
 		<div class="footer">
 			<div class="left">
-				<div class="inner">&nbsp;</div>
+				<div class="inner">
+					{% get_menu "presentation_menu_es" as menu %}
+					<ul class="presentation-menu">
+					{% for item in menu %}
+						<li>
+							<a href="{{item.url}}" alt="{{item.name}}" title="{{item.page_title}}">{{item.name}}</a>
+						</li>
+	                {% endfor %}
+	                </ul>
+				</div>
 			</div>
 			<div class="right">
 				<div class="inner">
@@ -45,6 +54,37 @@
 						{% trans "Login" %}<div class="pointer">&nbsp;</div>
 					</a>
 				</div>
+			</div>
+		</div>
+		
+	</div>
+</script>
+
+
+<script id="datea_logged_intro_tpl" type="text/html">
+	<div class="logged-intro">
+		<h3>{% trans "First time around here?" %}</h3>
+		
+		<div class="intro-item intro-join">
+			<div class="icon">&nbsp;</div>
+			<div class="text">
+				{% blocktrans %}Join actions of your community Search actions here on the left, join and contribute.{% endblocktrans %}
+			</div>
+		</div>
+		
+		<div class="intro-item intro-contribute">
+			<div class="icon">&nbsp;</div>
+			<div class="text">
+				{% blocktrans %}Contribute, comment and support each other's contributions.{% endblocktrans %}
+			</div>
+		</div>
+		
+		<hr class="separator" />
+		
+		<div class="intro-item intro-create">
+			<div class="icon">&nbsp;</div>
+			<div class="text">
+				{% blocktrans %}You can create actions for others to participate in. Check your user's menu on the upper right corner.{% endblocktrans %}
 			</div>
 		</div>
 		

@@ -141,7 +141,12 @@ window.DateaHistoryView = Backbone.View.extend({
     	}else if (this.render_items.length > 0){
     		items = this.render_items;
     	}else{
-    		$list.html(ich.empty_result_tpl());
+    		if (!Datea.my_user.isNew() && this.user_model.get('id') == Datea.my_user.get('id')) {
+    			this.$el.html(ich.datea_logged_intro_tpl());
+    		}else{
+    			$list.html(ich.empty_result_tpl());
+    		}
+    		return;
     	}
     	
     	_.each(items, function (item) {

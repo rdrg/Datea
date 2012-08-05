@@ -58,3 +58,40 @@
 		}
 	}
 }
+
+.logged-intro {
+	
+	h3 {
+		margin-bottom: 10px;
+	}
+	
+	.intro-item {
+		.clearfix();
+		margin-bottom: 10px;
+		&:last-child { margin-bottom:0px;}
+		.icon {
+			float: left;
+			height: 43px;
+			width: 39px;	
+		}
+		.text {
+			margin-left: 55px;
+		}
+		
+		&.intro-join {
+			.icon {
+				background: url(../img/datea/logged-intro-icons.png) no-repeat 0px top;
+			}
+		}
+		&.intro-contribute {
+			.icon {
+				background: url(../img/datea/logged-intro-icons.png) no-repeat -39px top;
+			}
+		}
+		&.intro-create {
+			.icon {
+				background: url(../img/datea/logged-intro-icons.png) no-repeat -78px top;
+			}
+		}
+	}	
+}
