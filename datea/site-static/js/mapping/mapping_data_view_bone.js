@@ -174,7 +174,6 @@ window.Datea.MappingDataViewMap = Backbone.View.extend({
 			this.map.updateSize();
 			this.map.initCenter();
 		}else{
-
 			this.itemLayer = new olwidget.DateaMainMapItemLayer(
 				this.mapModel, this.options.render_items,
 				{'name': 'Aportes', 'cluster': true}

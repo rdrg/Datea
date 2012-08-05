@@ -138,8 +138,10 @@ window.DateaHistoryView = Backbone.View.extend({
     		var items = _.rest(this.render_items, this.items_per_page*this.page);
        		items = _.first(items, this.items_per_page);
        		add_pager = true;  
-    	}else{
+    	}else if (this.render_items.length > 0){
     		items = this.render_items;
+    	}else{
+    		$list.html(ich.empty_result_tpl());
     	}
     	
     	_.each(items, function (item) {
@@ -147,7 +149,6 @@ window.DateaHistoryView = Backbone.View.extend({
         }, this);
         
         var $pager_div = this.$el.find('.item-pager');
-       	console.log(this.page);
 		if (add_pager) {
 			$pager_div.html( this.pager_view.render_for_page(this.page, this.render_items.length).el);
 			$pager_div.removeClass('hide');

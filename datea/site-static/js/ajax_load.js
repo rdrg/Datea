@@ -15,4 +15,5 @@ Datea.show_small_loading = function ($over_el) {
 
 Datea.hide_small_loading = function ($over_el) {
 	$over_el.find('.loading-small-bg, .loading-small-img').remove();
+	$over_el.css(); 
 }

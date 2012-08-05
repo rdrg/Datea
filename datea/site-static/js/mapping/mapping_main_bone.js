@@ -18,7 +18,7 @@ window.Datea.MappingMainView = Backbone.View.extend({
 		this.map_items = this.options.map_items;
 		//this.items_fetched = false;
 		//this.map_items.bind('reset', this.render, this);
-		this.map_items.bind('reset', this.reset_event, this);
+		//this.map_items.bind('reset', this.reset_event, this);
 		var self = this;
 	},
 	
@@ -105,10 +105,10 @@ window.Datea.MappingMainView = Backbone.View.extend({
 		var create_rep_view = new Datea.MapItemFormView({
 			model: model,
 			mappingModel: this.model,
-		
 			success_callback: function(model) {
-				self.map_items.trigger('reset');
+				//self.map_items.trigger('reset');
 				self.open_popup(model.get('id'));
+				self.model.fetch();
 			}
 		});
 		create_rep_view.open_window();
@@ -323,19 +323,24 @@ window.Datea.MappingMapItemTab = Backbone.View.extend({
 	render_item_page: function (page) {
 		this.mode = 'list';
 		
+		var $item_list = this.$el.find('.item-list');
+		
 		if (typeof(page) != 'undefined') {
 			this.page = page;	
 		}
 		var add_pager = false;
 		
+		
 		if (this.filtered_items.length > this.items_per_page) {
 			var items = Datea.paginate(this.filtered_items, this.page, this.items_per_page);
 			var add_pager = true;	
-		}else{
+		}else if (this.filtered_items.length > 0){
 			var items = this.filtered_items;
+		}else{
+			$item_list.html(ich.empty_result_tpl());
+			return;
 		}
 		
-		var $item_list = this.$el.find('.item-list');
 		$item_list.empty();
 		_.each(items, function(item) {
 			$item_list.append(new Datea.MapItemTeaserView({ model:item }).render().el);

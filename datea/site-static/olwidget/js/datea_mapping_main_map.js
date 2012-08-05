@@ -235,6 +235,10 @@ olwidget.DateaMainMapItemLayer = OpenLayers.Class(olwidget.BaseVectorLayer, {
     },
     
     reload: function () {
+    	// strange debug -> ugly stuff
+    	if (this.mapItems.collection) {
+    		this.mapItems = this.mapItems.collection;
+    	}
     	this.destroyFeatures();
     	this.afterAdd();
     },

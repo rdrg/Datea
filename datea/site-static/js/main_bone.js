@@ -2,12 +2,19 @@
 
 Datea.ModalWrapView = Backbone.View.extend({
    	
+   	initialize: function () {
+   		this.$el.on('shown',function(){
+   			init_autoresize_textareas();
+   		});
+   	},
+   	
    	events: {
    		'click .close-modal': 'close_modal',
    	},
    	
    	render: function (eventName) {
 		this.$el.html(this.content.render().el);
+		
 		return this;
 	},
 	

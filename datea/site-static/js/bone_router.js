@@ -70,6 +70,7 @@ Datea.AppRouter = Backbone.Router.extend({
     	if (!Datea.my_user.isNew() && user_id == Datea.my_user.get('id')) {
     		this.navigate('/', {trigger: true});
     	}else{
+    		Datea.show_big_loading($('#main-content-view'));
     		clear_admin_controls();
     		var user = new Datea.User({id: user_id});
     		var profile_view = new Datea.ProfileView({model: user});
@@ -77,6 +78,7 @@ Datea.AppRouter = Backbone.Router.extend({
     			success: function (model, response) {
     				$('#main-content-view').html(profile_view.render().el);
     				init_share_buttons();
+    				$('#main-content-view').removeAttr('style');
 	        	}
 	        });
     	}
@@ -101,6 +103,7 @@ Datea.AppRouter = Backbone.Router.extend({
     		this.mapping_view.render_tab(params);
     		
     	}else{
+    		Datea.show_big_loading($('#main-content-view'));
     		var self = this;
     		clear_admin_controls();
     		this.build_mapping_main_view(map_id, function () {
@@ -124,6 +127,7 @@ Datea.AppRouter = Backbone.Router.extend({
     		}
     		this.mapping_view.render_item(params);
     	}else{
+    		Datea.show_big_loading($('#main-content-view'));
     		var self = this;
     		clear_admin_controls();
     		this.build_mapping_main_view(map_id, function () {
@@ -136,7 +140,6 @@ Datea.AppRouter = Backbone.Router.extend({
     fetch_mapping_data: function (map_id, callback) {
     	var self = this;
     	this.mapping_model = new Datea.Mapping({id: map_id});
-    	this.map_items = new Datea.MapItemCollection();
     	this.mapping_model.fetch({
     		success: function () {
     			callback();
@@ -148,15 +151,17 @@ Datea.AppRouter = Backbone.Router.extend({
     build_mapping_main_view: function(map_id, callback) {
     	var self = this;
     	this.fetch_mapping_data(map_id, function(){
+    		self.map_items = new Datea.MapItemCollection();
+    		if (self.mapping_view) self.mapping_view.undelegateEvents();
 			self.mapping_view = new Datea.MappingMainView({
 				el: $('#main-content-view'),
 				model: self.mapping_model,
 				map_items: self.map_items,
 			});
-			self.mapping_view.render();
 			self.map_items.fetch({
 				data: {'action': map_id, 'order_by': '-created'},
 				success: function ( ) {
+					self.mapping_view.render();
 					if (typeof(callback) != 'undefined') {
 						callback();
 					}
@@ -167,8 +172,10 @@ Datea.AppRouter = Backbone.Router.extend({
     
     // Build mapping admin view and addit to the dom
     build_mapping_admin_view: function(map_id, callback) {
+    	Datea.show_big_loading($('#main-content-view'));
     	var self = this;
     	this.fetch_mapping_data(map_id, function(){
+    		self.map_items = new Datea.MapItemCollection();
 			self.mapping_admin_view = new Datea.MappingAdminView({
 				el: $('#main-content-view'),
 				model: self.mapping_model,
@@ -178,6 +185,7 @@ Datea.AppRouter = Backbone.Router.extend({
 				data: {'action': map_id, 'order_by': '-created'},
 				success: function ( ) {
 					self.mapping_admin_view.render();
+					$('#main-content-view').removeAttr('style');
 					if (typeof(callback) != 'undefined') {
 						callback();
 					}
@@ -189,11 +197,13 @@ Datea.AppRouter = Backbone.Router.extend({
     // Build mapping EDIT view and addit to the dom
     build_mapping_edit_view: function(map_id, callback) {
     	var self = this;
+    	Datea.show_big_loading($('#main-content-view'));
     	this.fetch_mapping_data(map_id, function(){
 			self.mapping_edit_view = new Datea.MappingFormView({
 				el: $('#main-content-view'),
 				model: self.mapping_model,
 			});
+			$('#main-content-view').removeAttr('style');
 			if (typeof(callback) != 'undefined') {
 				callback();
 			}
@@ -221,6 +231,7 @@ Datea.AppRouter = Backbone.Router.extend({
     			self.mapping_edit_view.render();
     		})
     	}
+    	init_autoresize_textareas();
     },
 
     open_mapping_admin: function(map_id) {

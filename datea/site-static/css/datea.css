@@ -271,7 +271,7 @@ h1 {
 #footer {
   padding-top: 11px;
   padding-bottom: 10px;
-  margin-top: 16px;
+  margin-top: 10px;
   border-top: 1px solid #7f7f7f;
 }
 
@@ -304,8 +304,14 @@ h1 {
   color: #27bb44;
 }
 
+.empty-result-msg {
+  padding: 40px 0;
+  color: #999999;
+  text-align: center;
+}
+
 #head-nav #head-nav-right #navbar-items {
-  float: left;
+  float: right;
   padding-top: 38px;
   margin-right: 12px;
 }
@@ -321,7 +327,7 @@ h1 {
 }
 
 #head-nav #head-nav-right #user_head_view {
-  float: left;
+  float: right;
 }
 
 #logo {
@@ -337,8 +343,8 @@ h1 {
 }
 
 #user_head_view {
-  float: left;
-  margin-right: 25px;
+  float: right;
+  margin-right: 0;
   *zoom: 1;
 }
 
@@ -386,14 +392,20 @@ h1 {
 }
 
 #setting-controls {
-  float: left;
+  float: right;
+  margin-right: 15px;
+}
+
+#setting-controls .btn-group {
+  padding-top: 21px;
+  padding-bottom: 0;
 }
 
 #main-content {
   margin-top: 10px;
 }
 
-#main-content-wrap {
+#main-content-view {
   min-height: 300px;
 }
 
@@ -1563,7 +1575,24 @@ button.btn.dropdown-toggle:hover span.caret {
 }
 
 #action-list {
+  min-height: 300px;
   margin-left: 0;
+}
+
+#action-list .actions-result-msg {
+  padding: 20px 18px;
+  padding-top: 10px;
+  padding-right: 15px;
+  padding-bottom: 10px;
+  padding-left: 15px;
+  margin: 18px 0 15px 0px;
+  background-color: white;
+  -webkit-border-radius: 10px;
+     -moz-border-radius: 10px;
+          border-radius: 10px;
+  -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.15);
+     -moz-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.15);
+          box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.15);
 }
 
 #action-list .action-item {
@@ -2547,6 +2576,23 @@ body .olwidgetPopupCloseBox {
   margin-right: 0;
 }
 
+.mapping-edit-title h1 {
+  margin-bottom: 0;
+  font-size: 24px;
+  line-height: 30px;
+  color: #27bb44;
+}
+
+.mapping-edit-title .bg {
+  position: absolute;
+  top: 70px;
+  right: 0;
+  left: 0;
+  z-index: -1;
+  height: 80px;
+  background-color: #eee;
+}
+
 #mapping-head-form .nav-tabs {
   padding-top: 10px;
 }
@@ -2581,6 +2627,10 @@ body .olwidgetPopupCloseBox {
 
 .mapping-items-admin .filters .filter {
   padding-left: 20px;
+}
+
+.map-item-admin-table tr.item.expanded td {
+  padding-bottom: 25px;
 }
 
 .map-item-admin-table .map-item.admin-full {
@@ -2779,6 +2829,10 @@ body .olwidgetPopupCloseBox {
   padding-top: 3px;
   margin-top: 10px;
   border-top: 1px solid #9d9d9d;
+}
+
+.history-view .empty-result-msg {
+  padding: 5px 0;
 }
 
 .history-view .filter {

@@ -1,4 +1,5 @@
 {% load i18n verbatim_tag %}
+{% verbatim %}
 <script id="action_list_tpl" type="text/html">
 
 	<div id="action-control">
@@ -12,3 +13,12 @@
 	<div class="action-pager hide"></div>
 	
 </script>
+
+<script id="user_actions_empty_tpl" type="text/html">
+	<div class="actions-result-msg">
+		{% trans "No actions yet (created or followed)." %}
+	</div>
+</script>
+
+{% endverbatim %}
+

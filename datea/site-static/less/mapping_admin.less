@@ -1,4 +1,24 @@
 
+.mapping-edit-title {
+	
+	h1 {
+		color: @green;
+		font-size: 24px;
+		line-height: 30px;
+		margin-bottom: 0px;
+	}
+	
+	.bg {
+		background-color: #eee;
+		z-index: -1;
+		position:absolute;
+		top: 70px;
+		height: 80px;
+		left: 0px;
+		right: 0px;
+	}
+}
+
 #mapping-head-form {
 	.nav-tabs {
 		padding-top: 10px;
@@ -40,10 +60,17 @@
 	.filters {
 		.filter {padding-left: 20px;}
 	}
+	
 }
 
 
 .map-item-admin-table {
+	
+	tr.item.expanded {
+		td {
+			padding-bottom:25px;
+		}
+	}
 	
 	.map-item.admin-full {
 		padding-top: 15px;

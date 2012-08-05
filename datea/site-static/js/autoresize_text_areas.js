@@ -8,5 +8,11 @@ $(document).ready(function() {
 			$(this).autosize();	
 		}
 	});
-	
 });
+
+function init_autoresize_textareas() {
+	$('.autoresize').not('.autoresize-processed').each(function(e){
+		$(this).addClass('autoresize-processed');
+		$(this).autosize();
+	});
+}

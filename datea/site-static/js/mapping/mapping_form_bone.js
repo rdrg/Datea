@@ -77,6 +77,15 @@ window.Datea.MappingFormView = Backbone.View.extend({
 	save_mapping: function(ev) {
 		ev.preventDefault();
 		if (Datea.controls_validate(this.$el)){
+			
+			// validate position (needs position or boundary!)
+			if (!this.model.get('center') && !this.model.get('boundary')) {
+				$('.map-settings-label',this.$el).css('color', 'red');
+				$('.edit-mapping-boundary',this.$el).tab('show');
+				$(window).scrollTop(0);
+				return;
+			}
+			
 			var hashtag = $('[name="hashtag"]', this.$el).val().replace('#','');
 			var set_data = {
 				name: $('[name="name"]', this.$el).val(),

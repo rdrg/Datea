@@ -2,7 +2,10 @@
 {% get_mapping_form as form %}
 <script id="mapping_form_tpl" type="text/html">
 	
-	<div class="page-header"><h2>{% verbatim %}{{action_name}} {% trans 'mapping' %}{{#name}}: {{name}}{{/name}}{% endverbatim %}</h2></div>
+	<div class="page-header mapping-edit-title">
+		<div class="bg">&nbsp;</div>
+		<h1>{% verbatim %}{{action_name}} {% trans 'mapping' %}{{#name}}: {{name}}{{/name}}{% endverbatim %}</h1>
+	</div>
 	
 	<div id="mapping-head-form">
 		<div class="pull-right back-button">
@@ -125,8 +128,11 @@
 			<div class="tab-pane" id="mapping-boundary">
 				<div class="row">
 					<div class="span12">
-						<label>{% trans "Define center and boundary "%}</label>
-						<div id="edit-mapping-position"></div>
+						<div class="map-settings-label">
+							<label><strong>{% trans "Define center and boundary "%}</strong></label>
+							<p>{% trans "Either boundary or position has to be defined in order to center the map. To edit them, click the \"Edit\" button at the map's upper right corner." %}</p>
+							<div id="edit-mapping-position"></div>
+						</div>
 					</div>
 				</div>
 			</div>		

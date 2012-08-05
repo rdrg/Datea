@@ -42,6 +42,7 @@ window.Datea.FreeCategoryEditListItemView = Backbone.View.extend({
 		this.$el.html( new Datea.FreeCategoryEditView({
 			model: this.model,
 		}).render().el );
+		init_autoresize_textareas();
 	},
 	
 	cancel_category: function(ev) {

@@ -116,6 +116,7 @@ window.Datea.MyActionListView = Backbone.View.extend({
     },
     
     fetch_actions: function () {
+    	Datea.show_big_loading(this.$el.find('#action-list'));
     	if (this.selected_mode == 'my_actions' || this.selected_mode == 'created_actions') {
     		
     		var follows = Datea.my_user_follows.filter(function(fol){
@@ -250,7 +251,7 @@ window.Datea.ProfileActionListView = Backbone.View.extend({
     	
 		this.action_filter = new Datea.DropdownSelect({
 			options: this.filter_options,
-			div_class: 'no-bg',
+			div_class: 'no-bg white',
 			init_value: this.selected_mode,
 			callback: function (val) {
 				self.selected_mode = val; 
@@ -261,6 +262,7 @@ window.Datea.ProfileActionListView = Backbone.View.extend({
     },
     
     fetch_actions: function () {
+    	Datea.show_big_loading(this.$el.find('#action-list'));
     	if (this.selected_mode == 'actions') {
 	        this.model.fetch({
 	        	data: {'following_user': this.user_model.get('id'), orderby: '-created'}
@@ -294,8 +296,11 @@ window.Datea.ProfileActionListView = Backbone.View.extend({
     		var items = _.rest(this.render_actions, this.items_per_page*this.page);
        		items = _.first(items, this.items_per_page);
        		add_pager = true;  
-    	}else{
+    	}else if (this.render_actions.length > 0){
     		items = this.render_actions;
+    	}else{
+    		$list.html(ich.user_actions_empty_tpl());
+    		return;
     	}
     	
     	_.each(items, function (item) {

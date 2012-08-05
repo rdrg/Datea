@@ -6,6 +6,8 @@
 		<div class="navbar-inner">
 			<div class="container container-target">
 				<div id="head-nav-right" class="pull-right">
+					<div id="user_head_view"></div>
+					<div id="setting-controls"></div>
 					<div id="navbar-items">
 						{% get_menu "main_menu_es" as main_menu %}
 							<a href="{{item.url}}" alt="{% trans "Home"%}" title="{% trans "Home"%}">{% trans "Home"%}</a> 
@@ -15,8 +17,6 @@
                         	{% if not forloop.last %}<span class="separator">|</span>{% endif %}
                         {% endfor %}
                		 </div>
-					<div id="user_head_view"></div>
-					<div id="setting-controls"></div>
 				</div>
 				<a href="/" id="logo">
 					<img src="{{STATIC_URL}}img/datea/logo_header2.png" />
