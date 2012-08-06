@@ -674,8 +674,12 @@ h1 {
   margin-bottom: 10px;
 }
 
+.logged-intro hr {
+  margin-top: 5px;
+}
+
 .logged-intro .intro-item {
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   *zoom: 1;
 }
 
