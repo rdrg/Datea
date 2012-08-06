@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-02 07:01-0500\n"
+"POT-Creation-Date: 2012-08-06 12:01-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,167 +18,484 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
-#: site-static/js/action_bone.js:46
-#: site-static/js/mapping/mapping_main_bone.js:252
+#: site-static/js/action_bone.js:32
+#: site-static/js/mapping/mapping_main_bone.js:253
+#: static/CACHE/js/137291bd12f1.js:443 static/CACHE/js/137291bd12f1.js.c:467
+#: static/CACHE/js/17ea7af07647.js:443 static/CACHE/js/17ea7af07647.js.c:467
+#: static/CACHE/js/1b1b559f6034.js:443 static/CACHE/js/1b1b559f6034.js.c:467
+#: static/CACHE/js/1fca0c79540b.js:271 static/CACHE/js/1fca0c79540b.js.c:295
+#: static/CACHE/js/392d934e694a.js:302 static/CACHE/js/392d934e694a.js.c:326
+#: static/CACHE/js/4c320d5cdaed.js:41 static/CACHE/js/4c320d5cdaed.js.c:65
+#: static/CACHE/js/91aec6f11954.js:88 static/CACHE/js/91aec6f11954.js.c:112
+#: static/CACHE/js/98ecc0cb6f3d.js:443 static/CACHE/js/98ecc0cb6f3d.js.c:467
+#: static/CACHE/js/9fa38a61c4a0.js:3245 static/CACHE/js/9fa38a61c4a0.js:3269
+#: static/CACHE/js/d9ed41c45efb.js:334 static/CACHE/js/d9ed41c45efb.js.c:358
+#: static/CACHE/js/dec17d2c250d.js:3245 static/CACHE/js/dec17d2c250d.js:3269
+#: static/CACHE/js/f14c3c25ee89.js:279 static/CACHE/js/f14c3c25ee89.js.c:303
+#: static/CACHE/js/ff43fafd101d.js:481 static/CACHE/js/ff43fafd101d.js.c:505
 msgid "action"
-msgstr ""
+msgstr "acción"
 
-#: site-static/js/action_bone.js:99
+#: site-static/js/action_bone.js:85 static/CACHE/js/137291bd12f1.js:444
+#: static/CACHE/js/17ea7af07647.js:444 static/CACHE/js/1b1b559f6034.js:444
+#: static/CACHE/js/1fca0c79540b.js:272 static/CACHE/js/392d934e694a.js:303
+#: static/CACHE/js/4c320d5cdaed.js:42 static/CACHE/js/91aec6f11954.js:89
+#: static/CACHE/js/98ecc0cb6f3d.js:444 static/CACHE/js/9fa38a61c4a0.js:3246
+#: static/CACHE/js/d9ed41c45efb.js:335 static/CACHE/js/dec17d2c250d.js:3246
+#: static/CACHE/js/f14c3c25ee89.js:280 static/CACHE/js/ff43fafd101d.js:482
 msgid "my actions"
-msgstr ""
+msgstr "mis acciones"
 
-#: site-static/js/action_bone.js:104
+#: site-static/js/action_bone.js:90 static/CACHE/js/137291bd12f1.js:444
+#: static/CACHE/js/17ea7af07647.js:444 static/CACHE/js/1b1b559f6034.js:444
+#: static/CACHE/js/1fca0c79540b.js:272 static/CACHE/js/392d934e694a.js:303
+#: static/CACHE/js/4c320d5cdaed.js:42 static/CACHE/js/91aec6f11954.js:89
+#: static/CACHE/js/98ecc0cb6f3d.js:444 static/CACHE/js/9fa38a61c4a0.js:3246
+#: static/CACHE/js/d9ed41c45efb.js:335 static/CACHE/js/dec17d2c250d.js:3246
+#: static/CACHE/js/f14c3c25ee89.js:280 static/CACHE/js/ff43fafd101d.js:482
 msgid "actions created"
-msgstr ""
+msgstr "acciones creadas"
 
-#: site-static/js/action_bone.js:107
+#: site-static/js/action_bone.js:93 static/CACHE/js/137291bd12f1.js:445
+#: static/CACHE/js/17ea7af07647.js:445 static/CACHE/js/1b1b559f6034.js:445
+#: static/CACHE/js/1fca0c79540b.js:273 static/CACHE/js/392d934e694a.js:304
+#: static/CACHE/js/4c320d5cdaed.js:43 static/CACHE/js/91aec6f11954.js:90
+#: static/CACHE/js/98ecc0cb6f3d.js:445 static/CACHE/js/9fa38a61c4a0.js:3247
+#: static/CACHE/js/d9ed41c45efb.js:336 static/CACHE/js/dec17d2c250d.js:3247
+#: static/CACHE/js/f14c3c25ee89.js:281 static/CACHE/js/ff43fafd101d.js:483
 msgid "featured actions"
-msgstr ""
+msgstr "acciones destacadas"
 
-#: site-static/js/action_bone.js:108
+#: site-static/js/action_bone.js:94 static/CACHE/js/137291bd12f1.js:445
+#: static/CACHE/js/17ea7af07647.js:445 static/CACHE/js/1b1b559f6034.js:445
+#: static/CACHE/js/1fca0c79540b.js:273 static/CACHE/js/392d934e694a.js:304
+#: static/CACHE/js/4c320d5cdaed.js:43 static/CACHE/js/91aec6f11954.js:90
+#: static/CACHE/js/98ecc0cb6f3d.js:445 static/CACHE/js/9fa38a61c4a0.js:3247
+#: static/CACHE/js/d9ed41c45efb.js:336 static/CACHE/js/dec17d2c250d.js:3247
+#: static/CACHE/js/f14c3c25ee89.js:281 static/CACHE/js/ff43fafd101d.js:483
 msgid "all actions"
-msgstr ""
+msgstr "todas"
 
-#: site-static/js/action_bone.js:256
+#: site-static/js/action_bone.js:243 static/CACHE/js/137291bd12f1.js:448
+#: static/CACHE/js/17ea7af07647.js:448 static/CACHE/js/1b1b559f6034.js:448
+#: static/CACHE/js/1fca0c79540b.js:276 static/CACHE/js/392d934e694a.js:307
+#: static/CACHE/js/4c320d5cdaed.js:46 static/CACHE/js/91aec6f11954.js:93
+#: static/CACHE/js/98ecc0cb6f3d.js:448 static/CACHE/js/9fa38a61c4a0.js:3250
+#: static/CACHE/js/d9ed41c45efb.js:339 static/CACHE/js/dec17d2c250d.js:3250
+#: static/CACHE/js/f14c3c25ee89.js:284 static/CACHE/js/ff43fafd101d.js:486
 msgid "actions"
-msgstr ""
+msgstr "acciones"
 
-#: site-static/js/action_bone.js:260
+#: site-static/js/action_bone.js:247 static/CACHE/js/137291bd12f1.js:448
+#: static/CACHE/js/17ea7af07647.js:448 static/CACHE/js/1b1b559f6034.js:448
+#: static/CACHE/js/1fca0c79540b.js:276 static/CACHE/js/392d934e694a.js:307
+#: static/CACHE/js/4c320d5cdaed.js:46 static/CACHE/js/91aec6f11954.js:93
+#: static/CACHE/js/98ecc0cb6f3d.js:448 static/CACHE/js/9fa38a61c4a0.js:3250
+#: static/CACHE/js/d9ed41c45efb.js:339 static/CACHE/js/dec17d2c250d.js:3250
+#: static/CACHE/js/f14c3c25ee89.js:284 static/CACHE/js/ff43fafd101d.js:486
 msgid "created actions"
-msgstr ""
+msgstr "acciones creadas"
 
-#: site-static/js/follow_bone.js:64
-msgid "follow this"
-msgstr ""
+#: site-static/js/follow_bone.js:64 static/CACHE/js/137291bd12f1.js:543
+#: static/CACHE/js/17ea7af07647.js:543 static/CACHE/js/1b1b559f6034.js:543
+#: static/CACHE/js/1fca0c79540b.js:371 static/CACHE/js/392d934e694a.js:402
+#: static/CACHE/js/4c320d5cdaed.js:141 static/CACHE/js/91aec6f11954.js:188
+#: static/CACHE/js/98ecc0cb6f3d.js:543 static/CACHE/js/9fa38a61c4a0.js:3345
+#: static/CACHE/js/d9ed41c45efb.js:434 static/CACHE/js/dec17d2c250d.js:3345
+#: static/CACHE/js/f14c3c25ee89.js:379 static/CACHE/js/ff43fafd101d.js:581
+msgid "follow!"
+msgstr "seguir!"
 
-#: site-static/js/follow_bone.js:66
-msgid "no followers yet"
-msgstr ""
+#: site-static/js/follow_bone.js:66 static/CACHE/js/137291bd12f1.js:543
+#: static/CACHE/js/17ea7af07647.js:543 static/CACHE/js/1b1b559f6034.js:543
+#: static/CACHE/js/1fca0c79540b.js:371 static/CACHE/js/392d934e694a.js:402
+#: static/CACHE/js/4c320d5cdaed.js:141 static/CACHE/js/91aec6f11954.js:188
+#: static/CACHE/js/98ecc0cb6f3d.js:543 static/CACHE/js/9fa38a61c4a0.js:3345
+#: static/CACHE/js/d9ed41c45efb.js:434 static/CACHE/js/dec17d2c250d.js:3345
+#: static/CACHE/js/f14c3c25ee89.js:379 static/CACHE/js/ff43fafd101d.js:581
+msgid "follow"
+msgstr "seguen"
 
-#: site-static/js/follow_bone.js:68
+#: site-static/js/follow_bone.js:68 static/CACHE/js/137291bd12f1.js:543
+#: static/CACHE/js/17ea7af07647.js:543 static/CACHE/js/1b1b559f6034.js:543
+#: static/CACHE/js/1fca0c79540b.js:371 static/CACHE/js/392d934e694a.js:402
+#: static/CACHE/js/4c320d5cdaed.js:141 static/CACHE/js/91aec6f11954.js:188
+#: static/CACHE/js/98ecc0cb6f3d.js:543 static/CACHE/js/9fa38a61c4a0.js:3345
+#: static/CACHE/js/d9ed41c45efb.js:434 static/CACHE/js/dec17d2c250d.js:3345
+#: static/CACHE/js/f14c3c25ee89.js:379 static/CACHE/js/ff43fafd101d.js:581
 msgid "stop following"
-msgstr ""
+msgstr "dejar de seguir"
 
-#: site-static/js/history_bone.js:74
+#: site-static/js/history_bone.js:74 static/CACHE/js/137291bd12f1.js:556
+#: static/CACHE/js/17ea7af07647.js:556 static/CACHE/js/1b1b559f6034.js:556
+#: static/CACHE/js/1fca0c79540b.js:384 static/CACHE/js/392d934e694a.js:415
+#: static/CACHE/js/4c320d5cdaed.js:154 static/CACHE/js/91aec6f11954.js:201
+#: static/CACHE/js/98ecc0cb6f3d.js:556 static/CACHE/js/9fa38a61c4a0.js:3358
+#: static/CACHE/js/d9ed41c45efb.js:447 static/CACHE/js/dec17d2c250d.js:3358
+#: static/CACHE/js/f14c3c25ee89.js:392 static/CACHE/js/ff43fafd101d.js:594
 msgid "my"
-msgstr ""
+msgstr "mis"
 
-#: site-static/js/history_bone.js:80
+#: site-static/js/history_bone.js:80 static/CACHE/js/137291bd12f1.js:557
+#: static/CACHE/js/17ea7af07647.js:557 static/CACHE/js/1b1b559f6034.js:557
+#: static/CACHE/js/1fca0c79540b.js:385 static/CACHE/js/392d934e694a.js:416
+#: static/CACHE/js/4c320d5cdaed.js:155 static/CACHE/js/91aec6f11954.js:202
+#: static/CACHE/js/98ecc0cb6f3d.js:557 static/CACHE/js/9fa38a61c4a0.js:3359
+#: static/CACHE/js/d9ed41c45efb.js:448 static/CACHE/js/dec17d2c250d.js:3359
+#: static/CACHE/js/f14c3c25ee89.js:393 static/CACHE/js/ff43fafd101d.js:595
 msgid "combined view"
-msgstr ""
+msgstr "vista combinada"
 
-#: site-static/js/history_bone.js:81
+#: site-static/js/history_bone.js:81 static/CACHE/js/137291bd12f1.js:557
+#: static/CACHE/js/17ea7af07647.js:557 static/CACHE/js/1b1b559f6034.js:557
+#: static/CACHE/js/1fca0c79540b.js:385 static/CACHE/js/392d934e694a.js:416
+#: static/CACHE/js/4c320d5cdaed.js:155 static/CACHE/js/91aec6f11954.js:202
+#: static/CACHE/js/98ecc0cb6f3d.js:557 static/CACHE/js/9fa38a61c4a0.js:3359
+#: static/CACHE/js/d9ed41c45efb.js:448 static/CACHE/js/dec17d2c250d.js:3359
+#: static/CACHE/js/f14c3c25ee89.js:393 static/CACHE/js/ff43fafd101d.js:595
 msgid "contributions"
-msgstr ""
+msgstr "dateos"
 
-#: site-static/js/history_bone.js:82
+#: site-static/js/history_bone.js:82 static/CACHE/js/137291bd12f1.js:557
+#: static/CACHE/js/17ea7af07647.js:557 static/CACHE/js/1b1b559f6034.js:557
+#: static/CACHE/js/1fca0c79540b.js:385 static/CACHE/js/392d934e694a.js:416
+#: static/CACHE/js/4c320d5cdaed.js:155 static/CACHE/js/91aec6f11954.js:202
+#: static/CACHE/js/98ecc0cb6f3d.js:557 static/CACHE/js/9fa38a61c4a0.js:3359
+#: static/CACHE/js/d9ed41c45efb.js:448 static/CACHE/js/dec17d2c250d.js:3359
+#: static/CACHE/js/f14c3c25ee89.js:393 static/CACHE/js/ff43fafd101d.js:595
 msgid "comments"
-msgstr ""
+msgstr "comentarios"
 
-#: site-static/js/history_bone.js:83
+#: site-static/js/history_bone.js:83 static/CACHE/js/137291bd12f1.js:557
+#: static/CACHE/js/17ea7af07647.js:557 static/CACHE/js/1b1b559f6034.js:557
+#: static/CACHE/js/1fca0c79540b.js:385 static/CACHE/js/392d934e694a.js:416
+#: static/CACHE/js/4c320d5cdaed.js:155 static/CACHE/js/91aec6f11954.js:202
+#: static/CACHE/js/98ecc0cb6f3d.js:557 static/CACHE/js/9fa38a61c4a0.js:3359
+#: static/CACHE/js/d9ed41c45efb.js:448 static/CACHE/js/dec17d2c250d.js:3359
+#: static/CACHE/js/f14c3c25ee89.js:393 static/CACHE/js/ff43fafd101d.js:595
 msgid "supports"
-msgstr ""
+msgstr "apoyos"
 
-#: site-static/js/main_bone.js:44
+#: site-static/js/main_bone.js:51 static/CACHE/js/137291bd12f1.js:407
+#: static/CACHE/js/17ea7af07647.js:407 static/CACHE/js/1b1b559f6034.js:407
+#: static/CACHE/js/1fca0c79540b.js:235 static/CACHE/js/392d934e694a.js:266
+#: static/CACHE/js/4c320d5cdaed.js:5 static/CACHE/js/91aec6f11954.js:52
+#: static/CACHE/js/98ecc0cb6f3d.js:407 static/CACHE/js/9fa38a61c4a0.js:3209
+#: static/CACHE/js/d9ed41c45efb.js:298 static/CACHE/js/dec17d2c250d.js:3209
+#: static/CACHE/js/f14c3c25ee89.js:243 static/CACHE/js/ff43fafd101d.js:445
 msgid "Please enter a valid email address."
-msgstr ""
+msgstr "Por favor, ingresa una dirección de correo válida."
 
-#: site-static/js/profile_bone.js:178
+#: site-static/js/profile_bone.js:178 static/CACHE/js/137291bd12f1.js:454
+#: static/CACHE/js/17ea7af07647.js:454 static/CACHE/js/1b1b559f6034.js:454
+#: static/CACHE/js/1fca0c79540b.js:282 static/CACHE/js/392d934e694a.js:313
+#: static/CACHE/js/4c320d5cdaed.js:52 static/CACHE/js/91aec6f11954.js:99
+#: static/CACHE/js/98ecc0cb6f3d.js:454 static/CACHE/js/9fa38a61c4a0.js:3256
+#: static/CACHE/js/d9ed41c45efb.js:345 static/CACHE/js/dec17d2c250d.js:3256
+#: static/CACHE/js/f14c3c25ee89.js:290 static/CACHE/js/ff43fafd101d.js:492
 msgid "Datea, a platform to activate and channel community engagements."
-msgstr ""
+msgstr "Datea, una platforma para activar y canalizar la participación de tu comunidad."
 
-#: site-static/js/vote_bone.js:53
-msgid "support this"
-msgstr ""
+#: site-static/js/vote_bone.js:53 static/CACHE/js/137291bd12f1.js:551
+#: static/CACHE/js/17ea7af07647.js:551 static/CACHE/js/1b1b559f6034.js:551
+#: static/CACHE/js/1fca0c79540b.js:379 static/CACHE/js/392d934e694a.js:410
+#: static/CACHE/js/4c320d5cdaed.js:149 static/CACHE/js/91aec6f11954.js:196
+#: static/CACHE/js/98ecc0cb6f3d.js:551 static/CACHE/js/9fa38a61c4a0.js:3353
+#: static/CACHE/js/d9ed41c45efb.js:442 static/CACHE/js/dec17d2c250d.js:3353
+#: static/CACHE/js/f14c3c25ee89.js:387 static/CACHE/js/ff43fafd101d.js:589
+msgid "support!"
+msgstr "apoyar!"
 
-#: site-static/js/vote_bone.js:55
+#: site-static/js/vote_bone.js:55 static/CACHE/js/137291bd12f1.js:551
+#: static/CACHE/js/17ea7af07647.js:551 static/CACHE/js/1b1b559f6034.js:551
+#: static/CACHE/js/1fca0c79540b.js:379 static/CACHE/js/392d934e694a.js:410
+#: static/CACHE/js/4c320d5cdaed.js:149 static/CACHE/js/91aec6f11954.js:196
+#: static/CACHE/js/98ecc0cb6f3d.js:551 static/CACHE/js/9fa38a61c4a0.js:3353
+#: static/CACHE/js/d9ed41c45efb.js:442 static/CACHE/js/dec17d2c250d.js:3353
+#: static/CACHE/js/f14c3c25ee89.js:387 static/CACHE/js/ff43fafd101d.js:589
 msgid "already supporting"
-msgstr ""
+msgstr "ya apoyó"
 
-#: site-static/js/mapping/map_item_bone.js:115
-#: site-static/js/mapping/map_item_bone.js:127
+#: site-static/js/mapping/map_item_bone.js:98
+#: site-static/js/mapping/map_item_bone.js:110
+#: static/CACHE/js/137291bd12f1.js:503 static/CACHE/js/17ea7af07647.js:503
+#: static/CACHE/js/1b1b559f6034.js:503 static/CACHE/js/1fca0c79540b.js:331
+#: static/CACHE/js/392d934e694a.js:362 static/CACHE/js/4c320d5cdaed.js:101
+#: static/CACHE/js/91aec6f11954.js:148 static/CACHE/js/98ecc0cb6f3d.js:503
+#: static/CACHE/js/9fa38a61c4a0.js:3305 static/CACHE/js/d9ed41c45efb.js:394
+#: static/CACHE/js/dec17d2c250d.js:3305 static/CACHE/js/f14c3c25ee89.js:339
+#: static/CACHE/js/ff43fafd101d.js:541
 msgid "report"
-msgstr ""
+msgstr "dateo"
 
 #: site-static/js/mapping/map_item_form_bone.js:31
 #: site-static/js/mapping/mapping_form_bone.js:27
+#: static/CACHE/js/137291bd12f1.js:478 static/CACHE/js/137291bd12f1.js.c:505
+#: static/CACHE/js/17ea7af07647.js:478 static/CACHE/js/17ea7af07647.js.c:505
+#: static/CACHE/js/1b1b559f6034.js:478 static/CACHE/js/1b1b559f6034.js.c:505
+#: static/CACHE/js/1fca0c79540b.js:306 static/CACHE/js/1fca0c79540b.js.c:333
+#: static/CACHE/js/392d934e694a.js:337 static/CACHE/js/392d934e694a.js.c:364
+#: static/CACHE/js/4c320d5cdaed.js:76 static/CACHE/js/4c320d5cdaed.js.c:103
+#: static/CACHE/js/91aec6f11954.js:123 static/CACHE/js/91aec6f11954.js.c:150
+#: static/CACHE/js/98ecc0cb6f3d.js:478 static/CACHE/js/98ecc0cb6f3d.js.c:505
+#: static/CACHE/js/9fa38a61c4a0.js:3280 static/CACHE/js/9fa38a61c4a0.js:3307
+#: static/CACHE/js/d9ed41c45efb.js:369 static/CACHE/js/d9ed41c45efb.js.c:396
+#: static/CACHE/js/dec17d2c250d.js:3280 static/CACHE/js/dec17d2c250d.js:3307
+#: static/CACHE/js/f14c3c25ee89.js:314 static/CACHE/js/f14c3c25ee89.js.c:341
+#: static/CACHE/js/ff43fafd101d.js:516 static/CACHE/js/ff43fafd101d.js.c:543
 msgid "Create"
 msgstr "Crear"
 
 #: site-static/js/mapping/map_item_form_bone.js:33
 #: site-static/js/mapping/mapping_form_bone.js:29
+#: static/CACHE/js/137291bd12f1.js:478 static/CACHE/js/137291bd12f1.js.c:505
+#: static/CACHE/js/17ea7af07647.js:478 static/CACHE/js/17ea7af07647.js.c:505
+#: static/CACHE/js/1b1b559f6034.js:478 static/CACHE/js/1b1b559f6034.js.c:505
+#: static/CACHE/js/1fca0c79540b.js:306 static/CACHE/js/1fca0c79540b.js.c:333
+#: static/CACHE/js/392d934e694a.js:337 static/CACHE/js/392d934e694a.js.c:364
+#: static/CACHE/js/4c320d5cdaed.js:76 static/CACHE/js/4c320d5cdaed.js.c:103
+#: static/CACHE/js/91aec6f11954.js:123 static/CACHE/js/91aec6f11954.js.c:150
+#: static/CACHE/js/98ecc0cb6f3d.js:478 static/CACHE/js/98ecc0cb6f3d.js.c:505
+#: static/CACHE/js/9fa38a61c4a0.js:3280 static/CACHE/js/9fa38a61c4a0.js:3307
+#: static/CACHE/js/d9ed41c45efb.js:369 static/CACHE/js/d9ed41c45efb.js.c:396
+#: static/CACHE/js/dec17d2c250d.js:3280 static/CACHE/js/dec17d2c250d.js:3307
+#: static/CACHE/js/f14c3c25ee89.js:314 static/CACHE/js/f14c3c25ee89.js.c:341
+#: static/CACHE/js/ff43fafd101d.js:516 static/CACHE/js/ff43fafd101d.js.c:543
 msgid "Edit"
 msgstr "Editar"
 
 #: site-static/js/mapping/mapping_admin_bone.js:39
 #: site-static/js/mapping/mapping_data_view_bone.js:62
+#: static/CACHE/js/137291bd12f1.js:489 static/CACHE/js/137291bd12f1.js.c:516
+#: static/CACHE/js/17ea7af07647.js:489 static/CACHE/js/17ea7af07647.js.c:516
+#: static/CACHE/js/1b1b559f6034.js:489 static/CACHE/js/1b1b559f6034.js.c:516
+#: static/CACHE/js/1fca0c79540b.js:317 static/CACHE/js/1fca0c79540b.js.c:344
+#: static/CACHE/js/392d934e694a.js:348 static/CACHE/js/392d934e694a.js.c:375
+#: static/CACHE/js/4c320d5cdaed.js:87 static/CACHE/js/4c320d5cdaed.js.c:114
+#: static/CACHE/js/91aec6f11954.js:134 static/CACHE/js/91aec6f11954.js.c:161
+#: static/CACHE/js/98ecc0cb6f3d.js:489 static/CACHE/js/98ecc0cb6f3d.js.c:516
+#: static/CACHE/js/9fa38a61c4a0.js:3291 static/CACHE/js/9fa38a61c4a0.js:3318
+#: static/CACHE/js/d9ed41c45efb.js:380 static/CACHE/js/d9ed41c45efb.js.c:407
+#: static/CACHE/js/dec17d2c250d.js:3291 static/CACHE/js/dec17d2c250d.js:3318
+#: static/CACHE/js/f14c3c25ee89.js:325 static/CACHE/js/f14c3c25ee89.js.c:352
+#: static/CACHE/js/ff43fafd101d.js:527 static/CACHE/js/ff43fafd101d.js.c:554
 msgid "All categories"
 msgstr "Todas las categorías"
 
 #: site-static/js/mapping/mapping_admin_bone.js:56
 #: site-static/js/mapping/mapping_admin_bone.js:278
 #: site-static/js/mapping/mapping_data_view_bone.js:80
+#: static/CACHE/js/137291bd12f1.js:490 static/CACHE/js/137291bd12f1.js.c:517
+#: static/CACHE/js/137291bd12f1.js:531 static/CACHE/js/17ea7af07647.js:490
+#: static/CACHE/js/17ea7af07647.js.c:517 static/CACHE/js/17ea7af07647.js:531
+#: static/CACHE/js/1b1b559f6034.js:490 static/CACHE/js/1b1b559f6034.js.c:517
+#: static/CACHE/js/1b1b559f6034.js:531 static/CACHE/js/1fca0c79540b.js:318
+#: static/CACHE/js/1fca0c79540b.js.c:345 static/CACHE/js/1fca0c79540b.js:359
+#: static/CACHE/js/392d934e694a.js:349 static/CACHE/js/392d934e694a.js.c:376
+#: static/CACHE/js/392d934e694a.js:390 static/CACHE/js/4c320d5cdaed.js:88
+#: static/CACHE/js/4c320d5cdaed.js.c:115 static/CACHE/js/4c320d5cdaed.js:129
+#: static/CACHE/js/91aec6f11954.js:135 static/CACHE/js/91aec6f11954.js.c:162
+#: static/CACHE/js/91aec6f11954.js:176 static/CACHE/js/98ecc0cb6f3d.js:490
+#: static/CACHE/js/98ecc0cb6f3d.js.c:517 static/CACHE/js/98ecc0cb6f3d.js:531
+#: static/CACHE/js/9fa38a61c4a0.js:3292 static/CACHE/js/9fa38a61c4a0.js:3319
+#: static/CACHE/js/9fa38a61c4a0.js:3333 static/CACHE/js/d9ed41c45efb.js:381
+#: static/CACHE/js/d9ed41c45efb.js.c:408 static/CACHE/js/d9ed41c45efb.js:422
+#: static/CACHE/js/dec17d2c250d.js:3292 static/CACHE/js/dec17d2c250d.js:3319
+#: static/CACHE/js/dec17d2c250d.js:3333 static/CACHE/js/f14c3c25ee89.js:326
+#: static/CACHE/js/f14c3c25ee89.js.c:353 static/CACHE/js/f14c3c25ee89.js:367
+#: static/CACHE/js/ff43fafd101d.js:528 static/CACHE/js/ff43fafd101d.js.c:555
+#: static/CACHE/js/ff43fafd101d.js:569
 msgid "new"
 msgstr "nuevo"
 
 #: site-static/js/mapping/mapping_admin_bone.js:57
 #: site-static/js/mapping/mapping_admin_bone.js:279
 #: site-static/js/mapping/mapping_data_view_bone.js:81
+#: static/CACHE/js/137291bd12f1.js:490 static/CACHE/js/137291bd12f1.js.c:517
+#: static/CACHE/js/137291bd12f1.js:531 static/CACHE/js/17ea7af07647.js:490
+#: static/CACHE/js/17ea7af07647.js.c:517 static/CACHE/js/17ea7af07647.js:531
+#: static/CACHE/js/1b1b559f6034.js:490 static/CACHE/js/1b1b559f6034.js.c:517
+#: static/CACHE/js/1b1b559f6034.js:531 static/CACHE/js/1fca0c79540b.js:318
+#: static/CACHE/js/1fca0c79540b.js.c:345 static/CACHE/js/1fca0c79540b.js:359
+#: static/CACHE/js/392d934e694a.js:349 static/CACHE/js/392d934e694a.js.c:376
+#: static/CACHE/js/392d934e694a.js:390 static/CACHE/js/4c320d5cdaed.js:88
+#: static/CACHE/js/4c320d5cdaed.js.c:115 static/CACHE/js/4c320d5cdaed.js:129
+#: static/CACHE/js/91aec6f11954.js:135 static/CACHE/js/91aec6f11954.js.c:162
+#: static/CACHE/js/91aec6f11954.js:176 static/CACHE/js/98ecc0cb6f3d.js:490
+#: static/CACHE/js/98ecc0cb6f3d.js.c:517 static/CACHE/js/98ecc0cb6f3d.js:531
+#: static/CACHE/js/9fa38a61c4a0.js:3292 static/CACHE/js/9fa38a61c4a0.js:3319
+#: static/CACHE/js/9fa38a61c4a0.js:3333 static/CACHE/js/d9ed41c45efb.js:381
+#: static/CACHE/js/d9ed41c45efb.js.c:408 static/CACHE/js/d9ed41c45efb.js:422
+#: static/CACHE/js/dec17d2c250d.js:3292 static/CACHE/js/dec17d2c250d.js:3319
+#: static/CACHE/js/dec17d2c250d.js:3333 static/CACHE/js/f14c3c25ee89.js:326
+#: static/CACHE/js/f14c3c25ee89.js.c:353 static/CACHE/js/f14c3c25ee89.js:367
+#: static/CACHE/js/ff43fafd101d.js:528 static/CACHE/js/ff43fafd101d.js.c:555
+#: static/CACHE/js/ff43fafd101d.js:569
 msgid "reviewed"
 msgstr "revisado"
 
 #: site-static/js/mapping/mapping_admin_bone.js:58
 #: site-static/js/mapping/mapping_admin_bone.js:280
 #: site-static/js/mapping/mapping_data_view_bone.js:82
+#: static/CACHE/js/137291bd12f1.js:490 static/CACHE/js/137291bd12f1.js.c:517
+#: static/CACHE/js/137291bd12f1.js:531 static/CACHE/js/17ea7af07647.js:490
+#: static/CACHE/js/17ea7af07647.js.c:517 static/CACHE/js/17ea7af07647.js:531
+#: static/CACHE/js/1b1b559f6034.js:490 static/CACHE/js/1b1b559f6034.js.c:517
+#: static/CACHE/js/1b1b559f6034.js:531 static/CACHE/js/1fca0c79540b.js:318
+#: static/CACHE/js/1fca0c79540b.js.c:345 static/CACHE/js/1fca0c79540b.js:359
+#: static/CACHE/js/392d934e694a.js:349 static/CACHE/js/392d934e694a.js.c:376
+#: static/CACHE/js/392d934e694a.js:390 static/CACHE/js/4c320d5cdaed.js:88
+#: static/CACHE/js/4c320d5cdaed.js.c:115 static/CACHE/js/4c320d5cdaed.js:129
+#: static/CACHE/js/91aec6f11954.js:135 static/CACHE/js/91aec6f11954.js.c:162
+#: static/CACHE/js/91aec6f11954.js:176 static/CACHE/js/98ecc0cb6f3d.js:490
+#: static/CACHE/js/98ecc0cb6f3d.js.c:517 static/CACHE/js/98ecc0cb6f3d.js:531
+#: static/CACHE/js/9fa38a61c4a0.js:3292 static/CACHE/js/9fa38a61c4a0.js:3319
+#: static/CACHE/js/9fa38a61c4a0.js:3333 static/CACHE/js/d9ed41c45efb.js:381
+#: static/CACHE/js/d9ed41c45efb.js.c:408 static/CACHE/js/d9ed41c45efb.js:422
+#: static/CACHE/js/dec17d2c250d.js:3292 static/CACHE/js/dec17d2c250d.js:3319
+#: static/CACHE/js/dec17d2c250d.js:3333 static/CACHE/js/f14c3c25ee89.js:326
+#: static/CACHE/js/f14c3c25ee89.js.c:353 static/CACHE/js/f14c3c25ee89.js:367
+#: static/CACHE/js/ff43fafd101d.js:528 static/CACHE/js/ff43fafd101d.js.c:555
+#: static/CACHE/js/ff43fafd101d.js:569
 msgid "solved"
 msgstr "solucionado"
 
 #: site-static/js/mapping/mapping_admin_bone.js:59
 #: site-static/js/mapping/mapping_data_view_bone.js:83
+#: static/CACHE/js/137291bd12f1.js:490 static/CACHE/js/137291bd12f1.js.c:517
+#: static/CACHE/js/17ea7af07647.js:490 static/CACHE/js/17ea7af07647.js.c:517
+#: static/CACHE/js/1b1b559f6034.js:490 static/CACHE/js/1b1b559f6034.js.c:517
+#: static/CACHE/js/1fca0c79540b.js:318 static/CACHE/js/1fca0c79540b.js.c:345
+#: static/CACHE/js/392d934e694a.js:349 static/CACHE/js/392d934e694a.js.c:376
+#: static/CACHE/js/4c320d5cdaed.js:88 static/CACHE/js/4c320d5cdaed.js.c:115
+#: static/CACHE/js/91aec6f11954.js:135 static/CACHE/js/91aec6f11954.js.c:162
+#: static/CACHE/js/98ecc0cb6f3d.js:490 static/CACHE/js/98ecc0cb6f3d.js.c:517
+#: static/CACHE/js/9fa38a61c4a0.js:3292 static/CACHE/js/9fa38a61c4a0.js:3319
+#: static/CACHE/js/d9ed41c45efb.js:381 static/CACHE/js/d9ed41c45efb.js.c:408
+#: static/CACHE/js/dec17d2c250d.js:3292 static/CACHE/js/dec17d2c250d.js:3319
+#: static/CACHE/js/f14c3c25ee89.js:326 static/CACHE/js/f14c3c25ee89.js.c:353
+#: static/CACHE/js/ff43fafd101d.js:528 static/CACHE/js/ff43fafd101d.js.c:555
 msgid "any state"
 msgstr "Todos los estados"
 
 #: site-static/js/mapping/mapping_admin_bone.js:71
+#: static/CACHE/js/137291bd12f1.js:517 static/CACHE/js/17ea7af07647.js:517
+#: static/CACHE/js/1b1b559f6034.js:517 static/CACHE/js/1fca0c79540b.js:345
+#: static/CACHE/js/392d934e694a.js:376 static/CACHE/js/4c320d5cdaed.js:115
+#: static/CACHE/js/91aec6f11954.js:162 static/CACHE/js/98ecc0cb6f3d.js:517
+#: static/CACHE/js/9fa38a61c4a0.js:3319 static/CACHE/js/d9ed41c45efb.js:408
+#: static/CACHE/js/dec17d2c250d.js:3319 static/CACHE/js/f14c3c25ee89.js:353
+#: static/CACHE/js/ff43fafd101d.js:555
 msgid "published"
 msgstr "publicado"
 
 #: site-static/js/mapping/mapping_admin_bone.js:72
+#: static/CACHE/js/137291bd12f1.js:517 static/CACHE/js/17ea7af07647.js:517
+#: static/CACHE/js/1b1b559f6034.js:517 static/CACHE/js/1fca0c79540b.js:345
+#: static/CACHE/js/392d934e694a.js:376 static/CACHE/js/4c320d5cdaed.js:115
+#: static/CACHE/js/91aec6f11954.js:162 static/CACHE/js/98ecc0cb6f3d.js:517
+#: static/CACHE/js/9fa38a61c4a0.js:3319 static/CACHE/js/d9ed41c45efb.js:408
+#: static/CACHE/js/dec17d2c250d.js:3319 static/CACHE/js/f14c3c25ee89.js:353
+#: static/CACHE/js/ff43fafd101d.js:555
 msgid "un-published"
 msgstr "despublicado"
 
 #: site-static/js/mapping/mapping_admin_bone.js:260
+#: static/CACHE/js/137291bd12f1.js:530 static/CACHE/js/17ea7af07647.js:530
+#: static/CACHE/js/1b1b559f6034.js:530 static/CACHE/js/1fca0c79540b.js:358
+#: static/CACHE/js/392d934e694a.js:389 static/CACHE/js/4c320d5cdaed.js:128
+#: static/CACHE/js/91aec6f11954.js:175 static/CACHE/js/98ecc0cb6f3d.js:530
+#: static/CACHE/js/9fa38a61c4a0.js:3332 static/CACHE/js/d9ed41c45efb.js:421
+#: static/CACHE/js/dec17d2c250d.js:3332 static/CACHE/js/f14c3c25ee89.js:366
+#: static/CACHE/js/ff43fafd101d.js:568
 msgid "-- none --"
 msgstr "-- ninguno --"
 
 #: site-static/js/mapping/mapping_data_view_bone.js:95
+#: static/CACHE/js/137291bd12f1.js:490 static/CACHE/js/17ea7af07647.js:490
+#: static/CACHE/js/1b1b559f6034.js:490 static/CACHE/js/1fca0c79540b.js:318
+#: static/CACHE/js/392d934e694a.js:349 static/CACHE/js/4c320d5cdaed.js:88
+#: static/CACHE/js/91aec6f11954.js:135 static/CACHE/js/98ecc0cb6f3d.js:490
+#: static/CACHE/js/9fa38a61c4a0.js:3292 static/CACHE/js/d9ed41c45efb.js:381
+#: static/CACHE/js/dec17d2c250d.js:3292 static/CACHE/js/f14c3c25ee89.js:326
+#: static/CACHE/js/ff43fafd101d.js:528
 msgid "All since action started"
 msgstr "Todos desde comienzo de acción"
 
 #: site-static/js/mapping/mapping_data_view_bone.js:96
+#: static/CACHE/js/137291bd12f1.js:490 static/CACHE/js/17ea7af07647.js:490
+#: static/CACHE/js/1b1b559f6034.js:490 static/CACHE/js/1fca0c79540b.js:318
+#: static/CACHE/js/392d934e694a.js:349 static/CACHE/js/4c320d5cdaed.js:88
+#: static/CACHE/js/91aec6f11954.js:135 static/CACHE/js/98ecc0cb6f3d.js:490
+#: static/CACHE/js/9fa38a61c4a0.js:3292 static/CACHE/js/d9ed41c45efb.js:381
+#: static/CACHE/js/dec17d2c250d.js:3292 static/CACHE/js/f14c3c25ee89.js:326
+#: static/CACHE/js/ff43fafd101d.js:528
 msgid "last week"
 msgstr "última semana"
 
 #: site-static/js/mapping/mapping_data_view_bone.js:97
+#: static/CACHE/js/137291bd12f1.js:490 static/CACHE/js/17ea7af07647.js:490
+#: static/CACHE/js/1b1b559f6034.js:490 static/CACHE/js/1fca0c79540b.js:318
+#: static/CACHE/js/392d934e694a.js:349 static/CACHE/js/4c320d5cdaed.js:88
+#: static/CACHE/js/91aec6f11954.js:135 static/CACHE/js/98ecc0cb6f3d.js:490
+#: static/CACHE/js/9fa38a61c4a0.js:3292 static/CACHE/js/d9ed41c45efb.js:381
+#: static/CACHE/js/dec17d2c250d.js:3292 static/CACHE/js/f14c3c25ee89.js:326
+#: static/CACHE/js/ff43fafd101d.js:528
 msgid "last month"
 msgstr "último mes"
 
-#: site-static/js/mapping/mapping_form_bone.js:145
+#: site-static/js/mapping/mapping_form_bone.js:154
+#: static/CACHE/js/137291bd12f1.js:485 static/CACHE/js/17ea7af07647.js:485
+#: static/CACHE/js/1b1b559f6034.js:485 static/CACHE/js/1fca0c79540b.js:313
+#: static/CACHE/js/392d934e694a.js:344 static/CACHE/js/4c320d5cdaed.js:83
+#: static/CACHE/js/91aec6f11954.js:130 static/CACHE/js/98ecc0cb6f3d.js:485
+#: static/CACHE/js/9fa38a61c4a0.js:3287 static/CACHE/js/d9ed41c45efb.js:376
+#: static/CACHE/js/dec17d2c250d.js:3287 static/CACHE/js/f14c3c25ee89.js:321
+#: static/CACHE/js/ff43fafd101d.js:523
 msgid "Center"
 msgstr "Centro"
 
-#: site-static/js/mapping/mapping_form_bone.js:150
+#: site-static/js/mapping/mapping_form_bone.js:159
+#: static/CACHE/js/137291bd12f1.js:485 static/CACHE/js/17ea7af07647.js:485
+#: static/CACHE/js/1b1b559f6034.js:485 static/CACHE/js/1fca0c79540b.js:313
+#: static/CACHE/js/392d934e694a.js:344 static/CACHE/js/4c320d5cdaed.js:83
+#: static/CACHE/js/91aec6f11954.js:130 static/CACHE/js/98ecc0cb6f3d.js:485
+#: static/CACHE/js/9fa38a61c4a0.js:3287 static/CACHE/js/d9ed41c45efb.js:376
+#: static/CACHE/js/dec17d2c250d.js:3287 static/CACHE/js/f14c3c25ee89.js:321
+#: static/CACHE/js/ff43fafd101d.js:523
 msgid "Boundary"
 msgstr "Límites"
 
-#: site-static/js/mapping/mapping_main_bone.js:296
+#: site-static/js/mapping/mapping_main_bone.js:297
+#: static/CACHE/js/137291bd12f1.js:470 static/CACHE/js/17ea7af07647.js:470
+#: static/CACHE/js/1b1b559f6034.js:470 static/CACHE/js/1fca0c79540b.js:298
+#: static/CACHE/js/392d934e694a.js:329 static/CACHE/js/4c320d5cdaed.js:68
+#: static/CACHE/js/91aec6f11954.js:115 static/CACHE/js/98ecc0cb6f3d.js:470
+#: static/CACHE/js/9fa38a61c4a0.js:3272 static/CACHE/js/d9ed41c45efb.js:361
+#: static/CACHE/js/dec17d2c250d.js:3272 static/CACHE/js/f14c3c25ee89.js:306
+#: static/CACHE/js/ff43fafd101d.js:508
 #, fuzzy
 msgid "last added"
 msgstr "última semana"
 
-#: site-static/js/mapping/mapping_main_bone.js:297
-msgid "most supported"
-msgstr ""
-
 #: site-static/js/mapping/mapping_main_bone.js:298
+#: static/CACHE/js/137291bd12f1.js:470 static/CACHE/js/17ea7af07647.js:470
+#: static/CACHE/js/1b1b559f6034.js:470 static/CACHE/js/1fca0c79540b.js:298
+#: static/CACHE/js/392d934e694a.js:329 static/CACHE/js/4c320d5cdaed.js:68
+#: static/CACHE/js/91aec6f11954.js:115 static/CACHE/js/98ecc0cb6f3d.js:470
+#: static/CACHE/js/9fa38a61c4a0.js:3272 static/CACHE/js/d9ed41c45efb.js:361
+#: static/CACHE/js/dec17d2c250d.js:3272 static/CACHE/js/f14c3c25ee89.js:306
+#: static/CACHE/js/ff43fafd101d.js:508
+msgid "most supported"
+msgstr "más apoyados"
+
+#: site-static/js/mapping/mapping_main_bone.js:299
+#: static/CACHE/js/137291bd12f1.js:470 static/CACHE/js/17ea7af07647.js:470
+#: static/CACHE/js/1b1b559f6034.js:470 static/CACHE/js/1fca0c79540b.js:298
+#: static/CACHE/js/392d934e694a.js:329 static/CACHE/js/4c320d5cdaed.js:68
+#: static/CACHE/js/91aec6f11954.js:115 static/CACHE/js/98ecc0cb6f3d.js:470
+#: static/CACHE/js/9fa38a61c4a0.js:3272 static/CACHE/js/d9ed41c45efb.js:361
+#: static/CACHE/js/dec17d2c250d.js:3272 static/CACHE/js/f14c3c25ee89.js:306
+#: static/CACHE/js/ff43fafd101d.js:508
 msgid "most commented"
-msgstr ""
+msgstr "más comentados"
