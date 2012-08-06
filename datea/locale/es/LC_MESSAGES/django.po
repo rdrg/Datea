@@ -521,7 +521,7 @@ msgstr "Inicia procesos participativos"
 
 #: datea_home/templates/ich/datea_presentation.html:25
 msgid "participate, share, support, comment"
-msgstr "Participa,comparte,comenta y apoya"
+msgstr "Participa, comparte, comenta y apoya"
 
 #: datea_home/templates/ich/datea_presentation.html:32
 msgid "visualize actions in maps and charts"
