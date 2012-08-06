@@ -1713,6 +1713,18 @@ button.btn.dropdown-toggle:hover span.caret {
   margin-left: 120px;
 }
 
+#action-list .action-item .action-teaser .teaser-content .created-data {
+  font-size: 12px;
+  line-height: 13px;
+  color: #999999;
+}
+
+#action-list .action-item .action-teaser .teaser-content .created-data .date {
+  display: none;
+  margin-left: 4px;
+  font-size: 11px;
+}
+
 #action-list .action-item .action-teaser .teaser-content h3 a {
   color: #434c3e;
 }

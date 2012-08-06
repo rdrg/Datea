@@ -224,7 +224,7 @@ Datea.AppRouter = Backbone.Router.extend({
     			});
     			this.mapping_edit_view.render();
     		}
-    		
+    		$('#main-content-view').removeAttr('style');
     	}else{
     		var self = this;
     		clear_admin_controls();
@@ -250,7 +250,7 @@ Datea.AppRouter = Backbone.Router.extend({
     			this.mapping_admin_view.render();
     			
     		}
-    		
+    		$('#main-content-view').removeAttr('style');
     	}else{
     		var self = this;
     		clear_admin_controls();

@@ -18,6 +18,8 @@ class ActionResource(ModelResource):
         bundle.data['url'] = bundle.obj.get_absolute_url()
         bundle.data['type'] = bundle.obj.action_type
         bundle.data['image'] = bundle.obj.get_image_thumb()
+        bundle.data['username'] = bundle.obj.user.username
+        bundle.data['user_url'] = bundle.obj.user.profile.get_absolute_url()
         return bundle
     
     def apply_filters(self, request, applicable_filters):

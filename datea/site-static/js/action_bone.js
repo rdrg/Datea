@@ -19,7 +19,10 @@ window.Datea.ActionListItemView = Backbone.View.extend({
 	className: 'action-item',
 
 	render: function(){
-  		this.$el.html(ich.action_list_item_tpl(this.model.toJSON()));
+		var context = this.model.toJSON();
+		context.created = formatDateFromISO(context.created, "dd.mm.yyyy");
+		console.log(context);
+  		this.$el.html(ich.action_list_item_tpl(context));
   
   		// follow widget
   		if (!Datea.my_user.isNew() && Datea.my_user.get('resource_uri') != this.model.get('user')) {
