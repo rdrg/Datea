@@ -14,9 +14,9 @@ def get_menu(menu_root_id):
     for i in items:
         if i.page:
             i.url = i.page.url
-        if i.external_url:
+        elif i.external_url:
             i.url = i.external_url
         else:
-            i.url = ''    
+            i.url = ''
         
     return items
