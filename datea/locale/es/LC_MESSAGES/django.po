@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-06 14:34-0500\n"
+"POT-Creation-Date: 2012-08-06 14:44-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1149,9 +1149,8 @@ msgid "Need an account?"
 msgstr "¿Necesitas una cuenta?"
 
 #: templates/registration/_bubble_register.html:8
-#, fuzzy
 msgid "register"
-msgstr "¡Regístrate!"
+msgstr "regístrate"
 
 #: templates/registration/activate.html:3
 #: templates/registration/activation_complete.html:3
@@ -1185,16 +1184,17 @@ msgstr ""
 "la URL de nuevo. "
 
 #: templates/registration/activation_complete.html:9
+#, fuzzy
 msgid ""
 "\n"
-"Thanks, activation complete!  You may now"
-msgstr ""
-"\n"
-" ¡Gracias, activación completa! Ahora puedes"
+"Thanks, activation complete!  You may now login using the username and "
+"password you set at registration.\n"
+msgstr " usando el usuario y clave que configuraste al registrarte"
 
-#: templates/registration/activation_complete.html:10
-msgid "using the username and password you set at registration.\n"
-msgstr "usando el usuario y la clave que configuraste al resgistrarte.\n"
+#: templates/registration/activation_complete.html:14
+#, fuzzy
+msgid "login"
+msgstr "Ingresa"
 
 #: templates/registration/activation_email.txt:1
 #, python-format
@@ -1381,6 +1381,16 @@ msgstr "Regístrate para obtener una cuenta"
 #: templates/registration/registration_form.html:10
 msgid "Or you can register an account here at Datea:"
 msgstr "O puedes registrar una cuenta aquí en Datea:"
+
+#~ msgid ""
+#~ "\n"
+#~ "Thanks, activation complete!  You may now"
+#~ msgstr ""
+#~ "\n"
+#~ " ¡Gracias, activación completa! Ahora puedes"
+
+#~ msgid "using the username and password you set at registration.\n"
+#~ msgstr "usando el usuario y la clave que configuraste al resgistrarte.\n"
 
 #, fuzzy
 #~ msgid "see in map"

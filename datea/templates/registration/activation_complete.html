@@ -7,8 +7,11 @@
 
 <p class="desc">
 {% blocktrans %}
-Thanks, activation complete!  You may now{% endblocktrans %} <a class="btn btn-primary btn-pointy btn-large btn-uppercase" href='{% url auth_login %}'>login<div class="pointer"></div></a> {% blocktrans %}using the username and password you set at registration.
+Thanks, activation complete!  You may now login using the username and password you set at registration.
 {% endblocktrans %}
+</p>
+<p>
+	<a class="btn btn-primary btn-pointy btn-large btn-uppercase" href='{% url auth_login %}'>{% trans 'login' %}<div class="pointer"></div></a>
 </p>
 {% endblock %}
 
