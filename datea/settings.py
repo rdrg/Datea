@@ -284,7 +284,7 @@ CACHES = {
     }
 }
 
-COMPRESS_CSS_FILTERS = ['compressor.filters.cssmin.CSSMinFilter']
+COMPRESS_CSS_FILTERS = ['compressor.filters.css_default.CssAbsoluteFilter']
 #COMPRESS_JS_FILTERS = ['compressor.filters.jsmin.SlimItFilter']
 
 #Allowed headers for cross domain requests
