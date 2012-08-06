@@ -20,7 +20,10 @@
 		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
 		<link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
 
+		{% load compress %}
+
 		{# CSS #}
+		{% compress css %}
 		<link href="{{ STATIC_URL }}css/bootstrap.css" rel="stylesheet">
 		<link href="{{ STATIC_URL }}css/bootstrap-responsive.css" rel="stylesheet">
 		<link href="{{ STATIC_URL }}colorpicker/css/colorpicker.css" rel="stylesheet">
@@ -29,7 +32,7 @@
 		<link rel="stylesheet" href="{{ STATIC_URL }}openlayers-dev/theme/default/style.css" />
 		<link rel="stylesheet" href="{{ STATIC_URL }}openlayers-dev/theme/default/google.css" />
 		<link rel="stylesheet" href="{{ STATIC_URL }}olwidget/css/olwidget.css" />
-		
+		{% endcompress %}
 			
 		{% block extra_head %}{% endblock %}
 		
@@ -116,30 +119,37 @@
   	</form>
   	
   	{# JS LIBS #}
+  		
+  		{# external js libs #}
+  		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+  		<script src="{{STATIC_URL}}openlayers-2.11/OpenLayers.js"></script>
+  		<script type="text/javascript">OpenLayers.ImgPath = "/static/img/openlayers/";</script>
+  		<script src="{{STATIC_URL}}openlayers-2.11/ol_google_patch_for_2.11.js"></script>
+  		<script src='http://openstreetmap.org/openlayers/OpenStreetMap.js'></script>
+  		
+  		<script type="text/javascript" src="{% url django.views.i18n.javascript_catalog %}"></script>
+  	
+  		{% compress js %}
   		<script type="text/javascript">Datea = {};</script>
   		<script src="{{ STATIC_URL }}js/libs/jquery-1.7.2.min.js"></script>
   		<script src="{{ STATIC_URL }}js/libs/modernizr.custom.05031.js"></script>
   		<script src="{{ STATIC_URL }}js/libs/bootstrap.min.js"></script>
   		<script src="{{ STATIC_URL }}js/libs/json2.js"></script>
   		<script src="{{ STATIC_URL }}js/libs/date.format.js"></script>
-  		<script src="{{ STATIC_URL }}js/libs/underscore.js"></script>
-  		<script src="{{ STATIC_URL }}js/libs/backbone.js"></script>
+  		<script src="{{ STATIC_URL }}js/libs/underscore-min.js"></script>
+  		<script src="{{ STATIC_URL }}js/libs/backbone-min.js"></script>
   		<script src="{{ STATIC_URL }}js/backbone-tastypie.js"></script>
   		<script src="{{ STATIC_URL }}js/libs/backbone.queryparams.js"></script>
-  		<script src="{{ STATIC_URL }}js/libs/ICanHaz.js"></script>
+  		<script src="{{ STATIC_URL }}js/libs/ICanHaz.min.js"></script>
   		<script src="{{ STATIC_URL }}js/libs/jquery.iframe-transport.js"></script>
   		<script src="{{ STATIC_URL }}js/libs/jquery.serializeObject.js"></script>
   		<script src="{{ STATIC_URL }}js/libs/jquery.autosize-min.js"></script>
   		<script src="{{ STATIC_URL }}js/autoresize_text_areas.js"></script>
   		<script src="{{ STATIC_URL }}js/utils.js"></script>
-  		<script type="text/javascript" src="{% url django.views.i18n.javascript_catalog %}"></script>
-  		
+  		{% endcompress %}
+		{# somehow this must get compressed into 2 files, otherwise strange errors occur #}
+		{% compress js %}
   		{# <script src="{{ STATIC_URL }}openlayers-dev/OpenLayers.js"></script> #}
-  		<script src="{{STATIC_URL}}openlayers-2.11/OpenLayers.js"></script>
-  		<script src="{{STATIC_URL}}openlayers-2.11/ol_google_patch_for_2.11.js"></script>
-  		<script type="text/javascript">OpenLayers.ImgPath = "/static/img/openlayers/";</script>
-  		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
-  		<script src='http://openstreetmap.org/openlayers/OpenStreetMap.js'></script>
   		<script src="{{ STATIC_URL }}olwidget/js/olwidget.js"></script>
   		<script src="{{ STATIC_URL }}olwidget/js/datea_editable_multi_layer.js"></script>
   		<script src="{{ STATIC_URL }}olwidget/js/datea_editable_point_layer.js"></script>
@@ -150,7 +160,6 @@
   		<script src="{{ STATIC_URL }}js/libs/bootstrap-lightbox.js"></script>
   		<script src="{{ STATIC_URL }}colorpicker/js/bootstrap-colorpicker.js"></script>
   		<script src="{{ STATIC_URL }}js/colorpicker.js"></script>
-  		
   		
   		<script src="{{ STATIC_URL }}js/share.js"></script>
 		<script src="{{ STATIC_URL }}js/main_bone.js"></script>
@@ -172,6 +181,7 @@
 		<script src="{{ STATIC_URL }}js/follow_bone.js"></script>
 		<script src="{{ STATIC_URL }}js/vote_bone.js"></script>
 		<script src="{{ STATIC_URL }}js/history_bone.js"></script>
+		{% endcompress %}
 		
   		{% block footer_js %}{% endblock %}
   		

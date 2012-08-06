@@ -89,6 +89,7 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 #    'django.contrib.staticfiles.finders.DefaultStorageFinder',
+    'compressor.finders.CompressorFinder',
 )
 
 # Make this unique, and don't share it with anybody.
@@ -158,6 +159,7 @@ INSTALLED_APPS = (
     
     # extensions
     #'debug_toolbar',
+    'compressor',
     'registration',
     'social_auth',
     'south',
@@ -281,6 +283,10 @@ CACHES = {
         'LOCATION': '127.0.0.1:11211',
     }
 }
+
+COMPRESS_CSS_FILTERS = ['compressor.filters.cssmin.CSSMinFilter']
+#COMPRESS_JS_FILTERS = ['compressor.filters.jsmin.SlimItFilter']
+
 #Allowed headers for cross domain requests
 #XS_SHARING_ALLOWED_HEADERS = ['Origin', 'Content-Type', 'Accept', 'Authorization']
 

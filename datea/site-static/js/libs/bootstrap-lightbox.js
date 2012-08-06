@@ -29,9 +29,9 @@ $(window).load(function()
   * ====================== */
 
   var Lightbox = function ( content, options ) {
-    this.options = options
+    this.options = options;
     this.$element = $(content)
-      .delegate('[data-dismiss="lightbox"]', 'click.dismiss.lightbox', $.proxy(this.hide, this))
+      .delegate('[data-dismiss="lightbox"]', 'click.dismiss.lightbox', $.proxy(this.hide, this));
 	//
 	var that = this;
 	// Clone the element
@@ -60,27 +60,27 @@ $(window).load(function()
       constructor: Lightbox
 
     , toggle: function () {
-        return this[!this.isShown ? 'show' : 'hide']()
+        return this[!this.isShown ? 'show' : 'hide']();
       }
 
     , show: function () {
-        var that = this
+        var that = this;
 
-        if (this.isShown) return
+        if (this.isShown) return;
 
         $('body').addClass('modal-open')
 
-        this.isShown = true
-        this.$element.trigger('show')
+        this.isShown = true;
+        this.$element.trigger('show');
 
-        escape.call(this)
+        escape.call(this);
         backdrop.call(this, function () {
-          var transition = $.support.transition && that.$element.hasClass('fade')
+          var transition = $.support.transition && that.$element.hasClass('fade');
 
-          !that.$element.parent().length && that.$element.appendTo(document.body) //don't move modals dom position
+          !that.$element.parent().length && that.$element.appendTo(document.body); //don't move modals dom position
 			
           that.$element
-            .show()
+            .show();
 			
 		//that.$h = that.$element.find('.lightbox-content').height();
 		//that.$w = that.$element.find('.lightbox-content').width();
@@ -121,7 +121,7 @@ $(window).load(function()
 		});
 			
           if (transition) {
-            that.$element[0].offsetWidth // force reflow
+            that.$element[0].offsetWidth; // force reflow
           }
 
           that.$element.addClass('in')
@@ -130,31 +130,31 @@ $(window).load(function()
             that.$element.one($.support.transition.end, function ()
 			{
 				
-				that.$element.trigger('shown')
+				that.$element.trigger('shown');
 			}) : that.$element.trigger('shown')
         })
       }
 
     , hide: function ( e ) {
-        e && e.preventDefault()
+        e && e.preventDefault();
 		
-		if(e && $(e.target).is('a')) return
-        if (!this.isShown) return
+		if(e && $(e.target).is('a')) return;
+        if (!this.isShown) return;
 
-        var that = this
-        this.isShown = false
+        var that = this;
+        this.isShown = false;
 
-        $('body').removeClass('modal-open')
+        $('body').removeClass('modal-open');
 
-        escape.call(this)
+        escape.call(this);
 
         this.$element
           .trigger('hide')
-          .removeClass('in')
+          .removeClass('in');
 
         $.support.transition && this.$element.hasClass('fade') ?
           hideWithTransition.call(this) :
-          hideModal.call(this)
+          hideModal.call(this);
       }
 
   }
@@ -168,72 +168,72 @@ $(window).load(function()
       , timeout = setTimeout(function () {
           that.$element.off($.support.transition.end)
           hideModal.call(that)
-        }, 500)
+        }, 500);
 
     this.$element.one($.support.transition.end, function () {
-      clearTimeout(timeout)
-      hideModal.call(that)
+      clearTimeout(timeout);
+      hideModal.call(that);
     })
   }
 
   function hideModal( that ) {
     this.$element
       .hide()
-      .trigger('hidden')
+      .trigger('hidden');
 
-    backdrop.call(this)
+    backdrop.call(this);
   }
 
   function backdrop( callback ) {
     var that = this
-      , animate = this.$element.hasClass('fade') ? 'fade' : ''
+      , animate = this.$element.hasClass('fade') ? 'fade' : '';
 
     if (this.isShown && this.options.backdrop) {
-      var doAnimate = $.support.transition && animate
+      var doAnimate = $.support.transition && animate;
 
       this.$backdrop = $('<div class="modal-backdrop ' + animate + '" />')
-        .appendTo(document.body)
-	  this.$lightbox = $('div.lightbox')
-	  this.$content = $('div.lightbox-content')
+        .appendTo(document.body);
+	  this.$lightbox = $('div.lightbox');
+	  this.$content = $('div.lightbox-content');
 
       if (this.options.backdrop != 'static') {
-        this.$backdrop.click($.proxy(this.hide, this))
-        this.$lightbox.click($.proxy(this.hide, this))
+        this.$backdrop.click($.proxy(this.hide, this));
+        this.$lightbox.click($.proxy(this.hide, this));
       }
 
-      if (doAnimate) this.$backdrop[0].offsetWidth // force reflow
+      if (doAnimate) this.$backdrop[0].offsetWidth; // force reflow
 
-      this.$backdrop.addClass('in')
+      this.$backdrop.addClass('in');
 
       doAnimate ?
         this.$backdrop.one($.support.transition.end, callback) :
-        callback()
+        callback();
 
     } else if (!this.isShown && this.$backdrop) {
-      this.$backdrop.removeClass('in')
+      this.$backdrop.removeClass('in');
 
       $.support.transition && this.$element.hasClass('fade')?
         this.$backdrop.one($.support.transition.end, $.proxy(removeBackdrop, this)) :
-        removeBackdrop.call(this)
+        removeBackdrop.call(this);
 
     } else if (callback) {
-      callback()
+      callback();
     }
   }
 
   function removeBackdrop() {
-    this.$backdrop.remove()
-    this.$backdrop = null
+    this.$backdrop.remove();
+    this.$backdrop = null;
   }
 
   function escape() {
-    var that = this
+    var that = this;
     if (this.isShown && this.options.keyboard) {
       $(document).on('keyup.dismiss.lightbox', function ( e ) {
-        e.which == 27 && that.hide(e)
+        e.which == 27 && that.hide(e);
       })
     } else if (!this.isShown) {
-      $(document).off('keyup.dismiss.lightbox')
+      $(document).off('keyup.dismiss.lightbox');
     }
   }
 
@@ -245,10 +245,10 @@ $(window).load(function()
     return this.each(function () {
       var $this = $(this)
         , data = $this.data('lightbox')
-        , options = $.extend({}, $.fn.lightbox.defaults, $this.data(), typeof option == 'object' && option)
-      if (!data) $this.data('lightbox', (data = new Lightbox(this, options)))
-      if (typeof option == 'string') data[option]()
-      else if (options.show) data.show()
+        , options = $.extend({}, $.fn.lightbox.defaults, $this.data(), typeof option == 'object' && option);
+      if (!data) $this.data('lightbox', (data = new Lightbox(this, options)));
+      if (typeof option == 'string') data[option]();
+      else if (options.show) data.show();
     })
   }
 
@@ -257,9 +257,9 @@ $(window).load(function()
     , keyboard: true
     , show: true
 	, resizetofit: false
-  }
+  };
 
-  $.fn.lightbox.Constructor = Lightbox
+  $.fn.lightbox.Constructor = Lightbox;
 
 
  /* LIGHTBOX DATA-API
@@ -269,10 +269,10 @@ $(window).load(function()
     $('body').on('click.lightbox.data-api', '[data-toggle="lightbox"]', function ( e ) {
       var $this = $(this), href
         , $target = $($this.attr('data-target') || (href = $this.attr('href')) && href.replace(/.*(?=#[^\s]+$)/, '')) //strip for ie7
-        , option = $target.data('lightbox') ? 'toggle' : $.extend({}, $target.data(), $this.data())
+        , option = $target.data('lightbox') ? 'toggle' : $.extend({}, $target.data(), $this.data());
 
-      e.preventDefault()
-      $target.lightbox(option)
+      e.preventDefault();
+      $target.lightbox(option);
     })
   })
 

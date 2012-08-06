@@ -13,7 +13,7 @@ function get_base_url() {
 }
 
 
-window.Datea.CheckStatsPlural = function ($el, model) {
+Datea.CheckStatsPlural = function ($el, model) {
 	// votes
 	if (model.get('vote_count') && model.get('vote_count') == 1) {
 		$('.vote_count .singular', $el).show();
