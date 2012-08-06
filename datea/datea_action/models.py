@@ -6,7 +6,9 @@ from datea.datea_category.models import DateaCategory
 from mptt.fields import TreeForeignKey
 from django.contrib.contenttypes.models import ContentType
 from datea.datea_image.models import DateaImage
-# Create your models here.
+from sorl.thumbnail import get_thumbnail
+from django.core.files.base import ContentFile
+from django.conf import settings
 
 
 class SubclassingQuerySet(models.query.GeoQuerySet):
@@ -56,6 +58,21 @@ class DateaAction(models.Model):
     # generic relation to subclasses
     content_type = models.ForeignKey(ContentType,editable=False,null=True)
     objects = DateaActionManager()
+    
+    def get_image_thumb(self, thumb_preset = 'action_image'):
+        if self.image:
+            return self.image.get_thumb(thumb_preset)
+        else:
+            Preset = settings.THUMBNAIL_PRESETS[thumb_preset]
+            url = settings.DEFAULT_ACTION_IMAGE
+            #preserve format
+            ext = url.split('.')[-1].upper()
+            if ext not in ['PNG', 'JPG'] or ext == 'JPG':
+                ext = 'JPEG'
+            options = {'format': ext }
+            if 'options' in Preset:
+                options.update(Preset['options'])
+            return get_thumbnail(url, Preset['size'], **options).url
     
     def get_absolute_url(self):
         return '/'+self.action_type+'/'+str(self.pk)

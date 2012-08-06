@@ -173,7 +173,7 @@ a.open-popup:hover .mira {
   display: block;
   width: 18px;
   height: 30px;
-  background: url(../img/datea/boton_flecha.png) no-repeat 0 center;
+  background: url(../img/datea/boton_flecha.png) no-repeat 0 top;
 }
 
 .btn.btn-pointy:hover {
@@ -181,7 +181,17 @@ a.open-popup:hover .mira {
 }
 
 .btn.btn-pointy:hover .pointer {
-  background: url(../img/datea/boton_flecha.png) no-repeat -18px center;
+  background: url(../img/datea/boton_flecha.png) no-repeat -18px top;
+}
+
+.btn.btn-pointy.active,
+.btn.btn-pointy.btn:active {
+  background-color: #ecff00;
+  background-image: none;
+  outline: 0;
+  -webkit-box-shadow: none;
+     -moz-box-shadow: none;
+          box-shadow: none;
 }
 
 .btn.btn-pointy.btn-success {
@@ -190,7 +200,7 @@ a.open-popup:hover .mira {
 }
 
 .btn.btn-pointy.btn-success .pointer {
-  background: url(../img/datea/boton_flecha.png) no-repeat -36px center;
+  background: url(../img/datea/boton_flecha.png) no-repeat -36px top;
 }
 
 .btn.btn-pointy.btn-success:hover {
@@ -201,36 +211,41 @@ a.open-popup:hover .mira {
 }
 
 .btn.btn-pointy.btn-success:hover .pointer {
-  background: url(../img/datea/boton_flecha.png) no-repeat -36px center;
+  background: url(../img/datea/boton_flecha.png) no-repeat -36px top;
+}
+
+.btn.btn-pointy.btn-success.active,
+.btn.btn-pointy.btn-success.btn:active {
+  background-color: #27bb44;
 }
 
 .btn.btn-pointy.btn-large {
-  height: 45px;
+  height: 44px;
   padding: 0 20px;
   margin-right: 25px;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: bold;
-  line-height: 45px;
+  line-height: 44px;
 }
 
 .btn.btn-pointy.btn-large .pointer {
   top: 0;
   right: -23px;
   width: 23px;
-  height: 45px;
-  background: url(../img/datea/boton_flecha_large.png) no-repeat 0 center;
+  height: 44px;
+  background: url(../img/datea/boton_flecha_large.png) no-repeat 0 top;
 }
 
 .btn.btn-pointy.btn-large:hover .pointer {
-  background: url(../img/datea/boton_flecha_large.png) no-repeat -23px center;
+  background: url(../img/datea/boton_flecha_large.png) no-repeat -23px top;
 }
 
 .btn.btn-pointy.btn-large.btn-success .pointer {
-  background: url(../img/datea/boton_flecha_large.png) no-repeat -46px center;
+  background: url(../img/datea/boton_flecha_large.png) no-repeat -46px top;
 }
 
 .btn.btn-pointy.btn-large.btn-success:hover .pointer {
-  background: url(../img/datea/boton_flecha_large.png) no-repeat -46px center;
+  background: url(../img/datea/boton_flecha_large.png) no-repeat -46px top;
 }
 
 h1 {
@@ -276,7 +291,7 @@ h1 {
 }
 
 #footer #footer-menu a {
-  font-size: 14px;
+  font-size: 13px;
   color: #1a1a1a;
 }
 
@@ -285,12 +300,12 @@ h1 {
 }
 
 #footer #footer-right .copyfight {
-  font-size: 14px;
+  font-size: 13px;
   color: #1a1a1a;
 }
 
 #footer #footer-right .lafactura {
-  font-size: 13px -2px;
+  font-size: 12px;
   line-height: 13px;
   color: #999999;
   text-align: right;
@@ -623,6 +638,25 @@ h1 {
   display: block;
   float: left;
   width: 50%;
+}
+
+#datea-presentation .footer .left .presentation-menu {
+  margin-left: 0;
+  list-style: none;
+}
+
+#datea-presentation .footer .left .presentation-menu li {
+  line-height: 24px;
+  list-style: none;
+}
+
+#datea-presentation .footer .left .presentation-menu li a {
+  font-size: 19px;
+  color: #999999;
+}
+
+#datea-presentation .footer .left .presentation-menu li a:hover {
+  color: #27bb44;
 }
 
 #datea-presentation .footer .right {

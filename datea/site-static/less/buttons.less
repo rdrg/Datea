@@ -102,59 +102,69 @@ a.open-popup {
 		width: 18px;
 		height: 30px;
 		display: block;
-		background: url(../img/datea/boton_flecha.png) no-repeat 0px center;
+		background: url(../img/datea/boton_flecha.png) no-repeat 0px top;
 	}
 	&:hover {
 		background-color: @amarillo;
 		.pointer {
-			background: url(../img/datea/boton_flecha.png) no-repeat -18px center;
+			background: url(../img/datea/boton_flecha.png) no-repeat -18px top;
 		}
+	}
+	// Active state
+	&.active,&.btn:active {
+  		background-color: @amarillo;
+  		background-image: none;
+  		outline: 0;
+  		.box-shadow(none);
 	}
 	
 	&.btn-success {
 		color: white;
 		background-color: @verde;
 		.pointer {
-			background: url(../img/datea/boton_flecha.png) no-repeat -36px center;
+			background: url(../img/datea/boton_flecha.png) no-repeat -36px top;
 		}
 		&:hover {
 			background-color: @verde;
 			color: white;
 			.opacity(85);
 			.pointer {
-				background: url(../img/datea/boton_flecha.png) no-repeat -36px center;
+				background: url(../img/datea/boton_flecha.png) no-repeat -36px top;
 			}
+		}
+		&.active,&.btn:active {
+			background-color: @verde;
 		}
 	}
 	
 	&.btn-large {
 		padding: 0px 20px;
-		height: 45px;
-		line-height: 45px;
+		height: 44px;
+		line-height: 44px;
 		margin-right: 25px;
 		
-		font-size: @baseFontSize + 5px;
+		font-size: @baseFontSize + 7px;
 		font-weight: bold;
 		
 		.pointer {
 			right: -23px;
 			top: 0px;
 			width: 23px;
-			height: 45px;
-			background: url(../img/datea/boton_flecha_large.png) no-repeat 0px center;
+			height: 44px;
+			background: url(../img/datea/boton_flecha_large.png) no-repeat 0px top;
 		}
 		&:hover {
 			.pointer {
-				background: url(../img/datea/boton_flecha_large.png) no-repeat -23px center;
+				background: url(../img/datea/boton_flecha_large.png) no-repeat -23px top;
 			}
 		}
 		&.btn-success {
 			.pointer {
-				background: url(../img/datea/boton_flecha_large.png) no-repeat -46px center;
+				background: url(../img/datea/boton_flecha_large.png) no-repeat -46px top;
 			}
 			&:hover {
 				.pointer {
-					background: url(../img/datea/boton_flecha_large.png) no-repeat -46px center;
+					background: url(../img/datea/boton_flecha_large.png) no-repeat -46px top;
 				}
 			}
 		}

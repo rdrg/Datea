@@ -38,12 +38,12 @@ class DateaProfile(models.Model):
             url = settings.DEFAULT_PROFILE_IMAGE
             #preserve format
             ext = url.split('.')[-1].upper()
-            if ext not in ['PNG', 'JPG']:
-                ext = 'JPG'
+            if ext not in ['PNG', 'JPG'] or ext == 'JPG':
+                ext = 'JPEG'
             options = {'format': ext }
             if 'options' in Preset:
                 options.update(Preset['options'])
-            return get_thumbnail(url, Preset['size'], options=options).url
+            return get_thumbnail(url, Preset['size'], **options).url
     
     def get_image(self):
         return self.get_image_thumb('profile_image')

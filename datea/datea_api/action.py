@@ -17,7 +17,7 @@ class ActionResource(ModelResource):
     def dehydrate(self, bundle):
         bundle.data['url'] = bundle.obj.get_absolute_url()
         bundle.data['type'] = bundle.obj.action_type
-        bundle.data['image'] = bundle.obj.image.get_thumb('action_image')
+        bundle.data['image'] = bundle.obj.get_image_thumb()
         return bundle
     
     def apply_filters(self, request, applicable_filters):

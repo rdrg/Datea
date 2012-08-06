@@ -26,13 +26,8 @@ class MappingResource(DateaBaseGeoResource):
                 attribute="category", full=True, null=True, readonly=True)
     
     def dehydrate(self, bundle):
-        if bundle.obj.image:
-            bundle.data['image_thumb'] = bundle.obj.image.get_thumb('image_thumb_medium')
-        else:
-            bundle.data['image_thumb'] = None
-        
+        bundle.data['image_thumb'] = bundle.obj.get_image_thumb('image_thumb_medium')
         bundle.data['url'] = bundle.obj.get_absolute_url()
-        
         return bundle
     
     

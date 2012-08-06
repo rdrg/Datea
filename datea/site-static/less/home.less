@@ -48,7 +48,24 @@
 	
 	.footer {
 		.clearfix();
-		.left { display: block; float:left; width: 50%}
+		.left { 
+			display: block; 
+			float:left; 
+			width: 50%;
+			.presentation-menu {
+				list-style: none;
+				margin-left:0px;
+				li {
+					list-style:none;
+					line-height: @baseLineHeight + 6px;
+					a { 
+						color: @grayLight;
+						&:hover { color: @verde;}
+						font-size: @baseFontSize + 6px;
+					}
+				}
+			}
+		}
 		.right {
 			display: block; float:left; width: 50%;
 			text-align:right;

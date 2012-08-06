@@ -56,6 +56,7 @@ Datea.AppRouter = Backbone.Router.extend({
     action_create: function (action_type) {
     	clear_admin_controls();
     	if (action_type == 'mapping') {
+    		$('#main-content-view').removeAttr('style');
 			$('#main-content-view').html( ich.fix_base_content_single_tpl());
     		this.mapping = new Datea.MappingFormView({model: new Datea.Mapping()});
     		$('#content').html(this.mapping.render().el);

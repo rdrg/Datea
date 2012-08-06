@@ -273,6 +273,7 @@ THUMBNAIL_PRESETS = {
     'action_image': {'size': "110x110", 'options': {'crop': 'center'}}
 }
 DEFAULT_PROFILE_IMAGE = os.path.join(MEDIA_ROOT, 'default/img/default-user.png')
+DEFAULT_ACTION_IMAGE = os.path.join(MEDIA_ROOT, 'default/img/default-action.jpg')
 
 CACHES = {
     'default': {

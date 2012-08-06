@@ -14,7 +14,11 @@ def on_follow_save(sender, instance, created, **kwargs):
     follow_key = ctype.model+'.'+str(receiver_obj.pk)
     history_key = follow_key+'_dateafollow.'+str(instance.pk)
     
-    if created and instance.user != receiver_obj.user:
+    # don't create notices on following one's own objects
+    if instance.user != receiver_obj.user:
+        return
+    
+    if created:
         # create notice on commented object
         
         recv_type = receiver_obj.get_api_name(mode='base')

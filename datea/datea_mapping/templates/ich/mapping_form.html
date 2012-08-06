@@ -8,9 +8,11 @@
 	</div>
 	
 	<div id="mapping-head-form">
+		{% verbatim %}{{#url}}
 		<div class="pull-right back-button">
 				<a href="#{% verbatim %}{{ url }}{% endverbatim %}" class="prev-link"><span class="icon">&nbsp;</span>{% trans "back to mapping" %}</a>
 		</div>
+		{{/url}}{% endverbatim %}
 		
 		<ul class="nav nav-tabs">
 			<li class="active"><a href="#mapping-settings" data-toggle="tab">{% trans 'Mapping settings' %}</a></li>

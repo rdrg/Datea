@@ -67,7 +67,11 @@ window.Datea.FollowWidgetView = Backbone.View.extend({
 		}else{
 			context.msg = gettext('stop following');
 		}
-		if (this.options.is_own) context.follow_count--; 
+		if (this.options.is_own) {
+			context.follow_count--;
+			if (context.follow_count < 0) context.follow_count = 0;
+		}
+		 
 		this.$el.html( ich['follow_widget_'+this.options.type+'_tpl'](context));
 
 		if (!this.model.isNew()) {
