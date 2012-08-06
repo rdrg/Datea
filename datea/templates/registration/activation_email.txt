@@ -1,5 +1,5 @@
 {% load i18n %}{% blocktrans with site.name as sitename and site.domain as domain and expiration_days as days and activation_key as key %}
-You have asked to register an account at Datea - Acceso.  If this wasn't you, 
+You have asked to register an account at {{ sitename }}.  If this wasn't you, 
 please ignore this email and your address will be removed from our records.
 
 To activate this account, please click the following link within the next 
