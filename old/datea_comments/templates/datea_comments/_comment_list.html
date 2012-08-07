@@ -1,8 +1,0 @@
-{% load comments datea_comments_tags %}
-{% get_comment_list for target_object as comment_list %}
-<div id="comment-list-{{ target_object|get_modulename }}-{{ target_object.id }}" class="comment-list">
-	{% for comment in comment_list %}
-		{% include "datea_comments/_comment.html" %}
-	{% endfor %}
-</div>
-

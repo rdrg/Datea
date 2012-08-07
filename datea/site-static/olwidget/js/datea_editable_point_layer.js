@@ -195,7 +195,7 @@ window.olwidget.DateaEditablePointLayer = OpenLayers.Class(olwidget.BaseVectorLa
         }
         
         // CREATE BOUNDARY LAYER IF NECESARY
-        if (typeof(this.boundaryData) != 'undefined') {
+        if (typeof(this.boundaryData) != 'undefined' && this.boundaryData != null) {
 
         	var gjson = new OpenLayers.Format.GeoJSON();
         	var collection = gjson.read(

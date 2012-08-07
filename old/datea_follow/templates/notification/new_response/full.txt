@@ -1,8 +1,0 @@
-{{ sender.username }} ha respondido el aporte de {{ target_object.title }}
-
-Puedes verlo aquí: http://{{ current_site }}{{ target_object.get_absolute_url }}
-
-Respuesta: 
-
-{{ response.content|striptags }}
-

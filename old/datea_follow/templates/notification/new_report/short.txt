@@ -1,1 +1,0 @@
-nuevo aporte de {{ target_object.title }}

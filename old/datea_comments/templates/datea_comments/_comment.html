@@ -1,8 +1,0 @@
-<div class="comment" id="c{{ comment.id }}">
-	<div class="comment-head">
-		<div class="uname"><a href="javascript:Datea.profiles.open({{ comment.user.id }});">{{ comment.name }}</a></div>
-		<div class="date">el {{ comment.submit_date|date:"d/m/Y - H:i" }}</div>
-	</div>
-    <div class="content">{{ comment.comment|linebreaksbr }}</div>
-    <div class="controls"></div>
-</div>

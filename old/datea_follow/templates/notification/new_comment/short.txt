@@ -1,1 +1,0 @@
-{{ sender.username }} ha comentado el {{ target_object_name }} {% if target_object_type == "report" %}de {% endif %}{{ target_object.title|truncatewords:6 }}

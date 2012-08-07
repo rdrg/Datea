@@ -1,7 +1,0 @@
-<div class="activity-stream">
-{% for notice in notices %}
-	{{ notice.message|safe }}
-{% empty %}
-	<p>Bienvenido!</p>
-{% endfor %}
-</div>
