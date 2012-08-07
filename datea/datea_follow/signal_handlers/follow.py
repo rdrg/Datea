@@ -15,7 +15,7 @@ def on_follow_save(sender, instance, created, **kwargs):
     history_key = follow_key+'_dateafollow.'+str(instance.pk)
     
     # don't create notices on following one's own objects
-    if instance.user != receiver_obj.user:
+    if instance.user == receiver_obj.user:
         return
     
     if created:
