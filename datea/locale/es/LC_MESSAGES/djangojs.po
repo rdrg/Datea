@@ -474,9 +474,8 @@ msgstr "Límites"
 #: static/CACHE/js/9fa38a61c4a0.js:3272 static/CACHE/js/d9ed41c45efb.js:361
 #: static/CACHE/js/dec17d2c250d.js:3272 static/CACHE/js/f14c3c25ee89.js:306
 #: static/CACHE/js/ff43fafd101d.js:508
-#, fuzzy
 msgid "last added"
-msgstr "última semana"
+msgstr "últimos"
 
 #: site-static/js/mapping/mapping_main_bone.js:298
 #: static/CACHE/js/137291bd12f1.js:470 static/CACHE/js/17ea7af07647.js:470

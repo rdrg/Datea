@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-06 16:30-0500\n"
+"POT-Creation-Date: 2012-08-07 18:16-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -115,9 +115,8 @@ msgstr "Número de seguidores"
 
 #: datea_action/templates/ich/action_create.html:6
 #: datea_profile/templates/ich/my_user_head.html:15
-#, fuzzy
 msgid "Create action"
-msgstr "Crear nueva acción de mapeo"
+msgstr "Crear acción"
 
 #: datea_action/templates/ich/action_create.html:13 datea_mapping/models.py:67
 msgid "Mapping"
@@ -388,7 +387,6 @@ msgid "Comments"
 msgstr "Comentarios"
 
 #: datea_comment/templates/ich/comment.html:26
-#, fuzzy
 msgid "Make a comment"
 msgstr "Haz un comentario"
 
@@ -422,12 +420,10 @@ msgid "new vote on my content"
 msgstr "nuevo apoyo a mi contenido"
 
 #: datea_follow/models.py:78
-#, fuzzy
 msgid "new reply on my content"
 msgstr "nuevo apoyo a mi contenido"
 
 #: datea_follow/models.py:79
-#, fuzzy
 msgid "new follower on my content"
 msgstr "nuevo apoyo a mi contenido"
 
@@ -477,7 +473,6 @@ msgid "follow"
 msgstr "seguir"
 
 #: datea_follow/templates/ich/history.html:5
-#, fuzzy
 msgid "{{ name }}'s report"
 msgstr "dateo de {{ name }}"
 
@@ -494,12 +489,10 @@ msgid "now supports"
 msgstr "ahora apoya"
 
 #: datea_follow/templates/ich/history.html:15
-#, fuzzy
 msgid "now follows"
-msgstr "sigue a"
+msgstr "ahora sigue"
 
 #: datea_follow/templates/ich/history.html:33
-#, fuzzy
 msgid "read more"
 msgstr "leer más"
 
@@ -515,7 +508,6 @@ msgstr ""
 "Una plataforma para activar y canalizar la participación de tu comunidad."
 
 #: datea_home/templates/ich/datea_presentation.html:18
-#, fuzzy
 msgid "initiate collective actions"
 msgstr "Inicia procesos participativos"
 
@@ -683,7 +675,6 @@ msgstr "votos"
 
 #: datea_mapping/templates/ich/map_item.html:11
 #: datea_profile/templates/ich/my_profile.html:47
-#, fuzzy
 msgid "vote"
 msgstr "votos"
 
@@ -706,9 +697,8 @@ msgstr "Zoom"
 
 #: datea_mapping/templates/ich/map_item.html:85
 #: datea_mapping/templates/ich/map_item.html:111
-#, fuzzy
 msgid "open in map"
-msgstr "Ver en mapa"
+msgstr "abrir en mapa"
 
 #: datea_mapping/templates/ich/map_item.html:95
 msgid "edit"
@@ -828,9 +818,8 @@ msgid "New Reply"
 msgstr "Nueva respuesta"
 
 #: datea_mapping/templates/ich/mapping_admin.html:100
-#, fuzzy
 msgid "Status"
-msgstr "estado"
+msgstr "Estado"
 
 #: datea_mapping/templates/ich/mapping_control_button.html:9
 msgid "Mapping Settings"
@@ -881,7 +870,6 @@ msgid "participants"
 msgstr "participantes"
 
 #: datea_mapping/templates/ich/mapping_tab_start.html:38
-#, fuzzy
 msgid "participant"
 msgstr "participantes"
 
@@ -890,9 +878,8 @@ msgid "Create Report"
 msgstr "Crear Dateo"
 
 #: datea_mapping/templates/ich/mapping_tab_start.html:60
-#, fuzzy
 msgid "about this action"
-msgstr "Activación de cuenta"
+msgstr "Acerca de esta acción"
 
 #: datea_mapping/templates/ich/mapping_tab_start.html:69
 msgid "action creator"
@@ -975,9 +962,8 @@ msgstr "%(aname)s respondió el dateo de %(rname)s:"
 
 #: datea_mapping/templates/mail/dateamapitem/reply/mail_body_generic.txt:7
 #: datea_mapping/templates/mail/dateamapitem/reply/mail_body_owner.txt:7
-#, fuzzy
 msgid "Reply"
-msgstr "Nueva respuesta"
+msgstr "Respuesta"
 
 #: datea_mapping/templates/mail/dateamapitem/reply/mail_body_owner.txt:3
 #: datea_mapping/templates/mail/dateamapitem/reply/mail_subject_owner.txt:1
@@ -1018,9 +1004,8 @@ msgstr "%(username)s dateó en %(aname)s:"
 
 #: datea_mapping/templates/mail/dateamapping/content/mail_subject_generic.txt:1
 #: datea_mapping/templates/mail/dateamapping/content/mail_subject_owner.txt:1
-#, fuzzy
 msgid "new report in"
-msgstr "hizo un dateo en"
+msgstr "nuevo dateo en"
 
 #: datea_menu/models.py:35
 msgid "Menu title"
@@ -1139,7 +1124,6 @@ msgid "last"
 msgstr "último"
 
 #: templates/registration/_bubble_login.html:5
-#, fuzzy
 msgid "Already have an account?"
 msgstr "¿Necesitas una cuenta?"
 
@@ -1184,20 +1168,21 @@ msgstr ""
 "la URL de nuevo. "
 
 #: templates/registration/activation_complete.html:9
-#, fuzzy
 msgid ""
 "\n"
 "Thanks, activation complete!  You may now login using the username and "
 "password you set at registration.\n"
-msgstr " usando el usuario y clave que configuraste al registrarte"
+msgstr ""
+"\n"
+"Gracias, has activado tu cuenta! Puedes ingresar usando el usuario y "
+"clave que configuraste al registrarte.\n"
 
 #: templates/registration/activation_complete.html:14
-#, fuzzy
 msgid "login"
-msgstr "Ingresa"
+msgstr "ingresa"
 
 #: templates/registration/activation_email.txt:1
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "\n"
 "You have asked to register an account at %(sitename)s.  If this wasn't "
@@ -1381,67 +1366,3 @@ msgstr "Regístrate para obtener una cuenta"
 #: templates/registration/registration_form.html:10
 msgid "Or you can register an account here at Datea:"
 msgstr "O puedes registrar una cuenta aquí en Datea:"
-
-#~ msgid ""
-#~ "\n"
-#~ "Thanks, activation complete!  You may now"
-#~ msgstr ""
-#~ "\n"
-#~ " ¡Gracias, activación completa! Ahora puedes"
-
-#~ msgid "using the username and password you set at registration.\n"
-#~ msgstr "usando el usuario y la clave que configuraste al resgistrarte.\n"
-
-#, fuzzy
-#~ msgid "see in map"
-#~ msgstr "Ver en mapa"
-
-#, fuzzy
-#~ msgid "content admin"
-#~ msgstr "Contenido"
-
-#~ msgid "No reports yet. Be the first!"
-#~ msgstr "No hay dateos aún. ¡Sé el primero!"
-
-#~ msgid "Submit"
-#~ msgstr "Enviar"
-
-#~ msgid "following"
-#~ msgstr "siguiendo"
-
-#, fuzzy
-#~ msgid "follow this"
-#~ msgstr "sigue este"
-
-#~ msgid "stop following"
-#~ msgstr "dejar de seguir"
-
-#~ msgid "made a comment in"
-#~ msgstr "comentó"
-
-#~ msgid "Create"
-#~ msgstr "Crear"
-
-#~ msgid "Edit"
-#~ msgstr "Editar"
-
-#~ msgid "Change category"
-#~ msgstr "Re-categorizar"
-
-#~ msgid "Set status"
-#~ msgstr "Cambiar estado"
-
-#~ msgid "Actions joined"
-#~ msgstr "Acciones en las que participo"
-
-#~ msgid "Welcome!"
-#~ msgstr "¡Bienvenida!"
-
-#~ msgid "color"
-#~ msgstr "color"
-
-#~ msgid "marker image"
-#~ msgstr "imagen para marcador"
-
-#~ msgid "description"
-#~ msgstr "descripción"
