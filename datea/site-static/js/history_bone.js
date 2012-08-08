@@ -101,6 +101,7 @@ window.DateaHistoryView = Backbone.View.extend({
     },
     
     fetch_actions: function () {
+    	Datea.show_small_loading(this.$el);
     	if (this.selected_mode == 'combined') {
     		this.model.fetch({
     			data: {following_user: this.user_model.get('id'), orderby: '-created'}
@@ -126,6 +127,9 @@ window.DateaHistoryView = Backbone.View.extend({
     },
     
     render_page: function(page) {
+    	Datea.hide_small_loading(this.$el);
+    	console.log(this.$el);
+    	
     	var $list = this.$el.find('.item-list');
     	$list.empty();
     	

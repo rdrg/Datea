@@ -21,7 +21,6 @@ window.Datea.ActionListItemView = Backbone.View.extend({
 	render: function(){
 		var context = this.model.toJSON();
 		context.created = formatDateFromISO(context.created, "dd.mm.yyyy");
-		console.log(context);
   		this.$el.html(ich.action_list_item_tpl(context));
   
   		// follow widget
