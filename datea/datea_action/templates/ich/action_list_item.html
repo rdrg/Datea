@@ -21,6 +21,10 @@
 			<h3 class="title"><a href="#{{ url }}">{{ name }}</a></h3>
 			<div class="description">{{ short_description }}</div>
 			
+			{{#active_message}}
+				<div class="active-message">{{& active_message}}</div>
+			{{/active_message}}
+			
 			<div class="footer">
 				<div class="pull-right">
 					<a href="#{{ url }}" class="btn btn-pointy">{% trans "Go" %}<div class="pointer">&nbsp;</div></a>
@@ -66,4 +70,17 @@
 		{{/user_count}}
 	</div>
 </script>
+
+<script id="action_days_left_tpl" type="text/html">
+	<span class="action-active action-days-left"><i class="icon-time"></i> {% trans "{{ days_left }} days left" %}</span>
+</script>
+
+<script id="action_last_day_tpl" type="text/html">
+	<span class="action-active action-last-day"><i class="icon-time"></i> {% trans "last day" %}</span>
+</script>
+
+<script id="action_expired_tpl" type="text/html">
+	<span class="action-active action-expired"><i class="icon-time"></i> <span class="warning">{% trans "action expired" %}</span></span>
+</script>
+
 {% endverbatim %}

@@ -20,7 +20,9 @@ class ActionResource(ModelResource):
         bundle.data['image'] = bundle.obj.get_image_thumb()
         bundle.data['username'] = bundle.obj.user.username
         bundle.data['user_url'] = bundle.obj.user.profile.get_absolute_url()
+        bundle.data['is_active'] = bundle.obj.is_active()
         return bundle
+    
     
     def apply_filters(self, request, applicable_filters):
         if hasattr(request, 'GET') and 'following_user' in request.GET:
@@ -28,6 +30,7 @@ class ActionResource(ModelResource):
             applicable_filters['id__in'] = action_ids
             
         return super(ActionResource, self).apply_filters(request, applicable_filters)
+    
     
     class Meta:
         queryset = DateaAction.objects.all()

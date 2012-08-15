@@ -9,6 +9,7 @@ from datea.datea_image.models import DateaImage
 from sorl.thumbnail import get_thumbnail
 from django.core.files.base import ContentFile
 from django.conf import settings
+from django.utils import timezone
 
 
 class SubclassingQuerySet(models.query.GeoQuerySet):
@@ -45,6 +46,8 @@ class DateaAction(models.Model):
     category = TreeForeignKey(DateaCategory, verbose_name=_("Category"), null=True, blank=True, default=None, related_name="actions", help_text=_("Choose a category for this action")) 
     featured = models.BooleanField(_('Featured'), default=False)
     
+    end_date = models.DateTimeField(_('End Date'), null=True, blank=True, help_text=_('Set an end date for your action (optional)'))
+    
     image = models.ForeignKey(DateaImage, verbose_name=_('Image'), blank=True, null=True, related_name="actions")
     
     action_type = models.CharField(_('Action type'), max_length=100, blank=True, null=True)
@@ -58,6 +61,15 @@ class DateaAction(models.Model):
     # generic relation to subclasses
     content_type = models.ForeignKey(ContentType,editable=False,null=True)
     objects = DateaActionManager()
+    
+
+    def is_active(self):
+        if not self.published:
+            return False
+        elif self.end_date and timezone.now() > self.end_date:
+            return False
+        return True
+
     
     def get_image_thumb(self, thumb_preset = 'action_image'):
         if self.image:

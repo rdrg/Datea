@@ -29,6 +29,28 @@ window.Datea.MappingMainView = Backbone.View.extend({
 	},
 	
 	render: function (eventName) {
+		
+		// end date
+		if (this.model.get('end_date') == null) {
+			this.model.set('mapping_active', true);
+		}else{
+			var now = new Date();
+			now.setHours(0,0,0,0);
+			var end = datedayFromISO(this.model.get('end_date'));
+			if (now <= end) {
+				this.model.set('mapping_active', true);
+				var days_left = Math.ceil((end.getTime()-now.getTime())/86400000);
+				if (days_left > 0) {
+					this.model.set('mapping_active_message', ich.action_days_left_tpl({days_left: days_left}, true));
+				}else{
+					this.model.set('mapping_active_message', ich.action_last_day_tpl({days_left: days_left}, true));
+				}
+			}else{
+				this.model.set('mapping_active', false);
+				this.model.set('mapping_active_message', ich.action_expired_tpl({}, true));
+			}
+		}
+		
 		// include main layout
 		this.$el.html(ich.map_base_content_split_tpl({
 			'content_id': 'mapping-'+this.model.get('id'),
@@ -58,7 +80,7 @@ window.Datea.MappingMainView = Backbone.View.extend({
 			)) {
 			$('#setting-controls').html( ich.mapping_control_button_tpl(this.model.toJSON()));	
 		}
-		//this.resize_layout();
+				
 		return this;
 	},
 	
@@ -242,6 +264,7 @@ window.Datea.MappingStartTab = Backbone.View.extend({
 		var context = this.model.toJSON();
 		context.full_url = get_base_url() + this.model.get('url');
 		context.tweet_text = this.model.get('short_description');
+		
 		this.$el.html( ich.mapping_tab_start_tpl(context));
 		Datea.CheckStatsPlural(this.$el, this.model);
 		
@@ -309,7 +332,7 @@ window.Datea.MappingMapItemTab = Backbone.View.extend({
 	
 	render: function() {
 		if (this.mode == 'list') {
-			this.$el.html( ich.mapping_tab_map_items_tpl());
+			this.$el.html( ich.mapping_tab_map_items_tpl(this.context));
 			this.$el.find('.filter-controls').append(this.orderby_filter.el);
 			this.orderby_filter.reset_events(); 
 			if (!this.filtered_items) this.filter_items();

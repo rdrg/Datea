@@ -39,10 +39,15 @@
 					</div>
 				{{/user_count}}
 			</div>
+			{{#mapping_active}}
 			<div class="create-button">
 				 <button type="button" class="btn btn-large btn-primary create-report">{% trans "Create Report" %}</button>
 			</div>
-		</div>	
+			{{/mapping_active}}
+		</div>
+		{{#mapping_active_message}}
+			<div class="time-left">{{& mapping_active_message }}</div>
+		{{/mapping_active_message}}
 	</div>
 </div>
 

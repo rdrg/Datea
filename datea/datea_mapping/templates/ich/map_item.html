@@ -93,7 +93,7 @@
 	<div class="map-item-full-header">
 		<div class="pull-right">
 			<button type="button" class="btn hide edit-map-item" data-id="{{id}}" title="{% trans 'edit' %}"><i class="icon-pencil"></i></button>
-			<button class="btn btn-primary create-report" type="button">{% trans "Create new report" %}</button> 
+			{{#mapping_active}}<button class="btn btn-primary create-report" type="button">{% trans "Create new report" %}</button>{{/mapping_active}} 
 		</div>
 		<a href="#" class="back-to-list back-link"><span class="icon" data-step="1">&nbsp;</span>{% trans "back" %}</a>
 	</div>

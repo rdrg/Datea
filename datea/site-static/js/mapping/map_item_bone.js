@@ -35,6 +35,7 @@ window.Datea.MapItemFullView = Backbone.View.extend({
 		context.full_url = get_base_url() + this.model.get('url');
 		context.tweet_text = this.model.get('extract');
 		context.hashtag = this.options.mappingModel.get('hashtag');
+		context.mapping_active = this.options.mappingModel.get('mapping_active');
 		this.$el.html( ich.map_item_full_tpl(context) );
 		
 		// images

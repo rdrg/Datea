@@ -21,6 +21,24 @@ window.Datea.ActionListItemView = Backbone.View.extend({
 	render: function(){
 		var context = this.model.toJSON();
 		context.created = formatDateFromISO(context.created, "dd.mm.yyyy");
+		
+		// end date
+		if (this.model.get('end_date') != null) {
+			var now = new Date();
+			now.setHours(0,0,0,0);
+			var end = datedayFromISO(this.model.get('end_date'));
+			if (now <= end) {
+				var days_left = Math.ceil((end.getTime()-now.getTime())/86400000);
+				if (days_left > 0) {
+					context.active_message = ich.action_days_left_tpl({days_left: days_left}, true);
+				}else{
+					context.active_message = ich.action_last_day_tpl({}, true);
+				}
+			}else{
+				context.active_message = ich.action_expired_tpl({}, true);
+			}
+		}
+		
   		this.$el.html(ich.action_list_item_tpl(context));
   
   		// follow widget
@@ -157,7 +175,12 @@ window.Datea.MyActionListView = Backbone.View.extend({
         
         }else if (this.selected_mode == 'all_actions')  {
         	this.render_actions = this.model.models;	
-        }  
+        }
+        this.render_actions = _.sortBy(this.render_actions, function(action){
+        	if (action.get('is_active') == null) return 0;
+        	else if (action.get('is_active')) return 0;
+        	else return 1;
+        })  
     },
       
     render_page: function(page) {

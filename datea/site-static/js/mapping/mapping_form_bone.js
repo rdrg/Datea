@@ -28,6 +28,15 @@ window.Datea.MappingFormView = Backbone.View.extend({
 		}else{
 			context.action_name = gettext('Edit');
 		}
+		if (context.end_date != null) {
+			if (Datea.lang == 'en') {
+				context.end_date_date = formatDateFromISO(context.end_date, "mm/dd/yyyy");
+			}else{
+				context.end_date_date = formatDateFromISO(context.end_date, "dd/mm/yyyy");
+			}
+			context.end_date_time = formatDateFromISO(context.end_date, "HH:MM");
+		}
+		
 		this.$el.find('#content').html( ich.mapping_form_tpl(context));
 		
 		// select category if set
@@ -98,6 +107,21 @@ window.Datea.MappingFormView = Backbone.View.extend({
 				hashtag: hashtag,
 			}
 			if (set_data['category'] == '') set_data['category'] = null;
+			
+			var end_date = $('[name="end_date_date"]').val();
+			if (end_date != '') {
+				var edate = end_date.split('/');
+				
+				//var end_time = $('[name="end_date_time"]').val();
+				//if (end_time == '') end_time = '00:00';
+				var end_time = '00:00';
+				if (Datea.lang == 'en') {
+					var isodate = edate[2]+'-'+edate[0]+'-'+edate[1]+'T'+end_time+':00';
+				}else{
+					var isodate = edate[2]+'-'+edate[1]+'-'+edate[0]+'T'+end_time+':00';
+				}
+				set_data.end_date = isodate;
+			}
 			
 			var is_new = this.model.isNew();
 			var self = this;

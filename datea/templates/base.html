@@ -27,6 +27,8 @@
 		<link href="{{ STATIC_URL }}css/bootstrap.css" rel="stylesheet">
 		<link href="{{ STATIC_URL }}css/bootstrap-responsive.css" rel="stylesheet">
 		<link href="{{ STATIC_URL }}colorpicker/css/colorpicker.css" rel="stylesheet">
+		<link href="{{ STATIC_URL }}datepicker/css/datepicker.css" rel="stylesheet">
+		<link href="{{ STATIC_URL }}timepicker/compiled/timepicker.css" rel="stylesheet">
 		
 		<link href="{{ STATIC_URL }}css/datea.css" rel="stylesheet">
 		<link rel="stylesheet" href="{{ STATIC_URL }}openlayers-dev/theme/default/style.css" />
@@ -127,10 +129,16 @@
   		<script src="{{STATIC_URL}}openlayers-2.11/ol_google_patch_for_2.11.js"></script>
   		<script src='http://openstreetmap.org/openlayers/OpenStreetMap.js'></script>
   		
-  		<script type="text/javascript" src="{% url django.views.i18n.javascript_catalog %}"></script>
+  		{% load i18n %}{% get_current_language as lang %}
+  		<script type="text/javascript">
+  			Datea = {};
+			Datea.lang = '{{ lang }}';
+  		</script>
+  		
+  		
+  		<script type="text/javascript" src="{% url django.views.i18n.javascript_catalog %}"></script>  	
   	
   		{% compress js %}
-  		<script type="text/javascript">Datea = {};</script>
   		<script src="{{ STATIC_URL }}js/libs/jquery-1.7.2.min.js"></script>
   		<script src="{{ STATIC_URL }}js/libs/modernizr.custom.05031.js"></script>
   		<script src="{{ STATIC_URL }}js/libs/bootstrap.min.js"></script>
@@ -159,7 +167,10 @@
   		{# BOOTSTRAP ADD-ONS #}
   		<script src="{{ STATIC_URL }}js/libs/bootstrap-lightbox.js"></script>
   		<script src="{{ STATIC_URL }}colorpicker/js/bootstrap-colorpicker.js"></script>
-  		<script src="{{ STATIC_URL }}js/colorpicker.js"></script>
+  		<script src="{{ STATIC_URL }}datepicker/js/bootstrap-datepicker.js"></script>
+  		<script src="{{ STATIC_URL }}datepicker/js/locales/bootstrap-datepicker.es.js"></script>
+  		<script src="{{ STATIC_URL }}timepicker/js/bootstrap-timepicker.js"></script>
+  		<script src="{{ STATIC_URL }}js/bstrap-pickers-init.js"></script>
   		
   		<script src="{{ STATIC_URL }}js/share.js"></script>
 		<script src="{{ STATIC_URL }}js/main_bone.js"></script>
