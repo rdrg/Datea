@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ugettext
 from django.contrib.auth.models import User
 
 from datea.datea_image.models import DateaImage
@@ -59,7 +60,7 @@ class DateaProfile(models.Model):
         verbose_name_plural = _("Profiles")
         
     def get_absolute_url(self):
-        return '/user/'+str(self.pk)+'/'
+        return ugettext('/profile/')+str(self.user.username)+'/'
         
     def __unicode__(self):
         name = ''

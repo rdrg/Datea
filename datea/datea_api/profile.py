@@ -5,6 +5,7 @@ from tastypie.authentication import ApiKeyAuthentication
 from api_base import DateaBaseResource, ApiKeyPlusWebAuthentication, DateaBaseAuthorization
 from tastypie.authentication import Authentication
 from tastypie.authorization import Authorization
+from django.conf.urls.defaults import url
 
 from datea.datea_profile.models import DateaProfile
 
@@ -79,12 +80,15 @@ class UserResource(DateaBaseResource):
         
         # keep original object fields not in resource!!! -> not to be changed here
         bundle.obj = User.objects.get(pk=bundle.data['id'])
-        
         # save email
         bundle.obj.email = bundle.data['email']
-        #is staff setting
-        
         return bundle
+    
+    def prepend_urls(self):
+        return [
+            url(r"^(?P<resource_name>%s)/(?P<pk>[0-9]+)/$" % self._meta.resource_name, self.wrap_view('dispatch_detail'), name="api_dispatch_detail"),
+            url(r"^(?P<resource_name>%s)/(?P<username>[\w\d_.-]+)/$" % self._meta.resource_name, self.wrap_view('dispatch_detail'), name="api_dispatch_detail"),
+        ]
             
     class Meta:
         queryset = User.objects.all()

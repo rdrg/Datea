@@ -1,6 +1,7 @@
 from django.contrib.gis.db import models
 from django.contrib.auth.models import User
 from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ugettext
 
 from datea.datea_category.models import DateaCategory
 from mptt.fields import TreeForeignKey
@@ -87,7 +88,7 @@ class DateaAction(models.Model):
             return get_thumbnail(url, Preset['size'], **options).url
     
     def get_absolute_url(self):
-        return '/'+self.action_type+'/'+str(self.pk)
+        return ugettext('/'+self.action_type+'/')+str(self.pk)
     
     def get_api_name(self,mode=None):
         return 'action'

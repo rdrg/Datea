@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-07 18:16-0300\n"
+"POT-Creation-Date: 2012-08-15 18:05-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,22 +17,22 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: datea_action/models.py:33 datea_channel/models.py:10
+#: datea_action/models.py:34 datea_channel/models.py:10
 #: datea_comment/models.py:12 datea_image/models.py:15
 #: datea_mapping/models.py:87 datea_mapping/models.py:195
 #: datea_profile/models.py:15
 msgid "User"
 msgstr "Usuario"
 
-#: datea_action/models.py:35 datea_category/models.py:19
+#: datea_action/models.py:36 datea_category/models.py:19
 msgid "Name"
 msgstr "Nombre"
 
-#: datea_action/models.py:36 datea_category/models.py:20
+#: datea_action/models.py:37 datea_category/models.py:20
 msgid "Slug"
 msgstr "URL corta"
 
-#: datea_action/models.py:36
+#: datea_action/models.py:37
 msgid ""
 "A string of text as a short id for use at the url of this map (alphanumeric "
 "and dashes only"
@@ -40,78 +40,91 @@ msgstr ""
 "Una cadena de texto que sirve como identificación corta para su uso en la "
 "URL de este mapa (usar guiones y letras únicamente)"
 
-#: datea_action/models.py:37 datea_channel/models.py:12
+#: datea_action/models.py:38 datea_channel/models.py:12
 #: datea_mapping/templates/ich/mapping_admin.html:104
 msgid "Published"
 msgstr "Publicado"
 
-#: datea_action/models.py:40 datea_comment/models.py:13
+#: datea_action/models.py:41 datea_comment/models.py:13
 #: datea_follow/models.py:26 datea_mapping/models.py:90
 #: datea_mapping/models.py:196 datea_profile/models.py:16
 msgid "created"
 msgstr "creado"
 
-#: datea_action/models.py:41 datea_mapping/models.py:91
+#: datea_action/models.py:42 datea_mapping/models.py:91
 #: datea_mapping/models.py:197
 msgid "modified"
 msgstr "modificado"
 
-#: datea_action/models.py:43 datea_channel/models.py:14
+#: datea_action/models.py:44 datea_channel/models.py:14
 msgid "Short description / Slogan"
 msgstr "Descripción corta / Slogan"
 
-#: datea_action/models.py:43 datea_channel/models.py:14
+#: datea_action/models.py:44 datea_channel/models.py:14
 msgid "A short description or slogan (max. 140 characters)."
 msgstr "Una descripción corta o slogan (máx. 140 letras)."
 
-#: datea_action/models.py:44
+#: datea_action/models.py:45
 msgid "Hashtag"
 msgstr ""
 
-#: datea_action/models.py:44
+#: datea_action/models.py:45
 msgid "A twitter hashtag for your action"
 msgstr "Un hashtag de twitter para compartir tu acción."
 
-#: datea_action/models.py:45 datea_category/models.py:59
+#: datea_action/models.py:46 datea_category/models.py:59
 #: datea_mapping/models.py:115
 #: datea_mapping/templates/ich/mapping_admin.html:94
 msgid "Category"
 msgstr "Categoría"
 
-#: datea_action/models.py:45
+#: datea_action/models.py:46
 msgid "Choose a category for this action"
 msgstr "Escoge una categoría para esta acción"
 
-#: datea_action/models.py:46
+#: datea_action/models.py:47
 msgid "Featured"
 msgstr "Destacado"
 
-#: datea_action/models.py:48 datea_category/models.py:54
+#: datea_action/models.py:49
+#, fuzzy
+msgid "End Date"
+msgstr "Fecha"
+
+#: datea_action/models.py:49
+msgid "Set an end date for your action (optional)"
+msgstr ""
+
+#: datea_action/models.py:51 datea_category/models.py:54
 #: datea_category/models.py:65 datea_image/forms.py:7 datea_image/models.py:67
 #: datea_profile/templates/ich/my_user_edit.html:42
 msgid "Image"
 msgstr "Imagen"
 
-#: datea_action/models.py:50
+#: datea_action/models.py:53
 msgid "Action type"
 msgstr "Tipo de acción"
 
-#: datea_action/models.py:53 datea_profile/models.py:25
+#: datea_action/models.py:56 datea_profile/models.py:25
 msgid "Item count"
 msgstr "Número de Items"
 
-#: datea_action/models.py:54
+#: datea_action/models.py:57
 msgid "Participant count"
 msgstr "Número de participantes"
 
-#: datea_action/models.py:55 datea_profile/models.py:26
+#: datea_action/models.py:58 datea_profile/models.py:26
 #: datea_profile/models.py:27
 msgid "Comment count"
 msgstr "Número de comentarios"
 
-#: datea_action/models.py:56
+#: datea_action/models.py:59
 msgid "Follower count"
 msgstr "Número de seguidores"
+
+#: datea_action/models.py:90
+msgid "/"
+msgstr "/"
 
 #: datea_action/templates/ich/action_create.html:6
 #: datea_profile/templates/ich/my_user_head.html:15
@@ -140,34 +153,34 @@ msgid "by"
 msgstr "por"
 
 #: datea_action/templates/ich/action_list_item.html:20
-#: datea_mapping/templates/ich/mapping_tab_start.html:64
-#: datea_mapping/templates/ich/mapping_tab_start.html:71
-#: datea_mapping/templates/ich/mapping_tab_start.html:74
+#: datea_mapping/templates/ich/mapping_tab_start.html:69
+#: datea_mapping/templates/ich/mapping_tab_start.html:76
+#: datea_mapping/templates/ich/mapping_tab_start.html:79
 msgid "go to profile"
 msgstr "ver perfil"
 
-#: datea_action/templates/ich/action_list_item.html:26
+#: datea_action/templates/ich/action_list_item.html:30
 msgid "Go"
 msgstr "Ir"
 
-#: datea_action/templates/ich/action_list_item.html:41
+#: datea_action/templates/ich/action_list_item.html:45
 #: datea_profile/templates/ich/my_profile.html:28
 msgid "contributions"
 msgstr "dateos"
 
-#: datea_action/templates/ich/action_list_item.html:42
+#: datea_action/templates/ich/action_list_item.html:46
 #: datea_profile/templates/ich/my_profile.html:29
 msgid "contribution"
 msgstr "dateo"
 
-#: datea_action/templates/ich/action_list_item.html:51
+#: datea_action/templates/ich/action_list_item.html:55
 #: datea_mapping/templates/ich/map_item.html:20
 #: datea_mapping/templates/ich/mapping_tab_start.html:30
 #: datea_profile/templates/ich/my_profile.html:37
 msgid "comments"
 msgstr "comentarios"
 
-#: datea_action/templates/ich/action_list_item.html:52
+#: datea_action/templates/ich/action_list_item.html:56
 #: datea_comment/templates/ich/comment.html:29
 #: datea_mapping/templates/ich/map_item.html:21
 #: datea_mapping/templates/ich/mapping_tab_start.html:31
@@ -177,13 +190,25 @@ msgstr "comentarios"
 msgid "comment"
 msgstr "comentario"
 
-#: datea_action/templates/ich/action_list_item.html:61
+#: datea_action/templates/ich/action_list_item.html:65
 msgid "users"
 msgstr "usuarios"
 
-#: datea_action/templates/ich/action_list_item.html:62
+#: datea_action/templates/ich/action_list_item.html:66
 msgid "user"
 msgstr "usuario"
+
+#: datea_action/templates/ich/action_list_item.html:75
+msgid "{{ days_left }} days left"
+msgstr "quedan {{ days_left }} días"
+
+#: datea_action/templates/ich/action_list_item.html:79
+msgid "last day"
+msgstr "último día"
+
+#: datea_action/templates/ich/action_list_item.html:83
+msgid "action expired"
+msgstr "acción concluida"
 
 #: datea_action/templates/mail/dateaaction/follow/mail_body_generic.txt:1
 #: datea_action/templates/mail/dateaaction/follow/mail_body_owner.txt:1
@@ -271,7 +296,7 @@ msgstr "%(aname)s ahora sigue tu acción:"
 
 #: datea_category/models.py:21 datea_channel/models.py:17
 #: datea_mapping/models.py:30
-#: datea_mapping/templates/ich/mapping_tab_start.html:90
+#: datea_mapping/templates/ich/mapping_tab_start.html:95
 msgid "Description"
 msgstr "Descripción"
 
@@ -315,7 +340,7 @@ msgstr "Hay dateos con esta categoría. No puedes borrarla."
 #: datea_mapping/templates/ich/map_item_response.html:21
 #: datea_mapping/templates/ich/map_item_response.html:52
 #: datea_mapping/templates/ich/mapping_admin.html:89
-#: datea_mapping/templates/ich/mapping_form.html:143
+#: datea_mapping/templates/ich/mapping_form.html:161
 #: datea_profile/templates/ich/my_user_edit.html:127
 msgid "Save"
 msgstr "Guardar"
@@ -335,7 +360,7 @@ msgid "Add Category"
 msgstr "Añade una Categoría"
 
 #: datea_channel/models.py:15 datea_mapping/models.py:19
-#: datea_mapping/templates/ich/mapping_tab_start.html:80
+#: datea_mapping/templates/ich/mapping_tab_start.html:85
 msgid "Mission / Objectives"
 msgstr "Misión / Objetivos"
 
@@ -373,14 +398,12 @@ msgid "Comment"
 msgstr "Comentarios"
 
 #: datea_comment/models.py:24
-#, fuzzy
 msgid "Object Name"
-msgstr "Tipo de Objeto"
+msgstr "Nombre de Objeto"
 
 #: datea_comment/models.py:25
-#, fuzzy
 msgid "Object id"
-msgstr "Campo del objeto"
+msgstr "Id del objeto"
 
 #: datea_comment/models.py:88
 msgid "Comments"
@@ -575,6 +598,9 @@ msgid "click to enlarge"
 msgstr "clic para agrandar"
 
 #: datea_mapping/models.py:16 datea_mapping/templates/ich/mapping_form.html:7
+#: site-static/js/bone_router.js:15 site-static/js/bone_router.js.py:16
+#: site-static/js/bone_router.js:17 site-static/js/bone_router.js.py:18
+#: site-static/js/bone_router.js:19 site-static/js/bone_router.js.py:20
 msgid "mapping"
 msgstr "mapeo"
 
@@ -651,6 +677,10 @@ msgstr "Posición"
 #: datea_mapping/models.py:108
 msgid "Address"
 msgstr "Dirección"
+
+#: datea_mapping/models.py:182
+msgid "/reports/"
+msgstr "/dateos/"
 
 #: datea_mapping/models.py:188
 msgid "Map Item"
@@ -837,15 +867,15 @@ msgstr "Configuración para mapeo"
 msgid "Positioning"
 msgstr "Posicionamiento"
 
-#: datea_mapping/templates/ich/mapping_form.html:126
+#: datea_mapping/templates/ich/mapping_form.html:144
 msgid "Item Categories"
 msgstr "Categorías de Ítems"
 
-#: datea_mapping/templates/ich/mapping_form.html:135
+#: datea_mapping/templates/ich/mapping_form.html:153
 msgid "Define center and boundary "
 msgstr "Definir centro y límites"
 
-#: datea_mapping/templates/ich/mapping_form.html:136
+#: datea_mapping/templates/ich/mapping_form.html:154
 msgid ""
 "Either boundary or position has to be defined in order to center the map. To "
 "edit them, click the \"Edit\" button at the map's upper right corner."
@@ -862,6 +892,7 @@ msgid "Reports"
 msgstr "Dateos"
 
 #: datea_mapping/templates/ich/mapping_tab_start.html:23
+#: site-static/js/bone_router.js:19
 msgid "reports"
 msgstr "dateos"
 
@@ -873,19 +904,19 @@ msgstr "participantes"
 msgid "participant"
 msgstr "participantes"
 
-#: datea_mapping/templates/ich/mapping_tab_start.html:43
+#: datea_mapping/templates/ich/mapping_tab_start.html:44
 msgid "Create Report"
 msgstr "Crear Dateo"
 
-#: datea_mapping/templates/ich/mapping_tab_start.html:60
+#: datea_mapping/templates/ich/mapping_tab_start.html:65
 msgid "about this action"
 msgstr "Acerca de esta acción"
 
-#: datea_mapping/templates/ich/mapping_tab_start.html:69
+#: datea_mapping/templates/ich/mapping_tab_start.html:74
 msgid "action creator"
 msgstr "usuario creador"
 
-#: datea_mapping/templates/ich/mapping_tab_start.html:85
+#: datea_mapping/templates/ich/mapping_tab_start.html:90
 msgid "What happens with this information?"
 msgstr "¿Qué ocurrirá con esta información?"
 
@@ -1009,11 +1040,11 @@ msgstr "nuevo dateo en"
 
 #: datea_menu/models.py:35
 msgid "Menu title"
-msgstr ""
+msgstr "Título del menú"
 
 #: datea_menu/models.py:36
 msgid "Page title"
-msgstr ""
+msgstr "Título de la página"
 
 #: datea_menu/models.py:37
 msgid "Visible"
@@ -1021,7 +1052,7 @@ msgstr ""
 
 #: datea_menu/models.py:39
 msgid "Page"
-msgstr ""
+msgstr "Página"
 
 #: datea_menu/models.py:40
 msgid "Menu root id"
@@ -1050,6 +1081,10 @@ msgstr "Perfil"
 #: datea_profile/models.py:59
 msgid "Profiles"
 msgstr "Perfiles"
+
+#: datea_profile/models.py:62
+msgid "/profile/"
+msgstr "/perfil/"
 
 #: datea_profile/templates/ich/my_user_edit.html:5
 msgid "My Profile"
@@ -1102,6 +1137,18 @@ msgstr "Anónimo"
 #: datea_vote/templates/ich/vote_widgets.html:9
 msgid "support"
 msgstr "apoyar"
+
+#: site-static/js/bone_router.js:10
+msgid "action/start"
+msgstr "accion/inicio"
+
+#: site-static/js/bone_router.js:11
+msgid "action/create/"
+msgstr "accion/crear/"
+
+#: site-static/js/bone_router.js:13
+msgid "profile/"
+msgstr "perfil/"
 
 #: templates/site-base.html:13 templates/site-base.html.py:43
 msgid "Home"
@@ -1174,8 +1221,8 @@ msgid ""
 "password you set at registration.\n"
 msgstr ""
 "\n"
-"Gracias, has activado tu cuenta! Puedes ingresar usando el usuario y "
-"clave que configuraste al registrarte.\n"
+"Gracias, has activado tu cuenta! Puedes ingresar usando el usuario y clave "
+"que configuraste al registrarte.\n"
 
 #: templates/registration/activation_complete.html:14
 msgid "login"
@@ -1366,3 +1413,7 @@ msgstr "Regístrate para obtener una cuenta"
 #: templates/registration/registration_form.html:10
 msgid "Or you can register an account here at Datea:"
 msgstr "O puedes registrar una cuenta aquí en Datea:"
+
+#:
+msgid "/mapping/"
+msgstr "/mapeo/"

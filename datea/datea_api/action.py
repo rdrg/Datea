@@ -4,6 +4,7 @@ from datea.datea_action.models import DateaAction
 from tastypie.cache import SimpleCache
 from tastypie.constants import ALL, ALL_WITH_RELATIONS
 from datea.datea_follow.models import DateaFollow
+from django.utils.translation import ugettext_lazy as _
 
 class ActionResource(ModelResource):
     
@@ -16,7 +17,7 @@ class ActionResource(ModelResource):
     
     def dehydrate(self, bundle):
         bundle.data['url'] = bundle.obj.get_absolute_url()
-        bundle.data['type'] = bundle.obj.action_type
+        bundle.data['type'] = _(bundle.obj.action_type)
         bundle.data['image'] = bundle.obj.get_image_thumb()
         bundle.data['username'] = bundle.obj.user.username
         bundle.data['user_url'] = bundle.obj.user.profile.get_absolute_url()

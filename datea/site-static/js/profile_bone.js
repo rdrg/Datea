@@ -3,6 +3,7 @@
 // User model
 window.Datea.User = Backbone.Model.extend({
 	urlRoot: "/api/v1/user",
+	idAttribute: 'username'
 });
 
 //++++++++++++++++++++++

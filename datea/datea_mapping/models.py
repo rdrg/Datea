@@ -1,6 +1,7 @@
 from django.contrib.gis.db import models
 from django.contrib.auth.models import User
 from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ugettext
 from django.utils.html import strip_tags
 
 from datea.datea_image.models import DateaImage 
@@ -179,7 +180,7 @@ class DateaMapItem(models.Model):
             self.action.save()
             
     def get_absolute_url(self):
-        return self.action.get_absolute_url()+'/reports/item'+str(self.pk)  
+        return self.action.get_absolute_url()+ugettext('/reports/')+str(self.pk)  
     
     def __unicode__(self):
         return self.user.username+': '+strip_tags(self.content)[:100]

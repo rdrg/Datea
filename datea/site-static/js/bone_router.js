@@ -1,23 +1,26 @@
+//
 hardcode_map_id = 1;
+
+var routes = {};
+routes[''] = 'home';
+routes['_=_'] = "fb_login_redirect";
+routes[gettext('action/start')] = "action_start";
+routes[gettext('action/create/')+':action_type'] = "action_create";
+routes[gettext('profile')+'/:user_id/'] = 'open_user_profile';
+routes[gettext('mapping')+'/:map_id'] = 'open_mapping_tab';
+routes[gettext('mapping')+'/:map_id/edit'] = 'open_mapping_edit';
+routes[gettext('mapping')+'/:map_id/admin'] = 'open_mapping_admin';
+routes[gettext('mapping')+'/:map_id/:tab_id'] = 'open_mapping_tab';
+routes[gettext('mapping')+'/:map_id/:tab_id'] = 'open_mapping_tab';
+routes[gettext('mapping')+'/:map_id/'+gettext('reports')+'/:item_id'] = 'open_mapping_item';
+routes[gettext('mapping')+'/:map_id/:tab_id/:method_id'] = 'open_mapping_tab';
+
+console.log(routes);
 
 // Main App Router for the Datea Plattform in the client
 Datea.AppRouter = Backbone.Router.extend({
  
-    routes:{
-        "":"home",
-        "_=_": "fb_login_redirect",
-        "action/start": "action_start",
-        "action/create/:action_type": "action_create",
-        
-        "user/:user_id/": "open_user_profile",
-        
-        "mapping/:map_id": 'open_mapping_tab',
-        "mapping/:map_id/edit": 'open_mapping_edit',
-        "mapping/:map_id/admin": 'open_mapping_admin',
-        "mapping/:map_id/:tab_id": 'open_mapping_tab',
-        "mapping/:map_id/reports/item:report_id": 'open_mapping_item',
-       	"mapping/:map_id/:tab_id/:method_id": 'open_mapping_tab',
-    },
+    routes: routes,
  
  	/////////////////////////////  HOME ///////////////////////////////
  
@@ -55,7 +58,7 @@ Datea.AppRouter = Backbone.Router.extend({
     // create new action (mapping or whatever)
     action_create: function (action_type) {
     	clear_admin_controls();
-    	if (action_type == 'mapping') {
+    	if (action_type == gettext('mapping')) {
     		$('#main-content-view').removeAttr('style');
 			$('#main-content-view').html( ich.fix_base_content_single_tpl());
     		this.mapping = new Datea.MappingFormView({model: new Datea.Mapping()});
