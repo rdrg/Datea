@@ -15,9 +15,9 @@
 		{{/url}}{% endverbatim %}
 		
 		<ul class="nav nav-tabs">
-			<li class="active"><a href="#mapping-settings" data-toggle="tab">{% trans 'Mapping settings' %}</a></li>
-			<li><a href="#mapping-categories" data-toggle="tab">{% trans 'Categories' %}</a></li>
-			<li><a href="#mapping-boundary" data-toggle="tab" class="edit-mapping-boundary">{% trans 'Positioning' %}</a></li>
+			<li class="active"><a href="#mapping-settings" data-toggle="tab">1. {% trans 'Mapping settings' %}</a></li>
+			<li><a href="#mapping-boundary" data-toggle="tab" class="edit-mapping-boundary">2. {% trans 'Positioning' %}</a></li>
+			<li><a href="#mapping-categories" data-toggle="tab">3. {% trans 'Categories' %}</a></li>
 		</ul>
 	</div>
 	
@@ -136,14 +136,6 @@
 					</div>
 				</div>	
 			</div>
-			<div class="tab-pane" id="mapping-categories">
-				<div class="row">
-					<div class="span8">
-						<label>{% trans "Item Categories" %}</label>
-						<div id="edit-mapping-categories"></div>
-					</div>
-				</div>
-			</div>
 			<div class="tab-pane" id="mapping-boundary">
 				<div class="row">
 					<div class="span12">
@@ -155,6 +147,14 @@
 					</div>
 				</div>
 			</div>		
+			<div class="tab-pane" id="mapping-categories">
+				<div class="row">
+					<div class="span8">
+						<label>{% trans "Item Categories" %}</label>
+						<div id="edit-mapping-categories"></div>
+					</div>
+				</div>
+			</div>
 			<div class="form-actions">
 				<button class="btn btn-large btn-primary save-mapping" type="button">{% trans "Save" %}</button>
 				<a class="btn btn-large  cancel-mapping" href="#{% verbatim %}{{ url }}{% endverbatim %}">Cancel</a>

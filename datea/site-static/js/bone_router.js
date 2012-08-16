@@ -11,11 +11,9 @@ routes[gettext('mapping')+'/:map_id'] = 'open_mapping_tab';
 routes[gettext('mapping')+'/:map_id/edit'] = 'open_mapping_edit';
 routes[gettext('mapping')+'/:map_id/admin'] = 'open_mapping_admin';
 routes[gettext('mapping')+'/:map_id/:tab_id'] = 'open_mapping_tab';
-routes[gettext('mapping')+'/:map_id/:tab_id'] = 'open_mapping_tab';
+routes[gettext('mapping')+'/:map_id/:tab_id/'] = 'open_mapping_tab';
 routes[gettext('mapping')+'/:map_id/'+gettext('reports')+'/:item_id'] = 'open_mapping_item';
 routes[gettext('mapping')+'/:map_id/:tab_id/:method_id'] = 'open_mapping_tab';
-
-console.log(routes);
 
 // Main App Router for the Datea Plattform in the client
 Datea.AppRouter = Backbone.Router.extend({

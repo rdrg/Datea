@@ -24,7 +24,7 @@
 			</div>
 			{% endwith %}
 			{% with form.description as field %}
-			<div class="control-group required">
+			<div class="control-group">
 				<label class="control-label">{{ field.label }}</label>
 				<div class="controls">
 					<textarea type="text" class="input-xlarge autoresize" id="mapping-short-description-input" name="description" rows="1" class="span4" maxlength="500" >{% verbatim %}{{description}}{% endverbatim %}</textarea>
@@ -63,7 +63,7 @@
 			{% endwith %}
 			{% endcomment %}
 			
-			<div class="pull-right">
+			<div>
 				<button class="btn btn-small save-category"><i class="icon-ok"></i> {% trans "Save" %}</button> 
 				<button class="btn btn-small cancel-category"><i class="icon-remove"></i> {% trans "Cancel" %}</button> 
 				<button class="btn btn-small delete-category"><i class="icon-trash"></i> {% trans "Delete" %}</button> 

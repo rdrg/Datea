@@ -7,8 +7,8 @@
 	<div class="inner sidebar-inner">
 			
 		<ul class="nav nav-tabs mapping-tabs">
-	    	<li class="active"><a id="mapping-start-tablink" class="navigate" href="#mapping-start" data-nav="/mapping/{{ id }}">{% trans "Start" %}</a></li>
-	    	<li><a id="mapping-reports-tablink" class="navigate" href="#mapping-reports" data-nav="/mapping/{{ id }}/reports">{% trans "Reports" %}</a></li>
+	    	<li class="active"><a id="mapping-start-tablink" class="navigate" href="#mapping-start" data-nav="{% trans '/mapping/' %}{{ id }}">{% trans "Start" %}</a></li>
+	    	<li><a id="mapping-reports-tablink" class="navigate" href="#mapping-reports" data-nav="{% trans '/mapping/' %}{{ id }}/{% trans 'reports' %}">{% trans "Reports" %}</a></li>
 	    	{#<li><a href="#mapping-participants">{% trans "Participants" %}</a></li>#}
 	    </ul>
 	    

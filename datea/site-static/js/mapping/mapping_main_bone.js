@@ -220,13 +220,13 @@ window.Datea.MappingSidebar = Backbone.View.extend({
 		if (!this.start_tab_view) this.render();
 		
 		// START TAB
-		if (!params.tab_id || params.tab_id == 'start') {
+		if (!params.tab_id || params.tab_id == gettext('start')) {
 			
 			this.start_tab_view.render(params);
 			$('#mapping-start-tablink').tab('show');
 			
 		// MAP ITEM TAB
-		} else if (params.tab_id && params.tab_id == 'reports') {
+		} else if (params.tab_id && params.tab_id == gettext('reports')) {
 			this.map_item_tab_view.mode = 'list';
 			this.map_item_tab_view.render();
 			$('#mapping-reports-tablink').tab('show');
@@ -409,7 +409,7 @@ window.Datea.MappingMapItemTab = Backbone.View.extend({
 	back_to_list:function (ev) {
 		ev.preventDefault();
 		this.mode == 'list';
-		Datea.app.navigate('/mapping/'+this.options.mappingModel.get('id')+'/reports', {trigger: true});
+		Datea.app.navigate('/'+gettext('mapping')+'/'+this.options.mappingModel.get('id')+'/'+gettext('reports'), {trigger: true});
 	},
 	
 	filter_items: function () {
