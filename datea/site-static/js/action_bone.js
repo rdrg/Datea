@@ -107,8 +107,8 @@ window.Datea.MyActionListView = Backbone.View.extend({
     			this.filter_options.push({value: 'created_actions', name: gettext('actions created')});
     		}
     	}
-    	this.filter_options.push({value: 'featured_actions', name: gettext('featured actions')});
         this.filter_options.push({value: 'all_actions', name: gettext('all actions')});
+        this.filter_options.push({value: 'featured_actions', name: gettext('featured actions')});
         
         // check availability of
         var self = this; 
