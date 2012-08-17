@@ -42,7 +42,7 @@ Datea.AppRouter = Backbone.Router.extend({
     
     fb_login_redirect:function () {
     	clear_admin_controls();
-    	this.navigate('/', {trigger: true});
+    	this.navigate('/', {trigger: true, replace: true});
     },
     
     /////////////////////////////// ACTIONS /////////////////////////////////
