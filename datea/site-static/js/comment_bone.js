@@ -122,7 +122,7 @@ window.Datea.CommentFormView = Backbone.View.extend({
 	
 	render: function (ev) {
 		// not logged in -> redirect to login
-		if (Datea.my_user.isNew()) {
+		if (!Datea.is_logged()) {
 			this.$el.html( ich.comment_login_tpl({'next': '/'+document.location.hash}));
 		}else{
 			this.$el.html(ich.comment_form_tpl());

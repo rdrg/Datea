@@ -70,7 +70,7 @@ window.DateaHistoryView = Backbone.View.extend({
     
     // build filter options according to user
     build_filter_options: function () {
-    	if (!Datea.my_user.isNew() && this.user_model.get('id') == Datea.my_user.get('id')) {
+    	if (Datea.is_logged() && this.user_model.get('id') == Datea.my_user.get('id')) {
     		var prefix = gettext('my');
     	}else{
     		var prefix = '';
@@ -145,7 +145,7 @@ window.DateaHistoryView = Backbone.View.extend({
     	}else if (this.render_items.length > 0){
     		items = this.render_items;
     	}else{
-    		if (!Datea.my_user.isNew() && this.user_model.get('id') == Datea.my_user.get('id')) {
+    		if (Datea.is_logged() && this.user_model.get('id') == Datea.my_user.get('id')) {
     			this.$el.html(ich.datea_logged_intro_tpl());
     		}else{
     			$list.html(ich.empty_result_tpl());

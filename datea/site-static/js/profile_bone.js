@@ -34,7 +34,7 @@ window.Datea.MyUserHeadView = Backbone.View.extend({
 	
 	render: function (eventName) {
 
-    	if (!this.model.isNew()) {
+    	if (Datea.is_logged()) {
     		this.$el.html(ich.my_user_head_tpl(this.model.toJSON()));
     	}else{
     		this.$el.html(ich.my_user_head_login_tpl());
@@ -43,7 +43,7 @@ window.Datea.MyUserHeadView = Backbone.View.extend({
     },
     
     edit_profile: function (eventName) {
-    	if (!this.model.isNew()) {
+    	if (Datea.is_logged()) {
     		Datea.my_user_edit_view.open_window();
     	}
         return this;
@@ -69,7 +69,7 @@ window.Datea.MyUserEditView = Backbone.View.extend({
 	
 	render: function (eventName) {
 		context = this.model.toJSON();
-		if (!Datea.my_user.isNew()) {
+		if (Datea.is_logged()) {
 			jQuery.extend(context, Datea.my_user_notify_settings.toJSON());
 		}
 		this.$el.html( ich.my_user_edit_tpl(context));
@@ -173,7 +173,7 @@ window.Datea.MyProfileBoxView = Backbone.View.extend({
     
     render: function (eventName) {
     	
-    	if (!this.model.isNew()) {
+    	if (Datea.is_logged()) {
     		this.$el.html(ich.my_profile_tpl(this.model.toJSON()));
     	}else{
     		var title = gettext('Datea, a platform to activate and channel community engagements.');
@@ -189,7 +189,7 @@ window.Datea.MyProfileBoxView = Backbone.View.extend({
     },
     
     edit_profile: function (eventName) {
-    	if (!this.model.isNew()) {
+    	if (Datea.is_logged()) {
     		Datea.my_user_edit_view.open_window();
     	}
         return this;
@@ -209,7 +209,7 @@ window.Datea.MyProfileHomeView = Backbone.View.extend({
 			new Datea.MyProfileBoxView({ model: Datea.my_user }).render().el 
 		);
 		Datea.CheckStatsPlural(this.$el, this.model);
-		if (!Datea.my_user.isNew()) {
+		if (Datea.is_logged()) {
 			this.$el.find('.history-view-container').html(
 				new DateaHistoryView({user_model: Datea.my_user}).render().el
 			);
@@ -254,4 +254,9 @@ window.Datea.ProfileView = Backbone.View.extend({
 Datea.init_my_user_views = function () {
 	Datea.my_user_head_view = new Datea.MyUserHeadView({ model: Datea.my_user});
 	Datea.my_user_edit_view = new Datea.MyUserEditView({ model: Datea.my_user });
+}
+
+Datea.is_logged = function () {
+	if (Datea.my_user.get('id')) return true;
+	else return false;
 }

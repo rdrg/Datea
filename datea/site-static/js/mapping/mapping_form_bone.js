@@ -73,7 +73,7 @@ window.Datea.MappingFormView = Backbone.View.extend({
 		this.$el.find('#mapping-image-input-view').html(img_view.render().el);
 		
 		// mapping setting controls
-		if (!Datea.my_user.isNew() &&
+		if (Datea.is_logged() &&
 			( this.model.get('user') && this.model.get('user').id == Datea.my_user.get('id')
 			  || Datea.my_user.get('is_staff')
 			)) {

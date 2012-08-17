@@ -42,7 +42,7 @@ window.Datea.ActionListItemView = Backbone.View.extend({
   		this.$el.html(ich.action_list_item_tpl(context));
   
   		// follow widget
-  		if (!Datea.my_user.isNew() && Datea.my_user.get('resource_uri') != this.model.get('user')) {
+  		if (Datea.is_logged() && Datea.my_user.get('resource_uri') != this.model.get('user')) {
 			this.follow_widget = new Datea.FollowWidgetView({
 				object_type: 'dateaaction',
 				object_id: this.model.get('id'),
@@ -97,7 +97,7 @@ window.Datea.MyActionListView = Backbone.View.extend({
     // build filter options according to user
     build_filter_options: function () {
     	this.filter_options = [];
-    	if (!Datea.my_user.isNew() && typeof(Datea.my_user_follows.find(function (f){ return f.get('object_type') == 'dateaaction'})) != 'undefined') {
+    	if (Datea.is_logged() && typeof(Datea.my_user_follows.find(function (f){ return f.get('object_type') == 'dateaaction'})) != 'undefined') {
     		
     		this.filter_options.push({value: 'my_actions', name: gettext('my actions')});
     		

@@ -44,7 +44,7 @@ window.Datea.MapItemFullView = Backbone.View.extend({
 		}
 		
 		// can edit?
-		if (!Datea.my_user.isNew() && (
+		if (Datea.is_logged() && (
 			this.options.mappingModel.get('user').id == Datea.my_user.get('id')
 			|| Datea.my_user.get('id') == this.model.get('user').id
 			|| Datea.my_user.get('is_staff'))){

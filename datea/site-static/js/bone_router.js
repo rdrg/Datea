@@ -31,7 +31,7 @@ Datea.AppRouter = Backbone.Router.extend({
         
         if (typeof(params) != 'undefined') {
         	if (params.edit_profile && params.edit_profile == 'notify_settings') {
-        		if (!Datea.my_user.isNew()) {
+        		if (Datea.is_logged()) {
         			Datea.my_user_edit_view.open_window('edit-notifications');
         		}else{
         			document.location.href = '/accounts/login/?next=/edit_profile/notify_settings/';
@@ -69,7 +69,7 @@ Datea.AppRouter = Backbone.Router.extend({
     
     open_user_profile: function (user_id) {
 
-    	if (!Datea.my_user.isNew() && user_id == Datea.my_user.get('id')) {
+    	if (Datea.is_logged() && user_id == Datea.my_user.get('id')) {
     		this.navigate('/', {trigger: true});
     	}else{
     		Datea.show_big_loading($('#main-content-view'));

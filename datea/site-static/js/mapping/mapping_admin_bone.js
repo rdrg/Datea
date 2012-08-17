@@ -82,7 +82,7 @@ window.Datea.MappingAdminView = Backbone.View.extend({
 		this.render_page();
 		
 		// mapping setting controls
-		if (!Datea.my_user.isNew() &&
+		if (Datea.is_logged() &&
 			( this.model.get('user').id == Datea.my_user.get('id')
 			  || Datea.my_user.get('is_staff')
 			)) {
@@ -445,7 +445,7 @@ window.Datea.MapItemResponseView = Backbone.View.extend({
 		context.created = formatDateFromISO(context.created, "dd.mm.yyyy - H:MM");
 		context.content = context.content.replace(/\n/g, '<br />');
 		this.$el.html( ich.map_item_response_tpl(context));
-		if (!Datea.my_user.isNew() && (
+		if (Datea.is_logged() && (
 			this.model.get('user').id == Datea.my_user.get('id')
 			|| Datea.my_user.get('is_staff')
 			)){

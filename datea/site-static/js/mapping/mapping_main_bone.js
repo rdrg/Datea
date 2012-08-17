@@ -74,7 +74,7 @@ window.Datea.MappingMainView = Backbone.View.extend({
 		this.data_view.render();
 		
 		// mapping setting controls
-		if (!Datea.my_user.isNew() &&
+		if (Datea.is_logged() &&
 			( this.model.get('user').id == Datea.my_user.get('id')
 			  || Datea.my_user.get('is_staff')
 			)) {
@@ -97,7 +97,7 @@ window.Datea.MappingMainView = Backbone.View.extend({
 		
 		ev.preventDefault();
 		
-		if (Datea.my_user.isNew()) {
+		if (!Datea.is_logged()) {
 			
 			var path = document.location.hash.replace('#', '/');
 			document.location.href = '/accounts/login/?next='+path;
@@ -269,7 +269,7 @@ window.Datea.MappingStartTab = Backbone.View.extend({
 		Datea.CheckStatsPlural(this.$el, this.model);
 		
 		// follow widget
-  		if (!Datea.my_user.isNew()) {
+  		if (Datea.is_logged()) {
   			var data = {
   				object_type: 'dateaaction',
 				object_id: this.model.get('id'),
