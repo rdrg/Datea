@@ -62,11 +62,16 @@
 		<div class="tab-pane map-item-step" id="map-item-step-2">
 			<div class="modal-body">
 				<div class="inner">
-					<div class="pull-right">
-						<a class="open-step" data-step="3" href="#">{% trans "has no location" %} <i class="icon-arrow-right"></i></a>
+					<div class="map-head">
+						<div class="pull-right">
+							<a class="open-step no-location" data-step="3" href="#">{% trans "has no location" %} <i class="icon-arrow-right"></i></a>
+							<form id="search-location-form" class="form search-form">
+								<input type="text" class="input-medium search-query search-address" name="search_location" placeholder="{% trans 'search location' %}" />
+								<button type="submit" class="btn btn-small"><img src="{% endverbatim %}{{STATIC_URL}}{% verbatim %}img/datea/lupa.png" alt="" /></button>
+							</form>
+						</div>
+						<div class="step-title"><strong>{% trans "Step" %} 2:</strong> {% trans "locate your report" %}</div>
 					</div>
-					<div class="step-title"><strong>{% trans "Step" %} 2:</strong> {% trans "locate your report" %}</div>
-				
 					<div class="enter-position-view"></div>
 				</div>
 			</div>

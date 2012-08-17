@@ -101,3 +101,25 @@
 		}
 	}
 }
+
+/* action-days-left,  */
+.action-active {
+	color: @grayLight;
+	.icono {
+		display: inline-block;
+		.ie7-inline-block();
+		min-height: 14px;
+		width: 15px;
+		margin-right:2px;
+	}
+	&.action-days-left, .action-last-day {
+		.icono {
+			background: url(../img/datea/action_active.png) no-repeat 0px center;
+		}
+	}
+	&.action-expired {
+		.icono {
+			background: url(../img/datea/action_active.png) no-repeat -15px center;
+		}
+	}
+}

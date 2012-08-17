@@ -85,7 +85,10 @@ window.Datea.MappingFormView = Backbone.View.extend({
 	
 	save_mapping: function(ev) {
 		ev.preventDefault();
-		if (Datea.controls_validate(this.$el)){
+		var self = this;
+		if (Datea.controls_validate(this.$el, function(){
+			$('.edit-mapping-settings', self.$el).tab('show');
+		})){
 			
 			// validate position (needs position or boundary!)
 			if (!this.model.get('center') && !this.model.get('boundary')) {
@@ -143,7 +146,7 @@ window.Datea.MappingFormView = Backbone.View.extend({
 									}
 								})
 							}
-							Datea.app.navigate('/mapping/'+model.attributes.id, {trigger: true});
+							Datea.app.navigate('/'+gettext('mapping')+'/'+model.attributes.id, {trigger: true});
 						}});
 					},
 					error: function(model,response) {
@@ -186,7 +189,7 @@ window.Datea.MapEditMultiLayerView = Backbone.View.extend({
         	),
     	], { 
     		'overlayStyle': { 'fillColor': "#ff0000" }, 
-    		'layers': ['google.streets', 'google.hybrid'],
+    		'layers': ['google.streets'],
     		'mapDivStyle': {
                 'width': '100%',
                 'height': '550px'

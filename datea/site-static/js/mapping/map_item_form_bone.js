@@ -17,11 +17,21 @@ window.Datea.MapItemFormView = Backbone.View.extend({
     		this.image_col = new Datea.ImageCollection();
     	}
     	this.mappingModel = this.options.mappingModel;
+    	
+    	this.geocoder = geocoder = new google.maps.Geocoder();
+    	if (this.mappingModel.get('boundary')) {
+    		this.geocoder_bounds = new google.maps.LatLngBounds();
+    		var points = this.mappingModel.get('boundary').coordinates[0]
+    		for (var i in points) {
+    			this.geocoder_bounds.extend(new google.maps.LatLng(points[i][1],points[i][0]));
+    		}
+    	}
    	},
    	
    	events: {
    		'click .open-step': 'open_step',
    		'click .save-map-item': 'save_map_item',
+   		'submit #search-location-form': 'search_location',
    	},
 	
 	render: function(eventName) {
@@ -174,6 +184,39 @@ window.Datea.MapItemFormView = Backbone.View.extend({
 		}
 	},
 	
+	search_location: function (ev) {
+		ev.preventDefault();
+		var address = $('.search-address', this.$el).val();
+		if (address == '') return;
+		var search_data = { 'address': address};
+		if (this.geocoder_bounds){
+			search_data.bounds = this.geocoder_bounds;
+		}
+		var self = this;
+    	this.geocoder.geocode( search_data, function(results, status) {
+      		if (status == google.maps.GeocoderStatus.OK) {
+        		var lat = results[0].geometry.location.lat();
+        		var lng = results[0].geometry.location.lng();
+        		self.model.set('position', {coordinates: [lng, lat], type: 'Point'}, {silent: true});
+        	
+        		var zoom_bounds = [
+        			{coordinates: [results[0].geometry.viewport.getNorthEast().lng(), results[0].geometry.viewport.getNorthEast().lat()], type: "Point"},
+        			{coordinates: [results[0].geometry.viewport.getSouthWest().lng(), results[0].geometry.viewport.getSouthWest().lat()], type: "Point"},
+        		];
+        		self.map_view.set_model(self.model, zoom_bounds);
+        	
+      		} else {
+        		var input = $('.search-address', self.$el);
+        		input.val( gettext("no location found") );
+        		input.addClass('error-text');
+        		setTimeout(function(){
+        			input.val('');
+        			input.removeClass('error-text');
+        		}, 1500)
+      		}
+    	});
+	},
+	
 	clean_up: function() {
 		this.map_view.clean_up();
 		this.images_view.clean_up();
@@ -201,6 +244,12 @@ window.Datea.MapItemPointFieldView = Backbone.View.extend({
 			this.options.mappingModel.get('boundary')
 		);
     	return this;
+	},
+	
+	set_model: function(model, zoom_bounds) {
+		this.map_and_layer.layer.mapModel = model;
+		this.map_and_layer.layer.destroyFeatures();
+		this.map_and_layer.layer.readWKT(zoom_bounds);
 	},
 	
 	clean_up: function () {

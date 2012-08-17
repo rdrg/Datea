@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-15 18:30-0500\n"
+"POT-Creation-Date: 2012-08-17 10:52-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -174,11 +174,15 @@ msgstr "perfil"
 #: site-static/js/bone_router.js:10 site-static/js/bone_router.js.c:11
 #: site-static/js/bone_router.js:12 site-static/js/bone_router.js.c:13
 #: site-static/js/bone_router.js:14 site-static/js/bone_router.js.c:15
-#: site-static/js/bone_router.js:16
+#: site-static/js/bone_router.js:16 site-static/js/bone_router.js.c:59
+#: site-static/js/mapping/mapping_form_bone.js:149
+#: site-static/js/mapping/mapping_main_bone.js:412
 msgid "mapping"
 msgstr "mapeo"
 
 #: site-static/js/bone_router.js:15
+#: site-static/js/mapping/mapping_main_bone.js:229
+#: site-static/js/mapping/mapping_main_bone.js:412
 msgid "reports"
 msgstr "dateos"
 
@@ -419,7 +423,7 @@ msgstr "ya apoyó"
 msgid "report"
 msgstr "dateo"
 
-#: site-static/js/mapping/map_item_form_bone.js:31
+#: site-static/js/mapping/map_item_form_bone.js:41
 #: site-static/js/mapping/mapping_form_bone.js:27
 #: static/CACHE/js/137291bd12f1.js:478 static/CACHE/js/137291bd12f1.js.c:505
 #: static/CACHE/js/17ea7af07647.js:478 static/CACHE/js/17ea7af07647.js.c:505
@@ -452,7 +456,7 @@ msgstr "dateo"
 msgid "Create"
 msgstr "Crear"
 
-#: site-static/js/mapping/map_item_form_bone.js:33
+#: site-static/js/mapping/map_item_form_bone.js:43
 #: site-static/js/mapping/mapping_form_bone.js:29
 #: static/CACHE/js/137291bd12f1.js:478 static/CACHE/js/137291bd12f1.js.c:505
 #: static/CACHE/js/17ea7af07647.js:478 static/CACHE/js/17ea7af07647.js.c:505
@@ -484,6 +488,10 @@ msgstr "Crear"
 #: static/CACHE/js/ff43fafd101d.js:516 static/CACHE/js/ff43fafd101d.js.c:543
 msgid "Edit"
 msgstr "Editar"
+
+#: site-static/js/mapping/map_item_form_bone.js:210
+msgid "no location found"
+msgstr "sin resultados"
 
 #: site-static/js/mapping/mapping_admin_bone.js:39
 #: site-static/js/mapping/mapping_data_view_bone.js:62
@@ -803,7 +811,7 @@ msgstr "última semana"
 msgid "last month"
 msgstr "último mes"
 
-#: site-static/js/mapping/mapping_form_bone.js:178
+#: site-static/js/mapping/mapping_form_bone.js:181
 #: static/CACHE/js/137291bd12f1.js:485 static/CACHE/js/17ea7af07647.js:485
 #: static/CACHE/js/1b1b559f6034.js:485 static/CACHE/js/1fca0c79540b.js:313
 #: static/CACHE/js/24ecc945e097.js:369 static/CACHE/js/2d61097673fa.js:449
@@ -821,7 +829,7 @@ msgstr "último mes"
 msgid "Center"
 msgstr "Centro"
 
-#: site-static/js/mapping/mapping_form_bone.js:183
+#: site-static/js/mapping/mapping_form_bone.js:186
 #: static/CACHE/js/137291bd12f1.js:485 static/CACHE/js/17ea7af07647.js:485
 #: static/CACHE/js/1b1b559f6034.js:485 static/CACHE/js/1fca0c79540b.js:313
 #: static/CACHE/js/24ecc945e097.js:369 static/CACHE/js/2d61097673fa.js:449
@@ -838,6 +846,10 @@ msgstr "Centro"
 #: static/CACHE/js/f764244ed256.js:313 static/CACHE/js/ff43fafd101d.js:523
 msgid "Boundary"
 msgstr "Límites"
+
+#: site-static/js/mapping/mapping_main_bone.js:223
+msgid "start"
+msgstr "inicio"
 
 #: site-static/js/mapping/mapping_main_bone.js:320
 #: static/CACHE/js/137291bd12f1.js:470 static/CACHE/js/17ea7af07647.js:470

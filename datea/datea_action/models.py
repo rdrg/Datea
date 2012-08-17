@@ -11,6 +11,7 @@ from sorl.thumbnail import get_thumbnail
 from django.core.files.base import ContentFile
 from django.conf import settings
 from django.utils import timezone
+import os
 
 
 class SubclassingQuerySet(models.query.GeoQuerySet):
@@ -77,7 +78,8 @@ class DateaAction(models.Model):
             return self.image.get_thumb(thumb_preset)
         else:
             Preset = settings.THUMBNAIL_PRESETS[thumb_preset]
-            url = settings.DEFAULT_ACTION_IMAGE
+            
+            url = os.path.join(settings.MEDIA_ROOT, 'default/img/default-'+self.action_type+'.png')
             #preserve format
             ext = url.split('.')[-1].upper()
             if ext not in ['PNG', 'JPG'] or ext == 'JPG':

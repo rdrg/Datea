@@ -73,12 +73,16 @@
 		.stats {
 			/*padding-right:12px;*/
 			display: table-cell;
-			.stat-line { color: @verde; font-size: @baseFontSize - 2px; line-height: @baseLineHeight - 2px; margin-right: 10px;}
+			.stat-line { color: @verde; font-size: @baseFontSize - 2px; line-height: @baseLineHeight - 2px; margin-right: 10px; min-width: 90px; }
 		}
 		.create-button {
 			display: table-cell;
 			vertical-align: middle;
 		}
+	}
+	
+	.time-left {
+		padding:10px 0;
 	}
 	
 	.mapping-header {

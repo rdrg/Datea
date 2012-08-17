@@ -81,7 +81,7 @@ Datea.control_validate_required = function ($control){
 	return true;
 }
 
-Datea.controls_validate = function ($form_chunk) {
+Datea.controls_validate = function ($form_chunk, invalid_callback) {
 	
 	var $controls =  $('.required', $form_chunk);
 	
@@ -96,6 +96,7 @@ Datea.controls_validate = function ($form_chunk) {
 	});
 	if (is_valid == false) {
 		$form_chunk.find('.error-msg').removeClass('hide');
+		if (typeof(invalid_callback) != 'undefined') invalid_callback();
 		return false;
 	}
 	

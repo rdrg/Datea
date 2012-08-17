@@ -15,7 +15,7 @@
 		{{/url}}{% endverbatim %}
 		
 		<ul class="nav nav-tabs">
-			<li class="active"><a href="#mapping-settings" data-toggle="tab">1. {% trans 'Mapping settings' %}</a></li>
+			<li class="active"><a href="#mapping-settings" data-toggle="tab" class="edit-mapping-settings">1. {% trans 'Mapping settings' %}</a></li>
 			<li><a href="#mapping-boundary" data-toggle="tab" class="edit-mapping-boundary">2. {% trans 'Positioning' %}</a></li>
 			<li><a href="#mapping-categories" data-toggle="tab">3. {% trans 'Categories' %}</a></li>
 		</ul>
@@ -71,7 +71,7 @@
 						</div>
 						{% endwith %}
 						{% with form.end_date as field %}
-						<div class="control-group required">
+						<div class="control-group">
 							<label class="control-label">{{ field.label }}</label>
 							<div class="controls">								
 								<div class="input-append date datefield">

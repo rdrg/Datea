@@ -141,7 +141,7 @@ window.olwidget.DateaEditablePointLayer = OpenLayers.Class(olwidget.BaseVectorLa
     	return;
     },
     
-    readWKT: function() {
+    readWKT: function(zoom_bounds) {
 
         // Read WKT from the text field.  We assume that the WKT uses the
         // projection given in "displayProjection", and ignore any initial
@@ -189,6 +189,16 @@ window.olwidget.DateaEditablePointLayer = OpenLayers.Class(olwidget.BaseVectorLa
                     this.addFeatures([geom], {silent: true});
                 }
                 this.numGeom = this.features.length;
+                if (typeof(zoom_bounds) != 'undefined') {
+                	var bounds = new OpenLayers.Bounds();
+                	for (var i in zoom_bounds) {
+                		bounds.extend(new OpenLayers.LonLat(
+                			zoom_bounds[i].coordinates[0], 
+                			zoom_bounds[i].coordinates[1])
+                			.transform(this.map.displayProjection, this.map.projection));
+                	}
+                	this.map.zoomToExtent(bounds);
+                }
             } else {
                 this.numGeom = 0;
             }
@@ -216,9 +226,7 @@ window.olwidget.DateaEditablePointLayer = OpenLayers.Class(olwidget.BaseVectorLa
         	this.boundaryLayer = new OpenLayers.Layer.Vector("Boundary Layer");
         	this.boundaryLayer.addFeatures(this.boundaryPolygon);
 			this.map.addLayer(this.boundaryLayer);
-			       	
         }
-         
     },
     // Callback for openlayers "featureadded"
     addWKT: function(event) {
@@ -233,6 +241,7 @@ window.olwidget.DateaEditablePointLayer = OpenLayers.Class(olwidget.BaseVectorLa
         
         // CHEQUEAR SI ESTA DENTRO
     	var point = new OpenLayers.Geometry.Point(event.feature.geometry.x, event.feature.geometry.y);
+    	
     	if (typeof(this.boundaryPolygon) != 'undefined') {
     		if (!this.boundaryPolygon.geometry.containsPoint(point)){
     			this.popup = new OpenLayers.Popup.FramedCloud("Aviso",
@@ -336,7 +345,7 @@ window.Datea.CreateEditablePointMap = function (mapDivId, model, modelField, cen
 	var map = new olwidget.Map(mapDivId, [
 	        new olwidget.DateaEditablePointLayer(model, modelField, {"name": "Posición"}, centerData, boundaryData)
 	    ], 
-	    { "layers": ['google.streets', 'osm.mapnik'],
+	    { "layers": ['google.streets', 'google.hybrid'],
 	      "mapDivStyle": {'width': $mapDiv.css('width'), 'height': $mapDiv.css('height')},
 	      "overlayStyle": {
 	      	"externalGraphic": "/static/openlayers-dev/img/marker.png", 

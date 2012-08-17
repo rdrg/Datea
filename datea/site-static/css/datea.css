@@ -325,6 +325,10 @@ h1 {
   text-align: center;
 }
 
+.error-text {
+  color: #b94a48;
+}
+
 #head-nav #head-nav-right #navbar-items {
   float: right;
   padding-top: 38px;
@@ -1803,6 +1807,30 @@ button.btn.dropdown-toggle:hover span.caret {
   margin-left: 10px;
 }
 
+/* action-days-left,  */
+
+.action-active {
+  color: #999999;
+}
+
+.action-active .icono {
+  display: inline-block;
+  *display: inline;
+  width: 15px;
+  min-height: 14px;
+  margin-right: 2px;
+  *zoom: 1;
+}
+
+.action-active.action-days-left .icono,
+.action-active .action-last-day .icono {
+  background: url(../img/datea/action_active.png) no-repeat 0 center;
+}
+
+.action-active.action-expired .icono {
+  background: url(../img/datea/action_active.png) no-repeat -15px center;
+}
+
 .post-user-data {
   padding-bottom: 7px;
   *zoom: 1;
@@ -2145,6 +2173,49 @@ button.btn.dropdown-toggle:hover span.caret {
   max-width: 200px !important;
 }
 
+.map-item-form .map-head {
+  position: relative;
+  margin-bottom: 1px;
+  *zoom: 1;
+}
+
+.map-item-form .map-head:before,
+.map-item-form .map-head:after {
+  display: table;
+  content: "";
+}
+
+.map-item-form .map-head:after {
+  clear: both;
+}
+
+.map-item-form .map-head .pull-right {
+  position: relative;
+  top: -9px;
+  text-align: right;
+}
+
+.map-item-form .map-head .pull-right .no-location {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 12px;
+  color: #5e6e65;
+}
+
+.map-item-form .map-head .pull-right .no-location:hover {
+  color: #27bb44;
+}
+
+.map-item-form .map-head .pull-right #search-location-form {
+  margin: 0;
+}
+
+.map-item-form .map-head .pull-right #search-location-form input.search-query {
+  padding: 2px 10px;
+  font-size: 12px;
+  line-height: 15px;
+}
+
 .step-control .prev {
   line-height: 30px;
   color: #999999;
@@ -2372,6 +2443,7 @@ body .olwidgetPopupCloseBox {
 }
 
 #mapping-start .info .stats .stat-line {
+  min-width: 90px;
   margin-right: 10px;
   font-size: 11px;
   line-height: 16px;
@@ -2381,6 +2453,10 @@ body .olwidgetPopupCloseBox {
 #mapping-start .info .create-button {
   display: table-cell;
   vertical-align: middle;
+}
+
+#mapping-start .time-left {
+  padding: 10px 0;
 }
 
 #mapping-start .mapping-header {
@@ -2581,8 +2657,9 @@ body .olwidgetPopupCloseBox {
 }
 
 .data-view-category-leyend {
-  margin: 10px 0;
+  padding: 10px 0;
   list-style: none;
+  border-bottom: 1px solid #7f7f7f;
 }
 
 .data-view-category-leyend ul.category-leyend-group {
@@ -2624,10 +2701,6 @@ body .olwidgetPopupCloseBox {
   padding-right: 6px;
   margin-left: 21px;
   font-size: 12px;
-}
-
-.data-view-filters {
-  border-top: 1px solid #7f7f7f;
 }
 
 .mapping-filters {

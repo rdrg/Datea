@@ -181,7 +181,7 @@ window.Datea.MappingDataViewMap = Backbone.View.extend({
 			
 			// BUILD MAP OPTIONS
 			var mapOptions = {
-				"layers": ['google.streets', 'osm.mapnik'],
+				"layers": ['google.streets'],
 				'defaultZoom': 12,
 			}
 			if (this.mapModel.get('center') && this.mapModel.get('center').coordinates) {

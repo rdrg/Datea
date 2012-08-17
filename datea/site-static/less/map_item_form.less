@@ -106,6 +106,36 @@
 		}
 	}
 	
+	.map-head {
+		.clearfix();
+		margin-bottom:1px;
+		position: relative;
+		.pull-right {
+			position:relative;
+			top:-9px;
+			text-align:right;
+			
+			.no-location {
+				font-size: @baseFontSize - 1px;
+				color: @grayText;
+				margin-bottom: 4px;
+				display: block;
+				&:hover {
+					color: @verde;
+				}
+			}
+			
+			#search-location-form{
+				margin: 0;
+				input.search-query {
+					padding: 2px 10px;
+					line-height: @baseLineHeight - 3px;
+					font-size: @baseFontSize - 1px;
+				}
+			}
+		}
+	}
+	
 }
 
 .step-control {
