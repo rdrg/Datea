@@ -58,7 +58,7 @@ def on_map_item_delete(sender, instance, **kwargs):
 # MAP ITEM RESPONSE SIGNALS
 def on_map_item_response_save(sender, instance, **kwargs):
     if instance is None: return
-    
+
     map_items = instance.map_items.all()
     action = map_items[0].action
     history_key = 'dateaaction.'+str(action.pk)+'_dateamapitemresponse.'+str(instance.pk)

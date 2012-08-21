@@ -128,7 +128,6 @@ window.DateaHistoryView = Backbone.View.extend({
     
     render_page: function(page) {
     	Datea.hide_small_loading(this.$el);
-    	console.log(this.$el);
     	
     	var $list = this.$el.find('.item-list');
     	$list.empty();

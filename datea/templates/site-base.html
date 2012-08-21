@@ -10,7 +10,7 @@
 					<div id="setting-controls"></div>
 					<div id="navbar-items">
 						{% get_menu "main_menu_es" as main_menu %}
-							<a href="{{item.url}}" alt="{% trans "Home"%}" title="{% trans "Home"%}">{% trans "Home"%}</a> 
+							<a href="/" alt="{% trans "Home"%}" title="{% trans "Home"%}">{% trans "Home"%}</a> 
 							<span class="separator">|</span>
 						{% for item in main_menu %}
 							<a href="{{item.url}}" alt="{{item.name}}" title="{{item.page_title}}">{{item.name}}</a> 
@@ -40,7 +40,7 @@
 					<div id="footer-left" class="span6">
 						<div id="footer-menu">
 							{% get_menu "footer_menu_es" as footer_menu %}
-								<a href="{{item.url}}" alt="{% trans "Home"%}" title="{% trans "Home"%}">{% trans "Home"%}</a> 
+								<a href="/" alt="{% trans "Home"%}" title="{% trans "Home"%}">{% trans "Home"%}</a> 
 								<span class="separator">|</span>
 							{% for item in footer_menu %}
 								<a href="{{item.url}}" alt="{{item.name}}" title="{{item.page_title}}">{{item.name}}</a> 

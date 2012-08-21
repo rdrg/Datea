@@ -107,8 +107,8 @@ window.Datea.MyActionListView = Backbone.View.extend({
     			this.filter_options.push({value: 'created_actions', name: gettext('actions created')});
     		}
     	}
-        this.filter_options.push({value: 'all_actions', name: gettext('all actions')});
         this.filter_options.push({value: 'featured_actions', name: gettext('featured actions')});
+        this.filter_options.push({value: 'all_actions', name: gettext('all actions')});
         
         // check availability of
         var self = this; 
@@ -261,12 +261,16 @@ window.Datea.ProfileActionListView = Backbone.View.extend({
     
     // build filter options according to user
     build_filter_options: function () {
+    	var format = gettext("%(uname)s's actions");
+    	var action_str = interpolate(format, {'uname': this.user_model.get('username')}, true);   
     	this.filter_options = [
-    		{value: 'actions', name: gettext('actions')},
+    		{value: 'actions', name: action_str},
         ];
         var self = this;
-        if (this.model.find(function(a){ return a.user == self.user_model.get('resource_uri')})) {
-        	self.filter_options.push({value: 'created actions', name: gettext('created actions')}) 
+        if (this.model.find(function(a){ return a.get('user_url') == self.user_model.get('url')})) {
+        	var format = gettext("actions created by %(uname)s");
+        	var created_str = interpolate(format, {'uname': self.user_model.get('username')}, true);
+        	self.filter_options.push({value: 'created_actions', name: created_str}); 
         }
     },
     

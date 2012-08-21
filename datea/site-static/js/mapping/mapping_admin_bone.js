@@ -152,7 +152,6 @@ window.Datea.MappingAdminView = Backbone.View.extend({
 		
 		var self = this;
 		var fitems = this.map_items.models;
-		console.log(fitems);
 		
 		// category filter
 		if (this.category_filter && this.category_filter.value != 'all') {

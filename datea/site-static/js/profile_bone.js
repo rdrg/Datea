@@ -202,6 +202,7 @@ window.Datea.MyProfileHomeView = Backbone.View.extend({
 	tagName: 'div',
 	
 	render: function (ev) {
+		
 		// set base template
 		this.$el.html( ich.fix_base_content_split_tpl({dotted_bg:true}));
 		
