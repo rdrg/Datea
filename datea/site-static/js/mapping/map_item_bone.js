@@ -134,7 +134,7 @@ window.Datea.MapItemTeaserView = Backbone.View.extend({
 	
 	tagName: 'div',
 	attributes: {
-		class : "map-item teaser",
+		"class" : "map-item teaser",
 	},
 	
 	initialize: function () {

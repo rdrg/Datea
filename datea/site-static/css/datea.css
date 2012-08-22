@@ -299,6 +299,10 @@ h1 {
   padding: 0 6px;
 }
 
+#footer #footer-right {
+  text-align: right;
+}
+
 #footer #footer-right .copyfight {
   font-size: 13px;
   color: #1a1a1a;
@@ -330,7 +334,7 @@ h1 {
 }
 
 #head-nav #head-nav-right #navbar-items {
-  float: right;
+  float: left;
   padding-top: 38px;
   margin-right: 12px;
 }
@@ -349,6 +353,11 @@ h1 {
   float: right;
 }
 
+#head-nav .beta {
+  font-size: 11px;
+  line-height: 30px;
+}
+
 #logo {
   display: inline-block;
   *display: inline;
@@ -362,7 +371,9 @@ h1 {
 }
 
 #user_head_view {
-  float: right;
+  display: block;
+  float: left;
+  padding-right: 0;
   margin-right: 0;
   *zoom: 1;
 }
@@ -377,6 +388,11 @@ h1 {
   clear: both;
 }
 
+#user_head_view #user-header {
+  padding-right: 0;
+  margin-right: 10px;
+}
+
 #user_head_view #user-header .image {
   display: block;
   float: left;
@@ -385,6 +401,13 @@ h1 {
 #user_head_view #user-header .image a img {
   display: block;
   margin-top: 8px;
+}
+
+#user_head_view #user-header ul.nav {
+  display: block;
+  float: left;
+  width: auto;
+  margin: 0 !important;
 }
 
 #user_head_view #user-header ul.nav .dropdown-toggle {
@@ -411,13 +434,21 @@ h1 {
 }
 
 #setting-controls {
-  float: right;
+  float: left;
   margin-right: 15px;
 }
 
 #setting-controls .btn-group {
   padding-top: 21px;
   padding-bottom: 0;
+}
+
+#setting-controls .btn-group button {
+  width: 70px;
+}
+
+#setting-controls .btn-group img {
+  display: inline;
 }
 
 #main-content {
@@ -876,10 +907,13 @@ textarea.autoresize.double {
   line-height: 30px;
   /*margin-right: 10px;*/
 
-  color: transparent !important;
   -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
      -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
           box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+}
+
+.social-auth-buttons .button-box .login-button span {
+  visibility: hidden;
 }
 
 .social-auth-buttons .button-box .login-button.last {
@@ -2736,12 +2770,22 @@ body .olwidgetPopupCloseBox {
 .mapping-filters ul.filters li.filter {
   display: block;
   float: left;
-  margin-right: 25px;
+  margin-right: 13px;
   list-style: none;
 }
 
 .mapping-filters ul.filters li.filter button .name {
   color: #5e6e65;
+}
+
+.mapping-filters ul.filters li.filter button .color-sample {
+  display: inline-block;
+  *display: inline;
+  width: 15px;
+  height: 15px;
+  margin-right: 0;
+  line-height: 15px;
+  *zoom: 1;
 }
 
 .mapping-filters ul.filters li.filter:last-child {

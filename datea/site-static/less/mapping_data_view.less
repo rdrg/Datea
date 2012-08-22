@@ -70,13 +70,24 @@
 		list-style: none;
 		float: left;
 		li.filter {
-			margin-right: 25px;
+			margin-right: 13px;
 			list-style: none;
 			float:left;
 			display: block;
-			button .name {
-				color: @grayText;
+			button { 
+				.name {
+					color: @grayText;
+				}
+				.color-sample {
+					width: 15px;
+					display: inline-block;
+					.ie7-inline-block();
+					line-height: 15px;
+					height: 15px;
+					margin-right: 0px; 
+				}
 			}
+			
 			&:last-child {
 				margin-right: 0px;	
 			}

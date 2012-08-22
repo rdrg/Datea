@@ -259,7 +259,7 @@ window.Datea.ThumbRow = Backbone.View.extend({
 	start_lightbox: function(ev) {
 		ev.preventDefault();
 		var self = this;
-		var img = parseInt(ev.currentTarget.dataset.order);
+		var img = parseInt($(ev.currentTarget).data('order'));
 		$('#image-lightbox-'+this.model.get('id')).on('show',function(){
 			if (self.model.get('images').length > 1) {
 				var $carousel = self.$el.find('.carousel');

@@ -3,13 +3,13 @@
 	<p class="desc">{% trans "You can login with one of your accounts at:" %}</p>
  	<div class="button-box"> 
  		<a class="login-button facebook" rel="nofollow" href="{% url socialauth_begin 'facebook' %}?next={% get_login_target %}">
- 		facebook
+ 			<span>facebook</span>
  		</a>
      	<a class="login-button twitter" rel="nofollow" href="{% url socialauth_begin 'twitter' %}?next={% get_login_target %}">
-     	twitter
+     		<span>twitter</span>
      	</a>
 	 	<a class="login-button google last" rel="nofollow" href="{% url socialauth_begin 'google-oauth2' %}?next={% get_login_target %}">
-	 	google
+	 		<span>google</span>
 	 	</a>
      </div>
 </div>

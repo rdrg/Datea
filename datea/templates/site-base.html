@@ -6,8 +6,6 @@
 		<div class="navbar-inner">
 			<div class="container container-target">
 				<div id="head-nav-right" class="pull-right">
-					<div id="user_head_view"></div>
-					<div id="setting-controls"></div>
 					<div id="navbar-items">
 						{% get_menu "main_menu_es" as main_menu %}
 							<a href="/" alt="{% trans "Home"%}" title="{% trans "Home"%}">{% trans "Home"%}</a> 
@@ -17,10 +15,13 @@
                         	{% if not forloop.last %}<span class="separator">|</span>{% endif %}
                         {% endfor %}
                		 </div>
+					<div id="setting-controls"></div>
+					<div id="user_head_view"></div>
 				</div>
 				<a href="/" id="logo">
 					<img src="{{STATIC_URL}}img/datea/logo_header2.png" />
                 </a>
+                <span class="beta">beta</span>
 			</div>
 		</div>
 	</div>	
@@ -50,14 +51,12 @@
 					</div>
 					
 					<div id="footer-right" class="span6">
-						<div class="pull-right">
-							<div class="copyfight">
-								<img src="{{ STATIC_URL }}img/datea/logo-footer.png" alt="Datea" />
-								<span>datea, todos somos dateros. &copy; {% now 'Y' %}</span>
-							</div>
-							<div class="lafactura">
-								{% trans "a project by" %} <a href="http://www.lafactura.com">LaFactura</a>
-							</div>
+						<div class="copyfight">
+							<img src="{{ STATIC_URL }}img/datea/logo-footer.png" alt="Datea" />
+							<span>datea, todos somos dateros. &copy; {% now 'Y' %}</span>
+						</div>
+						<div class="lafactura">
+							{% trans "a project by" %} <a href="http://www.lafactura.com">LaFactura</a>
 						</div>
 					</div>
 				</div>

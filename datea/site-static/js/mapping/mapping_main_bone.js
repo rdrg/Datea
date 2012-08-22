@@ -123,7 +123,8 @@ window.Datea.MappingMainView = Backbone.View.extend({
 	edit_map_item: function(ev) {
 		ev.preventDefault();
 		var self = this;
-		var model = this.map_items.get(this.map_items.url+ev.target.dataset.id+'/');
+		var id = $(ev.currentTarget).data('id');
+		var model = this.map_items.get(this.map_items.url+id+'/');
 		var create_rep_view = new Datea.MapItemFormView({
 			model: model,
 			mappingModel: this.model,
@@ -139,7 +140,7 @@ window.Datea.MappingMainView = Backbone.View.extend({
 	open_popup: function(arg) {
 		if (typeof(arg.currentTarget) != 'undefined') {
 			arg.preventDefault();
-			var id = parseInt(arg.currentTarget.dataset.id)
+			var id = $(ev.currentTarget).data('id');
 		}else{
 			var id = parseInt(arg);
 		}
@@ -245,8 +246,9 @@ window.Datea.MappingSidebar = Backbone.View.extend({
 	
 	navigate: function(ev) {
 		ev.preventDefault();
-		Datea.app.navigate(ev.target.dataset.nav,{trigger: true});
-		ev.target.blur();
+		var nav = $(ev.target).data('nav');
+		Datea.app.navigate(nav,{trigger: true});
+		$(ev.currentTarget).blur();
 	}
 	
 });
@@ -402,7 +404,8 @@ window.Datea.MappingMapItemTab = Backbone.View.extend({
 	
 	get_page: function (ev) {
 		ev.preventDefault();
-		this.render_item_page(parseInt(ev.target.dataset.page));
+		var page = parseInt($(ev.currentTarget).data('page'));
+		this.render_item_page(page);
 		this.$el.find('.scroll-area').scrollTop(0);
 	},
 	

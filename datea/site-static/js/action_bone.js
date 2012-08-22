@@ -215,7 +215,8 @@ window.Datea.MyActionListView = Backbone.View.extend({
     
     get_page: function(ev) {
     	ev.preventDefault();
-		this.render_page(parseInt(ev.target.dataset.page));
+    	var page = parseInt($(ev.currentTarget).data('page'));
+		this.render_page(page);
 		this.$el.find('.scroll-area').scrollTop(0);
     },
     
@@ -347,7 +348,8 @@ window.Datea.ProfileActionListView = Backbone.View.extend({
     
     get_page: function(ev) {
     	ev.preventDefault();
-		this.render_page(parseInt(ev.target.dataset.page));
+    	var page = parseInt($(ev.currentTarget).data('page'));
+		this.render_page(page);
 		this.$el.find('.scroll-area').scrollTop(0);
     },
     

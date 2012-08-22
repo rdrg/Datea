@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-17 10:53-0500\n"
+"POT-Creation-Date: 2012-08-21 19:56-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -426,7 +426,7 @@ msgid "Make a comment"
 msgstr "Haz un comentario"
 
 #: datea_comment/templates/ich/comment.html:36
-#: datea_profile/templates/ich/my_user_head.html:28
+#: datea_profile/templates/ich/my_user_head.html:27
 msgid "Log in"
 msgstr "Ingresar"
 
@@ -456,11 +456,11 @@ msgstr "nuevo apoyo a mi contenido"
 
 #: datea_follow/models.py:78
 msgid "new reply on my content"
-msgstr "nuevo apoyo a mi contenido"
+msgstr "nueva respuesta a mi contenido"
 
 #: datea_follow/models.py:79
 msgid "new follower on my content"
-msgstr "nuevo apoyo a mi contenido"
+msgstr "nuevo seguidor a mi contenido"
 
 #: datea_follow/models.py:81
 msgid "general news by the site"
@@ -1136,11 +1136,11 @@ msgstr "accion/inicio"
 msgid "Log out"
 msgstr "Salir"
 
-#: datea_profile/templates/ich/my_user_head.html:29
+#: datea_profile/templates/ich/my_user_head.html:28
 msgid "no account yet?"
 msgstr "¿No eres datero?"
 
-#: datea_profile/templates/ich/my_user_head.html:29
+#: datea_profile/templates/ich/my_user_head.html:28
 msgid "register!"
 msgstr "¡Regístrate!"
 
@@ -1156,7 +1156,7 @@ msgstr "Anónimo"
 msgid "support"
 msgstr "apoyar"
 
-#: templates/site-base.html:13 templates/site-base.html.py:43
+#: templates/site-base.html:13 templates/site-base.html.py:44
 msgid "Home"
 msgstr "Inicio"
 
@@ -1230,7 +1230,7 @@ msgstr ""
 "Gracias, has activado tu cuenta! Puedes ingresar usando el usuario y clave "
 "que configuraste al registrarte.\n"
 
-#: templates/registration/activation_complete.html:14
+#: templates/registration/activation_complete.html:15
 msgid "login"
 msgstr "ingresa"
 
@@ -1420,5 +1420,5 @@ msgstr "Regístrate para obtener una cuenta"
 msgid "Or you can register an account here at Datea:"
 msgstr "O puedes registrar una cuenta aquí en Datea:"
 
-msgid "profile/"
-msgstr "perfil/"
+#~ msgid "profile/"
+#~ msgstr "perfil/"

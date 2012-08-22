@@ -80,7 +80,7 @@ window.Datea.MapItemFormView = Backbone.View.extend({
 	
 	open_step: function(ev) {
 		ev.preventDefault();
-		step = ev.target.dataset.step;
+		step = $(ev.currentTarget).data('step');
 		
 		// run validation of previous steps
 		if (step > this.step) {

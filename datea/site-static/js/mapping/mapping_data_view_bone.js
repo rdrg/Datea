@@ -69,7 +69,7 @@ window.Datea.MappingDataView = Backbone.View.extend({
 				options: options,
 				div_class: 'dropup no-bg',
 				callback: function () { self.filter_items(); self.mapView.redraw(self.render_items); },
-				box_text_max_length: 95,
+				box_text_max_length: 90,
 			});
 			this.$el.find('.category-filter').html(this.category_filter.render().el);
 		}
@@ -92,7 +92,7 @@ window.Datea.MappingDataView = Backbone.View.extend({
 		
 		// time filter
 		var options = [
-			{value: 'all', name: gettext('All since action started') },
+			{value: 'all', name: gettext('since start') },
 			{value: 'last_week', name: gettext('last week') },
 			{value: 'last_month', name: gettext('last month') }
 		];
@@ -209,7 +209,6 @@ window.Datea.MappingDataViewMap = Backbone.View.extend({
 	
 	popup_zoom: function(ev) {
 		ev.preventDefault();
-		var id = parseInt(ev.target.dataset.id);
 	},
 	
 	clean_up: function () {

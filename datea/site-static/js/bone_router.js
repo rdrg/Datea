@@ -154,7 +154,7 @@ Datea.AppRouter = Backbone.Router.extend({
     	var self = this;
     	this.fetch_mapping_data(map_id, function(){
     		self.map_items = new Datea.MapItemCollection();
-    		if (self.mapping_view) self.mapping_view.undelegateEvents();
+    		if (typeof(self.mapping_view) != 'undefined') self.mapping_view.undelegateEvents();
 			self.mapping_view = new Datea.MappingMainView({
 				el: $('#main-content-view'),
 				model: self.mapping_model,

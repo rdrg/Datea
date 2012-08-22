@@ -33,9 +33,9 @@ window.Datea.MyUserHeadView = Backbone.View.extend({
     },
 	
 	render: function (eventName) {
-
+		
     	if (Datea.is_logged()) {
-    		this.$el.html(ich.my_user_head_tpl(this.model.toJSON()));
+    		this.$el.html(ich.my_user_head_tpl(this.model.toJSON(), true));
     	}else{
     		this.$el.html(ich.my_user_head_login_tpl());
     	}

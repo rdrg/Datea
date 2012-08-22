@@ -56,7 +56,8 @@ window.Datea.DropdownSelect = Backbone.View.extend({
 	
 	select_option: function (ev) {
 		ev.preventDefault();
-		this.set_value(ev.target.dataset.value);
+		var val = $(ev.currentTarget).data("value");
+		this.set_value(val);
 		if (this.options.callback) this.options.callback(this.value);
 	},
 	
