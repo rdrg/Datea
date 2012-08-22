@@ -13,8 +13,11 @@ Datea.ModalWrapView = Backbone.View.extend({
    	},
    	
    	render: function (eventName) {
-		this.$el.html(this.content.render().el);
-		
+   		if (typeof(this.content.render) != 'undefined') {
+			this.$el.html(this.content.render().el);
+		}else{
+			this.$el.html(this.content);
+		}
 		return this;
 	},
 	

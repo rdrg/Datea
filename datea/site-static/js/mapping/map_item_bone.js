@@ -48,7 +48,7 @@ window.Datea.MapItemFullView = Backbone.View.extend({
 			this.options.mappingModel.get('user').id == Datea.my_user.get('id')
 			|| Datea.my_user.get('id') == this.model.get('user').id
 			|| Datea.my_user.get('is_staff'))){
-				this.$el.find('.edit-map-item').removeClass('hide');
+				this.$el.find('.item-control').removeClass('hide');
 		}
 		
 		// has position?

@@ -167,8 +167,7 @@ window.Datea.MapItemFormView = Backbone.View.extend({
 			this.options.success_callback(this.model);
 		}
 		if (this.was_new) {
-			var base_url = window.location.protocol+'//'+window.location.host;
-			var full_url = base_url + this.model.get('url');
+			var full_url = get_base_url() + this.model.get('url');
 			var context = {
 				'id': this.model.get('id'),
 				'success_msg': this.options.mappingModel.get('"report_success_message'),
@@ -258,4 +257,45 @@ window.Datea.MapItemPointFieldView = Backbone.View.extend({
         this.$el.unbind();
         this.$el.remove();
     }
+});
+
+window.Datea.MapItemDeleteView = Backbone.View.extend({
+	
+	tagName: 'div',
+	
+	events: {
+		'click .delete-map-item': 'delete_map_item',
+	},
+	
+	initialize: function () {
+		if (!this.options.navigate_replace) {
+			this.options.navigate_replace = true;
+		}
+	},
+	
+	render: function (ev) {
+		this.$el.html(ich.map_item_delete_dialog_tpl());
+		return this;
+	},
+	
+	open_window: function () {
+		this.render();
+		Datea.modal_view.set_content(this);
+		Datea.modal_view.open_modal();
+	},
+	
+	delete_map_item: function(ev) {
+		ev.preventDefault();
+		Datea.show_big_loading(this.$el);
+		var self = this;
+		this.model.destroy({
+			success: function (model, response) {
+				self.collection.remove(model);
+				Datea.app.navigate(self.options.navigate_to, {trigger: true, replace: self.options.navigate_replace});
+				Datea.modal_view.close_modal();
+				if (typeof(self.options.success_callback) != 'undefined') self.options.success_callback();
+			}
+		});
+	},
+	
 });

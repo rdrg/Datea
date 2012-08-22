@@ -137,6 +137,7 @@ class DateaMapItem(models.Model):
         super(DateaMapItem, self).save(*args, **kwargs)
         
     def delete(self, using=None):
+        self.images.all().delete()
         self.delete_stats()
         super(DateaMapItem, self).delete(using=using)
         

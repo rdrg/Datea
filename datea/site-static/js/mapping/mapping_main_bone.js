@@ -25,6 +25,7 @@ window.Datea.MappingMainView = Backbone.View.extend({
 	events: {
 		'click .create-report': 'create_map_item',
 		'click .edit-map-item': 'edit_map_item',
+		'click .delete-map-item-ask': 'delete_map_item_ask',
 		'click .open-popup': 'open_popup',
 	},
 	
@@ -135,6 +136,22 @@ window.Datea.MappingMainView = Backbone.View.extend({
 			}
 		});
 		create_rep_view.open_window();
+	},
+	
+	delete_map_item_ask: function (ev) {
+		ev.preventDefault();
+		var id = $(ev.currentTarget).data('id');
+		var model = this.map_items.get(this.map_items.url+id+'/');
+		var self = this;
+		var delete_view = new Datea.MapItemDeleteView({
+			model: model,
+			collection: this.map_items,
+			navigate_to: this.model.get('url'),
+			success_callback: function () {
+				self.model.fetch();
+			}
+		});
+		delete_view.open_window();
 	},
 	
 	open_popup: function(arg) {
@@ -259,6 +276,7 @@ window.Datea.MappingStartTab = Backbone.View.extend({
 	initialize: function () {
 		this.model.bind('change', this.render, this);
 		this.model.bind('add', this.render, this);
+		this.model.bind('remove', this.render, this);
 		//this.model.bind('reset', this.render, this);
 	}, 
 	
@@ -306,6 +324,7 @@ window.Datea.MappingMapItemTab = Backbone.View.extend({
 		//this.model.bind('change', this.render, this);
 		//this.model.bind('reset', this.render, this);
 		this.model.bind('add', this.add_event, this);
+		this.model.bind('remove', this.render, this);
 		this.model.bind('sync', this.render,this);
 
 		this.items_per_page = 10;
@@ -383,6 +402,11 @@ window.Datea.MappingMapItemTab = Backbone.View.extend({
 	
 	add_event: function(ev) {
 		this.orderby_filter.set_value('created');		
+		this.filter_items();
+		this.render_item_page(0);
+	},
+	
+	remove_event: function(ev) {
 		this.filter_items();
 		this.render_item_page(0);
 	},

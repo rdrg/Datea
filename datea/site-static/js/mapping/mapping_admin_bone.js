@@ -10,6 +10,7 @@ window.Datea.MappingAdminView = Backbone.View.extend({
 	initialize: function () {
 		this.map_items = this.options.map_items,
 		this.map_items.bind('reset', this.render, this);
+		this.map_items.bind('remove', this.remove_event, this);
 		this.page = 0;
 		this.items_per_page = 25;
 		this.pager_view = new Datea.PaginatorView({
@@ -124,6 +125,7 @@ window.Datea.MappingAdminView = Backbone.View.extend({
 				$item_list.append(new Datea.MapItemAdminView({ 
 					model:item, 
 					mapping_model: self.model,
+					collection: self.map_items,
 					change_callback: function () {
 						self.filter_items();
 						self.render_page();
@@ -178,6 +180,11 @@ window.Datea.MappingAdminView = Backbone.View.extend({
 		this.filtered_items = fitems;
 	},
 	
+	remove_event: function(ev) {
+		this.filter_items();
+		this.render_page();
+	}
+	
 });
 
 
@@ -193,6 +200,7 @@ window.Datea.MapItemAdminView = Backbone.View.extend({
 		'click .collapse-view': 'collapse',
 		'click .save-item': 'save_item',
 		'click .respond-item': 'respond_item',
+		'click .delete-map-item-ask': 'delete_map_item_ask',
 	},
 	
 	initialize: function() {
@@ -307,6 +315,20 @@ window.Datea.MapItemAdminView = Backbone.View.extend({
 		this.$el.removeClass('expanded');
 		this.template = 'map_item_admin_list_item_tpl';
 		this.render();
+	},
+	
+	delete_map_item_ask: function (ev) {
+		ev.preventDefault();
+		var id = $(ev.currentTarget).data('id');
+		var model = this.collection.get(this.collection.url+id+'/');
+		var self = this;
+		var delete_view = new Datea.MapItemDeleteView({
+			model: model,
+			collection: this.collection,
+			navigate_to: document.location.hash,
+			navigate_replace: false,
+		});
+		delete_view.open_window();
 	},
 	
 	save_item: function () { 

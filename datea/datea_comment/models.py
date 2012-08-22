@@ -78,7 +78,6 @@ class DateaComment(models.Model):
             if hasattr(receiver_obj, 'action'):
                 receiver_obj.action.comment_count -= 1
                 receiver_obj.action.save()
-                
     
     def __unicode__(self):
         return self.user.username+': '+strip_tags(self.comment)[:25]
@@ -86,6 +85,12 @@ class DateaComment(models.Model):
     class Meta:
         verbose_name = _('Comment')
         verbose_name_plural = _('Comments')
+        
+
+# connect signal handlers
+from signal_handlers import mapping
+
+mapping.connect()
         
 
     

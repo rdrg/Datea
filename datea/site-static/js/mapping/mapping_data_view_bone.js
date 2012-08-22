@@ -6,6 +6,7 @@ window.Datea.MappingDataView = Backbone.View.extend({
 	initialize: function () {
 		this.model.bind('reset', this.render, this);
 		this.model.bind('add', this.add_event, this);
+		this.model.bind('remove', this.add_event, this);
 		this.view_mode = 'map';
 		this.mappingModel = this.options.mappingModel;
 	},
