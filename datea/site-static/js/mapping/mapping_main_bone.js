@@ -140,7 +140,7 @@ window.Datea.MappingMainView = Backbone.View.extend({
 	open_popup: function(arg) {
 		if (typeof(arg.currentTarget) != 'undefined') {
 			arg.preventDefault();
-			var id = $(ev.currentTarget).data('id');
+			var id = $(arg.currentTarget).data('id');
 		}else{
 			var id = parseInt(arg);
 		}

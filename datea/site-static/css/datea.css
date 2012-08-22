@@ -2350,6 +2350,10 @@ body {
 
 }
 
+body .olPopup {
+  z-index: 99;
+}
+
 body .olwidgetPopupStemTL,
 body .olwidgetPopupStemTR {
   z-index: 2;
@@ -2688,6 +2692,10 @@ body .olwidgetPopupCloseBox {
 .data-view-head .json {
   width: 23px;
   background: url(../img/datea/iconos-mapa-top.png) no-repeat -47px 0;
+}
+
+.data-view-body {
+  z-index: 10;
 }
 
 .data-view-category-leyend {
