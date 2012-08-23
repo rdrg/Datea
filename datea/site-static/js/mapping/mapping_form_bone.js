@@ -5,7 +5,8 @@ window.Datea.MappingFormView = Backbone.View.extend({
 	
 	events: {
 		'click .save-mapping': 'save_mapping',
-		'shown [data-toggle="tab"]': 'attach_map'
+		'shown [data-toggle="tab"]': 'attach_map',
+		'click .delete-mapping-ask': 'delete_ask',
 	},
 
 	initialize: function() {
@@ -167,6 +168,13 @@ window.Datea.MappingFormView = Backbone.View.extend({
 		}
 	},
 	
+	delete_ask: function(ev) {
+		var delete_view = new Datea.MappingDeleteView({
+			model: this.model,
+		});
+		delete_view.open_window();
+	}
+	
 });
 
 
@@ -198,5 +206,38 @@ window.Datea.MapEditMultiLayerView = Backbone.View.extend({
     	);
     	return this;
 	}
-	
 });
+
+
+window.Datea.MappingDeleteView = Backbone.View.extend({
+	
+	tagName: 'div',
+	
+	events: {
+		'click .delete-mapping': 'delete_mapping',
+	},
+	
+	render: function (ev) {
+		this.$el.html(ich.mapping_delete_dialog_tpl());
+		return this;
+	},
+	
+	open_window: function () {
+		this.render();
+		Datea.modal_view.set_content(this);
+		Datea.modal_view.open_modal();
+	},
+	
+	delete_mapping: function(ev) {
+		ev.preventDefault();
+		Datea.show_big_loading(this.$el);
+		var self = this;
+		this.model.destroy({
+			success: function (model, response) {
+				Datea.app.navigate('/', {trigger: true, replace: true});
+				Datea.modal_view.close_modal();
+			}
+		});
+	},
+});
+

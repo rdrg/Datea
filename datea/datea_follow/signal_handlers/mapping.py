@@ -134,6 +134,11 @@ def on_map_item_response_delete(sender, instance, **kwargs):
     action = map_items[0].action
     key = 'dateaaction.'+str(action.pk)+'_dateamapitemresponse.'+str(instance.pk)
     DateaHistory.objects.filter(history_key=key).delete()
+    
+    
+def on_mapping_delete(sender, instance, **kwargs):
+    DateaHistory.objects.filter(action=instance).delete()
+    DateaFollow.objects.filter(follow_key='dateaaction.'+str(instance.pk)).delete()
 
 def connect():
     post_save.connect(on_map_item_save, sender=DateaMapItem)

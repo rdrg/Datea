@@ -103,6 +103,11 @@ class DateaAction(models.Model):
             self.content_type = ContentType.objects.get_for_model(self.__class__)
             super(DateaAction, self).save(*args, **kwargs)
             
+    def delete(self, using=None):
+        if self.image:
+            self.image.delete()
+        super(DateaAction, self).delete(using=using)
+            
     def as_leaf_class(self):
         content_type = self.content_type
         model = content_type.model_class()

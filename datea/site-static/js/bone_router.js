@@ -217,14 +217,13 @@ Datea.AppRouter = Backbone.Router.extend({
     	if (this.mapping_model && this.mapping_model.get('id') == map_id) {
     		// edit view created
     		if (this.mapping_edit_view) {
-    			this.mapping_edit_view.render();
-    		}else{
-    			this.mapping_edit_view = new Datea.MappingFormView({
-    				el: $('#main-content-view'),
-    				model: this.mapping_model,
-    			});
-    			this.mapping_edit_view.render();
+    			this.mapping_edit_view.undelegateEvents();
     		}
+    		this.mapping_edit_view = new Datea.MappingFormView({
+    			el: $('#main-content-view'),
+    			model: this.mapping_model,
+    		});
+    		this.mapping_edit_view.render();
     		$('#main-content-view').removeAttr('style');
     	}else{
     		var self = this;

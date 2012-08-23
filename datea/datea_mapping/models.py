@@ -79,6 +79,10 @@ class DateaMapping(DateaAction):
         self.save_base()
         super(DateaMapping, self).save(*args, **kwargs)
     
+    def delete(self, using=None):
+        self.item_categories.all().delete()
+        super(DateaMapping, self).delete(using=using)
+    
 
 
 class DateaMapItem(models.Model):
@@ -221,11 +225,3 @@ def on_response_save(sender, instance, **kwargs):
     instance.update_item_stats()
 map_item_response_created.connect(on_response_save, sender=DateaMapItemResponse)
 
-        
-    
-
-    
-
-    
-    
-    

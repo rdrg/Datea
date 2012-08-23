@@ -31,6 +31,9 @@ Datea.ModalWrapView = Backbone.View.extend({
 	
 	close_modal: function () {
 		this.$el.modal('hide');
+		if (typeof(this.content.render) != 'undefined') {
+			this.content.undelegateEvents();
+		}
 	}, 
 	
 	set_content: function (content) {
