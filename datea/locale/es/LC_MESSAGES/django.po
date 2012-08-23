@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-21 19:56-0500\n"
+"POT-Creation-Date: 2012-08-23 05:56-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,7 +19,7 @@ msgstr ""
 
 #: datea_action/models.py:36 datea_channel/models.py:10
 #: datea_comment/models.py:12 datea_image/models.py:15
-#: datea_mapping/models.py:88 datea_mapping/models.py:196
+#: datea_mapping/models.py:92 datea_mapping/models.py:201
 #: datea_profile/models.py:16
 msgid "User"
 msgstr "Usuario"
@@ -41,18 +41,18 @@ msgstr ""
 "URL de este mapa (usar guiones y letras únicamente)"
 
 #: datea_action/models.py:40 datea_channel/models.py:12
-#: datea_mapping/templates/ich/mapping_admin.html:104
+#: datea_mapping/templates/ich/mapping_admin.html:105
 msgid "Published"
 msgstr "Publicado"
 
 #: datea_action/models.py:43 datea_comment/models.py:13
-#: datea_follow/models.py:26 datea_mapping/models.py:91
-#: datea_mapping/models.py:197 datea_profile/models.py:17
+#: datea_follow/models.py:26 datea_mapping/models.py:95
+#: datea_mapping/models.py:202 datea_profile/models.py:17
 msgid "created"
 msgstr "creado"
 
-#: datea_action/models.py:44 datea_mapping/models.py:92
-#: datea_mapping/models.py:198
+#: datea_action/models.py:44 datea_mapping/models.py:96
+#: datea_mapping/models.py:203
 msgid "modified"
 msgstr "modificado"
 
@@ -73,8 +73,8 @@ msgid "A twitter hashtag for your action"
 msgstr "Un hashtag de twitter para compartir tu acción."
 
 #: datea_action/models.py:48 datea_category/models.py:59
-#: datea_mapping/models.py:116
-#: datea_mapping/templates/ich/mapping_admin.html:94
+#: datea_mapping/models.py:120
+#: datea_mapping/templates/ich/mapping_admin.html:95
 msgid "Category"
 msgstr "Categoría"
 
@@ -333,7 +333,7 @@ msgid "create / edit category"
 msgstr "crear / editar categoría"
 
 #: datea_category/templates/ich/free_category_edit.html:9
-#: datea_mapping/templates/ich/map_item_form.html:24
+#: datea_mapping/templates/ich/map_item_form.html:23
 #: datea_mapping/templates/ich/mapping_form.html:33
 msgid "Please fill out the fields marked in red."
 msgstr "Por favor completa los campos marcados con rojo"
@@ -343,10 +343,10 @@ msgid "There are reports with this category. You cannot delete it."
 msgstr "Hay dateos con esta categoría. No puedes borrarla."
 
 #: datea_category/templates/ich/free_category_edit.html:68
-#: datea_mapping/templates/ich/map_item_form.html:102
+#: datea_mapping/templates/ich/map_item_form.html:101
 #: datea_mapping/templates/ich/map_item_response.html:21
 #: datea_mapping/templates/ich/map_item_response.html:52
-#: datea_mapping/templates/ich/mapping_admin.html:89
+#: datea_mapping/templates/ich/mapping_admin.html:90
 #: datea_mapping/templates/ich/mapping_form.html:161
 #: datea_profile/templates/ich/my_user_edit.html:127
 msgid "Save"
@@ -359,6 +359,8 @@ msgid "Cancel"
 msgstr "Cancelar"
 
 #: datea_category/templates/ich/free_category_edit.html:70
+#: datea_mapping/templates/ich/mapping_admin.html:89
+#: datea_mapping/templates/ich/mapping_form.html:164
 msgid "Delete"
 msgstr "Borrar"
 
@@ -405,7 +407,7 @@ msgstr "Canal"
 msgid "Channels"
 msgstr "Canales"
 
-#: datea_comment/models.py:14 datea_comment/models.py:87
+#: datea_comment/models.py:14 datea_comment/models.py:86
 msgid "Comment"
 msgstr "Comentarios"
 
@@ -417,7 +419,7 @@ msgstr "Nombre de Objeto"
 msgid "Object id"
 msgstr "Id del objeto"
 
-#: datea_comment/models.py:88
+#: datea_comment/models.py:87
 msgid "Comments"
 msgstr "Comentarios"
 
@@ -486,7 +488,7 @@ msgstr "nombre"
 msgid "url"
 msgstr "url"
 
-#: datea_follow/models.py:257 datea_mapping/models.py:95
+#: datea_follow/models.py:257 datea_mapping/models.py:99
 msgid "published"
 msgstr "publicado"
 
@@ -601,7 +603,7 @@ msgstr "Campo del objeto"
 msgid "Thumb preset"
 msgstr "pre-seteado de miniatura"
 
-#: datea_image/models.py:68 datea_mapping/models.py:105
+#: datea_image/models.py:68 datea_mapping/models.py:109
 msgid "Images"
 msgstr "Imagenes"
 
@@ -649,57 +651,57 @@ msgstr "Límite"
 msgid "Mappings"
 msgstr "Mapeos"
 
-#: datea_mapping/models.py:86
+#: datea_mapping/models.py:90
 msgid "map_item"
 msgstr ""
 
-#: datea_mapping/models.py:97
+#: datea_mapping/models.py:101
 msgid "new"
 msgstr "nuevo"
 
-#: datea_mapping/models.py:98
+#: datea_mapping/models.py:102
 msgid "reviewed"
 msgstr "revisado"
 
-#: datea_mapping/models.py:99
+#: datea_mapping/models.py:103
 msgid "solved"
 msgstr "solucionado"
 
-#: datea_mapping/models.py:101 datea_mapping/templates/ich/map_item.html:68
-#: datea_mapping/templates/ich/map_item.html:103
-#: datea_mapping/templates/ich/map_item.html:141
+#: datea_mapping/models.py:105 datea_mapping/templates/ich/map_item.html:68
+#: datea_mapping/templates/ich/map_item.html:104
+#: datea_mapping/templates/ich/map_item.html:142
 msgid "status"
 msgstr "estado"
 
-#: datea_mapping/models.py:104
+#: datea_mapping/models.py:108
 msgid "Content"
 msgstr "Contenido"
 
-#: datea_mapping/models.py:108
+#: datea_mapping/models.py:112
 msgid "Position"
 msgstr "Posición"
 
-#: datea_mapping/models.py:109
+#: datea_mapping/models.py:113
 msgid "Address"
 msgstr "Dirección"
 
-#: datea_mapping/models.py:183
+#: datea_mapping/models.py:188
 msgid "/reports/"
 msgstr "/dateos/"
 
-#: datea_mapping/models.py:189
+#: datea_mapping/models.py:194
 msgid "Map Item"
 msgstr "Item de mapa"
 
-#: datea_mapping/models.py:190 datea_mapping/models.py:199
+#: datea_mapping/models.py:195 datea_mapping/models.py:204
 msgid "Map Items"
 msgstr "Items de mapa"
 
-#: datea_mapping/models.py:200 datea_mapping/models.py:215
+#: datea_mapping/models.py:205 datea_mapping/models.py:220
 msgid "Response"
 msgstr "Respuesta"
 
-#: datea_mapping/models.py:216
+#: datea_mapping/models.py:221
 msgid "Responses"
 msgstr "Respuestas"
 
@@ -731,7 +733,7 @@ msgid "Zoom in"
 msgstr "Zoom"
 
 #: datea_mapping/templates/ich/map_item.html:85
-#: datea_mapping/templates/ich/map_item.html:111
+#: datea_mapping/templates/ich/map_item.html:112
 msgid "open in map"
 msgstr "abrir en mapa"
 
@@ -740,91 +742,110 @@ msgid "edit"
 msgstr "editar"
 
 #: datea_mapping/templates/ich/map_item.html:96
+#: datea_mapping/templates/ich/map_item_form.html:205
+#: datea_mapping/templates/ich/mapping_form.html:186
+msgid "delete"
+msgstr "borrar"
+
+#: datea_mapping/templates/ich/map_item.html:97
 #: datea_mapping/templates/ich/mapping_tab_map_items.html:7
 msgid "Create new report"
 msgstr "Crear Dateo"
 
-#: datea_mapping/templates/ich/map_item.html:98
+#: datea_mapping/templates/ich/map_item.html:99
 msgid "back"
 msgstr "regresar"
 
 #: datea_mapping/templates/ich/map_item_form.html:9
-#: datea_mapping/templates/ich/map_item_form.html:102
+#: datea_mapping/templates/ich/map_item_form.html:101
 #: datea_mapping/templates/ich/mapping_tab_start.html:24
 msgid "report"
 msgstr "dateo"
 
-#: datea_mapping/templates/ich/map_item_form.html:28
-#: datea_mapping/templates/ich/map_item_form.html:73
-#: datea_mapping/templates/ich/map_item_form.html:92
+#: datea_mapping/templates/ich/map_item_form.html:27
+#: datea_mapping/templates/ich/map_item_form.html:72
+#: datea_mapping/templates/ich/map_item_form.html:91
 msgid "Step"
 msgstr "Paso"
 
-#: datea_mapping/templates/ich/map_item_form.html:28
+#: datea_mapping/templates/ich/map_item_form.html:27
 msgid "fill the following fields"
 msgstr "llena los siguientes campos"
 
-#: datea_mapping/templates/ich/map_item_form.html:32
+#: datea_mapping/templates/ich/map_item_form.html:31
 msgid "Select the apropiate category"
 msgstr "Selecciona la categoría apropiada"
 
-#: datea_mapping/templates/ich/map_item_form.html:42
+#: datea_mapping/templates/ich/map_item_form.html:41
 msgid "Give a description"
 msgstr "Descripción"
 
-#: datea_mapping/templates/ich/map_item_form.html:49
+#: datea_mapping/templates/ich/map_item_form.html:48
 msgid "Add images (optional)"
 msgstr "Añade imágenes (opcional)"
 
-#: datea_mapping/templates/ich/map_item_form.html:56
-#: datea_mapping/templates/ich/map_item_form.html:83
+#: datea_mapping/templates/ich/map_item_form.html:55
+#: datea_mapping/templates/ich/map_item_form.html:82
 #: templates/ich/pagination.html:16
 msgid "next"
 msgstr "siguiente"
 
-#: datea_mapping/templates/ich/map_item_form.html:67
+#: datea_mapping/templates/ich/map_item_form.html:66
 msgid "has no location"
 msgstr "no tiene ubicación"
 
-#: datea_mapping/templates/ich/map_item_form.html:69
+#: datea_mapping/templates/ich/map_item_form.html:68
 msgid "search location"
 msgstr "buscar lugar"
 
-#: datea_mapping/templates/ich/map_item_form.html:73
+#: datea_mapping/templates/ich/map_item_form.html:72
 msgid "locate your report"
 msgstr "ubica tu dateo"
 
-#: datea_mapping/templates/ich/map_item_form.html:80
-#: datea_mapping/templates/ich/map_item_form.html:99
+#: datea_mapping/templates/ich/map_item_form.html:79
+#: datea_mapping/templates/ich/map_item_form.html:98
 #: templates/ich/pagination.html:12
 msgid "previous"
 msgstr "anterior"
 
-#: datea_mapping/templates/ich/map_item_form.html:92
+#: datea_mapping/templates/ich/map_item_form.html:91
 msgid "Verify your data"
 msgstr "Verifica tus datos"
 
-#: datea_mapping/templates/ich/map_item_form.html:119
-#: datea_mapping/templates/ich/map_item_form.html:125
-#: datea_mapping/templates/ich/map_item_form.html:146
+#: datea_mapping/templates/ich/map_item_form.html:118
+#: datea_mapping/templates/ich/map_item_form.html:124
+#: datea_mapping/templates/ich/map_item_form.html:145
 msgid "change"
 msgstr "cambiar"
 
-#: datea_mapping/templates/ich/map_item_form.html:159
+#: datea_mapping/templates/ich/map_item_form.html:158
 msgid "Thank you!"
 msgstr "¡Gracias!"
 
-#: datea_mapping/templates/ich/map_item_form.html:163
+#: datea_mapping/templates/ich/map_item_form.html:162
 msgid "Your report has been successfully submitted."
 msgstr "Tu dateo se ha publicado exitosamente."
 
-#: datea_mapping/templates/ich/map_item_form.html:167
+#: datea_mapping/templates/ich/map_item_form.html:166
 msgid "Now you can share it"
 msgstr "Ahora puedes compartirlo"
 
-#: datea_mapping/templates/ich/map_item_form.html:188
+#: datea_mapping/templates/ich/map_item_form.html:187
 msgid "See my report"
 msgstr "Ver mi dateo"
+
+#: datea_mapping/templates/ich/map_item_form.html:196
+msgid "Are you sure you want to delete this report?"
+msgstr "Seguro que quieres borrar este dateo?"
+
+#: datea_mapping/templates/ich/map_item_form.html:199
+msgid "This action cannot be undone."
+msgstr "Esta acción es irreversible."
+
+#: datea_mapping/templates/ich/map_item_form.html:203
+#: datea_mapping/templates/ich/mapping_form.html:184
+msgid "cancel"
+msgstr "Cancelar"
 
 #: datea_mapping/templates/ich/map_item_response.html:8
 msgid "New reply"
@@ -852,11 +873,11 @@ msgstr "No seencontraron resultados. Revisa los filtros acá arriba."
 msgid "Date"
 msgstr "Fecha"
 
-#: datea_mapping/templates/ich/mapping_admin.html:90
+#: datea_mapping/templates/ich/mapping_admin.html:91
 msgid "New Reply"
 msgstr "Nueva respuesta"
 
-#: datea_mapping/templates/ich/mapping_admin.html:100
+#: datea_mapping/templates/ich/mapping_admin.html:101
 msgid "Status"
 msgstr "Estado"
 
@@ -891,6 +912,15 @@ msgstr ""
 #: datea_mapping/templates/ich/mapping_form.html:155
 msgid "Item Categories"
 msgstr "Categorías de Ítems"
+
+#: datea_mapping/templates/ich/mapping_form.html:177
+msgid "Are you sure you want to delete this action?"
+msgstr "Seguro que quieres borrar esta acción?"
+
+#: datea_mapping/templates/ich/mapping_form.html:180
+msgid ""
+"All reports, comments, votes etc will be deleted. This cannot be undone!"
+msgstr "Todos los dateos, comentarios, apoyos etc serán borrados. Esta acción es irreversible!"
 
 #: datea_mapping/templates/ich/mapping_sidebar_main.html:10
 #: datea_mapping/templates/ich/mapping_sidebar_main.html:11
@@ -1156,7 +1186,7 @@ msgstr "Anónimo"
 msgid "support"
 msgstr "apoyar"
 
-#: templates/site-base.html:13 templates/site-base.html.py:44
+#: templates/site-base.html:11 templates/site-base.html.py:44
 msgid "Home"
 msgstr "Inicio"
 
@@ -1420,5 +1450,5 @@ msgstr "Regístrate para obtener una cuenta"
 msgid "Or you can register an account here at Datea:"
 msgstr "O puedes registrar una cuenta aquí en Datea:"
 
-#~ msgid "profile/"
-#~ msgstr "perfil/"
+msgid "profile/"
+msgstr "perfil/"
