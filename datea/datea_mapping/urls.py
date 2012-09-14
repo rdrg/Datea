@@ -14,4 +14,6 @@ urlpatterns = patterns("datea.datea_mapping.views",
     # png graphic generation for map clusters (requires imagemagick convert)
     url(r"^png/piecluster$", 'get_pie_cluster'),
     url("^png/svgcircle", 'get_circle'),
+    
+    url("^mapping_test.html", 'get_mapping_test')
 )

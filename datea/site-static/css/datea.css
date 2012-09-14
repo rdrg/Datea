@@ -2695,10 +2695,13 @@ body .olwidgetPopupCloseBox {
 }
 
 .data-view-body {
+  position: relative;
   z-index: 10;
 }
 
 .data-view-category-leyend {
+  position: relative;
+  z-index: 1;
   padding: 10px 0;
   list-style: none;
   border-bottom: 1px solid #7f7f7f;
@@ -2743,6 +2746,11 @@ body .olwidgetPopupCloseBox {
   padding-right: 6px;
   margin-left: 21px;
   font-size: 12px;
+}
+
+.data-view-filters {
+  position: relative;
+  z-index: 1;
 }
 
 .mapping-filters {

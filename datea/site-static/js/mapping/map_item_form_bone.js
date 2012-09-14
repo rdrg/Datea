@@ -137,7 +137,7 @@ window.Datea.MapItemFormView = Backbone.View.extend({
 		Datea.modal_view.$el.on('shown',function(){
 			if (self.step == 2) {
 				if (typeof(self.map_view != 'undefined')) {
-					self.map_view.map_and_layer.map.updateSize();
+					self.map_view.map.updateSize();
 				}
 			}
 		});
@@ -170,7 +170,7 @@ window.Datea.MapItemFormView = Backbone.View.extend({
 			var full_url = get_base_url() + this.model.get('url');
 			var context = {
 				'id': this.model.get('id'),
-				'success_msg': this.options.mappingModel.get('"report_success_message'),
+				'success_msg': this.options.mappingModel.get('report_success_message'),
 				'full_url': full_url,
 				'hashtag': this.options.mappingModel.get('hashtag'),
 				'tweet_text': this.model.get('extract'),
@@ -231,29 +231,46 @@ window.Datea.MapItemPointFieldView = Backbone.View.extend({
 	
 	render: function () {
 		this.$el.html( ich.map_edit_point_tpl());
-		var boundaryData;
-		if (this.options.mappingObject && this.options.mappingObject.attributes.boundary) {
-			boundaryData = this.options.mappingObject.get('position');
-		}
-		this.map_and_layer = Datea.CreateEditablePointMap(
-			'map_edit_point', 
+	    
+	    this.pointLayer = new Datea.olwidget.EditableLayer(
 			this.model, 
 			'position', 
+			{"name": gettext("Position")}, 
 			this.options.mappingModel.get('center'), 
 			this.options.mappingModel.get('boundary')
 		);
+	    
+	    var $mapDiv = $('#map_edit_point'); 
+	    this.map = new Datea.olwidget.Map('map_edit_point', [this.pointLayer], 
+		    { "layers": ['google.streets', 'google.hybrid'],
+		      "mapDivStyle": {'width': $mapDiv.css('width'), 'height': $mapDiv.css('height')},
+		      "overlayStyle": {
+		      	"externalGraphic": "/static/openlayers-dev/img/marker.png", 
+		      	"graphicHeight": 21, 
+		      	"graphicWidth": 16, 
+		      	"graphicOpacity": 1
+		      },
+		      'mapOptions': {
+		      	"controls" : ['LayerSwitcher', 'Navigation', 'PanZoom', 'Attribution'],
+		      	'numZoomLevels': 20,
+		      }
+		    }
+		);
+		this.pointLayer.initCenter();
+		this.pointLayer.setEditOn();
+		
     	return this;
 	},
 	
 	set_model: function(model, zoom_bounds) {
-		this.map_and_layer.layer.mapModel = model;
-		this.map_and_layer.layer.destroyFeatures();
-		this.map_and_layer.layer.readWKT(zoom_bounds);
+		this.pointLayer.layer.mapModel = model;
+		this.pointLayer.layer.destroyFeatures();
+		this.pointLayer.readModel(zoom_bounds);
 	},
 	
 	clean_up: function () {
-		this.map_and_layer.map.destroy();
-		this.map_and_layer.layer.destroy();
+		this.map.destroy();
+		this.pointLayer.destroy();
         this.$el.unbind();
         this.$el.remove();
     }
