@@ -1041,7 +1041,6 @@ olwidget.EditableLayer = OpenLayers.Class(olwidget.BaseVectorLayer, {
         
         // if adding point -> pan to point center
         if (this.opts.geometry == 'point'){
-        	console.log("event");
         	var center = new OpenLayers.LonLat( event.feature.geometry.x, event.feature.geometry.y);
         	this.map.panTo(center);
         }
@@ -1083,7 +1082,6 @@ olwidget.EditableLayer = OpenLayers.Class(olwidget.BaseVectorLayer, {
     },
     
     featureToModel: function(feature) {
-    	console.log("hey2");
         if (this.opts.isCollection) {
             this.numGeom = feature.length;
         } else {
@@ -1357,7 +1355,7 @@ olwidget.EditableLayerSwitcher = OpenLayers.Class(OpenLayers.Control.LayerSwitch
         }
 
         // TODO: i18n
-        this.buildInput("none", !this.currentlyEditing, null);
+        this.buildInput(gettext("none"), !this.currentlyEditing, null);
 
         for (var i = 0; i < this.map.layers.length; i++) {
             var layer = this.map.layers[i];

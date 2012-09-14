@@ -2343,6 +2343,12 @@ button.btn.dropdown-toggle:hover span.caret {
   display: none !important;
 }
 
+.layersDiv .labelSpan {
+  display: inline !important;
+  margin-left: 7px;
+  color: #efefef;
+}
+
 /* POPUP OLWIDGET OVERRIDE */
 
 body {
