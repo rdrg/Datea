@@ -153,9 +153,9 @@ def save_image_api(request):
 
         postfiles = request.FILES
 
-    #form = ImageUploadForm(request.POST, request.FILES)
+    form = ImageUploadForm(request.POST, request.FILES)
 
-    #if form.is_valid():
+    if form.is_valid():
         
         # ADD DATEA IMAGE INSTANCE To EXISTING OBJECT
         #if form.cleaned_data['object_id'] and form.cleaned_data['object_type'] and form.cleaned_data['object_field']:
@@ -255,7 +255,8 @@ def save_image_api(request):
              
     else:
         data = simplejson.dumps({'ok': False, 'message': form.errors})
-    
+        print form.errors
+
     context = Context({'data': data})
     tpl = Template('<textarea data-type="application/json">{{ data|safe }}</textarea>')
        
