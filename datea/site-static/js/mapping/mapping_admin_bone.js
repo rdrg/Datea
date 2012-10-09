@@ -230,7 +230,7 @@ window.Datea.MapItemAdminView = Backbone.View.extend({
 		
 		// map
 		if (this.model.get('position')) {
-			var itemLayer = new olwidget.DateaMainMapItemLayer(
+			var itemLayer = new Datea.olwidget.InfoLayer(
 					this.options.mapping_model, {'models': [this.model]},
 					{'name': 'Aportes', 'cluster': true}
 				);
@@ -239,7 +239,7 @@ window.Datea.MapItemAdminView = Backbone.View.extend({
 				'defaultZoom': 12,
 				'mapDivStyle': {'width': '320px', 'height': '240px'},
 			}
-			var map = new olwidget.DateaMainMap("item-map-"+this.model.get('id'), [itemLayer], mapOptions);
+			var map = new Datea.olwidget.Map("item-map-"+this.model.get('id'), [itemLayer], mapOptions);
 		}
 		
 		// images

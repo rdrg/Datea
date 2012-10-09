@@ -152,7 +152,6 @@ window.Datea.MappingDataView = Backbone.View.extend({
 
 window.Datea.MappingDataViewMap = Backbone.View.extend({
 	
-	
 	events: {
 		'click .popup-zoom': 'popup_zoom',
 	},
@@ -175,14 +174,14 @@ window.Datea.MappingDataViewMap = Backbone.View.extend({
 			this.map.updateSize();
 			this.map.initCenter();
 		}else{
-			this.itemLayer = new olwidget.DateaMainMapItemLayer(
+			this.itemLayer = new Datea.olwidget.InfoLayer(
 				this.mapModel, this.options.render_items,
 				{'name': 'Aportes', 'cluster': true}
 			);
 			
 			// BUILD MAP OPTIONS
 			var mapOptions = {
-				"layers": ['google.streets'],
+				"layers": ['google.streets', 'google.hybrid'],
 				'defaultZoom': 12,
 			}
 			if (this.mapModel.get('center') && this.mapModel.get('center').coordinates) {
@@ -193,7 +192,7 @@ window.Datea.MappingDataViewMap = Backbone.View.extend({
 				mapOptions.defaultBoundary = this.mapModel.get('boundary');
 			}
 			
-			this.map = new olwidget.DateaMainMap("map-data-view", [this.itemLayer], mapOptions);
+			this.map = new Datea.olwidget.Map("map-data-view", [this.itemLayer], mapOptions);
 		}
 	},
 	

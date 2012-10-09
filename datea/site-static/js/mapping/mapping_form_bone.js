@@ -183,21 +183,21 @@ window.Datea.MapEditMultiLayerView = Backbone.View.extend({
 	render: function(){
 		this.$el.html( ich.mapping_edit_boundary_tpl());
 		
-		var map = new olwidget.Map('map_edit_boundary', [
-        	new olwidget.DateaEditableMultiLayer( this.options.mapModel, 'center', 
+		var map = new Datea.olwidget.Map('map_edit_boundary', [
+        	new Datea.olwidget.EditableLayer( this.options.mapModel, 'center', 
         		{
-        		 'name': gettext("Center"), 'geometry': 'point', 'hideTextarea': false, 
+        		 'name': gettext("Center"), 'geometry': 'point', 
         		 'overlayStyle': {'fillColor': "#ff0000", 'strokeColor': "#ff0000"},  
         		}
         	),
-        	new olwidget.DateaEditableMultiLayer( this.options.mapModel, 'boundary', 
-        		{'name': gettext("Boundary"), 'geometry': 'polygon', 'hideTextarea': false,
+        	new Datea.olwidget.EditableLayer( this.options.mapModel, 'boundary', 
+        		{'name': gettext("Boundary"), 'geometry': 'polygon',
         		 'overlayStyle': {'fillColor': "#ecff00", 'strokeColor': "#ecff00"},  
   				}
         	),
     	], { 
     		'overlayStyle': { 'fillColor': "#ff0000" }, 
-    		'layers': ['google.streets'],
+    		'layers': ['google.streets', 'google.hybrid'],
     		'mapDivStyle': {
                 'width': '100%',
                 'height': '550px'

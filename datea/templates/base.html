@@ -31,9 +31,9 @@
 		<link href="{{ STATIC_URL }}timepicker/compiled/timepicker.css" rel="stylesheet">
 		
 		<link href="{{ STATIC_URL }}css/datea.css" rel="stylesheet">
-		<link rel="stylesheet" href="{{ STATIC_URL }}openlayers-dev/theme/default/style.css" />
-		<link rel="stylesheet" href="{{ STATIC_URL }}openlayers-dev/theme/default/google.css" />
-		<link rel="stylesheet" href="{{ STATIC_URL }}olwidget/css/olwidget.css" />
+		{#<link rel="stylesheet" href="{{ STATIC_URL }}js/datea_openlayers/theme/default/style.css" />#}
+		{#<link rel="stylesheet" href="{{ STATIC_URL }}js/datea_openlayers/theme/default/google.css" />#}
+		<link rel="stylesheet" href="{{ STATIC_URL }}js/datea_olwidget/css/olwidget.css" />
 		{% endcompress %}
 			
 		{% block extra_head %}{% endblock %}
@@ -124,9 +124,9 @@
   		
   		{# external js libs #}
   		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
-  		<script src="{{STATIC_URL}}openlayers-2.11/OpenLayers.js"></script>
+  		<script src="{{STATIC_URL}}js/datea_openlayers/OpenLayers.datea-web.js"></script>
+  		{#<script src="{{STATIC_URL}}OpenLayers-2.12/OpenLayers.debug.js"></script>#}
   		<script type="text/javascript">OpenLayers.ImgPath = "/static/img/openlayers/";</script>
-  		<script src="{{STATIC_URL}}openlayers-2.11/ol_google_patch_for_2.11.js"></script>
   		{#<script src='http://openstreetmap.org/openlayers/OpenStreetMap.js'></script>#}
   		
   		{% load i18n %}{% get_current_language as lang %}
@@ -139,6 +139,7 @@
   		<script type="text/javascript" src="{% url django.views.i18n.javascript_catalog %}"></script>  	
   	
   		{% compress js %}
+  		
   		<script src="{{ STATIC_URL }}js/libs/jquery-1.7.2.min.js"></script>
   		<script src="{{ STATIC_URL }}js/libs/modernizr.custom.05031.js"></script>
   		<script src="{{ STATIC_URL }}js/libs/bootstrap.min.js"></script>
@@ -157,11 +158,8 @@
   		{% endcompress %}
 		{# somehow this must get compressed into 2 files, otherwise strange errors occur #}
 		{% compress js %}
-  		{# <script src="{{ STATIC_URL }}openlayers-dev/OpenLayers.js"></script> #}
-  		<script src="{{ STATIC_URL }}olwidget/js/olwidget.js"></script>
-  		<script src="{{ STATIC_URL }}olwidget/js/datea_editable_multi_layer.js"></script>
-  		<script src="{{ STATIC_URL }}olwidget/js/datea_editable_point_layer.js"></script>
-  		<script src="{{ STATIC_URL }}olwidget/js/datea_mapping_main_map.js"></script>
+  		<script src="{{ STATIC_URL }}js/datea_olwidget/datea_olwidget.js"></script>
+  		
   		<script src="{{ STATIC_URL }}js/ajax_load.js"></script>
   		
   		{# BOOTSTRAP ADD-ONS #}

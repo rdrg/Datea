@@ -66,3 +66,8 @@ def get_circle(request):
     img_path = get_svg_circle(radius, color)
     img_data = open(img_path, "rb").read()
     return HttpResponse(img_data, mimetype="image/png")
+
+
+def get_mapping_test(request):
+    render_to_response('test/mapping.html')
+
