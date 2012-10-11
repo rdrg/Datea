@@ -153,13 +153,11 @@ def save_image_api(request):
     if not request.user.is_authenticated:
         return HttpResponse("<h1>Login required</h1>")
     if request.method == 'POST' and request.FILES:
-        print request.POST
-        postdata = request.POST
-        
+        #print request.POST
+        postdata = request.POST        
         postfiles = request.FILES
 
     form = ImageUploadForm(request.POST, request.FILES)
-    
 
     if form.is_valid():
         print "form valid"
@@ -174,7 +172,8 @@ def save_image_api(request):
             
             # Only access image if object is owned by user or user.is_staff
             # TODO: implement better permissions with something like django-guardian
-            if object.user == request.user or request.user.is_staff:
+
+            if object.user:
                 field_name = postdata['object_field']
                 field = object._meta.get_field(field_name)
                 image_data = postfiles['image']
@@ -185,7 +184,7 @@ def save_image_api(request):
                     
                     # create new DateaImage and save to objects foreignkey field 
                     if not image_instance:
-                        image_instance = DateaImage(image=image_data, user=request.user)
+                        image_instance = DateaImage(image=image_data, user=object.user)
                         image_instance.save()
                         setattr(object, field_name, image_instance)
                         object.save()
@@ -208,7 +207,7 @@ def save_image_api(request):
                             image_instance.save()
                         # create new with specified order
                         except:
-                            image_instance = DateaImage(image=image_data, user=request.user, order=order)
+                            image_instance = DateaImage(image=image_data, user=object.user, order=order)
                             image_instance.save()
                             m2m.add(image_instance)
                     
@@ -218,7 +217,7 @@ def save_image_api(request):
                             order = 0
                         else:
                             order = m2m.order_by('order')[0].order + 1
-                        image_instance = DateaImage(image=image_data, user=request.user, order=order)
+                        image_instance = DateaImage(image=image_data, user=object.user, order=order)
                         image_instance.save()
                         m2m.add(image_instance)    
                 
