@@ -14,7 +14,7 @@ from django.utils.text import Truncator
 from datea.datea_mapping.signals import map_item_response_created, map_item_response_updated
 
 
-class MappingResource(DateaBaseGeoResource):
+class MappingBaseResource(DateaBaseGeoResource):
     
     user = fields.ToOneField('datea.datea_api.profile.UserResource', 
             attribute='user', full=True, readonly=True)
@@ -29,11 +29,12 @@ class MappingResource(DateaBaseGeoResource):
         bundle.data['image_thumb'] = bundle.obj.get_image_thumb('image_thumb_medium')
         bundle.data['url'] = bundle.obj.get_absolute_url()
         return bundle
-    
+
+class MappingResource(MappingBaseResource):
     
     def hydrate(self, bundle):
-        # save fks by ourselves, because tastypie also saves 
-        # the related object -> we don't want that -> set to readonly
+    # save fks by ourselves, because tastypie also saves 
+    # the related object -> we don't want that -> set to readonly
         if 'category' in bundle.data and bundle.data['category']:
             bundle.obj.category_id = int(bundle.data['category']) 
         
@@ -50,7 +51,7 @@ class MappingResource(DateaBaseGeoResource):
             #preserve owner
             orig_object = DateaMapping.objects.get(pk=bundle.data['id'])
             bundle.obj.user = orig_object.user
-        
+    
         return bundle
     
     # do our own saving of related fields,
@@ -63,7 +64,6 @@ class MappingResource(DateaBaseGeoResource):
             bundle.obj.item_categories = DateaFreeCategory.objects.filter(pk__in=cats)
         return bundle
         
-        
     class Meta:
         queryset = DateaMapping.objects.all()
         resource_name = 'mapping'
@@ -72,7 +72,22 @@ class MappingResource(DateaBaseGeoResource):
         authorization = DateaBaseAuthorization()
         cache = SimpleCache(timeout=10)
         limit = 20
+        
 
+
+class MappingFullResource(MappingBaseResource):
+    
+    map_items = fields.ToManyField('datea.datea_api.mapping.MapItemResource',
+                attribute="map_items", full=True, null=True, readonly=True)   
+        
+    class Meta:
+        queryset = DateaMapping.objects.all()
+        resource_name = 'mapping_full'
+        allowed_methods = ['get']
+        authentication = ApiKeyPlusWebAuthentication()
+        authorization = DateaBaseAuthorization()
+        cache = SimpleCache(timeout=10)
+        limit = 1
 
         
 class MapItemResource(DateaBaseGeoResource):

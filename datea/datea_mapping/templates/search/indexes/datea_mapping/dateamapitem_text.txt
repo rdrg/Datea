@@ -1,0 +1,4 @@
+{{object.content}}
+{% if object.address %}{{object.address}}{% endif %}
+{{object.category.name}}
+{{object.user.username}}

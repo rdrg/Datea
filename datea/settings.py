@@ -175,6 +175,7 @@ INSTALLED_APPS = (
     # geodjango / location
     "django.contrib.gis",
     'olwidget',
+    'haystack',
     
     # DATEA
     'datea',
@@ -190,6 +191,7 @@ INSTALLED_APPS = (
     'datea.datea_api',
     'datea.datea_comment',
     'datea.datea_menu',
+    
 )
 
 # A sample logging configuration. The only tangible logging
@@ -220,6 +222,19 @@ LOGGING = {
         },
     }
 }
+
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        'ENGINE': 'haystack.backends.solr_backend.SolrEngine',
+        'URL': 'http://127.0.0.1:8983/solr'
+        # ...or for multicore.s..
+        # 'URL': 'http://127.0.0.1:8983/solr/mysite',
+    },
+}
+#HAYSTACK_LIMIT_TO_REGISTERED_MODELS = False
+#HAYSTACK_SITECONF = 'datea.search_sites'
+#HAYSTACK_SEARCH_ENGINE='solr'
+#HAYSTACK_SOLR_URL = 'http://127.0.0.1:8983/solr'
 
 
 AUTHENTICATION_BACKENDS = [

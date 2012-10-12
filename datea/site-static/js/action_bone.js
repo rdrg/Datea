@@ -7,7 +7,7 @@ window.Datea.Action = Backbone.Model.extend();
 // Action Collection
 window.Datea.ActionCollection = Backbone.Collection.extend({
 	model: Datea.Action,
-	url: '/api/v1/action/',
+	url: '/api/v1/action/search',
 });
 
 
@@ -72,6 +72,7 @@ window.Datea.MyActionListView = Backbone.View.extend({
     
     events: {
     	'click .get-page': 'get_page',
+    	'submit .action-search-form': 'search'
     },
  
     initialize: function () {
@@ -104,7 +105,7 @@ window.Datea.MyActionListView = Backbone.View.extend({
     		if (this.model.find(function (action){
     				return action.get('user') == Datea.my_user.get('resource_uri');
     			})) {
-    			this.filter_options.push({value: 'created_actions', name: gettext('actions created')});
+    			this.filter_options.push({value: 'own_actions', name: gettext('own actions')});
     		}
     	}
         this.filter_options.push({value: 'featured_actions', name: gettext('featured actions')});
@@ -135,52 +136,34 @@ window.Datea.MyActionListView = Backbone.View.extend({
 		this.$el.find('.filters').html(this.action_filter.render().el);
     },
     
-    fetch_actions: function () {
+    fetch_actions: function (page) {
+    	
+    	if (typeof(page) != 'undefined') this.page = page; 
+    	
     	Datea.show_big_loading(this.$el.find('#action-list'));
-    	if (this.selected_mode == 'my_actions' || this.selected_mode == 'created_actions') {
-    		
-    		var follows = Datea.my_user_follows.filter(function(fol){
-	        	return fol.get('object_type') == 'dateaaction';
-	        });
-	        if (typeof(follows) != 'undefined' && follows.length > 0) {
-	        	var ids = [];
-	        	for (i in follows) {
-	        		ids.push(follows[i].get('object_id'));
-	        	}
-	        	this.model.fetch({
-	        		data: {'id__in': ids.join(',')}
-	        	})	
-	        }
     	
-    	}else if (this.selected_mode == 'featured_actions') {
-    		this.model.fetch({
-    			data: {featured: 1, orderby: '-created'}
-    		});
-    		
-    	}else if (this.selected_mode == 'all_actions'){
-    		this.model.fetch({ data: {orderby: '-created'} });
+    	var params = {page: this.page + 1};
+    	
+    	switch(this.selected_mode) {
+    		case 'my_actions':
+    			params['following_user'] = Datea.my_user.get('id');
+    			break;
+    		case 'own_actions':
+    			params['user_id'] = Datea.my_user.get('id');
+    			break;
+    		case 'featured_actions':
+    			params['featured'] = 1;
+    			break;
+    		case 'all_actions':
+    			break;
     	}
-    },
-    
-    filter_items: function () {
     	
-    	if (this.selected_mode == 'my_actions') {
-    		this.render_actions = this.model.models;
-        
-        }else if (this.selected_mode == 'created_actions') {
-        	this.render_actions = this.model.filter(function(action) { return action.get('user') == Datea.my_user.get('resource_uri') });	
-        
-        }else if (this.selected_mode == 'featured_actions')  {
-        	this.render_actions = this.model.filter(function(action) { return action.get('featured')});	
-        
-        }else if (this.selected_mode == 'all_actions')  {
-        	this.render_actions = this.model.models;	
-        }
-        this.render_actions = _.sortBy(this.render_actions, function(action){
-        	if (action.get('is_active') == null) return 0;
-        	else if (action.get('is_active')) return 0;
-        	else return 1;
-        })  
+    	var search = jQuery.trim($('#search-action-input', this.$el).val());
+    	if (search != '') {
+    		params['q'] = search;
+    	}
+    	
+    	this.model.fetch({ data: params});
     },
       
     render_page: function(page) {
@@ -192,21 +175,17 @@ window.Datea.MyActionListView = Backbone.View.extend({
     	}
     	
     	var add_pager = false;
-    	if (this.render_actions.length > this.items_per_page) {
-    		var items = _.rest(this.render_actions, this.items_per_page*this.page);
-       		items = _.first(items, this.items_per_page);
+    	if (this.model.meta.total_count > this.model.meta.limit) {
        		add_pager = true;  
-    	}else{
-    		items = this.render_actions;
     	}
     	
-    	_.each(items, function (item) {
+    	this.model.each(function (item) {
             	$list.append(new Datea.ActionListItemView({model:item}).render().el);
         }, this);
         
         var $pager_div = this.$el.find('.action-pager');
 		if (add_pager) {
-			$pager_div.html( this.pager_view.render_for_page(this.page,this.render_actions.length).el);
+			$pager_div.html( this.pager_view.render_for_page(this.page, this.models.meta.total_count).el);
 			$pager_div.removeClass('hide');
 		}else{
 			$pager_div.addClass('hide');
@@ -215,15 +194,20 @@ window.Datea.MyActionListView = Backbone.View.extend({
     
     get_page: function(ev) {
     	ev.preventDefault();
-    	var page = parseInt($(ev.currentTarget).data('page'));
-		this.render_page(page);
+    	if (typeof(ev) != 'undefined') this.page = parseInt($(ev.currentTarget).data('page'));
+    	this.fetch_actions();
+		this.$el.find('.scroll-area').scrollTop(0);
+    },
+    
+    search: function (ev) {
+    	ev.preventDefault();
+    	this.fetch_actions();
 		this.$el.find('.scroll-area').scrollTop(0);
     },
     
     reset_event: function(ev) {
     	this.render_filter();
-    	this.filter_items();
-    	this.render_page(0);
+    	this.render_page();
     }
     
 });
@@ -237,6 +221,7 @@ window.Datea.ProfileActionListView = Backbone.View.extend({
     
     events: {
     	'click .get-page': 'get_page',
+    	'submit .form-search': 'search_actions',
     },
     
     initialize: function () {
