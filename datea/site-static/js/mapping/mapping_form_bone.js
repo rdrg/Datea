@@ -103,6 +103,7 @@ window.Datea.MappingFormView = Backbone.View.extend({
 			var set_data = {
 				name: $('[name="name"]', this.$el).val(),
 				short_description: $('[name="short_description"]', this.$el).val(),
+				published: $('[name="published"]', this.$el).is(':checked'),
 				mission: $('[name="mission"]', this.$el).val(),
 				information_destiny: $('[name="information_destiny"]', this.$el).val(),
 				category: $('[name="category"]', this.$el).val(),
