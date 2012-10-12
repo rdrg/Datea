@@ -77,7 +77,7 @@ class DateaMapping(DateaAction):
             self.center.srid = self.boundary.get_srid()
         
         self.save_base()
-        super(DateaMapping, self).save(*args, **kwargs)
+        #super(DateaMapping, self).save(*args, **kwargs)
     
     def delete(self, using=None):
         self.item_categories.all().delete()
@@ -135,6 +135,9 @@ class DateaMapItem(models.Model):
     def __init__(self, *args, **kwargs):
         super(DateaMapItem, self).__init__(*args, **kwargs)
         self.__orig_published = self.published
+        
+    def published_changed(self):
+        return self.__orig_published != self.published
     
     def save(self, *args, **kwargs):
         self.update_stats()

@@ -99,6 +99,9 @@ window.Datea.MappingFormView = Backbone.View.extend({
 				return;
 			}
 			
+			// proceed to save
+			Datea.show_big_loading(this.$el);
+			
 			var hashtag = $('[name="hashtag"]', this.$el).val().replace('#','');
 			var set_data = {
 				name: $('[name="name"]', this.$el).val(),
@@ -131,7 +134,8 @@ window.Datea.MappingFormView = Backbone.View.extend({
 			var is_new = this.model.isNew();
 			var self = this;
 			
-			this.model.save(set_data,
+			this.model.set(set_data,{ silent: true});
+			this.model.save({},
 				  {
 					success: function(model, response){
 						self.model.fetch({'success': function(){

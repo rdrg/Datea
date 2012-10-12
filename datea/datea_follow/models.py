@@ -37,6 +37,7 @@ class DateaFollow(models.Model):
     # identify the followed object and it's related historyNotices
     # for example: 'dateamapitem.15'
     follow_key = models.CharField(max_length=255)
+    published = models.BooleanField(default=True)
     
     def save(self, *args, **kwargs):
         # update comment stats on voted object  
@@ -280,11 +281,12 @@ class DateaHistoryReceiver(models.Model):
 # CONNECT HISTORY NOTICES SIGNALS FOR ALL DATEA APPS!         
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-from signal_handlers import comment, follow, mapping, vote
+from signal_handlers import comment, follow, mapping, vote, action
     
 comment.connect()
 follow.connect()
 mapping.connect()
 vote.connect()
+action.connect()
     
  

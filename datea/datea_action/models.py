@@ -64,6 +64,13 @@ class DateaAction(models.Model):
     content_type = models.ForeignKey(ContentType,editable=False,null=True)
     objects = DateaActionManager()
     
+    # provide a way to know if published was changed
+    def __init__(self, *args, **kwargs):
+        super(DateaAction, self).__init__(*args, **kwargs)
+        self.__orig_published = self.published
+        
+    def published_changed(self):
+        return self.__orig_published != self.published
 
     def is_active(self):
         if not self.published:

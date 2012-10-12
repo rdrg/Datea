@@ -144,12 +144,9 @@ window.Datea.MyUserEditView = Backbone.View.extend({
 				Datea.show_big_loading(self.$el);
 			},
 			callback: function (response) {
-				console.log(self.model.urlRoot);
-				console.log(self.model.url());
 				if (response.ok) {
 					self.model.fetch({
 						success: function () {
-							alert("success");
 							Datea.hide_big_loading(self.$el);
 						}
 					});

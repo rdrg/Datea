@@ -12,7 +12,7 @@ def get_user_follows(context):
     # follow keys
     follows = []
     follow_rsc = FollowResource()
-    for f in DateaFollow.objects.filter(user=request.user):
+    for f in DateaFollow.objects.filter(user=request.user, published=True):
         f_bundle = follow_rsc.build_bundle(obj=f)
         f_bundle = follow_rsc.full_dehydrate(f_bundle)
         follows.append(follow_rsc.serialize(None, f_bundle, 'application/json'))
