@@ -425,7 +425,8 @@ olwidget.BaseVectorLayer = OpenLayers.Class(OpenLayers.Layer.Vector, {
                 "default": new OpenLayers.Style(this.opts.overlayStyle,
                     {context: this.opts.overlayStyleContext}),
                 "select": new OpenLayers.Style(this.opts.selectOverlayStyle,
-                   {context: this.opts.overlayStyleContext})
+                   {context: this.opts.overlayStyleContext}),
+                "temporary": new OpenLayers.Style({display: "none"})
             });
         }
         if (this.opts.paging === true) {

@@ -77,7 +77,7 @@ class DateaMapping(DateaAction):
             self.center.srid = self.boundary.get_srid()
         
         self.save_base()
-        #super(DateaMapping, self).save(*args, **kwargs)
+        super(DateaMapping, self).save(*args, **kwargs)
     
     def delete(self, using=None):
         self.item_categories.all().delete()
