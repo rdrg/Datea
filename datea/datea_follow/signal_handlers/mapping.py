@@ -46,6 +46,10 @@ def on_map_item_save(sender, instance, created, **kwargs):
             hitem.check_published()
             hitem.save()
         
+        # publish or unpublish all DateaFollow objects associated with this object
+        if instance.published_changed():
+            DateaFollow.objects.filter(follow_key=follow_key).update(published=instance.published)
+        
 def on_map_item_delete(sender, instance, **kwargs):
     # delete history items
     key = 'dateaaction.'+str(instance.action.pk)+'_dateamapitem.'+str(instance.pk)

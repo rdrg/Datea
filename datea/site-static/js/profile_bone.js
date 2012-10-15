@@ -3,11 +3,10 @@
 // User model
 window.Datea.User = Backbone.Model.extend({
 	urlRoot: "/api/v1/user",
-	idAttribute: 'username'
 });
 
 //++++++++++++++++++++++
-// User model
+// Profile model
 window.Datea.Profile = Backbone.Model.extend({
 	urlRoot: "/api/v1/profile",
 });
@@ -30,6 +29,7 @@ window.Datea.MyUserHeadView = Backbone.View.extend({
 	
 	initialize: function () {
         this.model.bind("change", this.render, this);
+        this.render();
     },
 	
 	render: function (eventName) {
@@ -254,7 +254,7 @@ window.Datea.ProfileView = Backbone.View.extend({
 // INIT MY USER MODELS/VIEWS FROM THE START
 Datea.init_my_user_views = function () {
 	Datea.my_user_head_view = new Datea.MyUserHeadView({ model: Datea.my_user});
-	Datea.my_user_edit_view = new Datea.MyUserEditView({ model: Datea.my_user });
+	Datea.my_user_edit_view = new Datea.MyUserEditView({ model: Datea.my_user});
 }
 
 Datea.is_logged = function () {

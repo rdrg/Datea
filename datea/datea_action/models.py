@@ -37,7 +37,7 @@ class DateaAction(models.Model):
     
     name = models.CharField(_("Name"), max_length=100)
     slug = models.SlugField(_("Slug"), max_length=30, help_text=_("A string of text as a short id for use at the url of this map (alphanumeric and dashes only"))
-    published = models.BooleanField(_("Published"), default=True)
+    published = models.BooleanField(_("Published"), default=True, help_text=_("If checked, action becomes visible to others"))
     
     # timestamps
     created = models.DateTimeField(_('created'), auto_now_add=True)
@@ -64,6 +64,13 @@ class DateaAction(models.Model):
     content_type = models.ForeignKey(ContentType,editable=False,null=True)
     objects = DateaActionManager()
     
+    # provide a way to know if published was changed
+    def __init__(self, *args, **kwargs):
+        super(DateaAction, self).__init__(*args, **kwargs)
+        self.__orig_published = self.published
+        
+    def published_changed(self):
+        return self.__orig_published != self.published
 
     def is_active(self):
         if not self.published:

@@ -5,6 +5,7 @@ Datea.show_big_loading = function ($over_el) {
 }
 
 Datea.hide_big_loading = function ($over_el) {
+	alert($over_el.find('.loading-big-bg, .loading-big-img').size());
 	$over_el.find('.loading-big-bg, .loading-big-img').remove();
 }
 

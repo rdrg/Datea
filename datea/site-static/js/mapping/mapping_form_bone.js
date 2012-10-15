@@ -99,10 +99,14 @@ window.Datea.MappingFormView = Backbone.View.extend({
 				return;
 			}
 			
+			// proceed to save
+			Datea.show_big_loading(this.$el);
+			
 			var hashtag = $('[name="hashtag"]', this.$el).val().replace('#','');
 			var set_data = {
 				name: $('[name="name"]', this.$el).val(),
 				short_description: $('[name="short_description"]', this.$el).val(),
+				published: $('[name="published"]', this.$el).is(':checked'),
 				mission: $('[name="mission"]', this.$el).val(),
 				information_destiny: $('[name="information_destiny"]', this.$el).val(),
 				category: $('[name="category"]', this.$el).val(),
@@ -130,7 +134,8 @@ window.Datea.MappingFormView = Backbone.View.extend({
 			var is_new = this.model.isNew();
 			var self = this;
 			
-			this.model.save(set_data,
+			this.model.set(set_data,{ silent: true});
+			this.model.save({},
 				  {
 					success: function(model, response){
 						self.model.fetch({'success': function(){

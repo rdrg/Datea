@@ -1691,12 +1691,27 @@ button.btn.dropdown-toggle:hover span.caret {
   -webkit-border-radius: 10px;
      -moz-border-radius: 10px;
           border-radius: 10px;
+  *zoom: 1;
+}
+
+#action-control:before,
+#action-control:after {
+  display: table;
+  content: "";
+}
+
+#action-control:after {
+  clear: both;
 }
 
 #action-control .filters .btn-dropdown-select {
   font-size: 15px;
   font-weight: bold;
   color: white;
+}
+
+#action-control .action-search-box .action-search-form {
+  margin-bottom: 0;
 }
 
 #action-list {
