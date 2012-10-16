@@ -23,7 +23,8 @@ window.Datea.MapItemFullView = Backbone.View.extend({
 	
 	initialize: function () {
 		this.model.bind('change', this.change_event, this);
-		this.model.bind('sync', this.change_event, this);
+		this.model.bind('sync', this.sync_event, this);
+		this.comments = new Datea.CommentCollection(this.model.get('comments'));
 	},
 	
 	render: function() {
@@ -57,23 +58,16 @@ window.Datea.MapItemFullView = Backbone.View.extend({
 		}
 		
 		// get replies
-		var responses = new Datea.MapItemResponseCollection();
-		var self = this;
-		responses.fetch({
-			data: {map_items__in: this.model.get('id'), order_by:'created'},
-			success: function (collection, response) {
-				if (collection.length > 0) {
-					var $replies = self.$el.find('.replies');
-					_.each(collection.models, function(model){
-						$replies.append(new Datea.MapItemResponseView({model: model}).render().el); 
-					});
-					$replies.show();
-				}
-			}
-		})
+		if (context.replies && context.replies.length  > 0) {
+			var replyCol = new Datea.MapItemResponseCollection(context.replies);
+			var $replies = self.$el.find('.replies');
+			replyCol.each(function(model){
+				$replies.append(new Datea.MapItemResponseView({model: model}).render().el); 
+			});
+			$replies.show();
+		}
 		
 		// comments
-		this.comments = new Datea.CommentCollection();
 		var self = this;
 		this.comment_view = new Datea.CommentsView({
 			el: this.$el.find('.comments'),
@@ -83,10 +77,8 @@ window.Datea.MapItemFullView = Backbone.View.extend({
 			callback: function () {
 				self.model.set({comment_count: (self.model.get('comment_count') + 1)});
 			}
-		})
-		this.comments.fetch({
-			data: {'object_type': 'dateamapitem', 'object_id': this.model.get('id'), order_by: 'created'} 
 		});
+		this.comment_view.render();
 		
 		//***************
 		// widgets
@@ -117,7 +109,11 @@ window.Datea.MapItemFullView = Backbone.View.extend({
 		return this;
 	},
 	
-	change_event: function(ev){
+	change_event: function(ev) {
+		// nothing
+	},
+	
+	sync_event: function(ev){
 		this.render();
 		init_share_buttons();
 	},

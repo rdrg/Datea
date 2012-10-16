@@ -73,7 +73,7 @@ window.Datea.CommentsView = Backbone.View.extend({
 		
 		// render comment form
 		this.comment_form = new Datea.CommentFormView({
-			el: $('.comment-form'),
+			el: this.$el.find('.comment-form'),
 			model: new Datea.Comment(),
 			model_col: this.model,
 			object_type: this.options.object_type,
