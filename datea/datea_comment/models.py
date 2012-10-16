@@ -16,9 +16,8 @@ class DateaComment(models.Model):
     published = models.BooleanField(default=True)
     
     # generic content type relation to commented object
-    # content_type = models.ForeignKey(ContentType)
-    # object_id = models.PositiveIntegerField()
-    # content_object = generic.GenericForeignKey('content_type', 'object_id')
+    #content_type = models.ForeignKey(ContentType, null=True, blank=True)
+    #content_object = generic.GenericForeignKey('content_type', 'object_id')
     
     # do we need content type relation? perhaps this is more simple and fast...
     object_type = models.CharField(_('Object Name'), max_length=50) # object typeid -> whatever
@@ -29,9 +28,15 @@ class DateaComment(models.Model):
         super(DateaComment, self).__init__(*args, **kwargs)
         self.__orig_published = self.published
     
-    
+
     def save(self, *args, **kwargs):
         self.update_stats()
+        '''
+        ctype = ContentType.objects.get(model=self.object_type.lower())
+        receiver_obj = ctype.get_object_for_this_type(pk=self.object_id)
+        if self.content_object != receiver_obj:
+            self.content_object = receiver_obj
+        '''
         super(DateaComment, self).save(*args, **kwargs)
         
     

@@ -12,6 +12,7 @@ from django.contrib.auth.models import User
 from django.utils.html import strip_tags
 from django.utils.text import Truncator
 from datea.datea_mapping.signals import map_item_response_created, map_item_response_updated
+from datea.datea_comment.models import DateaComment
 
 
 class MappingBaseResource(DateaBaseGeoResource):
@@ -100,6 +101,11 @@ class MapItemResource(DateaBaseGeoResource):
             attribute='action', null=True, full=False, readonly=True)
     user = fields.ToOneField('datea.datea_api.profile.UserResource',
             attribute="user", null=False, full=True, readonly=True)
+    replies = fields.ToManyField('datea.datea_api.mapping.MapItemResponseResource',
+            attribute='responses', null=True, full=True, readonly=True)
+    comments = fields.ToManyField('datea.datea_api.comment.CommentResource',
+            attribute=lambda bundle: DateaComment.objects.filter(object_id=bundle.obj.id, object_type='dateamapitem'),
+            null=True, full=True, readonly=True)
 
     def dehydrate(self, bundle):
         
@@ -109,6 +115,14 @@ class MapItemResource(DateaBaseGeoResource):
             bundle.data['color'] = bundle.obj.category.color
         else:
             bundle.data['color'] = bundle.obj.action.default_color
+        
+        user_data = {
+                     'username': bundle.data['user'].data['username'],
+                     'image_small': bundle.data['user'].data['profile'].data['image_small'],
+                     'url': bundle.data['user'].data['url'],
+                     'resource_uri': bundle.data['user'].data['resource_uri']
+                     }
+        bundle.data['user'] = user_data
             
         bundle.data['extract'] = Truncator( strip_tags(bundle.obj.content) ).chars(140).replace("\n",' ')
         bundle.data['url'] = bundle.obj.get_absolute_url()
@@ -165,7 +179,19 @@ class MapItemResponseResource(DateaBaseResource):
     user = fields.ToOneField('datea.datea_api.profile.UserResource',
             attribute="user", null=False, full=True, readonly=True)
     map_items = fields.ToManyField('datea.datea_api.mapping.MapItemResource',
-            attribute='map_items', null=True, full=True, readonly=True)
+            attribute='map_items', null=True, full=False, readonly=True)
+    
+    def dehydrate(self, bundle):
+    
+        user_data = {
+                     'username': bundle.data['user'].data['username'],
+                     'image_small': bundle.data['user'].data['profile'].data['image_small'],
+                     'url': bundle.data['user'].data['url'],
+                     'resource_uri': bundle.data['user'].data['resource_uri'] 
+                     }
+        bundle.data['user'] = user_data
+        
+        return bundle
     
     def hydrate(self, bundle):
         if bundle.request.method == 'POST':

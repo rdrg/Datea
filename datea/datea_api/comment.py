@@ -12,6 +12,17 @@ class CommentResource(DateaBaseResource):
     user = fields.ToOneField('datea.datea_api.profile.UserResource', 
             attribute='user', full=True, readonly=True)
     
+    def dehydrate(self, bundle):
+        
+        user_data = {
+                     'username': bundle.data['user'].data['username'],
+                     'image_small': bundle.data['user'].data['profile'].data['image_small'],
+                     'url': bundle.data['user'].data['url'],
+                     'resource_uri': bundle.data['user'].data['resource_uri'] 
+                     }
+        bundle.data['user'] = user_data
+        return bundle
+    
     def hydrate(self,bundle):
         
         if bundle.request.method == 'PUT':
