@@ -18,8 +18,8 @@ window.Datea.MappingDataView = Backbone.View.extend({
 	
 	render: function (eventName) {
 		
-		this.$el.html( ich.mapping_data_view_tpl( this.mappingModel.toJSON()));
-		
+		var context = this.mappingModel.toJSON();
+		this.$el.html( ich.mapping_data_view_tpl(context));
 		this.filter_items();
 		
 		// add map

@@ -23,8 +23,7 @@ Datea.AppRouter = Backbone.Router.extend({
  	/////////////////////////////  HOME ///////////////////////////////
  
     home: function (params) {
-
-    	clear_admin_controls();
+		screen_mode('normal');
     	this.my_profile_home_view = new Datea.MyProfileHomeView({model:Datea.my_user});
         $('#main-content-view').html(this.my_profile_home_view.render().el);
         init_share_buttons();
@@ -41,7 +40,7 @@ Datea.AppRouter = Backbone.Router.extend({
     },
     
     fb_login_redirect:function () {
-    	clear_admin_controls();
+    	screen_mode('normal');
     	this.navigate('/', {trigger: true, replace: true});
     },
     
@@ -49,13 +48,13 @@ Datea.AppRouter = Backbone.Router.extend({
     
     // new action homeview -> select which action type to create
     action_start: function () {
-    	clear_admin_controls();
+    	screen_mode('normal');
     	$('#main-content-view').html(new Datea.ActionStartView().render().el);
     },
     
     // create new action (mapping or whatever)
     action_create: function (action_type) {
-    	clear_admin_controls();
+    	screen_mode('normal');
     	if (action_type == gettext('mapping')) {
     		$('#main-content-view').removeAttr('style');
 			$('#main-content-view').html( ich.fix_base_content_single_tpl());
@@ -68,12 +67,11 @@ Datea.AppRouter = Backbone.Router.extend({
     //////////////////////// PROFILES ////////////////////////////////
     
     open_user_profile: function (user_id) {
-
+		screen_mode('normal');
     	if (Datea.is_logged() && user_id == Datea.my_user.get('id')) {
     		this.navigate('/', {trigger: true});
     	}else{
     		Datea.show_big_loading($('#main-content-view'));
-    		clear_admin_controls();
     		var user = new Datea.User({id: user_id});
     		var profile_view = new Datea.ProfileView({model: user});
     		user.fetch({
@@ -90,7 +88,7 @@ Datea.AppRouter = Backbone.Router.extend({
     
     // open a mapping tab on the mapping action
     open_mapping_tab: function(map_id, tab_id, method_id) {
-    	
+    	screen_mode('wide');
     	var params = {
     		tab_id: tab_id,
 			method_id: method_id,
@@ -107,7 +105,6 @@ Datea.AppRouter = Backbone.Router.extend({
     	}else{
     		Datea.show_big_loading($('#main-content-view'));
     		var self = this;
-    		clear_admin_controls();
     		this.build_mapping_main_view(map_id, function () {
     			self.mapping_view.render_tab(params);
     		});
@@ -116,7 +113,7 @@ Datea.AppRouter = Backbone.Router.extend({
     
     // open a single map item in detail view
     open_mapping_item: function(map_id, item_id) {
-
+		screen_mode('wide');
     	var params = {
     		tab_id: 'reports',
 			item_id: item_id,
@@ -131,7 +128,6 @@ Datea.AppRouter = Backbone.Router.extend({
     	}else{
     		Datea.show_big_loading($('#main-content-view'));
     		var self = this;
-    		clear_admin_controls();
     		this.build_mapping_main_view(map_id, function () {
     			self.mapping_view.render_item(params);
     		})
@@ -213,6 +209,7 @@ Datea.AppRouter = Backbone.Router.extend({
     },
     
     open_mapping_edit: function(map_id) {
+    	screen_mode('wide');
     	// check if mapping already exists
     	if (this.mapping_model && this.mapping_model.get('id') == map_id) {
     		// edit view created
@@ -227,7 +224,6 @@ Datea.AppRouter = Backbone.Router.extend({
     		$('#main-content-view').removeAttr('style');
     	}else{
     		var self = this;
-    		clear_admin_controls();
     		this.build_mapping_edit_view(map_id, function () {
     			self.mapping_edit_view.render();
     		})
@@ -236,6 +232,7 @@ Datea.AppRouter = Backbone.Router.extend({
     },
 
     open_mapping_admin: function(map_id) {
+    	screen_mode('wide');
     	// check if mapping already exists
     	if (this.mapping_model && this.map_items && this.mapping_model.get('id') == map_id) {
     		// admin view created
@@ -253,7 +250,6 @@ Datea.AppRouter = Backbone.Router.extend({
     		$('#main-content-view').removeAttr('style');
     	}else{
     		var self = this;
-    		clear_admin_controls();
     		this.build_mapping_admin_view(map_id, function () {
     			self.mapping_admin_view.render();
     		})
@@ -261,6 +257,12 @@ Datea.AppRouter = Backbone.Router.extend({
     }, 
 });
 
-function clear_admin_controls() {
-	$('#setting-controls').empty();
+var $body = $('body');
+
+function screen_mode(mode) {
+	if (mode=='normal') {
+		$body.removeClass('wide-screen');
+	}else{
+		$body.addClass('wide-screen');
+	}
 }

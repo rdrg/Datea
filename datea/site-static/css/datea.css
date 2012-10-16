@@ -1150,6 +1150,14 @@ span.caret2 {
   *zoom: 1;
 }
 
+span.caret3 {
+  display: inline-block;
+  *display: inline;
+  width: 15px;
+  background: url(../img/datea/caret-gray.png) no-repeat center top;
+  *zoom: 1;
+}
+
 a.btn.dropdown-toggle span.caret,
 button.btn.dropdown-toggle span.caret {
   display: inline-block;
@@ -2827,6 +2835,20 @@ body .olwidgetPopupCloseBox {
 
 .mapping-filters ul.filters li.filter:last-child {
   margin-right: 0;
+}
+
+#mapping-settings-control {
+  position: relative;
+  z-index: 150;
+}
+
+#mapping-settings-control .mapping-control-button {
+  float: right;
+  margin-top: 5px;
+}
+
+#mapping-settings-control .mapping-control-button .caret {
+  color: #8d9c8c;
 }
 
 .mapping-edit-title h1 {
