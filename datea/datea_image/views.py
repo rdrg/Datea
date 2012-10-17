@@ -163,8 +163,8 @@ def save_image_api(request):
         print "form valid"
         
         # ADD DATEA IMAGE INSTANCE To EXISTING OBJECT
-        #if form.cleaned_data['object_id'] and form.cleaned_data['object_type'] and form.cleaned_data['object_field']:
-        if postdata['object_id'] and postdata['object_type'] and postdata['object_field']:
+        if form.cleaned_data['object_id'] and form.cleaned_data['object_type'] and form.cleaned_data['object_field']:
+        #if postdata['object_id'] and postdata['object_type'] and postdata['object_field']:
         
             # get model through content type, object instance, field class
             model = ContentType.objects.get(model= postdata['object_type'].lower())
@@ -239,7 +239,9 @@ def save_image_api(request):
         
         # JUST ADD IMAGE WITHOUT REFERENCING IT TO AN OBJECT
         else:
-            image_data = postdata['image']
+            #image_data = postdata['image']
+            image_data = postfiles['image']
+            print request
             image_instance = DateaImage(image=image_data, user=request.user)
             if 'order' in form.cleaned_data:
                 image_instance.order = form.cleaned_data['order']
