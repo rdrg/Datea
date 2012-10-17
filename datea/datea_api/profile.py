@@ -7,6 +7,11 @@ from tastypie.authentication import Authentication
 from tastypie.authorization import Authorization
 from django.conf.urls.defaults import url
 
+from datea.datea_follow.models import DateaFollow
+from datea.datea_api.follow import FollowResource
+from datea.datea_vote.models import DateaVote
+from datea.datea_api.vote import VoteResource
+
 from datea.datea_profile.models import DateaProfile
 
 class ProfileResource(DateaBaseResource):
@@ -67,6 +72,25 @@ class UserResource(DateaBaseResource):
     
     def dehydrate(self, bundle):
         bundle.data['url'] = bundle.obj.profile.get_absolute_url()
+        
+        # return full user data with follows and casted votes
+        if 'user_full' in bundle.request.GET:
+            follows = []
+            follow_rsc = FollowResource()
+            for f in DateaFollow.objects.filter(user=bundle.obj, published=True):
+                f_bundle = follow_rsc.build_bundle(obj=f)
+                f_bundle = follow_rsc.full_dehydrate(f_bundle)
+                follows.append(f_bundle.data)
+            bundle.data['follows'] = follows
+            
+            votes = []
+            vote_rsc = VoteResource()
+            for v in DateaVote.objects.filter(user=bundle.obj):
+                v_bundle = vote_rsc.build_bundle(obj=v)
+                v_bundle = vote_rsc.full_dehydrate(v_bundle)
+                votes.append(v_bundle.data)
+            bundle.data['votes'] = follows
+                
         return bundle
     
     def hydrate(self, bundle):

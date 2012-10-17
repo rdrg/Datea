@@ -76,10 +76,11 @@ def on_comment_save(sender, instance, created, **kwargs):
             if action.user != receiver_obj.user:
                 action_hist_item.send_mail_to_action_owner('comment')
     else:
-        hist_item = DateaHistory.objects.get(history_key=history_key)
-        hist_item.generate_extract('dateacomment', instance)
-        hist_item.check_published()
-        hist_item.save()
+        hist_items = DateaHistory.objects.filter(history_key=history_key)
+        for item in hist_items:
+            item.generate_extract('dateacomment', instance)
+            item.check_published()
+            item.save()
         
         
               

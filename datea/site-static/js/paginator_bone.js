@@ -15,7 +15,7 @@ window.Datea.PaginatorView = Backbone.View.extend({
 	
 	initialize: function( ) {
 		this.page = 0;
-		this.adjacent_pages = 2;
+		this.adjancent_pages = 2;
 		this.items_per_page = 5;
 		if (this.options.adjacent_pages) {
 			this.adjacent_pages = this.options.adjacent_pages;
@@ -62,6 +62,7 @@ window.Datea.PaginatorView = Backbone.View.extend({
 				this.$el.append(ich.paginator_separator());
 			}
 		}
+		
 		if (p_range[p_range.length -1] != this.num_pages -1) {
 			this.$el.append(ich.paginator_dots());
 		}else{
@@ -81,15 +82,34 @@ window.Datea.PaginatorView = Backbone.View.extend({
 	},
 	
 	get_page_range: function () {
-		var page_range = [];
-		// start range
-		for (var i=this.page-this.adjacent_pages; i < this.page; i++) {
-			if (i>=0) page_range.push(i);
+		
+		var last = this.num_pages -1;
+		
+		var start = this.page - this.adjacent_pages;
+		if (start < 0) {
+			extra_up = start*-1;
+			start = 0;
 		}
-		page_range.push(this.page);
-		for (var i=this.page+1; i < this.page + 1 + this.adjacent_pages; i++) {
-			if (i < this.num_pages) page_range.push(i);
-		} 	
+		
+		var end = this.page + this.adjacent_pages;
+		if (end > last) {
+			extra_down = end - last; 
+			end = last;	
+		}
+		
+		if (typeof(extra_up) != 'undefined') {
+			end = end +extra_up;
+			if (end > last) end = last;
+		}
+		
+		if (typeof(extra_down) != 'undefined') {
+			start = start - extra_down;
+			if (start < 0) start = 0;
+		}
+		
+		page_range = [];
+		for (var i=start; i <= end; i++) page_range.push(i);
+			
 		return page_range;
 	},
 	
