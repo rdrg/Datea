@@ -1782,6 +1782,11 @@ button.btn.dropdown-toggle:hover span.caret {
   margin-left: 120px;
 }
 
+#action-list .action-item .action-teaser .teaser-content .title {
+  margin-bottom: 5px;
+  line-height: 20px;
+}
+
 #action-list .action-item .action-teaser .teaser-content .created-data {
   font-size: 12px;
   line-height: 13px;

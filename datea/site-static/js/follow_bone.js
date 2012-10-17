@@ -96,7 +96,7 @@ window.Datea.FollowWidgetView = Backbone.View.extend({
 		
 		Datea.show_small_loading(this.$el);
 		
-		var set_options = {}
+		var set_options = {};
 		if (this.options.silent) set_options.silent = true; 
 		
 		if (this.model.isNew()) {

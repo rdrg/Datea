@@ -22,6 +22,7 @@ window.Datea.HistoryItemView = Backbone.View.extend({
 		var recv_arr = [];
 		var recv_items = this.model.get('receiver_items');
 		for (i in recv_items) {
+			console.log(rtype);
 			recv_arr.push(ich[rtype+'_history_receiver'](recv_items[i], true));
 		}
 
