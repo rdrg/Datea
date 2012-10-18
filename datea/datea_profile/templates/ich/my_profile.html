@@ -3,13 +3,15 @@
 <script id="my_profile_tpl" type="text/html">
 <div class="user-profile dotted-inner">
 	<div class="head">
-		<div class="profile-img-large">
-			<img src="{{ profile.image_large }}" alt="profile image" />
-		</div>
-		<div class="profile-head-data">
-			<h1>{{ username }}</h1>
-			<div class="message">{{ profile.message }}</div>
+		<h1>{{ username }}</h1>
+		<div class="profile-info">
+			<div class="profile-img-large">
+				<img src="{{ profile.image_large }}" alt="profile image" />
+			</div>
 			{{>profile_stats_tpl}}
+		</div>
+		<div class="profile-extra">
+			<div class="message">{{ profile.message }}</div>
 		</div>
 	</div>
 	

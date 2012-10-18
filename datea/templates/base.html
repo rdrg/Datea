@@ -31,9 +31,9 @@
 		<link href="{{ STATIC_URL }}timepicker/compiled/timepicker.css" rel="stylesheet">
 		
 		<link href="{{ STATIC_URL }}css/datea.css" rel="stylesheet">
-		{#<link rel="stylesheet" href="{{ STATIC_URL }}js/datea_openlayers/theme/default/style.css" />#}
-		{#<link rel="stylesheet" href="{{ STATIC_URL }}js/datea_openlayers/theme/default/google.css" />#}
-		<link rel="stylesheet" href="{{ STATIC_URL }}js/datea_olwidget/css/olwidget.css" />
+		{#<link rel="stylesheet" href="{{ STATIC_URL }}js/libs/datea_openlayers/theme/default/style.css" />#}
+		{#<link rel="stylesheet" href="{{ STATIC_URL }}js/libs/datea_openlayers/theme/default/google.css" />#}
+		<link rel="stylesheet" href="{{ STATIC_URL }}js/libs/datea_olwidget/css/olwidget.css" />
 		{% endcompress %}
 			
 		{% block extra_head %}{% endblock %}
@@ -125,8 +125,7 @@
   		
   		{# external js libs #}
   		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
-  		<script src="{{STATIC_URL}}js/datea_openlayers/OpenLayers.datea-web.js"></script>
-  		{#<script src="{{STATIC_URL}}OpenLayers-2.12/OpenLayers.debug.js"></script>#}
+  		<script src="{{STATIC_URL}}js/libs/datea_openlayers/OpenLayers.datea-web.js"></script>
   		<script type="text/javascript">OpenLayers.ImgPath = "/static/img/openlayers/";</script>
   		{#<script src='http://openstreetmap.org/openlayers/OpenStreetMap.js'></script>#}
   		
@@ -155,14 +154,11 @@
   		<script src="{{ STATIC_URL }}js/libs/jquery.serializeObject.js"></script>
   		<script src="{{ STATIC_URL }}js/libs/jquery.autosize-min.js"></script>
   		<script src="{{ STATIC_URL }}js/libs/jquery.tweet.js"></script>
-  		<script src="{{ STATIC_URL }}js/autoresize_text_areas.js"></script>
   		<script src="{{ STATIC_URL }}js/utils.js"></script>
   		{% endcompress %}
 		{# somehow this must get compressed into 2 files, otherwise strange errors occur #}
 		{% compress js %}
-  		<script src="{{ STATIC_URL }}js/datea_olwidget/datea_olwidget.js"></script>
-  		
-  		<script src="{{ STATIC_URL }}js/ajax_load.js"></script>
+  		<script src="{{ STATIC_URL }}js/libs/datea_olwidget/datea_olwidget.js"></script>
   		
   		{# BOOTSTRAP ADD-ONS #}
   		<script src="{{ STATIC_URL }}js/libs/bootstrap-lightbox.js"></script>
@@ -170,30 +166,87 @@
   		<script src="{{ STATIC_URL }}datepicker/js/bootstrap-datepicker.js"></script>
   		<script src="{{ STATIC_URL }}datepicker/js/locales/bootstrap-datepicker.es.js"></script>
   		<script src="{{ STATIC_URL }}timepicker/js/bootstrap-timepicker.js"></script>
-  		<script src="{{ STATIC_URL }}js/bstrap-pickers-init.js"></script>
   		
-  		<script src="{{ STATIC_URL }}js/share.js"></script>
-		<script src="{{ STATIC_URL }}js/main_bone.js"></script>
-		<script src="{{ STATIC_URL }}js/form_widget_bone.js"></script>
-		<script src="{{ STATIC_URL }}js/layout_bone.js"></script>
-		<script src="{{ STATIC_URL }}js/paginator_bone.js"></script>
-		<script src="{{ STATIC_URL }}js/image_bone.js"></script>
-		<script src="{{ STATIC_URL }}js/category_bone.js"></script>
-		<script src="{{ STATIC_URL }}js/action_bone.js"></script>
-		<script src="{{ STATIC_URL }}js/profile_bone.js"></script>
-		<script src="{{ STATIC_URL }}js/mapping/mapping_main_bone.js"></script>
-		<script src="{{ STATIC_URL }}js/mapping/mapping_form_bone.js"></script>
-		<script src="{{ STATIC_URL }}js/mapping/mapping_data_view_bone.js"></script>
-		<script src="{{ STATIC_URL }}js/mapping/map_item_bone.js"></script>
-		<script src="{{ STATIC_URL }}js/mapping/map_item_form_bone.js"></script>
-		<script src="{{ STATIC_URL }}js/mapping/mapping_admin_bone.js"></script>
-		<script src="{{ STATIC_URL }}js/mapping/mapping_layout.js"></script>
-		<script src="{{ STATIC_URL }}js/comment_bone.js"></script>
-		<script src="{{ STATIC_URL }}js/follow_bone.js"></script>
-		<script src="{{ STATIC_URL }}js/vote_bone.js"></script>
-		<script src="{{ STATIC_URL }}js/history_bone.js"></script>
-		<script src="{{ STATIC_URL }}js/home.js"></script>
-		<script src="{{ STATIC_URL }}js/site_tweets.js"></script>
+  		{# SOCIAL #}
+  		<script src="{{ STATIC_URL }}js/social/share.js"></script>
+  		<script src="{{ STATIC_URL }}js/social/site_tweet_view.js"></script>
+  		
+  		{# LAYOUT #}
+		<script src="{{ STATIC_URL }}js/layout/modal_view.js"></script>
+		<script src="{{ STATIC_URL }}js/layout/ajax_load.js"></script>
+		<script src="{{ STATIC_URL }}js/layout/paginator_view.js"></script>
+		<script src="{{ STATIC_URL }}js/layout/check_stats_plural.js"></script>
+		
+		{# FORMS #}
+		<script src="{{ STATIC_URL }}js/forms/validate.js"></script>
+		<script src="{{ STATIC_URL }}js/forms/dropdown_select_view.js"></script>
+		<script src="{{ STATIC_URL }}js/forms/bstrap-pickers-init.js"></script>
+		<script src="{{ STATIC_URL }}js/forms/autoresize_text_areas.js"></script>
+		
+		{# IMAGE #}
+		<script src="{{ STATIC_URL }}js/image/models.js"></script>
+		<script src="{{ STATIC_URL }}js/image/image_input_view.js"></script>
+		<script src="{{ STATIC_URL }}js/image/image_thumbrow_view.js"></script>
+		<script src="{{ STATIC_URL }}js/image/image_carousel_view.js"></script>
+		
+		{# CATEGORY #}
+		<script src="{{ STATIC_URL }}js/category/models.js"></script>
+		<script src="{{ STATIC_URL }}js/category/category_edit_view.js"></script>
+		<script src="{{ STATIC_URL }}js/category/category_edit_item_view.js"></script>
+		
+		{# USER #}
+		<script src="{{ STATIC_URL }}js/user/models.js"></script>
+		<script src="{{ STATIC_URL }}js/user/user_head_view.js"></script>
+		<script src="{{ STATIC_URL }}js/user/user_edit_view.js"></script>
+		<script src="{{ STATIC_URL }}js/user/user_home_view.js"></script>
+		<script src="{{ STATIC_URL }}js/user/utils.js"></script>
+		
+		{# ACTION #}
+		<script src="{{ STATIC_URL }}js/action/models.js"></script>
+		<script src="{{ STATIC_URL }}js/action/action_list_item_view.js"></script>
+		<script src="{{ STATIC_URL }}js/action/action_list_view.js"></script>
+		<script src="{{ STATIC_URL }}js/action/action_start_view.js"></script>
+		
+		{# MAPPING #}
+		<script src="{{ STATIC_URL }}js/mapping/map_item/models.js"></script>
+		<script src="{{ STATIC_URL }}js/mapping/map_item/map_item_views.js"></script>
+		<script src="{{ STATIC_URL }}js/mapping/map_item/map_item_form_views.js"></script>
+		<script src="{{ STATIC_URL }}js/mapping/map_item_response/models.js"></script>
+		<script src="{{ STATIC_URL }}js/mapping/map_item_response/map_item_response_view.js"></script>
+		<script src="{{ STATIC_URL }}js/mapping/map_item_response/map_item_response_form_view.js"></script>
+		<script src="{{ STATIC_URL }}js/mapping/mapping/models.js"></script>
+		<script src="{{ STATIC_URL }}js/mapping/mapping/mapping_form_view.js"></script>
+		<script src="{{ STATIC_URL }}js/mapping/mapping/mapping_data_view.js"></script>
+		<script src="{{ STATIC_URL }}js/mapping/mapping/mapping_sidebar_main_view.js"></script>
+		<script src="{{ STATIC_URL }}js/mapping/mapping/mapping_tab_item_list_view.js"></script>
+		<script src="{{ STATIC_URL }}js/mapping/mapping/mapping_tab_start_view.js"></script>
+		<script src="{{ STATIC_URL }}js/mapping/admin/mapping_admin_view.js"></script>
+		<script src="{{ STATIC_URL }}js/mapping/admin/map_item_admin_view.js"></script>
+		<script src="{{ STATIC_URL }}js/mapping/layout.js"></script>
+		<script src="{{ STATIC_URL }}js/mapping/mapping_main_view.js"></script>
+		
+		{# COMMENT #}
+		<script src="{{ STATIC_URL }}js/comment/models.js"></script>
+		<script src="{{ STATIC_URL }}js/comment/comment_item_view.js"></script>
+		<script src="{{ STATIC_URL }}js/comment/comment_list_view.js"></script>
+		<script src="{{ STATIC_URL }}js/comment/comment_form_view.js"></script>
+		
+		{# FOLLOW #}
+		<script src="{{ STATIC_URL }}js/follow/models.js"></script>
+		<script src="{{ STATIC_URL }}js/follow/follow_widget_view.js"></script>
+
+		{# VOTE #}		
+		<script src="{{ STATIC_URL }}js/vote/models.js"></script>
+		<script src="{{ STATIC_URL }}js/vote/vote_widget_view.js"></script>
+		
+		{# HISTORY #}
+		<script src="{{ STATIC_URL }}js/history/models.js"></script>
+		<script src="{{ STATIC_URL }}js/history/history_item_view.js"></script>
+		<script src="{{ STATIC_URL }}js/history/history_list_view.js"></script>
+		
+		{# HOME #}
+		<script src="{{ STATIC_URL }}js/home/home_view.js"></script>
+
 		{% endcompress %}
 		
   		{% block footer_js %}{% endblock %}
@@ -216,7 +269,6 @@
 			
 			// init stuff
 			Datea.modal_view = new Datea.ModalWrapView({'el': $('#modal-wrap-view')});
-			Datea.layout_view = new Datea.LayoutView({el:$('body')});
 			
 			// start Router
 			if (typeof(Datea.AppRouter) != 'undefined') {
