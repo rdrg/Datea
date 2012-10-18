@@ -4,7 +4,6 @@ window.Datea.paginate = function (list, page, items_per_page) {
     return _.first(result, items_per_page);
 }
 
-
 window.Datea.PaginatorView = Backbone.View.extend({
 	
 	tagName: 'ul',

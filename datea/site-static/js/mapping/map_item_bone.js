@@ -60,7 +60,7 @@ window.Datea.MapItemFullView = Backbone.View.extend({
 		// get replies
 		if (context.replies && context.replies.length  > 0) {
 			var replyCol = new Datea.MapItemResponseCollection(context.replies);
-			var $replies = self.$el.find('.replies');
+			var $replies = this.$el.find('.replies');
 			replyCol.each(function(model){
 				$replies.append(new Datea.MapItemResponseView({model: model}).render().el); 
 			});

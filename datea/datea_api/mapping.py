@@ -223,11 +223,13 @@ class MapItemResponseResource(DateaBaseResource):
         allowed_methods = ['get', 'post', 'put', 'delete']
         authentication = ApiKeyPlusWebAuthentication()
         authorization = DateaBaseAuthorization()
+        ordering = ['created']
         filtering = {
             'user': ALL_WITH_RELATIONS,
             'map_items': ALL_WITH_RELATIONS,
             'id': ['exact'],
             'created': ['range', 'gt', 'gte', 'lt', 'lte'],
         }
-        ordering = ['created']
         limit = 20
+        cache = SimpleCache(timeout=10)
+        

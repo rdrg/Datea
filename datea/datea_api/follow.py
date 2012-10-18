@@ -3,7 +3,8 @@ from tastypie.bundle import Bundle
 from tastypie.resources import ModelResource, ALL, ALL_WITH_RELATIONS
 from datea.datea_follow.models import DateaFollow, DateaHistory, DateaHistoryReceiver, DateaNotifySettings
 from api_base import DateaBaseResource, ApiKeyPlusWebAuthentication, DateaBaseAuthorization
-
+from tastypie.cache import SimpleCache
+from tastypie.throttle import BaseThrottle
 
 class FollowResource(DateaBaseResource):
     
@@ -46,7 +47,11 @@ class HistoryResource(DateaBaseResource):
         if hasattr(request, 'GET') and 'following_user' in request.GET:
             follow_keys = [f.follow_key for f in DateaFollow.objects.filter(user__id=int(request.GET['following_user']))]
             applicable_filters['follow_key__in'] = follow_keys
-        return self.get_object_list(request).filter(**applicable_filters).distinct('history_key')
+        return self.get_object_list(request).filter(**applicable_filters)
+    
+    def apply_sorting(self, obj_list, options=None):
+        return obj_list.distinct('created','history_key').order_by('-created','history_key')
+        #return super(HistoryResource, self).apply_sorting(obj_list, options)
     
     class Meta:
         queryset= DateaHistory.objects.all()
@@ -64,6 +69,7 @@ class HistoryResource(DateaBaseResource):
                      'created': ['exact', 'range', 'gt', 'gte', 'lt', 'lte'],
                      }
         limit = 20
+        cache = SimpleCache(timeout=10)
         
         
 class HistoryReceiverResource(DateaBaseResource):
@@ -98,5 +104,6 @@ class NotifySettingsResource(DateaBaseResource):
         limit = 1
         authentication = ApiKeyPlusWebAuthentication()
         authorization = DateaBaseAuthorization()
+        
     
         

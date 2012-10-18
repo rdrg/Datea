@@ -104,6 +104,7 @@ window.Datea.FollowWidgetView = Backbone.View.extend({
 			this.model.save({},{
 				success: function (model, response) {
 					self.render();
+					if (self.options.callback) self.options.callback();
 				}
 			});
 			Datea.my_user_follows.add(this.model);
@@ -118,6 +119,7 @@ window.Datea.FollowWidgetView = Backbone.View.extend({
 			});
 			this.followed_model.set('follow_count', this.followed_model.get('follow_count') - 1, set_options);
 			this.render();
+			if (this.options.callback) this.options.callback();
 		}
 		this.$el.addClass('after-click');
 	},

@@ -1,76 +1,108 @@
 
+#presentation-wrapper {
+	//.gradientBar(#fff, #fafafa);
+	border-bottom: 3px solid #ccc;
+	margin-bottom: 20px;
+}
+
 #datea-presentation {
+	
+	padding-top: 15px;
+	
 	h1 {
 		color: @grayTextDark;
 	}
 	
 	.share-group {
-		.clearfix();
-		margin-bottom: 25px;
 		margin-top:10px;
+		.clearfix();
+		margin-bottom: 15px;
 		.share-button {
 			float: left;
 			display: block;
-			width: 130px;
+			margin-bottom: 5px;
+			&.fb-share {
+				width: 120px;
+			}
+			&.tw-share {
+				width: 90px;
+			}
 		}
+	}
+	
+	.login-bubble {
+		background: url(../img/datea/fondo-login-solo.png) repeat-x bottom left;
+		position: relative;
+		.border-radius(10px);
+		padding: 20px 20px;
+		color: white;
+		.reg-link {
+			margin-top: 10px;
+			a { color: @gray}
+		}
+		.esquina {
+			position: absolute;
+			bottom: -11px;
+			width: 26px;
+			height: 12px;
+			left: 20px;
+			background: url(../img/datea/fondo-login-esquina.png) no-repeat left top;
+		} 
 	}
 	
 	.steps {
 		.clearfix();
-		margin-bottom: 25px;
+		margin-bottom: 15px;
 		.step {
 			float: left;
-			width: 30%;
 			.inner {
-				padding: 0 15px;
+				padding: 0 15px 0 0;
+				text-align: left;
 				.icon {
-					margin-left: 15px;
+					/*margin-left: 15px;*/
 					height: 65px;
+					width: 60px;
+					//margin-left: auto;
+					//margin-right:auto;
 				}	
 			}
-		}
-		.create {
-			.icon {
-				background: url(../img/datea/home-icon-create.png) no-repeat left center;
-			}
-		}
-		.participate {
-			.icon {
-				background: url(../img/datea/home-icon-participate.png) no-repeat left center;
-			}
-		}
-		.visualize {
-			.icon {
-				background: url(../img/datea/home-icon-visualize.png) no-repeat left center;
-			}
-		}
-	}
-	
-	.footer {
-		.clearfix();
-		.left { 
-			display: block; 
-			float:left; 
-			width: 50%;
-			.presentation-menu {
-				list-style: none;
-				margin-left:0px;
-				li {
-					list-style:none;
-					line-height: @baseLineHeight + 6px;
-					a { 
-						color: @grayLight;
-						&:hover { color: @verde;}
-						font-size: @baseFontSize + 6px;
-					}
+			&.create {
+				width: 22%;
+				.icon {
+					background: url(../img/datea/home-icon-create.png) no-repeat left center;
 				}
 			}
-		}
-		.right {
-			display: block; float:left; width: 50%;
-			text-align:right;
-			.inner { 
-				padding-right:20px;
+			&.participate {
+				width: 22%;
+				.icon {
+					background: url(../img/datea/home-icon-participate.png) no-repeat left center;
+				}
+			}
+			&.visualize {
+				width: 22%;
+				.icon {
+					background: url(../img/datea/home-icon-visualize.png) no-repeat left center;
+					width: 85px;
+				}
+			}
+			&.goto-menu {
+				width: 34%;
+				.presentation-menu {
+					padding-left: 10px;
+					margin-top: 10px;
+					list-style: none;
+					margin-left:0px;
+					li {
+						list-style:none;
+						line-height: @baseLineHeight + 2px;
+						margin-top: 3px;
+						a { 
+							color: @grayLight;
+							&:hover { color: @verde;}
+							font-size: @baseFontSize + 3px;
+						}
+					}
+				}
 			}
 		}
 	}

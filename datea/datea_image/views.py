@@ -14,6 +14,7 @@ from django.core.files.uploadedfile import InMemoryUploadedFile
 import base64
 import cStringIO
 from django.core.files.base import ContentFile
+from tastypie.authentication import ApiKeyAuthentication
 
 def save_image(request):
     """
@@ -149,9 +150,11 @@ def save_image_api(request):
         image:           image file input 
         order:           the order of the image (optional)
     """
+    key_auth = ApiKeyAuthentication()
     
-    if not request.user.is_authenticated:
+    if not key_auth.is_authenticated(request):
         return HttpResponse("<h1>Login required</h1>")
+    
     if request.method == 'POST' and request.FILES:
         #print request.POST
         postdata = request.POST        
@@ -285,8 +288,11 @@ def mobile_image_save(request):
         order:           the order of the image (optional)
     """
     
-    if not request.user.is_authenticated:
+    key_auth = ApiKeyAuthentication()
+    
+    if not key_auth.is_authenticated(request):
         return HttpResponse("<h1>Login required</h1>")
+    
     if request.method == 'POST':
         print request.POST
         if request.POST.get('file'):

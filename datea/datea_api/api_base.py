@@ -14,7 +14,8 @@ class ApiKeyPlusWebAuthentication(ApiKeyAuthentication):
         if request.user.is_authenticated() or request.method == 'GET':
             return True
 
-        return super(ApiKeyPlusWebAuthentication, self).is_authenticated(request, **kwargs)
+        auth = super(ApiKeyPlusWebAuthentication, self).is_authenticated(request, **kwargs)
+        return auth
 
     def get_identifier(self, request):
         if request.user.is_authenticated():
