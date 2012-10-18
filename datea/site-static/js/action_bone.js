@@ -82,6 +82,7 @@ window.Datea.BaseActionListView = Backbone.View.extend({
 			items_per_page: this.items_per_page,
 			adjacent_pages: 1,
 		});
+		this.search = '';
     },
     
     render:function (ev) {
@@ -101,7 +102,10 @@ window.Datea.BaseActionListView = Backbone.View.extend({
 			div_class: 'no-bg white',
 			init_value: this.selected_mode,
 			callback: function (val) {
-				self.selected_mode = val; 
+				if (self.selected_mode != val) {
+					self.selected_mode = val;
+					self.page = 0;
+				} 
 				self.fetch_actions();
 			}
 		});
@@ -143,6 +147,11 @@ window.Datea.BaseActionListView = Backbone.View.extend({
     
     search: function (ev) {
     	ev.preventDefault();
+    	var q = jQuery.trim($('#search-action-input', this.$el).val());
+    	if (this.search != q) {
+    		this.page = 0;
+    		this.search = q;
+    	}
     	this.fetch_actions();
 		this.$el.find('.scroll-area').scrollTop(0);
     },
@@ -190,7 +199,13 @@ window.Datea.MyActionListView = Datea.BaseActionListView.extend({
     	
     	Datea.show_big_loading(this.$el.find('#action-list'));
     	
-    	var params = {page: this.page + 1};
+    	var params = {
+    		limit: this.items_per_page, 
+    		offset: this.page * this.items_per_page
+    		};
+    	if (this.search != '') {
+    		params['q'] = this.search;
+    	}
     	
     	switch(this.selected_mode) {
     		case 'my_actions':
@@ -205,12 +220,7 @@ window.Datea.MyActionListView = Datea.BaseActionListView.extend({
     		case 'all_actions':
     			break;
     	}
-    	
-    	var search = jQuery.trim($('#search-action-input', this.$el).val());
-    	if (search != '') {
-    		params['q'] = search;
-    	}
-    	
+
     	this.model.fetch({ data: params});
     },
     
@@ -232,6 +242,7 @@ window.Datea.ProfileActionListView = Datea.BaseActionListView.extend({
 			items_per_page: this.items_per_page,
 			adjacent_pages: 1,
 		});
+		this.search = '';
     },
     
     // build filter options according to user
@@ -255,7 +266,13 @@ window.Datea.ProfileActionListView = Datea.BaseActionListView.extend({
     	
     	Datea.show_big_loading(this.$el.find('#action-list'));
     	
-    	var params = {page: this.page + 1};
+    	var params = {
+    		limit: this.items_per_page, 
+    		offset: this.page * this.items_per_page
+    	};
+    	if (this.search != '') {
+    		params['q'] = this.search;
+    	}
     	
     	switch(this.selected_mode) {
     		case 'actions':
@@ -264,11 +281,6 @@ window.Datea.ProfileActionListView = Datea.BaseActionListView.extend({
     		case 'user_actions':
     			params['user_id'] = Datea.my_user.get('id');
     			break;
-    	}
-    	
-    	var search = jQuery.trim($('#search-action-input', this.$el).val());
-    	if (search != '') {
-    		params['q'] = search;
     	}
     	
     	this.model.fetch({ data: params});
