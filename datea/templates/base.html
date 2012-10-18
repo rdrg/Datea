@@ -48,6 +48,7 @@
 			{% include "ich/form_widgets.html" %}
 			{% include "ich/datea_presentation.html" %}
 			{% include "ich/empty.html" %}
+			{% include "ich/tweet_block.html" %}
 			
 			{# Image templates #}
 			{% include "ich/image_input.html" %}
@@ -153,6 +154,7 @@
   		<script src="{{ STATIC_URL }}js/libs/jquery.iframe-transport.js"></script>
   		<script src="{{ STATIC_URL }}js/libs/jquery.serializeObject.js"></script>
   		<script src="{{ STATIC_URL }}js/libs/jquery.autosize-min.js"></script>
+  		<script src="{{ STATIC_URL }}js/libs/jquery.tweet.js"></script>
   		<script src="{{ STATIC_URL }}js/autoresize_text_areas.js"></script>
   		<script src="{{ STATIC_URL }}js/utils.js"></script>
   		{% endcompress %}
@@ -190,6 +192,8 @@
 		<script src="{{ STATIC_URL }}js/follow_bone.js"></script>
 		<script src="{{ STATIC_URL }}js/vote_bone.js"></script>
 		<script src="{{ STATIC_URL }}js/history_bone.js"></script>
+		<script src="{{ STATIC_URL }}js/home.js"></script>
+		<script src="{{ STATIC_URL }}js/site_tweets.js"></script>
 		{% endcompress %}
 		
   		{% block footer_js %}{% endblock %}

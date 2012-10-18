@@ -27,9 +27,15 @@ Datea.AppRouter = Backbone.Router.extend({
  
     home: function (params) {
 		screen_mode('normal');
-    	this.my_profile_home_view = new Datea.MyProfileHomeView({model:Datea.my_user});
-        $main_content_wrap.html(this.my_profile_home_view.render().el);
-        init_share_buttons();
+		
+		if (Datea.is_logged()) {
+    		this.my_profile_home_view = new Datea.MyProfileHomeView({model:Datea.my_user});
+        	$main_content_wrap.html(this.my_profile_home_view.render().el);
+        }else{
+        	var home_view = new Datea.HomeView({el: $main_content_wrap });
+        	home_view.render();
+        	init_share_buttons();
+        }
         
         if (typeof(params) != 'undefined') {
         	if (params.edit_profile && params.edit_profile == 'notify_settings') {

@@ -1,0 +1,30 @@
+
+.tweet_list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	overflow-y: hidden;
+	
+	li {
+		overflow-y: auto;
+		overflow-x: hidden;
+		padding: 0.5em;
+		list-style-type: none;
+		.tweet_join,.tweet_time {
+			font-size: @baseFontSize - 2px;
+			color: @grayLight;
+		}
+		.tweet_time {
+			a { color: @grayLight;}
+		}
+		.tweet_join { margin-left: 4px;}
+		.tweet_text { display: block }
+	}
+	
+	.tweet_avatar {
+		padding-right: .5em; float: left;
+		 img {
+			vertical-align: middle;
+		}
+	}
+}

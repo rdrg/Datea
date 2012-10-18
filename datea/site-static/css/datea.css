@@ -588,13 +588,22 @@ h1 {
   }
 }
 
+#presentation-wrapper {
+  margin-bottom: 20px;
+  border-bottom: 3px solid #ccc;
+}
+
+#datea-presentation {
+  padding-top: 15px;
+}
+
 #datea-presentation h1 {
   color: #434c3e;
 }
 
 #datea-presentation .share-group {
   margin-top: 10px;
-  margin-bottom: 25px;
+  margin-bottom: 15px;
   *zoom: 1;
 }
 
@@ -611,11 +620,46 @@ h1 {
 #datea-presentation .share-group .share-button {
   display: block;
   float: left;
-  width: 130px;
+  margin-bottom: 5px;
+}
+
+#datea-presentation .share-group .share-button.fb-share {
+  width: 120px;
+}
+
+#datea-presentation .share-group .share-button.tw-share {
+  width: 90px;
+}
+
+#datea-presentation .login-bubble {
+  position: relative;
+  padding: 20px 20px;
+  color: white;
+  background: url(../img/datea/fondo-login-solo.png) repeat-x bottom left;
+  -webkit-border-radius: 10px;
+     -moz-border-radius: 10px;
+          border-radius: 10px;
+}
+
+#datea-presentation .login-bubble .reg-link {
+  margin-top: 10px;
+}
+
+#datea-presentation .login-bubble .reg-link a {
+  color: #555555;
+}
+
+#datea-presentation .login-bubble .esquina {
+  position: absolute;
+  bottom: -11px;
+  left: 20px;
+  width: 26px;
+  height: 12px;
+  background: url(../img/datea/fondo-login-esquina.png) no-repeat left top;
 }
 
 #datea-presentation .steps {
-  margin-bottom: 25px;
+  margin-bottom: 15px;
   *zoom: 1;
 }
 
@@ -631,78 +675,67 @@ h1 {
 
 #datea-presentation .steps .step {
   float: left;
-  width: 30%;
 }
 
 #datea-presentation .steps .step .inner {
-  padding: 0 15px;
+  padding: 0 15px 0 0;
+  text-align: left;
 }
 
 #datea-presentation .steps .step .inner .icon {
+  width: 60px;
   height: 65px;
-  margin-left: 15px;
 }
 
-#datea-presentation .steps .create .icon {
+#datea-presentation .steps .step.create {
+  width: 22%;
+}
+
+#datea-presentation .steps .step.create .icon {
   background: url(../img/datea/home-icon-create.png) no-repeat left center;
 }
 
-#datea-presentation .steps .participate .icon {
+#datea-presentation .steps .step.participate {
+  width: 22%;
+}
+
+#datea-presentation .steps .step.participate .icon {
   background: url(../img/datea/home-icon-participate.png) no-repeat left center;
 }
 
-#datea-presentation .steps .visualize .icon {
+#datea-presentation .steps .step.visualize {
+  width: 22%;
+}
+
+#datea-presentation .steps .step.visualize .icon {
+  width: 85px;
   background: url(../img/datea/home-icon-visualize.png) no-repeat left center;
 }
 
-#datea-presentation .footer {
-  *zoom: 1;
+#datea-presentation .steps .step.goto-menu {
+  width: 34%;
 }
 
-#datea-presentation .footer:before,
-#datea-presentation .footer:after {
-  display: table;
-  content: "";
-}
-
-#datea-presentation .footer:after {
-  clear: both;
-}
-
-#datea-presentation .footer .left {
-  display: block;
-  float: left;
-  width: 50%;
-}
-
-#datea-presentation .footer .left .presentation-menu {
+#datea-presentation .steps .step.goto-menu .presentation-menu {
+  padding-left: 10px;
+  margin-top: 10px;
   margin-left: 0;
   list-style: none;
 }
 
-#datea-presentation .footer .left .presentation-menu li {
-  line-height: 24px;
+#datea-presentation .steps .step.goto-menu .presentation-menu li {
+  margin-top: 3px;
+  line-height: 20px;
   list-style: none;
 }
 
-#datea-presentation .footer .left .presentation-menu li a {
-  font-size: 19px;
+#datea-presentation .steps .step.goto-menu .presentation-menu li a {
+  font-size: 16px;
   color: #999999;
 }
 
-#datea-presentation .footer .left .presentation-menu li a:hover {
+#datea-presentation .steps .step.goto-menu .presentation-menu li a:hover {
   color: #27bb44;
-}
-
-#datea-presentation .footer .right {
-  display: block;
-  float: left;
-  width: 50%;
-  text-align: right;
-}
-
-#datea-presentation .footer .right .inner {
-  padding-right: 20px;
 }
 
 .logged-intro h3 {
@@ -3176,4 +3209,45 @@ body .olwidgetPopupCloseBox {
 
 .history-view .item-pager:after {
   clear: both;
+}
+
+.tweet_list {
+  padding: 0;
+  margin: 0;
+  overflow-y: hidden;
+  list-style: none;
+}
+
+.tweet_list li {
+  padding: 0.5em;
+  overflow-x: hidden;
+  overflow-y: auto;
+  list-style-type: none;
+}
+
+.tweet_list li .tweet_join,
+.tweet_list li .tweet_time {
+  font-size: 11px;
+  color: #999999;
+}
+
+.tweet_list li .tweet_time a {
+  color: #999999;
+}
+
+.tweet_list li .tweet_join {
+  margin-left: 4px;
+}
+
+.tweet_list li .tweet_text {
+  display: block;
+}
+
+.tweet_list .tweet_avatar {
+  float: left;
+  padding-right: .5em;
+}
+
+.tweet_list .tweet_avatar img {
+  vertical-align: middle;
 }
