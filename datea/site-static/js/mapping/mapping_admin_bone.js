@@ -81,14 +81,6 @@ window.Datea.MappingAdminView = Backbone.View.extend({
 		
 		this.filter_items();
 		this.render_page();
-		
-		// mapping setting controls
-		if (Datea.is_logged() &&
-			( this.model.get('user').id == Datea.my_user.get('id')
-			  || Datea.my_user.get('is_staff')
-			)) {
-			$('#setting-controls').html( ich.mapping_control_button_tpl(this.model.toJSON()));	
-		}
 		 
 		return this;
 	},

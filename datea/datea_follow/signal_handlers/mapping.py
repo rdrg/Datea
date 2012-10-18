@@ -1,5 +1,5 @@
 from datea.datea_follow.models import DateaFollow, DateaHistory, DateaHistoryReceiver
-from datea.datea_mapping.models import DateaMapItem, DateaMapItemResponse
+from datea.datea_mapping.models import DateaMapping, DateaMapItem, DateaMapItemResponse
 
 from django.db.models.signals import post_save, pre_delete
 from datea.datea_mapping.signals import map_item_response_created, map_item_response_updated
@@ -81,7 +81,8 @@ def on_map_item_response_save(sender, instance, **kwargs):
                 receiver_type = 'map_item',
                 action = action
             )
-        hist_item.generate_extract('dateamapitemresponse', instance)       
+        
+        hist_item.generate_extract('dateamapitemresponse', instance)
         hist_item.save()
         
         # create receiver item
@@ -150,4 +151,5 @@ def connect():
     map_item_response_created.connect(on_map_item_response_save, sender=DateaMapItemResponse)
     map_item_response_updated.connect(on_map_item_response_update, sender=DateaMapItemResponse)
     pre_delete.connect(on_map_item_response_delete, sender=DateaMapItemResponse)
+    pre_delete.connect(on_mapping_delete, sender=DateaMapping)
 

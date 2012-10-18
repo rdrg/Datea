@@ -6,8 +6,9 @@ from datea.datea_vote.models import DateaVote
 class VoteResource(DateaBaseResource):
     
     def hydrate(self,bundle):
-            
+        
         if bundle.request.method == 'POST':
+            print "USER IN BUNDLE REQUEST", bundle.request.user
             bundle.obj.user = bundle.request.user  
             
         return bundle
