@@ -41,9 +41,9 @@
 		{% block icanhaz %}
 		
 			{# main stuff #}
-			{% include "ich/fix_base_content_single.html" %}
-			{% include "ich/fix_base_content_split.html" %}
-			{% include "ich/fluid_base_content_split.html" %}
+			{% include "ich/content_layout_single.html" %}
+			{% include "ich/content_layout_split.html" %}
+			{% include "ich/content_layout_right_bar.html" %}
 			{% include "ich/pagination.html" %}
 			{% include "ich/form_widgets.html" %}
 			{% include "ich/datea_presentation.html" %}
@@ -75,7 +75,7 @@
 			{% include "ich/free_category_leyend.html" %}
 			
 			{# Mapping templates #}
-			{% include "ich/map_base_content_split.html" %}
+			{% include "ich/content_layout_map.html" %}
 			{% include "ich/mapping_form.html" %}
 			{% include "ich/mapping_edit_boundary.html" %}
 			{% include "ich/mapping_edit_point.html" %}

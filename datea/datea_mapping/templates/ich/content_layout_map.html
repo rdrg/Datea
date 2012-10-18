@@ -1,0 +1,13 @@
+{% load verbatim_tag %}
+{% verbatim %}
+<script id="content_layout_map_tpl" type="text/html">
+<div id="main-content" class="container container-target">
+	<div id="main-content-view" class="inner">
+		<div class="row {{class}}" id="{{ content_id }}">
+			<div id="left-content" class="span6-fix dotted-bg-container"></div>
+			<div id="right-content" class="span6-fix-complement"></div>
+		</div>
+	</div>
+</div>
+</script>
+{% endverbatim %}

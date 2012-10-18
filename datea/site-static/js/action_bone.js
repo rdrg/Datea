@@ -49,7 +49,8 @@ window.Datea.ActionListItemView = Backbone.View.extend({
 				object_name: gettext('action'),
 				followed_model: this.model,
 				type: 'button',
-				style: 'button-small', 
+				style: 'button-small',
+				callback: this.options.follow_callback 
 			});
 			this.$el.find('.follow-button').html(this.follow_widget.render().el);
 		}
@@ -82,7 +83,7 @@ window.Datea.BaseActionListView = Backbone.View.extend({
 			items_per_page: this.items_per_page,
 			adjacent_pages: 1,
 		});
-		this.search = '';
+		this.search_str = '';
     },
     
     render:function (ev) {
@@ -124,9 +125,13 @@ window.Datea.BaseActionListView = Backbone.View.extend({
     	if (this.model.meta.total_count > this.model.meta.limit) {
        		add_pager = true;  
     	}
-    	
+    	var self = this;
     	this.model.each(function (item) {
-            	$list.append(new Datea.ActionListItemView({model:item}).render().el);
+    			var opts = {
+    				model: item,
+    				follow_callback: function() { self.render_filter(); }
+    			}
+            	$list.append(new Datea.ActionListItemView(opts).render().el);
         }, this);
         
         var $pager_div = this.$el.find('.action-pager');
@@ -148,9 +153,9 @@ window.Datea.BaseActionListView = Backbone.View.extend({
     search: function (ev) {
     	ev.preventDefault();
     	var q = jQuery.trim($('#search-action-input', this.$el).val());
-    	if (this.search != q) {
+    	if (this.search_str != q) {
     		this.page = 0;
-    		this.search = q;
+    		this.search_str = q;
     	}
     	this.fetch_actions();
 		this.$el.find('.scroll-area').scrollTop(0);
@@ -203,8 +208,8 @@ window.Datea.MyActionListView = Datea.BaseActionListView.extend({
     		limit: this.items_per_page, 
     		offset: this.page * this.items_per_page
     		};
-    	if (this.search != '') {
-    		params['q'] = this.search;
+    	if (this.search_str!= '') {
+    		params['q'] = this.search_str;
     	}
     	
     	switch(this.selected_mode) {
@@ -270,8 +275,8 @@ window.Datea.ProfileActionListView = Datea.BaseActionListView.extend({
     		limit: this.items_per_page, 
     		offset: this.page * this.items_per_page
     	};
-    	if (this.search != '') {
-    		params['q'] = this.search;
+    	if (this.search_str != '') {
+    		params['q'] = this.search_str;
     	}
     	
     	switch(this.selected_mode) {
@@ -295,7 +300,7 @@ window.Datea.ActionStartView = Backbone.View.extend({
 	tagName: 'div',
 	
 	render: function(eventName) {
-		this.$el.html( ich.fix_base_content_single_tpl({'dotted_bg': true}));
+		this.$el.html( ich.content_layout_single_tpl({'dotted_bg': true}));
 		this.$el.find('#content').html( ich.action_create_tpl());
 		return this;	
 	}

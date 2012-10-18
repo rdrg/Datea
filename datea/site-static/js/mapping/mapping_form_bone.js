@@ -21,7 +21,7 @@ window.Datea.MappingFormView = Backbone.View.extend({
   	},
 	
 	render: function(eventName) {
-		this.$el.html(ich.fix_base_content_single_tpl());
+		this.$el.html(ich.content_layout_single_tpl());
 		
 		var context = this.model.toJSON();
 		if (this.model.isNew()) {

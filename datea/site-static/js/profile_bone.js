@@ -204,11 +204,12 @@ window.Datea.MyProfileHomeView = Backbone.View.extend({
 	render: function (ev) {
 		
 		// set base template
-		this.$el.html( ich.fix_base_content_split_tpl({dotted_bg:true}));
+		this.$el.html( ich.content_layout_split_tpl({dotted_bg:true}));
 		
 		this.$el.find('#left-content').html( 
 			new Datea.MyProfileBoxView({ model: Datea.my_user }).render().el 
 		);
+		
 		Datea.CheckStatsPlural(this.$el, this.model);
 		if (Datea.is_logged()) {
 			this.$el.find('.history-view-container').html(
@@ -231,7 +232,7 @@ window.Datea.ProfileView = Backbone.View.extend({
 	
 	render: function (ev) {
 		
-		this.$el.html( ich.fix_base_content_split_tpl({dotted_bg:true}));
+		this.$el.html( ich.content_layout_split_tpl({dotted_bg:true}));
 		
 		// profile data -> left
 		this.$el.find('#left-content').html(ich.my_profile_tpl(this.model.toJSON()));
