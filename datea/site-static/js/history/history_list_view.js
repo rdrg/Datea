@@ -87,7 +87,7 @@ window.Datea.HistoryView = Backbone.View.extend({
     			});
     			break;
     		case 'comments':
-    			$extend(params,{
+    			$.extend(params,{
     				following_user: this.user_model.get('id'), 
     				sender_type: 'comment'
     			});

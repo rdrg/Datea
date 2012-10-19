@@ -93,9 +93,6 @@
 				}
 				.right-corner {
 					div { float:left}
-					.follow-button {
-						margin-right: 10px;
-					}
 				}
 				
 				.description {
@@ -106,6 +103,11 @@
 						padding-top: 10px;
 						font-size: @baseFontSize - 2px;
 						.separator:last-child { display:none;}
+					}
+					.follow-button {
+						margin-right: 20px;
+						display:inline-block;
+						.ie7-inline-block();
 					}
 					.clearfix();
 				}

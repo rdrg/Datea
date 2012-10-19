@@ -46,10 +46,20 @@ window.Datea.FollowWidgetView = Backbone.View.extend({
 		var context = this.model.toJSON();
 		context.follow_count = this.followed_model.get('follow_count');
 		if (this.model.isNew()) {
-			context.msg = gettext('follow!');
+			$.extend(context, {
+				msg: gettext('follow!'),
+				label: gettext('follow'),
+			});
 		}else if (this.options.read_only) {
-			context.msg = gettext('follow');
+			$.extend(context, {
+				msg: gettext('follow'),
+				label: gettext('follow'),
+			});
 		}else{
+			$.extend(context, {
+				msg: gettext('stop following'),
+				label: gettext('following'),
+			});
 			context.msg = gettext('stop following');
 		}
 		if (this.options.is_own) {

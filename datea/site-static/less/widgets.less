@@ -249,24 +249,36 @@ a.btn.dropdown-toggle, button.btn.dropdown-toggle, {
 
 .follow-widget.button-small {
 	cursor: pointer;
-	width: 18px;
-	a { width: 18px; display: inline-block; .ie7-inline-block(); &:hover {text-decoration: none}}
+	a { display: inline-block; .ie7-inline-block(); &:hover {text-decoration: none}}
+	
+	.widget-label {
+		margin-right:22px;
+		color: @grayText;
+	}
+	
 	.widget-icon {
+		float:right;
 		width: 18px;
 		height: 18px;
 		background: url(../img/datea/seguir_estados.png) no-repeat -18px center;
 	}
 	
-	/*
+	
 	&:hover .widget-icon {
 		background: url(../img/datea/seguir_estados.png) no-repeat 0px center;
-	}*/
+	}
 	
 	&.active {
 		.widget-icon {
 			background: url(../img/datea/seguir_estados.png) no-repeat 0px center;
 		}
-		&:hover .widget-icon { background: url(../img/datea/seguir_estados.png) no-repeat -36px center; }
+		.widget-label {
+			color: @green;
+		}
+		&:hover {
+			.widget-icon { background: url(../img/datea/seguir_estados.png) no-repeat -36px center; }
+			.widget-label {color: @grayText;}
+		}
 	}
 	
 	&.after-click {

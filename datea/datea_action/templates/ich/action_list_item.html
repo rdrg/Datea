@@ -13,7 +13,6 @@
 		
 		<div class="teaser-content {{#image}}with-image{{/image}}">
 			<div class="pull-right right-corner">
-				<div class="follow-button"></div>
 				<div class="action-type">{{ type }}</div>
 			</div>
 			
@@ -27,6 +26,7 @@
 			
 			<div class="footer">
 				<div class="pull-right">
+					<div class="follow-button"></div>
 					<a href="#{{ url }}" class="btn btn-pointy">{% trans "Go" %}<div class="pointer">&nbsp;</div></a>
 				</div>	
 				{{>action_stats_tpl}}
