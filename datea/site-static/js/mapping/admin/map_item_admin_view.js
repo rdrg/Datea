@@ -105,6 +105,11 @@ window.Datea.MapItemAdminView = Backbone.View.extend({
 		this.status_field.set_value(this.model.get('status'));
 		this.$el.find('.status-field').html(this.status_field.render().el);
 		
+		this.render_replies();
+		
+	},
+	
+	render_replies: function () {
 		// get replies
 		var responses = new Datea.MapItemResponseCollection();
 		var self = this;
@@ -113,13 +118,14 @@ window.Datea.MapItemAdminView = Backbone.View.extend({
 			success: function (collection, response) {
 				if (collection.length > 0) {
 					var $replies = self.$el.find('.replies');
+					$replies.empty();
 					_.each(collection.models, function(model){
 						$replies.append(new Datea.MapItemResponseView({model: model}).render().el); 
 					});
 					$replies.show();
 				}
 			}
-		})
+		});
 	},
 	
 	collapse: function () {
@@ -179,9 +185,7 @@ window.Datea.MapItemAdminView = Backbone.View.extend({
 			model: new Datea.MapItemResponse(),
 			map_items: respond_items,
 			sync_callback: function () {
-				self.model.fetch({
-					'success': self.expand(),
-				});
+				self.render_replies();
 			}
 		});
 		response_view.render();
