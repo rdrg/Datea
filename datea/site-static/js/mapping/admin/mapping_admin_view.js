@@ -22,7 +22,6 @@ window.Datea.MappingAdminView = Backbone.View.extend({
 	
 	render: function(ev) {
 		
-		this.$el.html( ich.mapping_admin_main_tpl());
 		var context = this.model.toJSON();
 		
 		if (this.model.get('item_categories').length > 0) {
@@ -31,7 +30,11 @@ window.Datea.MappingAdminView = Backbone.View.extend({
 			this.has_categories = false;
 		}
 		context.has_categories = this.has_categories;
-		this.$el.find('#right-content').html( ich.mapping_admin_list_tpl(context));
+		
+		var page_title = gettext('Admin Panel')+': '+context.name;
+		this.$el.html(ich.mapping_admin_zone_head_tpl({page_title: page_title}));
+		this.$el.append(ich.content_layout_single_tpl());
+		this.$el.find('#content').html( ich.mapping_admin_list_tpl(context));
 			
 		var self = this;	
 		// category filter

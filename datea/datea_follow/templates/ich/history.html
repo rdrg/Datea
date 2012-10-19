@@ -6,10 +6,10 @@
 <script id="map_item_history_sender" type="text/html"><a href="#{{ user_url }}">{{ username }}</a> {% trans "created a new report in" %} "{{& receiver_html }}"</script>
 
 {# MAP ITEM RESPONSE #}
-<script id="map_item_response_history_sender" type="text/html"><a href="#{{ user_url }}">{{ username }}</a> {% trans "replied to" %} "{{& receiver_html }}"</script>
+<script id="map_item_response_history_sender" type="text/html"><a href="#{{ user_url }}">{{ username }}</a> {% trans "replied to" %} {{& receiver_html }}</script>
 
 {# COMMENT #}
-<script id="comment_history_sender" type="text/html"><a href="#{{ user_url }}">{{ username }}</a> {% trans "commented" %} {{& receiver_html }}</script>
+<script id="comment_history_sender" type="text/html"><a href="#{{ user_url }}">{{ username }}</a> {% trans "made a comment in" %} {{& receiver_html }}</script>
 
 {# VOTE #}
 <script id="vote_history_sender" type="text/html"><a href="#{{ user_url }}">{{ username }}</a> {% trans "now supports" %} {{& receiver_html }}</script>

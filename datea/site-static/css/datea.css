@@ -2930,21 +2930,16 @@ body .olwidgetPopupCloseBox {
   color: #8d9c8c;
 }
 
-.mapping-edit-title h1 {
+#admin-zone-head {
+  padding: 20px 0;
+  background-color: #eee;
+}
+
+#admin-zone-head h1 {
   margin-bottom: 0;
   font-size: 24px;
   line-height: 30px;
   color: #27bb44;
-}
-
-.mapping-edit-title .bg {
-  position: absolute;
-  top: 70px;
-  right: 0;
-  left: 0;
-  z-index: -1;
-  height: 80px;
-  background-color: #eee;
 }
 
 #mapping-head-form .nav-tabs {

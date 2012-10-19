@@ -1,18 +1,8 @@
 {% load i18n verbatim_tag bootstrap_toolkit datea_mapping_tags %}
 {% get_map_item_form as form %}
-<script id="mapping_admin_main_tpl" type="text/html">
-	<div class="row">
-		{#<div id="left-content" class="span3"></div>#}
-		<div id="right-content" class="span12"></div>
-	</div>
-</script>
-
 
 <script id="mapping_admin_list_tpl" type="text/html">
-	<div class="page-header mapping-edit-title">
-		<div class="bg">&nbsp;</div>
-		<h1>{% trans 'Admin Panel' %}: {% verbatim %}{{name}}{% endverbatim %}</h1>
-	</div>
+
 	<form id="mapping-admin-head-form" class="form form-inline">
 		{% verbatim %}
 		<div class="pull-right back-button">

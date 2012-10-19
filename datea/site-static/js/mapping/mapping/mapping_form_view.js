@@ -21,7 +21,6 @@ window.Datea.MappingFormView = Backbone.View.extend({
   	},
 	
 	render: function(eventName) {
-		this.$el.html(ich.content_layout_single_tpl());
 		
 		var context = this.model.toJSON();
 		if (this.model.isNew()) {
@@ -37,7 +36,10 @@ window.Datea.MappingFormView = Backbone.View.extend({
 			}
 			context.end_date_time = formatDateFromISO(context.end_date, "HH:MM");
 		}
-		
+		var page_title = context.action_name+' '+gettext('mapping');
+		if (context.name && context.name != '') page_title= page_title+': '+context.name;
+		this.$el.html(ich.mapping_admin_zone_head_tpl({page_title: page_title}));
+		this.$el.append(ich.content_layout_single_tpl());
 		this.$el.find('#content').html( ich.mapping_form_tpl(context));
 		
 		// select category if set

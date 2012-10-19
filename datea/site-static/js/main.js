@@ -135,7 +135,6 @@ Datea.AppRouter = Backbone.Router.extend({
     
     // open a mapping tab on the mapping action
     open_mapping_tab: function(map_id, tab_id, method_id) {
-    	screen_mode('wide');
     	var params = {
     		tab_id: tab_id,
 			method_id: method_id,
@@ -145,6 +144,7 @@ Datea.AppRouter = Backbone.Router.extend({
     	// checkif mapping already exists (not drawing everything again!)
     	if (this.mapping_view && this.mapping_view.model.get('id') == map_id) {
     		// test if layout rendered
+    		screen_mode('wide');
     		if ($('#mapping-'+map_id).size() == 0) {
     			this.mapping_view.render();
     		}
@@ -154,6 +154,7 @@ Datea.AppRouter = Backbone.Router.extend({
     		Datea.show_big_loading($main_content_wrap);
     		var self = this;
     		this.build_mapping_main_view(map_id, function () {
+    			screen_mode('wide');
     			self.mapping_view.render_tab(params);
     		});
     	}
@@ -161,7 +162,6 @@ Datea.AppRouter = Backbone.Router.extend({
     
     // open a single map item in detail view
     open_mapping_item: function(map_id, item_id) {
-		screen_mode('wide');
     	var params = {
     		tab_id: 'reports',
 			item_id: item_id,
@@ -170,6 +170,7 @@ Datea.AppRouter = Backbone.Router.extend({
     	// check if mapping already exists (not drawing everything again!)
     	if (this.mapping_view && this.mapping_view.model.get('id') == map_id) {
     		// test if layout rendered
+    		screen_mode('wide');
     		if ($('#mapping-'+map_id).size() == 0) {
     			this.mapping_view.render();
     		}
@@ -178,6 +179,7 @@ Datea.AppRouter = Backbone.Router.extend({
     		Datea.show_big_loading($main_content_wrap);
     		var self = this;
     		this.build_mapping_main_view(map_id, function () {
+    			screen_mode('wide');
     			self.mapping_view.render_item(params);
     		})
     	}
@@ -256,11 +258,11 @@ Datea.AppRouter = Backbone.Router.extend({
     },
     
     open_mapping_edit: function(map_id) {
-    	screen_mode('wide');
     	this.current_view = 'mapping';
     	// check if mapping already exists
     	if (this.mapping_model && this.mapping_model.get('id') == map_id) {
     		// edit view created
+    		screen_mode('wide');
     		if (this.mapping_edit_view) {
     			this.mapping_edit_view.undelegateEvents();
     		}
@@ -272,6 +274,7 @@ Datea.AppRouter = Backbone.Router.extend({
     	}else{
     		var self = this;
     		this.build_mapping_edit_view(map_id, function () {
+    			screen_mode('wide');
     			self.mapping_edit_view.render();
     		})
     	}
@@ -279,11 +282,12 @@ Datea.AppRouter = Backbone.Router.extend({
     },
 
     open_mapping_admin: function(map_id) {
-    	screen_mode('wide');
+    	
     	this.current_view = 'mapping';
     	// check if mapping already exists
     	if (this.mapping_model && this.map_items && this.mapping_model.get('id') == map_id) {
     		// admin view created
+    		screen_mode('wide');
     		if (this.mapping_admin_view) {
     			this.mapping_admin_view.render();
     		}else{
@@ -298,6 +302,7 @@ Datea.AppRouter = Backbone.Router.extend({
     	}else{
     		var self = this;
     		this.build_mapping_admin_view(map_id, function () {
+    			screen_mode('wide');
     			self.mapping_admin_view.render();
     		})
     	}

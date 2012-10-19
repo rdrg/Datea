@@ -30,7 +30,7 @@ def on_vote_save(sender, instance, created, **kwargs):
         if hasattr(receiver_obj, 'action'): 
             hist_item.action = receiver_obj.action
         
-        #hist_item.generate_extract('dateamapitem', receiver_obj)
+        hist_item.generate_extract(instance.object_type.lower(), receiver_obj)
         hist_item.save()
         
         # create receiver item
@@ -61,7 +61,7 @@ def on_vote_save(sender, instance, created, **kwargs):
                         receiver_type = receiver_obj.get_api_name(mode='base'),
                         action = action
                     )
-            #action_hist_item.generate_extract('dateamapitem', receiver_obj)
+            action_hist_item.generate_extract(instance.object_type.lower(), receiver_obj)
             action_hist_item.save()
             
             # create receiver item

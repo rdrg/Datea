@@ -2,11 +2,6 @@
 {% get_mapping_form as form %}
 <script id="mapping_form_tpl" type="text/html">
 	
-	<div class="page-header mapping-edit-title">
-		<div class="bg">&nbsp;</div>
-		<h1>{% verbatim %}{{action_name}} {% trans 'mapping' %}{{#name}}: {{name}}{{/name}}{% endverbatim %}</h1>
-	</div>
-	
 	<div id="mapping-head-form">
 		{% verbatim %}{{#url}}
 		<div class="pull-right back-button">
