@@ -54,10 +54,10 @@
 				</div>
 				
 				<div class="login-bubble">
-					<a class="btn btn-pointy btn-uppercase btn-large" href="{% url auth_login %}">
-						{% trans "Login" %}<div class="pointer">&nbsp;</div>
+					<div class="reg-link">{% trans 'no account yet?' %}</div>
+					<a class="btn btn-pointy btn-uppercase btn-large" href="{% url registration_register %}">
+						{% trans "Register" %}<div class="pointer">&nbsp;</div>
 					</a>
-					<div class="reg-link">{% trans 'no account yet?' %} <a href="/accounts/register/">{% trans 'register!' %}</a></div>
 					<div class="esquina">&nbsp;</div>
 				</div>
 				

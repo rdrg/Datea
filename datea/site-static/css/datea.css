@@ -679,7 +679,7 @@ h1 {
 
 #datea-presentation .login-bubble {
   position: relative;
-  padding: 20px 20px;
+  padding: 20px 17px;
   color: white;
   background: url(../img/datea/fondo-login-solo.png) repeat-x bottom left;
   -webkit-border-radius: 10px;
@@ -688,7 +688,8 @@ h1 {
 }
 
 #datea-presentation .login-bubble .reg-link {
-  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 14px;
 }
 
 #datea-presentation .login-bubble .reg-link a {
