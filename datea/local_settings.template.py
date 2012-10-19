@@ -1,4 +1,5 @@
 import os
+from django.utils.translation import ugettext_lazy as _
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -35,6 +36,13 @@ EMAIL_PORT= '587'
 EMAIL_USE_TLS = True
 SEND_BROKEN_LINK_EMAILS = True
 EMAIL_SUBJECT_PREFIX = '[Datea]'
+
+ENVELOPE_EMAIL_RECIPIENTS = ['someone@example.com']
+ENVELOPE_SUBJECT_INTRO = '[contact example] '
+ENVELOPE_CONTACT_CHOICES = (
+         (10,    _("A general question regarding the website")),
+         (None,   _("Information about services we provide")),                   
+)
 
 TWITTER_CONSUMER_KEY = ''
 TWITTER_CONSUMER_SECRET = ''
