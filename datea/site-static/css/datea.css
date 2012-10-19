@@ -1883,10 +1883,6 @@ button.btn.dropdown-toggle:hover span.caret {
   border-bottom: 1px dotted #a3a3a3;
 }
 
-#action-list .action-item:last-child {
-  border-bottom: 0;
-}
-
 #action-list .action-item .action-teaser {
   *zoom: 1;
 }
