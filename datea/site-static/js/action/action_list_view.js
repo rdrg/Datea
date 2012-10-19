@@ -10,7 +10,7 @@ window.Datea.BaseActionListView = Backbone.View.extend({
     
     events: {
     	'click .get-page': 'get_page',
-    	'submit .action-search-form': 'search'
+    	'submit .action-search-form': 'search',
     },
     
     initialize: function () {
@@ -68,14 +68,25 @@ window.Datea.BaseActionListView = Backbone.View.extend({
     	if (this.model.meta.total_count > this.model.meta.limit) {
        		add_pager = true;  
     	}
+    	
+    	if (this.show_intro && this.has_actions == false) {
+    		this.$el.find('#action-intro').show();
+    	}else{
+    		this.$el.find('#action-intro').hide();
+    	}
+    	
     	var self = this;
-    	this.model.each(function (item) {
-    			var opts = {
-    				model: item,
-    				follow_callback: function() { self.render_filter(); }
-    			}
-            	$list.append(new Datea.ActionListItemView(opts).render().el);
-        }, this);
+    	if (this.model.size() > 0) {
+	    	this.model.each(function (item) {
+	    			var opts = {
+	    				model: item,
+	    				follow_callback: function() { self.render_filter(); }
+	    			}
+	            	$list.append(new Datea.ActionListItemView(opts).render().el);
+	        }, this);
+	   	}else{
+	   		$list.append(ich.empty_result_tpl());
+	   	}
         
         var $pager_div = this.$el.find('.action-pager');
 		if (add_pager) {
@@ -107,7 +118,14 @@ window.Datea.BaseActionListView = Backbone.View.extend({
     reset_event: function(ev) {
     	this.render_filter();
     	this.render_page();
+    },
+    
+    reset_events: function(){
+    	this.undelegateEvents();
+    	this.delegateEvents();
+    	this.action_filter.reset_events();
     }
+    
 });
 
 
@@ -116,11 +134,23 @@ window.Datea.MyActionListView = Datea.BaseActionListView.extend({
     
     selected_mode: 'my_actions',
     
+    show_intro: true,
+    
+    intro_dismissed: false,
+    
+    has_actions: false,
+    
+    events: {
+    	'click .get-page': 'get_page',
+    	'submit .action-search-form': 'search',
+    	'click .close': 'close_intro',
+    },
+    
     // build filter options according to user
     build_filter_options: function () {
     	this.filter_options = [];
     	if (Datea.is_logged() && typeof(Datea.my_user_follows.find(function (f){ return f.get('object_type') == 'dateaaction'})) != 'undefined') {
-    		
+    		this.has_actions = true;
     		this.filter_options.push({value: 'my_actions', name: gettext('my actions')});
     		
     		if (this.model.find(function (action){
@@ -128,6 +158,8 @@ window.Datea.MyActionListView = Datea.BaseActionListView.extend({
     			})) {
     			this.filter_options.push({value: 'own_actions', name: gettext('own actions')});
     		}
+    	}else{
+    		this.has_actions = false;
     	}
         this.filter_options.push({value: 'featured_actions', name: gettext('featured actions')});
         this.filter_options.push({value: 'all_actions', name: gettext('all actions')});
@@ -171,6 +203,10 @@ window.Datea.MyActionListView = Datea.BaseActionListView.extend({
 
     	this.model.fetch({ data: params});
     },
+    
+    close_intro: function(ev) {
+    	this.intro_dismissed = true;
+    }
     
 });
 

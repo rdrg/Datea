@@ -69,13 +69,16 @@
 
 
 <script id="datea_logged_intro_tpl" type="text/html">
-	<div class="logged-intro">
+	<div class="logged-intro alert">
+		
+		<button type="button" class="close" data-dismiss="alert">×</button>
+		
 		<h3>{% trans "First time around here?" %}</h3>
 		
 		<div class="intro-item intro-join">
 			<div class="icon">&nbsp;</div>
 			<div class="text">
-				{% blocktrans %}Join actions of your community Search actions here on the left, join and contribute.{% endblocktrans %}
+				{% blocktrans %}Search actions of the community, join and contribute.{% endblocktrans %}
 			</div>
 		</div>
 		
@@ -86,12 +89,10 @@
 			</div>
 		</div>
 		
-		<hr class="separator" />
-		
 		<div class="intro-item intro-create">
 			<div class="icon">&nbsp;</div>
 			<div class="text">
-				{% blocktrans %}You can create actions for others to participate in. Check your user's menu on the upper right corner.{% endblocktrans %}
+				{% blocktrans %}Create actions for others to participate in. <br/>Check your user's menu on the upper right corner.{% endblocktrans %}
 			</div>
 		</div>
 		

@@ -96,9 +96,11 @@ Datea.AppRouter = Backbone.Router.extend({
     		{
     		if (!this.my_profile_home_view) {
     			this.my_profile_home_view = new Datea.ProfileHomeView({model:Datea.my_user});
+    			this.my_profile_home_view.render();
     		}
     		if (this.current_view != 'my_profile') {
     			this.my_profile_home_view.render();
+    			this.my_profile_home_view.reset_events();
     			$main_content_wrap.html(this.my_profile_home_view.el);
     			this.current_view = 'my_profile';
     		}

@@ -59,6 +59,10 @@ window.Datea.ProfileHomeView = Backbone.View.extend({
 		$(ev.currentTarget).blur();
 	},
 	
+	reset_events: function() {
+		this.undelegateEvents();
+    	this.delegateEvents();
+	}
 		
 });
 
