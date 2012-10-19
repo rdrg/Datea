@@ -29,7 +29,7 @@ window.Datea.BaseActionListView = Backbone.View.extend({
     render:function (ev) {
     	this.$el.html( ich.action_list_tpl());
     	this.build_filter_options();   	
-    	this.fetch_actions();
+    	this.fetch_models();
     	
         return this;
     },
@@ -43,14 +43,14 @@ window.Datea.BaseActionListView = Backbone.View.extend({
     	
 		this.action_filter = new Datea.DropdownSelect({
 			options: this.filter_options,
-			div_class: 'no-bg white',
+			div_class: div_class,
 			init_value: this.selected_mode,
 			callback: function (val) {
 				if (self.selected_mode != val) {
 					self.selected_mode = val;
 					self.page = 0;
 				} 
-				self.fetch_actions();
+				self.fetch_models();
 			}
 		});
 		this.$el.find('.filters').html(this.action_filter.render().el);
@@ -79,7 +79,7 @@ window.Datea.BaseActionListView = Backbone.View.extend({
         
         var $pager_div = this.$el.find('.action-pager');
 		if (add_pager) {
-			$pager_div.html( this.pager_view.render_for_page(this.page, this.models.meta.total_count).el);
+			$pager_div.html( this.pager_view.render_for_page(this.page, this.model.meta.total_count).el);
 			$pager_div.removeClass('hide');
 		}else{
 			$pager_div.addClass('hide');
@@ -89,7 +89,7 @@ window.Datea.BaseActionListView = Backbone.View.extend({
     get_page: function(ev) {
     	ev.preventDefault();
     	if (typeof(ev) != 'undefined') this.page = parseInt($(ev.currentTarget).data('page'));
-    	this.fetch_actions();
+    	this.fetch_models();
 		this.$el.find('.scroll-area').scrollTop(0);
     },
     
@@ -100,7 +100,7 @@ window.Datea.BaseActionListView = Backbone.View.extend({
     		this.page = 0;
     		this.search_str = q;
     	}
-    	this.fetch_actions();
+    	this.fetch_models();
 		this.$el.find('.scroll-area').scrollTop(0);
     },
     
@@ -141,7 +141,7 @@ window.Datea.MyActionListView = Datea.BaseActionListView.extend({
         }
     },
     
-    fetch_actions: function (page) {
+    fetch_models: function (page) {
     	
     	if (typeof(page) != 'undefined') this.page = page; 
     	
@@ -208,7 +208,7 @@ window.Datea.ProfileActionListView = Datea.BaseActionListView.extend({
         }
     },
 
-    fetch_actions: function (page) {
+    fetch_models: function (page) {
     	
     	if (typeof(page) != 'undefined') this.page = page; 
     	

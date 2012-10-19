@@ -3181,7 +3181,7 @@ body .olwidgetPopupCloseBox {
 }
 
 .history-view .history-item {
-  padding: 12px 0;
+  padding: 20px 0;
   font-size: 14px;
   border-bottom: 1px dotted #a3a3a3;
 }
@@ -3222,7 +3222,6 @@ body .olwidgetPopupCloseBox {
 }
 
 .history-view .item-pager {
-  margin-top: 10px;
   *zoom: 1;
 }
 
