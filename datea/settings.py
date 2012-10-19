@@ -176,6 +176,8 @@ INSTALLED_APPS = (
     "django.contrib.gis",
     'olwidget',
     'haystack',
+    'envelope',
+    'honeypot',
     
     # DATEA
     'datea',
@@ -271,6 +273,8 @@ SOCIAL_AUTH_EXPIRATION = 'expires'
 SOCIAL_AUTH_ASSOCIATE_BY_MAIL = True
 
 ACCOUNT_ACTIVATION_DAYS = 7 
+
+HONEYPOT_FIELD_NAME = 'phone'
 
 # EASY THUMBNAILS HAS PROBLEMS WITH TASTYPIE RELATED FIELDS OR DJANGO 1.4!!! 
 #Thumbnails definitions

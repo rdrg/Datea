@@ -17,6 +17,8 @@ from datea_api.action import ActionResource
 from datea_api.contenttypes import ContentTypeResource
 from datea_api.comment import CommentResource
 from datea_api.follow import FollowResource,HistoryResource,NotifySettingsResource
+from envelope.views import ContactView
+from django.views.generic import TemplateView
 
 v1_api = Api(api_name='v1')
 v1_api.register(Accounts())
@@ -65,6 +67,10 @@ urlpatterns = patterns('',
     
     #wysiwyg editor
     (r'^ckeditor/', include('ckeditor.urls')),
+    
+    url(r'^contact/$', ContactView.as_view(success_url="/contact/success/"), name='envelope-contact'),
+    
+    (r'^contact/success/$',  TemplateView.as_view(template_name="envelope/success.html"))
 )
 
 

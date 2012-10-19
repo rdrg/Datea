@@ -333,6 +333,11 @@ h1 {
   color: #b94a48;
 }
 
+.contact-form textarea,
+.contact-form #id_subject {
+  width: 400px;
+}
+
 #head-nav #head-nav-right #navbar-items {
   float: left;
   padding-top: 38px;
@@ -1739,7 +1744,7 @@ button.btn.dropdown-toggle:hover span.caret {
 
 .user-profile {
   padding-top: 5px !important;
-  margin-top: 12px !important;
+  margin-top: 38px !important;
 }
 
 .user-profile .head {
@@ -1759,6 +1764,20 @@ button.btn.dropdown-toggle:hover span.caret {
 
 .user-profile .head h1 {
   margin-bottom: 2px;
+}
+
+.user-profile .head .profile-info {
+  *zoom: 1;
+}
+
+.user-profile .head .profile-info:before,
+.user-profile .head .profile-info:after {
+  display: table;
+  content: "";
+}
+
+.user-profile .head .profile-info:after {
+  clear: both;
 }
 
 .user-profile .head .profile-info .profile-img-large {
@@ -1781,6 +1800,10 @@ button.btn.dropdown-toggle:hover span.caret {
 
 .user-profile .head .profile-info .stats .separator:last-child {
   display: none;
+}
+
+.user-profile .head .profile-extra {
+  margin-top: 8px;
 }
 
 .user-profile .head .profile-extra .message {
@@ -1895,6 +1918,10 @@ button.btn.dropdown-toggle:hover span.caret {
   padding-top: 20px;
   padding-bottom: 20px;
   border-bottom: 1px dotted #a3a3a3;
+}
+
+#action-list .action-item:last-child {
+  border-bottom: 0;
 }
 
 #action-list .action-item .action-teaser {

@@ -1,0 +1,27 @@
+{% extends "site-base.html"%}
+{% load i18n %}
+{% load envelope_tags bootstrap_toolkit %}
+
+{% block main_content %}
+<div class="row" id="{{ flatpage.id }}">
+	<div id="content" class="span12 dotted-bg-container">
+		<div class="dotted-bg">&nbsp;</div>
+		<div class="row">
+			<div class="span8">
+				<div class="dotted-inner">
+					{% block left_content %}{% endblock %}
+				</div>
+			</div>
+			
+			{% block right_content_wrap %}
+			<!--
+			<div class="span4">
+				<div class="dotted-inner">
+					{% block right_content %}{% endblock %}
+				</div>
+			</div>-->
+			{% endblock %}
+		</div>
+	</div>
+</div>
+{% endblock %}
