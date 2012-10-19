@@ -9,6 +9,13 @@ window.Datea.MappingDataView = Backbone.View.extend({
 		this.model.bind('remove', this.add_event, this);
 		this.view_mode = 'map';
 		this.mappingModel = this.options.mappingModel;
+		// mapping setting controls
+		if (Datea.is_logged() &&
+			( this.mappingModel.get('user').id == Datea.my_user.get('id')
+			  || Datea.my_user.get('is_staff')
+			)) {
+			this.admin_button = true;	
+		}
 	},
 	
 	add_event: function(model) {
@@ -19,6 +26,7 @@ window.Datea.MappingDataView = Backbone.View.extend({
 	render: function (eventName) {
 		
 		var context = this.mappingModel.toJSON();
+		context.admin_button = this.admin_button;
 		this.$el.html( ich.mapping_data_view_tpl(context));
 		this.filter_items();
 		

@@ -2774,6 +2774,7 @@ body .olwidgetPopupCloseBox {
 }
 
 .data-view-head {
+  position: relative;
   *zoom: 1;
 }
 
@@ -2797,9 +2798,13 @@ body .olwidgetPopupCloseBox {
   *zoom: 1;
 }
 
-.data-view-head .json {
+.data-view-head .top-buttons .json {
   width: 23px;
   background: url(../img/datea/iconos-mapa-top.png) no-repeat -47px 0;
+}
+
+.data-view-head .top-buttons.with-admin-button {
+  margin-right: 80px;
 }
 
 .data-view-body {
@@ -2917,13 +2922,10 @@ body .olwidgetPopupCloseBox {
 }
 
 #mapping-settings-control {
-  position: relative;
+  position: absolute;
+  top: -5px;
+  right: 0;
   z-index: 150;
-}
-
-#mapping-settings-control .mapping-control-button {
-  float: right;
-  margin-top: 5px;
 }
 
 #mapping-settings-control .mapping-control-button .caret {

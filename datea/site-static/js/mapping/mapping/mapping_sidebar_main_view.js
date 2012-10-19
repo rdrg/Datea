@@ -3,13 +3,6 @@ window.Datea.MappingSidebar = Backbone.View.extend({
 	
 	initialize: function () {
 		this.map_items = this.options.map_items;
-		// mapping setting controls
-		if (Datea.is_logged() &&
-			( this.model.get('user').id == Datea.my_user.get('id')
-			  || Datea.my_user.get('is_staff')
-			)) {
-			this.show_settings_button = true;	
-		}
 	},
 	
 	events: {
@@ -19,7 +12,6 @@ window.Datea.MappingSidebar = Backbone.View.extend({
 	render: function (eventName) {
 		
 		var context = this.model.toJSON();
-		context.show_settings_button = this.show_settings_button;
 		this.$el.html( ich.mapping_sidebar_main_tpl(context));
 		
 		this.start_tab_view = new Datea.MappingStartTab({
