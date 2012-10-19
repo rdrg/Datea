@@ -1282,6 +1282,15 @@ button.btn.dropdown-toggle:hover span.caret {
   filter: alpha(opacity=50);
 }
 
+.pagination li a {
+  color: #999999;
+}
+
+.pagination li.active a,
+.pagination li:hover a {
+  color: #5e6e65;
+}
+
 .paginator li {
   display: block;
   float: left;
@@ -2745,12 +2754,6 @@ body .olwidgetPopupCloseBox {
 #mapping-reports-view .scroll-area .item-pager {
   padding: 10px 15px;
 }
-
-#mapping-reports-view .scroll-area .item-pager a {
-  color: #555555;
-}
-
-@gray Dark;
 
 .data-view-head {
   *zoom: 1;

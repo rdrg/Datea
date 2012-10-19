@@ -9,7 +9,7 @@ window.Datea.PaginatorView = Backbone.View.extend({
 	tagName: 'ul',
 	
 	attributes: {
-		'class': 'paginator nav',
+		'class': 'pagination',
 	},
 	
 	initialize: function( ) {
@@ -46,27 +46,31 @@ window.Datea.PaginatorView = Backbone.View.extend({
 			var ctx = {'page': this.page -1, 'page_name': this.page}
 			this.$el.append( ich.paginator_prev(ctx));
 		}
+		
+		/*
 		if (p_range[0] > 0) {
 			this.$el.append(ich.paginator_dots());
 		}else if (this.has_prev()){
 			this.$el.append(ich.paginator_separator());
-		}
+		}*/
 		
 		for (var i=0; i< p_range.length; i++) {
 			var p = p_range[i];
 			var ctx = {'page': p, 'page_name': (parseInt(p) + 1)};
 			if (p == this.page) ctx.li_attr = 'class="active"';
 			this.$el.append(ich.paginator_page(ctx));
+			/*
 			if (i < p_range.length -1) {
 				this.$el.append(ich.paginator_separator());
-			}
+			}*/
 		}
 		
+		/*
 		if (p_range[p_range.length -1] != this.num_pages -1) {
 			this.$el.append(ich.paginator_dots());
 		}else{
 			this.$el.append(ich.paginator_separator());
-		}
+		}*/
 		
 		if (this.has_next()) {
 			var ctx = {'page': (this.page + 1)}
@@ -108,7 +112,8 @@ window.Datea.PaginatorView = Backbone.View.extend({
 		
 		page_range = [];
 		for (var i=start; i <= end; i++) page_range.push(i);
-			
+		
+		this.page_range = page_range;	
 		return page_range;
 	},
 	
@@ -118,17 +123,17 @@ window.Datea.PaginatorView = Backbone.View.extend({
 	},
 	
 	has_next: function () {
-		if ( (this.page + 1) < this.num_pages) return true;
+		if ( $.inArray(this.page + 1, this.page_range) != -1) return true;
 		return false
 	},
 	
 	has_first:function () {
-		if (this.page - this.adjacent_pages > 0) return true;
+		if (this.page_range[0] != 0) return true;
 		return false
 	},
 	
 	has_last:function () {
-		if (this.page + this.adjacent_pages < this.num_pages) return true;
+		if ($.inArray(this.num_pages -1, this.page_range) == -1) return true
 		return false
 	}
 	
