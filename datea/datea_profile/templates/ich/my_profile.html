@@ -15,40 +15,35 @@
 		</div>
 	</div>
 	
-	<div class="history-view-container">
-		
-	</div>
 </div>
 </script>
 
 <script id="profile_stats_tpl" type="text/html">
 	<div class="stats">
 		{{#profile.item_count}}
-		<span class="stat item_count">
+		<div class="stat item_count">
 			<i class="icono dateo"></i>
 			{{ profile.item_count }} 
 			<span class="plural">{% trans "contributions" %}</span>
 			<span class="singular" style="display:none">{% trans "contribution" %}</span>
-		</span>
-		<span class="separator">|</span>
+		</div>
+
 		{{/profile.item_count}}
 		{{#profile.comment_count}}
-		<span class="stat comment_count">
+		<div class="stat comment_count">
 			<i class="icono comment"></i>
 			{{ profile.comment_count }}
 			<span class="plural">{% trans "comments" %}</span>
 			<span class="singular" style="display:none">{% trans "comment" %}</span>
-		</span>
-		<span class="separator">|</span>
+		</div>
 		{{/profile.comment_count }}
 		{{#profile.vote_count}}
-		<span class="stat vote_count">
+		<div class="stat vote_count">
 			<i class="icono vote"></i>
 			{{ profile.vote_count }} 
 			<span class="plural">{% trans "votes" %}</span>
 			<span class="singular" style="display:none">{% trans "vote" %}</span>
-		</span>
-		<span class="separator">|</span>
+		</div>
 		{{/profile.vote_count}}
 	</div>
 </script>

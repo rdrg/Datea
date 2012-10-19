@@ -23,6 +23,7 @@ window.Datea.BaseActionListView = Backbone.View.extend({
 			adjacent_pages: 1,
 		});
 		this.search_str = '';
+		if (this.options.add_class) this.$el.addClass(this.options.add_class);
     },
     
     render:function (ev) {
@@ -36,6 +37,9 @@ window.Datea.BaseActionListView = Backbone.View.extend({
     render_filter: function() {
     	this.build_filter_options();
     	var self = this;
+    	
+    	var div_class = 'no-bg';
+    	if (this.options.add_class == 'unlogged') div_cass = div_class +" white"; 
     	
 		this.action_filter = new Datea.DropdownSelect({
 			options: this.filter_options,
@@ -186,7 +190,7 @@ window.Datea.ProfileActionListView = Datea.BaseActionListView.extend({
 			items_per_page: this.items_per_page,
 			adjacent_pages: 1,
 		});
-		this.search = '';
+		this.search_str = '';
     },
     
     // build filter options according to user

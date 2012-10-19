@@ -13,7 +13,10 @@
 	}
 	
 	.filter {
-		float: right;
+		.btn-dropdown-select {
+			font-size: @baseFontSize + 2px;
+			font-weight: bold;
+		}
 	}
 	
 	h3 {
@@ -22,7 +25,8 @@
 	
 	.history-item {
 		padding: 12px 0;
-		border-bottom: 1px dashed #a3a3a3;
+		font-size: @baseFontSize + 1px;
+		border-bottom: 1px dotted #a3a3a3;
 		&:last-child { border-bottom: 0}
 		
 		.item-row {

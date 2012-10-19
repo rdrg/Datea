@@ -19,7 +19,7 @@ window.Datea.HomeView = Backbone.View.extend({
 		
 		// ACTIONS
 		this.$el.find('#left-content').html(
-			new Datea.MyActionListView().render().el
+			new Datea.MyActionListView({add_class:'unlogged'}).render().el
 		);
 		
 		// TWEETS

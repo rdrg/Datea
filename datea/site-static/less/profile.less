@@ -1,21 +1,22 @@
 
 .user-profile {
 	
+	padding-top: 5px !important;
+	margin-top:12px !important;
+	
 	.head {
 		.clearfix();
 		margin-bottom:10px;
-		.profile-img-large {
-			float: left;
+		
+		h1 {
+			margin-bottom: 2px;
 		}
-		.profile-head-data {
-			margin-left: 145px;
-			
-			h1 {
-				margin-bottom: 5px;
+		
+		.profile-info {
+			.profile-img-large {
+				float: left;
+				margin-right: 5px;
 			}
-			
-			.message { color: @grayTextDark; font-size: @baseFontSize + 1px;}
-			
 			.stats {
 				padding:10px 0;
 				font-size: @baseFontSize - 1px;
@@ -28,10 +29,20 @@
 				.separator:last-child {display:none}
 			}
 		}
+		.profile-extra {
+			.message { color: @grayTextDark; font-size: @baseFontSize + 1px;}		
+		}
 	}
-	.history-view-container {
-		min-height: 40px;
-	}
+}
+
+
+
+.profile-tabs {
+	margin-top:10px;
+}
+.profile-tab-content {
+	padding: 20px 18px;
+	margin-bottom: 15px;
 }
 
 #user-edit-window-head {
