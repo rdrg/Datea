@@ -1,0 +1,12 @@
+
+<h3><a href="{{blog_url}}">{{blog_name}}</a></h3>
+
+<ul class="blog-entries">
+{% for entry in entries %}
+	<li>
+		<div class="title"><a href='{{ entry.link}}'>{{ entry.title}}</a></div>
+		<div class="date">{{ entry.pubdate_parsed|date:"d.m.Y - H:i"}}</div>
+	</li>
+{% endfor %}
+</ul>
+

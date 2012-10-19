@@ -193,7 +193,7 @@ INSTALLED_APPS = (
     'datea.datea_api',
     'datea.datea_comment',
     'datea.datea_menu',
-    
+    'datea.datea_blogfeed',
 )
 
 # A sample logging configuration. The only tangible logging

@@ -22,8 +22,10 @@ window.Datea.HomeView = Backbone.View.extend({
 			new Datea.MyActionListView({add_class:'unlogged'}).render().el
 		);
 		
-		// TWEETS
 		var $right_content = this.$el.find('#right-content');
+		// BLOG
+		$right_content.append(new Datea.BlogFeedView().render().el);
+		// TWEETS
 		$right_content.append(new Datea.SiteTweetView().render().el);
 		
 		return this;

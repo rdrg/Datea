@@ -24,6 +24,7 @@ django-social-auth==0.6.9
 -e git://github.com/toastdriven/django-tastypie.git@e08b4f683ea907328538598a33626503d30f8075#egg=django_tastypie-dev
 django-templated-email==0.4.7
 -e git://github.com/SmileyChris/easy-thumbnails.git@8661b1f30065b8e6c0df4fe3ad55df18a2e4441a#egg=easy_thumbnails-dev
+feedparser==5.1.2
 ## FIXME: could not find svn URL in dependency_links for this package:
 flup==1.0.3.dev-20110405
 geopy==0.94.2

@@ -54,3 +54,9 @@ OPENGRAPH_DEFAULT_IMAGE = os.path.join(STATIC_URL,'img/datea/datea_iso.png')
 
 GOOGLE_OAUTH2_CLIENT_ID = ''
 GOOGLE_OAUTH2_CLIENT_SECRET = ''
+
+
+BLOG_FEED_CACHE_TIMEOUT = 3600
+BLOG_FEED_URL = 'http://blog.datea.pe/?feed=rss2'
+BLOG_URL = 'http://blog.datea.pe'
+BLOG_NAME = 'blog datero'

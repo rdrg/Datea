@@ -338,6 +338,42 @@ h1 {
   width: 400px;
 }
 
+.blog-feed-block {
+  background-color: #efefef;
+}
+
+.blog-feed-block h3 {
+  text-transform: uppercase;
+}
+
+.blog-feed-block ul.blog-entries {
+  margin-bottom: 0;
+  margin-left: 0;
+  list-style: none;
+}
+
+.blog-feed-block ul.blog-entries li {
+  margin-top: 10px;
+  list-style: none;
+}
+
+.blog-feed-block ul.blog-entries li .title {
+  font-size: 15px;
+}
+
+.blog-feed-block ul.blog-entries li .title a {
+  color: #434c3e;
+}
+
+.blog-feed-block ul.blog-entries li .title a:hover {
+  color: #27bb44;
+}
+
+.blog-feed-block ul.blog-entries li .date {
+  font-size: 11px;
+  color: #999999;
+}
+
 #head-nav #head-nav-right #navbar-items {
   float: left;
   padding-top: 38px;

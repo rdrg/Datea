@@ -69,7 +69,7 @@ window.Datea.BaseActionListView = Backbone.View.extend({
        		add_pager = true;  
     	}
     	
-    	if (this.show_intro && this.has_actions == false) {
+    	if (Datea.is_logged() && this.show_intro && this.has_actions == false) {
     		this.$el.find('#action-intro').show();
     	}else{
     		this.$el.find('#action-intro').hide();
