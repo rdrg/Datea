@@ -6,7 +6,8 @@ A django based crowdsourcing and civic engagement framework,
 currently supporting community driven maps of reports. It was designed to
 include other participatory dynamics in the future.
 
-This is our first beta release. Instructions and more information will come later.
+This is our first beta release. Any feedback is welcomed. Instructions and 
+more information will come at a later date.
 
 If you are interested in using or contributing to this project,
 or want toknow a litle bit more about us or the plattform, 
