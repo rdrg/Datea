@@ -591,7 +591,7 @@ msgstr ""
 
 #: datea_home/templates/ich/datea_presentation.html:88
 msgid "Contribute, comment and support each other's contributions."
-msgstr "Crea nuevos dateos,comenta y apoya los dateos de los demás."
+msgstr "Datea en una iniciativa, comenta y apoya los dateos de los demás."
 
 #: datea_home/templates/ich/datea_presentation.html:95
 msgid ""
@@ -1264,7 +1264,7 @@ msgstr "último"
 
 #: templates/registration/_bubble_login.html:5
 msgid "Already have an account?"
-msgstr "¿Necesitas una cuenta?"
+msgstr "¿Ya tienes una cuenta?"
 
 #: templates/registration/_bubble_login.html:8
 #: templates/registration/login.html:3 templates/registration/login.html:6
@@ -1505,6 +1505,19 @@ msgstr "Regístrate para obtener una cuenta"
 #: templates/registration/registration_form.html:10
 msgid "Or you can register an account here at Datea:"
 msgstr "O puedes registrar una cuenta aquí en Datea:"
+
+#: .\forms.py:33
+msgid "From"
+msgstr "Nombre"
+
+#: .\forms.py:35
+msgid "Subject"
+msgstr "Asunto"
+
+#: .\forms.py:36
+msgid "Message"
+msgstr "Mensage"
+
 
 #~ msgid "commented"
 #~ msgstr "comentó"

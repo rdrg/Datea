@@ -15,9 +15,11 @@ build:
 	@echo "\n${HR}"
 	@echo "Building Datea LESS..."
 	@echo "${HR}\n"
-	@recess --compile ${DATEA_LESS} > ${DATEA}
+	@lessc  --yui-compress ${DATEA_LESS} > ${DATEA}
+#	@recess --compress ${DATEA_LESS} > ${DATEA}
 #	@recess --compress ${DATEA_RESPONSIVE_LESS} > ${DATEA_RESPONSIVE}
-	@echo "Compiling LESS with Recess...               ${CHECK} Done"
+#	@echo "Compiling LESS with Recess...               ${CHECK} Done"
+	@echo "Compiling LESS with LessC... 
 	@echo "todo bien"
 
 #
