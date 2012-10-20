@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-13 19:58-0500\n"
+"POT-Creation-Date: 2012-10-19 23:30-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,278 +18,2712 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
-#: site-static/js/action_bone.js:49
-#: site-static/js/mapping/mapping_main_bone.js:296
-msgid "action"
-msgstr "acción"
-
-#: site-static/js/action_bone.js:102
-msgid "my actions"
-msgstr "mis acciones"
-
-#: site-static/js/action_bone.js:107
-msgid "actions created"
-msgstr "acciones creadas"
-
-#: site-static/js/action_bone.js:110
-msgid "featured actions"
-msgstr "acciones destacadas"
-
-#: site-static/js/action_bone.js:111
-msgid "all actions"
-msgstr "todas las acciones"
-
-#: site-static/js/action_bone.js:265
-msgid "%(uname)s's actions"
-msgstr "acciones de %(uname)s"
-
-#: site-static/js/action_bone.js:272
-msgid "actions created by %(uname)s"
-msgstr "acciones creadas por %(uname)s"
-
-#: site-static/js/bone_router.js:7
+#: site-static/js/main.js:7
 msgid "action/start"
 msgstr "accion/inicio"
 
-#: site-static/js/bone_router.js:8
+#: site-static/js/main.js:8
 msgid "action/create/"
 msgstr "accion/crear/"
 
-#: site-static/js/bone_router.js:9
+#: site-static/js/main.js:9 site-static/js/main.js.c:10
 msgid "profile"
 msgstr "perfil"
 
-#: site-static/js/bone_router.js:10 site-static/js/bone_router.js.c:11
-#: site-static/js/bone_router.js:12 site-static/js/bone_router.js.c:13
-#: site-static/js/bone_router.js:14 site-static/js/bone_router.js.c:15
-#: site-static/js/bone_router.js:16 site-static/js/bone_router.js.c:59
-#: site-static/js/mapping/mapping_form_bone.js:150
-#: site-static/js/mapping/mapping_main_bone.js:439
+#: site-static/js/main.js:11 site-static/js/main.js.c:12
+#: site-static/js/main.js:13 site-static/js/main.js.c:14
+#: site-static/js/main.js:15 site-static/js/main.js.c:16
+#: site-static/js/main.js:17 site-static/js/main.js.c:78
+#: site-static/js/mapping/mapping/mapping_form_view.js:39
+#: site-static/js/mapping/mapping/mapping_form_view.js:149
+#: site-static/js/mapping/mapping/mapping_tab_item_list_view.js:125
+#: static/CACHE/js/069c65554592.js:440 static/CACHE/js/069c65554592.js.c:447
+#: static/CACHE/js/069c65554592.js:466 static/CACHE/js/09da92f9f404.js:353
+#: static/CACHE/js/09da92f9f404.js.c:367 static/CACHE/js/0a79bd9550e5.js:353
+#: static/CACHE/js/0a79bd9550e5.js.c:367 static/CACHE/js/0b8b36d6d075.js:352
+#: static/CACHE/js/0b8b36d6d075.js.c:366 static/CACHE/js/0d9d4994d9fa.js:443
+#: static/CACHE/js/0d9d4994d9fa.js.c:450 static/CACHE/js/0d9d4994d9fa.js:469
+#: static/CACHE/js/1590f956a92e.js:353 static/CACHE/js/1590f956a92e.js.c:367
+#: static/CACHE/js/1700495f3e06.js:353 static/CACHE/js/1700495f3e06.js.c:367
+#: static/CACHE/js/17bca7ce487c.js:353 static/CACHE/js/17bca7ce487c.js.c:367
+#: static/CACHE/js/1a7bc113f4a6.js:353 static/CACHE/js/1a7bc113f4a6.js.c:367
+#: static/CACHE/js/21df30627bf9.js:443 static/CACHE/js/21df30627bf9.js.c:450
+#: static/CACHE/js/21df30627bf9.js:469 static/CACHE/js/24eee08817c3.js:353
+#: static/CACHE/js/24eee08817c3.js.c:367 static/CACHE/js/271a7e9c0dde.js:443
+#: static/CACHE/js/271a7e9c0dde.js.c:450 static/CACHE/js/271a7e9c0dde.js:469
+#: static/CACHE/js/28a75b97c738.js:443 static/CACHE/js/28a75b97c738.js.c:450
+#: static/CACHE/js/28a75b97c738.js:469 static/CACHE/js/2e74a305330e.js:353
+#: static/CACHE/js/2e74a305330e.js.c:367 static/CACHE/js/36a825fa55bb.js:353
+#: static/CACHE/js/36a825fa55bb.js.c:367 static/CACHE/js/3ad76eba02c8.js:353
+#: static/CACHE/js/3ad76eba02c8.js.c:367 static/CACHE/js/3c65f2b5abe9.js:443
+#: static/CACHE/js/3c65f2b5abe9.js.c:450 static/CACHE/js/3c65f2b5abe9.js:469
+#: static/CACHE/js/3f76a5e109cd.js:353 static/CACHE/js/3f76a5e109cd.js.c:367
+#: static/CACHE/js/423d0ae3a046.js:353 static/CACHE/js/423d0ae3a046.js.c:367
+#: static/CACHE/js/46f49fc69645.js:353 static/CACHE/js/46f49fc69645.js.c:368
+#: static/CACHE/js/4f5850dc7f61.js:353 static/CACHE/js/4f5850dc7f61.js.c:367
+#: static/CACHE/js/52173e64fe62.js:353 static/CACHE/js/52173e64fe62.js.c:367
+#: static/CACHE/js/5217fc9b2b42.js:353 static/CACHE/js/5217fc9b2b42.js.c:367
+#: static/CACHE/js/523e2974cdab.js:353 static/CACHE/js/523e2974cdab.js.c:367
+#: static/CACHE/js/55757ea02bba.js:440 static/CACHE/js/55757ea02bba.js.c:447
+#: static/CACHE/js/55757ea02bba.js:466 static/CACHE/js/56bb215d04af.js:440
+#: static/CACHE/js/56bb215d04af.js.c:447 static/CACHE/js/56bb215d04af.js:466
+#: static/CACHE/js/587358082861.js:443 static/CACHE/js/587358082861.js.c:450
+#: static/CACHE/js/587358082861.js:469 static/CACHE/js/59655cbf7546.js:440
+#: static/CACHE/js/59655cbf7546.js.c:447 static/CACHE/js/59655cbf7546.js:466
+#: static/CACHE/js/6172d4788032.js:353 static/CACHE/js/6172d4788032.js.c:367
+#: static/CACHE/js/62ec87a6f408.js:443 static/CACHE/js/62ec87a6f408.js.c:450
+#: static/CACHE/js/62ec87a6f408.js:469 static/CACHE/js/672e38aaf492.js:353
+#: static/CACHE/js/672e38aaf492.js.c:367 static/CACHE/js/67e1b308bc0c.js:353
+#: static/CACHE/js/67e1b308bc0c.js.c:367 static/CACHE/js/6949097e027f.js:442
+#: static/CACHE/js/6949097e027f.js.c:449 static/CACHE/js/6949097e027f.js:468
+#: static/CACHE/js/72e2926afe6a.js:443 static/CACHE/js/72e2926afe6a.js.c:450
+#: static/CACHE/js/72e2926afe6a.js:469 static/CACHE/js/77486edf4aee.js:353
+#: static/CACHE/js/77486edf4aee.js.c:367 static/CACHE/js/7a37720a850e.js:353
+#: static/CACHE/js/7a37720a850e.js.c:367 static/CACHE/js/7dfcca8be637.js:353
+#: static/CACHE/js/7dfcca8be637.js.c:367 static/CACHE/js/803b8cef4870.js:352
+#: static/CACHE/js/803b8cef4870.js.c:366 static/CACHE/js/831bfc81e8c0.js:353
+#: static/CACHE/js/831bfc81e8c0.js.c:367 static/CACHE/js/834b7ee64cf1.js:353
+#: static/CACHE/js/834b7ee64cf1.js.c:367 static/CACHE/js/86bcabb9c47a.js:353
+#: static/CACHE/js/86bcabb9c47a.js.c:367 static/CACHE/js/8f5fbc25d390.js:353
+#: static/CACHE/js/8f5fbc25d390.js.c:367 static/CACHE/js/9423ac70c3bf.js:440
+#: static/CACHE/js/9423ac70c3bf.js.c:447 static/CACHE/js/9423ac70c3bf.js:466
+#: static/CACHE/js/948be4fe4bda.js:440 static/CACHE/js/948be4fe4bda.js.c:447
+#: static/CACHE/js/948be4fe4bda.js:466 static/CACHE/js/975e1be23e23.js:353
+#: static/CACHE/js/975e1be23e23.js.c:367 static/CACHE/js/97b3afb5d058.js:443
+#: static/CACHE/js/97b3afb5d058.js.c:450 static/CACHE/js/97b3afb5d058.js:469
+#: static/CACHE/js/9f5c522bc0ae.js:353 static/CACHE/js/9f5c522bc0ae.js.c:367
+#: static/CACHE/js/a25bcefeadb6.js:353 static/CACHE/js/a25bcefeadb6.js.c:367
+#: static/CACHE/js/a66b17977a89.js:353 static/CACHE/js/a66b17977a89.js.c:367
+#: static/CACHE/js/ab2f9d86fe7d.js:443 static/CACHE/js/ab2f9d86fe7d.js.c:450
+#: static/CACHE/js/ab2f9d86fe7d.js:469 static/CACHE/js/abf1a137b0b9.js:353
+#: static/CACHE/js/abf1a137b0b9.js.c:368 static/CACHE/js/adb500cf07b6.js:353
+#: static/CACHE/js/adb500cf07b6.js.c:367 static/CACHE/js/af37407f7dbe.js:353
+#: static/CACHE/js/af37407f7dbe.js.c:367 static/CACHE/js/bd1623bd2966.js:441
+#: static/CACHE/js/bd1623bd2966.js.c:448 static/CACHE/js/bd1623bd2966.js:467
+#: static/CACHE/js/c11537535b75.js:352 static/CACHE/js/c11537535b75.js.c:366
+#: static/CACHE/js/c41945e40ff6.js:353 static/CACHE/js/c41945e40ff6.js.c:367
+#: static/CACHE/js/c4bc8786469c.js:353 static/CACHE/js/c4bc8786469c.js.c:367
+#: static/CACHE/js/cc82f7b723a3.js:353 static/CACHE/js/cc82f7b723a3.js.c:368
+#: static/CACHE/js/e2e3ed698537.js:353 static/CACHE/js/e2e3ed698537.js.c:367
+#: static/CACHE/js/e48b032bf67f.js:353 static/CACHE/js/e48b032bf67f.js.c:367
+#: static/CACHE/js/e490e044136a.js:443 static/CACHE/js/e490e044136a.js.c:450
+#: static/CACHE/js/e490e044136a.js:469 static/CACHE/js/ecfc862726a2.js:353
+#: static/CACHE/js/ecfc862726a2.js.c:367 static/CACHE/js/f9ca9286bf1b.js:443
+#: static/CACHE/js/f9ca9286bf1b.js.c:450 static/CACHE/js/f9ca9286bf1b.js:469
+#: static/CACHE/js/fdfb25ad7dd4.js:443 static/CACHE/js/fdfb25ad7dd4.js.c:450
+#: static/CACHE/js/fdfb25ad7dd4.js:469
 msgid "mapping"
 msgstr "mapeo"
 
-#: site-static/js/bone_router.js:15
-#: site-static/js/mapping/mapping_main_bone.js:247
-#: site-static/js/mapping/mapping_main_bone.js:439
+#: site-static/js/main.js:16
+#: site-static/js/mapping/mapping/mapping_sidebar_main_view.js:43
+#: site-static/js/mapping/mapping/mapping_tab_item_list_view.js:125
+#: static/CACHE/js/069c65554592.js:460 static/CACHE/js/069c65554592.js.c:466
+#: static/CACHE/js/09da92f9f404.js:344 static/CACHE/js/09da92f9f404.js.c:353
+#: static/CACHE/js/0a79bd9550e5.js:344 static/CACHE/js/0a79bd9550e5.js.c:353
+#: static/CACHE/js/0b8b36d6d075.js:343 static/CACHE/js/0b8b36d6d075.js.c:352
+#: static/CACHE/js/0d9d4994d9fa.js:463 static/CACHE/js/0d9d4994d9fa.js.c:469
+#: static/CACHE/js/1590f956a92e.js:344 static/CACHE/js/1590f956a92e.js.c:353
+#: static/CACHE/js/1700495f3e06.js:344 static/CACHE/js/1700495f3e06.js.c:353
+#: static/CACHE/js/17bca7ce487c.js:344 static/CACHE/js/17bca7ce487c.js.c:353
+#: static/CACHE/js/1a7bc113f4a6.js:344 static/CACHE/js/1a7bc113f4a6.js.c:353
+#: static/CACHE/js/21df30627bf9.js:463 static/CACHE/js/21df30627bf9.js.c:469
+#: static/CACHE/js/24eee08817c3.js:344 static/CACHE/js/24eee08817c3.js.c:353
+#: static/CACHE/js/271a7e9c0dde.js:463 static/CACHE/js/271a7e9c0dde.js.c:469
+#: static/CACHE/js/28a75b97c738.js:463 static/CACHE/js/28a75b97c738.js.c:469
+#: static/CACHE/js/2e74a305330e.js:344 static/CACHE/js/2e74a305330e.js.c:353
+#: static/CACHE/js/36a825fa55bb.js:344 static/CACHE/js/36a825fa55bb.js.c:353
+#: static/CACHE/js/3ad76eba02c8.js:344 static/CACHE/js/3ad76eba02c8.js.c:353
+#: static/CACHE/js/3c65f2b5abe9.js:463 static/CACHE/js/3c65f2b5abe9.js.c:469
+#: static/CACHE/js/3f76a5e109cd.js:344 static/CACHE/js/3f76a5e109cd.js.c:353
+#: static/CACHE/js/423d0ae3a046.js:344 static/CACHE/js/423d0ae3a046.js.c:353
+#: static/CACHE/js/46f49fc69645.js:344 static/CACHE/js/46f49fc69645.js.c:353
+#: static/CACHE/js/4f5850dc7f61.js:344 static/CACHE/js/4f5850dc7f61.js.c:353
+#: static/CACHE/js/52173e64fe62.js:344 static/CACHE/js/52173e64fe62.js.c:353
+#: static/CACHE/js/5217fc9b2b42.js:344 static/CACHE/js/5217fc9b2b42.js.c:353
+#: static/CACHE/js/523e2974cdab.js:344 static/CACHE/js/523e2974cdab.js.c:353
+#: static/CACHE/js/55757ea02bba.js:460 static/CACHE/js/55757ea02bba.js.c:466
+#: static/CACHE/js/56bb215d04af.js:460 static/CACHE/js/56bb215d04af.js.c:466
+#: static/CACHE/js/587358082861.js:463 static/CACHE/js/587358082861.js.c:469
+#: static/CACHE/js/59655cbf7546.js:460 static/CACHE/js/59655cbf7546.js.c:466
+#: static/CACHE/js/6172d4788032.js:344 static/CACHE/js/6172d4788032.js.c:353
+#: static/CACHE/js/62ec87a6f408.js:463 static/CACHE/js/62ec87a6f408.js.c:469
+#: static/CACHE/js/672e38aaf492.js:344 static/CACHE/js/672e38aaf492.js.c:353
+#: static/CACHE/js/67e1b308bc0c.js:344 static/CACHE/js/67e1b308bc0c.js.c:353
+#: static/CACHE/js/6949097e027f.js:462 static/CACHE/js/6949097e027f.js.c:468
+#: static/CACHE/js/72e2926afe6a.js:463 static/CACHE/js/72e2926afe6a.js.c:469
+#: static/CACHE/js/77486edf4aee.js:344 static/CACHE/js/77486edf4aee.js.c:353
+#: static/CACHE/js/7a37720a850e.js:344 static/CACHE/js/7a37720a850e.js.c:353
+#: static/CACHE/js/7dfcca8be637.js:344 static/CACHE/js/7dfcca8be637.js.c:353
+#: static/CACHE/js/803b8cef4870.js:343 static/CACHE/js/803b8cef4870.js.c:352
+#: static/CACHE/js/831bfc81e8c0.js:344 static/CACHE/js/831bfc81e8c0.js.c:353
+#: static/CACHE/js/834b7ee64cf1.js:344 static/CACHE/js/834b7ee64cf1.js.c:353
+#: static/CACHE/js/86bcabb9c47a.js:344 static/CACHE/js/86bcabb9c47a.js.c:353
+#: static/CACHE/js/8f5fbc25d390.js:344 static/CACHE/js/8f5fbc25d390.js.c:353
+#: static/CACHE/js/9423ac70c3bf.js:460 static/CACHE/js/9423ac70c3bf.js.c:466
+#: static/CACHE/js/948be4fe4bda.js:460 static/CACHE/js/948be4fe4bda.js.c:466
+#: static/CACHE/js/975e1be23e23.js:344 static/CACHE/js/975e1be23e23.js.c:353
+#: static/CACHE/js/97b3afb5d058.js:463 static/CACHE/js/97b3afb5d058.js.c:469
+#: static/CACHE/js/9f5c522bc0ae.js:344 static/CACHE/js/9f5c522bc0ae.js.c:353
+#: static/CACHE/js/a25bcefeadb6.js:344 static/CACHE/js/a25bcefeadb6.js.c:353
+#: static/CACHE/js/a66b17977a89.js:344 static/CACHE/js/a66b17977a89.js.c:353
+#: static/CACHE/js/ab2f9d86fe7d.js:463 static/CACHE/js/ab2f9d86fe7d.js.c:469
+#: static/CACHE/js/abf1a137b0b9.js:344 static/CACHE/js/abf1a137b0b9.js.c:353
+#: static/CACHE/js/adb500cf07b6.js:344 static/CACHE/js/adb500cf07b6.js.c:353
+#: static/CACHE/js/af37407f7dbe.js:344 static/CACHE/js/af37407f7dbe.js.c:353
+#: static/CACHE/js/bd1623bd2966.js:461 static/CACHE/js/bd1623bd2966.js.c:467
+#: static/CACHE/js/c11537535b75.js:343 static/CACHE/js/c11537535b75.js.c:352
+#: static/CACHE/js/c41945e40ff6.js:344 static/CACHE/js/c41945e40ff6.js.c:353
+#: static/CACHE/js/c4bc8786469c.js:344 static/CACHE/js/c4bc8786469c.js.c:353
+#: static/CACHE/js/cc82f7b723a3.js:344 static/CACHE/js/cc82f7b723a3.js.c:353
+#: static/CACHE/js/e2e3ed698537.js:344 static/CACHE/js/e2e3ed698537.js.c:353
+#: static/CACHE/js/e48b032bf67f.js:344 static/CACHE/js/e48b032bf67f.js.c:353
+#: static/CACHE/js/e490e044136a.js:463 static/CACHE/js/e490e044136a.js.c:469
+#: static/CACHE/js/ecfc862726a2.js:344 static/CACHE/js/ecfc862726a2.js.c:353
+#: static/CACHE/js/f9ca9286bf1b.js:463 static/CACHE/js/f9ca9286bf1b.js.c:469
+#: static/CACHE/js/fdfb25ad7dd4.js:463 static/CACHE/js/fdfb25ad7dd4.js.c:469
 msgid "reports"
 msgstr "dateos"
 
-#: site-static/js/follow_bone.js:64
+#: site-static/js/action/action_list_item_view.js:37
+#: site-static/js/mapping/mapping/mapping_tab_start_view.js:25
+#: static/CACHE/js/069c65554592.js:406 static/CACHE/js/069c65554592.js.c:469
+#: static/CACHE/js/09da92f9f404.js:318 static/CACHE/js/09da92f9f404.js.c:345
+#: static/CACHE/js/0a79bd9550e5.js:318 static/CACHE/js/0a79bd9550e5.js.c:345
+#: static/CACHE/js/0b8b36d6d075.js:318 static/CACHE/js/0b8b36d6d075.js.c:344
+#: static/CACHE/js/0d9d4994d9fa.js:409 static/CACHE/js/0d9d4994d9fa.js.c:472
+#: static/CACHE/js/1590f956a92e.js:318 static/CACHE/js/1590f956a92e.js.c:345
+#: static/CACHE/js/1700495f3e06.js:318 static/CACHE/js/1700495f3e06.js.c:345
+#: static/CACHE/js/17bca7ce487c.js:318 static/CACHE/js/17bca7ce487c.js.c:345
+#: static/CACHE/js/1a7bc113f4a6.js:318 static/CACHE/js/1a7bc113f4a6.js.c:345
+#: static/CACHE/js/21df30627bf9.js:409 static/CACHE/js/21df30627bf9.js.c:472
+#: static/CACHE/js/24eee08817c3.js:318 static/CACHE/js/24eee08817c3.js.c:345
+#: static/CACHE/js/271a7e9c0dde.js:409 static/CACHE/js/271a7e9c0dde.js.c:472
+#: static/CACHE/js/28a75b97c738.js:409 static/CACHE/js/28a75b97c738.js.c:472
+#: static/CACHE/js/2e74a305330e.js:318 static/CACHE/js/2e74a305330e.js.c:345
+#: static/CACHE/js/36a825fa55bb.js:318 static/CACHE/js/36a825fa55bb.js.c:345
+#: static/CACHE/js/3ad76eba02c8.js:318 static/CACHE/js/3ad76eba02c8.js.c:345
+#: static/CACHE/js/3c65f2b5abe9.js:409 static/CACHE/js/3c65f2b5abe9.js.c:472
+#: static/CACHE/js/3f76a5e109cd.js:318 static/CACHE/js/3f76a5e109cd.js.c:345
+#: static/CACHE/js/423d0ae3a046.js:318 static/CACHE/js/423d0ae3a046.js.c:345
+#: static/CACHE/js/46f49fc69645.js:318 static/CACHE/js/46f49fc69645.js.c:345
+#: static/CACHE/js/4f5850dc7f61.js:318 static/CACHE/js/4f5850dc7f61.js.c:345
+#: static/CACHE/js/52173e64fe62.js:318 static/CACHE/js/52173e64fe62.js.c:345
+#: static/CACHE/js/5217fc9b2b42.js:318 static/CACHE/js/5217fc9b2b42.js.c:345
+#: static/CACHE/js/523e2974cdab.js:318 static/CACHE/js/523e2974cdab.js.c:345
+#: static/CACHE/js/55757ea02bba.js:406 static/CACHE/js/55757ea02bba.js.c:469
+#: static/CACHE/js/56bb215d04af.js:406 static/CACHE/js/56bb215d04af.js.c:469
+#: static/CACHE/js/587358082861.js:409 static/CACHE/js/587358082861.js.c:472
+#: static/CACHE/js/59655cbf7546.js:406 static/CACHE/js/59655cbf7546.js.c:469
+#: static/CACHE/js/6172d4788032.js:318 static/CACHE/js/6172d4788032.js.c:345
+#: static/CACHE/js/62ec87a6f408.js:409 static/CACHE/js/62ec87a6f408.js.c:472
+#: static/CACHE/js/672e38aaf492.js:318 static/CACHE/js/672e38aaf492.js.c:345
+#: static/CACHE/js/67e1b308bc0c.js:318 static/CACHE/js/67e1b308bc0c.js.c:345
+#: static/CACHE/js/6949097e027f.js:409 static/CACHE/js/6949097e027f.js.c:471
+#: static/CACHE/js/72e2926afe6a.js:409 static/CACHE/js/72e2926afe6a.js.c:472
+#: static/CACHE/js/77486edf4aee.js:318 static/CACHE/js/77486edf4aee.js.c:345
+#: static/CACHE/js/7a37720a850e.js:318 static/CACHE/js/7a37720a850e.js.c:345
+#: static/CACHE/js/7dfcca8be637.js:318 static/CACHE/js/7dfcca8be637.js.c:345
+#: static/CACHE/js/803b8cef4870.js:318 static/CACHE/js/803b8cef4870.js.c:344
+#: static/CACHE/js/831bfc81e8c0.js:318 static/CACHE/js/831bfc81e8c0.js.c:345
+#: static/CACHE/js/834b7ee64cf1.js:318 static/CACHE/js/834b7ee64cf1.js.c:345
+#: static/CACHE/js/86bcabb9c47a.js:318 static/CACHE/js/86bcabb9c47a.js.c:345
+#: static/CACHE/js/8f5fbc25d390.js:318 static/CACHE/js/8f5fbc25d390.js.c:345
+#: static/CACHE/js/9423ac70c3bf.js:406 static/CACHE/js/9423ac70c3bf.js.c:469
+#: static/CACHE/js/948be4fe4bda.js:406 static/CACHE/js/948be4fe4bda.js.c:469
+#: static/CACHE/js/975e1be23e23.js:318 static/CACHE/js/975e1be23e23.js.c:345
+#: static/CACHE/js/97b3afb5d058.js:409 static/CACHE/js/97b3afb5d058.js.c:472
+#: static/CACHE/js/9f5c522bc0ae.js:318 static/CACHE/js/9f5c522bc0ae.js.c:345
+#: static/CACHE/js/a25bcefeadb6.js:318 static/CACHE/js/a25bcefeadb6.js.c:345
+#: static/CACHE/js/a66b17977a89.js:318 static/CACHE/js/a66b17977a89.js.c:345
+#: static/CACHE/js/ab2f9d86fe7d.js:409 static/CACHE/js/ab2f9d86fe7d.js.c:472
+#: static/CACHE/js/abf1a137b0b9.js:318 static/CACHE/js/abf1a137b0b9.js.c:345
+#: static/CACHE/js/adb500cf07b6.js:318 static/CACHE/js/adb500cf07b6.js.c:345
+#: static/CACHE/js/af37407f7dbe.js:318 static/CACHE/js/af37407f7dbe.js.c:345
+#: static/CACHE/js/bd1623bd2966.js:409 static/CACHE/js/bd1623bd2966.js.c:470
+#: static/CACHE/js/c11537535b75.js:318 static/CACHE/js/c11537535b75.js.c:344
+#: static/CACHE/js/c41945e40ff6.js:318 static/CACHE/js/c41945e40ff6.js.c:345
+#: static/CACHE/js/c4bc8786469c.js:318 static/CACHE/js/c4bc8786469c.js.c:345
+#: static/CACHE/js/cc82f7b723a3.js:318 static/CACHE/js/cc82f7b723a3.js.c:345
+#: static/CACHE/js/e2e3ed698537.js:318 static/CACHE/js/e2e3ed698537.js.c:345
+#: static/CACHE/js/e48b032bf67f.js:318 static/CACHE/js/e48b032bf67f.js.c:345
+#: static/CACHE/js/e490e044136a.js:409 static/CACHE/js/e490e044136a.js.c:472
+#: static/CACHE/js/ecfc862726a2.js:318 static/CACHE/js/ecfc862726a2.js.c:345
+#: static/CACHE/js/f9ca9286bf1b.js:409 static/CACHE/js/f9ca9286bf1b.js.c:472
+#: static/CACHE/js/fdfb25ad7dd4.js:409 static/CACHE/js/fdfb25ad7dd4.js.c:472
+msgid "action"
+msgstr "iniciativa"
+
+#: site-static/js/action/action_list_view.js:154
+msgid "actions followed"
+msgstr "iniciativas que sigo"
+
+#: site-static/js/action/action_list_view.js:159
+#: static/CACHE/js/069c65554592.js:414 static/CACHE/js/09da92f9f404.js:319
+#: static/CACHE/js/0a79bd9550e5.js:319 static/CACHE/js/0b8b36d6d075.js:319
+#: static/CACHE/js/0d9d4994d9fa.js:417 static/CACHE/js/1590f956a92e.js:319
+#: static/CACHE/js/17bca7ce487c.js:319 static/CACHE/js/1a7bc113f4a6.js:319
+#: static/CACHE/js/21df30627bf9.js:417 static/CACHE/js/24eee08817c3.js:319
+#: static/CACHE/js/271a7e9c0dde.js:417 static/CACHE/js/28a75b97c738.js:417
+#: static/CACHE/js/36a825fa55bb.js:319 static/CACHE/js/3ad76eba02c8.js:319
+#: static/CACHE/js/3c65f2b5abe9.js:417 static/CACHE/js/3f76a5e109cd.js:319
+#: static/CACHE/js/423d0ae3a046.js:319 static/CACHE/js/46f49fc69645.js:319
+#: static/CACHE/js/52173e64fe62.js:319 static/CACHE/js/5217fc9b2b42.js:319
+#: static/CACHE/js/523e2974cdab.js:319 static/CACHE/js/55757ea02bba.js:414
+#: static/CACHE/js/56bb215d04af.js:414 static/CACHE/js/587358082861.js:417
+#: static/CACHE/js/59655cbf7546.js:414 static/CACHE/js/6172d4788032.js:319
+#: static/CACHE/js/62ec87a6f408.js:417 static/CACHE/js/672e38aaf492.js:319
+#: static/CACHE/js/67e1b308bc0c.js:319 static/CACHE/js/6949097e027f.js:416
+#: static/CACHE/js/72e2926afe6a.js:417 static/CACHE/js/7a37720a850e.js:319
+#: static/CACHE/js/7dfcca8be637.js:319 static/CACHE/js/803b8cef4870.js:319
+#: static/CACHE/js/831bfc81e8c0.js:319 static/CACHE/js/834b7ee64cf1.js:319
+#: static/CACHE/js/8f5fbc25d390.js:319 static/CACHE/js/9423ac70c3bf.js:414
+#: static/CACHE/js/948be4fe4bda.js:414 static/CACHE/js/975e1be23e23.js:319
+#: static/CACHE/js/97b3afb5d058.js:417 static/CACHE/js/9f5c522bc0ae.js:319
+#: static/CACHE/js/a66b17977a89.js:319 static/CACHE/js/ab2f9d86fe7d.js:417
+#: static/CACHE/js/abf1a137b0b9.js:319 static/CACHE/js/adb500cf07b6.js:319
+#: static/CACHE/js/bd1623bd2966.js:415 static/CACHE/js/c41945e40ff6.js:319
+#: static/CACHE/js/cc82f7b723a3.js:319 static/CACHE/js/e2e3ed698537.js:319
+#: static/CACHE/js/e48b032bf67f.js:319 static/CACHE/js/e490e044136a.js:417
+#: static/CACHE/js/ecfc862726a2.js:319 static/CACHE/js/f9ca9286bf1b.js:417
+#: static/CACHE/js/fdfb25ad7dd4.js:417
+msgid "own actions"
+msgstr "iniciativas propias"
+
+#: site-static/js/action/action_list_view.js:164
+#: static/CACHE/js/069c65554592.js:415 static/CACHE/js/09da92f9f404.js:320
+#: static/CACHE/js/0a79bd9550e5.js:320 static/CACHE/js/0b8b36d6d075.js:320
+#: static/CACHE/js/0d9d4994d9fa.js:418 static/CACHE/js/1590f956a92e.js:320
+#: static/CACHE/js/1700495f3e06.js:320 static/CACHE/js/17bca7ce487c.js:320
+#: static/CACHE/js/1a7bc113f4a6.js:320 static/CACHE/js/21df30627bf9.js:418
+#: static/CACHE/js/24eee08817c3.js:320 static/CACHE/js/271a7e9c0dde.js:418
+#: static/CACHE/js/28a75b97c738.js:418 static/CACHE/js/2e74a305330e.js:320
+#: static/CACHE/js/36a825fa55bb.js:320 static/CACHE/js/3ad76eba02c8.js:320
+#: static/CACHE/js/3c65f2b5abe9.js:418 static/CACHE/js/3f76a5e109cd.js:320
+#: static/CACHE/js/423d0ae3a046.js:320 static/CACHE/js/46f49fc69645.js:320
+#: static/CACHE/js/4f5850dc7f61.js:320 static/CACHE/js/52173e64fe62.js:320
+#: static/CACHE/js/5217fc9b2b42.js:320 static/CACHE/js/523e2974cdab.js:320
+#: static/CACHE/js/55757ea02bba.js:415 static/CACHE/js/56bb215d04af.js:415
+#: static/CACHE/js/587358082861.js:418 static/CACHE/js/59655cbf7546.js:415
+#: static/CACHE/js/6172d4788032.js:320 static/CACHE/js/62ec87a6f408.js:418
+#: static/CACHE/js/672e38aaf492.js:320 static/CACHE/js/67e1b308bc0c.js:320
+#: static/CACHE/js/6949097e027f.js:417 static/CACHE/js/72e2926afe6a.js:418
+#: static/CACHE/js/77486edf4aee.js:320 static/CACHE/js/7a37720a850e.js:320
+#: static/CACHE/js/7dfcca8be637.js:320 static/CACHE/js/803b8cef4870.js:320
+#: static/CACHE/js/831bfc81e8c0.js:320 static/CACHE/js/834b7ee64cf1.js:320
+#: static/CACHE/js/86bcabb9c47a.js:320 static/CACHE/js/8f5fbc25d390.js:320
+#: static/CACHE/js/9423ac70c3bf.js:415 static/CACHE/js/948be4fe4bda.js:415
+#: static/CACHE/js/975e1be23e23.js:320 static/CACHE/js/97b3afb5d058.js:418
+#: static/CACHE/js/9f5c522bc0ae.js:320 static/CACHE/js/a25bcefeadb6.js:320
+#: static/CACHE/js/a66b17977a89.js:320 static/CACHE/js/ab2f9d86fe7d.js:418
+#: static/CACHE/js/abf1a137b0b9.js:320 static/CACHE/js/adb500cf07b6.js:320
+#: static/CACHE/js/af37407f7dbe.js:320 static/CACHE/js/bd1623bd2966.js:416
+#: static/CACHE/js/c11537535b75.js:320 static/CACHE/js/c41945e40ff6.js:320
+#: static/CACHE/js/c4bc8786469c.js:320 static/CACHE/js/cc82f7b723a3.js:320
+#: static/CACHE/js/e2e3ed698537.js:320 static/CACHE/js/e48b032bf67f.js:320
+#: static/CACHE/js/e490e044136a.js:418 static/CACHE/js/ecfc862726a2.js:320
+#: static/CACHE/js/f9ca9286bf1b.js:418 static/CACHE/js/fdfb25ad7dd4.js:418
+msgid "featured actions"
+msgstr "iniciativas destacadas"
+
+#: site-static/js/action/action_list_view.js:165
+#: static/CACHE/js/069c65554592.js:415 static/CACHE/js/09da92f9f404.js:320
+#: static/CACHE/js/0a79bd9550e5.js:320 static/CACHE/js/0b8b36d6d075.js:320
+#: static/CACHE/js/0d9d4994d9fa.js:418 static/CACHE/js/1590f956a92e.js:320
+#: static/CACHE/js/1700495f3e06.js:320 static/CACHE/js/17bca7ce487c.js:320
+#: static/CACHE/js/1a7bc113f4a6.js:320 static/CACHE/js/21df30627bf9.js:418
+#: static/CACHE/js/24eee08817c3.js:320 static/CACHE/js/271a7e9c0dde.js:418
+#: static/CACHE/js/28a75b97c738.js:418 static/CACHE/js/2e74a305330e.js:320
+#: static/CACHE/js/36a825fa55bb.js:320 static/CACHE/js/3ad76eba02c8.js:320
+#: static/CACHE/js/3c65f2b5abe9.js:418 static/CACHE/js/3f76a5e109cd.js:320
+#: static/CACHE/js/423d0ae3a046.js:320 static/CACHE/js/46f49fc69645.js:320
+#: static/CACHE/js/4f5850dc7f61.js:320 static/CACHE/js/52173e64fe62.js:320
+#: static/CACHE/js/5217fc9b2b42.js:320 static/CACHE/js/523e2974cdab.js:320
+#: static/CACHE/js/55757ea02bba.js:415 static/CACHE/js/56bb215d04af.js:415
+#: static/CACHE/js/587358082861.js:418 static/CACHE/js/59655cbf7546.js:415
+#: static/CACHE/js/6172d4788032.js:320 static/CACHE/js/62ec87a6f408.js:418
+#: static/CACHE/js/672e38aaf492.js:320 static/CACHE/js/67e1b308bc0c.js:320
+#: static/CACHE/js/6949097e027f.js:417 static/CACHE/js/72e2926afe6a.js:418
+#: static/CACHE/js/77486edf4aee.js:320 static/CACHE/js/7a37720a850e.js:320
+#: static/CACHE/js/7dfcca8be637.js:320 static/CACHE/js/803b8cef4870.js:320
+#: static/CACHE/js/831bfc81e8c0.js:320 static/CACHE/js/834b7ee64cf1.js:320
+#: static/CACHE/js/86bcabb9c47a.js:320 static/CACHE/js/8f5fbc25d390.js:320
+#: static/CACHE/js/9423ac70c3bf.js:415 static/CACHE/js/948be4fe4bda.js:415
+#: static/CACHE/js/975e1be23e23.js:320 static/CACHE/js/97b3afb5d058.js:418
+#: static/CACHE/js/9f5c522bc0ae.js:320 static/CACHE/js/a25bcefeadb6.js:320
+#: static/CACHE/js/a66b17977a89.js:320 static/CACHE/js/ab2f9d86fe7d.js:418
+#: static/CACHE/js/abf1a137b0b9.js:320 static/CACHE/js/adb500cf07b6.js:320
+#: static/CACHE/js/af37407f7dbe.js:320 static/CACHE/js/bd1623bd2966.js:416
+#: static/CACHE/js/c11537535b75.js:320 static/CACHE/js/c41945e40ff6.js:320
+#: static/CACHE/js/c4bc8786469c.js:320 static/CACHE/js/cc82f7b723a3.js:320
+#: static/CACHE/js/e2e3ed698537.js:320 static/CACHE/js/e48b032bf67f.js:320
+#: static/CACHE/js/e490e044136a.js:418 static/CACHE/js/ecfc862726a2.js:320
+#: static/CACHE/js/f9ca9286bf1b.js:418 static/CACHE/js/fdfb25ad7dd4.js:418
+msgid "all actions"
+msgstr "todas las iniciativas"
+
+#: site-static/js/action/action_list_view.js:234
+#: static/CACHE/js/069c65554592.js:417 static/CACHE/js/09da92f9f404.js:324
+#: static/CACHE/js/0a79bd9550e5.js:324 static/CACHE/js/0b8b36d6d075.js:323
+#: static/CACHE/js/0d9d4994d9fa.js:420 static/CACHE/js/1590f956a92e.js:324
+#: static/CACHE/js/1700495f3e06.js:324 static/CACHE/js/17bca7ce487c.js:324
+#: static/CACHE/js/1a7bc113f4a6.js:324 static/CACHE/js/21df30627bf9.js:420
+#: static/CACHE/js/24eee08817c3.js:324 static/CACHE/js/271a7e9c0dde.js:420
+#: static/CACHE/js/28a75b97c738.js:420 static/CACHE/js/2e74a305330e.js:324
+#: static/CACHE/js/36a825fa55bb.js:324 static/CACHE/js/3ad76eba02c8.js:324
+#: static/CACHE/js/3c65f2b5abe9.js:420 static/CACHE/js/3f76a5e109cd.js:324
+#: static/CACHE/js/423d0ae3a046.js:324 static/CACHE/js/46f49fc69645.js:324
+#: static/CACHE/js/4f5850dc7f61.js:324 static/CACHE/js/52173e64fe62.js:324
+#: static/CACHE/js/5217fc9b2b42.js:324 static/CACHE/js/523e2974cdab.js:324
+#: static/CACHE/js/55757ea02bba.js:417 static/CACHE/js/56bb215d04af.js:417
+#: static/CACHE/js/587358082861.js:420 static/CACHE/js/59655cbf7546.js:417
+#: static/CACHE/js/6172d4788032.js:324 static/CACHE/js/62ec87a6f408.js:420
+#: static/CACHE/js/672e38aaf492.js:324 static/CACHE/js/67e1b308bc0c.js:324
+#: static/CACHE/js/6949097e027f.js:419 static/CACHE/js/72e2926afe6a.js:420
+#: static/CACHE/js/77486edf4aee.js:324 static/CACHE/js/7a37720a850e.js:324
+#: static/CACHE/js/7dfcca8be637.js:324 static/CACHE/js/803b8cef4870.js:323
+#: static/CACHE/js/831bfc81e8c0.js:324 static/CACHE/js/834b7ee64cf1.js:324
+#: static/CACHE/js/86bcabb9c47a.js:324 static/CACHE/js/8f5fbc25d390.js:324
+#: static/CACHE/js/9423ac70c3bf.js:417 static/CACHE/js/948be4fe4bda.js:417
+#: static/CACHE/js/975e1be23e23.js:324 static/CACHE/js/97b3afb5d058.js:420
+#: static/CACHE/js/9f5c522bc0ae.js:324 static/CACHE/js/a25bcefeadb6.js:324
+#: static/CACHE/js/a66b17977a89.js:324 static/CACHE/js/ab2f9d86fe7d.js:420
+#: static/CACHE/js/abf1a137b0b9.js:324 static/CACHE/js/adb500cf07b6.js:324
+#: static/CACHE/js/af37407f7dbe.js:324 static/CACHE/js/bd1623bd2966.js:418
+#: static/CACHE/js/c11537535b75.js:323 static/CACHE/js/c41945e40ff6.js:324
+#: static/CACHE/js/c4bc8786469c.js:324 static/CACHE/js/cc82f7b723a3.js:324
+#: static/CACHE/js/e2e3ed698537.js:324 static/CACHE/js/e48b032bf67f.js:324
+#: static/CACHE/js/e490e044136a.js:420 static/CACHE/js/ecfc862726a2.js:324
+#: static/CACHE/js/f9ca9286bf1b.js:420 static/CACHE/js/fdfb25ad7dd4.js:420
+msgid "%(uname)s's actions"
+msgstr "iniciativas de %(uname)s"
+
+#: site-static/js/action/action_list_view.js:241
+#: static/CACHE/js/069c65554592.js:417 static/CACHE/js/09da92f9f404.js:324
+#: static/CACHE/js/0a79bd9550e5.js:324 static/CACHE/js/0b8b36d6d075.js:323
+#: static/CACHE/js/0d9d4994d9fa.js:420 static/CACHE/js/1590f956a92e.js:324
+#: static/CACHE/js/1700495f3e06.js:324 static/CACHE/js/17bca7ce487c.js:324
+#: static/CACHE/js/1a7bc113f4a6.js:324 static/CACHE/js/21df30627bf9.js:420
+#: static/CACHE/js/24eee08817c3.js:324 static/CACHE/js/271a7e9c0dde.js:420
+#: static/CACHE/js/28a75b97c738.js:420 static/CACHE/js/2e74a305330e.js:324
+#: static/CACHE/js/36a825fa55bb.js:324 static/CACHE/js/3ad76eba02c8.js:324
+#: static/CACHE/js/3c65f2b5abe9.js:420 static/CACHE/js/3f76a5e109cd.js:324
+#: static/CACHE/js/423d0ae3a046.js:324 static/CACHE/js/46f49fc69645.js:324
+#: static/CACHE/js/4f5850dc7f61.js:324 static/CACHE/js/52173e64fe62.js:324
+#: static/CACHE/js/5217fc9b2b42.js:324 static/CACHE/js/523e2974cdab.js:324
+#: static/CACHE/js/55757ea02bba.js:417 static/CACHE/js/56bb215d04af.js:417
+#: static/CACHE/js/587358082861.js:420 static/CACHE/js/59655cbf7546.js:417
+#: static/CACHE/js/6172d4788032.js:324 static/CACHE/js/62ec87a6f408.js:420
+#: static/CACHE/js/672e38aaf492.js:324 static/CACHE/js/67e1b308bc0c.js:324
+#: static/CACHE/js/6949097e027f.js:419 static/CACHE/js/72e2926afe6a.js:420
+#: static/CACHE/js/77486edf4aee.js:324 static/CACHE/js/7a37720a850e.js:324
+#: static/CACHE/js/7dfcca8be637.js:324 static/CACHE/js/803b8cef4870.js:323
+#: static/CACHE/js/831bfc81e8c0.js:324 static/CACHE/js/834b7ee64cf1.js:324
+#: static/CACHE/js/86bcabb9c47a.js:324 static/CACHE/js/8f5fbc25d390.js:324
+#: static/CACHE/js/9423ac70c3bf.js:417 static/CACHE/js/948be4fe4bda.js:417
+#: static/CACHE/js/975e1be23e23.js:324 static/CACHE/js/97b3afb5d058.js:420
+#: static/CACHE/js/9f5c522bc0ae.js:324 static/CACHE/js/a25bcefeadb6.js:324
+#: static/CACHE/js/a66b17977a89.js:324 static/CACHE/js/ab2f9d86fe7d.js:420
+#: static/CACHE/js/abf1a137b0b9.js:324 static/CACHE/js/adb500cf07b6.js:324
+#: static/CACHE/js/af37407f7dbe.js:324 static/CACHE/js/bd1623bd2966.js:418
+#: static/CACHE/js/c11537535b75.js:323 static/CACHE/js/c41945e40ff6.js:324
+#: static/CACHE/js/c4bc8786469c.js:324 static/CACHE/js/cc82f7b723a3.js:324
+#: static/CACHE/js/e2e3ed698537.js:324 static/CACHE/js/e48b032bf67f.js:324
+#: static/CACHE/js/e490e044136a.js:420 static/CACHE/js/ecfc862726a2.js:324
+#: static/CACHE/js/f9ca9286bf1b.js:420 static/CACHE/js/fdfb25ad7dd4.js:420
+msgid "actions created by %(uname)s"
+msgstr "iniciativas creadas por %(uname)s"
+
+#: site-static/js/follow/follow_widget_view.js:50
+#: static/CACHE/js/069c65554592.js:505 static/CACHE/js/09da92f9f404.js:426
+#: static/CACHE/js/0a79bd9550e5.js:426 static/CACHE/js/0b8b36d6d075.js:425
+#: static/CACHE/js/0d9d4994d9fa.js:508 static/CACHE/js/1590f956a92e.js:426
+#: static/CACHE/js/1700495f3e06.js:426 static/CACHE/js/17bca7ce487c.js:426
+#: static/CACHE/js/1a7bc113f4a6.js:426 static/CACHE/js/21df30627bf9.js:508
+#: static/CACHE/js/24eee08817c3.js:426 static/CACHE/js/271a7e9c0dde.js:508
+#: static/CACHE/js/28a75b97c738.js:508 static/CACHE/js/2e74a305330e.js:426
+#: static/CACHE/js/36a825fa55bb.js:426 static/CACHE/js/3ad76eba02c8.js:426
+#: static/CACHE/js/3c65f2b5abe9.js:508 static/CACHE/js/3f76a5e109cd.js:426
+#: static/CACHE/js/423d0ae3a046.js:426 static/CACHE/js/46f49fc69645.js:427
+#: static/CACHE/js/4f5850dc7f61.js:426 static/CACHE/js/52173e64fe62.js:426
+#: static/CACHE/js/5217fc9b2b42.js:426 static/CACHE/js/523e2974cdab.js:426
+#: static/CACHE/js/55757ea02bba.js:505 static/CACHE/js/56bb215d04af.js:505
+#: static/CACHE/js/587358082861.js:508 static/CACHE/js/59655cbf7546.js:505
+#: static/CACHE/js/6172d4788032.js:426 static/CACHE/js/62ec87a6f408.js:508
+#: static/CACHE/js/672e38aaf492.js:426 static/CACHE/js/67e1b308bc0c.js:426
+#: static/CACHE/js/6949097e027f.js:507 static/CACHE/js/72e2926afe6a.js:508
+#: static/CACHE/js/77486edf4aee.js:426 static/CACHE/js/7a37720a850e.js:426
+#: static/CACHE/js/7dfcca8be637.js:426 static/CACHE/js/803b8cef4870.js:425
+#: static/CACHE/js/831bfc81e8c0.js:426 static/CACHE/js/834b7ee64cf1.js:426
+#: static/CACHE/js/86bcabb9c47a.js:426 static/CACHE/js/8f5fbc25d390.js:426
+#: static/CACHE/js/9423ac70c3bf.js:505 static/CACHE/js/948be4fe4bda.js:505
+#: static/CACHE/js/975e1be23e23.js:426 static/CACHE/js/97b3afb5d058.js:508
+#: static/CACHE/js/9f5c522bc0ae.js:426 static/CACHE/js/a25bcefeadb6.js:426
+#: static/CACHE/js/a66b17977a89.js:426 static/CACHE/js/ab2f9d86fe7d.js:508
+#: static/CACHE/js/abf1a137b0b9.js:427 static/CACHE/js/adb500cf07b6.js:426
+#: static/CACHE/js/af37407f7dbe.js:426 static/CACHE/js/bd1623bd2966.js:506
+#: static/CACHE/js/c11537535b75.js:425 static/CACHE/js/c41945e40ff6.js:426
+#: static/CACHE/js/c4bc8786469c.js:426 static/CACHE/js/cc82f7b723a3.js:427
+#: static/CACHE/js/e2e3ed698537.js:426 static/CACHE/js/e48b032bf67f.js:426
+#: static/CACHE/js/e490e044136a.js:508 static/CACHE/js/ecfc862726a2.js:426
+#: static/CACHE/js/f9ca9286bf1b.js:508 static/CACHE/js/fdfb25ad7dd4.js:508
 msgid "follow!"
 msgstr "seguir!"
 
-#: site-static/js/follow_bone.js:66
+#: site-static/js/follow/follow_widget_view.js:51
+#: site-static/js/follow/follow_widget_view.js:55
+#: site-static/js/follow/follow_widget_view.js:56
+#: static/CACHE/js/069c65554592.js:505 static/CACHE/js/09da92f9f404.js:426
+#: static/CACHE/js/0a79bd9550e5.js:426 static/CACHE/js/0b8b36d6d075.js:425
+#: static/CACHE/js/0d9d4994d9fa.js:508 static/CACHE/js/1590f956a92e.js:426
+#: static/CACHE/js/1700495f3e06.js:426 static/CACHE/js/17bca7ce487c.js:426
+#: static/CACHE/js/1a7bc113f4a6.js:426 static/CACHE/js/21df30627bf9.js:508
+#: static/CACHE/js/24eee08817c3.js:426 static/CACHE/js/271a7e9c0dde.js:508
+#: static/CACHE/js/28a75b97c738.js:508 static/CACHE/js/2e74a305330e.js:426
+#: static/CACHE/js/36a825fa55bb.js:426 static/CACHE/js/3ad76eba02c8.js:426
+#: static/CACHE/js/3c65f2b5abe9.js:508 static/CACHE/js/3f76a5e109cd.js:426
+#: static/CACHE/js/423d0ae3a046.js:426 static/CACHE/js/46f49fc69645.js:427
+#: static/CACHE/js/4f5850dc7f61.js:426 static/CACHE/js/52173e64fe62.js:426
+#: static/CACHE/js/5217fc9b2b42.js:426 static/CACHE/js/523e2974cdab.js:426
+#: static/CACHE/js/55757ea02bba.js:505 static/CACHE/js/56bb215d04af.js:505
+#: static/CACHE/js/587358082861.js:508 static/CACHE/js/59655cbf7546.js:505
+#: static/CACHE/js/6172d4788032.js:426 static/CACHE/js/62ec87a6f408.js:508
+#: static/CACHE/js/672e38aaf492.js:426 static/CACHE/js/67e1b308bc0c.js:426
+#: static/CACHE/js/6949097e027f.js:507 static/CACHE/js/72e2926afe6a.js:508
+#: static/CACHE/js/77486edf4aee.js:426 static/CACHE/js/7a37720a850e.js:426
+#: static/CACHE/js/7dfcca8be637.js:426 static/CACHE/js/803b8cef4870.js:425
+#: static/CACHE/js/831bfc81e8c0.js:426 static/CACHE/js/834b7ee64cf1.js:426
+#: static/CACHE/js/86bcabb9c47a.js:426 static/CACHE/js/8f5fbc25d390.js:426
+#: static/CACHE/js/9423ac70c3bf.js:505 static/CACHE/js/948be4fe4bda.js:505
+#: static/CACHE/js/975e1be23e23.js:426 static/CACHE/js/97b3afb5d058.js:508
+#: static/CACHE/js/9f5c522bc0ae.js:426 static/CACHE/js/a25bcefeadb6.js:426
+#: static/CACHE/js/a66b17977a89.js:426 static/CACHE/js/ab2f9d86fe7d.js:508
+#: static/CACHE/js/abf1a137b0b9.js:427 static/CACHE/js/adb500cf07b6.js:426
+#: static/CACHE/js/af37407f7dbe.js:426 static/CACHE/js/bd1623bd2966.js:506
+#: static/CACHE/js/c11537535b75.js:425 static/CACHE/js/c41945e40ff6.js:426
+#: static/CACHE/js/c4bc8786469c.js:426 static/CACHE/js/cc82f7b723a3.js:427
+#: static/CACHE/js/e2e3ed698537.js:426 static/CACHE/js/e48b032bf67f.js:426
+#: static/CACHE/js/e490e044136a.js:508 static/CACHE/js/ecfc862726a2.js:426
+#: static/CACHE/js/f9ca9286bf1b.js:508 static/CACHE/js/fdfb25ad7dd4.js:508
 msgid "follow"
-msgstr "siguen"
+msgstr "seguir"
 
-#: site-static/js/follow_bone.js:68
+#: site-static/js/follow/follow_widget_view.js:60
+#: site-static/js/follow/follow_widget_view.js:63
+#: static/CACHE/js/069c65554592.js:505 static/CACHE/js/09da92f9f404.js:426
+#: static/CACHE/js/0a79bd9550e5.js:426 static/CACHE/js/0b8b36d6d075.js:425
+#: static/CACHE/js/0d9d4994d9fa.js:508 static/CACHE/js/1590f956a92e.js:426
+#: static/CACHE/js/1700495f3e06.js:426 static/CACHE/js/17bca7ce487c.js:426
+#: static/CACHE/js/1a7bc113f4a6.js:426 static/CACHE/js/21df30627bf9.js:508
+#: static/CACHE/js/24eee08817c3.js:426 static/CACHE/js/271a7e9c0dde.js:508
+#: static/CACHE/js/28a75b97c738.js:508 static/CACHE/js/2e74a305330e.js:426
+#: static/CACHE/js/36a825fa55bb.js:426 static/CACHE/js/3ad76eba02c8.js:426
+#: static/CACHE/js/3c65f2b5abe9.js:508 static/CACHE/js/3f76a5e109cd.js:426
+#: static/CACHE/js/423d0ae3a046.js:426 static/CACHE/js/46f49fc69645.js:427
+#: static/CACHE/js/4f5850dc7f61.js:426 static/CACHE/js/52173e64fe62.js:426
+#: static/CACHE/js/5217fc9b2b42.js:426 static/CACHE/js/523e2974cdab.js:426
+#: static/CACHE/js/55757ea02bba.js:505 static/CACHE/js/56bb215d04af.js:505
+#: static/CACHE/js/587358082861.js:508 static/CACHE/js/59655cbf7546.js:505
+#: static/CACHE/js/6172d4788032.js:426 static/CACHE/js/62ec87a6f408.js:508
+#: static/CACHE/js/672e38aaf492.js:426 static/CACHE/js/67e1b308bc0c.js:426
+#: static/CACHE/js/6949097e027f.js:507 static/CACHE/js/72e2926afe6a.js:508
+#: static/CACHE/js/77486edf4aee.js:426 static/CACHE/js/7a37720a850e.js:426
+#: static/CACHE/js/7dfcca8be637.js:426 static/CACHE/js/803b8cef4870.js:425
+#: static/CACHE/js/831bfc81e8c0.js:426 static/CACHE/js/834b7ee64cf1.js:426
+#: static/CACHE/js/86bcabb9c47a.js:426 static/CACHE/js/8f5fbc25d390.js:426
+#: static/CACHE/js/9423ac70c3bf.js:505 static/CACHE/js/948be4fe4bda.js:505
+#: static/CACHE/js/975e1be23e23.js:426 static/CACHE/js/97b3afb5d058.js:508
+#: static/CACHE/js/9f5c522bc0ae.js:426 static/CACHE/js/a25bcefeadb6.js:426
+#: static/CACHE/js/a66b17977a89.js:426 static/CACHE/js/ab2f9d86fe7d.js:508
+#: static/CACHE/js/abf1a137b0b9.js:427 static/CACHE/js/adb500cf07b6.js:426
+#: static/CACHE/js/af37407f7dbe.js:426 static/CACHE/js/bd1623bd2966.js:506
+#: static/CACHE/js/c11537535b75.js:425 static/CACHE/js/c41945e40ff6.js:426
+#: static/CACHE/js/c4bc8786469c.js:426 static/CACHE/js/cc82f7b723a3.js:427
+#: static/CACHE/js/e2e3ed698537.js:426 static/CACHE/js/e48b032bf67f.js:426
+#: static/CACHE/js/e490e044136a.js:508 static/CACHE/js/ecfc862726a2.js:426
+#: static/CACHE/js/f9ca9286bf1b.js:508 static/CACHE/js/fdfb25ad7dd4.js:508
 msgid "stop following"
 msgstr "dejar de seguir"
 
-#: site-static/js/history_bone.js:74
-msgid "my"
-msgstr "mis"
+#: site-static/js/follow/follow_widget_view.js:61
+#: static/CACHE/js/069c65554592.js:505 static/CACHE/js/0d9d4994d9fa.js:508
+#: static/CACHE/js/21df30627bf9.js:508 static/CACHE/js/271a7e9c0dde.js:508
+#: static/CACHE/js/28a75b97c738.js:508 static/CACHE/js/3c65f2b5abe9.js:508
+#: static/CACHE/js/55757ea02bba.js:505 static/CACHE/js/56bb215d04af.js:505
+#: static/CACHE/js/587358082861.js:508 static/CACHE/js/59655cbf7546.js:505
+#: static/CACHE/js/62ec87a6f408.js:508 static/CACHE/js/6949097e027f.js:507
+#: static/CACHE/js/72e2926afe6a.js:508 static/CACHE/js/9423ac70c3bf.js:505
+#: static/CACHE/js/948be4fe4bda.js:505 static/CACHE/js/97b3afb5d058.js:508
+#: static/CACHE/js/ab2f9d86fe7d.js:508 static/CACHE/js/bd1623bd2966.js:506
+#: static/CACHE/js/e490e044136a.js:508 static/CACHE/js/f9ca9286bf1b.js:508
+#: static/CACHE/js/fdfb25ad7dd4.js:508
+msgid "following"
+msgstr "siguiendo"
 
-#: site-static/js/history_bone.js:80
-msgid "combined view"
-msgstr "vista combinada"
-
-#: site-static/js/history_bone.js:81
-msgid "contributions"
-msgstr "dateos"
-
-#: site-static/js/history_bone.js:82
-msgid "comments"
-msgstr "comentarios"
-
-#: site-static/js/history_bone.js:83
-msgid "supports"
-msgstr "apoyos"
-
-#: site-static/js/main_bone.js:57
+#: site-static/js/forms/validate.js:12 static/CACHE/js/069c65554592.js:373
+#: static/CACHE/js/09da92f9f404.js:281 static/CACHE/js/0a79bd9550e5.js:281
+#: static/CACHE/js/0b8b36d6d075.js:281 static/CACHE/js/0d9d4994d9fa.js:376
+#: static/CACHE/js/1590f956a92e.js:281 static/CACHE/js/1700495f3e06.js:281
+#: static/CACHE/js/17bca7ce487c.js:281 static/CACHE/js/1a7bc113f4a6.js:281
+#: static/CACHE/js/21df30627bf9.js:376 static/CACHE/js/24eee08817c3.js:281
+#: static/CACHE/js/271a7e9c0dde.js:376 static/CACHE/js/28a75b97c738.js:376
+#: static/CACHE/js/2e74a305330e.js:281 static/CACHE/js/36a825fa55bb.js:281
+#: static/CACHE/js/3ad76eba02c8.js:281 static/CACHE/js/3c65f2b5abe9.js:376
+#: static/CACHE/js/3f76a5e109cd.js:281 static/CACHE/js/423d0ae3a046.js:281
+#: static/CACHE/js/46f49fc69645.js:281 static/CACHE/js/4f5850dc7f61.js:281
+#: static/CACHE/js/52173e64fe62.js:281 static/CACHE/js/5217fc9b2b42.js:281
+#: static/CACHE/js/523e2974cdab.js:281 static/CACHE/js/55757ea02bba.js:373
+#: static/CACHE/js/56bb215d04af.js:373 static/CACHE/js/587358082861.js:376
+#: static/CACHE/js/59655cbf7546.js:373 static/CACHE/js/6172d4788032.js:281
+#: static/CACHE/js/62ec87a6f408.js:376 static/CACHE/js/672e38aaf492.js:281
+#: static/CACHE/js/67e1b308bc0c.js:281 static/CACHE/js/6949097e027f.js:376
+#: static/CACHE/js/72e2926afe6a.js:376 static/CACHE/js/77486edf4aee.js:281
+#: static/CACHE/js/7a37720a850e.js:281 static/CACHE/js/7dfcca8be637.js:281
+#: static/CACHE/js/803b8cef4870.js:281 static/CACHE/js/831bfc81e8c0.js:281
+#: static/CACHE/js/834b7ee64cf1.js:281 static/CACHE/js/86bcabb9c47a.js:281
+#: static/CACHE/js/8f5fbc25d390.js:281 static/CACHE/js/9423ac70c3bf.js:373
+#: static/CACHE/js/948be4fe4bda.js:373 static/CACHE/js/975e1be23e23.js:281
+#: static/CACHE/js/97b3afb5d058.js:376 static/CACHE/js/9f5c522bc0ae.js:281
+#: static/CACHE/js/a25bcefeadb6.js:281 static/CACHE/js/a66b17977a89.js:281
+#: static/CACHE/js/ab2f9d86fe7d.js:376 static/CACHE/js/abf1a137b0b9.js:281
+#: static/CACHE/js/adb500cf07b6.js:281 static/CACHE/js/af37407f7dbe.js:281
+#: static/CACHE/js/bd1623bd2966.js:376 static/CACHE/js/c11537535b75.js:281
+#: static/CACHE/js/c41945e40ff6.js:281 static/CACHE/js/c4bc8786469c.js:281
+#: static/CACHE/js/cc82f7b723a3.js:281 static/CACHE/js/e2e3ed698537.js:281
+#: static/CACHE/js/e48b032bf67f.js:281 static/CACHE/js/e490e044136a.js:376
+#: static/CACHE/js/ecfc862726a2.js:281 static/CACHE/js/f9ca9286bf1b.js:376
+#: static/CACHE/js/fdfb25ad7dd4.js:376
 msgid "Please enter a valid email address."
 msgstr "Por favor, ingresa una dirección de correo válida."
 
-#: site-static/js/profile_bone.js:179
+#: site-static/js/history/history_list_view.js:35
+#: static/CACHE/js/069c65554592.js:517 static/CACHE/js/09da92f9f404.js:439
+#: static/CACHE/js/0a79bd9550e5.js:439 static/CACHE/js/0b8b36d6d075.js:438
+#: static/CACHE/js/0d9d4994d9fa.js:520 static/CACHE/js/1590f956a92e.js:439
+#: static/CACHE/js/1700495f3e06.js:439 static/CACHE/js/17bca7ce487c.js:439
+#: static/CACHE/js/1a7bc113f4a6.js:439 static/CACHE/js/21df30627bf9.js:520
+#: static/CACHE/js/24eee08817c3.js:439 static/CACHE/js/271a7e9c0dde.js:520
+#: static/CACHE/js/28a75b97c738.js:520 static/CACHE/js/2e74a305330e.js:439
+#: static/CACHE/js/36a825fa55bb.js:439 static/CACHE/js/3ad76eba02c8.js:439
+#: static/CACHE/js/3c65f2b5abe9.js:520 static/CACHE/js/3f76a5e109cd.js:439
+#: static/CACHE/js/423d0ae3a046.js:439 static/CACHE/js/46f49fc69645.js:440
+#: static/CACHE/js/4f5850dc7f61.js:439 static/CACHE/js/52173e64fe62.js:439
+#: static/CACHE/js/5217fc9b2b42.js:439 static/CACHE/js/523e2974cdab.js:439
+#: static/CACHE/js/55757ea02bba.js:517 static/CACHE/js/56bb215d04af.js:517
+#: static/CACHE/js/587358082861.js:520 static/CACHE/js/59655cbf7546.js:517
+#: static/CACHE/js/6172d4788032.js:439 static/CACHE/js/62ec87a6f408.js:520
+#: static/CACHE/js/672e38aaf492.js:439 static/CACHE/js/67e1b308bc0c.js:439
+#: static/CACHE/js/6949097e027f.js:519 static/CACHE/js/72e2926afe6a.js:520
+#: static/CACHE/js/77486edf4aee.js:439 static/CACHE/js/7a37720a850e.js:439
+#: static/CACHE/js/7dfcca8be637.js:439 static/CACHE/js/803b8cef4870.js:438
+#: static/CACHE/js/831bfc81e8c0.js:439 static/CACHE/js/834b7ee64cf1.js:439
+#: static/CACHE/js/86bcabb9c47a.js:439 static/CACHE/js/8f5fbc25d390.js:439
+#: static/CACHE/js/9423ac70c3bf.js:517 static/CACHE/js/948be4fe4bda.js:517
+#: static/CACHE/js/975e1be23e23.js:439 static/CACHE/js/97b3afb5d058.js:520
+#: static/CACHE/js/9f5c522bc0ae.js:439 static/CACHE/js/a25bcefeadb6.js:439
+#: static/CACHE/js/a66b17977a89.js:439 static/CACHE/js/ab2f9d86fe7d.js:520
+#: static/CACHE/js/abf1a137b0b9.js:440 static/CACHE/js/adb500cf07b6.js:439
+#: static/CACHE/js/af37407f7dbe.js:439 static/CACHE/js/bd1623bd2966.js:518
+#: static/CACHE/js/c11537535b75.js:438 static/CACHE/js/c41945e40ff6.js:439
+#: static/CACHE/js/c4bc8786469c.js:439 static/CACHE/js/cc82f7b723a3.js:440
+#: static/CACHE/js/e2e3ed698537.js:439 static/CACHE/js/e48b032bf67f.js:439
+#: static/CACHE/js/e490e044136a.js:520 static/CACHE/js/ecfc862726a2.js:439
+#: static/CACHE/js/f9ca9286bf1b.js:520 static/CACHE/js/fdfb25ad7dd4.js:520
+msgid "my"
+msgstr "mis"
+
+#: site-static/js/history/history_list_view.js:41
+#: static/CACHE/js/069c65554592.js:518 static/CACHE/js/09da92f9f404.js:440
+#: static/CACHE/js/0a79bd9550e5.js:440 static/CACHE/js/0b8b36d6d075.js:439
+#: static/CACHE/js/0d9d4994d9fa.js:521 static/CACHE/js/1590f956a92e.js:440
+#: static/CACHE/js/1700495f3e06.js:440 static/CACHE/js/17bca7ce487c.js:440
+#: static/CACHE/js/1a7bc113f4a6.js:440 static/CACHE/js/21df30627bf9.js:521
+#: static/CACHE/js/24eee08817c3.js:440 static/CACHE/js/271a7e9c0dde.js:521
+#: static/CACHE/js/28a75b97c738.js:521 static/CACHE/js/2e74a305330e.js:440
+#: static/CACHE/js/36a825fa55bb.js:440 static/CACHE/js/3ad76eba02c8.js:440
+#: static/CACHE/js/3c65f2b5abe9.js:521 static/CACHE/js/3f76a5e109cd.js:440
+#: static/CACHE/js/423d0ae3a046.js:440 static/CACHE/js/46f49fc69645.js:441
+#: static/CACHE/js/4f5850dc7f61.js:440 static/CACHE/js/52173e64fe62.js:440
+#: static/CACHE/js/5217fc9b2b42.js:440 static/CACHE/js/523e2974cdab.js:440
+#: static/CACHE/js/55757ea02bba.js:518 static/CACHE/js/56bb215d04af.js:518
+#: static/CACHE/js/587358082861.js:521 static/CACHE/js/59655cbf7546.js:518
+#: static/CACHE/js/6172d4788032.js:440 static/CACHE/js/62ec87a6f408.js:521
+#: static/CACHE/js/672e38aaf492.js:440 static/CACHE/js/67e1b308bc0c.js:440
+#: static/CACHE/js/6949097e027f.js:520 static/CACHE/js/72e2926afe6a.js:521
+#: static/CACHE/js/77486edf4aee.js:440 static/CACHE/js/7a37720a850e.js:440
+#: static/CACHE/js/7dfcca8be637.js:440 static/CACHE/js/803b8cef4870.js:439
+#: static/CACHE/js/831bfc81e8c0.js:440 static/CACHE/js/834b7ee64cf1.js:440
+#: static/CACHE/js/86bcabb9c47a.js:440 static/CACHE/js/8f5fbc25d390.js:440
+#: static/CACHE/js/9423ac70c3bf.js:518 static/CACHE/js/948be4fe4bda.js:518
+#: static/CACHE/js/975e1be23e23.js:440 static/CACHE/js/97b3afb5d058.js:521
+#: static/CACHE/js/9f5c522bc0ae.js:440 static/CACHE/js/a25bcefeadb6.js:440
+#: static/CACHE/js/a66b17977a89.js:440 static/CACHE/js/ab2f9d86fe7d.js:521
+#: static/CACHE/js/abf1a137b0b9.js:441 static/CACHE/js/adb500cf07b6.js:440
+#: static/CACHE/js/af37407f7dbe.js:440 static/CACHE/js/bd1623bd2966.js:519
+#: static/CACHE/js/c11537535b75.js:439 static/CACHE/js/c41945e40ff6.js:440
+#: static/CACHE/js/c4bc8786469c.js:440 static/CACHE/js/cc82f7b723a3.js:441
+#: static/CACHE/js/e2e3ed698537.js:440 static/CACHE/js/e48b032bf67f.js:440
+#: static/CACHE/js/e490e044136a.js:521 static/CACHE/js/ecfc862726a2.js:440
+#: static/CACHE/js/f9ca9286bf1b.js:521 static/CACHE/js/fdfb25ad7dd4.js:521
+msgid "combined view"
+msgstr "vista combinada"
+
+#: site-static/js/history/history_list_view.js:42
+#: static/CACHE/js/069c65554592.js:518 static/CACHE/js/09da92f9f404.js:440
+#: static/CACHE/js/0a79bd9550e5.js:440 static/CACHE/js/0b8b36d6d075.js:439
+#: static/CACHE/js/0d9d4994d9fa.js:521 static/CACHE/js/1590f956a92e.js:440
+#: static/CACHE/js/1700495f3e06.js:440 static/CACHE/js/17bca7ce487c.js:440
+#: static/CACHE/js/1a7bc113f4a6.js:440 static/CACHE/js/21df30627bf9.js:521
+#: static/CACHE/js/24eee08817c3.js:440 static/CACHE/js/271a7e9c0dde.js:521
+#: static/CACHE/js/28a75b97c738.js:521 static/CACHE/js/2e74a305330e.js:440
+#: static/CACHE/js/36a825fa55bb.js:440 static/CACHE/js/3ad76eba02c8.js:440
+#: static/CACHE/js/3c65f2b5abe9.js:521 static/CACHE/js/3f76a5e109cd.js:440
+#: static/CACHE/js/423d0ae3a046.js:440 static/CACHE/js/46f49fc69645.js:441
+#: static/CACHE/js/4f5850dc7f61.js:440 static/CACHE/js/52173e64fe62.js:440
+#: static/CACHE/js/5217fc9b2b42.js:440 static/CACHE/js/523e2974cdab.js:440
+#: static/CACHE/js/55757ea02bba.js:518 static/CACHE/js/56bb215d04af.js:518
+#: static/CACHE/js/587358082861.js:521 static/CACHE/js/59655cbf7546.js:518
+#: static/CACHE/js/6172d4788032.js:440 static/CACHE/js/62ec87a6f408.js:521
+#: static/CACHE/js/672e38aaf492.js:440 static/CACHE/js/67e1b308bc0c.js:440
+#: static/CACHE/js/6949097e027f.js:520 static/CACHE/js/72e2926afe6a.js:521
+#: static/CACHE/js/77486edf4aee.js:440 static/CACHE/js/7a37720a850e.js:440
+#: static/CACHE/js/7dfcca8be637.js:440 static/CACHE/js/803b8cef4870.js:439
+#: static/CACHE/js/831bfc81e8c0.js:440 static/CACHE/js/834b7ee64cf1.js:440
+#: static/CACHE/js/86bcabb9c47a.js:440 static/CACHE/js/8f5fbc25d390.js:440
+#: static/CACHE/js/9423ac70c3bf.js:518 static/CACHE/js/948be4fe4bda.js:518
+#: static/CACHE/js/975e1be23e23.js:440 static/CACHE/js/97b3afb5d058.js:521
+#: static/CACHE/js/9f5c522bc0ae.js:440 static/CACHE/js/a25bcefeadb6.js:440
+#: static/CACHE/js/a66b17977a89.js:440 static/CACHE/js/ab2f9d86fe7d.js:521
+#: static/CACHE/js/abf1a137b0b9.js:441 static/CACHE/js/adb500cf07b6.js:440
+#: static/CACHE/js/af37407f7dbe.js:440 static/CACHE/js/bd1623bd2966.js:519
+#: static/CACHE/js/c11537535b75.js:439 static/CACHE/js/c41945e40ff6.js:440
+#: static/CACHE/js/c4bc8786469c.js:440 static/CACHE/js/cc82f7b723a3.js:441
+#: static/CACHE/js/e2e3ed698537.js:440 static/CACHE/js/e48b032bf67f.js:440
+#: static/CACHE/js/e490e044136a.js:521 static/CACHE/js/ecfc862726a2.js:440
+#: static/CACHE/js/f9ca9286bf1b.js:521 static/CACHE/js/fdfb25ad7dd4.js:521
+msgid "contributions"
+msgstr "dateos"
+
+#: site-static/js/history/history_list_view.js:43
+#: static/CACHE/js/069c65554592.js:518 static/CACHE/js/09da92f9f404.js:440
+#: static/CACHE/js/0a79bd9550e5.js:440 static/CACHE/js/0b8b36d6d075.js:439
+#: static/CACHE/js/0d9d4994d9fa.js:521 static/CACHE/js/1590f956a92e.js:440
+#: static/CACHE/js/1700495f3e06.js:440 static/CACHE/js/17bca7ce487c.js:440
+#: static/CACHE/js/1a7bc113f4a6.js:440 static/CACHE/js/21df30627bf9.js:521
+#: static/CACHE/js/24eee08817c3.js:440 static/CACHE/js/271a7e9c0dde.js:521
+#: static/CACHE/js/28a75b97c738.js:521 static/CACHE/js/2e74a305330e.js:440
+#: static/CACHE/js/36a825fa55bb.js:440 static/CACHE/js/3ad76eba02c8.js:440
+#: static/CACHE/js/3c65f2b5abe9.js:521 static/CACHE/js/3f76a5e109cd.js:440
+#: static/CACHE/js/423d0ae3a046.js:440 static/CACHE/js/46f49fc69645.js:441
+#: static/CACHE/js/4f5850dc7f61.js:440 static/CACHE/js/52173e64fe62.js:440
+#: static/CACHE/js/5217fc9b2b42.js:440 static/CACHE/js/523e2974cdab.js:440
+#: static/CACHE/js/55757ea02bba.js:518 static/CACHE/js/56bb215d04af.js:518
+#: static/CACHE/js/587358082861.js:521 static/CACHE/js/59655cbf7546.js:518
+#: static/CACHE/js/6172d4788032.js:440 static/CACHE/js/62ec87a6f408.js:521
+#: static/CACHE/js/672e38aaf492.js:440 static/CACHE/js/67e1b308bc0c.js:440
+#: static/CACHE/js/6949097e027f.js:520 static/CACHE/js/72e2926afe6a.js:521
+#: static/CACHE/js/77486edf4aee.js:440 static/CACHE/js/7a37720a850e.js:440
+#: static/CACHE/js/7dfcca8be637.js:440 static/CACHE/js/803b8cef4870.js:439
+#: static/CACHE/js/831bfc81e8c0.js:440 static/CACHE/js/834b7ee64cf1.js:440
+#: static/CACHE/js/86bcabb9c47a.js:440 static/CACHE/js/8f5fbc25d390.js:440
+#: static/CACHE/js/9423ac70c3bf.js:518 static/CACHE/js/948be4fe4bda.js:518
+#: static/CACHE/js/975e1be23e23.js:440 static/CACHE/js/97b3afb5d058.js:521
+#: static/CACHE/js/9f5c522bc0ae.js:440 static/CACHE/js/a25bcefeadb6.js:440
+#: static/CACHE/js/a66b17977a89.js:440 static/CACHE/js/ab2f9d86fe7d.js:521
+#: static/CACHE/js/abf1a137b0b9.js:441 static/CACHE/js/adb500cf07b6.js:440
+#: static/CACHE/js/af37407f7dbe.js:440 static/CACHE/js/bd1623bd2966.js:519
+#: static/CACHE/js/c11537535b75.js:439 static/CACHE/js/c41945e40ff6.js:440
+#: static/CACHE/js/c4bc8786469c.js:440 static/CACHE/js/cc82f7b723a3.js:441
+#: static/CACHE/js/e2e3ed698537.js:440 static/CACHE/js/e48b032bf67f.js:440
+#: static/CACHE/js/e490e044136a.js:521 static/CACHE/js/ecfc862726a2.js:440
+#: static/CACHE/js/f9ca9286bf1b.js:521 static/CACHE/js/fdfb25ad7dd4.js:521
+msgid "comments"
+msgstr "comentarios"
+
+#: site-static/js/history/history_list_view.js:44
+#: static/CACHE/js/069c65554592.js:518 static/CACHE/js/09da92f9f404.js:440
+#: static/CACHE/js/0a79bd9550e5.js:440 static/CACHE/js/0b8b36d6d075.js:439
+#: static/CACHE/js/0d9d4994d9fa.js:521 static/CACHE/js/1590f956a92e.js:440
+#: static/CACHE/js/1700495f3e06.js:440 static/CACHE/js/17bca7ce487c.js:440
+#: static/CACHE/js/1a7bc113f4a6.js:440 static/CACHE/js/21df30627bf9.js:521
+#: static/CACHE/js/24eee08817c3.js:440 static/CACHE/js/271a7e9c0dde.js:521
+#: static/CACHE/js/28a75b97c738.js:521 static/CACHE/js/2e74a305330e.js:440
+#: static/CACHE/js/36a825fa55bb.js:440 static/CACHE/js/3ad76eba02c8.js:440
+#: static/CACHE/js/3c65f2b5abe9.js:521 static/CACHE/js/3f76a5e109cd.js:440
+#: static/CACHE/js/423d0ae3a046.js:440 static/CACHE/js/46f49fc69645.js:441
+#: static/CACHE/js/4f5850dc7f61.js:440 static/CACHE/js/52173e64fe62.js:440
+#: static/CACHE/js/5217fc9b2b42.js:440 static/CACHE/js/523e2974cdab.js:440
+#: static/CACHE/js/55757ea02bba.js:518 static/CACHE/js/56bb215d04af.js:518
+#: static/CACHE/js/587358082861.js:521 static/CACHE/js/59655cbf7546.js:518
+#: static/CACHE/js/6172d4788032.js:440 static/CACHE/js/62ec87a6f408.js:521
+#: static/CACHE/js/672e38aaf492.js:440 static/CACHE/js/67e1b308bc0c.js:440
+#: static/CACHE/js/6949097e027f.js:520 static/CACHE/js/72e2926afe6a.js:521
+#: static/CACHE/js/77486edf4aee.js:440 static/CACHE/js/7a37720a850e.js:440
+#: static/CACHE/js/7dfcca8be637.js:440 static/CACHE/js/803b8cef4870.js:439
+#: static/CACHE/js/831bfc81e8c0.js:440 static/CACHE/js/834b7ee64cf1.js:440
+#: static/CACHE/js/86bcabb9c47a.js:440 static/CACHE/js/8f5fbc25d390.js:440
+#: static/CACHE/js/9423ac70c3bf.js:518 static/CACHE/js/948be4fe4bda.js:518
+#: static/CACHE/js/975e1be23e23.js:440 static/CACHE/js/97b3afb5d058.js:521
+#: static/CACHE/js/9f5c522bc0ae.js:440 static/CACHE/js/a25bcefeadb6.js:440
+#: static/CACHE/js/a66b17977a89.js:440 static/CACHE/js/ab2f9d86fe7d.js:521
+#: static/CACHE/js/abf1a137b0b9.js:441 static/CACHE/js/adb500cf07b6.js:440
+#: static/CACHE/js/af37407f7dbe.js:440 static/CACHE/js/bd1623bd2966.js:519
+#: static/CACHE/js/c11537535b75.js:439 static/CACHE/js/c41945e40ff6.js:440
+#: static/CACHE/js/c4bc8786469c.js:440 static/CACHE/js/cc82f7b723a3.js:441
+#: static/CACHE/js/e2e3ed698537.js:440 static/CACHE/js/e48b032bf67f.js:440
+#: static/CACHE/js/e490e044136a.js:521 static/CACHE/js/ecfc862726a2.js:440
+#: static/CACHE/js/f9ca9286bf1b.js:521 static/CACHE/js/fdfb25ad7dd4.js:521
+msgid "supports"
+msgstr "apoyos"
+
+#: site-static/js/home/home_view.js:8 static/CACHE/js/069c65554592.js:524
+#: static/CACHE/js/09da92f9f404.js:330 static/CACHE/js/0a79bd9550e5.js:330
+#: static/CACHE/js/0b8b36d6d075.js:329 static/CACHE/js/0d9d4994d9fa.js:527
+#: static/CACHE/js/1590f956a92e.js:330 static/CACHE/js/1700495f3e06.js:330
+#: static/CACHE/js/17bca7ce487c.js:330 static/CACHE/js/1a7bc113f4a6.js:330
+#: static/CACHE/js/21df30627bf9.js:527 static/CACHE/js/24eee08817c3.js:330
+#: static/CACHE/js/271a7e9c0dde.js:527 static/CACHE/js/28a75b97c738.js:527
+#: static/CACHE/js/2e74a305330e.js:330 static/CACHE/js/36a825fa55bb.js:330
+#: static/CACHE/js/3ad76eba02c8.js:330 static/CACHE/js/3c65f2b5abe9.js:527
+#: static/CACHE/js/3f76a5e109cd.js:330 static/CACHE/js/423d0ae3a046.js:330
+#: static/CACHE/js/46f49fc69645.js:330 static/CACHE/js/4f5850dc7f61.js:330
+#: static/CACHE/js/52173e64fe62.js:330 static/CACHE/js/5217fc9b2b42.js:330
+#: static/CACHE/js/523e2974cdab.js:330 static/CACHE/js/55757ea02bba.js:524
+#: static/CACHE/js/56bb215d04af.js:524 static/CACHE/js/587358082861.js:527
+#: static/CACHE/js/59655cbf7546.js:524 static/CACHE/js/6172d4788032.js:330
+#: static/CACHE/js/62ec87a6f408.js:527 static/CACHE/js/672e38aaf492.js:330
+#: static/CACHE/js/67e1b308bc0c.js:330 static/CACHE/js/6949097e027f.js:526
+#: static/CACHE/js/72e2926afe6a.js:527 static/CACHE/js/77486edf4aee.js:330
+#: static/CACHE/js/7a37720a850e.js:330 static/CACHE/js/7dfcca8be637.js:330
+#: static/CACHE/js/803b8cef4870.js:329 static/CACHE/js/831bfc81e8c0.js:330
+#: static/CACHE/js/834b7ee64cf1.js:330 static/CACHE/js/86bcabb9c47a.js:330
+#: static/CACHE/js/8f5fbc25d390.js:330 static/CACHE/js/9423ac70c3bf.js:524
+#: static/CACHE/js/948be4fe4bda.js:524 static/CACHE/js/975e1be23e23.js:330
+#: static/CACHE/js/97b3afb5d058.js:527 static/CACHE/js/9f5c522bc0ae.js:330
+#: static/CACHE/js/a25bcefeadb6.js:330 static/CACHE/js/a66b17977a89.js:330
+#: static/CACHE/js/ab2f9d86fe7d.js:527 static/CACHE/js/abf1a137b0b9.js:330
+#: static/CACHE/js/adb500cf07b6.js:330 static/CACHE/js/af37407f7dbe.js:330
+#: static/CACHE/js/bd1623bd2966.js:525 static/CACHE/js/c11537535b75.js:329
+#: static/CACHE/js/c41945e40ff6.js:330 static/CACHE/js/c4bc8786469c.js:330
+#: static/CACHE/js/cc82f7b723a3.js:330 static/CACHE/js/e2e3ed698537.js:330
+#: static/CACHE/js/e48b032bf67f.js:330 static/CACHE/js/e490e044136a.js:527
+#: static/CACHE/js/ecfc862726a2.js:330 static/CACHE/js/f9ca9286bf1b.js:527
+#: static/CACHE/js/fdfb25ad7dd4.js:527
 msgid "Datea, a platform to activate and channel community engagements."
 msgstr ""
 "Datea, una plataforma para activar y canalizar la participación de tu "
 "comunidad."
 
-#: site-static/js/vote_bone.js:53
-msgid "support!"
-msgstr "apoyar!"
-
-#: site-static/js/vote_bone.js:55
-msgid "already supporting"
-msgstr "ya apoyó"
-
-#: site-static/js/datea_olwidget/datea_olwidget.js:68
+#: site-static/js/libs/datea_olwidget/datea_olwidget.js:68
+#: static/CACHE/js/069c65554592.js:78 static/CACHE/js/09da92f9f404.js:4
+#: static/CACHE/js/0a79bd9550e5.js:4 static/CACHE/js/0b8b36d6d075.js:4
+#: static/CACHE/js/0d9d4994d9fa.js:81 static/CACHE/js/1590f956a92e.js:4
+#: static/CACHE/js/1700495f3e06.js:4 static/CACHE/js/17bca7ce487c.js:4
+#: static/CACHE/js/1a7bc113f4a6.js:4 static/CACHE/js/21df30627bf9.js:81
+#: static/CACHE/js/24eee08817c3.js:4 static/CACHE/js/271a7e9c0dde.js:81
+#: static/CACHE/js/28a75b97c738.js:81 static/CACHE/js/2e74a305330e.js:4
+#: static/CACHE/js/36a825fa55bb.js:4 static/CACHE/js/3ad76eba02c8.js:4
+#: static/CACHE/js/3c65f2b5abe9.js:81 static/CACHE/js/3f76a5e109cd.js:4
+#: static/CACHE/js/423d0ae3a046.js:4 static/CACHE/js/46f49fc69645.js:4
+#: static/CACHE/js/4f5850dc7f61.js:4 static/CACHE/js/52173e64fe62.js:4
+#: static/CACHE/js/5217fc9b2b42.js:4 static/CACHE/js/523e2974cdab.js:4
+#: static/CACHE/js/55757ea02bba.js:78 static/CACHE/js/56bb215d04af.js:78
+#: static/CACHE/js/587358082861.js:81 static/CACHE/js/59655cbf7546.js:78
+#: static/CACHE/js/6172d4788032.js:4 static/CACHE/js/62ec87a6f408.js:81
+#: static/CACHE/js/672e38aaf492.js:4 static/CACHE/js/67e1b308bc0c.js:4
+#: static/CACHE/js/6949097e027f.js:81 static/CACHE/js/72e2926afe6a.js:81
+#: static/CACHE/js/77486edf4aee.js:4 static/CACHE/js/7a37720a850e.js:4
+#: static/CACHE/js/7dfcca8be637.js:4 static/CACHE/js/803b8cef4870.js:4
+#: static/CACHE/js/831bfc81e8c0.js:4 static/CACHE/js/834b7ee64cf1.js:4
+#: static/CACHE/js/86bcabb9c47a.js:4 static/CACHE/js/8f5fbc25d390.js:4
+#: static/CACHE/js/9423ac70c3bf.js:78 static/CACHE/js/948be4fe4bda.js:78
+#: static/CACHE/js/975e1be23e23.js:4 static/CACHE/js/97b3afb5d058.js:81
+#: static/CACHE/js/9f5c522bc0ae.js:4 static/CACHE/js/a25bcefeadb6.js:4
+#: static/CACHE/js/a66b17977a89.js:4 static/CACHE/js/ab2f9d86fe7d.js:81
+#: static/CACHE/js/abf1a137b0b9.js:4 static/CACHE/js/adb500cf07b6.js:4
+#: static/CACHE/js/af37407f7dbe.js:4 static/CACHE/js/bd1623bd2966.js:81
+#: static/CACHE/js/c11537535b75.js:4 static/CACHE/js/c41945e40ff6.js:4
+#: static/CACHE/js/c4bc8786469c.js:4 static/CACHE/js/cc82f7b723a3.js:4
+#: static/CACHE/js/e2e3ed698537.js:4 static/CACHE/js/e48b032bf67f.js:4
+#: static/CACHE/js/e490e044136a.js:81 static/CACHE/js/ecfc862726a2.js:4
+#: static/CACHE/js/f9ca9286bf1b.js:81 static/CACHE/js/fdfb25ad7dd4.js:81
 msgid "Google Streets"
 msgstr "Google Calles"
 
-#: site-static/js/datea_olwidget/datea_olwidget.js:75
+#: site-static/js/libs/datea_olwidget/datea_olwidget.js:75
+#: static/CACHE/js/069c65554592.js:78 static/CACHE/js/09da92f9f404.js:4
+#: static/CACHE/js/0a79bd9550e5.js:4 static/CACHE/js/0b8b36d6d075.js:4
+#: static/CACHE/js/0d9d4994d9fa.js:81 static/CACHE/js/1590f956a92e.js:4
+#: static/CACHE/js/1700495f3e06.js:4 static/CACHE/js/17bca7ce487c.js:4
+#: static/CACHE/js/1a7bc113f4a6.js:4 static/CACHE/js/21df30627bf9.js:81
+#: static/CACHE/js/24eee08817c3.js:4 static/CACHE/js/271a7e9c0dde.js:81
+#: static/CACHE/js/28a75b97c738.js:81 static/CACHE/js/2e74a305330e.js:4
+#: static/CACHE/js/36a825fa55bb.js:4 static/CACHE/js/3ad76eba02c8.js:4
+#: static/CACHE/js/3c65f2b5abe9.js:81 static/CACHE/js/3f76a5e109cd.js:4
+#: static/CACHE/js/423d0ae3a046.js:4 static/CACHE/js/46f49fc69645.js:4
+#: static/CACHE/js/4f5850dc7f61.js:4 static/CACHE/js/52173e64fe62.js:4
+#: static/CACHE/js/5217fc9b2b42.js:4 static/CACHE/js/523e2974cdab.js:4
+#: static/CACHE/js/55757ea02bba.js:78 static/CACHE/js/56bb215d04af.js:78
+#: static/CACHE/js/587358082861.js:81 static/CACHE/js/59655cbf7546.js:78
+#: static/CACHE/js/6172d4788032.js:4 static/CACHE/js/62ec87a6f408.js:81
+#: static/CACHE/js/672e38aaf492.js:4 static/CACHE/js/67e1b308bc0c.js:4
+#: static/CACHE/js/6949097e027f.js:81 static/CACHE/js/72e2926afe6a.js:81
+#: static/CACHE/js/77486edf4aee.js:4 static/CACHE/js/7a37720a850e.js:4
+#: static/CACHE/js/7dfcca8be637.js:4 static/CACHE/js/803b8cef4870.js:4
+#: static/CACHE/js/831bfc81e8c0.js:4 static/CACHE/js/834b7ee64cf1.js:4
+#: static/CACHE/js/86bcabb9c47a.js:4 static/CACHE/js/8f5fbc25d390.js:4
+#: static/CACHE/js/9423ac70c3bf.js:78 static/CACHE/js/948be4fe4bda.js:78
+#: static/CACHE/js/975e1be23e23.js:4 static/CACHE/js/97b3afb5d058.js:81
+#: static/CACHE/js/9f5c522bc0ae.js:4 static/CACHE/js/a25bcefeadb6.js:4
+#: static/CACHE/js/a66b17977a89.js:4 static/CACHE/js/ab2f9d86fe7d.js:81
+#: static/CACHE/js/abf1a137b0b9.js:4 static/CACHE/js/adb500cf07b6.js:4
+#: static/CACHE/js/af37407f7dbe.js:4 static/CACHE/js/bd1623bd2966.js:81
+#: static/CACHE/js/c11537535b75.js:4 static/CACHE/js/c41945e40ff6.js:4
+#: static/CACHE/js/c4bc8786469c.js:4 static/CACHE/js/cc82f7b723a3.js:4
+#: static/CACHE/js/e2e3ed698537.js:4 static/CACHE/js/e48b032bf67f.js:4
+#: static/CACHE/js/e490e044136a.js:81 static/CACHE/js/ecfc862726a2.js:4
+#: static/CACHE/js/f9ca9286bf1b.js:81 static/CACHE/js/fdfb25ad7dd4.js:81
 msgid "Google Terrain"
 msgstr "Google Terreno"
 
-#: site-static/js/datea_olwidget/datea_olwidget.js:79
+#: site-static/js/libs/datea_olwidget/datea_olwidget.js:79
+#: static/CACHE/js/069c65554592.js:78 static/CACHE/js/09da92f9f404.js:4
+#: static/CACHE/js/0a79bd9550e5.js:4 static/CACHE/js/0b8b36d6d075.js:4
+#: static/CACHE/js/0d9d4994d9fa.js:81 static/CACHE/js/1590f956a92e.js:4
+#: static/CACHE/js/1700495f3e06.js:4 static/CACHE/js/17bca7ce487c.js:4
+#: static/CACHE/js/1a7bc113f4a6.js:4 static/CACHE/js/21df30627bf9.js:81
+#: static/CACHE/js/24eee08817c3.js:4 static/CACHE/js/271a7e9c0dde.js:81
+#: static/CACHE/js/28a75b97c738.js:81 static/CACHE/js/2e74a305330e.js:4
+#: static/CACHE/js/36a825fa55bb.js:4 static/CACHE/js/3ad76eba02c8.js:4
+#: static/CACHE/js/3c65f2b5abe9.js:81 static/CACHE/js/3f76a5e109cd.js:4
+#: static/CACHE/js/423d0ae3a046.js:4 static/CACHE/js/46f49fc69645.js:4
+#: static/CACHE/js/4f5850dc7f61.js:4 static/CACHE/js/52173e64fe62.js:4
+#: static/CACHE/js/5217fc9b2b42.js:4 static/CACHE/js/523e2974cdab.js:4
+#: static/CACHE/js/55757ea02bba.js:78 static/CACHE/js/56bb215d04af.js:78
+#: static/CACHE/js/587358082861.js:81 static/CACHE/js/59655cbf7546.js:78
+#: static/CACHE/js/6172d4788032.js:4 static/CACHE/js/62ec87a6f408.js:81
+#: static/CACHE/js/672e38aaf492.js:4 static/CACHE/js/67e1b308bc0c.js:4
+#: static/CACHE/js/6949097e027f.js:81 static/CACHE/js/72e2926afe6a.js:81
+#: static/CACHE/js/77486edf4aee.js:4 static/CACHE/js/7a37720a850e.js:4
+#: static/CACHE/js/7dfcca8be637.js:4 static/CACHE/js/803b8cef4870.js:4
+#: static/CACHE/js/831bfc81e8c0.js:4 static/CACHE/js/834b7ee64cf1.js:4
+#: static/CACHE/js/86bcabb9c47a.js:4 static/CACHE/js/8f5fbc25d390.js:4
+#: static/CACHE/js/9423ac70c3bf.js:78 static/CACHE/js/948be4fe4bda.js:78
+#: static/CACHE/js/975e1be23e23.js:4 static/CACHE/js/97b3afb5d058.js:81
+#: static/CACHE/js/9f5c522bc0ae.js:4 static/CACHE/js/a25bcefeadb6.js:4
+#: static/CACHE/js/a66b17977a89.js:4 static/CACHE/js/ab2f9d86fe7d.js:81
+#: static/CACHE/js/abf1a137b0b9.js:4 static/CACHE/js/adb500cf07b6.js:4
+#: static/CACHE/js/af37407f7dbe.js:4 static/CACHE/js/bd1623bd2966.js:81
+#: static/CACHE/js/c11537535b75.js:4 static/CACHE/js/c41945e40ff6.js:4
+#: static/CACHE/js/c4bc8786469c.js:4 static/CACHE/js/cc82f7b723a3.js:4
+#: static/CACHE/js/e2e3ed698537.js:4 static/CACHE/js/e48b032bf67f.js:4
+#: static/CACHE/js/e490e044136a.js:81 static/CACHE/js/ecfc862726a2.js:4
+#: static/CACHE/js/f9ca9286bf1b.js:81 static/CACHE/js/fdfb25ad7dd4.js:81
 msgid "Google Satellite"
 msgstr "Google Satelite"
 
-#: site-static/js/datea_olwidget/datea_olwidget.js:84
+#: site-static/js/libs/datea_olwidget/datea_olwidget.js:84
+#: static/CACHE/js/069c65554592.js:78 static/CACHE/js/09da92f9f404.js:4
+#: static/CACHE/js/0a79bd9550e5.js:4 static/CACHE/js/0b8b36d6d075.js:4
+#: static/CACHE/js/0d9d4994d9fa.js:81 static/CACHE/js/1590f956a92e.js:4
+#: static/CACHE/js/1700495f3e06.js:4 static/CACHE/js/17bca7ce487c.js:4
+#: static/CACHE/js/1a7bc113f4a6.js:4 static/CACHE/js/21df30627bf9.js:81
+#: static/CACHE/js/24eee08817c3.js:4 static/CACHE/js/271a7e9c0dde.js:81
+#: static/CACHE/js/28a75b97c738.js:81 static/CACHE/js/2e74a305330e.js:4
+#: static/CACHE/js/36a825fa55bb.js:4 static/CACHE/js/3ad76eba02c8.js:4
+#: static/CACHE/js/3c65f2b5abe9.js:81 static/CACHE/js/3f76a5e109cd.js:4
+#: static/CACHE/js/423d0ae3a046.js:4 static/CACHE/js/46f49fc69645.js:4
+#: static/CACHE/js/4f5850dc7f61.js:4 static/CACHE/js/52173e64fe62.js:4
+#: static/CACHE/js/5217fc9b2b42.js:4 static/CACHE/js/523e2974cdab.js:4
+#: static/CACHE/js/55757ea02bba.js:78 static/CACHE/js/56bb215d04af.js:78
+#: static/CACHE/js/587358082861.js:81 static/CACHE/js/59655cbf7546.js:78
+#: static/CACHE/js/6172d4788032.js:4 static/CACHE/js/62ec87a6f408.js:81
+#: static/CACHE/js/672e38aaf492.js:4 static/CACHE/js/67e1b308bc0c.js:4
+#: static/CACHE/js/6949097e027f.js:81 static/CACHE/js/72e2926afe6a.js:81
+#: static/CACHE/js/77486edf4aee.js:4 static/CACHE/js/7a37720a850e.js:4
+#: static/CACHE/js/7dfcca8be637.js:4 static/CACHE/js/803b8cef4870.js:4
+#: static/CACHE/js/831bfc81e8c0.js:4 static/CACHE/js/834b7ee64cf1.js:4
+#: static/CACHE/js/86bcabb9c47a.js:4 static/CACHE/js/8f5fbc25d390.js:4
+#: static/CACHE/js/9423ac70c3bf.js:78 static/CACHE/js/948be4fe4bda.js:78
+#: static/CACHE/js/975e1be23e23.js:4 static/CACHE/js/97b3afb5d058.js:81
+#: static/CACHE/js/9f5c522bc0ae.js:4 static/CACHE/js/a25bcefeadb6.js:4
+#: static/CACHE/js/a66b17977a89.js:4 static/CACHE/js/ab2f9d86fe7d.js:81
+#: static/CACHE/js/abf1a137b0b9.js:4 static/CACHE/js/adb500cf07b6.js:4
+#: static/CACHE/js/af37407f7dbe.js:4 static/CACHE/js/bd1623bd2966.js:81
+#: static/CACHE/js/c11537535b75.js:4 static/CACHE/js/c41945e40ff6.js:4
+#: static/CACHE/js/c4bc8786469c.js:4 static/CACHE/js/cc82f7b723a3.js:4
+#: static/CACHE/js/e2e3ed698537.js:4 static/CACHE/js/e48b032bf67f.js:4
+#: static/CACHE/js/e490e044136a.js:81 static/CACHE/js/ecfc862726a2.js:4
+#: static/CACHE/js/f9ca9286bf1b.js:81 static/CACHE/js/fdfb25ad7dd4.js:81
 msgid "Google Hybrid"
 msgstr "Google Hibrido"
 
-#: site-static/js/datea_olwidget/datea_olwidget.js:804
+#: site-static/js/libs/datea_olwidget/datea_olwidget.js:805
+#: static/CACHE/js/069c65554592.js:117 static/CACHE/js/09da92f9f404.js:43
+#: static/CACHE/js/0a79bd9550e5.js:43 static/CACHE/js/0b8b36d6d075.js:43
+#: static/CACHE/js/0d9d4994d9fa.js:120 static/CACHE/js/1590f956a92e.js:43
+#: static/CACHE/js/1700495f3e06.js:43 static/CACHE/js/17bca7ce487c.js:43
+#: static/CACHE/js/1a7bc113f4a6.js:43 static/CACHE/js/21df30627bf9.js:120
+#: static/CACHE/js/24eee08817c3.js:43 static/CACHE/js/271a7e9c0dde.js:120
+#: static/CACHE/js/28a75b97c738.js:120 static/CACHE/js/2e74a305330e.js:43
+#: static/CACHE/js/36a825fa55bb.js:43 static/CACHE/js/3ad76eba02c8.js:43
+#: static/CACHE/js/3c65f2b5abe9.js:120 static/CACHE/js/3f76a5e109cd.js:43
+#: static/CACHE/js/423d0ae3a046.js:43 static/CACHE/js/46f49fc69645.js:43
+#: static/CACHE/js/4f5850dc7f61.js:43 static/CACHE/js/52173e64fe62.js:43
+#: static/CACHE/js/5217fc9b2b42.js:43 static/CACHE/js/523e2974cdab.js:43
+#: static/CACHE/js/55757ea02bba.js:117 static/CACHE/js/56bb215d04af.js:117
+#: static/CACHE/js/587358082861.js:120 static/CACHE/js/59655cbf7546.js:117
+#: static/CACHE/js/6172d4788032.js:43 static/CACHE/js/62ec87a6f408.js:120
+#: static/CACHE/js/672e38aaf492.js:43 static/CACHE/js/67e1b308bc0c.js:43
+#: static/CACHE/js/6949097e027f.js:120 static/CACHE/js/72e2926afe6a.js:120
+#: static/CACHE/js/77486edf4aee.js:43 static/CACHE/js/7a37720a850e.js:43
+#: static/CACHE/js/7dfcca8be637.js:43 static/CACHE/js/803b8cef4870.js:43
+#: static/CACHE/js/831bfc81e8c0.js:43 static/CACHE/js/834b7ee64cf1.js:43
+#: static/CACHE/js/86bcabb9c47a.js:43 static/CACHE/js/8f5fbc25d390.js:43
+#: static/CACHE/js/9423ac70c3bf.js:117 static/CACHE/js/948be4fe4bda.js:117
+#: static/CACHE/js/975e1be23e23.js:43 static/CACHE/js/97b3afb5d058.js:120
+#: static/CACHE/js/9f5c522bc0ae.js:43 static/CACHE/js/a25bcefeadb6.js:43
+#: static/CACHE/js/a66b17977a89.js:43 static/CACHE/js/ab2f9d86fe7d.js:120
+#: static/CACHE/js/abf1a137b0b9.js:43 static/CACHE/js/adb500cf07b6.js:43
+#: static/CACHE/js/af37407f7dbe.js:43 static/CACHE/js/bd1623bd2966.js:120
+#: static/CACHE/js/c11537535b75.js:43 static/CACHE/js/c41945e40ff6.js:43
+#: static/CACHE/js/c4bc8786469c.js:43 static/CACHE/js/cc82f7b723a3.js:43
+#: static/CACHE/js/e2e3ed698537.js:43 static/CACHE/js/e48b032bf67f.js:43
+#: static/CACHE/js/e490e044136a.js:120 static/CACHE/js/ecfc862726a2.js:43
+#: static/CACHE/js/f9ca9286bf1b.js:120 static/CACHE/js/fdfb25ad7dd4.js:120
 msgid "clear all"
 msgstr "borrar todo"
 
-#: site-static/js/datea_olwidget/datea_olwidget.js:814
+#: site-static/js/libs/datea_olwidget/datea_olwidget.js:815
+#: static/CACHE/js/069c65554592.js:117 static/CACHE/js/09da92f9f404.js:43
+#: static/CACHE/js/0a79bd9550e5.js:43 static/CACHE/js/0b8b36d6d075.js:43
+#: static/CACHE/js/0d9d4994d9fa.js:120 static/CACHE/js/1590f956a92e.js:43
+#: static/CACHE/js/1700495f3e06.js:43 static/CACHE/js/17bca7ce487c.js:43
+#: static/CACHE/js/1a7bc113f4a6.js:43 static/CACHE/js/21df30627bf9.js:120
+#: static/CACHE/js/24eee08817c3.js:43 static/CACHE/js/271a7e9c0dde.js:120
+#: static/CACHE/js/28a75b97c738.js:120 static/CACHE/js/2e74a305330e.js:43
+#: static/CACHE/js/36a825fa55bb.js:43 static/CACHE/js/3ad76eba02c8.js:43
+#: static/CACHE/js/3c65f2b5abe9.js:120 static/CACHE/js/3f76a5e109cd.js:43
+#: static/CACHE/js/423d0ae3a046.js:43 static/CACHE/js/46f49fc69645.js:43
+#: static/CACHE/js/4f5850dc7f61.js:43 static/CACHE/js/52173e64fe62.js:43
+#: static/CACHE/js/5217fc9b2b42.js:43 static/CACHE/js/523e2974cdab.js:43
+#: static/CACHE/js/55757ea02bba.js:117 static/CACHE/js/56bb215d04af.js:117
+#: static/CACHE/js/587358082861.js:120 static/CACHE/js/59655cbf7546.js:117
+#: static/CACHE/js/6172d4788032.js:43 static/CACHE/js/62ec87a6f408.js:120
+#: static/CACHE/js/672e38aaf492.js:43 static/CACHE/js/67e1b308bc0c.js:43
+#: static/CACHE/js/6949097e027f.js:120 static/CACHE/js/72e2926afe6a.js:120
+#: static/CACHE/js/77486edf4aee.js:43 static/CACHE/js/7a37720a850e.js:43
+#: static/CACHE/js/7dfcca8be637.js:43 static/CACHE/js/803b8cef4870.js:43
+#: static/CACHE/js/831bfc81e8c0.js:43 static/CACHE/js/834b7ee64cf1.js:43
+#: static/CACHE/js/86bcabb9c47a.js:43 static/CACHE/js/8f5fbc25d390.js:43
+#: static/CACHE/js/9423ac70c3bf.js:117 static/CACHE/js/948be4fe4bda.js:117
+#: static/CACHE/js/975e1be23e23.js:43 static/CACHE/js/97b3afb5d058.js:120
+#: static/CACHE/js/9f5c522bc0ae.js:43 static/CACHE/js/a25bcefeadb6.js:43
+#: static/CACHE/js/a66b17977a89.js:43 static/CACHE/js/ab2f9d86fe7d.js:120
+#: static/CACHE/js/abf1a137b0b9.js:43 static/CACHE/js/adb500cf07b6.js:43
+#: static/CACHE/js/af37407f7dbe.js:43 static/CACHE/js/bd1623bd2966.js:120
+#: static/CACHE/js/c11537535b75.js:43 static/CACHE/js/c41945e40ff6.js:43
+#: static/CACHE/js/c4bc8786469c.js:43 static/CACHE/js/cc82f7b723a3.js:43
+#: static/CACHE/js/e2e3ed698537.js:43 static/CACHE/js/e48b032bf67f.js:43
+#: static/CACHE/js/e490e044136a.js:120 static/CACHE/js/ecfc862726a2.js:43
+#: static/CACHE/js/f9ca9286bf1b.js:120 static/CACHE/js/fdfb25ad7dd4.js:120
 msgid "redo"
 msgstr "re-hacer"
 
-#: site-static/js/datea_olwidget/datea_olwidget.js:826
+#: site-static/js/libs/datea_olwidget/datea_olwidget.js:827
+#: static/CACHE/js/069c65554592.js:118 static/CACHE/js/09da92f9f404.js:44
+#: static/CACHE/js/0a79bd9550e5.js:44 static/CACHE/js/0b8b36d6d075.js:44
+#: static/CACHE/js/0d9d4994d9fa.js:121 static/CACHE/js/1590f956a92e.js:44
+#: static/CACHE/js/1700495f3e06.js:44 static/CACHE/js/17bca7ce487c.js:44
+#: static/CACHE/js/1a7bc113f4a6.js:44 static/CACHE/js/21df30627bf9.js:121
+#: static/CACHE/js/24eee08817c3.js:44 static/CACHE/js/271a7e9c0dde.js:121
+#: static/CACHE/js/28a75b97c738.js:121 static/CACHE/js/2e74a305330e.js:44
+#: static/CACHE/js/36a825fa55bb.js:44 static/CACHE/js/3ad76eba02c8.js:44
+#: static/CACHE/js/3c65f2b5abe9.js:121 static/CACHE/js/3f76a5e109cd.js:44
+#: static/CACHE/js/423d0ae3a046.js:44 static/CACHE/js/46f49fc69645.js:44
+#: static/CACHE/js/4f5850dc7f61.js:44 static/CACHE/js/52173e64fe62.js:44
+#: static/CACHE/js/5217fc9b2b42.js:44 static/CACHE/js/523e2974cdab.js:44
+#: static/CACHE/js/55757ea02bba.js:118 static/CACHE/js/56bb215d04af.js:118
+#: static/CACHE/js/587358082861.js:121 static/CACHE/js/59655cbf7546.js:118
+#: static/CACHE/js/6172d4788032.js:44 static/CACHE/js/62ec87a6f408.js:121
+#: static/CACHE/js/672e38aaf492.js:44 static/CACHE/js/67e1b308bc0c.js:44
+#: static/CACHE/js/6949097e027f.js:121 static/CACHE/js/72e2926afe6a.js:121
+#: static/CACHE/js/77486edf4aee.js:44 static/CACHE/js/7a37720a850e.js:44
+#: static/CACHE/js/7dfcca8be637.js:44 static/CACHE/js/803b8cef4870.js:44
+#: static/CACHE/js/831bfc81e8c0.js:44 static/CACHE/js/834b7ee64cf1.js:44
+#: static/CACHE/js/86bcabb9c47a.js:44 static/CACHE/js/8f5fbc25d390.js:44
+#: static/CACHE/js/9423ac70c3bf.js:118 static/CACHE/js/948be4fe4bda.js:118
+#: static/CACHE/js/975e1be23e23.js:44 static/CACHE/js/97b3afb5d058.js:121
+#: static/CACHE/js/9f5c522bc0ae.js:44 static/CACHE/js/a25bcefeadb6.js:44
+#: static/CACHE/js/a66b17977a89.js:44 static/CACHE/js/ab2f9d86fe7d.js:121
+#: static/CACHE/js/abf1a137b0b9.js:44 static/CACHE/js/adb500cf07b6.js:44
+#: static/CACHE/js/af37407f7dbe.js:44 static/CACHE/js/bd1623bd2966.js:121
+#: static/CACHE/js/c11537535b75.js:44 static/CACHE/js/c41945e40ff6.js:44
+#: static/CACHE/js/c4bc8786469c.js:44 static/CACHE/js/cc82f7b723a3.js:44
+#: static/CACHE/js/e2e3ed698537.js:44 static/CACHE/js/e48b032bf67f.js:44
+#: static/CACHE/js/e490e044136a.js:121 static/CACHE/js/ecfc862726a2.js:44
+#: static/CACHE/js/f9ca9286bf1b.js:121 static/CACHE/js/fdfb25ad7dd4.js:121
 msgid "undo"
 msgstr "deshacer"
 
-#: site-static/js/datea_olwidget/datea_olwidget.js:835
+#: site-static/js/libs/datea_olwidget/datea_olwidget.js:836
+#: static/CACHE/js/069c65554592.js:119 static/CACHE/js/09da92f9f404.js:45
+#: static/CACHE/js/0a79bd9550e5.js:45 static/CACHE/js/0b8b36d6d075.js:45
+#: static/CACHE/js/0d9d4994d9fa.js:122 static/CACHE/js/1590f956a92e.js:45
+#: static/CACHE/js/1700495f3e06.js:45 static/CACHE/js/17bca7ce487c.js:45
+#: static/CACHE/js/1a7bc113f4a6.js:45 static/CACHE/js/21df30627bf9.js:122
+#: static/CACHE/js/24eee08817c3.js:45 static/CACHE/js/271a7e9c0dde.js:122
+#: static/CACHE/js/28a75b97c738.js:122 static/CACHE/js/2e74a305330e.js:45
+#: static/CACHE/js/36a825fa55bb.js:45 static/CACHE/js/3ad76eba02c8.js:45
+#: static/CACHE/js/3c65f2b5abe9.js:122 static/CACHE/js/3f76a5e109cd.js:45
+#: static/CACHE/js/423d0ae3a046.js:45 static/CACHE/js/46f49fc69645.js:45
+#: static/CACHE/js/4f5850dc7f61.js:45 static/CACHE/js/52173e64fe62.js:45
+#: static/CACHE/js/5217fc9b2b42.js:45 static/CACHE/js/523e2974cdab.js:45
+#: static/CACHE/js/55757ea02bba.js:119 static/CACHE/js/56bb215d04af.js:119
+#: static/CACHE/js/587358082861.js:122 static/CACHE/js/59655cbf7546.js:119
+#: static/CACHE/js/6172d4788032.js:45 static/CACHE/js/62ec87a6f408.js:122
+#: static/CACHE/js/672e38aaf492.js:45 static/CACHE/js/67e1b308bc0c.js:45
+#: static/CACHE/js/6949097e027f.js:122 static/CACHE/js/72e2926afe6a.js:122
+#: static/CACHE/js/77486edf4aee.js:45 static/CACHE/js/7a37720a850e.js:45
+#: static/CACHE/js/7dfcca8be637.js:45 static/CACHE/js/803b8cef4870.js:45
+#: static/CACHE/js/831bfc81e8c0.js:45 static/CACHE/js/834b7ee64cf1.js:45
+#: static/CACHE/js/86bcabb9c47a.js:45 static/CACHE/js/8f5fbc25d390.js:45
+#: static/CACHE/js/9423ac70c3bf.js:119 static/CACHE/js/948be4fe4bda.js:119
+#: static/CACHE/js/975e1be23e23.js:45 static/CACHE/js/97b3afb5d058.js:122
+#: static/CACHE/js/9f5c522bc0ae.js:45 static/CACHE/js/a25bcefeadb6.js:45
+#: static/CACHE/js/a66b17977a89.js:45 static/CACHE/js/ab2f9d86fe7d.js:122
+#: static/CACHE/js/abf1a137b0b9.js:45 static/CACHE/js/adb500cf07b6.js:45
+#: static/CACHE/js/af37407f7dbe.js:45 static/CACHE/js/bd1623bd2966.js:122
+#: static/CACHE/js/c11537535b75.js:45 static/CACHE/js/c41945e40ff6.js:45
+#: static/CACHE/js/c4bc8786469c.js:45 static/CACHE/js/cc82f7b723a3.js:45
+#: static/CACHE/js/e2e3ed698537.js:45 static/CACHE/js/e48b032bf67f.js:45
+#: static/CACHE/js/e490e044136a.js:122 static/CACHE/js/ecfc862726a2.js:45
+#: static/CACHE/js/f9ca9286bf1b.js:122 static/CACHE/js/fdfb25ad7dd4.js:122
 msgid "delete vertices"
 msgstr "borrar vertices"
 
-#: site-static/js/datea_olwidget/datea_olwidget.js:841
+#: site-static/js/libs/datea_olwidget/datea_olwidget.js:842
+#: static/CACHE/js/069c65554592.js:120 static/CACHE/js/09da92f9f404.js:46
+#: static/CACHE/js/0a79bd9550e5.js:46 static/CACHE/js/0b8b36d6d075.js:46
+#: static/CACHE/js/0d9d4994d9fa.js:123 static/CACHE/js/1590f956a92e.js:46
+#: static/CACHE/js/1700495f3e06.js:46 static/CACHE/js/17bca7ce487c.js:46
+#: static/CACHE/js/1a7bc113f4a6.js:46 static/CACHE/js/21df30627bf9.js:123
+#: static/CACHE/js/24eee08817c3.js:46 static/CACHE/js/271a7e9c0dde.js:123
+#: static/CACHE/js/28a75b97c738.js:123 static/CACHE/js/2e74a305330e.js:46
+#: static/CACHE/js/36a825fa55bb.js:46 static/CACHE/js/3ad76eba02c8.js:46
+#: static/CACHE/js/3c65f2b5abe9.js:123 static/CACHE/js/3f76a5e109cd.js:46
+#: static/CACHE/js/423d0ae3a046.js:46 static/CACHE/js/46f49fc69645.js:46
+#: static/CACHE/js/4f5850dc7f61.js:46 static/CACHE/js/52173e64fe62.js:46
+#: static/CACHE/js/5217fc9b2b42.js:46 static/CACHE/js/523e2974cdab.js:46
+#: static/CACHE/js/55757ea02bba.js:120 static/CACHE/js/56bb215d04af.js:120
+#: static/CACHE/js/587358082861.js:123 static/CACHE/js/59655cbf7546.js:120
+#: static/CACHE/js/6172d4788032.js:46 static/CACHE/js/62ec87a6f408.js:123
+#: static/CACHE/js/672e38aaf492.js:46 static/CACHE/js/67e1b308bc0c.js:46
+#: static/CACHE/js/6949097e027f.js:123 static/CACHE/js/72e2926afe6a.js:123
+#: static/CACHE/js/77486edf4aee.js:46 static/CACHE/js/7a37720a850e.js:46
+#: static/CACHE/js/7dfcca8be637.js:46 static/CACHE/js/803b8cef4870.js:46
+#: static/CACHE/js/831bfc81e8c0.js:46 static/CACHE/js/834b7ee64cf1.js:46
+#: static/CACHE/js/86bcabb9c47a.js:46 static/CACHE/js/8f5fbc25d390.js:46
+#: static/CACHE/js/9423ac70c3bf.js:120 static/CACHE/js/948be4fe4bda.js:120
+#: static/CACHE/js/975e1be23e23.js:46 static/CACHE/js/97b3afb5d058.js:123
+#: static/CACHE/js/9f5c522bc0ae.js:46 static/CACHE/js/a25bcefeadb6.js:46
+#: static/CACHE/js/a66b17977a89.js:46 static/CACHE/js/ab2f9d86fe7d.js:123
+#: static/CACHE/js/abf1a137b0b9.js:46 static/CACHE/js/adb500cf07b6.js:46
+#: static/CACHE/js/af37407f7dbe.js:46 static/CACHE/js/bd1623bd2966.js:123
+#: static/CACHE/js/c11537535b75.js:46 static/CACHE/js/c41945e40ff6.js:46
+#: static/CACHE/js/c4bc8786469c.js:46 static/CACHE/js/cc82f7b723a3.js:46
+#: static/CACHE/js/e2e3ed698537.js:46 static/CACHE/js/e48b032bf67f.js:46
+#: static/CACHE/js/e490e044136a.js:123 static/CACHE/js/ecfc862726a2.js:46
+#: static/CACHE/js/f9ca9286bf1b.js:123 static/CACHE/js/fdfb25ad7dd4.js:123
 msgid "navigate the map"
 msgstr "navegar el mapa"
 
-#: site-static/js/datea_olwidget/datea_olwidget.js:868
+#: site-static/js/libs/datea_olwidget/datea_olwidget.js:869
+#: static/CACHE/js/069c65554592.js:125 static/CACHE/js/09da92f9f404.js:51
+#: static/CACHE/js/0a79bd9550e5.js:51 static/CACHE/js/0b8b36d6d075.js:51
+#: static/CACHE/js/0d9d4994d9fa.js:128 static/CACHE/js/1590f956a92e.js:51
+#: static/CACHE/js/1700495f3e06.js:51 static/CACHE/js/17bca7ce487c.js:51
+#: static/CACHE/js/1a7bc113f4a6.js:51 static/CACHE/js/21df30627bf9.js:128
+#: static/CACHE/js/24eee08817c3.js:51 static/CACHE/js/271a7e9c0dde.js:128
+#: static/CACHE/js/28a75b97c738.js:128 static/CACHE/js/2e74a305330e.js:51
+#: static/CACHE/js/36a825fa55bb.js:51 static/CACHE/js/3ad76eba02c8.js:51
+#: static/CACHE/js/3c65f2b5abe9.js:128 static/CACHE/js/3f76a5e109cd.js:51
+#: static/CACHE/js/423d0ae3a046.js:51 static/CACHE/js/46f49fc69645.js:51
+#: static/CACHE/js/4f5850dc7f61.js:51 static/CACHE/js/52173e64fe62.js:51
+#: static/CACHE/js/5217fc9b2b42.js:51 static/CACHE/js/523e2974cdab.js:51
+#: static/CACHE/js/55757ea02bba.js:125 static/CACHE/js/56bb215d04af.js:125
+#: static/CACHE/js/587358082861.js:128 static/CACHE/js/59655cbf7546.js:125
+#: static/CACHE/js/6172d4788032.js:51 static/CACHE/js/62ec87a6f408.js:128
+#: static/CACHE/js/672e38aaf492.js:51 static/CACHE/js/67e1b308bc0c.js:51
+#: static/CACHE/js/6949097e027f.js:128 static/CACHE/js/72e2926afe6a.js:128
+#: static/CACHE/js/77486edf4aee.js:51 static/CACHE/js/7a37720a850e.js:51
+#: static/CACHE/js/7dfcca8be637.js:51 static/CACHE/js/803b8cef4870.js:51
+#: static/CACHE/js/831bfc81e8c0.js:51 static/CACHE/js/834b7ee64cf1.js:51
+#: static/CACHE/js/86bcabb9c47a.js:51 static/CACHE/js/8f5fbc25d390.js:51
+#: static/CACHE/js/9423ac70c3bf.js:125 static/CACHE/js/948be4fe4bda.js:125
+#: static/CACHE/js/975e1be23e23.js:51 static/CACHE/js/97b3afb5d058.js:128
+#: static/CACHE/js/9f5c522bc0ae.js:51 static/CACHE/js/a25bcefeadb6.js:51
+#: static/CACHE/js/a66b17977a89.js:51 static/CACHE/js/ab2f9d86fe7d.js:128
+#: static/CACHE/js/abf1a137b0b9.js:51 static/CACHE/js/adb500cf07b6.js:51
+#: static/CACHE/js/af37407f7dbe.js:51 static/CACHE/js/bd1623bd2966.js:128
+#: static/CACHE/js/c11537535b75.js:51 static/CACHE/js/c41945e40ff6.js:51
+#: static/CACHE/js/c4bc8786469c.js:51 static/CACHE/js/cc82f7b723a3.js:51
+#: static/CACHE/js/e2e3ed698537.js:51 static/CACHE/js/e48b032bf67f.js:51
+#: static/CACHE/js/e490e044136a.js:128 static/CACHE/js/ecfc862726a2.js:51
+#: static/CACHE/js/f9ca9286bf1b.js:128 static/CACHE/js/fdfb25ad7dd4.js:128
 msgid "draw polygons"
 msgstr "dibujar nuevo poligono"
 
-#: site-static/js/datea_olwidget/datea_olwidget.js:874
+#: site-static/js/libs/datea_olwidget/datea_olwidget.js:875
+#: static/CACHE/js/069c65554592.js:126 static/CACHE/js/09da92f9f404.js:52
+#: static/CACHE/js/0a79bd9550e5.js:52 static/CACHE/js/0b8b36d6d075.js:52
+#: static/CACHE/js/0d9d4994d9fa.js:129 static/CACHE/js/1590f956a92e.js:52
+#: static/CACHE/js/1700495f3e06.js:52 static/CACHE/js/17bca7ce487c.js:52
+#: static/CACHE/js/1a7bc113f4a6.js:52 static/CACHE/js/21df30627bf9.js:129
+#: static/CACHE/js/24eee08817c3.js:52 static/CACHE/js/271a7e9c0dde.js:129
+#: static/CACHE/js/28a75b97c738.js:129 static/CACHE/js/2e74a305330e.js:52
+#: static/CACHE/js/36a825fa55bb.js:52 static/CACHE/js/3ad76eba02c8.js:52
+#: static/CACHE/js/3c65f2b5abe9.js:129 static/CACHE/js/3f76a5e109cd.js:52
+#: static/CACHE/js/423d0ae3a046.js:52 static/CACHE/js/46f49fc69645.js:52
+#: static/CACHE/js/4f5850dc7f61.js:52 static/CACHE/js/52173e64fe62.js:52
+#: static/CACHE/js/5217fc9b2b42.js:52 static/CACHE/js/523e2974cdab.js:52
+#: static/CACHE/js/55757ea02bba.js:126 static/CACHE/js/56bb215d04af.js:126
+#: static/CACHE/js/587358082861.js:129 static/CACHE/js/59655cbf7546.js:126
+#: static/CACHE/js/6172d4788032.js:52 static/CACHE/js/62ec87a6f408.js:129
+#: static/CACHE/js/672e38aaf492.js:52 static/CACHE/js/67e1b308bc0c.js:52
+#: static/CACHE/js/6949097e027f.js:129 static/CACHE/js/72e2926afe6a.js:129
+#: static/CACHE/js/77486edf4aee.js:52 static/CACHE/js/7a37720a850e.js:52
+#: static/CACHE/js/7dfcca8be637.js:52 static/CACHE/js/803b8cef4870.js:52
+#: static/CACHE/js/831bfc81e8c0.js:52 static/CACHE/js/834b7ee64cf1.js:52
+#: static/CACHE/js/86bcabb9c47a.js:52 static/CACHE/js/8f5fbc25d390.js:52
+#: static/CACHE/js/9423ac70c3bf.js:126 static/CACHE/js/948be4fe4bda.js:126
+#: static/CACHE/js/975e1be23e23.js:52 static/CACHE/js/97b3afb5d058.js:129
+#: static/CACHE/js/9f5c522bc0ae.js:52 static/CACHE/js/a25bcefeadb6.js:52
+#: static/CACHE/js/a66b17977a89.js:52 static/CACHE/js/ab2f9d86fe7d.js:129
+#: static/CACHE/js/abf1a137b0b9.js:52 static/CACHE/js/adb500cf07b6.js:52
+#: static/CACHE/js/af37407f7dbe.js:52 static/CACHE/js/bd1623bd2966.js:129
+#: static/CACHE/js/c11537535b75.js:52 static/CACHE/js/c41945e40ff6.js:52
+#: static/CACHE/js/c4bc8786469c.js:52 static/CACHE/js/cc82f7b723a3.js:52
+#: static/CACHE/js/e2e3ed698537.js:52 static/CACHE/js/e48b032bf67f.js:52
+#: static/CACHE/js/e490e044136a.js:129 static/CACHE/js/ecfc862726a2.js:52
+#: static/CACHE/js/f9ca9286bf1b.js:129 static/CACHE/js/fdfb25ad7dd4.js:129
 msgid "draw lines"
 msgstr "dibujar líneas"
 
-#: site-static/js/datea_olwidget/datea_olwidget.js:880
+#: site-static/js/libs/datea_olwidget/datea_olwidget.js:881
+#: static/CACHE/js/069c65554592.js:127 static/CACHE/js/09da92f9f404.js:53
+#: static/CACHE/js/0a79bd9550e5.js:53 static/CACHE/js/0b8b36d6d075.js:53
+#: static/CACHE/js/0d9d4994d9fa.js:130 static/CACHE/js/1590f956a92e.js:53
+#: static/CACHE/js/1700495f3e06.js:53 static/CACHE/js/17bca7ce487c.js:53
+#: static/CACHE/js/1a7bc113f4a6.js:53 static/CACHE/js/21df30627bf9.js:130
+#: static/CACHE/js/24eee08817c3.js:53 static/CACHE/js/271a7e9c0dde.js:130
+#: static/CACHE/js/28a75b97c738.js:130 static/CACHE/js/2e74a305330e.js:53
+#: static/CACHE/js/36a825fa55bb.js:53 static/CACHE/js/3ad76eba02c8.js:53
+#: static/CACHE/js/3c65f2b5abe9.js:130 static/CACHE/js/3f76a5e109cd.js:53
+#: static/CACHE/js/423d0ae3a046.js:53 static/CACHE/js/46f49fc69645.js:53
+#: static/CACHE/js/4f5850dc7f61.js:53 static/CACHE/js/52173e64fe62.js:53
+#: static/CACHE/js/5217fc9b2b42.js:53 static/CACHE/js/523e2974cdab.js:53
+#: static/CACHE/js/55757ea02bba.js:127 static/CACHE/js/56bb215d04af.js:127
+#: static/CACHE/js/587358082861.js:130 static/CACHE/js/59655cbf7546.js:127
+#: static/CACHE/js/6172d4788032.js:53 static/CACHE/js/62ec87a6f408.js:130
+#: static/CACHE/js/672e38aaf492.js:53 static/CACHE/js/67e1b308bc0c.js:53
+#: static/CACHE/js/6949097e027f.js:130 static/CACHE/js/72e2926afe6a.js:130
+#: static/CACHE/js/77486edf4aee.js:53 static/CACHE/js/7a37720a850e.js:53
+#: static/CACHE/js/7dfcca8be637.js:53 static/CACHE/js/803b8cef4870.js:53
+#: static/CACHE/js/831bfc81e8c0.js:53 static/CACHE/js/834b7ee64cf1.js:53
+#: static/CACHE/js/86bcabb9c47a.js:53 static/CACHE/js/8f5fbc25d390.js:53
+#: static/CACHE/js/9423ac70c3bf.js:127 static/CACHE/js/948be4fe4bda.js:127
+#: static/CACHE/js/975e1be23e23.js:53 static/CACHE/js/97b3afb5d058.js:130
+#: static/CACHE/js/9f5c522bc0ae.js:53 static/CACHE/js/a25bcefeadb6.js:53
+#: static/CACHE/js/a66b17977a89.js:53 static/CACHE/js/ab2f9d86fe7d.js:130
+#: static/CACHE/js/abf1a137b0b9.js:53 static/CACHE/js/adb500cf07b6.js:53
+#: static/CACHE/js/af37407f7dbe.js:53 static/CACHE/js/bd1623bd2966.js:130
+#: static/CACHE/js/c11537535b75.js:53 static/CACHE/js/c41945e40ff6.js:53
+#: static/CACHE/js/c4bc8786469c.js:53 static/CACHE/js/cc82f7b723a3.js:53
+#: static/CACHE/js/e2e3ed698537.js:53 static/CACHE/js/e48b032bf67f.js:53
+#: static/CACHE/js/e490e044136a.js:130 static/CACHE/js/ecfc862726a2.js:53
+#: static/CACHE/js/f9ca9286bf1b.js:130 static/CACHE/js/fdfb25ad7dd4.js:130
 msgid "draw points"
 msgstr "dibujar puntos"
 
-#: site-static/js/datea_olwidget/datea_olwidget.js:889
+#: site-static/js/libs/datea_olwidget/datea_olwidget.js:890
+#: static/CACHE/js/069c65554592.js:128 static/CACHE/js/09da92f9f404.js:54
+#: static/CACHE/js/0a79bd9550e5.js:54 static/CACHE/js/0b8b36d6d075.js:54
+#: static/CACHE/js/0d9d4994d9fa.js:131 static/CACHE/js/1590f956a92e.js:54
+#: static/CACHE/js/1700495f3e06.js:54 static/CACHE/js/17bca7ce487c.js:54
+#: static/CACHE/js/1a7bc113f4a6.js:54 static/CACHE/js/21df30627bf9.js:131
+#: static/CACHE/js/24eee08817c3.js:54 static/CACHE/js/271a7e9c0dde.js:131
+#: static/CACHE/js/28a75b97c738.js:131 static/CACHE/js/2e74a305330e.js:54
+#: static/CACHE/js/36a825fa55bb.js:54 static/CACHE/js/3ad76eba02c8.js:54
+#: static/CACHE/js/3c65f2b5abe9.js:131 static/CACHE/js/3f76a5e109cd.js:54
+#: static/CACHE/js/423d0ae3a046.js:54 static/CACHE/js/46f49fc69645.js:54
+#: static/CACHE/js/4f5850dc7f61.js:54 static/CACHE/js/52173e64fe62.js:54
+#: static/CACHE/js/5217fc9b2b42.js:54 static/CACHE/js/523e2974cdab.js:54
+#: static/CACHE/js/55757ea02bba.js:128 static/CACHE/js/56bb215d04af.js:128
+#: static/CACHE/js/587358082861.js:131 static/CACHE/js/59655cbf7546.js:128
+#: static/CACHE/js/6172d4788032.js:54 static/CACHE/js/62ec87a6f408.js:131
+#: static/CACHE/js/672e38aaf492.js:54 static/CACHE/js/67e1b308bc0c.js:54
+#: static/CACHE/js/6949097e027f.js:131 static/CACHE/js/72e2926afe6a.js:131
+#: static/CACHE/js/77486edf4aee.js:54 static/CACHE/js/7a37720a850e.js:54
+#: static/CACHE/js/7dfcca8be637.js:54 static/CACHE/js/803b8cef4870.js:54
+#: static/CACHE/js/831bfc81e8c0.js:54 static/CACHE/js/834b7ee64cf1.js:54
+#: static/CACHE/js/86bcabb9c47a.js:54 static/CACHE/js/8f5fbc25d390.js:54
+#: static/CACHE/js/9423ac70c3bf.js:128 static/CACHE/js/948be4fe4bda.js:128
+#: static/CACHE/js/975e1be23e23.js:54 static/CACHE/js/97b3afb5d058.js:131
+#: static/CACHE/js/9f5c522bc0ae.js:54 static/CACHE/js/a25bcefeadb6.js:54
+#: static/CACHE/js/a66b17977a89.js:54 static/CACHE/js/ab2f9d86fe7d.js:131
+#: static/CACHE/js/abf1a137b0b9.js:54 static/CACHE/js/adb500cf07b6.js:54
+#: static/CACHE/js/af37407f7dbe.js:54 static/CACHE/js/bd1623bd2966.js:131
+#: static/CACHE/js/c11537535b75.js:54 static/CACHE/js/c41945e40ff6.js:54
+#: static/CACHE/js/c4bc8786469c.js:54 static/CACHE/js/cc82f7b723a3.js:54
+#: static/CACHE/js/e2e3ed698537.js:54 static/CACHE/js/e48b032bf67f.js:54
+#: static/CACHE/js/e490e044136a.js:131 static/CACHE/js/ecfc862726a2.js:54
+#: static/CACHE/js/f9ca9286bf1b.js:131 static/CACHE/js/fdfb25ad7dd4.js:131
 msgid "modify features"
 msgstr "modificar elementos"
 
-#: site-static/js/datea_olwidget/datea_olwidget.js:1133
+#: site-static/js/libs/datea_olwidget/datea_olwidget.js:1134
+#: static/CACHE/js/069c65554592.js:148 static/CACHE/js/09da92f9f404.js:74
+#: static/CACHE/js/0a79bd9550e5.js:74 static/CACHE/js/0b8b36d6d075.js:74
+#: static/CACHE/js/0d9d4994d9fa.js:151 static/CACHE/js/1590f956a92e.js:74
+#: static/CACHE/js/1700495f3e06.js:74 static/CACHE/js/17bca7ce487c.js:74
+#: static/CACHE/js/1a7bc113f4a6.js:74 static/CACHE/js/21df30627bf9.js:151
+#: static/CACHE/js/24eee08817c3.js:74 static/CACHE/js/271a7e9c0dde.js:151
+#: static/CACHE/js/28a75b97c738.js:151 static/CACHE/js/2e74a305330e.js:74
+#: static/CACHE/js/36a825fa55bb.js:74 static/CACHE/js/3ad76eba02c8.js:74
+#: static/CACHE/js/3c65f2b5abe9.js:151 static/CACHE/js/3f76a5e109cd.js:74
+#: static/CACHE/js/423d0ae3a046.js:74 static/CACHE/js/46f49fc69645.js:74
+#: static/CACHE/js/4f5850dc7f61.js:74 static/CACHE/js/52173e64fe62.js:74
+#: static/CACHE/js/5217fc9b2b42.js:74 static/CACHE/js/523e2974cdab.js:74
+#: static/CACHE/js/55757ea02bba.js:148 static/CACHE/js/56bb215d04af.js:148
+#: static/CACHE/js/587358082861.js:151 static/CACHE/js/59655cbf7546.js:148
+#: static/CACHE/js/6172d4788032.js:74 static/CACHE/js/62ec87a6f408.js:151
+#: static/CACHE/js/672e38aaf492.js:74 static/CACHE/js/67e1b308bc0c.js:74
+#: static/CACHE/js/6949097e027f.js:151 static/CACHE/js/72e2926afe6a.js:151
+#: static/CACHE/js/77486edf4aee.js:74 static/CACHE/js/7a37720a850e.js:74
+#: static/CACHE/js/7dfcca8be637.js:74 static/CACHE/js/803b8cef4870.js:74
+#: static/CACHE/js/831bfc81e8c0.js:74 static/CACHE/js/834b7ee64cf1.js:74
+#: static/CACHE/js/86bcabb9c47a.js:74 static/CACHE/js/8f5fbc25d390.js:74
+#: static/CACHE/js/9423ac70c3bf.js:148 static/CACHE/js/948be4fe4bda.js:148
+#: static/CACHE/js/975e1be23e23.js:74 static/CACHE/js/97b3afb5d058.js:151
+#: static/CACHE/js/9f5c522bc0ae.js:74 static/CACHE/js/a25bcefeadb6.js:74
+#: static/CACHE/js/a66b17977a89.js:74 static/CACHE/js/ab2f9d86fe7d.js:151
+#: static/CACHE/js/abf1a137b0b9.js:74 static/CACHE/js/adb500cf07b6.js:74
+#: static/CACHE/js/af37407f7dbe.js:74 static/CACHE/js/bd1623bd2966.js:151
+#: static/CACHE/js/c11537535b75.js:74 static/CACHE/js/c41945e40ff6.js:74
+#: static/CACHE/js/c4bc8786469c.js:74 static/CACHE/js/cc82f7b723a3.js:74
+#: static/CACHE/js/e2e3ed698537.js:74 static/CACHE/js/e48b032bf67f.js:74
+#: static/CACHE/js/e490e044136a.js:151 static/CACHE/js/ecfc862726a2.js:74
+#: static/CACHE/js/f9ca9286bf1b.js:151 static/CACHE/js/fdfb25ad7dd4.js:151
 msgid "Outside of active zone!"
 msgstr "Fuera de la zona permitida!"
 
-#: site-static/js/datea_olwidget/datea_olwidget.js:1258
-#: site-static/js/datea_olwidget/datea_olwidget.js:1259
+#: site-static/js/libs/datea_olwidget/datea_olwidget.js:1259
+#: site-static/js/libs/datea_olwidget/datea_olwidget.js:1260
+#: static/CACHE/js/069c65554592.js:154 static/CACHE/js/09da92f9f404.js:80
+#: static/CACHE/js/0a79bd9550e5.js:80 static/CACHE/js/0b8b36d6d075.js:80
+#: static/CACHE/js/0d9d4994d9fa.js:157 static/CACHE/js/1590f956a92e.js:80
+#: static/CACHE/js/1700495f3e06.js:80 static/CACHE/js/17bca7ce487c.js:80
+#: static/CACHE/js/1a7bc113f4a6.js:80 static/CACHE/js/21df30627bf9.js:157
+#: static/CACHE/js/24eee08817c3.js:80 static/CACHE/js/271a7e9c0dde.js:157
+#: static/CACHE/js/28a75b97c738.js:157 static/CACHE/js/2e74a305330e.js:80
+#: static/CACHE/js/36a825fa55bb.js:80 static/CACHE/js/3ad76eba02c8.js:80
+#: static/CACHE/js/3c65f2b5abe9.js:157 static/CACHE/js/3f76a5e109cd.js:80
+#: static/CACHE/js/423d0ae3a046.js:80 static/CACHE/js/46f49fc69645.js:80
+#: static/CACHE/js/4f5850dc7f61.js:80 static/CACHE/js/52173e64fe62.js:80
+#: static/CACHE/js/5217fc9b2b42.js:80 static/CACHE/js/523e2974cdab.js:80
+#: static/CACHE/js/55757ea02bba.js:154 static/CACHE/js/56bb215d04af.js:154
+#: static/CACHE/js/587358082861.js:157 static/CACHE/js/59655cbf7546.js:154
+#: static/CACHE/js/6172d4788032.js:80 static/CACHE/js/62ec87a6f408.js:157
+#: static/CACHE/js/672e38aaf492.js:80 static/CACHE/js/67e1b308bc0c.js:80
+#: static/CACHE/js/6949097e027f.js:157 static/CACHE/js/72e2926afe6a.js:157
+#: static/CACHE/js/77486edf4aee.js:80 static/CACHE/js/7a37720a850e.js:80
+#: static/CACHE/js/7dfcca8be637.js:80 static/CACHE/js/803b8cef4870.js:80
+#: static/CACHE/js/831bfc81e8c0.js:80 static/CACHE/js/834b7ee64cf1.js:80
+#: static/CACHE/js/86bcabb9c47a.js:80 static/CACHE/js/8f5fbc25d390.js:80
+#: static/CACHE/js/9423ac70c3bf.js:154 static/CACHE/js/948be4fe4bda.js:154
+#: static/CACHE/js/975e1be23e23.js:80 static/CACHE/js/97b3afb5d058.js:157
+#: static/CACHE/js/9f5c522bc0ae.js:80 static/CACHE/js/a25bcefeadb6.js:80
+#: static/CACHE/js/a66b17977a89.js:80 static/CACHE/js/ab2f9d86fe7d.js:157
+#: static/CACHE/js/abf1a137b0b9.js:80 static/CACHE/js/adb500cf07b6.js:80
+#: static/CACHE/js/af37407f7dbe.js:80 static/CACHE/js/bd1623bd2966.js:157
+#: static/CACHE/js/c11537535b75.js:80 static/CACHE/js/c41945e40ff6.js:80
+#: static/CACHE/js/c4bc8786469c.js:80 static/CACHE/js/cc82f7b723a3.js:80
+#: static/CACHE/js/e2e3ed698537.js:80 static/CACHE/js/e48b032bf67f.js:80
+#: static/CACHE/js/e490e044136a.js:157 static/CACHE/js/ecfc862726a2.js:80
+#: static/CACHE/js/f9ca9286bf1b.js:157 static/CACHE/js/fdfb25ad7dd4.js:157
 msgid "Editing"
 msgstr "Editando"
 
-#: site-static/js/datea_olwidget/datea_olwidget.js:1358
+#: site-static/js/libs/datea_olwidget/datea_olwidget.js:1359
+#: static/CACHE/js/069c65554592.js:157 static/CACHE/js/09da92f9f404.js:83
+#: static/CACHE/js/0a79bd9550e5.js:83 static/CACHE/js/0b8b36d6d075.js:83
+#: static/CACHE/js/0d9d4994d9fa.js:160 static/CACHE/js/1590f956a92e.js:83
+#: static/CACHE/js/1700495f3e06.js:83 static/CACHE/js/17bca7ce487c.js:83
+#: static/CACHE/js/1a7bc113f4a6.js:83 static/CACHE/js/21df30627bf9.js:160
+#: static/CACHE/js/24eee08817c3.js:83 static/CACHE/js/271a7e9c0dde.js:160
+#: static/CACHE/js/28a75b97c738.js:160 static/CACHE/js/2e74a305330e.js:83
+#: static/CACHE/js/36a825fa55bb.js:83 static/CACHE/js/3ad76eba02c8.js:83
+#: static/CACHE/js/3c65f2b5abe9.js:160 static/CACHE/js/3f76a5e109cd.js:83
+#: static/CACHE/js/423d0ae3a046.js:83 static/CACHE/js/46f49fc69645.js:83
+#: static/CACHE/js/4f5850dc7f61.js:83 static/CACHE/js/52173e64fe62.js:83
+#: static/CACHE/js/5217fc9b2b42.js:83 static/CACHE/js/523e2974cdab.js:83
+#: static/CACHE/js/55757ea02bba.js:157 static/CACHE/js/56bb215d04af.js:157
+#: static/CACHE/js/587358082861.js:160 static/CACHE/js/59655cbf7546.js:157
+#: static/CACHE/js/6172d4788032.js:83 static/CACHE/js/62ec87a6f408.js:160
+#: static/CACHE/js/672e38aaf492.js:83 static/CACHE/js/67e1b308bc0c.js:83
+#: static/CACHE/js/6949097e027f.js:160 static/CACHE/js/72e2926afe6a.js:160
+#: static/CACHE/js/77486edf4aee.js:83 static/CACHE/js/7a37720a850e.js:83
+#: static/CACHE/js/7dfcca8be637.js:83 static/CACHE/js/803b8cef4870.js:83
+#: static/CACHE/js/831bfc81e8c0.js:83 static/CACHE/js/834b7ee64cf1.js:83
+#: static/CACHE/js/86bcabb9c47a.js:83 static/CACHE/js/8f5fbc25d390.js:83
+#: static/CACHE/js/9423ac70c3bf.js:157 static/CACHE/js/948be4fe4bda.js:157
+#: static/CACHE/js/975e1be23e23.js:83 static/CACHE/js/97b3afb5d058.js:160
+#: static/CACHE/js/9f5c522bc0ae.js:83 static/CACHE/js/a25bcefeadb6.js:83
+#: static/CACHE/js/a66b17977a89.js:83 static/CACHE/js/ab2f9d86fe7d.js:160
+#: static/CACHE/js/abf1a137b0b9.js:83 static/CACHE/js/adb500cf07b6.js:83
+#: static/CACHE/js/af37407f7dbe.js:83 static/CACHE/js/bd1623bd2966.js:160
+#: static/CACHE/js/c11537535b75.js:83 static/CACHE/js/c41945e40ff6.js:83
+#: static/CACHE/js/c4bc8786469c.js:83 static/CACHE/js/cc82f7b723a3.js:83
+#: static/CACHE/js/e2e3ed698537.js:83 static/CACHE/js/e48b032bf67f.js:83
+#: static/CACHE/js/e490e044136a.js:160 static/CACHE/js/ecfc862726a2.js:83
+#: static/CACHE/js/f9ca9286bf1b.js:160 static/CACHE/js/fdfb25ad7dd4.js:160
 msgid "none"
 msgstr "ninguno"
 
-#: site-static/js/mapping/map_item_bone.js:99
-#: site-static/js/mapping/map_item_bone.js:111
-msgid "report"
-msgstr "dateo"
-
-#: site-static/js/mapping/map_item_form_bone.js:41
-#: site-static/js/mapping/mapping_form_bone.js:28
-msgid "Create"
-msgstr "Crear"
-
-#: site-static/js/mapping/map_item_form_bone.js:43
-#: site-static/js/mapping/mapping_form_bone.js:30
-msgid "Edit"
-msgstr "Editar"
-
-#: site-static/js/mapping/map_item_form_bone.js:209
-msgid "no location found"
-msgstr "sin resultados"
-
-#: site-static/js/mapping/map_item_form_bone.js:238
-msgid "Position"
-msgstr "Posición"
-
-#: site-static/js/mapping/mapping_admin_bone.js:40
-#: site-static/js/mapping/mapping_data_view_bone.js:63
-msgid "All categories"
-msgstr "toda categoría"
-
-#: site-static/js/mapping/mapping_admin_bone.js:57
-#: site-static/js/mapping/mapping_admin_bone.js:286
-#: site-static/js/mapping/mapping_data_view_bone.js:81
-msgid "new"
-msgstr "nuevo"
-
-#: site-static/js/mapping/mapping_admin_bone.js:58
-#: site-static/js/mapping/mapping_admin_bone.js:287
-#: site-static/js/mapping/mapping_data_view_bone.js:82
-msgid "reviewed"
-msgstr "revisado"
-
-#: site-static/js/mapping/mapping_admin_bone.js:59
-#: site-static/js/mapping/mapping_admin_bone.js:288
-#: site-static/js/mapping/mapping_data_view_bone.js:83
-msgid "solved"
-msgstr "solucionado"
-
-#: site-static/js/mapping/mapping_admin_bone.js:60
-#: site-static/js/mapping/mapping_data_view_bone.js:84
-msgid "any state"
-msgstr "todo estado"
-
-#: site-static/js/mapping/mapping_admin_bone.js:72
-msgid "published"
-msgstr "publicado"
-
-#: site-static/js/mapping/mapping_admin_bone.js:73
-msgid "un-published"
-msgstr "despublicado"
-
-#: site-static/js/mapping/mapping_admin_bone.js:268
+#: site-static/js/mapping/admin/map_item_admin_view.js:79
+#: static/CACHE/js/069c65554592.js:486 static/CACHE/js/09da92f9f404.js:413
+#: static/CACHE/js/0a79bd9550e5.js:413 static/CACHE/js/0b8b36d6d075.js:412
+#: static/CACHE/js/0d9d4994d9fa.js:489 static/CACHE/js/1590f956a92e.js:413
+#: static/CACHE/js/1700495f3e06.js:413 static/CACHE/js/17bca7ce487c.js:413
+#: static/CACHE/js/1a7bc113f4a6.js:413 static/CACHE/js/21df30627bf9.js:489
+#: static/CACHE/js/24eee08817c3.js:413 static/CACHE/js/271a7e9c0dde.js:489
+#: static/CACHE/js/28a75b97c738.js:489 static/CACHE/js/2e74a305330e.js:413
+#: static/CACHE/js/36a825fa55bb.js:413 static/CACHE/js/3ad76eba02c8.js:413
+#: static/CACHE/js/3c65f2b5abe9.js:489 static/CACHE/js/3f76a5e109cd.js:413
+#: static/CACHE/js/423d0ae3a046.js:413 static/CACHE/js/46f49fc69645.js:414
+#: static/CACHE/js/4f5850dc7f61.js:413 static/CACHE/js/52173e64fe62.js:413
+#: static/CACHE/js/5217fc9b2b42.js:413 static/CACHE/js/523e2974cdab.js:413
+#: static/CACHE/js/55757ea02bba.js:486 static/CACHE/js/56bb215d04af.js:486
+#: static/CACHE/js/587358082861.js:489 static/CACHE/js/59655cbf7546.js:486
+#: static/CACHE/js/6172d4788032.js:413 static/CACHE/js/62ec87a6f408.js:489
+#: static/CACHE/js/672e38aaf492.js:413 static/CACHE/js/67e1b308bc0c.js:413
+#: static/CACHE/js/6949097e027f.js:488 static/CACHE/js/72e2926afe6a.js:489
+#: static/CACHE/js/77486edf4aee.js:413 static/CACHE/js/7a37720a850e.js:413
+#: static/CACHE/js/7dfcca8be637.js:413 static/CACHE/js/803b8cef4870.js:412
+#: static/CACHE/js/831bfc81e8c0.js:413 static/CACHE/js/834b7ee64cf1.js:413
+#: static/CACHE/js/86bcabb9c47a.js:413 static/CACHE/js/8f5fbc25d390.js:413
+#: static/CACHE/js/9423ac70c3bf.js:486 static/CACHE/js/948be4fe4bda.js:486
+#: static/CACHE/js/975e1be23e23.js:413 static/CACHE/js/97b3afb5d058.js:489
+#: static/CACHE/js/9f5c522bc0ae.js:413 static/CACHE/js/a25bcefeadb6.js:413
+#: static/CACHE/js/a66b17977a89.js:413 static/CACHE/js/ab2f9d86fe7d.js:489
+#: static/CACHE/js/abf1a137b0b9.js:414 static/CACHE/js/adb500cf07b6.js:413
+#: static/CACHE/js/af37407f7dbe.js:413 static/CACHE/js/bd1623bd2966.js:487
+#: static/CACHE/js/c11537535b75.js:412 static/CACHE/js/c41945e40ff6.js:413
+#: static/CACHE/js/c4bc8786469c.js:413 static/CACHE/js/cc82f7b723a3.js:414
+#: static/CACHE/js/e2e3ed698537.js:413 static/CACHE/js/e48b032bf67f.js:413
+#: static/CACHE/js/e490e044136a.js:489 static/CACHE/js/ecfc862726a2.js:413
+#: static/CACHE/js/f9ca9286bf1b.js:489 static/CACHE/js/fdfb25ad7dd4.js:489
 msgid "-- none --"
 msgstr "-- ninguno --"
 
-#: site-static/js/mapping/mapping_data_view_bone.js:96
+#: site-static/js/mapping/admin/map_item_admin_view.js:97
+#: site-static/js/mapping/admin/mapping_admin_view.js:60
+#: site-static/js/mapping/mapping/mapping_data_view.js:89
+#: static/CACHE/js/069c65554592.js:452 static/CACHE/js/069c65554592.js.c:474
+#: static/CACHE/js/069c65554592.js:487 static/CACHE/js/09da92f9f404.js:372
+#: static/CACHE/js/09da92f9f404.js.c:400 static/CACHE/js/09da92f9f404.js:414
+#: static/CACHE/js/0a79bd9550e5.js:372 static/CACHE/js/0a79bd9550e5.js.c:400
+#: static/CACHE/js/0a79bd9550e5.js:414 static/CACHE/js/0b8b36d6d075.js:371
+#: static/CACHE/js/0b8b36d6d075.js.c:399 static/CACHE/js/0b8b36d6d075.js:413
+#: static/CACHE/js/0d9d4994d9fa.js:455 static/CACHE/js/0d9d4994d9fa.js.c:477
+#: static/CACHE/js/0d9d4994d9fa.js:490 static/CACHE/js/1590f956a92e.js:372
+#: static/CACHE/js/1590f956a92e.js.c:400 static/CACHE/js/1590f956a92e.js:414
+#: static/CACHE/js/1700495f3e06.js:372 static/CACHE/js/1700495f3e06.js.c:400
+#: static/CACHE/js/1700495f3e06.js:414 static/CACHE/js/17bca7ce487c.js:372
+#: static/CACHE/js/17bca7ce487c.js.c:400 static/CACHE/js/17bca7ce487c.js:414
+#: static/CACHE/js/1a7bc113f4a6.js:372 static/CACHE/js/1a7bc113f4a6.js.c:400
+#: static/CACHE/js/1a7bc113f4a6.js:414 static/CACHE/js/21df30627bf9.js:455
+#: static/CACHE/js/21df30627bf9.js.c:477 static/CACHE/js/21df30627bf9.js:490
+#: static/CACHE/js/24eee08817c3.js:372 static/CACHE/js/24eee08817c3.js.c:400
+#: static/CACHE/js/24eee08817c3.js:414 static/CACHE/js/271a7e9c0dde.js:455
+#: static/CACHE/js/271a7e9c0dde.js.c:477 static/CACHE/js/271a7e9c0dde.js:490
+#: static/CACHE/js/28a75b97c738.js:455 static/CACHE/js/28a75b97c738.js.c:477
+#: static/CACHE/js/28a75b97c738.js:490 static/CACHE/js/2e74a305330e.js:372
+#: static/CACHE/js/2e74a305330e.js.c:400 static/CACHE/js/2e74a305330e.js:414
+#: static/CACHE/js/36a825fa55bb.js:372 static/CACHE/js/36a825fa55bb.js.c:400
+#: static/CACHE/js/36a825fa55bb.js:414 static/CACHE/js/3ad76eba02c8.js:372
+#: static/CACHE/js/3ad76eba02c8.js.c:400 static/CACHE/js/3ad76eba02c8.js:414
+#: static/CACHE/js/3c65f2b5abe9.js:455 static/CACHE/js/3c65f2b5abe9.js.c:477
+#: static/CACHE/js/3c65f2b5abe9.js:490 static/CACHE/js/3f76a5e109cd.js:372
+#: static/CACHE/js/3f76a5e109cd.js.c:400 static/CACHE/js/3f76a5e109cd.js:414
+#: static/CACHE/js/423d0ae3a046.js:372 static/CACHE/js/423d0ae3a046.js.c:400
+#: static/CACHE/js/423d0ae3a046.js:414 static/CACHE/js/46f49fc69645.js:373
+#: static/CACHE/js/46f49fc69645.js.c:401 static/CACHE/js/46f49fc69645.js:415
+#: static/CACHE/js/4f5850dc7f61.js:372 static/CACHE/js/4f5850dc7f61.js.c:400
+#: static/CACHE/js/4f5850dc7f61.js:414 static/CACHE/js/52173e64fe62.js:372
+#: static/CACHE/js/52173e64fe62.js.c:400 static/CACHE/js/52173e64fe62.js:414
+#: static/CACHE/js/5217fc9b2b42.js:372 static/CACHE/js/5217fc9b2b42.js.c:400
+#: static/CACHE/js/5217fc9b2b42.js:414 static/CACHE/js/523e2974cdab.js:372
+#: static/CACHE/js/523e2974cdab.js.c:400 static/CACHE/js/523e2974cdab.js:414
+#: static/CACHE/js/55757ea02bba.js:452 static/CACHE/js/55757ea02bba.js.c:474
+#: static/CACHE/js/55757ea02bba.js:487 static/CACHE/js/56bb215d04af.js:452
+#: static/CACHE/js/56bb215d04af.js.c:474 static/CACHE/js/56bb215d04af.js:487
+#: static/CACHE/js/587358082861.js:455 static/CACHE/js/587358082861.js.c:477
+#: static/CACHE/js/587358082861.js:490 static/CACHE/js/59655cbf7546.js:452
+#: static/CACHE/js/59655cbf7546.js.c:474 static/CACHE/js/59655cbf7546.js:487
+#: static/CACHE/js/6172d4788032.js:372 static/CACHE/js/6172d4788032.js.c:400
+#: static/CACHE/js/6172d4788032.js:414 static/CACHE/js/62ec87a6f408.js:455
+#: static/CACHE/js/62ec87a6f408.js.c:477 static/CACHE/js/62ec87a6f408.js:490
+#: static/CACHE/js/672e38aaf492.js:372 static/CACHE/js/672e38aaf492.js.c:400
+#: static/CACHE/js/672e38aaf492.js:414 static/CACHE/js/67e1b308bc0c.js:372
+#: static/CACHE/js/67e1b308bc0c.js.c:400 static/CACHE/js/67e1b308bc0c.js:414
+#: static/CACHE/js/6949097e027f.js:454 static/CACHE/js/6949097e027f.js.c:476
+#: static/CACHE/js/6949097e027f.js:489 static/CACHE/js/72e2926afe6a.js:455
+#: static/CACHE/js/72e2926afe6a.js.c:477 static/CACHE/js/72e2926afe6a.js:490
+#: static/CACHE/js/77486edf4aee.js:372 static/CACHE/js/77486edf4aee.js.c:400
+#: static/CACHE/js/77486edf4aee.js:414 static/CACHE/js/7a37720a850e.js:372
+#: static/CACHE/js/7a37720a850e.js.c:400 static/CACHE/js/7a37720a850e.js:414
+#: static/CACHE/js/7dfcca8be637.js:372 static/CACHE/js/7dfcca8be637.js.c:400
+#: static/CACHE/js/7dfcca8be637.js:414 static/CACHE/js/803b8cef4870.js:371
+#: static/CACHE/js/803b8cef4870.js.c:399 static/CACHE/js/803b8cef4870.js:413
+#: static/CACHE/js/831bfc81e8c0.js:372 static/CACHE/js/831bfc81e8c0.js.c:400
+#: static/CACHE/js/831bfc81e8c0.js:414 static/CACHE/js/834b7ee64cf1.js:372
+#: static/CACHE/js/834b7ee64cf1.js.c:400 static/CACHE/js/834b7ee64cf1.js:414
+#: static/CACHE/js/86bcabb9c47a.js:372 static/CACHE/js/86bcabb9c47a.js.c:400
+#: static/CACHE/js/86bcabb9c47a.js:414 static/CACHE/js/8f5fbc25d390.js:372
+#: static/CACHE/js/8f5fbc25d390.js.c:400 static/CACHE/js/8f5fbc25d390.js:414
+#: static/CACHE/js/9423ac70c3bf.js:452 static/CACHE/js/9423ac70c3bf.js.c:474
+#: static/CACHE/js/9423ac70c3bf.js:487 static/CACHE/js/948be4fe4bda.js:452
+#: static/CACHE/js/948be4fe4bda.js.c:474 static/CACHE/js/948be4fe4bda.js:487
+#: static/CACHE/js/975e1be23e23.js:372 static/CACHE/js/975e1be23e23.js.c:400
+#: static/CACHE/js/975e1be23e23.js:414 static/CACHE/js/97b3afb5d058.js:455
+#: static/CACHE/js/97b3afb5d058.js.c:477 static/CACHE/js/97b3afb5d058.js:490
+#: static/CACHE/js/9f5c522bc0ae.js:372 static/CACHE/js/9f5c522bc0ae.js.c:400
+#: static/CACHE/js/9f5c522bc0ae.js:414 static/CACHE/js/a25bcefeadb6.js:372
+#: static/CACHE/js/a25bcefeadb6.js.c:400 static/CACHE/js/a25bcefeadb6.js:414
+#: static/CACHE/js/a66b17977a89.js:372 static/CACHE/js/a66b17977a89.js.c:400
+#: static/CACHE/js/a66b17977a89.js:414 static/CACHE/js/ab2f9d86fe7d.js:455
+#: static/CACHE/js/ab2f9d86fe7d.js.c:477 static/CACHE/js/ab2f9d86fe7d.js:490
+#: static/CACHE/js/abf1a137b0b9.js:373 static/CACHE/js/abf1a137b0b9.js.c:401
+#: static/CACHE/js/abf1a137b0b9.js:415 static/CACHE/js/adb500cf07b6.js:372
+#: static/CACHE/js/adb500cf07b6.js.c:400 static/CACHE/js/adb500cf07b6.js:414
+#: static/CACHE/js/af37407f7dbe.js:372 static/CACHE/js/af37407f7dbe.js.c:400
+#: static/CACHE/js/af37407f7dbe.js:414 static/CACHE/js/bd1623bd2966.js:453
+#: static/CACHE/js/bd1623bd2966.js.c:475 static/CACHE/js/bd1623bd2966.js:488
+#: static/CACHE/js/c11537535b75.js:371 static/CACHE/js/c11537535b75.js.c:399
+#: static/CACHE/js/c11537535b75.js:413 static/CACHE/js/c41945e40ff6.js:372
+#: static/CACHE/js/c41945e40ff6.js.c:400 static/CACHE/js/c41945e40ff6.js:414
+#: static/CACHE/js/c4bc8786469c.js:372 static/CACHE/js/c4bc8786469c.js.c:400
+#: static/CACHE/js/c4bc8786469c.js:414 static/CACHE/js/cc82f7b723a3.js:373
+#: static/CACHE/js/cc82f7b723a3.js.c:401 static/CACHE/js/cc82f7b723a3.js:415
+#: static/CACHE/js/e2e3ed698537.js:372 static/CACHE/js/e2e3ed698537.js.c:400
+#: static/CACHE/js/e2e3ed698537.js:414 static/CACHE/js/e48b032bf67f.js:372
+#: static/CACHE/js/e48b032bf67f.js.c:400 static/CACHE/js/e48b032bf67f.js:414
+#: static/CACHE/js/e490e044136a.js:455 static/CACHE/js/e490e044136a.js.c:477
+#: static/CACHE/js/e490e044136a.js:490 static/CACHE/js/ecfc862726a2.js:372
+#: static/CACHE/js/ecfc862726a2.js.c:400 static/CACHE/js/ecfc862726a2.js:414
+#: static/CACHE/js/f9ca9286bf1b.js:455 static/CACHE/js/f9ca9286bf1b.js.c:477
+#: static/CACHE/js/f9ca9286bf1b.js:490 static/CACHE/js/fdfb25ad7dd4.js:455
+#: static/CACHE/js/fdfb25ad7dd4.js.c:477 static/CACHE/js/fdfb25ad7dd4.js:490
+msgid "new"
+msgstr "nuevo"
+
+#: site-static/js/mapping/admin/map_item_admin_view.js:98
+#: site-static/js/mapping/admin/mapping_admin_view.js:61
+#: site-static/js/mapping/mapping/mapping_data_view.js:90
+#: static/CACHE/js/069c65554592.js:452 static/CACHE/js/069c65554592.js.c:474
+#: static/CACHE/js/069c65554592.js:487 static/CACHE/js/09da92f9f404.js:372
+#: static/CACHE/js/09da92f9f404.js.c:400 static/CACHE/js/09da92f9f404.js:414
+#: static/CACHE/js/0a79bd9550e5.js:372 static/CACHE/js/0a79bd9550e5.js.c:400
+#: static/CACHE/js/0a79bd9550e5.js:414 static/CACHE/js/0b8b36d6d075.js:371
+#: static/CACHE/js/0b8b36d6d075.js.c:399 static/CACHE/js/0b8b36d6d075.js:413
+#: static/CACHE/js/0d9d4994d9fa.js:455 static/CACHE/js/0d9d4994d9fa.js.c:477
+#: static/CACHE/js/0d9d4994d9fa.js:490 static/CACHE/js/1590f956a92e.js:372
+#: static/CACHE/js/1590f956a92e.js.c:400 static/CACHE/js/1590f956a92e.js:414
+#: static/CACHE/js/1700495f3e06.js:372 static/CACHE/js/1700495f3e06.js.c:400
+#: static/CACHE/js/1700495f3e06.js:414 static/CACHE/js/17bca7ce487c.js:372
+#: static/CACHE/js/17bca7ce487c.js.c:400 static/CACHE/js/17bca7ce487c.js:414
+#: static/CACHE/js/1a7bc113f4a6.js:372 static/CACHE/js/1a7bc113f4a6.js.c:400
+#: static/CACHE/js/1a7bc113f4a6.js:414 static/CACHE/js/21df30627bf9.js:455
+#: static/CACHE/js/21df30627bf9.js.c:477 static/CACHE/js/21df30627bf9.js:490
+#: static/CACHE/js/24eee08817c3.js:372 static/CACHE/js/24eee08817c3.js.c:400
+#: static/CACHE/js/24eee08817c3.js:414 static/CACHE/js/271a7e9c0dde.js:455
+#: static/CACHE/js/271a7e9c0dde.js.c:477 static/CACHE/js/271a7e9c0dde.js:490
+#: static/CACHE/js/28a75b97c738.js:455 static/CACHE/js/28a75b97c738.js.c:477
+#: static/CACHE/js/28a75b97c738.js:490 static/CACHE/js/2e74a305330e.js:372
+#: static/CACHE/js/2e74a305330e.js.c:400 static/CACHE/js/2e74a305330e.js:414
+#: static/CACHE/js/36a825fa55bb.js:372 static/CACHE/js/36a825fa55bb.js.c:400
+#: static/CACHE/js/36a825fa55bb.js:414 static/CACHE/js/3ad76eba02c8.js:372
+#: static/CACHE/js/3ad76eba02c8.js.c:400 static/CACHE/js/3ad76eba02c8.js:414
+#: static/CACHE/js/3c65f2b5abe9.js:455 static/CACHE/js/3c65f2b5abe9.js.c:477
+#: static/CACHE/js/3c65f2b5abe9.js:490 static/CACHE/js/3f76a5e109cd.js:372
+#: static/CACHE/js/3f76a5e109cd.js.c:400 static/CACHE/js/3f76a5e109cd.js:414
+#: static/CACHE/js/423d0ae3a046.js:372 static/CACHE/js/423d0ae3a046.js.c:400
+#: static/CACHE/js/423d0ae3a046.js:414 static/CACHE/js/46f49fc69645.js:373
+#: static/CACHE/js/46f49fc69645.js.c:401 static/CACHE/js/46f49fc69645.js:415
+#: static/CACHE/js/4f5850dc7f61.js:372 static/CACHE/js/4f5850dc7f61.js.c:400
+#: static/CACHE/js/4f5850dc7f61.js:414 static/CACHE/js/52173e64fe62.js:372
+#: static/CACHE/js/52173e64fe62.js.c:400 static/CACHE/js/52173e64fe62.js:414
+#: static/CACHE/js/5217fc9b2b42.js:372 static/CACHE/js/5217fc9b2b42.js.c:400
+#: static/CACHE/js/5217fc9b2b42.js:414 static/CACHE/js/523e2974cdab.js:372
+#: static/CACHE/js/523e2974cdab.js.c:400 static/CACHE/js/523e2974cdab.js:414
+#: static/CACHE/js/55757ea02bba.js:452 static/CACHE/js/55757ea02bba.js.c:474
+#: static/CACHE/js/55757ea02bba.js:487 static/CACHE/js/56bb215d04af.js:452
+#: static/CACHE/js/56bb215d04af.js.c:474 static/CACHE/js/56bb215d04af.js:487
+#: static/CACHE/js/587358082861.js:455 static/CACHE/js/587358082861.js.c:477
+#: static/CACHE/js/587358082861.js:490 static/CACHE/js/59655cbf7546.js:452
+#: static/CACHE/js/59655cbf7546.js.c:474 static/CACHE/js/59655cbf7546.js:487
+#: static/CACHE/js/6172d4788032.js:372 static/CACHE/js/6172d4788032.js.c:400
+#: static/CACHE/js/6172d4788032.js:414 static/CACHE/js/62ec87a6f408.js:455
+#: static/CACHE/js/62ec87a6f408.js.c:477 static/CACHE/js/62ec87a6f408.js:490
+#: static/CACHE/js/672e38aaf492.js:372 static/CACHE/js/672e38aaf492.js.c:400
+#: static/CACHE/js/672e38aaf492.js:414 static/CACHE/js/67e1b308bc0c.js:372
+#: static/CACHE/js/67e1b308bc0c.js.c:400 static/CACHE/js/67e1b308bc0c.js:414
+#: static/CACHE/js/6949097e027f.js:454 static/CACHE/js/6949097e027f.js.c:476
+#: static/CACHE/js/6949097e027f.js:489 static/CACHE/js/72e2926afe6a.js:455
+#: static/CACHE/js/72e2926afe6a.js.c:477 static/CACHE/js/72e2926afe6a.js:490
+#: static/CACHE/js/77486edf4aee.js:372 static/CACHE/js/77486edf4aee.js.c:400
+#: static/CACHE/js/77486edf4aee.js:414 static/CACHE/js/7a37720a850e.js:372
+#: static/CACHE/js/7a37720a850e.js.c:400 static/CACHE/js/7a37720a850e.js:414
+#: static/CACHE/js/7dfcca8be637.js:372 static/CACHE/js/7dfcca8be637.js.c:400
+#: static/CACHE/js/7dfcca8be637.js:414 static/CACHE/js/803b8cef4870.js:371
+#: static/CACHE/js/803b8cef4870.js.c:399 static/CACHE/js/803b8cef4870.js:413
+#: static/CACHE/js/831bfc81e8c0.js:372 static/CACHE/js/831bfc81e8c0.js.c:400
+#: static/CACHE/js/831bfc81e8c0.js:414 static/CACHE/js/834b7ee64cf1.js:372
+#: static/CACHE/js/834b7ee64cf1.js.c:400 static/CACHE/js/834b7ee64cf1.js:414
+#: static/CACHE/js/86bcabb9c47a.js:372 static/CACHE/js/86bcabb9c47a.js.c:400
+#: static/CACHE/js/86bcabb9c47a.js:414 static/CACHE/js/8f5fbc25d390.js:372
+#: static/CACHE/js/8f5fbc25d390.js.c:400 static/CACHE/js/8f5fbc25d390.js:414
+#: static/CACHE/js/9423ac70c3bf.js:452 static/CACHE/js/9423ac70c3bf.js.c:474
+#: static/CACHE/js/9423ac70c3bf.js:487 static/CACHE/js/948be4fe4bda.js:452
+#: static/CACHE/js/948be4fe4bda.js.c:474 static/CACHE/js/948be4fe4bda.js:487
+#: static/CACHE/js/975e1be23e23.js:372 static/CACHE/js/975e1be23e23.js.c:400
+#: static/CACHE/js/975e1be23e23.js:414 static/CACHE/js/97b3afb5d058.js:455
+#: static/CACHE/js/97b3afb5d058.js.c:477 static/CACHE/js/97b3afb5d058.js:490
+#: static/CACHE/js/9f5c522bc0ae.js:372 static/CACHE/js/9f5c522bc0ae.js.c:400
+#: static/CACHE/js/9f5c522bc0ae.js:414 static/CACHE/js/a25bcefeadb6.js:372
+#: static/CACHE/js/a25bcefeadb6.js.c:400 static/CACHE/js/a25bcefeadb6.js:414
+#: static/CACHE/js/a66b17977a89.js:372 static/CACHE/js/a66b17977a89.js.c:400
+#: static/CACHE/js/a66b17977a89.js:414 static/CACHE/js/ab2f9d86fe7d.js:455
+#: static/CACHE/js/ab2f9d86fe7d.js.c:477 static/CACHE/js/ab2f9d86fe7d.js:490
+#: static/CACHE/js/abf1a137b0b9.js:373 static/CACHE/js/abf1a137b0b9.js.c:401
+#: static/CACHE/js/abf1a137b0b9.js:415 static/CACHE/js/adb500cf07b6.js:372
+#: static/CACHE/js/adb500cf07b6.js.c:400 static/CACHE/js/adb500cf07b6.js:414
+#: static/CACHE/js/af37407f7dbe.js:372 static/CACHE/js/af37407f7dbe.js.c:400
+#: static/CACHE/js/af37407f7dbe.js:414 static/CACHE/js/bd1623bd2966.js:453
+#: static/CACHE/js/bd1623bd2966.js.c:475 static/CACHE/js/bd1623bd2966.js:488
+#: static/CACHE/js/c11537535b75.js:371 static/CACHE/js/c11537535b75.js.c:399
+#: static/CACHE/js/c11537535b75.js:413 static/CACHE/js/c41945e40ff6.js:372
+#: static/CACHE/js/c41945e40ff6.js.c:400 static/CACHE/js/c41945e40ff6.js:414
+#: static/CACHE/js/c4bc8786469c.js:372 static/CACHE/js/c4bc8786469c.js.c:400
+#: static/CACHE/js/c4bc8786469c.js:414 static/CACHE/js/cc82f7b723a3.js:373
+#: static/CACHE/js/cc82f7b723a3.js.c:401 static/CACHE/js/cc82f7b723a3.js:415
+#: static/CACHE/js/e2e3ed698537.js:372 static/CACHE/js/e2e3ed698537.js.c:400
+#: static/CACHE/js/e2e3ed698537.js:414 static/CACHE/js/e48b032bf67f.js:372
+#: static/CACHE/js/e48b032bf67f.js.c:400 static/CACHE/js/e48b032bf67f.js:414
+#: static/CACHE/js/e490e044136a.js:455 static/CACHE/js/e490e044136a.js.c:477
+#: static/CACHE/js/e490e044136a.js:490 static/CACHE/js/ecfc862726a2.js:372
+#: static/CACHE/js/ecfc862726a2.js.c:400 static/CACHE/js/ecfc862726a2.js:414
+#: static/CACHE/js/f9ca9286bf1b.js:455 static/CACHE/js/f9ca9286bf1b.js.c:477
+#: static/CACHE/js/f9ca9286bf1b.js:490 static/CACHE/js/fdfb25ad7dd4.js:455
+#: static/CACHE/js/fdfb25ad7dd4.js.c:477 static/CACHE/js/fdfb25ad7dd4.js:490
+msgid "reviewed"
+msgstr "revisado"
+
+#: site-static/js/mapping/admin/map_item_admin_view.js:99
+#: site-static/js/mapping/admin/mapping_admin_view.js:62
+#: site-static/js/mapping/mapping/mapping_data_view.js:91
+#: static/CACHE/js/069c65554592.js:452 static/CACHE/js/069c65554592.js.c:474
+#: static/CACHE/js/069c65554592.js:487 static/CACHE/js/09da92f9f404.js:372
+#: static/CACHE/js/09da92f9f404.js.c:400 static/CACHE/js/09da92f9f404.js:414
+#: static/CACHE/js/0a79bd9550e5.js:372 static/CACHE/js/0a79bd9550e5.js.c:400
+#: static/CACHE/js/0a79bd9550e5.js:414 static/CACHE/js/0b8b36d6d075.js:371
+#: static/CACHE/js/0b8b36d6d075.js.c:399 static/CACHE/js/0b8b36d6d075.js:413
+#: static/CACHE/js/0d9d4994d9fa.js:455 static/CACHE/js/0d9d4994d9fa.js.c:477
+#: static/CACHE/js/0d9d4994d9fa.js:490 static/CACHE/js/1590f956a92e.js:372
+#: static/CACHE/js/1590f956a92e.js.c:400 static/CACHE/js/1590f956a92e.js:414
+#: static/CACHE/js/1700495f3e06.js:372 static/CACHE/js/1700495f3e06.js.c:400
+#: static/CACHE/js/1700495f3e06.js:414 static/CACHE/js/17bca7ce487c.js:372
+#: static/CACHE/js/17bca7ce487c.js.c:400 static/CACHE/js/17bca7ce487c.js:414
+#: static/CACHE/js/1a7bc113f4a6.js:372 static/CACHE/js/1a7bc113f4a6.js.c:400
+#: static/CACHE/js/1a7bc113f4a6.js:414 static/CACHE/js/21df30627bf9.js:455
+#: static/CACHE/js/21df30627bf9.js.c:477 static/CACHE/js/21df30627bf9.js:490
+#: static/CACHE/js/24eee08817c3.js:372 static/CACHE/js/24eee08817c3.js.c:400
+#: static/CACHE/js/24eee08817c3.js:414 static/CACHE/js/271a7e9c0dde.js:455
+#: static/CACHE/js/271a7e9c0dde.js.c:477 static/CACHE/js/271a7e9c0dde.js:490
+#: static/CACHE/js/28a75b97c738.js:455 static/CACHE/js/28a75b97c738.js.c:477
+#: static/CACHE/js/28a75b97c738.js:490 static/CACHE/js/2e74a305330e.js:372
+#: static/CACHE/js/2e74a305330e.js.c:400 static/CACHE/js/2e74a305330e.js:414
+#: static/CACHE/js/36a825fa55bb.js:372 static/CACHE/js/36a825fa55bb.js.c:400
+#: static/CACHE/js/36a825fa55bb.js:414 static/CACHE/js/3ad76eba02c8.js:372
+#: static/CACHE/js/3ad76eba02c8.js.c:400 static/CACHE/js/3ad76eba02c8.js:414
+#: static/CACHE/js/3c65f2b5abe9.js:455 static/CACHE/js/3c65f2b5abe9.js.c:477
+#: static/CACHE/js/3c65f2b5abe9.js:490 static/CACHE/js/3f76a5e109cd.js:372
+#: static/CACHE/js/3f76a5e109cd.js.c:400 static/CACHE/js/3f76a5e109cd.js:414
+#: static/CACHE/js/423d0ae3a046.js:372 static/CACHE/js/423d0ae3a046.js.c:400
+#: static/CACHE/js/423d0ae3a046.js:414 static/CACHE/js/46f49fc69645.js:373
+#: static/CACHE/js/46f49fc69645.js.c:401 static/CACHE/js/46f49fc69645.js:415
+#: static/CACHE/js/4f5850dc7f61.js:372 static/CACHE/js/4f5850dc7f61.js.c:400
+#: static/CACHE/js/4f5850dc7f61.js:414 static/CACHE/js/52173e64fe62.js:372
+#: static/CACHE/js/52173e64fe62.js.c:400 static/CACHE/js/52173e64fe62.js:414
+#: static/CACHE/js/5217fc9b2b42.js:372 static/CACHE/js/5217fc9b2b42.js.c:400
+#: static/CACHE/js/5217fc9b2b42.js:414 static/CACHE/js/523e2974cdab.js:372
+#: static/CACHE/js/523e2974cdab.js.c:400 static/CACHE/js/523e2974cdab.js:414
+#: static/CACHE/js/55757ea02bba.js:452 static/CACHE/js/55757ea02bba.js.c:474
+#: static/CACHE/js/55757ea02bba.js:487 static/CACHE/js/56bb215d04af.js:452
+#: static/CACHE/js/56bb215d04af.js.c:474 static/CACHE/js/56bb215d04af.js:487
+#: static/CACHE/js/587358082861.js:455 static/CACHE/js/587358082861.js.c:477
+#: static/CACHE/js/587358082861.js:490 static/CACHE/js/59655cbf7546.js:452
+#: static/CACHE/js/59655cbf7546.js.c:474 static/CACHE/js/59655cbf7546.js:487
+#: static/CACHE/js/6172d4788032.js:372 static/CACHE/js/6172d4788032.js.c:400
+#: static/CACHE/js/6172d4788032.js:414 static/CACHE/js/62ec87a6f408.js:455
+#: static/CACHE/js/62ec87a6f408.js.c:477 static/CACHE/js/62ec87a6f408.js:490
+#: static/CACHE/js/672e38aaf492.js:372 static/CACHE/js/672e38aaf492.js.c:400
+#: static/CACHE/js/672e38aaf492.js:414 static/CACHE/js/67e1b308bc0c.js:372
+#: static/CACHE/js/67e1b308bc0c.js.c:400 static/CACHE/js/67e1b308bc0c.js:414
+#: static/CACHE/js/6949097e027f.js:454 static/CACHE/js/6949097e027f.js.c:476
+#: static/CACHE/js/6949097e027f.js:489 static/CACHE/js/72e2926afe6a.js:455
+#: static/CACHE/js/72e2926afe6a.js.c:477 static/CACHE/js/72e2926afe6a.js:490
+#: static/CACHE/js/77486edf4aee.js:372 static/CACHE/js/77486edf4aee.js.c:400
+#: static/CACHE/js/77486edf4aee.js:414 static/CACHE/js/7a37720a850e.js:372
+#: static/CACHE/js/7a37720a850e.js.c:400 static/CACHE/js/7a37720a850e.js:414
+#: static/CACHE/js/7dfcca8be637.js:372 static/CACHE/js/7dfcca8be637.js.c:400
+#: static/CACHE/js/7dfcca8be637.js:414 static/CACHE/js/803b8cef4870.js:371
+#: static/CACHE/js/803b8cef4870.js.c:399 static/CACHE/js/803b8cef4870.js:413
+#: static/CACHE/js/831bfc81e8c0.js:372 static/CACHE/js/831bfc81e8c0.js.c:400
+#: static/CACHE/js/831bfc81e8c0.js:414 static/CACHE/js/834b7ee64cf1.js:372
+#: static/CACHE/js/834b7ee64cf1.js.c:400 static/CACHE/js/834b7ee64cf1.js:414
+#: static/CACHE/js/86bcabb9c47a.js:372 static/CACHE/js/86bcabb9c47a.js.c:400
+#: static/CACHE/js/86bcabb9c47a.js:414 static/CACHE/js/8f5fbc25d390.js:372
+#: static/CACHE/js/8f5fbc25d390.js.c:400 static/CACHE/js/8f5fbc25d390.js:414
+#: static/CACHE/js/9423ac70c3bf.js:452 static/CACHE/js/9423ac70c3bf.js.c:474
+#: static/CACHE/js/9423ac70c3bf.js:487 static/CACHE/js/948be4fe4bda.js:452
+#: static/CACHE/js/948be4fe4bda.js.c:474 static/CACHE/js/948be4fe4bda.js:487
+#: static/CACHE/js/975e1be23e23.js:372 static/CACHE/js/975e1be23e23.js.c:400
+#: static/CACHE/js/975e1be23e23.js:414 static/CACHE/js/97b3afb5d058.js:455
+#: static/CACHE/js/97b3afb5d058.js.c:477 static/CACHE/js/97b3afb5d058.js:490
+#: static/CACHE/js/9f5c522bc0ae.js:372 static/CACHE/js/9f5c522bc0ae.js.c:400
+#: static/CACHE/js/9f5c522bc0ae.js:414 static/CACHE/js/a25bcefeadb6.js:372
+#: static/CACHE/js/a25bcefeadb6.js.c:400 static/CACHE/js/a25bcefeadb6.js:414
+#: static/CACHE/js/a66b17977a89.js:372 static/CACHE/js/a66b17977a89.js.c:400
+#: static/CACHE/js/a66b17977a89.js:414 static/CACHE/js/ab2f9d86fe7d.js:455
+#: static/CACHE/js/ab2f9d86fe7d.js.c:477 static/CACHE/js/ab2f9d86fe7d.js:490
+#: static/CACHE/js/abf1a137b0b9.js:373 static/CACHE/js/abf1a137b0b9.js.c:401
+#: static/CACHE/js/abf1a137b0b9.js:415 static/CACHE/js/adb500cf07b6.js:372
+#: static/CACHE/js/adb500cf07b6.js.c:400 static/CACHE/js/adb500cf07b6.js:414
+#: static/CACHE/js/af37407f7dbe.js:372 static/CACHE/js/af37407f7dbe.js.c:400
+#: static/CACHE/js/af37407f7dbe.js:414 static/CACHE/js/bd1623bd2966.js:453
+#: static/CACHE/js/bd1623bd2966.js.c:475 static/CACHE/js/bd1623bd2966.js:488
+#: static/CACHE/js/c11537535b75.js:371 static/CACHE/js/c11537535b75.js.c:399
+#: static/CACHE/js/c11537535b75.js:413 static/CACHE/js/c41945e40ff6.js:372
+#: static/CACHE/js/c41945e40ff6.js.c:400 static/CACHE/js/c41945e40ff6.js:414
+#: static/CACHE/js/c4bc8786469c.js:372 static/CACHE/js/c4bc8786469c.js.c:400
+#: static/CACHE/js/c4bc8786469c.js:414 static/CACHE/js/cc82f7b723a3.js:373
+#: static/CACHE/js/cc82f7b723a3.js.c:401 static/CACHE/js/cc82f7b723a3.js:415
+#: static/CACHE/js/e2e3ed698537.js:372 static/CACHE/js/e2e3ed698537.js.c:400
+#: static/CACHE/js/e2e3ed698537.js:414 static/CACHE/js/e48b032bf67f.js:372
+#: static/CACHE/js/e48b032bf67f.js.c:400 static/CACHE/js/e48b032bf67f.js:414
+#: static/CACHE/js/e490e044136a.js:455 static/CACHE/js/e490e044136a.js.c:477
+#: static/CACHE/js/e490e044136a.js:490 static/CACHE/js/ecfc862726a2.js:372
+#: static/CACHE/js/ecfc862726a2.js.c:400 static/CACHE/js/ecfc862726a2.js:414
+#: static/CACHE/js/f9ca9286bf1b.js:455 static/CACHE/js/f9ca9286bf1b.js.c:477
+#: static/CACHE/js/f9ca9286bf1b.js:490 static/CACHE/js/fdfb25ad7dd4.js:455
+#: static/CACHE/js/fdfb25ad7dd4.js.c:477 static/CACHE/js/fdfb25ad7dd4.js:490
+msgid "solved"
+msgstr "solucionado"
+
+#: site-static/js/mapping/admin/mapping_admin_view.js:34
+#: static/CACHE/js/069c65554592.js:473 static/CACHE/js/0d9d4994d9fa.js:476
+#: static/CACHE/js/21df30627bf9.js:476 static/CACHE/js/271a7e9c0dde.js:476
+#: static/CACHE/js/28a75b97c738.js:476 static/CACHE/js/3c65f2b5abe9.js:476
+#: static/CACHE/js/55757ea02bba.js:473 static/CACHE/js/56bb215d04af.js:473
+#: static/CACHE/js/587358082861.js:476 static/CACHE/js/59655cbf7546.js:473
+#: static/CACHE/js/62ec87a6f408.js:476 static/CACHE/js/6949097e027f.js:475
+#: static/CACHE/js/72e2926afe6a.js:476 static/CACHE/js/9423ac70c3bf.js:473
+#: static/CACHE/js/948be4fe4bda.js:473 static/CACHE/js/97b3afb5d058.js:476
+#: static/CACHE/js/ab2f9d86fe7d.js:476 static/CACHE/js/bd1623bd2966.js:474
+#: static/CACHE/js/e490e044136a.js:476 static/CACHE/js/f9ca9286bf1b.js:476
+#: static/CACHE/js/fdfb25ad7dd4.js:476
+msgid "Admin Panel"
+msgstr "Administrar"
+
+#: site-static/js/mapping/admin/mapping_admin_view.js:43
+#: site-static/js/mapping/mapping/mapping_data_view.js:71
+#: static/CACHE/js/069c65554592.js:451 static/CACHE/js/069c65554592.js.c:473
+#: static/CACHE/js/09da92f9f404.js:371 static/CACHE/js/09da92f9f404.js.c:399
+#: static/CACHE/js/0a79bd9550e5.js:371 static/CACHE/js/0a79bd9550e5.js.c:399
+#: static/CACHE/js/0b8b36d6d075.js:370 static/CACHE/js/0b8b36d6d075.js.c:398
+#: static/CACHE/js/0d9d4994d9fa.js:454 static/CACHE/js/0d9d4994d9fa.js.c:476
+#: static/CACHE/js/1590f956a92e.js:371 static/CACHE/js/1590f956a92e.js.c:399
+#: static/CACHE/js/1700495f3e06.js:371 static/CACHE/js/1700495f3e06.js.c:399
+#: static/CACHE/js/17bca7ce487c.js:371 static/CACHE/js/17bca7ce487c.js.c:399
+#: static/CACHE/js/1a7bc113f4a6.js:371 static/CACHE/js/1a7bc113f4a6.js.c:399
+#: static/CACHE/js/21df30627bf9.js:454 static/CACHE/js/21df30627bf9.js.c:476
+#: static/CACHE/js/24eee08817c3.js:371 static/CACHE/js/24eee08817c3.js.c:399
+#: static/CACHE/js/271a7e9c0dde.js:454 static/CACHE/js/271a7e9c0dde.js.c:476
+#: static/CACHE/js/28a75b97c738.js:454 static/CACHE/js/28a75b97c738.js.c:476
+#: static/CACHE/js/2e74a305330e.js:371 static/CACHE/js/2e74a305330e.js.c:399
+#: static/CACHE/js/36a825fa55bb.js:371 static/CACHE/js/36a825fa55bb.js.c:399
+#: static/CACHE/js/3ad76eba02c8.js:371 static/CACHE/js/3ad76eba02c8.js.c:399
+#: static/CACHE/js/3c65f2b5abe9.js:454 static/CACHE/js/3c65f2b5abe9.js.c:476
+#: static/CACHE/js/3f76a5e109cd.js:371 static/CACHE/js/3f76a5e109cd.js.c:399
+#: static/CACHE/js/423d0ae3a046.js:371 static/CACHE/js/423d0ae3a046.js.c:399
+#: static/CACHE/js/46f49fc69645.js:372 static/CACHE/js/46f49fc69645.js.c:400
+#: static/CACHE/js/4f5850dc7f61.js:371 static/CACHE/js/4f5850dc7f61.js.c:399
+#: static/CACHE/js/52173e64fe62.js:371 static/CACHE/js/52173e64fe62.js.c:399
+#: static/CACHE/js/5217fc9b2b42.js:371 static/CACHE/js/5217fc9b2b42.js.c:399
+#: static/CACHE/js/523e2974cdab.js:371 static/CACHE/js/523e2974cdab.js.c:399
+#: static/CACHE/js/55757ea02bba.js:451 static/CACHE/js/55757ea02bba.js.c:473
+#: static/CACHE/js/56bb215d04af.js:451 static/CACHE/js/56bb215d04af.js.c:473
+#: static/CACHE/js/587358082861.js:454 static/CACHE/js/587358082861.js.c:476
+#: static/CACHE/js/59655cbf7546.js:451 static/CACHE/js/59655cbf7546.js.c:473
+#: static/CACHE/js/6172d4788032.js:371 static/CACHE/js/6172d4788032.js.c:399
+#: static/CACHE/js/62ec87a6f408.js:454 static/CACHE/js/62ec87a6f408.js.c:476
+#: static/CACHE/js/672e38aaf492.js:371 static/CACHE/js/672e38aaf492.js.c:399
+#: static/CACHE/js/67e1b308bc0c.js:371 static/CACHE/js/67e1b308bc0c.js.c:399
+#: static/CACHE/js/6949097e027f.js:453 static/CACHE/js/6949097e027f.js.c:475
+#: static/CACHE/js/72e2926afe6a.js:454 static/CACHE/js/72e2926afe6a.js.c:476
+#: static/CACHE/js/77486edf4aee.js:371 static/CACHE/js/77486edf4aee.js.c:399
+#: static/CACHE/js/7a37720a850e.js:371 static/CACHE/js/7a37720a850e.js.c:399
+#: static/CACHE/js/7dfcca8be637.js:371 static/CACHE/js/7dfcca8be637.js.c:399
+#: static/CACHE/js/803b8cef4870.js:370 static/CACHE/js/803b8cef4870.js.c:398
+#: static/CACHE/js/831bfc81e8c0.js:371 static/CACHE/js/831bfc81e8c0.js.c:399
+#: static/CACHE/js/834b7ee64cf1.js:371 static/CACHE/js/834b7ee64cf1.js.c:399
+#: static/CACHE/js/86bcabb9c47a.js:371 static/CACHE/js/86bcabb9c47a.js.c:399
+#: static/CACHE/js/8f5fbc25d390.js:371 static/CACHE/js/8f5fbc25d390.js.c:399
+#: static/CACHE/js/9423ac70c3bf.js:451 static/CACHE/js/9423ac70c3bf.js.c:473
+#: static/CACHE/js/948be4fe4bda.js:451 static/CACHE/js/948be4fe4bda.js.c:473
+#: static/CACHE/js/975e1be23e23.js:371 static/CACHE/js/975e1be23e23.js.c:399
+#: static/CACHE/js/97b3afb5d058.js:454 static/CACHE/js/97b3afb5d058.js.c:476
+#: static/CACHE/js/9f5c522bc0ae.js:371 static/CACHE/js/9f5c522bc0ae.js.c:399
+#: static/CACHE/js/a25bcefeadb6.js:371 static/CACHE/js/a25bcefeadb6.js.c:399
+#: static/CACHE/js/a66b17977a89.js:371 static/CACHE/js/a66b17977a89.js.c:399
+#: static/CACHE/js/ab2f9d86fe7d.js:454 static/CACHE/js/ab2f9d86fe7d.js.c:476
+#: static/CACHE/js/abf1a137b0b9.js:372 static/CACHE/js/abf1a137b0b9.js.c:400
+#: static/CACHE/js/adb500cf07b6.js:371 static/CACHE/js/adb500cf07b6.js.c:399
+#: static/CACHE/js/af37407f7dbe.js:371 static/CACHE/js/af37407f7dbe.js.c:399
+#: static/CACHE/js/bd1623bd2966.js:452 static/CACHE/js/bd1623bd2966.js.c:474
+#: static/CACHE/js/c11537535b75.js:370 static/CACHE/js/c11537535b75.js.c:398
+#: static/CACHE/js/c41945e40ff6.js:371 static/CACHE/js/c41945e40ff6.js.c:399
+#: static/CACHE/js/c4bc8786469c.js:371 static/CACHE/js/c4bc8786469c.js.c:399
+#: static/CACHE/js/cc82f7b723a3.js:372 static/CACHE/js/cc82f7b723a3.js.c:400
+#: static/CACHE/js/e2e3ed698537.js:371 static/CACHE/js/e2e3ed698537.js.c:399
+#: static/CACHE/js/e48b032bf67f.js:371 static/CACHE/js/e48b032bf67f.js.c:399
+#: static/CACHE/js/e490e044136a.js:454 static/CACHE/js/e490e044136a.js.c:476
+#: static/CACHE/js/ecfc862726a2.js:371 static/CACHE/js/ecfc862726a2.js.c:399
+#: static/CACHE/js/f9ca9286bf1b.js:454 static/CACHE/js/f9ca9286bf1b.js.c:476
+#: static/CACHE/js/fdfb25ad7dd4.js:454 static/CACHE/js/fdfb25ad7dd4.js.c:476
+msgid "All categories"
+msgstr "toda categoría"
+
+#: site-static/js/mapping/admin/mapping_admin_view.js:63
+#: site-static/js/mapping/mapping/mapping_data_view.js:92
+#: static/CACHE/js/069c65554592.js:452 static/CACHE/js/069c65554592.js.c:474
+#: static/CACHE/js/09da92f9f404.js:372 static/CACHE/js/09da92f9f404.js.c:400
+#: static/CACHE/js/0a79bd9550e5.js:372 static/CACHE/js/0a79bd9550e5.js.c:400
+#: static/CACHE/js/0b8b36d6d075.js:371 static/CACHE/js/0b8b36d6d075.js.c:399
+#: static/CACHE/js/0d9d4994d9fa.js:455 static/CACHE/js/0d9d4994d9fa.js.c:477
+#: static/CACHE/js/1590f956a92e.js:372 static/CACHE/js/1590f956a92e.js.c:400
+#: static/CACHE/js/1700495f3e06.js:372 static/CACHE/js/1700495f3e06.js.c:400
+#: static/CACHE/js/17bca7ce487c.js:372 static/CACHE/js/17bca7ce487c.js.c:400
+#: static/CACHE/js/1a7bc113f4a6.js:372 static/CACHE/js/1a7bc113f4a6.js.c:400
+#: static/CACHE/js/21df30627bf9.js:455 static/CACHE/js/21df30627bf9.js.c:477
+#: static/CACHE/js/24eee08817c3.js:372 static/CACHE/js/24eee08817c3.js.c:400
+#: static/CACHE/js/271a7e9c0dde.js:455 static/CACHE/js/271a7e9c0dde.js.c:477
+#: static/CACHE/js/28a75b97c738.js:455 static/CACHE/js/28a75b97c738.js.c:477
+#: static/CACHE/js/2e74a305330e.js:372 static/CACHE/js/2e74a305330e.js.c:400
+#: static/CACHE/js/36a825fa55bb.js:372 static/CACHE/js/36a825fa55bb.js.c:400
+#: static/CACHE/js/3ad76eba02c8.js:372 static/CACHE/js/3ad76eba02c8.js.c:400
+#: static/CACHE/js/3c65f2b5abe9.js:455 static/CACHE/js/3c65f2b5abe9.js.c:477
+#: static/CACHE/js/3f76a5e109cd.js:372 static/CACHE/js/3f76a5e109cd.js.c:400
+#: static/CACHE/js/423d0ae3a046.js:372 static/CACHE/js/423d0ae3a046.js.c:400
+#: static/CACHE/js/46f49fc69645.js:373 static/CACHE/js/46f49fc69645.js.c:401
+#: static/CACHE/js/4f5850dc7f61.js:372 static/CACHE/js/4f5850dc7f61.js.c:400
+#: static/CACHE/js/52173e64fe62.js:372 static/CACHE/js/52173e64fe62.js.c:400
+#: static/CACHE/js/5217fc9b2b42.js:372 static/CACHE/js/5217fc9b2b42.js.c:400
+#: static/CACHE/js/523e2974cdab.js:372 static/CACHE/js/523e2974cdab.js.c:400
+#: static/CACHE/js/55757ea02bba.js:452 static/CACHE/js/55757ea02bba.js.c:474
+#: static/CACHE/js/56bb215d04af.js:452 static/CACHE/js/56bb215d04af.js.c:474
+#: static/CACHE/js/587358082861.js:455 static/CACHE/js/587358082861.js.c:477
+#: static/CACHE/js/59655cbf7546.js:452 static/CACHE/js/59655cbf7546.js.c:474
+#: static/CACHE/js/6172d4788032.js:372 static/CACHE/js/6172d4788032.js.c:400
+#: static/CACHE/js/62ec87a6f408.js:455 static/CACHE/js/62ec87a6f408.js.c:477
+#: static/CACHE/js/672e38aaf492.js:372 static/CACHE/js/672e38aaf492.js.c:400
+#: static/CACHE/js/67e1b308bc0c.js:372 static/CACHE/js/67e1b308bc0c.js.c:400
+#: static/CACHE/js/6949097e027f.js:454 static/CACHE/js/6949097e027f.js.c:476
+#: static/CACHE/js/72e2926afe6a.js:455 static/CACHE/js/72e2926afe6a.js.c:477
+#: static/CACHE/js/77486edf4aee.js:372 static/CACHE/js/77486edf4aee.js.c:400
+#: static/CACHE/js/7a37720a850e.js:372 static/CACHE/js/7a37720a850e.js.c:400
+#: static/CACHE/js/7dfcca8be637.js:372 static/CACHE/js/7dfcca8be637.js.c:400
+#: static/CACHE/js/803b8cef4870.js:371 static/CACHE/js/803b8cef4870.js.c:399
+#: static/CACHE/js/831bfc81e8c0.js:372 static/CACHE/js/831bfc81e8c0.js.c:400
+#: static/CACHE/js/834b7ee64cf1.js:372 static/CACHE/js/834b7ee64cf1.js.c:400
+#: static/CACHE/js/86bcabb9c47a.js:372 static/CACHE/js/86bcabb9c47a.js.c:400
+#: static/CACHE/js/8f5fbc25d390.js:372 static/CACHE/js/8f5fbc25d390.js.c:400
+#: static/CACHE/js/9423ac70c3bf.js:452 static/CACHE/js/9423ac70c3bf.js.c:474
+#: static/CACHE/js/948be4fe4bda.js:452 static/CACHE/js/948be4fe4bda.js.c:474
+#: static/CACHE/js/975e1be23e23.js:372 static/CACHE/js/975e1be23e23.js.c:400
+#: static/CACHE/js/97b3afb5d058.js:455 static/CACHE/js/97b3afb5d058.js.c:477
+#: static/CACHE/js/9f5c522bc0ae.js:372 static/CACHE/js/9f5c522bc0ae.js.c:400
+#: static/CACHE/js/a25bcefeadb6.js:372 static/CACHE/js/a25bcefeadb6.js.c:400
+#: static/CACHE/js/a66b17977a89.js:372 static/CACHE/js/a66b17977a89.js.c:400
+#: static/CACHE/js/ab2f9d86fe7d.js:455 static/CACHE/js/ab2f9d86fe7d.js.c:477
+#: static/CACHE/js/abf1a137b0b9.js:373 static/CACHE/js/abf1a137b0b9.js.c:401
+#: static/CACHE/js/adb500cf07b6.js:372 static/CACHE/js/adb500cf07b6.js.c:400
+#: static/CACHE/js/af37407f7dbe.js:372 static/CACHE/js/af37407f7dbe.js.c:400
+#: static/CACHE/js/bd1623bd2966.js:453 static/CACHE/js/bd1623bd2966.js.c:475
+#: static/CACHE/js/c11537535b75.js:371 static/CACHE/js/c11537535b75.js.c:399
+#: static/CACHE/js/c41945e40ff6.js:372 static/CACHE/js/c41945e40ff6.js.c:400
+#: static/CACHE/js/c4bc8786469c.js:372 static/CACHE/js/c4bc8786469c.js.c:400
+#: static/CACHE/js/cc82f7b723a3.js:373 static/CACHE/js/cc82f7b723a3.js.c:401
+#: static/CACHE/js/e2e3ed698537.js:372 static/CACHE/js/e2e3ed698537.js.c:400
+#: static/CACHE/js/e48b032bf67f.js:372 static/CACHE/js/e48b032bf67f.js.c:400
+#: static/CACHE/js/e490e044136a.js:455 static/CACHE/js/e490e044136a.js.c:477
+#: static/CACHE/js/ecfc862726a2.js:372 static/CACHE/js/ecfc862726a2.js.c:400
+#: static/CACHE/js/f9ca9286bf1b.js:455 static/CACHE/js/f9ca9286bf1b.js.c:477
+#: static/CACHE/js/fdfb25ad7dd4.js:455 static/CACHE/js/fdfb25ad7dd4.js.c:477
+msgid "any state"
+msgstr "todo estado"
+
+#: site-static/js/mapping/admin/mapping_admin_view.js:75
+#: static/CACHE/js/069c65554592.js:474 static/CACHE/js/09da92f9f404.js:400
+#: static/CACHE/js/0a79bd9550e5.js:400 static/CACHE/js/0b8b36d6d075.js:399
+#: static/CACHE/js/0d9d4994d9fa.js:477 static/CACHE/js/1590f956a92e.js:400
+#: static/CACHE/js/1700495f3e06.js:400 static/CACHE/js/17bca7ce487c.js:400
+#: static/CACHE/js/1a7bc113f4a6.js:400 static/CACHE/js/21df30627bf9.js:477
+#: static/CACHE/js/24eee08817c3.js:400 static/CACHE/js/271a7e9c0dde.js:477
+#: static/CACHE/js/28a75b97c738.js:477 static/CACHE/js/2e74a305330e.js:400
+#: static/CACHE/js/36a825fa55bb.js:400 static/CACHE/js/3ad76eba02c8.js:400
+#: static/CACHE/js/3c65f2b5abe9.js:477 static/CACHE/js/3f76a5e109cd.js:400
+#: static/CACHE/js/423d0ae3a046.js:400 static/CACHE/js/46f49fc69645.js:401
+#: static/CACHE/js/4f5850dc7f61.js:400 static/CACHE/js/52173e64fe62.js:400
+#: static/CACHE/js/5217fc9b2b42.js:400 static/CACHE/js/523e2974cdab.js:400
+#: static/CACHE/js/55757ea02bba.js:474 static/CACHE/js/56bb215d04af.js:474
+#: static/CACHE/js/587358082861.js:477 static/CACHE/js/59655cbf7546.js:474
+#: static/CACHE/js/6172d4788032.js:400 static/CACHE/js/62ec87a6f408.js:477
+#: static/CACHE/js/672e38aaf492.js:400 static/CACHE/js/67e1b308bc0c.js:400
+#: static/CACHE/js/6949097e027f.js:476 static/CACHE/js/72e2926afe6a.js:477
+#: static/CACHE/js/77486edf4aee.js:400 static/CACHE/js/7a37720a850e.js:400
+#: static/CACHE/js/7dfcca8be637.js:400 static/CACHE/js/803b8cef4870.js:399
+#: static/CACHE/js/831bfc81e8c0.js:400 static/CACHE/js/834b7ee64cf1.js:400
+#: static/CACHE/js/86bcabb9c47a.js:400 static/CACHE/js/8f5fbc25d390.js:400
+#: static/CACHE/js/9423ac70c3bf.js:474 static/CACHE/js/948be4fe4bda.js:474
+#: static/CACHE/js/975e1be23e23.js:400 static/CACHE/js/97b3afb5d058.js:477
+#: static/CACHE/js/9f5c522bc0ae.js:400 static/CACHE/js/a25bcefeadb6.js:400
+#: static/CACHE/js/a66b17977a89.js:400 static/CACHE/js/ab2f9d86fe7d.js:477
+#: static/CACHE/js/abf1a137b0b9.js:401 static/CACHE/js/adb500cf07b6.js:400
+#: static/CACHE/js/af37407f7dbe.js:400 static/CACHE/js/bd1623bd2966.js:475
+#: static/CACHE/js/c11537535b75.js:399 static/CACHE/js/c41945e40ff6.js:400
+#: static/CACHE/js/c4bc8786469c.js:400 static/CACHE/js/cc82f7b723a3.js:401
+#: static/CACHE/js/e2e3ed698537.js:400 static/CACHE/js/e48b032bf67f.js:400
+#: static/CACHE/js/e490e044136a.js:477 static/CACHE/js/ecfc862726a2.js:400
+#: static/CACHE/js/f9ca9286bf1b.js:477 static/CACHE/js/fdfb25ad7dd4.js:477
+msgid "published"
+msgstr "publicado"
+
+#: site-static/js/mapping/admin/mapping_admin_view.js:76
+#: static/CACHE/js/069c65554592.js:474 static/CACHE/js/09da92f9f404.js:400
+#: static/CACHE/js/0a79bd9550e5.js:400 static/CACHE/js/0b8b36d6d075.js:399
+#: static/CACHE/js/0d9d4994d9fa.js:477 static/CACHE/js/1590f956a92e.js:400
+#: static/CACHE/js/1700495f3e06.js:400 static/CACHE/js/17bca7ce487c.js:400
+#: static/CACHE/js/1a7bc113f4a6.js:400 static/CACHE/js/21df30627bf9.js:477
+#: static/CACHE/js/24eee08817c3.js:400 static/CACHE/js/271a7e9c0dde.js:477
+#: static/CACHE/js/28a75b97c738.js:477 static/CACHE/js/2e74a305330e.js:400
+#: static/CACHE/js/36a825fa55bb.js:400 static/CACHE/js/3ad76eba02c8.js:400
+#: static/CACHE/js/3c65f2b5abe9.js:477 static/CACHE/js/3f76a5e109cd.js:400
+#: static/CACHE/js/423d0ae3a046.js:400 static/CACHE/js/46f49fc69645.js:401
+#: static/CACHE/js/4f5850dc7f61.js:400 static/CACHE/js/52173e64fe62.js:400
+#: static/CACHE/js/5217fc9b2b42.js:400 static/CACHE/js/523e2974cdab.js:400
+#: static/CACHE/js/55757ea02bba.js:474 static/CACHE/js/56bb215d04af.js:474
+#: static/CACHE/js/587358082861.js:477 static/CACHE/js/59655cbf7546.js:474
+#: static/CACHE/js/6172d4788032.js:400 static/CACHE/js/62ec87a6f408.js:477
+#: static/CACHE/js/672e38aaf492.js:400 static/CACHE/js/67e1b308bc0c.js:400
+#: static/CACHE/js/6949097e027f.js:476 static/CACHE/js/72e2926afe6a.js:477
+#: static/CACHE/js/77486edf4aee.js:400 static/CACHE/js/7a37720a850e.js:400
+#: static/CACHE/js/7dfcca8be637.js:400 static/CACHE/js/803b8cef4870.js:399
+#: static/CACHE/js/831bfc81e8c0.js:400 static/CACHE/js/834b7ee64cf1.js:400
+#: static/CACHE/js/86bcabb9c47a.js:400 static/CACHE/js/8f5fbc25d390.js:400
+#: static/CACHE/js/9423ac70c3bf.js:474 static/CACHE/js/948be4fe4bda.js:474
+#: static/CACHE/js/975e1be23e23.js:400 static/CACHE/js/97b3afb5d058.js:477
+#: static/CACHE/js/9f5c522bc0ae.js:400 static/CACHE/js/a25bcefeadb6.js:400
+#: static/CACHE/js/a66b17977a89.js:400 static/CACHE/js/ab2f9d86fe7d.js:477
+#: static/CACHE/js/abf1a137b0b9.js:401 static/CACHE/js/adb500cf07b6.js:400
+#: static/CACHE/js/af37407f7dbe.js:400 static/CACHE/js/bd1623bd2966.js:475
+#: static/CACHE/js/c11537535b75.js:399 static/CACHE/js/c41945e40ff6.js:400
+#: static/CACHE/js/c4bc8786469c.js:400 static/CACHE/js/cc82f7b723a3.js:401
+#: static/CACHE/js/e2e3ed698537.js:400 static/CACHE/js/e48b032bf67f.js:400
+#: static/CACHE/js/e490e044136a.js:477 static/CACHE/js/ecfc862726a2.js:400
+#: static/CACHE/js/f9ca9286bf1b.js:477 static/CACHE/js/fdfb25ad7dd4.js:477
+msgid "un-published"
+msgstr "despublicado"
+
+#: site-static/js/mapping/map_item/map_item_form_views.js:41
+#: site-static/js/mapping/mapping/mapping_form_view.js:27
+#: static/CACHE/js/069c65554592.js:426 static/CACHE/js/069c65554592.js.c:437
+#: static/CACHE/js/09da92f9f404.js:356 static/CACHE/js/09da92f9f404.js.c:388
+#: static/CACHE/js/0a79bd9550e5.js:356 static/CACHE/js/0a79bd9550e5.js.c:388
+#: static/CACHE/js/0b8b36d6d075.js:355 static/CACHE/js/0b8b36d6d075.js.c:387
+#: static/CACHE/js/0d9d4994d9fa.js:429 static/CACHE/js/0d9d4994d9fa.js.c:440
+#: static/CACHE/js/1590f956a92e.js:356 static/CACHE/js/1590f956a92e.js.c:388
+#: static/CACHE/js/1700495f3e06.js:356 static/CACHE/js/1700495f3e06.js.c:388
+#: static/CACHE/js/17bca7ce487c.js:356 static/CACHE/js/17bca7ce487c.js.c:388
+#: static/CACHE/js/1a7bc113f4a6.js:356 static/CACHE/js/1a7bc113f4a6.js.c:388
+#: static/CACHE/js/21df30627bf9.js:429 static/CACHE/js/21df30627bf9.js.c:440
+#: static/CACHE/js/24eee08817c3.js:356 static/CACHE/js/24eee08817c3.js.c:388
+#: static/CACHE/js/271a7e9c0dde.js:429 static/CACHE/js/271a7e9c0dde.js.c:440
+#: static/CACHE/js/28a75b97c738.js:429 static/CACHE/js/28a75b97c738.js.c:440
+#: static/CACHE/js/2e74a305330e.js:356 static/CACHE/js/2e74a305330e.js.c:388
+#: static/CACHE/js/36a825fa55bb.js:356 static/CACHE/js/36a825fa55bb.js.c:388
+#: static/CACHE/js/3ad76eba02c8.js:356 static/CACHE/js/3ad76eba02c8.js.c:388
+#: static/CACHE/js/3c65f2b5abe9.js:429 static/CACHE/js/3c65f2b5abe9.js.c:440
+#: static/CACHE/js/3f76a5e109cd.js:356 static/CACHE/js/3f76a5e109cd.js.c:388
+#: static/CACHE/js/423d0ae3a046.js:356 static/CACHE/js/423d0ae3a046.js.c:388
+#: static/CACHE/js/46f49fc69645.js:356 static/CACHE/js/46f49fc69645.js.c:389
+#: static/CACHE/js/4f5850dc7f61.js:356 static/CACHE/js/4f5850dc7f61.js.c:388
+#: static/CACHE/js/52173e64fe62.js:356 static/CACHE/js/52173e64fe62.js.c:388
+#: static/CACHE/js/5217fc9b2b42.js:356 static/CACHE/js/5217fc9b2b42.js.c:388
+#: static/CACHE/js/523e2974cdab.js:356 static/CACHE/js/523e2974cdab.js.c:388
+#: static/CACHE/js/55757ea02bba.js:426 static/CACHE/js/55757ea02bba.js.c:437
+#: static/CACHE/js/56bb215d04af.js:426 static/CACHE/js/56bb215d04af.js.c:437
+#: static/CACHE/js/587358082861.js:429 static/CACHE/js/587358082861.js.c:440
+#: static/CACHE/js/59655cbf7546.js:426 static/CACHE/js/59655cbf7546.js.c:437
+#: static/CACHE/js/6172d4788032.js:356 static/CACHE/js/6172d4788032.js.c:388
+#: static/CACHE/js/62ec87a6f408.js:429 static/CACHE/js/62ec87a6f408.js.c:440
+#: static/CACHE/js/672e38aaf492.js:356 static/CACHE/js/672e38aaf492.js.c:388
+#: static/CACHE/js/67e1b308bc0c.js:356 static/CACHE/js/67e1b308bc0c.js.c:388
+#: static/CACHE/js/6949097e027f.js:428 static/CACHE/js/6949097e027f.js.c:439
+#: static/CACHE/js/72e2926afe6a.js:429 static/CACHE/js/72e2926afe6a.js.c:440
+#: static/CACHE/js/77486edf4aee.js:356 static/CACHE/js/77486edf4aee.js.c:388
+#: static/CACHE/js/7a37720a850e.js:356 static/CACHE/js/7a37720a850e.js.c:388
+#: static/CACHE/js/7dfcca8be637.js:356 static/CACHE/js/7dfcca8be637.js.c:388
+#: static/CACHE/js/803b8cef4870.js:355 static/CACHE/js/803b8cef4870.js.c:387
+#: static/CACHE/js/831bfc81e8c0.js:356 static/CACHE/js/831bfc81e8c0.js.c:388
+#: static/CACHE/js/834b7ee64cf1.js:356 static/CACHE/js/834b7ee64cf1.js.c:388
+#: static/CACHE/js/86bcabb9c47a.js:356 static/CACHE/js/86bcabb9c47a.js.c:388
+#: static/CACHE/js/8f5fbc25d390.js:356 static/CACHE/js/8f5fbc25d390.js.c:388
+#: static/CACHE/js/9423ac70c3bf.js:426 static/CACHE/js/9423ac70c3bf.js.c:437
+#: static/CACHE/js/948be4fe4bda.js:426 static/CACHE/js/948be4fe4bda.js.c:437
+#: static/CACHE/js/975e1be23e23.js:356 static/CACHE/js/975e1be23e23.js.c:388
+#: static/CACHE/js/97b3afb5d058.js:429 static/CACHE/js/97b3afb5d058.js.c:440
+#: static/CACHE/js/9f5c522bc0ae.js:356 static/CACHE/js/9f5c522bc0ae.js.c:388
+#: static/CACHE/js/a25bcefeadb6.js:356 static/CACHE/js/a25bcefeadb6.js.c:388
+#: static/CACHE/js/a66b17977a89.js:356 static/CACHE/js/a66b17977a89.js.c:388
+#: static/CACHE/js/ab2f9d86fe7d.js:429 static/CACHE/js/ab2f9d86fe7d.js.c:440
+#: static/CACHE/js/abf1a137b0b9.js:356 static/CACHE/js/abf1a137b0b9.js.c:389
+#: static/CACHE/js/adb500cf07b6.js:356 static/CACHE/js/adb500cf07b6.js.c:388
+#: static/CACHE/js/af37407f7dbe.js:356 static/CACHE/js/af37407f7dbe.js.c:388
+#: static/CACHE/js/bd1623bd2966.js:427 static/CACHE/js/bd1623bd2966.js.c:438
+#: static/CACHE/js/c11537535b75.js:355 static/CACHE/js/c11537535b75.js.c:387
+#: static/CACHE/js/c41945e40ff6.js:356 static/CACHE/js/c41945e40ff6.js.c:388
+#: static/CACHE/js/c4bc8786469c.js:356 static/CACHE/js/c4bc8786469c.js.c:388
+#: static/CACHE/js/cc82f7b723a3.js:356 static/CACHE/js/cc82f7b723a3.js.c:389
+#: static/CACHE/js/e2e3ed698537.js:356 static/CACHE/js/e2e3ed698537.js.c:388
+#: static/CACHE/js/e48b032bf67f.js:356 static/CACHE/js/e48b032bf67f.js.c:388
+#: static/CACHE/js/e490e044136a.js:429 static/CACHE/js/e490e044136a.js.c:440
+#: static/CACHE/js/ecfc862726a2.js:356 static/CACHE/js/ecfc862726a2.js.c:388
+#: static/CACHE/js/f9ca9286bf1b.js:429 static/CACHE/js/f9ca9286bf1b.js.c:440
+#: static/CACHE/js/fdfb25ad7dd4.js:429 static/CACHE/js/fdfb25ad7dd4.js.c:440
+msgid "Create"
+msgstr "Crear"
+
+#: site-static/js/mapping/map_item/map_item_form_views.js:43
+#: site-static/js/mapping/mapping/mapping_form_view.js:29
+#: static/CACHE/js/069c65554592.js:426 static/CACHE/js/069c65554592.js.c:437
+#: static/CACHE/js/09da92f9f404.js:356 static/CACHE/js/09da92f9f404.js.c:388
+#: static/CACHE/js/0a79bd9550e5.js:356 static/CACHE/js/0a79bd9550e5.js.c:388
+#: static/CACHE/js/0b8b36d6d075.js:355 static/CACHE/js/0b8b36d6d075.js.c:387
+#: static/CACHE/js/0d9d4994d9fa.js:429 static/CACHE/js/0d9d4994d9fa.js.c:440
+#: static/CACHE/js/1590f956a92e.js:356 static/CACHE/js/1590f956a92e.js.c:388
+#: static/CACHE/js/1700495f3e06.js:356 static/CACHE/js/1700495f3e06.js.c:388
+#: static/CACHE/js/17bca7ce487c.js:356 static/CACHE/js/17bca7ce487c.js.c:388
+#: static/CACHE/js/1a7bc113f4a6.js:356 static/CACHE/js/1a7bc113f4a6.js.c:388
+#: static/CACHE/js/21df30627bf9.js:429 static/CACHE/js/21df30627bf9.js.c:440
+#: static/CACHE/js/24eee08817c3.js:356 static/CACHE/js/24eee08817c3.js.c:388
+#: static/CACHE/js/271a7e9c0dde.js:429 static/CACHE/js/271a7e9c0dde.js.c:440
+#: static/CACHE/js/28a75b97c738.js:429 static/CACHE/js/28a75b97c738.js.c:440
+#: static/CACHE/js/2e74a305330e.js:356 static/CACHE/js/2e74a305330e.js.c:388
+#: static/CACHE/js/36a825fa55bb.js:356 static/CACHE/js/36a825fa55bb.js.c:388
+#: static/CACHE/js/3ad76eba02c8.js:356 static/CACHE/js/3ad76eba02c8.js.c:388
+#: static/CACHE/js/3c65f2b5abe9.js:429 static/CACHE/js/3c65f2b5abe9.js.c:440
+#: static/CACHE/js/3f76a5e109cd.js:356 static/CACHE/js/3f76a5e109cd.js.c:388
+#: static/CACHE/js/423d0ae3a046.js:356 static/CACHE/js/423d0ae3a046.js.c:388
+#: static/CACHE/js/46f49fc69645.js:356 static/CACHE/js/46f49fc69645.js.c:389
+#: static/CACHE/js/4f5850dc7f61.js:356 static/CACHE/js/4f5850dc7f61.js.c:388
+#: static/CACHE/js/52173e64fe62.js:356 static/CACHE/js/52173e64fe62.js.c:388
+#: static/CACHE/js/5217fc9b2b42.js:356 static/CACHE/js/5217fc9b2b42.js.c:388
+#: static/CACHE/js/523e2974cdab.js:356 static/CACHE/js/523e2974cdab.js.c:388
+#: static/CACHE/js/55757ea02bba.js:426 static/CACHE/js/55757ea02bba.js.c:437
+#: static/CACHE/js/56bb215d04af.js:426 static/CACHE/js/56bb215d04af.js.c:437
+#: static/CACHE/js/587358082861.js:429 static/CACHE/js/587358082861.js.c:440
+#: static/CACHE/js/59655cbf7546.js:426 static/CACHE/js/59655cbf7546.js.c:437
+#: static/CACHE/js/6172d4788032.js:356 static/CACHE/js/6172d4788032.js.c:388
+#: static/CACHE/js/62ec87a6f408.js:429 static/CACHE/js/62ec87a6f408.js.c:440
+#: static/CACHE/js/672e38aaf492.js:356 static/CACHE/js/672e38aaf492.js.c:388
+#: static/CACHE/js/67e1b308bc0c.js:356 static/CACHE/js/67e1b308bc0c.js.c:388
+#: static/CACHE/js/6949097e027f.js:428 static/CACHE/js/6949097e027f.js.c:439
+#: static/CACHE/js/72e2926afe6a.js:429 static/CACHE/js/72e2926afe6a.js.c:440
+#: static/CACHE/js/77486edf4aee.js:356 static/CACHE/js/77486edf4aee.js.c:388
+#: static/CACHE/js/7a37720a850e.js:356 static/CACHE/js/7a37720a850e.js.c:388
+#: static/CACHE/js/7dfcca8be637.js:356 static/CACHE/js/7dfcca8be637.js.c:388
+#: static/CACHE/js/803b8cef4870.js:355 static/CACHE/js/803b8cef4870.js.c:387
+#: static/CACHE/js/831bfc81e8c0.js:356 static/CACHE/js/831bfc81e8c0.js.c:388
+#: static/CACHE/js/834b7ee64cf1.js:356 static/CACHE/js/834b7ee64cf1.js.c:388
+#: static/CACHE/js/86bcabb9c47a.js:356 static/CACHE/js/86bcabb9c47a.js.c:388
+#: static/CACHE/js/8f5fbc25d390.js:356 static/CACHE/js/8f5fbc25d390.js.c:388
+#: static/CACHE/js/9423ac70c3bf.js:426 static/CACHE/js/9423ac70c3bf.js.c:437
+#: static/CACHE/js/948be4fe4bda.js:426 static/CACHE/js/948be4fe4bda.js.c:437
+#: static/CACHE/js/975e1be23e23.js:356 static/CACHE/js/975e1be23e23.js.c:388
+#: static/CACHE/js/97b3afb5d058.js:429 static/CACHE/js/97b3afb5d058.js.c:440
+#: static/CACHE/js/9f5c522bc0ae.js:356 static/CACHE/js/9f5c522bc0ae.js.c:388
+#: static/CACHE/js/a25bcefeadb6.js:356 static/CACHE/js/a25bcefeadb6.js.c:388
+#: static/CACHE/js/a66b17977a89.js:356 static/CACHE/js/a66b17977a89.js.c:388
+#: static/CACHE/js/ab2f9d86fe7d.js:429 static/CACHE/js/ab2f9d86fe7d.js.c:440
+#: static/CACHE/js/abf1a137b0b9.js:356 static/CACHE/js/abf1a137b0b9.js.c:389
+#: static/CACHE/js/adb500cf07b6.js:356 static/CACHE/js/adb500cf07b6.js.c:388
+#: static/CACHE/js/af37407f7dbe.js:356 static/CACHE/js/af37407f7dbe.js.c:388
+#: static/CACHE/js/bd1623bd2966.js:427 static/CACHE/js/bd1623bd2966.js.c:438
+#: static/CACHE/js/c11537535b75.js:355 static/CACHE/js/c11537535b75.js.c:387
+#: static/CACHE/js/c41945e40ff6.js:356 static/CACHE/js/c41945e40ff6.js.c:388
+#: static/CACHE/js/c4bc8786469c.js:356 static/CACHE/js/c4bc8786469c.js.c:388
+#: static/CACHE/js/cc82f7b723a3.js:356 static/CACHE/js/cc82f7b723a3.js.c:389
+#: static/CACHE/js/e2e3ed698537.js:356 static/CACHE/js/e2e3ed698537.js.c:388
+#: static/CACHE/js/e48b032bf67f.js:356 static/CACHE/js/e48b032bf67f.js.c:388
+#: static/CACHE/js/e490e044136a.js:429 static/CACHE/js/e490e044136a.js.c:440
+#: static/CACHE/js/ecfc862726a2.js:356 static/CACHE/js/ecfc862726a2.js.c:388
+#: static/CACHE/js/f9ca9286bf1b.js:429 static/CACHE/js/f9ca9286bf1b.js.c:440
+#: static/CACHE/js/fdfb25ad7dd4.js:429 static/CACHE/js/fdfb25ad7dd4.js.c:440
+msgid "Edit"
+msgstr "Editar"
+
+#: site-static/js/mapping/map_item/map_item_form_views.js:209
+#: static/CACHE/js/069c65554592.js:436 static/CACHE/js/09da92f9f404.js:398
+#: static/CACHE/js/0a79bd9550e5.js:398 static/CACHE/js/0b8b36d6d075.js:397
+#: static/CACHE/js/0d9d4994d9fa.js:439 static/CACHE/js/1590f956a92e.js:398
+#: static/CACHE/js/1700495f3e06.js:398 static/CACHE/js/17bca7ce487c.js:398
+#: static/CACHE/js/1a7bc113f4a6.js:398 static/CACHE/js/21df30627bf9.js:439
+#: static/CACHE/js/24eee08817c3.js:398 static/CACHE/js/271a7e9c0dde.js:439
+#: static/CACHE/js/28a75b97c738.js:439 static/CACHE/js/2e74a305330e.js:398
+#: static/CACHE/js/36a825fa55bb.js:398 static/CACHE/js/3ad76eba02c8.js:398
+#: static/CACHE/js/3c65f2b5abe9.js:439 static/CACHE/js/3f76a5e109cd.js:398
+#: static/CACHE/js/423d0ae3a046.js:398 static/CACHE/js/46f49fc69645.js:399
+#: static/CACHE/js/4f5850dc7f61.js:398 static/CACHE/js/52173e64fe62.js:398
+#: static/CACHE/js/5217fc9b2b42.js:398 static/CACHE/js/523e2974cdab.js:398
+#: static/CACHE/js/55757ea02bba.js:436 static/CACHE/js/56bb215d04af.js:436
+#: static/CACHE/js/587358082861.js:439 static/CACHE/js/59655cbf7546.js:436
+#: static/CACHE/js/6172d4788032.js:398 static/CACHE/js/62ec87a6f408.js:439
+#: static/CACHE/js/672e38aaf492.js:398 static/CACHE/js/67e1b308bc0c.js:398
+#: static/CACHE/js/6949097e027f.js:438 static/CACHE/js/72e2926afe6a.js:439
+#: static/CACHE/js/77486edf4aee.js:398 static/CACHE/js/7a37720a850e.js:398
+#: static/CACHE/js/7dfcca8be637.js:398 static/CACHE/js/803b8cef4870.js:397
+#: static/CACHE/js/831bfc81e8c0.js:398 static/CACHE/js/834b7ee64cf1.js:398
+#: static/CACHE/js/86bcabb9c47a.js:398 static/CACHE/js/8f5fbc25d390.js:398
+#: static/CACHE/js/9423ac70c3bf.js:436 static/CACHE/js/948be4fe4bda.js:436
+#: static/CACHE/js/975e1be23e23.js:398 static/CACHE/js/97b3afb5d058.js:439
+#: static/CACHE/js/9f5c522bc0ae.js:398 static/CACHE/js/a25bcefeadb6.js:398
+#: static/CACHE/js/a66b17977a89.js:398 static/CACHE/js/ab2f9d86fe7d.js:439
+#: static/CACHE/js/abf1a137b0b9.js:399 static/CACHE/js/adb500cf07b6.js:398
+#: static/CACHE/js/af37407f7dbe.js:398 static/CACHE/js/bd1623bd2966.js:437
+#: static/CACHE/js/c11537535b75.js:397 static/CACHE/js/c41945e40ff6.js:398
+#: static/CACHE/js/c4bc8786469c.js:398 static/CACHE/js/cc82f7b723a3.js:399
+#: static/CACHE/js/e2e3ed698537.js:398 static/CACHE/js/e48b032bf67f.js:398
+#: static/CACHE/js/e490e044136a.js:439 static/CACHE/js/ecfc862726a2.js:398
+#: static/CACHE/js/f9ca9286bf1b.js:439 static/CACHE/js/fdfb25ad7dd4.js:439
+msgid "no location found"
+msgstr "sin resultados"
+
+#: site-static/js/mapping/map_item/map_item_form_views.js:238
+#: static/CACHE/js/069c65554592.js:436 static/CACHE/js/09da92f9f404.js:398
+#: static/CACHE/js/0a79bd9550e5.js:398 static/CACHE/js/0b8b36d6d075.js:397
+#: static/CACHE/js/0d9d4994d9fa.js:439 static/CACHE/js/1590f956a92e.js:398
+#: static/CACHE/js/1700495f3e06.js:398 static/CACHE/js/17bca7ce487c.js:398
+#: static/CACHE/js/1a7bc113f4a6.js:398 static/CACHE/js/21df30627bf9.js:439
+#: static/CACHE/js/24eee08817c3.js:398 static/CACHE/js/271a7e9c0dde.js:439
+#: static/CACHE/js/28a75b97c738.js:439 static/CACHE/js/2e74a305330e.js:398
+#: static/CACHE/js/36a825fa55bb.js:398 static/CACHE/js/3ad76eba02c8.js:398
+#: static/CACHE/js/3c65f2b5abe9.js:439 static/CACHE/js/3f76a5e109cd.js:398
+#: static/CACHE/js/423d0ae3a046.js:398 static/CACHE/js/46f49fc69645.js:399
+#: static/CACHE/js/4f5850dc7f61.js:398 static/CACHE/js/52173e64fe62.js:398
+#: static/CACHE/js/5217fc9b2b42.js:398 static/CACHE/js/523e2974cdab.js:398
+#: static/CACHE/js/55757ea02bba.js:436 static/CACHE/js/56bb215d04af.js:436
+#: static/CACHE/js/587358082861.js:439 static/CACHE/js/59655cbf7546.js:436
+#: static/CACHE/js/6172d4788032.js:398 static/CACHE/js/62ec87a6f408.js:439
+#: static/CACHE/js/672e38aaf492.js:398 static/CACHE/js/67e1b308bc0c.js:398
+#: static/CACHE/js/6949097e027f.js:438 static/CACHE/js/72e2926afe6a.js:439
+#: static/CACHE/js/77486edf4aee.js:398 static/CACHE/js/7a37720a850e.js:398
+#: static/CACHE/js/7dfcca8be637.js:398 static/CACHE/js/803b8cef4870.js:397
+#: static/CACHE/js/831bfc81e8c0.js:398 static/CACHE/js/834b7ee64cf1.js:398
+#: static/CACHE/js/86bcabb9c47a.js:398 static/CACHE/js/8f5fbc25d390.js:398
+#: static/CACHE/js/9423ac70c3bf.js:436 static/CACHE/js/948be4fe4bda.js:436
+#: static/CACHE/js/975e1be23e23.js:398 static/CACHE/js/97b3afb5d058.js:439
+#: static/CACHE/js/9f5c522bc0ae.js:398 static/CACHE/js/a25bcefeadb6.js:398
+#: static/CACHE/js/a66b17977a89.js:398 static/CACHE/js/ab2f9d86fe7d.js:439
+#: static/CACHE/js/abf1a137b0b9.js:399 static/CACHE/js/adb500cf07b6.js:398
+#: static/CACHE/js/af37407f7dbe.js:398 static/CACHE/js/bd1623bd2966.js:437
+#: static/CACHE/js/c11537535b75.js:397 static/CACHE/js/c41945e40ff6.js:398
+#: static/CACHE/js/c4bc8786469c.js:398 static/CACHE/js/cc82f7b723a3.js:399
+#: static/CACHE/js/e2e3ed698537.js:398 static/CACHE/js/e48b032bf67f.js:398
+#: static/CACHE/js/e490e044136a.js:439 static/CACHE/js/ecfc862726a2.js:398
+#: static/CACHE/js/f9ca9286bf1b.js:439 static/CACHE/js/fdfb25ad7dd4.js:439
+msgid "Position"
+msgstr "Posición"
+
+#: site-static/js/mapping/map_item/map_item_views.js:76
+#: site-static/js/mapping/map_item/map_item_views.js:88
+#: static/CACHE/js/069c65554592.js:423 static/CACHE/js/09da92f9f404.js:385
+#: static/CACHE/js/0a79bd9550e5.js:385 static/CACHE/js/0b8b36d6d075.js:384
+#: static/CACHE/js/0d9d4994d9fa.js:426 static/CACHE/js/1590f956a92e.js:385
+#: static/CACHE/js/1700495f3e06.js:385 static/CACHE/js/17bca7ce487c.js:385
+#: static/CACHE/js/1a7bc113f4a6.js:385 static/CACHE/js/21df30627bf9.js:426
+#: static/CACHE/js/24eee08817c3.js:385 static/CACHE/js/271a7e9c0dde.js:426
+#: static/CACHE/js/28a75b97c738.js:426 static/CACHE/js/2e74a305330e.js:385
+#: static/CACHE/js/36a825fa55bb.js:385 static/CACHE/js/3ad76eba02c8.js:385
+#: static/CACHE/js/3c65f2b5abe9.js:426 static/CACHE/js/3f76a5e109cd.js:385
+#: static/CACHE/js/423d0ae3a046.js:385 static/CACHE/js/46f49fc69645.js:386
+#: static/CACHE/js/4f5850dc7f61.js:385 static/CACHE/js/52173e64fe62.js:385
+#: static/CACHE/js/5217fc9b2b42.js:385 static/CACHE/js/523e2974cdab.js:385
+#: static/CACHE/js/55757ea02bba.js:423 static/CACHE/js/56bb215d04af.js:423
+#: static/CACHE/js/587358082861.js:426 static/CACHE/js/59655cbf7546.js:423
+#: static/CACHE/js/6172d4788032.js:385 static/CACHE/js/62ec87a6f408.js:426
+#: static/CACHE/js/672e38aaf492.js:385 static/CACHE/js/67e1b308bc0c.js:385
+#: static/CACHE/js/6949097e027f.js:425 static/CACHE/js/72e2926afe6a.js:426
+#: static/CACHE/js/77486edf4aee.js:385 static/CACHE/js/7a37720a850e.js:385
+#: static/CACHE/js/7dfcca8be637.js:385 static/CACHE/js/803b8cef4870.js:384
+#: static/CACHE/js/831bfc81e8c0.js:385 static/CACHE/js/834b7ee64cf1.js:385
+#: static/CACHE/js/86bcabb9c47a.js:385 static/CACHE/js/8f5fbc25d390.js:385
+#: static/CACHE/js/9423ac70c3bf.js:423 static/CACHE/js/948be4fe4bda.js:423
+#: static/CACHE/js/975e1be23e23.js:385 static/CACHE/js/97b3afb5d058.js:426
+#: static/CACHE/js/9f5c522bc0ae.js:385 static/CACHE/js/a25bcefeadb6.js:385
+#: static/CACHE/js/a66b17977a89.js:385 static/CACHE/js/ab2f9d86fe7d.js:426
+#: static/CACHE/js/abf1a137b0b9.js:386 static/CACHE/js/adb500cf07b6.js:385
+#: static/CACHE/js/af37407f7dbe.js:385 static/CACHE/js/bd1623bd2966.js:424
+#: static/CACHE/js/c11537535b75.js:384 static/CACHE/js/c41945e40ff6.js:385
+#: static/CACHE/js/c4bc8786469c.js:385 static/CACHE/js/cc82f7b723a3.js:386
+#: static/CACHE/js/e2e3ed698537.js:385 static/CACHE/js/e48b032bf67f.js:385
+#: static/CACHE/js/e490e044136a.js:426 static/CACHE/js/ecfc862726a2.js:385
+#: static/CACHE/js/f9ca9286bf1b.js:426 static/CACHE/js/fdfb25ad7dd4.js:426
+msgid "report"
+msgstr "dateo"
+
+#: site-static/js/mapping/mapping/mapping_data_view.js:104
+#: static/CACHE/js/069c65554592.js:452 static/CACHE/js/09da92f9f404.js:372
+#: static/CACHE/js/0a79bd9550e5.js:372 static/CACHE/js/0b8b36d6d075.js:371
+#: static/CACHE/js/0d9d4994d9fa.js:455 static/CACHE/js/1590f956a92e.js:372
+#: static/CACHE/js/1700495f3e06.js:372 static/CACHE/js/17bca7ce487c.js:372
+#: static/CACHE/js/1a7bc113f4a6.js:372 static/CACHE/js/21df30627bf9.js:455
+#: static/CACHE/js/24eee08817c3.js:372 static/CACHE/js/271a7e9c0dde.js:455
+#: static/CACHE/js/28a75b97c738.js:455 static/CACHE/js/2e74a305330e.js:372
+#: static/CACHE/js/36a825fa55bb.js:372 static/CACHE/js/3ad76eba02c8.js:372
+#: static/CACHE/js/3c65f2b5abe9.js:455 static/CACHE/js/3f76a5e109cd.js:372
+#: static/CACHE/js/423d0ae3a046.js:372 static/CACHE/js/46f49fc69645.js:373
+#: static/CACHE/js/4f5850dc7f61.js:372 static/CACHE/js/52173e64fe62.js:372
+#: static/CACHE/js/5217fc9b2b42.js:372 static/CACHE/js/523e2974cdab.js:372
+#: static/CACHE/js/55757ea02bba.js:452 static/CACHE/js/56bb215d04af.js:452
+#: static/CACHE/js/587358082861.js:455 static/CACHE/js/59655cbf7546.js:452
+#: static/CACHE/js/6172d4788032.js:372 static/CACHE/js/62ec87a6f408.js:455
+#: static/CACHE/js/672e38aaf492.js:372 static/CACHE/js/67e1b308bc0c.js:372
+#: static/CACHE/js/6949097e027f.js:454 static/CACHE/js/72e2926afe6a.js:455
+#: static/CACHE/js/77486edf4aee.js:372 static/CACHE/js/7a37720a850e.js:372
+#: static/CACHE/js/7dfcca8be637.js:372 static/CACHE/js/803b8cef4870.js:371
+#: static/CACHE/js/831bfc81e8c0.js:372 static/CACHE/js/834b7ee64cf1.js:372
+#: static/CACHE/js/86bcabb9c47a.js:372 static/CACHE/js/8f5fbc25d390.js:372
+#: static/CACHE/js/9423ac70c3bf.js:452 static/CACHE/js/948be4fe4bda.js:452
+#: static/CACHE/js/975e1be23e23.js:372 static/CACHE/js/97b3afb5d058.js:455
+#: static/CACHE/js/9f5c522bc0ae.js:372 static/CACHE/js/a25bcefeadb6.js:372
+#: static/CACHE/js/a66b17977a89.js:372 static/CACHE/js/ab2f9d86fe7d.js:455
+#: static/CACHE/js/abf1a137b0b9.js:373 static/CACHE/js/adb500cf07b6.js:372
+#: static/CACHE/js/af37407f7dbe.js:372 static/CACHE/js/bd1623bd2966.js:453
+#: static/CACHE/js/c11537535b75.js:371 static/CACHE/js/c41945e40ff6.js:372
+#: static/CACHE/js/c4bc8786469c.js:372 static/CACHE/js/cc82f7b723a3.js:373
+#: static/CACHE/js/e2e3ed698537.js:372 static/CACHE/js/e48b032bf67f.js:372
+#: static/CACHE/js/e490e044136a.js:455 static/CACHE/js/ecfc862726a2.js:372
+#: static/CACHE/js/f9ca9286bf1b.js:455 static/CACHE/js/fdfb25ad7dd4.js:455
 msgid "since start"
 msgstr "desde inicio"
 
-#: site-static/js/mapping/mapping_data_view_bone.js:97
+#: site-static/js/mapping/mapping/mapping_data_view.js:105
+#: static/CACHE/js/069c65554592.js:452 static/CACHE/js/09da92f9f404.js:372
+#: static/CACHE/js/0a79bd9550e5.js:372 static/CACHE/js/0b8b36d6d075.js:371
+#: static/CACHE/js/0d9d4994d9fa.js:455 static/CACHE/js/1590f956a92e.js:372
+#: static/CACHE/js/1700495f3e06.js:372 static/CACHE/js/17bca7ce487c.js:372
+#: static/CACHE/js/1a7bc113f4a6.js:372 static/CACHE/js/21df30627bf9.js:455
+#: static/CACHE/js/24eee08817c3.js:372 static/CACHE/js/271a7e9c0dde.js:455
+#: static/CACHE/js/28a75b97c738.js:455 static/CACHE/js/2e74a305330e.js:372
+#: static/CACHE/js/36a825fa55bb.js:372 static/CACHE/js/3ad76eba02c8.js:372
+#: static/CACHE/js/3c65f2b5abe9.js:455 static/CACHE/js/3f76a5e109cd.js:372
+#: static/CACHE/js/423d0ae3a046.js:372 static/CACHE/js/46f49fc69645.js:373
+#: static/CACHE/js/4f5850dc7f61.js:372 static/CACHE/js/52173e64fe62.js:372
+#: static/CACHE/js/5217fc9b2b42.js:372 static/CACHE/js/523e2974cdab.js:372
+#: static/CACHE/js/55757ea02bba.js:452 static/CACHE/js/56bb215d04af.js:452
+#: static/CACHE/js/587358082861.js:455 static/CACHE/js/59655cbf7546.js:452
+#: static/CACHE/js/6172d4788032.js:372 static/CACHE/js/62ec87a6f408.js:455
+#: static/CACHE/js/672e38aaf492.js:372 static/CACHE/js/67e1b308bc0c.js:372
+#: static/CACHE/js/6949097e027f.js:454 static/CACHE/js/72e2926afe6a.js:455
+#: static/CACHE/js/77486edf4aee.js:372 static/CACHE/js/7a37720a850e.js:372
+#: static/CACHE/js/7dfcca8be637.js:372 static/CACHE/js/803b8cef4870.js:371
+#: static/CACHE/js/831bfc81e8c0.js:372 static/CACHE/js/834b7ee64cf1.js:372
+#: static/CACHE/js/86bcabb9c47a.js:372 static/CACHE/js/8f5fbc25d390.js:372
+#: static/CACHE/js/9423ac70c3bf.js:452 static/CACHE/js/948be4fe4bda.js:452
+#: static/CACHE/js/975e1be23e23.js:372 static/CACHE/js/97b3afb5d058.js:455
+#: static/CACHE/js/9f5c522bc0ae.js:372 static/CACHE/js/a25bcefeadb6.js:372
+#: static/CACHE/js/a66b17977a89.js:372 static/CACHE/js/ab2f9d86fe7d.js:455
+#: static/CACHE/js/abf1a137b0b9.js:373 static/CACHE/js/adb500cf07b6.js:372
+#: static/CACHE/js/af37407f7dbe.js:372 static/CACHE/js/bd1623bd2966.js:453
+#: static/CACHE/js/c11537535b75.js:371 static/CACHE/js/c41945e40ff6.js:372
+#: static/CACHE/js/c4bc8786469c.js:372 static/CACHE/js/cc82f7b723a3.js:373
+#: static/CACHE/js/e2e3ed698537.js:372 static/CACHE/js/e48b032bf67f.js:372
+#: static/CACHE/js/e490e044136a.js:455 static/CACHE/js/ecfc862726a2.js:372
+#: static/CACHE/js/f9ca9286bf1b.js:455 static/CACHE/js/fdfb25ad7dd4.js:455
 msgid "last week"
 msgstr "última semana"
 
-#: site-static/js/mapping/mapping_data_view_bone.js:98
+#: site-static/js/mapping/mapping/mapping_data_view.js:106
+#: static/CACHE/js/069c65554592.js:452 static/CACHE/js/09da92f9f404.js:372
+#: static/CACHE/js/0a79bd9550e5.js:372 static/CACHE/js/0b8b36d6d075.js:371
+#: static/CACHE/js/0d9d4994d9fa.js:455 static/CACHE/js/1590f956a92e.js:372
+#: static/CACHE/js/1700495f3e06.js:372 static/CACHE/js/17bca7ce487c.js:372
+#: static/CACHE/js/1a7bc113f4a6.js:372 static/CACHE/js/21df30627bf9.js:455
+#: static/CACHE/js/24eee08817c3.js:372 static/CACHE/js/271a7e9c0dde.js:455
+#: static/CACHE/js/28a75b97c738.js:455 static/CACHE/js/2e74a305330e.js:372
+#: static/CACHE/js/36a825fa55bb.js:372 static/CACHE/js/3ad76eba02c8.js:372
+#: static/CACHE/js/3c65f2b5abe9.js:455 static/CACHE/js/3f76a5e109cd.js:372
+#: static/CACHE/js/423d0ae3a046.js:372 static/CACHE/js/46f49fc69645.js:373
+#: static/CACHE/js/4f5850dc7f61.js:372 static/CACHE/js/52173e64fe62.js:372
+#: static/CACHE/js/5217fc9b2b42.js:372 static/CACHE/js/523e2974cdab.js:372
+#: static/CACHE/js/55757ea02bba.js:452 static/CACHE/js/56bb215d04af.js:452
+#: static/CACHE/js/587358082861.js:455 static/CACHE/js/59655cbf7546.js:452
+#: static/CACHE/js/6172d4788032.js:372 static/CACHE/js/62ec87a6f408.js:455
+#: static/CACHE/js/672e38aaf492.js:372 static/CACHE/js/67e1b308bc0c.js:372
+#: static/CACHE/js/6949097e027f.js:454 static/CACHE/js/72e2926afe6a.js:455
+#: static/CACHE/js/77486edf4aee.js:372 static/CACHE/js/7a37720a850e.js:372
+#: static/CACHE/js/7dfcca8be637.js:372 static/CACHE/js/803b8cef4870.js:371
+#: static/CACHE/js/831bfc81e8c0.js:372 static/CACHE/js/834b7ee64cf1.js:372
+#: static/CACHE/js/86bcabb9c47a.js:372 static/CACHE/js/8f5fbc25d390.js:372
+#: static/CACHE/js/9423ac70c3bf.js:452 static/CACHE/js/948be4fe4bda.js:452
+#: static/CACHE/js/975e1be23e23.js:372 static/CACHE/js/97b3afb5d058.js:455
+#: static/CACHE/js/9f5c522bc0ae.js:372 static/CACHE/js/a25bcefeadb6.js:372
+#: static/CACHE/js/a66b17977a89.js:372 static/CACHE/js/ab2f9d86fe7d.js:455
+#: static/CACHE/js/abf1a137b0b9.js:373 static/CACHE/js/adb500cf07b6.js:372
+#: static/CACHE/js/af37407f7dbe.js:372 static/CACHE/js/bd1623bd2966.js:453
+#: static/CACHE/js/c11537535b75.js:371 static/CACHE/js/c41945e40ff6.js:372
+#: static/CACHE/js/c4bc8786469c.js:372 static/CACHE/js/cc82f7b723a3.js:373
+#: static/CACHE/js/e2e3ed698537.js:372 static/CACHE/js/e48b032bf67f.js:372
+#: static/CACHE/js/e490e044136a.js:455 static/CACHE/js/ecfc862726a2.js:372
+#: static/CACHE/js/f9ca9286bf1b.js:455 static/CACHE/js/fdfb25ad7dd4.js:455
 msgid "last month"
 msgstr "último mes"
 
-#: site-static/js/mapping/mapping_form_bone.js:189
+#: site-static/js/mapping/mapping/mapping_form_view.js:188
+#: static/CACHE/js/069c65554592.js:447 static/CACHE/js/09da92f9f404.js:367
+#: static/CACHE/js/0a79bd9550e5.js:367 static/CACHE/js/0b8b36d6d075.js:366
+#: static/CACHE/js/0d9d4994d9fa.js:450 static/CACHE/js/1590f956a92e.js:367
+#: static/CACHE/js/1700495f3e06.js:367 static/CACHE/js/17bca7ce487c.js:367
+#: static/CACHE/js/1a7bc113f4a6.js:367 static/CACHE/js/21df30627bf9.js:450
+#: static/CACHE/js/24eee08817c3.js:367 static/CACHE/js/271a7e9c0dde.js:450
+#: static/CACHE/js/28a75b97c738.js:450 static/CACHE/js/2e74a305330e.js:367
+#: static/CACHE/js/36a825fa55bb.js:367 static/CACHE/js/3ad76eba02c8.js:367
+#: static/CACHE/js/3c65f2b5abe9.js:450 static/CACHE/js/3f76a5e109cd.js:367
+#: static/CACHE/js/423d0ae3a046.js:367 static/CACHE/js/46f49fc69645.js:368
+#: static/CACHE/js/4f5850dc7f61.js:367 static/CACHE/js/52173e64fe62.js:367
+#: static/CACHE/js/5217fc9b2b42.js:367 static/CACHE/js/523e2974cdab.js:367
+#: static/CACHE/js/55757ea02bba.js:447 static/CACHE/js/56bb215d04af.js:447
+#: static/CACHE/js/587358082861.js:450 static/CACHE/js/59655cbf7546.js:447
+#: static/CACHE/js/6172d4788032.js:367 static/CACHE/js/62ec87a6f408.js:450
+#: static/CACHE/js/672e38aaf492.js:367 static/CACHE/js/67e1b308bc0c.js:367
+#: static/CACHE/js/6949097e027f.js:449 static/CACHE/js/72e2926afe6a.js:450
+#: static/CACHE/js/77486edf4aee.js:367 static/CACHE/js/7a37720a850e.js:367
+#: static/CACHE/js/7dfcca8be637.js:367 static/CACHE/js/803b8cef4870.js:366
+#: static/CACHE/js/831bfc81e8c0.js:367 static/CACHE/js/834b7ee64cf1.js:367
+#: static/CACHE/js/86bcabb9c47a.js:367 static/CACHE/js/8f5fbc25d390.js:367
+#: static/CACHE/js/9423ac70c3bf.js:447 static/CACHE/js/948be4fe4bda.js:447
+#: static/CACHE/js/975e1be23e23.js:367 static/CACHE/js/97b3afb5d058.js:450
+#: static/CACHE/js/9f5c522bc0ae.js:367 static/CACHE/js/a25bcefeadb6.js:367
+#: static/CACHE/js/a66b17977a89.js:367 static/CACHE/js/ab2f9d86fe7d.js:450
+#: static/CACHE/js/abf1a137b0b9.js:368 static/CACHE/js/adb500cf07b6.js:367
+#: static/CACHE/js/af37407f7dbe.js:367 static/CACHE/js/bd1623bd2966.js:448
+#: static/CACHE/js/c11537535b75.js:366 static/CACHE/js/c41945e40ff6.js:367
+#: static/CACHE/js/c4bc8786469c.js:367 static/CACHE/js/cc82f7b723a3.js:368
+#: static/CACHE/js/e2e3ed698537.js:367 static/CACHE/js/e48b032bf67f.js:367
+#: static/CACHE/js/e490e044136a.js:450 static/CACHE/js/ecfc862726a2.js:367
+#: static/CACHE/js/f9ca9286bf1b.js:450 static/CACHE/js/fdfb25ad7dd4.js:450
 msgid "Center"
 msgstr "Centro"
 
-#: site-static/js/mapping/mapping_form_bone.js:194
+#: site-static/js/mapping/mapping/mapping_form_view.js:193
+#: static/CACHE/js/069c65554592.js:447 static/CACHE/js/09da92f9f404.js:367
+#: static/CACHE/js/0a79bd9550e5.js:367 static/CACHE/js/0b8b36d6d075.js:366
+#: static/CACHE/js/0d9d4994d9fa.js:450 static/CACHE/js/1590f956a92e.js:367
+#: static/CACHE/js/1700495f3e06.js:367 static/CACHE/js/17bca7ce487c.js:367
+#: static/CACHE/js/1a7bc113f4a6.js:367 static/CACHE/js/21df30627bf9.js:450
+#: static/CACHE/js/24eee08817c3.js:367 static/CACHE/js/271a7e9c0dde.js:450
+#: static/CACHE/js/28a75b97c738.js:450 static/CACHE/js/2e74a305330e.js:367
+#: static/CACHE/js/36a825fa55bb.js:367 static/CACHE/js/3ad76eba02c8.js:367
+#: static/CACHE/js/3c65f2b5abe9.js:450 static/CACHE/js/3f76a5e109cd.js:367
+#: static/CACHE/js/423d0ae3a046.js:367 static/CACHE/js/46f49fc69645.js:368
+#: static/CACHE/js/4f5850dc7f61.js:367 static/CACHE/js/52173e64fe62.js:367
+#: static/CACHE/js/5217fc9b2b42.js:367 static/CACHE/js/523e2974cdab.js:367
+#: static/CACHE/js/55757ea02bba.js:447 static/CACHE/js/56bb215d04af.js:447
+#: static/CACHE/js/587358082861.js:450 static/CACHE/js/59655cbf7546.js:447
+#: static/CACHE/js/6172d4788032.js:367 static/CACHE/js/62ec87a6f408.js:450
+#: static/CACHE/js/672e38aaf492.js:367 static/CACHE/js/67e1b308bc0c.js:367
+#: static/CACHE/js/6949097e027f.js:449 static/CACHE/js/72e2926afe6a.js:450
+#: static/CACHE/js/77486edf4aee.js:367 static/CACHE/js/7a37720a850e.js:367
+#: static/CACHE/js/7dfcca8be637.js:367 static/CACHE/js/803b8cef4870.js:366
+#: static/CACHE/js/831bfc81e8c0.js:367 static/CACHE/js/834b7ee64cf1.js:367
+#: static/CACHE/js/86bcabb9c47a.js:367 static/CACHE/js/8f5fbc25d390.js:367
+#: static/CACHE/js/9423ac70c3bf.js:447 static/CACHE/js/948be4fe4bda.js:447
+#: static/CACHE/js/975e1be23e23.js:367 static/CACHE/js/97b3afb5d058.js:450
+#: static/CACHE/js/9f5c522bc0ae.js:367 static/CACHE/js/a25bcefeadb6.js:367
+#: static/CACHE/js/a66b17977a89.js:367 static/CACHE/js/ab2f9d86fe7d.js:450
+#: static/CACHE/js/abf1a137b0b9.js:368 static/CACHE/js/adb500cf07b6.js:367
+#: static/CACHE/js/af37407f7dbe.js:367 static/CACHE/js/bd1623bd2966.js:448
+#: static/CACHE/js/c11537535b75.js:366 static/CACHE/js/c41945e40ff6.js:367
+#: static/CACHE/js/c4bc8786469c.js:367 static/CACHE/js/cc82f7b723a3.js:368
+#: static/CACHE/js/e2e3ed698537.js:367 static/CACHE/js/e48b032bf67f.js:367
+#: static/CACHE/js/e490e044136a.js:450 static/CACHE/js/ecfc862726a2.js:367
+#: static/CACHE/js/f9ca9286bf1b.js:450 static/CACHE/js/fdfb25ad7dd4.js:450
 msgid "Boundary"
 msgstr "Límites"
 
-#: site-static/js/mapping/mapping_main_bone.js:241
+#: site-static/js/mapping/mapping/mapping_sidebar_main_view.js:37
+#: static/CACHE/js/069c65554592.js:460 static/CACHE/js/09da92f9f404.js:344
+#: static/CACHE/js/0a79bd9550e5.js:344 static/CACHE/js/0b8b36d6d075.js:343
+#: static/CACHE/js/0d9d4994d9fa.js:463 static/CACHE/js/1590f956a92e.js:344
+#: static/CACHE/js/1700495f3e06.js:344 static/CACHE/js/17bca7ce487c.js:344
+#: static/CACHE/js/1a7bc113f4a6.js:344 static/CACHE/js/21df30627bf9.js:463
+#: static/CACHE/js/24eee08817c3.js:344 static/CACHE/js/271a7e9c0dde.js:463
+#: static/CACHE/js/28a75b97c738.js:463 static/CACHE/js/2e74a305330e.js:344
+#: static/CACHE/js/36a825fa55bb.js:344 static/CACHE/js/3ad76eba02c8.js:344
+#: static/CACHE/js/3c65f2b5abe9.js:463 static/CACHE/js/3f76a5e109cd.js:344
+#: static/CACHE/js/423d0ae3a046.js:344 static/CACHE/js/46f49fc69645.js:344
+#: static/CACHE/js/4f5850dc7f61.js:344 static/CACHE/js/52173e64fe62.js:344
+#: static/CACHE/js/5217fc9b2b42.js:344 static/CACHE/js/523e2974cdab.js:344
+#: static/CACHE/js/55757ea02bba.js:460 static/CACHE/js/56bb215d04af.js:460
+#: static/CACHE/js/587358082861.js:463 static/CACHE/js/59655cbf7546.js:460
+#: static/CACHE/js/6172d4788032.js:344 static/CACHE/js/62ec87a6f408.js:463
+#: static/CACHE/js/672e38aaf492.js:344 static/CACHE/js/67e1b308bc0c.js:344
+#: static/CACHE/js/6949097e027f.js:462 static/CACHE/js/72e2926afe6a.js:463
+#: static/CACHE/js/77486edf4aee.js:344 static/CACHE/js/7a37720a850e.js:344
+#: static/CACHE/js/7dfcca8be637.js:344 static/CACHE/js/803b8cef4870.js:343
+#: static/CACHE/js/831bfc81e8c0.js:344 static/CACHE/js/834b7ee64cf1.js:344
+#: static/CACHE/js/86bcabb9c47a.js:344 static/CACHE/js/8f5fbc25d390.js:344
+#: static/CACHE/js/9423ac70c3bf.js:460 static/CACHE/js/948be4fe4bda.js:460
+#: static/CACHE/js/975e1be23e23.js:344 static/CACHE/js/97b3afb5d058.js:463
+#: static/CACHE/js/9f5c522bc0ae.js:344 static/CACHE/js/a25bcefeadb6.js:344
+#: static/CACHE/js/a66b17977a89.js:344 static/CACHE/js/ab2f9d86fe7d.js:463
+#: static/CACHE/js/abf1a137b0b9.js:344 static/CACHE/js/adb500cf07b6.js:344
+#: static/CACHE/js/af37407f7dbe.js:344 static/CACHE/js/bd1623bd2966.js:461
+#: static/CACHE/js/c11537535b75.js:343 static/CACHE/js/c41945e40ff6.js:344
+#: static/CACHE/js/c4bc8786469c.js:344 static/CACHE/js/cc82f7b723a3.js:344
+#: static/CACHE/js/e2e3ed698537.js:344 static/CACHE/js/e48b032bf67f.js:344
+#: static/CACHE/js/e490e044136a.js:463 static/CACHE/js/ecfc862726a2.js:344
+#: static/CACHE/js/f9ca9286bf1b.js:463 static/CACHE/js/fdfb25ad7dd4.js:463
 msgid "start"
 msgstr "inicio"
 
-#: site-static/js/mapping/mapping_main_bone.js:341
+#: site-static/js/mapping/mapping/mapping_tab_item_list_view.js:27
+#: static/CACHE/js/069c65554592.js:461 static/CACHE/js/09da92f9f404.js:348
+#: static/CACHE/js/0a79bd9550e5.js:348 static/CACHE/js/0b8b36d6d075.js:347
+#: static/CACHE/js/0d9d4994d9fa.js:464 static/CACHE/js/1590f956a92e.js:348
+#: static/CACHE/js/1700495f3e06.js:348 static/CACHE/js/17bca7ce487c.js:348
+#: static/CACHE/js/1a7bc113f4a6.js:348 static/CACHE/js/21df30627bf9.js:464
+#: static/CACHE/js/24eee08817c3.js:348 static/CACHE/js/271a7e9c0dde.js:464
+#: static/CACHE/js/28a75b97c738.js:464 static/CACHE/js/2e74a305330e.js:348
+#: static/CACHE/js/36a825fa55bb.js:348 static/CACHE/js/3ad76eba02c8.js:348
+#: static/CACHE/js/3c65f2b5abe9.js:464 static/CACHE/js/3f76a5e109cd.js:348
+#: static/CACHE/js/423d0ae3a046.js:348 static/CACHE/js/46f49fc69645.js:348
+#: static/CACHE/js/4f5850dc7f61.js:348 static/CACHE/js/52173e64fe62.js:348
+#: static/CACHE/js/5217fc9b2b42.js:348 static/CACHE/js/523e2974cdab.js:348
+#: static/CACHE/js/55757ea02bba.js:461 static/CACHE/js/56bb215d04af.js:461
+#: static/CACHE/js/587358082861.js:464 static/CACHE/js/59655cbf7546.js:461
+#: static/CACHE/js/6172d4788032.js:348 static/CACHE/js/62ec87a6f408.js:464
+#: static/CACHE/js/672e38aaf492.js:348 static/CACHE/js/67e1b308bc0c.js:348
+#: static/CACHE/js/6949097e027f.js:463 static/CACHE/js/72e2926afe6a.js:464
+#: static/CACHE/js/77486edf4aee.js:348 static/CACHE/js/7a37720a850e.js:348
+#: static/CACHE/js/7dfcca8be637.js:348 static/CACHE/js/803b8cef4870.js:347
+#: static/CACHE/js/831bfc81e8c0.js:348 static/CACHE/js/834b7ee64cf1.js:348
+#: static/CACHE/js/86bcabb9c47a.js:348 static/CACHE/js/8f5fbc25d390.js:348
+#: static/CACHE/js/9423ac70c3bf.js:461 static/CACHE/js/948be4fe4bda.js:461
+#: static/CACHE/js/975e1be23e23.js:348 static/CACHE/js/97b3afb5d058.js:464
+#: static/CACHE/js/9f5c522bc0ae.js:348 static/CACHE/js/a25bcefeadb6.js:348
+#: static/CACHE/js/a66b17977a89.js:348 static/CACHE/js/ab2f9d86fe7d.js:464
+#: static/CACHE/js/abf1a137b0b9.js:348 static/CACHE/js/adb500cf07b6.js:348
+#: static/CACHE/js/af37407f7dbe.js:348 static/CACHE/js/bd1623bd2966.js:462
+#: static/CACHE/js/c11537535b75.js:347 static/CACHE/js/c41945e40ff6.js:348
+#: static/CACHE/js/c4bc8786469c.js:348 static/CACHE/js/cc82f7b723a3.js:348
+#: static/CACHE/js/e2e3ed698537.js:348 static/CACHE/js/e48b032bf67f.js:348
+#: static/CACHE/js/e490e044136a.js:464 static/CACHE/js/ecfc862726a2.js:348
+#: static/CACHE/js/f9ca9286bf1b.js:464 static/CACHE/js/fdfb25ad7dd4.js:464
 msgid "last added"
 msgstr "últimos"
 
-#: site-static/js/mapping/mapping_main_bone.js:342
+#: site-static/js/mapping/mapping/mapping_tab_item_list_view.js:28
+#: static/CACHE/js/069c65554592.js:461 static/CACHE/js/09da92f9f404.js:348
+#: static/CACHE/js/0a79bd9550e5.js:348 static/CACHE/js/0b8b36d6d075.js:347
+#: static/CACHE/js/0d9d4994d9fa.js:464 static/CACHE/js/1590f956a92e.js:348
+#: static/CACHE/js/1700495f3e06.js:348 static/CACHE/js/17bca7ce487c.js:348
+#: static/CACHE/js/1a7bc113f4a6.js:348 static/CACHE/js/21df30627bf9.js:464
+#: static/CACHE/js/24eee08817c3.js:348 static/CACHE/js/271a7e9c0dde.js:464
+#: static/CACHE/js/28a75b97c738.js:464 static/CACHE/js/2e74a305330e.js:348
+#: static/CACHE/js/36a825fa55bb.js:348 static/CACHE/js/3ad76eba02c8.js:348
+#: static/CACHE/js/3c65f2b5abe9.js:464 static/CACHE/js/3f76a5e109cd.js:348
+#: static/CACHE/js/423d0ae3a046.js:348 static/CACHE/js/46f49fc69645.js:348
+#: static/CACHE/js/4f5850dc7f61.js:348 static/CACHE/js/52173e64fe62.js:348
+#: static/CACHE/js/5217fc9b2b42.js:348 static/CACHE/js/523e2974cdab.js:348
+#: static/CACHE/js/55757ea02bba.js:461 static/CACHE/js/56bb215d04af.js:461
+#: static/CACHE/js/587358082861.js:464 static/CACHE/js/59655cbf7546.js:461
+#: static/CACHE/js/6172d4788032.js:348 static/CACHE/js/62ec87a6f408.js:464
+#: static/CACHE/js/672e38aaf492.js:348 static/CACHE/js/67e1b308bc0c.js:348
+#: static/CACHE/js/6949097e027f.js:463 static/CACHE/js/72e2926afe6a.js:464
+#: static/CACHE/js/77486edf4aee.js:348 static/CACHE/js/7a37720a850e.js:348
+#: static/CACHE/js/7dfcca8be637.js:348 static/CACHE/js/803b8cef4870.js:347
+#: static/CACHE/js/831bfc81e8c0.js:348 static/CACHE/js/834b7ee64cf1.js:348
+#: static/CACHE/js/86bcabb9c47a.js:348 static/CACHE/js/8f5fbc25d390.js:348
+#: static/CACHE/js/9423ac70c3bf.js:461 static/CACHE/js/948be4fe4bda.js:461
+#: static/CACHE/js/975e1be23e23.js:348 static/CACHE/js/97b3afb5d058.js:464
+#: static/CACHE/js/9f5c522bc0ae.js:348 static/CACHE/js/a25bcefeadb6.js:348
+#: static/CACHE/js/a66b17977a89.js:348 static/CACHE/js/ab2f9d86fe7d.js:464
+#: static/CACHE/js/abf1a137b0b9.js:348 static/CACHE/js/adb500cf07b6.js:348
+#: static/CACHE/js/af37407f7dbe.js:348 static/CACHE/js/bd1623bd2966.js:462
+#: static/CACHE/js/c11537535b75.js:347 static/CACHE/js/c41945e40ff6.js:348
+#: static/CACHE/js/c4bc8786469c.js:348 static/CACHE/js/cc82f7b723a3.js:348
+#: static/CACHE/js/e2e3ed698537.js:348 static/CACHE/js/e48b032bf67f.js:348
+#: static/CACHE/js/e490e044136a.js:464 static/CACHE/js/ecfc862726a2.js:348
+#: static/CACHE/js/f9ca9286bf1b.js:464 static/CACHE/js/fdfb25ad7dd4.js:464
 msgid "most supported"
 msgstr "más apoyados"
 
-#: site-static/js/mapping/mapping_main_bone.js:343
+#: site-static/js/mapping/mapping/mapping_tab_item_list_view.js:29
+#: static/CACHE/js/069c65554592.js:461 static/CACHE/js/09da92f9f404.js:348
+#: static/CACHE/js/0a79bd9550e5.js:348 static/CACHE/js/0b8b36d6d075.js:347
+#: static/CACHE/js/0d9d4994d9fa.js:464 static/CACHE/js/1590f956a92e.js:348
+#: static/CACHE/js/1700495f3e06.js:348 static/CACHE/js/17bca7ce487c.js:348
+#: static/CACHE/js/1a7bc113f4a6.js:348 static/CACHE/js/21df30627bf9.js:464
+#: static/CACHE/js/24eee08817c3.js:348 static/CACHE/js/271a7e9c0dde.js:464
+#: static/CACHE/js/28a75b97c738.js:464 static/CACHE/js/2e74a305330e.js:348
+#: static/CACHE/js/36a825fa55bb.js:348 static/CACHE/js/3ad76eba02c8.js:348
+#: static/CACHE/js/3c65f2b5abe9.js:464 static/CACHE/js/3f76a5e109cd.js:348
+#: static/CACHE/js/423d0ae3a046.js:348 static/CACHE/js/46f49fc69645.js:348
+#: static/CACHE/js/4f5850dc7f61.js:348 static/CACHE/js/52173e64fe62.js:348
+#: static/CACHE/js/5217fc9b2b42.js:348 static/CACHE/js/523e2974cdab.js:348
+#: static/CACHE/js/55757ea02bba.js:461 static/CACHE/js/56bb215d04af.js:461
+#: static/CACHE/js/587358082861.js:464 static/CACHE/js/59655cbf7546.js:461
+#: static/CACHE/js/6172d4788032.js:348 static/CACHE/js/62ec87a6f408.js:464
+#: static/CACHE/js/672e38aaf492.js:348 static/CACHE/js/67e1b308bc0c.js:348
+#: static/CACHE/js/6949097e027f.js:463 static/CACHE/js/72e2926afe6a.js:464
+#: static/CACHE/js/77486edf4aee.js:348 static/CACHE/js/7a37720a850e.js:348
+#: static/CACHE/js/7dfcca8be637.js:348 static/CACHE/js/803b8cef4870.js:347
+#: static/CACHE/js/831bfc81e8c0.js:348 static/CACHE/js/834b7ee64cf1.js:348
+#: static/CACHE/js/86bcabb9c47a.js:348 static/CACHE/js/8f5fbc25d390.js:348
+#: static/CACHE/js/9423ac70c3bf.js:461 static/CACHE/js/948be4fe4bda.js:461
+#: static/CACHE/js/975e1be23e23.js:348 static/CACHE/js/97b3afb5d058.js:464
+#: static/CACHE/js/9f5c522bc0ae.js:348 static/CACHE/js/a25bcefeadb6.js:348
+#: static/CACHE/js/a66b17977a89.js:348 static/CACHE/js/ab2f9d86fe7d.js:464
+#: static/CACHE/js/abf1a137b0b9.js:348 static/CACHE/js/adb500cf07b6.js:348
+#: static/CACHE/js/af37407f7dbe.js:348 static/CACHE/js/bd1623bd2966.js:462
+#: static/CACHE/js/c11537535b75.js:347 static/CACHE/js/c41945e40ff6.js:348
+#: static/CACHE/js/c4bc8786469c.js:348 static/CACHE/js/cc82f7b723a3.js:348
+#: static/CACHE/js/e2e3ed698537.js:348 static/CACHE/js/e48b032bf67f.js:348
+#: static/CACHE/js/e490e044136a.js:464 static/CACHE/js/ecfc862726a2.js:348
+#: static/CACHE/js/f9ca9286bf1b.js:464 static/CACHE/js/fdfb25ad7dd4.js:464
 msgid "most commented"
 msgstr "más comentados"
 
-#~ msgid "actions"
-#~ msgstr "acciones"
+#: site-static/js/social/site_tweet_view.js:15
+#: static/CACHE/js/069c65554592.js:347 static/CACHE/js/0d9d4994d9fa.js:350
+#: static/CACHE/js/21df30627bf9.js:350 static/CACHE/js/271a7e9c0dde.js:350
+#: static/CACHE/js/28a75b97c738.js:350 static/CACHE/js/3c65f2b5abe9.js:350
+#: static/CACHE/js/55757ea02bba.js:347 static/CACHE/js/56bb215d04af.js:347
+#: static/CACHE/js/587358082861.js:350 static/CACHE/js/59655cbf7546.js:347
+#: static/CACHE/js/62ec87a6f408.js:350 static/CACHE/js/6949097e027f.js:350
+#: static/CACHE/js/72e2926afe6a.js:350 static/CACHE/js/9423ac70c3bf.js:347
+#: static/CACHE/js/948be4fe4bda.js:347 static/CACHE/js/97b3afb5d058.js:350
+#: static/CACHE/js/ab2f9d86fe7d.js:350 static/CACHE/js/bd1623bd2966.js:350
+#: static/CACHE/js/e490e044136a.js:350 static/CACHE/js/f9ca9286bf1b.js:350
+#: static/CACHE/js/fdfb25ad7dd4.js:350
+msgid "we"
+msgstr "nosotros"
+
+#: site-static/js/social/site_tweet_view.js:16
+#: static/CACHE/js/069c65554592.js:347 static/CACHE/js/0d9d4994d9fa.js:350
+#: static/CACHE/js/21df30627bf9.js:350 static/CACHE/js/271a7e9c0dde.js:350
+#: static/CACHE/js/28a75b97c738.js:350 static/CACHE/js/3c65f2b5abe9.js:350
+#: static/CACHE/js/55757ea02bba.js:347 static/CACHE/js/56bb215d04af.js:347
+#: static/CACHE/js/587358082861.js:350 static/CACHE/js/59655cbf7546.js:347
+#: static/CACHE/js/62ec87a6f408.js:350 static/CACHE/js/6949097e027f.js:350
+#: static/CACHE/js/72e2926afe6a.js:350 static/CACHE/js/9423ac70c3bf.js:347
+#: static/CACHE/js/948be4fe4bda.js:347 static/CACHE/js/97b3afb5d058.js:350
+#: static/CACHE/js/ab2f9d86fe7d.js:350 static/CACHE/js/bd1623bd2966.js:350
+#: static/CACHE/js/e490e044136a.js:350 static/CACHE/js/f9ca9286bf1b.js:350
+#: static/CACHE/js/fdfb25ad7dd4.js:350
+msgid "we were"
+msgstr "estuvimos"
+
+#: site-static/js/social/site_tweet_view.js:17
+#: static/CACHE/js/069c65554592.js:347 static/CACHE/js/0d9d4994d9fa.js:350
+#: static/CACHE/js/21df30627bf9.js:350 static/CACHE/js/271a7e9c0dde.js:350
+#: static/CACHE/js/28a75b97c738.js:350 static/CACHE/js/3c65f2b5abe9.js:350
+#: static/CACHE/js/55757ea02bba.js:347 static/CACHE/js/56bb215d04af.js:347
+#: static/CACHE/js/587358082861.js:350 static/CACHE/js/59655cbf7546.js:347
+#: static/CACHE/js/62ec87a6f408.js:350 static/CACHE/js/6949097e027f.js:350
+#: static/CACHE/js/72e2926afe6a.js:350 static/CACHE/js/9423ac70c3bf.js:347
+#: static/CACHE/js/948be4fe4bda.js:347 static/CACHE/js/97b3afb5d058.js:350
+#: static/CACHE/js/ab2f9d86fe7d.js:350 static/CACHE/js/bd1623bd2966.js:350
+#: static/CACHE/js/e490e044136a.js:350 static/CACHE/js/f9ca9286bf1b.js:350
+#: static/CACHE/js/fdfb25ad7dd4.js:350
+msgid "replied to"
+msgstr "respondimos"
+
+#: site-static/js/social/site_tweet_view.js:18
+#: static/CACHE/js/069c65554592.js:347 static/CACHE/js/0d9d4994d9fa.js:350
+#: static/CACHE/js/21df30627bf9.js:350 static/CACHE/js/271a7e9c0dde.js:350
+#: static/CACHE/js/28a75b97c738.js:350 static/CACHE/js/3c65f2b5abe9.js:350
+#: static/CACHE/js/55757ea02bba.js:347 static/CACHE/js/56bb215d04af.js:347
+#: static/CACHE/js/587358082861.js:350 static/CACHE/js/59655cbf7546.js:347
+#: static/CACHE/js/62ec87a6f408.js:350 static/CACHE/js/6949097e027f.js:350
+#: static/CACHE/js/72e2926afe6a.js:350 static/CACHE/js/9423ac70c3bf.js:347
+#: static/CACHE/js/948be4fe4bda.js:347 static/CACHE/js/97b3afb5d058.js:350
+#: static/CACHE/js/ab2f9d86fe7d.js:350 static/CACHE/js/bd1623bd2966.js:350
+#: static/CACHE/js/e490e044136a.js:350 static/CACHE/js/f9ca9286bf1b.js:350
+#: static/CACHE/js/fdfb25ad7dd4.js:350
+msgid "checking out"
+msgstr "chequeamos"
+
+#: site-static/js/social/site_tweet_view.js:19
+#: static/CACHE/js/069c65554592.js:347 static/CACHE/js/0d9d4994d9fa.js:350
+#: static/CACHE/js/21df30627bf9.js:350 static/CACHE/js/271a7e9c0dde.js:350
+#: static/CACHE/js/28a75b97c738.js:350 static/CACHE/js/3c65f2b5abe9.js:350
+#: static/CACHE/js/55757ea02bba.js:347 static/CACHE/js/56bb215d04af.js:347
+#: static/CACHE/js/587358082861.js:350 static/CACHE/js/59655cbf7546.js:347
+#: static/CACHE/js/62ec87a6f408.js:350 static/CACHE/js/6949097e027f.js:350
+#: static/CACHE/js/72e2926afe6a.js:350 static/CACHE/js/9423ac70c3bf.js:347
+#: static/CACHE/js/948be4fe4bda.js:347 static/CACHE/js/97b3afb5d058.js:350
+#: static/CACHE/js/ab2f9d86fe7d.js:350 static/CACHE/js/bd1623bd2966.js:350
+#: static/CACHE/js/e490e044136a.js:350 static/CACHE/js/f9ca9286bf1b.js:350
+#: static/CACHE/js/fdfb25ad7dd4.js:350
+msgid "loading tweets..."
+msgstr "cargando tuits..."
+
+#: site-static/js/user/user_home_view.js:49
+#: static/CACHE/js/069c65554592.js:403 static/CACHE/js/55757ea02bba.js:403
+#: static/CACHE/js/9423ac70c3bf.js:403 static/CACHE/js/948be4fe4bda.js:403
+msgid "history"
+msgstr "historial"
+
+#: site-static/js/vote/vote_widget_view.js:43
+#: static/CACHE/js/069c65554592.js:512 static/CACHE/js/09da92f9f404.js:434
+#: static/CACHE/js/0a79bd9550e5.js:434 static/CACHE/js/0b8b36d6d075.js:433
+#: static/CACHE/js/0d9d4994d9fa.js:515 static/CACHE/js/1590f956a92e.js:434
+#: static/CACHE/js/1700495f3e06.js:434 static/CACHE/js/17bca7ce487c.js:434
+#: static/CACHE/js/1a7bc113f4a6.js:434 static/CACHE/js/21df30627bf9.js:515
+#: static/CACHE/js/24eee08817c3.js:434 static/CACHE/js/271a7e9c0dde.js:515
+#: static/CACHE/js/28a75b97c738.js:515 static/CACHE/js/2e74a305330e.js:434
+#: static/CACHE/js/36a825fa55bb.js:434 static/CACHE/js/3ad76eba02c8.js:434
+#: static/CACHE/js/3c65f2b5abe9.js:515 static/CACHE/js/3f76a5e109cd.js:434
+#: static/CACHE/js/423d0ae3a046.js:434 static/CACHE/js/46f49fc69645.js:435
+#: static/CACHE/js/4f5850dc7f61.js:434 static/CACHE/js/52173e64fe62.js:434
+#: static/CACHE/js/5217fc9b2b42.js:434 static/CACHE/js/523e2974cdab.js:434
+#: static/CACHE/js/55757ea02bba.js:512 static/CACHE/js/56bb215d04af.js:512
+#: static/CACHE/js/587358082861.js:515 static/CACHE/js/59655cbf7546.js:512
+#: static/CACHE/js/6172d4788032.js:434 static/CACHE/js/62ec87a6f408.js:515
+#: static/CACHE/js/672e38aaf492.js:434 static/CACHE/js/67e1b308bc0c.js:434
+#: static/CACHE/js/6949097e027f.js:514 static/CACHE/js/72e2926afe6a.js:515
+#: static/CACHE/js/77486edf4aee.js:434 static/CACHE/js/7a37720a850e.js:434
+#: static/CACHE/js/7dfcca8be637.js:434 static/CACHE/js/803b8cef4870.js:433
+#: static/CACHE/js/831bfc81e8c0.js:434 static/CACHE/js/834b7ee64cf1.js:434
+#: static/CACHE/js/86bcabb9c47a.js:434 static/CACHE/js/8f5fbc25d390.js:434
+#: static/CACHE/js/9423ac70c3bf.js:512 static/CACHE/js/948be4fe4bda.js:512
+#: static/CACHE/js/975e1be23e23.js:434 static/CACHE/js/97b3afb5d058.js:515
+#: static/CACHE/js/9f5c522bc0ae.js:434 static/CACHE/js/a25bcefeadb6.js:434
+#: static/CACHE/js/a66b17977a89.js:434 static/CACHE/js/ab2f9d86fe7d.js:515
+#: static/CACHE/js/abf1a137b0b9.js:435 static/CACHE/js/adb500cf07b6.js:434
+#: static/CACHE/js/af37407f7dbe.js:434 static/CACHE/js/bd1623bd2966.js:513
+#: static/CACHE/js/c11537535b75.js:433 static/CACHE/js/c41945e40ff6.js:434
+#: static/CACHE/js/c4bc8786469c.js:434 static/CACHE/js/cc82f7b723a3.js:435
+#: static/CACHE/js/e2e3ed698537.js:434 static/CACHE/js/e48b032bf67f.js:434
+#: static/CACHE/js/e490e044136a.js:515 static/CACHE/js/ecfc862726a2.js:434
+#: static/CACHE/js/f9ca9286bf1b.js:515 static/CACHE/js/fdfb25ad7dd4.js:515
+msgid "support!"
+msgstr "apoyar!"
+
+#: site-static/js/vote/vote_widget_view.js:45
+#: static/CACHE/js/069c65554592.js:512 static/CACHE/js/09da92f9f404.js:434
+#: static/CACHE/js/0a79bd9550e5.js:434 static/CACHE/js/0b8b36d6d075.js:433
+#: static/CACHE/js/0d9d4994d9fa.js:515 static/CACHE/js/1590f956a92e.js:434
+#: static/CACHE/js/1700495f3e06.js:434 static/CACHE/js/17bca7ce487c.js:434
+#: static/CACHE/js/1a7bc113f4a6.js:434 static/CACHE/js/21df30627bf9.js:515
+#: static/CACHE/js/24eee08817c3.js:434 static/CACHE/js/271a7e9c0dde.js:515
+#: static/CACHE/js/28a75b97c738.js:515 static/CACHE/js/2e74a305330e.js:434
+#: static/CACHE/js/36a825fa55bb.js:434 static/CACHE/js/3ad76eba02c8.js:434
+#: static/CACHE/js/3c65f2b5abe9.js:515 static/CACHE/js/3f76a5e109cd.js:434
+#: static/CACHE/js/423d0ae3a046.js:434 static/CACHE/js/46f49fc69645.js:435
+#: static/CACHE/js/4f5850dc7f61.js:434 static/CACHE/js/52173e64fe62.js:434
+#: static/CACHE/js/5217fc9b2b42.js:434 static/CACHE/js/523e2974cdab.js:434
+#: static/CACHE/js/55757ea02bba.js:512 static/CACHE/js/56bb215d04af.js:512
+#: static/CACHE/js/587358082861.js:515 static/CACHE/js/59655cbf7546.js:512
+#: static/CACHE/js/6172d4788032.js:434 static/CACHE/js/62ec87a6f408.js:515
+#: static/CACHE/js/672e38aaf492.js:434 static/CACHE/js/67e1b308bc0c.js:434
+#: static/CACHE/js/6949097e027f.js:514 static/CACHE/js/72e2926afe6a.js:515
+#: static/CACHE/js/77486edf4aee.js:434 static/CACHE/js/7a37720a850e.js:434
+#: static/CACHE/js/7dfcca8be637.js:434 static/CACHE/js/803b8cef4870.js:433
+#: static/CACHE/js/831bfc81e8c0.js:434 static/CACHE/js/834b7ee64cf1.js:434
+#: static/CACHE/js/86bcabb9c47a.js:434 static/CACHE/js/8f5fbc25d390.js:434
+#: static/CACHE/js/9423ac70c3bf.js:512 static/CACHE/js/948be4fe4bda.js:512
+#: static/CACHE/js/975e1be23e23.js:434 static/CACHE/js/97b3afb5d058.js:515
+#: static/CACHE/js/9f5c522bc0ae.js:434 static/CACHE/js/a25bcefeadb6.js:434
+#: static/CACHE/js/a66b17977a89.js:434 static/CACHE/js/ab2f9d86fe7d.js:515
+#: static/CACHE/js/abf1a137b0b9.js:435 static/CACHE/js/adb500cf07b6.js:434
+#: static/CACHE/js/af37407f7dbe.js:434 static/CACHE/js/bd1623bd2966.js:513
+#: static/CACHE/js/c11537535b75.js:433 static/CACHE/js/c41945e40ff6.js:434
+#: static/CACHE/js/c4bc8786469c.js:434 static/CACHE/js/cc82f7b723a3.js:435
+#: static/CACHE/js/e2e3ed698537.js:434 static/CACHE/js/e48b032bf67f.js:434
+#: static/CACHE/js/e490e044136a.js:515 static/CACHE/js/ecfc862726a2.js:434
+#: static/CACHE/js/f9ca9286bf1b.js:515 static/CACHE/js/fdfb25ad7dd4.js:515
+msgid "already supporting"
+msgstr "ya apoyó"
+
+#: static/CACHE/js/069c65554592.js:414 static/CACHE/js/09da92f9f404.js:319
+#: static/CACHE/js/0a79bd9550e5.js:319 static/CACHE/js/0b8b36d6d075.js:319
+#: static/CACHE/js/0d9d4994d9fa.js:417 static/CACHE/js/1590f956a92e.js:319
+#: static/CACHE/js/1700495f3e06.js:319 static/CACHE/js/17bca7ce487c.js:319
+#: static/CACHE/js/1a7bc113f4a6.js:319 static/CACHE/js/21df30627bf9.js:417
+#: static/CACHE/js/24eee08817c3.js:319 static/CACHE/js/271a7e9c0dde.js:417
+#: static/CACHE/js/28a75b97c738.js:417 static/CACHE/js/2e74a305330e.js:319
+#: static/CACHE/js/36a825fa55bb.js:319 static/CACHE/js/3ad76eba02c8.js:319
+#: static/CACHE/js/3c65f2b5abe9.js:417 static/CACHE/js/3f76a5e109cd.js:319
+#: static/CACHE/js/423d0ae3a046.js:319 static/CACHE/js/46f49fc69645.js:319
+#: static/CACHE/js/4f5850dc7f61.js:319 static/CACHE/js/52173e64fe62.js:319
+#: static/CACHE/js/5217fc9b2b42.js:319 static/CACHE/js/523e2974cdab.js:319
+#: static/CACHE/js/55757ea02bba.js:414 static/CACHE/js/56bb215d04af.js:414
+#: static/CACHE/js/587358082861.js:417 static/CACHE/js/59655cbf7546.js:414
+#: static/CACHE/js/6172d4788032.js:319 static/CACHE/js/62ec87a6f408.js:417
+#: static/CACHE/js/672e38aaf492.js:319 static/CACHE/js/67e1b308bc0c.js:319
+#: static/CACHE/js/6949097e027f.js:416 static/CACHE/js/72e2926afe6a.js:417
+#: static/CACHE/js/77486edf4aee.js:319 static/CACHE/js/7a37720a850e.js:319
+#: static/CACHE/js/7dfcca8be637.js:319 static/CACHE/js/803b8cef4870.js:319
+#: static/CACHE/js/831bfc81e8c0.js:319 static/CACHE/js/834b7ee64cf1.js:319
+#: static/CACHE/js/86bcabb9c47a.js:319 static/CACHE/js/8f5fbc25d390.js:319
+#: static/CACHE/js/9423ac70c3bf.js:414 static/CACHE/js/948be4fe4bda.js:414
+#: static/CACHE/js/975e1be23e23.js:319 static/CACHE/js/97b3afb5d058.js:417
+#: static/CACHE/js/9f5c522bc0ae.js:319 static/CACHE/js/a25bcefeadb6.js:319
+#: static/CACHE/js/a66b17977a89.js:319 static/CACHE/js/ab2f9d86fe7d.js:417
+#: static/CACHE/js/abf1a137b0b9.js:319 static/CACHE/js/adb500cf07b6.js:319
+#: static/CACHE/js/af37407f7dbe.js:319 static/CACHE/js/bd1623bd2966.js:415
+#: static/CACHE/js/c11537535b75.js:319 static/CACHE/js/c41945e40ff6.js:319
+#: static/CACHE/js/c4bc8786469c.js:319 static/CACHE/js/cc82f7b723a3.js:319
+#: static/CACHE/js/e2e3ed698537.js:319 static/CACHE/js/e48b032bf67f.js:319
+#: static/CACHE/js/e490e044136a.js:417 static/CACHE/js/ecfc862726a2.js:319
+#: static/CACHE/js/f9ca9286bf1b.js:417 static/CACHE/js/fdfb25ad7dd4.js:417
+msgid "my actions"
+msgstr "iniciativas que sigo"
+
+#: static/CACHE/js/1700495f3e06.js:319 static/CACHE/js/2e74a305330e.js:319
+#: static/CACHE/js/4f5850dc7f61.js:319 static/CACHE/js/77486edf4aee.js:319
+#: static/CACHE/js/86bcabb9c47a.js:319 static/CACHE/js/a25bcefeadb6.js:319
+#: static/CACHE/js/af37407f7dbe.js:319 static/CACHE/js/c11537535b75.js:319
+#: static/CACHE/js/c4bc8786469c.js:319
+msgid "actions created"
+msgstr "iniciativas creadas"
 
 #~ msgid "created actions"
 #~ msgstr "acciones creadas"
