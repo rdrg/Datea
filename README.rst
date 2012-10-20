@@ -18,7 +18,5 @@ requirements,you can take a look at the datea/requirements folder.
 If interested in in a deployment or new feature, we also provide 
 commercial support.
 
-cheers,
-
 The Datea Team
 
