@@ -1,14 +1,11 @@
 
 #action-control {
-	background-color: @verde;
-	padding: 5px 15px;
-	margin-top: 18px;
-	.border-radius(10px);
-	color: white;
+	background-color: white;
+
 	.clearfix();
 	.filters {
 		.btn-dropdown-select {
-			color: white;
+			//color: white;
 			font-size: @baseFontSize + 2px;
 			font-weight: bold;
 		}
@@ -20,9 +17,32 @@
 	}
 }
 
+.unlogged #action-control {
+	background-color: @green;
+	padding: 5px 15px;
+	margin-top: 18px;
+	.border-radius(10px);
+	color: white;
+	.filters {
+		.btn-dropdown-select {
+			color: white;
+		}
+	}
+}
+
+.unlogged .action-item {
+	.dotted-inner;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
 #action-list {
 	margin-left: 0px;
 	min-height: 300px;
+	
+	.empty-result-msg {
+		padding: 35px 0;
+	}
 	
 	.actions-result-msg {
 		.dotted-inner;
@@ -33,11 +53,14 @@
 	}
 	
 	.action-item {
-		.dotted-inner;
-		padding-top: 10px;
-		padding-bottom: 10px;
-		padding-left: 15px;
-		padding-right: 15px;
+
+		padding-top: 20px;
+		padding-bottom: 20px;
+		
+		border-bottom: 1px dotted #a3a3a3; 
+		&:last-child {
+			border-bottom: 0;
+		}
 		
 		.action-teaser {
 			.clearfix();
@@ -76,9 +99,6 @@
 				}
 				.right-corner {
 					div { float:left}
-					.follow-button {
-						margin-right: 10px;
-					}
 				}
 				
 				.description {
@@ -89,6 +109,11 @@
 						padding-top: 10px;
 						font-size: @baseFontSize - 2px;
 						.separator:last-child { display:none;}
+					}
+					.follow-button {
+						margin-right: 20px;
+						display:inline-block;
+						.ie7-inline-block();
 					}
 					.clearfix();
 				}

@@ -124,4 +124,5 @@ class FreeCategoryResource(DateaBaseResource):
         allowed_methods = ['get', 'put', 'post', 'delete']
         authentication = ApiKeyPlusWebAuthentication()
         authorization = FreeCategoryAuthorization()
+        always_return_data = True
     

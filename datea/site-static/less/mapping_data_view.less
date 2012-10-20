@@ -1,6 +1,7 @@
 
 
 .data-view-head {
+	position:relative;
 	.clearfix();
 	.head-icon {
 		display: inline-block;
@@ -10,9 +11,15 @@
 		vertical-align: text-bottom;
 		text-decoration:none;
 	}
-	.json {
-		width: 23px;
-		background: url(../img/datea/iconos-mapa-top.png) no-repeat -47px 0px;
+	.top-buttons {
+		.json {
+			width: 23px;
+			background: url(../img/datea/iconos-mapa-top.png) no-repeat -47px 0px;
+		}
+		
+		&.with-admin-button {
+			margin-right: 80px;
+		}
 	}	
 }
 

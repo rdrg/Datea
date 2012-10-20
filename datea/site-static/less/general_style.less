@@ -73,4 +73,34 @@ h1 {
 	color: @errorText;
 }
 
+.contact-form {
+	textarea, #id_subject {
+		width: 400px;
+	}
+}
+
+.blog-feed-block {
+	border: 1px solid #cecece;
+	background-color:#efefef;
+	h3 {
+		text-transform: uppercase;
+	}
+	ul.blog-entries {
+		list-style: none;
+		margin-left: 0;
+		margin-bottom:0;
+		li {
+			list-style: none;
+			margin-top: 10px;
+			.title { 
+				font-size: @baseFontSize + 3px;
+				a {color: @grayTextDark; &:hover {color: @green}} 
+			}
+			.date {
+				color: @grayLight; font-size: @baseFontSize - 2px;
+			}
+		}
+	}
+}
+
 

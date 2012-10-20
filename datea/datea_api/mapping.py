@@ -73,6 +73,7 @@ class MappingResource(MappingBaseResource):
         authorization = DateaBaseAuthorization()
         cache = SimpleCache(timeout=10)
         limit = 20
+        always_return_data = True
         
 
 
@@ -171,6 +172,7 @@ class MapItemResource(DateaBaseGeoResource):
         ordering = ['created']
         limit = 500
         cache = SimpleCache(timeout=10)
+        always_return_data = True
         
         
 
@@ -232,4 +234,5 @@ class MapItemResponseResource(DateaBaseResource):
         }
         limit = 20
         cache = SimpleCache(timeout=10)
+        always_return_data = True
         

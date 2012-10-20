@@ -8,7 +8,6 @@ class VoteResource(DateaBaseResource):
     def hydrate(self,bundle):
         
         if bundle.request.method == 'POST':
-            print "USER IN BUNDLE REQUEST", bundle.request.user
             bundle.obj.user = bundle.request.user  
             
         return bundle
@@ -19,3 +18,4 @@ class VoteResource(DateaBaseResource):
         allowed_methods = ['get','post','delete']
         authentication = ApiKeyPlusWebAuthentication()
         authorization = DateaBaseAuthorization()
+        always_return_data = True

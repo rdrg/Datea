@@ -1,4 +1,5 @@
 import os
+from django.utils.translation import ugettext_lazy as _
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -36,6 +37,13 @@ EMAIL_USE_TLS = True
 SEND_BROKEN_LINK_EMAILS = True
 EMAIL_SUBJECT_PREFIX = '[Datea]'
 
+ENVELOPE_EMAIL_RECIPIENTS = ['someone@example.com']
+ENVELOPE_SUBJECT_INTRO = '[contact example] '
+ENVELOPE_CONTACT_CHOICES = (
+         (10,    _("A general question regarding the website")),
+         (None,   _("Information about services we provide")),                   
+)
+
 TWITTER_CONSUMER_KEY = ''
 TWITTER_CONSUMER_SECRET = ''
 
@@ -46,3 +54,9 @@ OPENGRAPH_DEFAULT_IMAGE = os.path.join(STATIC_URL,'img/datea/datea_iso.png')
 
 GOOGLE_OAUTH2_CLIENT_ID = ''
 GOOGLE_OAUTH2_CLIENT_SECRET = ''
+
+
+BLOG_FEED_CACHE_TIMEOUT = 3600
+BLOG_FEED_URL = 'http://blog.datea.pe/?feed=rss2'
+BLOG_URL = 'http://blog.datea.pe'
+BLOG_NAME = 'blog datero'

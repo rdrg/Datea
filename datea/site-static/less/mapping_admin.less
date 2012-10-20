@@ -1,10 +1,10 @@
 
 #mapping-settings-control {
-	position:relative;
+	position:absolute;
+	top: -5px;
+	right: 0;
 	z-index: 150;
 	.mapping-control-button {
-		float: right;
-		margin-top: 5px;
 		.caret {
 			color: #8d9c8c;
 		}
@@ -12,24 +12,15 @@
 }
 
 
-.mapping-edit-title {
-	
+#admin-zone-head {
+	padding: 20px 0;
 	h1 {
 		color: @green;
 		font-size: 24px;
 		line-height: 30px;
 		margin-bottom: 0px;
 	}
-	
-	.bg {
-		background-color: #eee;
-		z-index: -1;
-		position:absolute;
-		top: 70px;
-		height: 80px;
-		left: 0px;
-		right: 0px;
-	}
+	background-color: #eee;	
 }
 
 #mapping-head-form {

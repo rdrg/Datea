@@ -30,6 +30,7 @@ class FollowResource(DateaBaseResource):
         authentication = ApiKeyPlusWebAuthentication()
         authorization = DateaBaseAuthorization()
         limit = 50
+        always_return_data = True
         
         
 class HistoryResource(DateaBaseResource):
@@ -104,6 +105,7 @@ class NotifySettingsResource(DateaBaseResource):
         limit = 1
         authentication = ApiKeyPlusWebAuthentication()
         authorization = DateaBaseAuthorization()
+        always_return_data = True
         
     
         

@@ -8,10 +8,10 @@
 				<div id="head-nav-right" class="pull-right">
 					<div id="navbar-items">
 						{% get_menu "main_menu_es" as main_menu %}
-							<a href="/" alt="{% trans "Home"%}" title="{% trans "Home"%}">{% trans "Home"%}</a> 
+							<a href="/" title="{% trans "Home"%}">{% trans "Home"%}</a> 
 							<span class="separator">|</span>
 						{% for item in main_menu %}
-							<a href="{{item.url}}" alt="{{item.name}}" title="{{item.page_title}}">{{item.name}}</a> 
+							<a href="{{item.url}}" title="{{item.page_title}}">{{item.name}}</a> 
                         	{% if not forloop.last %}<span class="separator">|</span>{% endif %}
                         {% endfor %}
                		 </div>
@@ -19,7 +19,7 @@
 					<div id="user_head_view"></div>
 				</div>
 				<a href="/" id="logo">
-					<img src="{{STATIC_URL}}img/datea/logo_header2.png" />
+					<img src="{{STATIC_URL}}img/datea/logo_header2.png" alt="logo" />
                 </a>
                 <span class="beta">beta</span>
 			</div>
@@ -41,10 +41,10 @@
 					<div id="footer-left" class="span6">
 						<div id="footer-menu">
 							{% get_menu "footer_menu_es" as footer_menu %}
-								<a href="/" alt="{% trans "Home"%}" title="{% trans "Home"%}">{% trans "Home"%}</a> 
+								<a href="/" title="{% trans "Home"%}">{% trans "Home"%}</a> 
 								<span class="separator">|</span>
 							{% for item in footer_menu %}
-								<a href="{{item.url}}" alt="{{item.name}}" title="{{item.page_title}}">{{item.name}}</a> 
+								<a href="{{item.url}}" title="{{item.page_title}}">{{item.name}}</a> 
 	                        	{% if not forloop.last %}<span class="separator">|</span>{% endif %}
 	                        {% endfor %}
                         </div>

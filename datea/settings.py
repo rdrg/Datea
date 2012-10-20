@@ -169,13 +169,14 @@ INSTALLED_APPS = (
     'django_extensions',
     #'easy_thumbnails',
     'sorl.thumbnail',
-    'backbone_tastypie',
     'ckeditor',
     
     # geodjango / location
     "django.contrib.gis",
     'olwidget',
     'haystack',
+    'envelope',
+    'honeypot',
     
     # DATEA
     'datea',
@@ -191,7 +192,7 @@ INSTALLED_APPS = (
     'datea.datea_api',
     'datea.datea_comment',
     'datea.datea_menu',
-    
+    'datea.datea_blogfeed',
 )
 
 # A sample logging configuration. The only tangible logging
@@ -271,6 +272,8 @@ SOCIAL_AUTH_EXPIRATION = 'expires'
 SOCIAL_AUTH_ASSOCIATE_BY_MAIL = True
 
 ACCOUNT_ACTIVATION_DAYS = 7 
+
+HONEYPOT_FIELD_NAME = 'phone'
 
 # EASY THUMBNAILS HAS PROBLEMS WITH TASTYPIE RELATED FIELDS OR DJANGO 1.4!!! 
 #Thumbnails definitions
