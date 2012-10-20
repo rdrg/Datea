@@ -10,6 +10,11 @@ cp schema.xml path-to-apache-sorl/example/sorl/conf/ (use schema.xml in this dir
 cd example
 java -jar start.jar
 
+or tor un more than one instance on a machine, specify a different port 
+and index location as follows:
+
+java -Dsolr.data.dir=<path> -Djetty.port=<port f.e.8984 instead of 8983> -jar start.jar
+
 then execute the following django commands:
 
 ./manage.py rebuild_index
