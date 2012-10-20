@@ -1,4 +1,3 @@
--e git://github.com/PaulUithol/backbone-tastypie.git@f253883cc908a643f3b017f5cd848f3180d75567#egg=Backbone_tastypie-dev
 Django==1.4.1
 PIL==1.1.7
 Pillow==1.7.7

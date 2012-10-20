@@ -50,5 +50,6 @@ class CommentResource(DateaBaseResource):
         authorization = DateaBaseAuthorization()
         limit = 50
         ordering=['created']
+        always_return_data = True
         
         

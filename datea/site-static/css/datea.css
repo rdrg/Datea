@@ -340,6 +340,7 @@ h1 {
 
 .blog-feed-block {
   background-color: #efefef;
+  border: 1px solid #cecece;
 }
 
 .blog-feed-block h3 {
@@ -358,7 +359,7 @@ h1 {
 }
 
 .blog-feed-block ul.blog-entries li .title {
-  font-size: 15px;
+  font-size: 16px;
 }
 
 .blog-feed-block ul.blog-entries li .title a {

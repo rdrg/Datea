@@ -59,6 +59,7 @@ class ProfileResource(DateaBaseResource):
             'user': ALL_WITH_RELATIONS,
         }
         exclude = ['image','image_social', 'created']
+        always_return_data = True
 
 
 
@@ -128,6 +129,7 @@ class UserResource(DateaBaseResource):
             'username': ALL,
             'id': ALL,
         }
+        always_return_data = True
         
 
 

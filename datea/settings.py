@@ -169,7 +169,6 @@ INSTALLED_APPS = (
     'django_extensions',
     #'easy_thumbnails',
     'sorl.thumbnail',
-    'backbone_tastypie',
     'ckeditor',
     
     # geodjango / location

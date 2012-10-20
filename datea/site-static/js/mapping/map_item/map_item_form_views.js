@@ -245,7 +245,7 @@ window.Datea.MapItemPointFieldView = Backbone.View.extend({
 		    { "layers": ['google.streets', 'google.hybrid'],
 		      "mapDivStyle": {'width': $mapDiv.css('width'), 'height': $mapDiv.css('height')},
 		      "overlayStyle": {
-		      	"externalGraphic": "/static/js/datea_openlayers/img/marker.png", 
+		      	"externalGraphic": "/static/js/libs/datea_openlayers/img/marker.png", 
 		      	"graphicHeight": 21, 
 		      	"graphicWidth": 16, 
 		      	"graphicOpacity": 1

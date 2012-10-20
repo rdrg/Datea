@@ -25,7 +25,7 @@ class XsSharing(object):
         Access-Control-Allow-Methods: POST, GET, OPTIONS, PUT, DELETE
     """
     def process_request(self, request):
-
+        print request.META
         if 'HTTP_ACCESS_CONTROL_REQUEST_METHOD' in request.META:
             response = http.HttpResponse()
             response['Access-Control-Allow-Origin']  = XS_SHARING_ALLOWED_ORIGINS 
