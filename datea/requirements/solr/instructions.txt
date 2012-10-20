@@ -1,6 +1,8 @@
 
 based on http://django-haystack.readthedocs.org/en/latest/installing_search_engines.html
 
+requirements: jre and jetty
+
 cd somewhere 
 wget http://apache.mirrors.tds.net/lucene/solr/3.6.1/apache-solr-3.6.1.tgz
 tar xvzf apache-solr-3.6.1.tgz
