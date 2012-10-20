@@ -269,10 +269,11 @@ def save_image_api(request):
         print "form invalid"
         print form.errors
 
-    context = Context({'data': data})
-    tpl = Template('<textarea data-type="application/json">{{ data|safe }}</textarea>')
+    #context = Context({'data': data})
+    #tpl = Template('<textarea data-type="application/json">{{ data|safe }}</textarea>')
        
-    return HttpResponse(tpl.render(context))
+    #return HttpResponse(tpl.render(context))
+    return HttpResponse(data, mimetype="apllication/json")
     
 ######################## image upload using base 64 string ################################# 
 #@ensure_csrf_cookie
