@@ -1,0 +1,44 @@
+Django==1.4.1
+PIL==1.1.7
+Pillow==1.7.7
+South==0.7.5
+argparse==1.2.1
+cssmin==0.1.4
+distribute==0.6.24
+django-appconf==0.5
+django-bootstrap-toolkit==2.5.3
+django-ckeditor==3.6.2.1
+django-compressor==1.1.2
+django-debug-toolbar==0.9.4
+-e git://github.com/zsiciarz/django-envelope.git@7223716e243f99ef6b28f1f3734a74ef24fe2e9c#egg=django_envelope-dev
+django-extensions==0.8
+-e git://github.com/sehmaschine/django-grappelli.git@16dbfcb54c1512309aba5b09a6d36a6e1c3ac266#egg=django_grappelli-dev
+-e git://github.com/lukaszb/django-guardian.git@6e88f841c4a8413e1c1202d17e860ba18616126e#egg=django_guardian-dev
+-e git://github.com/toastdriven/django-haystack.git@13e5a4926992581106ed14db1f8dd58a897c9a76#egg=django_haystack-dev
+django-honeypot==0.3.0
+django-mptt==0.5.2
+django-olwidget==0.50
+django-registration==0.8
+django-social-auth==0.6.9
+-e git://github.com/toastdriven/django-tastypie.git@e08b4f683ea907328538598a33626503d30f8075#egg=django_tastypie-dev
+django-templated-email==0.4.7
+-e git://github.com/SmileyChris/easy-thumbnails.git@8661b1f30065b8e6c0df4fe3ad55df18a2e4441a#egg=easy_thumbnails-dev
+feedparser==5.1.2
+## FIXME: could not find svn URL in dependency_links for this package:
+flup==1.0.3.dev-20110405
+geopy==0.94.2
+html5lib==0.95
+httplib2==0.7.4
+mimeparse==0.1.3
+oauth2==1.5.211
+odict==1.5.0
+ply==3.4
+psycopg2==2.4.5
+pysolr==2.1.0-beta
+python-dateutil==1.5
+python-memcached==1.48
+python-openid==2.2.5
+slimit==0.7.4
+sorl-thumbnail==11.12
+svgwrite==1.0.1
+wsgiref==0.1.2

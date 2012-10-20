@@ -1,0 +1,1 @@
+{% load i18n %}[{{site.name}}] {% blocktrans with acting_obj.user.username as aname and receiver_obj.user.username as rname %}{{ aname }} now follows {{rname}}'s action:{% endblocktrans %} {{ receiver_obj.name }}

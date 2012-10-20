@@ -1,0 +1,16 @@
+{% load i18n verbatim_tag %}
+{% verbatim %}
+<script id="fb_button_tpl" type="text/html">
+	{#<div class="fb-like" data-href="http://datea.pe" data-send="false" data-layout="button_count" data-width="120" data-show-faces="false"></div>#}
+	<div class="share-button fb-share">
+		<fb:like href="{{ full_url }}" send="false" layout="button_count" width="90" show_faces="false"></fb:like>
+	</div>
+</script>
+
+<script id="tw_button_tpl" type="text/html">
+	<div class="share-button tw-share">
+		<a href="https://twitter.com/share" class="twitter-share-button" data-url="{{ full_url }}" data-text="{{ tweet_text }}" data-lang="es" data-hashtags="{{ hashtag }}">Twittear</a>
+	</div>
+</script>
+{% endverbatim %}
+

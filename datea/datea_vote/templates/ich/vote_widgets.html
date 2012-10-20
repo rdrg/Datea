@@ -1,0 +1,14 @@
+{% load i18n verbatim_tag %}
+{% verbatim %}
+<script id="vote_widget_tpl" type="text/html">
+	<div class="widget-icon"></div>
+	<div class="widget-text">
+		<div class="widget-hover-msg">{{msg}}</div>
+		<div class="widget-info">
+			<div class="widget-counter">{{ vote_count }}</div>
+			<div class="widget-info-label">{% trans "support" %}</div>
+		</div>
+	</div>
+</script>
+{% endverbatim %}
+

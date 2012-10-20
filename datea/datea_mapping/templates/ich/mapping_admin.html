@@ -1,0 +1,108 @@
+{% load i18n verbatim_tag bootstrap_toolkit datea_mapping_tags %}
+{% get_map_item_form as form %}
+
+<script id="mapping_admin_list_tpl" type="text/html">
+
+	<form id="mapping-admin-head-form" class="form form-inline">
+		{% verbatim %}
+		<div class="pull-right back-button">
+			<a href="#{{ url }}" class="prev-link"><span class="icon">&nbsp;</span>{% trans "back to mapping" %}</a>
+		</div>
+		{# <span class="backlink"><a href="{{url}}">&lt;&lt; {% trans "back"%}</a></span> #}
+		<div class="mapping-filters">
+			<span class="title">{% trans 'filter' %}:</span>
+			<ul class="filters">
+				{{#has_categories}}<li class="filter category-filter"></li>{{/has_categories}}
+				<li class="filter status-filter"></li>
+				<li class="filter published-filter"></li>
+				{#<li class="filter time-filter"></li>#}
+			</ul>
+		</div>
+		{% endverbatim %}
+	</form>
+	
+	<div class="no-results-msg alert hide">{% trans "No results were found. Check the filters above." %}</div>
+	
+	<table class="table table-striped map-item-admin-table">
+		<thead>
+			<tr>
+				<th></th>
+				<th>#</th>
+				{% verbatim %}{{#has_categories}}{% endverbatim %}<th>{{ form.category.label }}</th>{% verbatim %}{{/has_categories}}{% endverbatim %}
+				<th>{% trans "Date" %}</th>
+				<th>{{ form.user.label }}</th>
+				<th>{{ form.content.label }}</th>
+				{#<th>{{ form.published.label }}</th>#}
+				<th></th>
+			</tr>
+		</thead>
+		<tbody class="item-list"></tbody>
+	</table>
+	<div class="item-pager"></div>
+</script>
+
+{% verbatim %}
+<script id="map_item_admin_list_item_tpl" type="text/html">
+	<td><input type="checkbox" name="select-report-id" value="{{ id }}" /></td>
+	<td>{{ id }}</td>
+	{{#has_categories}}
+		<td>
+			{{#category}}
+			<span class="badge badge-truncated" style="background-color: {{ color }}">
+				{{ category_name }}
+			</span>
+			{{/category}}
+		</td>
+	{{/has_categories}}
+	<td>{{ created }}</td>
+	<td>{{ user.username }}</td>
+	<td>{{ extract }}</td>
+	{#<td>{{# published }}{{ published }}{{/published}}</td>#}
+	<td>
+		<button class="btn btn-small expand-view"><i class="icon-chevron-down"></i></button>
+	</td>
+</script>
+
+
+<script id="map_item_admin_list_item_full_tpl" type="text/html">
+	<td><input type="checkbox" name="select-report-id" value="{{ id }}" /></td>
+	<td>{{ id }}</td>
+	<td colspan="{{#has_categories}}4{{/has_categories}}{{^has_categories}}3{{/has_categories}}">
+		<div class="item-edit-wrap">
+			
+			{{>map_item_admin_full_tpl}}
+			
+			<div class="response"></div>
+			
+			<form class="form form-inline item-admin-form" action="">
+				<span class="buttons pull-right">
+					<button class="btn btn-danger delete-map-item-ask" type="button" data-id="{{id}}">{% trans "Delete" %}</button>
+					<button class="btn save-item" type="button">{% trans "Save" %}</button>
+					<button class="btn respond-item" type="button">{% trans "New Reply" %}</button> 
+				</span>
+				{{#has_categories}}
+					<span class="field">
+						<label>{% trans "Category" %}:</label>
+						<span class="category-field"></span>
+					</span>
+				{{/has_categories}}
+				
+				<span class="field">
+					<label>{% trans "Status" %}:</label>
+					<span class="status-field"></span>
+				</span>
+				<span class="field">
+					<label class="checkbox">{% trans "Published" %}:</label>
+					<input type="checkbox" name="published" {{#published}}checked="checked"{{/published}} />
+				</span>
+				<span class="free-space">&nbsp;</span>
+			</form>
+		</div>
+	</td>
+	<td style="vertical-align:bottom">
+		<button class="btn btn-small collapse-view"><i class="icon-chevron-up"></i></button>
+	</td>
+</script>
+
+{% endverbatim %}
+

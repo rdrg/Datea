@@ -1,0 +1,97 @@
+
+#head-nav {
+	
+	#head-nav-right {
+		
+		#navbar-items {
+			padding-top: 38px;
+			float: left;
+			margin-right: 12px;
+			a {
+				color: black;
+				font-size: @baseFontSize + 2px;
+			}
+			.separator {
+				vertical-align: text-top;
+				padding: 0 7px;
+			} 
+		}
+		#user_head_view {
+			float:right;
+			
+		}
+	}
+	
+	.beta {
+		line-height: 30px;
+		font-size: @baseFontSize - 2px;
+	}
+}
+
+
+#logo {
+	margin-top:14px;
+	margin-left: 15px;
+	display: inline-block;
+	.ie7-inline-block();
+	
+	img {
+		display:block;
+	}
+}
+
+#user_head_view {
+	float: left;
+	margin-right: 0px;
+	padding-right: 0px;
+	.clearfix();
+	display: block;
+	
+	#user-header {
+		margin-right: 10px;
+		padding-right: 0px;
+		
+		.image {
+			float: left;
+			display: block;
+			a img {
+				margin-top:8px;
+				display: block;
+			}
+		}
+		ul.nav {
+			float:left;
+			display: block;
+			margin: 0px !important;
+			width: auto; 
+			.dropdown-toggle {
+				padding: 6px 0px 0 6px;
+				font-size: 14px;
+			}
+			.dropdown-menu {
+				top: 30px;
+				right:-12px;
+			}
+		}
+	}
+	
+	#login-header {
+		display: inline-block;
+		.ie7-inline-block();
+		text-align: center;
+		a.btn-login { margin-top:10px; margin-bottom: 2px;}
+		.reg-link { }
+		margin-left:40px;
+	}
+}
+
+#setting-controls {
+	float: left;
+	margin-right: 15px;
+	.btn-group {
+		button { width: 70px;}
+		padding-top: 21px;
+		padding-bottom:0px;
+		img {display: inline}
+	}
+}

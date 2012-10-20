@@ -1,0 +1,17 @@
+{% extends "layouts/right_bar.html"%}
+{% load i18n %}
+{% load envelope_tags bootstrap_toolkit %}
+
+{% block left_content %}
+	<h1>{% trans 'Contact' %}</h1>
+	<section>
+	  <form class="contact-form" action="{% url envelope-contact %}" method="post">
+		  {% csrf_token %}
+		  {% antispam_fields %}
+  
+        	{{ form|as_bootstrap }}
+       
+        	<input class="btn btn-large btn-success" type="submit" value="{% trans "Send!" %}" />
+	  </form>
+	</section>
+{% endblock %}

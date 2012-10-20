@@ -1,0 +1,69 @@
+
+#registration {
+	
+	p.desc { font-size: @baseFontSize + 2px;}	
+}
+
+.registration-bubble {
+	background: url(../img/datea/fondo_registro.png) no-repeat left top;
+	margin-top: 16px;
+	width: 358px;
+	height: 141px;
+	position: relative;
+	.inner {
+		padding: 30px 150px 26px 25px;
+		.msg {
+			font-size: @baseFontSize + 3px;
+			color: white;
+		}
+		.button{
+			position: absolute;
+			bottom: 27px;
+		}
+	}
+}
+
+.social-auth-buttons {
+			
+	margin-bottom: 25px;
+	.button-box {
+		display: inline-block;
+		.ie7-inline-block();
+		background-color: #f9f9f9;
+		padding: 12px 12px;
+		position: relative;
+		left: -6px;
+		.login-button {
+			display: block;
+			/*.ie7-inline-block();*/
+			width: 218px;
+			height: 30px;
+			margin-bottom: 15px;
+			line-height: 30px;
+			/*margin-right: 10px;*/
+			span {
+				visibility: hidden;
+			}
+			
+			&.last {
+				margin-bottom: 0px;
+			}
+			
+			&.facebook {
+				background: url(../img/datea/login_facebook2.png) no-repeat left top;
+			}
+			&.twitter {
+				background: url(../img/datea/login_twitter2.png) no-repeat left top;
+			}
+			&.google {
+				background: url(../img/datea/login_google2.png) no-repeat left top;
+			}
+			.box-shadow(0 1px 3px rgba(0,0,0,.25));
+			
+			&:hover {
+				.opacity(80);
+				.box-shadow(0 0px 0px rgba(0,0,0,.25));
+			}
+		}
+	}
+}

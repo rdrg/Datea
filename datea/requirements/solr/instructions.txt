@@ -1,0 +1,17 @@
+
+based on http://django-haystack.readthedocs.org/en/latest/installing_search_engines.html
+
+cd somewhere 
+wget http://apache.mirrors.tds.net/lucene/solr/3.6.1/apache-solr-3.6.1.tgz
+tar xvzf apache-solr-3.6.1.tgz
+
+cp schema.xml path-to-apache-sorl/example/sorl/conf/ (use schema.xml in this directory)
+
+cd example
+java -jar start.jar
+
+then execute the following django commands:
+
+./manage.py rebuild_index
+
+the indexing process runs in realtime at the moment. Later on, I'll probably try with a cron script.  

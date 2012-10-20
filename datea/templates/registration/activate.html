@@ -1,0 +1,21 @@
+{% extends "registration/registration_base.html" %}
+{% load i18n %}
+{% block title %}{% if account %}{% trans "Activation complete" %}{% else %}{% trans "Activation problem" %}{% endif %}{% endblock %}
+{% block content_left %}
+
+<h1>{% trans "Account activation" %}</h1>
+
+{% if account %}
+<p class="desc">
+{% blocktrans %}Thanks {{ account }}, activation complete!  You may now{% endblocktrans %} <a class="btn btn-primary btn-pointy btn-large btn-uppercase" href='{% url auth_login %}'>login<div class="pointer"></div></a> {% blocktrans %} using the username and password you set at registration.{% endblocktrans %}
+{% else %}
+{% trans "Oops &ndash; it seems that your activation key is invalid.  Please check the url again." %}
+{% endif %}
+</p>
+{% endblock %}
+
+{% block content_right %}
+	{% include "registration/_bubble_login.html" %}
+{% endblock %}
+
+

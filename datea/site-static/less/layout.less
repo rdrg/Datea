@@ -1,0 +1,127 @@
+
+#main-content {
+	margin-top: 10px;
+}
+
+#main-content-view {
+	min-height: 300px;
+}
+
+.gridCoreSpan(@columns, @gridColumnWidth, @gridGutterWidth) {
+  width: (@gridColumnWidth * @columns) + (@gridGutterWidth * (@columns - 1));
+  *width: (@gridColumnWidth * @columns) + (@gridGutterWidth * (@columns - 1) - 1px);
+}
+
+.span1-5 {
+  .gridCoreSpan( 1.5, @gridColumnWidth, @gridGutterWidth);
+}
+
+.span1-75 {
+  .gridCoreSpan( 1.75, @gridColumnWidth, @gridGutterWidth);
+}
+
+.span2-5 {
+  .gridCoreSpan( 2.5, @gridColumnWidth, @gridGutterWidth);
+}
+
+.span3-5 {
+  .gridCoreSpan( 3.5, @gridColumnWidth, @gridGutterWidth);
+}
+
+.span6-5 {
+  .gridCoreSpan( 6.5, @gridColumnWidth, @gridGutterWidth);
+}
+
+.span9-5 {
+  .gridCoreSpan( 9.5, @gridColumnWidth, @gridGutterWidth);
+}
+
+.span2-fix {
+  .gridCoreSpan( 2, @gridColumnWidth, @gridGutterWidth);
+}
+.span3-fix {
+  .gridCoreSpan( 3, @gridColumnWidth, @gridGutterWidth);
+}
+.span4-fix {
+  .gridCoreSpan( 4, @gridColumnWidth, @gridGutterWidth);
+}
+.span5-fix {
+  .gridCoreSpan( 4, @gridColumnWidth, @gridGutterWidth);
+}
+
+
+.span6-fix {
+  .gridCoreSpan( 6, @gridColumnWidth, @gridGutterWidth);
+}
+
+.span6-fix-complement {
+  .gridCoreSpan( 6, @gridColumnWidth, @gridGutterWidth);
+}
+
+
+
+
+
+
+
+// PORTRAIT TABLET TO DEFAULT DESKTOP
+// ----------------------------------
+@media (min-width: 768px) and (max-width: 979px) {
+
+  .span1-5 {
+      .gridCoreSpan( 1.5, 42px, 20px);
+  }
+  .span1-75 {
+      .gridCoreSpan( 1.75, 42px, 20px);
+  }
+  .span2-5 {
+      .gridCoreSpan( 2.5, 42px, 20px);
+  }
+  .span3-5 {
+      .gridCoreSpan( 3.5, 42px, 20px);
+  }
+  .span6-5 {
+      .gridCoreSpan( 6.5, 42px, 20px);
+  }
+  .span9-5 {
+      .gridCoreSpan( 9.5, 42px, 20px);
+  }
+  .span6-fix {
+  	.gridCoreSpan( 6, 42px, 20px);
+  }
+  .span6-fix-complement {
+      .gridCoreSpan( 6, 42px, 20px);
+  }
+}
+
+// LARGE DESKTOP & UP
+// ------------------
+@media (min-width: 1200px) {
+  
+  .span1-5 {
+      .gridCoreSpan( 1.5, 70px, 30px);
+  }
+  .span1-75 {
+      .gridCoreSpan( 1.75, 70px, 30px);
+  }
+  .span2-5 {
+      .gridCoreSpan( 2.5, 70px, 30px);
+  }
+  .span3-5 {
+      .gridCoreSpan( 3.5, 70px, 30px);
+  }
+  .span3-6 {
+      .gridCoreSpan( 3.5, 70px, 30px);
+  }
+  .span9-5 {
+      .gridCoreSpan( 9.5, 70px, 30px);
+  }
+  
+  .span6-fix {
+  	.gridCoreSpan( 6, 60px, 20px);
+  }
+  
+  .span6-fix-complement {
+      width: 680px;
+  }
+}

@@ -1,0 +1,148 @@
+
+.map-item-form {
+	position: relative;
+	
+	.modal-body {
+		padding-bottom: 0px;
+	}
+	
+	.map-item-step-control {
+		position: absolute;
+		top: 23px;
+		right: 230px;
+		margin-bottom: 0px;
+		border-bottom:0px;
+		padding-bottom:0px;
+		font-size: 18px;
+		font-weight: normal;
+		color: @grayLighter;
+		
+		li {
+			a {  
+				border: 0;
+				color: lighten(@grayLight, 20%);
+				display:inline;
+				background-color: transparent;
+				margin: 0 5px 0 7px;	
+				&:hover {
+					border:0;
+					color: @gray;	
+				}
+			}
+			&.active {
+				a {
+					color: @grayText;
+				}
+			}
+		}
+	}
+	
+	.step-title {
+		font-size: 15px;
+		margin-bottom: 15px;
+	}
+	
+	.category-options {
+		label.radio {
+			font-size: 14px;
+			margin-bottom: 10px;
+		}
+	}
+	
+	.control-group {
+		label.control-label { 
+			font-size: @baseFontSize - 1px;
+			margin-bottom: 1px;
+			color: @grayText;
+		}
+		&.error {
+			label.control-label {
+				color: @errorText;
+			}
+		}
+		
+		margin-bottom:15px;
+	}
+	
+	.verify-item {
+		.change {
+			margin-left: 4px; 
+			line-height: 16px;
+			text-decoration: none; 
+			color: @grayText;
+			.opacity(60);
+			&:hover {
+				.opacity(100);
+			}
+		}
+		margin-bottom: 15px;
+		.verify-image {
+			margin-bottom: 10px;
+		}
+	}
+	
+	.success-msg {
+		font-size: 15px;
+		margin-bottom: 10px;
+	}
+	
+	.share {
+		.share-text {
+			margin-bottom: 5px;
+		}
+		margin-bottom: 10px;
+		padding-top: 15px;
+		.share-group {
+			padding: 10px 0;
+			.clearfix();
+			.share-button {
+				float:left;
+				display: block;
+				width:110px;
+			}
+			.connect_comment_widget, .fb_iframe_widget {
+				max-width: 200px !important;
+			}
+		}
+	}
+	
+	.map-head {
+		.clearfix();
+		margin-bottom:1px;
+		position: relative;
+		.pull-right {
+			position:relative;
+			top:-9px;
+			text-align:right;
+			
+			.no-location {
+				font-size: @baseFontSize - 1px;
+				color: @grayText;
+				margin-bottom: 4px;
+				display: block;
+				&:hover {
+					color: @verde;
+				}
+			}
+			
+			#search-location-form{
+				margin: 0;
+				input.search-query {
+					padding: 2px 10px;
+					line-height: @baseLineHeight - 3px;
+					font-size: @baseFontSize - 1px;
+				}
+			}
+		}
+	}
+	
+}
+
+.step-control {
+	.prev {
+		.prev-link;
+	}
+	.next {
+		.next-link;
+	}
+}

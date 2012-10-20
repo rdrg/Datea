@@ -1,0 +1,20 @@
+{% load i18n verbatim_tag %}
+{% verbatim %}
+<script id="dropdown_select_tpl" type="text/html">
+    <button class="btn dropdown-toggle btn-dropdown-select" data-toggle="dropdown">
+    	<span class="name"></span> <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu options">
+    	{{#options}}
+    		<li><a href="#" data-value="{{ value }}">{{& name }}</a></li>
+    	{{/options}}
+    </ul>
+</script>
+
+<script id="colorpicker_field_tpl" type="text/html">
+	<div class="input-append color colorfield" data-color="{{color}}" data-color-format="rgb">
+    	<input type="text" class="span2" value="{{color}}" >
+    	<span class="add-on"><i style="background-color: {{color}}"></i></span>
+    </div>
+</script>
+{% endverbatim %}

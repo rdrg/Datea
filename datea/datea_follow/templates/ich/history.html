@@ -1,0 +1,51 @@
+{% load i18n verbatim_tag %}
+{% verbatim %}
+
+{# MAP ITEMS #}
+<script id="map_item_history_receiver" type="text/html"><a href="#{{url}}">{% trans "{{ name }}'s report" %}</a></script>
+<script id="map_item_history_sender" type="text/html"><a href="#{{ user_url }}">{{ username }}</a> {% trans "created a new report in" %} "{{& receiver_html }}"</script>
+
+{# MAP ITEM RESPONSE #}
+<script id="map_item_response_history_sender" type="text/html"><a href="#{{ user_url }}">{{ username }}</a> {% trans "replied to" %} {{& receiver_html }}</script>
+
+{# COMMENT #}
+<script id="comment_history_sender" type="text/html"><a href="#{{ user_url }}">{{ username }}</a> {% trans "made a comment in" %} {{& receiver_html }}</script>
+
+{# VOTE #}
+<script id="vote_history_sender" type="text/html"><a href="#{{ user_url }}">{{ username }}</a> {% trans "now supports" %} {{& receiver_html }}</script>
+
+{# FOLLOW #}
+<script id="follow_history_sender" type="text/html"><a href="#{{ user_url }}">{{ username }}</a> {% trans "now follows" %} {{& receiver_html }}</script>
+
+{# ACTION #}
+<script id="action_history_receiver" type="text/html"><a href="#{{url}}">{{ name }}</a></script>
+
+
+{# HISTORY ITEM #}
+<script id="history_item_tpl" type="text/html">
+	<div class="item-row">
+		<div class="item-image">
+			<a href="#{{ user_url }}" title="{{ username }}">
+				<img src="{{ user_image }}" alt="">
+			</a>
+		</div>
+		<div class="item-content">
+			<div class="item-title">{{& title_html }}</div>
+			<div class="item-date">{{ created }}</div>
+			{{#extract}}<div class="item-extract">{{& extract }}</div>{{/extract}}
+			<a class="more-link" href="#{{ link }}">{% trans "read more" %}</a>
+		</div>
+	</div>
+</script>
+
+{# HISTORY LIST VIEW #}
+<script id="history_view_tpl" type="text/html">
+	<div class="head">
+		<div class="filter"></div>
+	</div>
+	<div class="item-list"></div>
+	<div class="item-pager hide"></div>
+</script>
+
+{% endverbatim %}
+

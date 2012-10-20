@@ -1,0 +1,93 @@
+
+.image-input-item {
+	line-height:28px;
+	position:relative;
+	
+	.ajax-loading,
+	.image-icon,
+	.delete-image {
+		height:28px;
+		line-height:28px;
+		margin-bottom:9px;
+	}
+	
+	.ajax-loading, .image-icon {
+		display: inline-block;
+		.ie7-inline-block();
+	}
+	
+	.delete-image, .ajax-loading.hide { display: none}
+	
+	.delete-image, .image-icon, .ajax-loading { 
+		position: relative;
+		top: -4px;
+	}
+	
+	.image-icon {
+		width: 31px;
+		background: url(../img/datea/image_input_icon.png) no-repeat center center;
+	}
+	
+	&.is-full {
+		.thumb { margin-right: 5px;}
+		.image-icon { display: none; }
+		
+		.delete-image {
+			margin-left: 5px;
+			display: inline-block;
+			.ie7-inline-block();
+		}
+	}
+	
+	&.is-empty {
+		.thumb { display: none}
+		.image-icon { margin-right:3px; }
+		&.has-placeholder {
+			.thumb { display: inline-block; margin-right: 5px;}
+			.image-icon { display: none; }
+		}
+	}
+	
+	
+}
+
+.image-input-m2m {
+	.add-button {
+		margin-top: 10px;
+	}
+	.image-input-item {
+		padding-bottom: 15px;
+		&:last-child { padding-bottom:0px;}
+	}
+}
+
+.icono {
+	width: 20px;
+	height: 16px;
+	line-height: 16px;
+	min-height: 16px;
+	display: inline-block;
+	padding-top: 3px;
+	.ie7-inline-block();
+	
+	.ie7-restore-right-whitespace();
+	vertical-align: text-top;
+	background-repeat: no-repeat;
+	
+	&.dateo { background: url(../img/datea/iconitos.png) no-repeat 0px 0;}
+	&.follow { background: url(../img/datea/iconitos.png) no-repeat -20px 0;}
+	&.comment { background: url(../img/datea/iconitos.png) no-repeat -40px 0;}
+	&.vote { background: url(../img/datea/iconitos.png) no-repeat -60px 0;}
+	&.change { background: url(../img/datea/iconitos.png) no-repeat -80px 0;}
+}
+
+.image-row {
+	margin-bottom: 18px;
+	.clearfix();
+	a {
+		margin-right: 4px;
+		&:last-child { margin-right: 0px;}
+		float:left;
+		img { width: 137px; display:block;}
+	}
+}

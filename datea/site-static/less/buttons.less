@@ -1,0 +1,174 @@
+
+.prev-next-base() {
+	color: @grayLight;
+	line-height: 30px;
+	text-decoration: none;
+	.icon {
+		display: inline-block;
+		.ie7-inline-block();
+		 width: 30px;
+	}
+	&:hover { color: @gray; text-decoration: none }
+}
+
+.prev-link {
+	.prev-next-base();
+	.icon {
+		margin-right: 8px; 
+		background: url(../img/datea/prev-next.png) no-repeat 0px center; 
+	}
+	&:hover {
+		.icon { background: url(../img/datea/prev-next.png) no-repeat -30px center; }	
+	}
+}
+
+.next-link {
+	.prev-next-base();
+	.icon { 
+		background: url(../img/datea/prev-next.png) no-repeat -60px center;
+		margin-left: 8px;
+	}
+	&:hover {
+		.icon { background: url(../img/datea/prev-next.png) no-repeat -90px center; }	
+	}
+}
+
+.back-link {
+	color: @grayLight;
+	&:hover { color: @gray; text-decoration: none }
+	line-height: 22px;
+	text-decoration: none;
+	display:inline-block;
+	.ie7-inline-block();
+	
+	.icon {
+		float:left;
+		display: block;
+		width: 22px;
+		margin-right: 6px; 
+		background: url(../img/datea/boton_regresar.png) no-repeat 0px center; 
+	}
+	&:hover {
+		.icon { background: url(../img/datea/boton_regresar.png) no-repeat -22px center; }	
+	}
+}
+
+
+a.open-popup {
+	.mira { 
+		width: 19px;
+		height: 19px;
+		line-height: 19px;
+		min-height: 19px;
+		display: inline-block;
+		.ie7-inline-block();
+		vertical-align: text-top;
+		.ie7-restore-right-whitespace();
+		background: url(../img/datea/mira.png) no-repeat left top;
+		.opacity(50);	
+	}
+	&:hover { 
+		text-decoration: none;
+		.mira {
+			.opacity(100);
+		}	
+	}
+}
+
+
+.btn.btn-pointy {
+	.border-radius(0px);
+	position: relative;
+	
+	padding: 0px 15px;
+	height: 30px;
+	line-height: 30px;
+	margin-right: 18px;
+	
+	font-size: @baseFontSize + 4px;
+	font-weight: bold;
+	
+	background-color: #e2e2dd;
+	color: @grayLight;
+	
+	&.btn-uppercase {
+		text-transform: uppercase;
+	}
+	
+	.pointer {
+		position: absolute;
+		right: -18px;
+		top: 0px;
+		width: 18px;
+		height: 30px;
+		display: block;
+		background: url(../img/datea/boton_flecha.png) no-repeat 0px top;
+	}
+	&:hover {
+		background-color: @amarillo;
+		.pointer {
+			background: url(../img/datea/boton_flecha.png) no-repeat -18px top;
+		}
+	}
+	// Active state
+	&.active,&.btn:active {
+  		background-color: @amarillo;
+  		background-image: none;
+  		outline: 0;
+  		.box-shadow(none);
+	}
+	
+	&.btn-success {
+		color: white;
+		background-color: @verde;
+		.pointer {
+			background: url(../img/datea/boton_flecha.png) no-repeat -36px top;
+		}
+		&:hover {
+			background-color: @verde;
+			color: white;
+			.opacity(85);
+			.pointer {
+				background: url(../img/datea/boton_flecha.png) no-repeat -36px top;
+			}
+		}
+		&.active,&.btn:active {
+			background-color: @verde;
+		}
+	}
+	
+	&.btn-large {
+		padding: 0px 20px;
+		height: 44px;
+		line-height: 44px;
+		margin-right: 25px;
+		
+		font-size: @baseFontSize + 7px;
+		font-weight: bold;
+		
+		.pointer {
+			right: -23px;
+			top: 0px;
+			width: 23px;
+			height: 44px;
+			background: url(../img/datea/boton_flecha_large.png) no-repeat 0px top;
+		}
+		&:hover {
+			.pointer {
+				background: url(../img/datea/boton_flecha_large.png) no-repeat -23px top;
+			}
+		}
+		&.btn-success {
+			.pointer {
+				background: url(../img/datea/boton_flecha_large.png) no-repeat -46px top;
+			}
+			&:hover {
+				.pointer {
+					background: url(../img/datea/boton_flecha_large.png) no-repeat -46px top;
+				}
+			}
+		}
+	}	
+}
+
+

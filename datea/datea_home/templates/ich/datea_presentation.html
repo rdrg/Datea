@@ -1,0 +1,101 @@
+{% load verbatim_tag i18n datea_menu_tags %}
+{% verbatim %}
+<script id="datea_presentation_tpl" type="text/html">
+<div id="presentation-wrapper">
+	<div class="inner container">
+		<div id="datea-presentation" class="row">
+			<div class="span9 left-block">
+		
+				<h1>{{ title }}</h1>
+				
+				<div class="steps">
+					
+					<div class="step create">
+						<div class="inner">
+							<div class="icon"></div>
+							<div class="text">{% trans "initiate collective actions" %}</div>
+						</div>
+					</div>
+				
+					<div class="step participate">
+						<div class="inner">
+							<div class="icon"></div>
+							<div class="text">{% trans "participate, share, support, comment" %}</div>
+						</div>
+					</div>
+					
+					<div class="step visualize">
+						<div class="inner">
+							<div class="icon"></div>
+							<div class="text">{% trans "visualize actions in maps and charts" %}</div>
+						</div>
+					</div>
+					
+					{% get_menu "presentation_menu_es" as menu %}
+					<div class="step goto-menu">
+						<ul class="presentation-menu">
+						{% for item in menu %}
+							<li>
+								&gt; <a href="{{item.url}}" alt="{{item.name}}" title="{{item.page_title}}">{{item.name}}</a>
+							</li>
+		                {% endfor %}
+		             	</ul>
+		             </div>
+				
+				</div>
+				
+			</div>
+			
+			<div class="span3 right-block">
+					
+				<div class="share-group">
+					{{>fb_button_tpl}}
+					{{>tw_button_tpl}}
+				</div>
+				
+				<div class="login-bubble">
+					<div class="reg-link">{% trans 'no account yet?' %}</div>
+					<a class="btn btn-pointy btn-uppercase btn-large" href="{% url registration_register %}">
+						{% trans "Register" %}<div class="pointer">&nbsp;</div>
+					</a>
+					<div class="esquina">&nbsp;</div>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+</div>
+</script>
+
+
+<script id="datea_logged_intro_tpl" type="text/html">
+	<div class="logged-intro alert">
+		
+		<button type="button" class="close" data-dismiss="alert">×</button>
+		
+		<h3>{% trans "First time around here?" %}</h3>
+		
+		<div class="intro-item intro-join">
+			<div class="icon">&nbsp;</div>
+			<div class="text">
+				{% blocktrans %}Search actions of the community, join and contribute.{% endblocktrans %}
+			</div>
+		</div>
+		
+		<div class="intro-item intro-contribute">
+			<div class="icon">&nbsp;</div>
+			<div class="text">
+				{% blocktrans %}Contribute, comment and support each other's contributions.{% endblocktrans %}
+			</div>
+		</div>
+		
+		<div class="intro-item intro-create">
+			<div class="icon">&nbsp;</div>
+			<div class="text">
+				{% blocktrans %}Create actions for others to participate in. <br/>Check your user's menu on the upper right corner.{% endblocktrans %}
+			</div>
+		</div>
+		
+	</div>
+</script>
+{% endverbatim %}

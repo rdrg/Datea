@@ -1,0 +1,12 @@
+{% load i18n %}{% trans "Hi" %} {{ user.username }},
+
+{% blocktrans with acting_obj.user.username as uname and receiver_obj.user.username as runame %}{{ uname }} now follows {{ runame }}'s action{% endblocktrans %} "{{receiver_obj.name}}". 
+
+{% blocktrans with site.domain as domain and receiver_obj.get_absolute_url as url %}
+You can access the action at: http://{{ domain }}{{ url }}
+{% endblocktrans %}
+{% trans 'best' %},
+
+{% blocktrans with site.name as sitename %}The {{sitename}} Team{% endblocktrans %}
+
+{% include 'history/notice_footer.txt' %}

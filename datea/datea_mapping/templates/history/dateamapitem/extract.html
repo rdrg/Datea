@@ -1,0 +1,8 @@
+<div class="map-item-extract">
+	{% if instance.category %}
+	<div class="category">
+		<span class="badge badge-truncated" style="background-color: {{ instance.category.color }}">{{ instance.category.name }}</span>
+	</div>
+	{% endif %}
+	<div class="field">{{ instance.content|striptags|truncatechars:140 }}</div>
+</div>

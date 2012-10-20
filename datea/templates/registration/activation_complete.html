@@ -1,0 +1,23 @@
+{% extends "registration/registration_base.html" %}
+{% load i18n %}
+{% block title %}{% trans "Activation complete" %}{% endblock %}
+{% block content_left %}
+    
+<h1>{% trans "Account activation" %}</h1>
+
+<p class="desc">
+{% blocktrans %}
+Thanks, activation complete!  You may now login using the username and password you set at registration.
+{% endblocktrans %}
+</p>
+<br />
+<div>
+	<a class="btn btn-primary btn-pointy btn-large btn-uppercase" href='{% url auth_login %}'>{% trans 'login' %}<div class="pointer">&nbsp;</div></a>
+</div>
+{% endblock %}
+
+{% block content_right %}
+	{% include "registration/_bubble_login.html" %}
+{% endblock %}
+
+

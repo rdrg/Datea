@@ -1,0 +1,30 @@
+{% load i18n verbatim_tag %}
+<script id="my_user_head_tpl" type="text/html">
+	<div id="user-header">
+		<div class="inner">
+			<div class="image">
+				<a href="/">
+					<img src="{% verbatim %}{{ profile.image }}{% endverbatim %}" />
+				</a>
+			</div>
+			<ul class="nav">
+				<li class="dropdown">
+					<a class="dropdown-toggle" href="#" data-toggle="dropdown">{% verbatim %}{{ username }}{% endverbatim %} <span class="caret2">&nbsp;</b></a>
+					<ul class="dropdown-menu">
+						<li><a class="myprofile-edit-action" href="javascript:void(0);">{% trans "Edit profile" %}</a></li>
+						<li><a href="#/{% trans 'action/start' %}">{% trans 'Create action' %}</a></li>
+						<li class="divider"></li>
+						<li><a href="/accounts/logout?next=/">{% trans 'Log out'%}</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</div>
+</script>
+
+<script id="my_user_head_login_tpl" type="text/html">
+	<div id="login-header">
+		<a href="/accounts/login/" class="btn-login btn btn-pointy btn-success btn-uppercase">{% trans 'Log in' %}<div class="pointer">&nbsp;</div></a>
+		<div class="reg-link">{% trans 'no account yet?' %} <a href="/accounts/register/">{% trans 'register!' %}</a></div>
+	</div>
+</script>

@@ -1,0 +1,29 @@
+{% extends "registration/registration_base.html" %}
+{% load i18n bootstrap_toolkit %}
+{% block title %}{% trans "Login" %}{% endblock %}
+{% block content_left %}
+
+	<h1>{% trans "Login" %}</h1>
+	
+	{% include "social_auth/social-auth-login-links.html" %}
+	
+	{% if request.user.is_authenticated %}<p>{{user.username }}: You are authenticated</p>{% endif %}
+	
+	<p class="desc">{% trans "Or with your Datea account:" %}</p>
+	
+	<form class="form" method="post" action="{% url django.contrib.auth.views.login %}">{% csrf_token %}
+	
+		{{ form|as_bootstrap }}
+		<p>
+			<button class="btn btn-primary btn-large btn-pointy btn-uppercase" type="submit" value="login">{% trans 'Login' %}<div class="pointer"></div></button>
+		</p>
+		
+		<p><a href="{% url auth_password_reset %}">{% trans 'Forgot your password?' %}</a> &nbsp;|&nbsp; <a href="{% url registration_register %}">{% trans 'Need an account?' %}</a></p>
+	
+		<input type="hidden" name="next" value="{{ next }}" />
+	</form>
+{% endblock %}
+
+{% block content_right %}
+	{% include "registration/_bubble_register.html" %}
+{% endblock %}

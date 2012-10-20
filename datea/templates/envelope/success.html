@@ -1,0 +1,9 @@
+{% extends "layouts/right_bar.html"%}
+{% load i18n %}
+
+{% block left_content %}
+	<h1>{% trans 'Thank you!' %}</h1>
+	
+	<p>{% trans "Your message was sent succesfully. We'll get in touch with you asap!" %}</p>
+	<p><a href="/" class="btn">{% trans 'Back to home' %}</a></p>
+{% endblock %}

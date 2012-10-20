@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% load i18n datea_menu_tags %} 
+
+{% block body %}
+	<div id="head-nav" class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container container-target">
+				<div id="head-nav-right" class="pull-right">
+					<div id="navbar-items">
+						{% get_menu "main_menu_es" as main_menu %}
+							<a href="/" title="{% trans "Home"%}">{% trans "Home"%}</a> 
+							<span class="separator">|</span>
+						{% for item in main_menu %}
+							<a href="{{item.url}}" title="{{item.page_title}}">{{item.name}}</a> 
+                        	{% if not forloop.last %}<span class="separator">|</span>{% endif %}
+                        {% endfor %}
+               		 </div>
+					<div id="setting-controls"></div>
+					<div id="user_head_view"></div>
+				</div>
+				<a href="/" id="logo">
+					<img src="{{STATIC_URL}}img/datea/logo_header2.png" alt="logo" />
+                </a>
+                <span class="beta">beta</span>
+			</div>
+		</div>
+	</div>	
+	
+	{% block main_content_wrap %}
+	<div id="main-content-wrap">
+		<div id="main-content" class="container container-target">
+			<div id="main-content-view" class="inner">{% block main_content %}{% endblock %}</div>
+		</div>
+	</div>
+	{% endblock%}
+	
+	{% block footer %}
+		<div id="footer">
+			<div class="inner container container-target">
+				<div class="row row-target">
+					<div id="footer-left" class="span6">
+						<div id="footer-menu">
+							{% get_menu "footer_menu_es" as footer_menu %}
+								<a href="/" title="{% trans "Home"%}">{% trans "Home"%}</a> 
+								<span class="separator">|</span>
+							{% for item in footer_menu %}
+								<a href="{{item.url}}" title="{{item.page_title}}">{{item.name}}</a> 
+	                        	{% if not forloop.last %}<span class="separator">|</span>{% endif %}
+	                        {% endfor %}
+                        </div>
+					</div>
+					
+					<div id="footer-right" class="span6">
+						<div class="copyfight">
+							<img src="{{ STATIC_URL }}img/datea/logo-footer.png" alt="Datea" />
+							<span>datea, todos somos dateros. &copy; {% now 'Y' %}</span>
+						</div>
+						<div class="lafactura">
+							{% trans "a project by" %} <a href="http://www.lafactura.com">LaFactura</a>
+						</div>
+					</div>
+				</div>
+			</div>		
+		</div>
+	{% endblock %}
+
+{% endblock %}

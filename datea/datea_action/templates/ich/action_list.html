@@ -1,0 +1,35 @@
+{% load i18n verbatim_tag %}
+{% verbatim %}
+<script id="action_list_tpl" type="text/html">
+
+	<div id="action-intro" style="display:none">
+		{{>datea_logged_intro_tpl}}
+	</div>
+
+	<div id="action-control">
+		
+		<div class="action-search-box pull-right"> 
+			<form class="action-search-form">
+		    	<input type="text" class="input-medium search-query" id="search-action-input">
+		    	<button type="submit" class="btn"><i class="icon-search"></i></button>
+		    </form>
+		</div> 
+		
+		<div class="filters pull-left"></div>
+		
+	</div>
+		
+	<ul id="action-list"></ul>
+	
+	<div class="action-pager hide"></div>
+	
+</script>
+
+<script id="user_actions_empty_tpl" type="text/html">
+	<div class="actions-result-msg">
+		{% trans "No actions yet (created or followed)." %}
+	</div>
+</script>
+
+{% endverbatim %}
+

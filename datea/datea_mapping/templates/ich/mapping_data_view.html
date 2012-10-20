@@ -1,0 +1,33 @@
+{% load i18n verbatim_tag %}
+
+{% verbatim %}
+<script id="mapping_data_view_tpl" type="text/html">
+	<div class="data-view-head">
+		<div class="pull-right">
+			{{#admin_button}}
+				<div id="mapping-settings-control">{{>mapping_control_button_tpl}}</div>
+			{{/admin_button}}
+			<div class="top-buttons{{#admin_button}} with-admin-button{{/admin_button}}">
+				<a class="json head-icon" href="/api/v1/map_item/?format=json&mapping={{id}}">&nbsp;</a>
+			</div>
+		</div>
+	</div>
+	
+	<div class="data-view-body">
+		<div class="data-view map">
+			<div id="map-data-view" class="resize-target"></div>
+		</div>
+	</div>
+	
+	<div class="data-view-category-leyend hide"></div>
+	
+	<div class="data-view-filters mapping-filters">
+		<span class="title">{% trans 'filter' %}:</span>
+		<ul class="filters">
+			<li class="filter category-filter"></li>
+			<li class="filter status-filter"></li>
+			<li class="filter time-filter"></li>
+		</ul>
+	</div>
+</script>
+{% endverbatim %}

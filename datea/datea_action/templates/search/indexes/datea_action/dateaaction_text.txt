@@ -1,0 +1,4 @@
+{{object.name}}
+{{object.short_description}}
+{{object.hashtag}}
+

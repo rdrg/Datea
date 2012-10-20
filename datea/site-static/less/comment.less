@@ -1,0 +1,64 @@
+
+
+.comments {
+	position:relative;
+	margin-top:25px;
+	
+	h3 {
+		font-size: 14px;
+	}
+	.esquina {
+		left: 20px;
+		top: -9px;
+		position: absolute;
+		display: block;
+		width: 18px;
+		height: 9px;
+		background: url(../img/datea/esquina_comentario.png) no-repeat top left;
+	}
+	
+	.comment-list {
+		background-color: #f1f1ee;
+		.border-radius(8px);
+		padding: 16px 12px;
+		
+		.comment-item {
+			margin-bottom: 13px;
+			padding-bottom: 8px;
+			.clearfix();
+			border-bottom: 1px solid #d5d5d3;
+			&:last-child { border-bottom: 0px; margin-bottom: 0px;}
+			
+			.user-image {
+				float:left;
+				display: block;
+				margin-right: 9px;
+				padding-top: 3px;	
+			}
+			.comment-content {
+				float: left;
+				.comment-text {
+					font-size: @baseFontSize;
+					word-wrap: break-word;
+				}
+				.date {
+					font-size: @baseFontSize - 2px;
+					color: @verde;
+				}
+			}
+		}
+	}
+	
+	.comment-form {
+		margin-top: 15px;
+		.control-group {
+			margin-bottom: 5px;
+			textarea {
+				margin-bottom: 0px;
+				width: 96%;
+			}
+		}
+	}
+}
+
+

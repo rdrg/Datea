@@ -1,0 +1,21 @@
+{% extends "registration/registration_base.html" %}
+{% load i18n bootstrap_toolkit %}
+{% block title %}{% trans 'Register for an account' %}{% endblock %}
+{% block content_left %}
+
+<h1>{% trans "Register" %}</h1>
+
+{% include "social_auth/social-auth-login-links.html" %}
+
+<p class="desc">{% trans "Or you can register an account here at Datea:" %}</p>
+
+<form class="form" method='post' action=''>
+		{% csrf_token %}
+        {{ form|as_bootstrap }}
+        <button class="btn btn-primary btn-large btn-pointy btn-uppercase" type="submit">{% trans 'Register' %}<div class="pointer">&nbsp;</div></button>
+</form>
+{% endblock %}
+
+{% block content_right %}
+	{% include "registration/_bubble_login.html" %}
+{% endblock %}

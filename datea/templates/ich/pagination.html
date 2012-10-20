@@ -1,0 +1,31 @@
+{% load i18n verbatim_tag %}
+{% verbatim %}
+<script id="paginator_page" type="text/html">
+	<li {{& li_attr }}><a href="#" data-page="{{ page }}" class="get-page">{{ page_name }}</a></li>
+</script>
+
+<script id="paginator_first" type="text/html">
+	<li class="first"><a href="#" data-page="0" class="get-page" title="{% trans "first" %}">&laquo;</a></li>
+</script>
+
+<script id="paginator_prev" type="text/html">
+	<li class="prev"><a href="#" data-page="{{ page }}" class="get-page" title="{% trans "previous" %}">&lsaquo;</a></li>
+</script>
+
+<script id="paginator_next" type="text/html">
+	<li class="next"><a href="#" data-page="{{ page }}" class="get-page" title="{% trans "next" %}">&rsaquo;</a></li>
+</script>
+
+<script id="paginator_last" type="text/html">
+	<li class="last"><a href="#" data-page="{{ page }}" class="get-page" title="{% trans "last" %}">&raquo;</a></li>
+</script>
+
+<script id="paginator_separator" type="text/html">
+	<li class="separator">|</li>
+</script>
+
+<script id="paginator_dots" type="text/html">
+	<li class="separator">...</li>
+</script>
+
+{% endverbatim %}

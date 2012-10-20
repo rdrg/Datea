@@ -1,0 +1,106 @@
+
+h1 {
+	color: @verde;
+	font-weight: 400;
+	margin-bottom: 15px;
+}
+
+.dotted-bg-container {
+	position: relative;
+	.dotted-bg {
+		position:absolute;
+		top: 0px;
+		bottom:0px;
+		left:-15px;
+		right: -15px;
+		z-index: -1;
+		.border-radius(8px);
+		background: url(../img/datea/dotted-bg.png) repeat left top;
+	}
+}
+
+.dotted-inner {
+	.border-radius(10px);
+	.box-shadow(1px 1px 2px rgba(0,0,0,.15));
+	margin: 18px 0px 15px 0px;
+	background-color: white;
+	padding: 20px 18px;
+}
+
+#footer {
+	margin-top: 10px;
+	padding-top: 11px;
+	padding-bottom: 10px;
+	border-top: 1px solid #7f7f7f;
+	
+	#footer-menu {
+		a {
+			color: @grayTextDarker;
+			font-size: @baseFontSize + 0px;
+		}
+		.separator { padding:0 6px;}
+	}
+	
+	#footer-right {
+		text-align: right;
+		.copyfight {
+			color: @grayTextDarker;
+			font-size: @baseFontSize;
+		}
+		
+		.lafactura {
+			font-size: @baseFontSize - 1px;
+			line-height: @baseFontSize;
+			color: @grayLight;
+			text-align: right;
+			a {
+				color: @grayLight;
+				&:hover {
+					color: @green;
+				}
+			}
+		}
+	}
+}
+
+.empty-result-msg {
+	text-align: center;
+	padding: 40px 0;
+	color: @grayLight;
+}
+
+.error-text {
+	color: @errorText;
+}
+
+.contact-form {
+	textarea, #id_subject {
+		width: 400px;
+	}
+}
+
+.blog-feed-block {
+	border: 1px solid #cecece;
+	background-color:#efefef;
+	h3 {
+		text-transform: uppercase;
+	}
+	ul.blog-entries {
+		list-style: none;
+		margin-left: 0;
+		margin-bottom:0;
+		li {
+			list-style: none;
+			margin-top: 10px;
+			.title { 
+				font-size: @baseFontSize + 3px;
+				a {color: @grayTextDark; &:hover {color: @green}} 
+			}
+			.date {
+				color: @grayLight; font-size: @baseFontSize - 2px;
+			}
+		}
+	}
+}
+
+

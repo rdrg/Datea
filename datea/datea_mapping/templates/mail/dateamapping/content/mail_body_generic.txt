@@ -1,0 +1,14 @@
+{% load i18n %}{% trans "Hi" %} {{ user.username }},
+
+{% blocktrans with acting_obj.user.username as username and receiver_obj.name as aname %}{{ username }} created a report on {{ aname }}:{% endblocktrans %} 
+
+{% if acting_obj.category %}{{ acting_obj.category.name }}: {% endif %}{{ acting_obj.content|striptags|truncatechars:140 }}
+
+{% blocktrans with site.domain as domain and acting_obj.get_absolute_url as url %}
+You can access the report at: http://{{ domain }}{{ url }}
+{% endblocktrans %}
+{% trans 'best' %},
+
+{% blocktrans with site.name as sitename %}The {{sitename}} Team{% endblocktrans %}
+
+{% include 'history/notice_footer.txt' %}

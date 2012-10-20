@@ -1,0 +1,86 @@
+{% load i18n verbatim_tag %}
+{% verbatim %}
+<script id="action_list_item_tpl" type="text/html">
+	{#<div class="category">{{ category.name }}</div>#}
+	<div class="action-teaser">
+		{{#image}}
+		<div class="teaser-image">
+			<a href="#{{ url }}">
+				<img src="{{image}}" alt="">
+			</a>
+		</div>
+		{{/image}}
+		
+		<div class="teaser-content {{#image}}with-image{{/image}}">
+			<div class="pull-right right-corner">
+				<div class="action-type">{{ type }}</div>
+			</div>
+			
+			<div class="created-data">{% trans "by" %} <a href="#{{user_url}}" title="{% trans 'go to profile' %}">{{username}}</a> <span class="date">{{ created }}</span></div>
+			<h3 class="title"><a href="#{{ url }}">{{ name }}</a></h3>
+			<div class="description">{{ short_description }}</div>
+			
+			{{#active_message}}
+				<div class="active-message">{{& active_message}}</div>
+			{{/active_message}}
+			
+			<div class="footer">
+				<div class="pull-right">
+					<div class="follow-button"></div>
+					<a href="#{{ url }}" class="btn btn-pointy">{% trans "Go" %}<div class="pointer">&nbsp;</div></a>
+				</div>	
+				{{>action_stats_tpl}}
+			</div>
+		</div>
+	</div>
+</script>
+
+
+<script id="action_stats_tpl" type="text/html">
+	<div class="stats">
+		{{#item_count}}
+		<span class="stat item_count">
+			<a title="ver detalle" href="#{{ url }}">
+				{{ item_count }} 
+				<span class="plural">{% trans "contributions" %}</span>
+				<span class="singular" style="display:none">{% trans "contribution" %}</span>
+			</a>
+		</span>
+		<span class="separator">|</span>
+		{{/item_count}}
+		{{#comment_count}}
+		<span class="stat comment_count">
+			<a title="ver detalle" href="#{{ url }}">
+				{{ comment_count }}
+				<span class="plural">{% trans "comments" %}</span>
+				<span class="singular" style="display:none">{% trans "comment" %}</span>
+			</a>
+		</span>
+		<span class="separator">|</span>
+		{{/comment_count }}
+		{{#user_count}}
+		<span class="stat user_count">
+			<a title="ver detalle" href="#{{ url }}">
+				{{ user_count }} 
+				<span class="plural">{% trans "users" %}</span>
+				<span class="singular" style="display:none">{% trans "user" %}</span>
+			</a>
+		</span>
+		<span class="separator">|</span>
+		{{/user_count}}
+	</div>
+</script>
+
+<script id="action_days_left_tpl" type="text/html">
+	<span class="action-active action-days-left"><span class="icono">&nbsp;</span> {% trans "{{ days_left }} days left" %}</span>
+</script>
+
+<script id="action_last_day_tpl" type="text/html">
+	<span class="action-active action-last-day"><span class="icono">&nbsp;</span> {% trans "last day" %}</span>
+</script>
+
+<script id="action_expired_tpl" type="text/html">
+	<span class="action-active action-expired"><span class="icono">&nbsp;</span> <span class="warning">{% trans "action expired" %}</span></span>
+</script>
+
+{% endverbatim %}

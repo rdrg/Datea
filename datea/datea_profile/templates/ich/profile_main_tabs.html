@@ -1,0 +1,22 @@
+{% load i18n verbatim_tag %}
+{% verbatim %}
+<script id="profile_main_tabs_tpl" type="text/html">
+	
+	<ul class="nav nav-tabs profile-tabs dotted-bg-tabs">
+    	<li class="active"><a id="profile-actions-tablink" class="navigate" href="#profile-actions" data-nav="{% trans '/profile/' %}{{ username }}/">{% trans "Actions" %}</a></li>
+    	<li><a id="profile-history-tablink" class="navigate" href="#profile-history" data-nav="{% trans '/profile/' %}{{ username }}/{% trans 'history' %}/">{% trans "News/History" %}</a></li>
+    </ul>
+    
+    <div class="tab-content profile-tab-content dotted-bg-tab-content">
+    	
+		<div class="tab-pane active" id="profile-actions">
+			<div class="inner" id="profile-actions-view"></div>
+		</div>
+		
+		<div class="tab-pane" id="profile-history">
+			<div class="inner" id="profile-history-view"></div>
+		</div>
+		
+	</div>
+</script>
+{% endverbatim %}

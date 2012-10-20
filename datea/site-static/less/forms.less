@@ -1,0 +1,53 @@
+
+textarea {
+	resize: none;
+}
+
+textarea.autoresize {
+	height: @baseLineHeight;
+}
+
+textarea.autoresize.double {
+	height: @baseLineHeight * 2;
+}
+
+.dropdown-select {
+	&.no-bg {
+		button.dropdown-toggle {
+			padding-left: 0px;
+			background-color: transparent !important;
+			box-shadow: none;
+			&:hover {
+				background-color: transparent;
+				box-shadow: none;
+			}
+		}
+		&.on {
+			button.dropdown-toggle {
+				background-color: transparent;
+			}
+		}
+	}
+	
+	&.flat {
+		button {
+			padding: 0px 0px;
+		}
+	}
+}
+
+.form, .form-horizontal {
+	.control-group {
+		p.help-block {
+			color: @grayLight;
+			margin-top: 4px;
+			margin-bottom:0px;
+		}
+		&.error {
+			.error-block {
+				color: @errorText;	
+			}
+		}
+	}
+}
+

@@ -1,0 +1,13 @@
+{% load verbatim_tag %}
+{% verbatim %}
+<script id="free_category_radio_option_tpl" type="text/html">
+	<label class="radio">
+		<input type="radio" name="{{input_name}}" value="{{id}}" {{extra_attr}} /> 
+		<span class="color-sample" style="background-color: {{color}};">&nbsp;</span> {{name}}
+	</label>
+</script>
+
+<script id="free_category_select_option_tpl" type="text/html">
+		<option name="{{input_name}}" value="{{id}}" {{extra_attr}}>{{name}}</option>
+</script>
+{% endverbatim %}

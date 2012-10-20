@@ -1,0 +1,1532 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-10-19 22:42-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: local_settings.py:43 local_settings.template.py:43
+msgid "A general question regarding the website"
+msgstr "Preguntas generales sobre la plataforma"
+
+#: local_settings.py:44 local_settings.template.py:44
+msgid "Information about services we provide"
+msgstr "Información acerca de nuestros servicios"
+
+#: datea_action/models.py:36 datea_channel/models.py:10
+#: datea_comment/models.py:12 datea_image/models.py:15
+#: datea_mapping/models.py:92 datea_mapping/models.py:204
+#: datea_profile/models.py:16
+msgid "User"
+msgstr "Usuario"
+
+#: datea_action/models.py:38 datea_category/models.py:19
+msgid "Name"
+msgstr "Nombre"
+
+#: datea_action/models.py:39 datea_category/models.py:20
+msgid "Slug"
+msgstr "URL corta"
+
+#: datea_action/models.py:39
+msgid ""
+"A string of text as a short id for use at the url of this map (alphanumeric "
+"and dashes only"
+msgstr ""
+"Una cadena de texto que sirve como identificación corta para su uso en la "
+"URL de este mapa (usar guiones y letras únicamente)"
+
+#: datea_action/models.py:40 datea_channel/models.py:12
+#: datea_mapping/templates/ich/mapping_admin.html:95
+msgid "Published"
+msgstr "Publicado"
+
+#: datea_action/models.py:40
+msgid "If checked, action becomes visible to others"
+msgstr "Controla si la iniciativa es visible públicamente"
+
+#: datea_action/models.py:43 datea_comment/models.py:13
+#: datea_follow/models.py:26 datea_mapping/models.py:95
+#: datea_mapping/models.py:205 datea_profile/models.py:17
+msgid "created"
+msgstr "creado"
+
+#: datea_action/models.py:44 datea_mapping/models.py:96
+#: datea_mapping/models.py:206
+msgid "modified"
+msgstr "modificado"
+
+#: datea_action/models.py:46 datea_channel/models.py:14
+msgid "Short description / Slogan"
+msgstr "Descripción corta / Slogan"
+
+#: datea_action/models.py:46 datea_channel/models.py:14
+msgid "A short description or slogan (max. 140 characters)."
+msgstr "Una descripción corta o slogan (máx. 140 letras)."
+
+#: datea_action/models.py:47
+msgid "Hashtag"
+msgstr ""
+
+#: datea_action/models.py:47
+msgid "A twitter hashtag for your action"
+msgstr "Un hashtag de twitter para compartir tu iniciativa."
+
+#: datea_action/models.py:48 datea_category/models.py:59
+#: datea_mapping/models.py:120
+#: datea_mapping/templates/ich/mapping_admin.html:85
+#: templates/envelope/email_body.txt:4
+msgid "Category"
+msgstr "Categoría"
+
+#: datea_action/models.py:48
+msgid "Choose a category for this action"
+msgstr "Escoge una categoría para esta iniciativa"
+
+#: datea_action/models.py:49
+msgid "Featured"
+msgstr "Destacado"
+
+#: datea_action/models.py:51
+msgid "End Date"
+msgstr "Fecha final"
+
+#: datea_action/models.py:51
+msgid "Set an end date for your action (optional)"
+msgstr "Define la fecha final de tu iniciativa (opcional)"
+
+#: datea_action/models.py:53 datea_category/models.py:54
+#: datea_category/models.py:65 datea_image/forms.py:7 datea_image/models.py:67
+#: datea_profile/templates/ich/my_user_edit.html:42
+msgid "Image"
+msgstr "Imagen"
+
+#: datea_action/models.py:55
+msgid "Action type"
+msgstr "Tipo de iniciativa"
+
+#: datea_action/models.py:58 datea_profile/models.py:26
+msgid "Item count"
+msgstr "Número de Items"
+
+#: datea_action/models.py:59
+msgid "Participant count"
+msgstr "Número de participantes"
+
+#: datea_action/models.py:60 datea_profile/models.py:27
+#: datea_profile/models.py:28
+msgid "Comment count"
+msgstr "Número de comentarios"
+
+#: datea_action/models.py:61
+msgid "Follower count"
+msgstr "Número de seguidores"
+
+#: datea_action/models.py:100
+msgid "/"
+msgstr "/"
+
+#: datea_action/templates/ich/action_create.html:6
+#: datea_profile/templates/ich/my_user_head.html:15
+msgid "Create action"
+msgstr "Crear iniciativa"
+
+#: datea_action/templates/ich/action_create.html:13 datea_mapping/models.py:68
+msgid "Mapping"
+msgstr "Mapeo"
+
+#: datea_action/templates/ich/action_create.html:14
+msgid "community mapping of problems and solutions to improve your city"
+msgstr "Mapeo comunitario de problemas y soluciones para mejorar tu ciudad."
+
+#: datea_action/templates/ich/action_create.html:18
+msgid "action/create/"
+msgstr "accion/crear/"
+
+#: datea_action/templates/ich/action_create.html:18 datea_mapping/models.py:17
+msgid "mapping"
+msgstr "mapeo"
+
+#: datea_action/templates/ich/action_create.html:18
+msgid "create mapping"
+msgstr "crear nuevo mapeo"
+
+#: datea_action/templates/ich/action_list.html:30
+msgid "No actions yet (created or followed)."
+msgstr "Aún no ha creado o participado de una iniciativa."
+
+#: datea_action/templates/ich/action_list_item.html:19
+#: datea_profile/templates/ich/post_user_data.html:11
+msgid "by"
+msgstr "por"
+
+#: datea_action/templates/ich/action_list_item.html:19
+#: datea_mapping/templates/ich/mapping_tab_start.html:69
+#: datea_mapping/templates/ich/mapping_tab_start.html:76
+#: datea_mapping/templates/ich/mapping_tab_start.html:79
+msgid "go to profile"
+msgstr "ver perfil"
+
+#: datea_action/templates/ich/action_list_item.html:30
+msgid "Go"
+msgstr "Ir"
+
+#: datea_action/templates/ich/action_list_item.html:45
+#: datea_profile/templates/ich/my_profile.html:27
+msgid "contributions"
+msgstr "dateos"
+
+#: datea_action/templates/ich/action_list_item.html:46
+#: datea_profile/templates/ich/my_profile.html:28
+msgid "contribution"
+msgstr "dateo"
+
+#: datea_action/templates/ich/action_list_item.html:55
+#: datea_mapping/templates/ich/map_item.html:20
+#: datea_mapping/templates/ich/mapping_tab_start.html:30
+#: datea_profile/templates/ich/my_profile.html:36
+msgid "comments"
+msgstr "comentarios"
+
+#: datea_action/templates/ich/action_list_item.html:56
+#: datea_comment/templates/ich/comment.html:29
+#: datea_mapping/templates/ich/map_item.html:21
+#: datea_mapping/templates/ich/mapping_tab_start.html:31
+#: datea_mapping/templates/mail/dateamapitem/comment/mail_body_generic.txt:7
+#: datea_mapping/templates/mail/dateamapitem/comment/mail_body_owner.txt:7
+#: datea_profile/templates/ich/my_profile.html:37
+msgid "comment"
+msgstr "comentario"
+
+#: datea_action/templates/ich/action_list_item.html:65
+msgid "users"
+msgstr "usuarios"
+
+#: datea_action/templates/ich/action_list_item.html:66
+msgid "user"
+msgstr "usuario"
+
+#: datea_action/templates/ich/action_list_item.html:75
+msgid "{{ days_left }} days left"
+msgstr "quedan {{ days_left }} días"
+
+#: datea_action/templates/ich/action_list_item.html:79
+msgid "last day"
+msgstr "último día"
+
+#: datea_action/templates/ich/action_list_item.html:83
+msgid "action expired"
+msgstr "iniciativa concluida"
+
+#: datea_action/templates/mail/dateaaction/follow/mail_body_generic.txt:1
+#: datea_action/templates/mail/dateaaction/follow/mail_body_owner.txt:1
+#: datea_mapping/templates/mail/dateamapitem/comment/mail_body_generic.txt:1
+#: datea_mapping/templates/mail/dateamapitem/comment/mail_body_owner.txt:1
+#: datea_mapping/templates/mail/dateamapitem/follow/mail_body_generic.txt:1
+#: datea_mapping/templates/mail/dateamapitem/follow/mail_body_owner.txt:1
+#: datea_mapping/templates/mail/dateamapitem/reply/mail_body_generic.txt:1
+#: datea_mapping/templates/mail/dateamapitem/reply/mail_body_owner.txt:1
+#: datea_mapping/templates/mail/dateamapitem/vote/mail_body_generic.txt:1
+#: datea_mapping/templates/mail/dateamapitem/vote/mail_body_owner.txt:1
+#: datea_mapping/templates/mail/dateamapping/content/mail_body_generic.txt:1
+#: datea_mapping/templates/mail/dateamapping/content/mail_body_owner.txt:1
+msgid "Hi"
+msgstr "Hola"
+
+#: datea_action/templates/mail/dateaaction/follow/mail_body_generic.txt:3
+#, python-format
+msgid "%(uname)s now follows %(runame)s's action"
+msgstr "%(uname)s ahora sigue la iniciativa de %(runame)s"
+
+#: datea_action/templates/mail/dateaaction/follow/mail_body_generic.txt:5
+#, python-format
+msgid ""
+"\n"
+"You can access the action at: http://%(domain)s%(url)s\n"
+msgstr ""
+"\n"
+"Puedes acceder a la iniciativa bajo: http://%(domain)s%(url)s\n"
+
+#: datea_action/templates/mail/dateaaction/follow/mail_body_generic.txt:8
+#: datea_action/templates/mail/dateaaction/follow/mail_body_owner.txt:8
+#: datea_mapping/templates/mail/dateamapitem/comment/mail_body_generic.txt:13
+#: datea_mapping/templates/mail/dateamapitem/comment/mail_body_owner.txt:13
+#: datea_mapping/templates/mail/dateamapitem/follow/mail_body_generic.txt:10
+#: datea_mapping/templates/mail/dateamapitem/follow/mail_body_owner.txt:10
+#: datea_mapping/templates/mail/dateamapitem/reply/mail_body_generic.txt:13
+#: datea_mapping/templates/mail/dateamapitem/reply/mail_body_owner.txt:13
+#: datea_mapping/templates/mail/dateamapitem/vote/mail_body_generic.txt:10
+#: datea_mapping/templates/mail/dateamapitem/vote/mail_body_owner.txt:10
+#: datea_mapping/templates/mail/dateamapping/content/mail_body_generic.txt:10
+#: datea_mapping/templates/mail/dateamapping/content/mail_body_owner.txt:10
+msgid "best"
+msgstr "saludos"
+
+#: datea_action/templates/mail/dateaaction/follow/mail_body_generic.txt:10
+#: datea_action/templates/mail/dateaaction/follow/mail_body_owner.txt:10
+#: datea_mapping/templates/mail/dateamapitem/comment/mail_body_generic.txt:15
+#: datea_mapping/templates/mail/dateamapitem/comment/mail_body_owner.txt:15
+#: datea_mapping/templates/mail/dateamapitem/follow/mail_body_generic.txt:12
+#: datea_mapping/templates/mail/dateamapitem/follow/mail_body_owner.txt:12
+#: datea_mapping/templates/mail/dateamapitem/reply/mail_body_generic.txt:15
+#: datea_mapping/templates/mail/dateamapitem/reply/mail_body_owner.txt:15
+#: datea_mapping/templates/mail/dateamapitem/vote/mail_body_generic.txt:12
+#: datea_mapping/templates/mail/dateamapitem/vote/mail_body_owner.txt:12
+#: datea_mapping/templates/mail/dateamapping/content/mail_body_generic.txt:12
+#: datea_mapping/templates/mail/dateamapping/content/mail_body_owner.txt:12
+#, python-format
+msgid "The %(sitename)s Team"
+msgstr "El equipo de %(sitename)s"
+
+#: datea_action/templates/mail/dateaaction/follow/mail_body_owner.txt:3
+#, python-format
+msgid "%(username)s now follows your action"
+msgstr "%(username)s ahora sigue tu iniciativa"
+
+#: datea_action/templates/mail/dateaaction/follow/mail_body_owner.txt:5
+#, python-format
+msgid ""
+"\n"
+"You can access your action at: http://%(domain)s%(url)s\n"
+msgstr ""
+"\n"
+"Puedes acceder acceder a la iniciativa bajo: http://%(domain)s%(url)s\n"
+
+#: datea_action/templates/mail/dateaaction/follow/mail_subject_generic.txt:1
+#, python-format
+msgid "%(aname)s now follows %(rname)s's action:"
+msgstr "%(aname)s ahora sigue la iniciativa de %(rname)s"
+
+#: datea_action/templates/mail/dateaaction/follow/mail_subject_owner.txt:1
+#, python-format
+msgid "%(aname)s now follows your action:"
+msgstr "%(aname)s ahora sigue tu iniciativa:"
+
+#: datea_category/models.py:21
+#, fuzzy
+msgid "Description (optional)"
+msgstr "Descripción larga (opcional)"
+
+#: datea_category/models.py:22
+msgid "is active"
+msgstr "está activo"
+
+#: datea_category/models.py:55 datea_category/models.py:66
+msgid "Marker image"
+msgstr "Imagen para marcador"
+
+#: datea_category/models.py:60
+#: datea_mapping/templates/ich/mapping_form.html:15
+msgid "Categories"
+msgstr "Categorías"
+
+#: datea_category/models.py:69
+msgid "Free category"
+msgstr "Categoría libre"
+
+#: datea_category/models.py:70
+msgid "Free categories"
+msgstr "Categorías libres"
+
+#: datea_category/templates/ich/free_category_edit.html:5
+msgid "create / edit category"
+msgstr "crear / editar categoría"
+
+#: datea_category/templates/ich/free_category_edit.html:9
+#: datea_mapping/templates/ich/map_item_form.html:23
+#: datea_mapping/templates/ich/mapping_form.html:28
+msgid "Please fill out the fields marked in red."
+msgstr "Por favor completa los campos marcados con rojo"
+
+#: datea_category/templates/ich/free_category_edit.html:13
+msgid "There are reports with this category. You cannot delete it."
+msgstr "Hay dateos con esta categoría. No puedes borrarla."
+
+#: datea_category/templates/ich/free_category_edit.html:68
+#: datea_mapping/templates/ich/map_item_form.html:101
+#: datea_mapping/templates/ich/map_item_response.html:21
+#: datea_mapping/templates/ich/map_item_response.html:52
+#: datea_mapping/templates/ich/mapping_admin.html:80
+#: datea_mapping/templates/ich/mapping_form.html:165
+#: datea_profile/templates/ich/my_user_edit.html:127
+msgid "Save"
+msgstr "Guardar"
+
+#: datea_category/templates/ich/free_category_edit.html:69
+#: datea_mapping/templates/ich/map_item_response.html:23
+#: datea_mapping/templates/ich/map_item_response.html:53
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: datea_category/templates/ich/free_category_edit.html:70
+#: datea_mapping/templates/ich/mapping_admin.html:79
+#: datea_mapping/templates/ich/mapping_form.html:168
+msgid "Delete"
+msgstr "Borrar"
+
+#: datea_category/templates/ich/free_category_edit_list.html:20
+msgid "Add Category"
+msgstr "Añade una Categoría"
+
+#: datea_channel/models.py:15 datea_mapping/models.py:20
+#: datea_mapping/templates/ich/mapping_tab_start.html:85
+msgid "Mission / Objectives"
+msgstr "Misión / Objetivos"
+
+#: datea_channel/models.py:15 datea_mapping/models.py:24
+msgid "max. 500 characters"
+msgstr "máx. 500 letras"
+
+#: datea_channel/models.py:16 datea_mapping/models.py:26
+msgid "What happens with the data?"
+msgstr "¿Qué ocurrirá con los datos?"
+
+#: datea_channel/models.py:16 datea_mapping/models.py:28
+msgid ""
+"Who receives the information and what happens with it? (max 500 characters)"
+msgstr "¿Quién recibe la información y que pasa con ella? (máx. 500 letras)"
+
+#: datea_channel/models.py:17 datea_mapping/models.py:31
+#: datea_mapping/templates/ich/mapping_tab_start.html:95
+msgid "Description"
+msgstr "Descripción"
+
+#: datea_channel/models.py:17 datea_mapping/models.py:34
+msgid "Long description (optional)"
+msgstr "Descripción larga (opcional)"
+
+#: datea_channel/models.py:20
+msgid "Site"
+msgstr "Sitio"
+
+#: datea_channel/models.py:26
+msgid "Channel"
+msgstr "Canal"
+
+#: datea_channel/models.py:27
+msgid "Channels"
+msgstr "Canales"
+
+#: datea_comment/models.py:14 datea_comment/models.py:91
+msgid "Comment"
+msgstr "Comentarios"
+
+#: datea_comment/models.py:23
+msgid "Object Name"
+msgstr "Nombre de Objeto"
+
+#: datea_comment/models.py:24
+msgid "Object id"
+msgstr "Id del objeto"
+
+#: datea_comment/models.py:92
+msgid "Comments"
+msgstr "Comentarios"
+
+#: datea_comment/templates/ich/comment.html:26
+msgid "Make a comment"
+msgstr "Haz un comentario"
+
+#: datea_comment/templates/ich/comment.html:36
+#: datea_profile/templates/ich/my_user_head.html:27
+msgid "Log in"
+msgstr "Ingresar"
+
+#: datea_comment/templates/ich/comment.html:36
+msgid "to post a comment"
+msgstr "para crear un comentario"
+
+#: datea_follow/models.py:67
+msgid "Follow"
+msgstr "Seguir"
+
+#: datea_follow/models.py:68
+msgid "Follows"
+msgstr "Sigue a"
+
+#: datea_follow/models.py:76
+msgid "new content in my actions"
+msgstr "nuevo contenido en mis acciones"
+
+#: datea_follow/models.py:77
+msgid "new comment on my content"
+msgstr "nuevo comentario en mi contenido"
+
+#: datea_follow/models.py:78
+msgid "new vote on my content"
+msgstr "nuevo apoyo a mi contenido"
+
+#: datea_follow/models.py:79
+msgid "new reply on my content"
+msgstr "nueva respuesta a mi contenido"
+
+#: datea_follow/models.py:80
+msgid "new follower on my content"
+msgstr "nuevo seguidor a mi contenido"
+
+#: datea_follow/models.py:82
+msgid "general news by the site"
+msgstr "noticias generales de la página"
+
+#: datea_follow/models.py:83
+msgid "news from actions I joined"
+msgstr "Acciones en las que participo"
+
+#: datea_follow/models.py:89
+msgid "notify settings for"
+msgstr "configuración de notificaciones para"
+
+#: datea_follow/models.py:108
+msgid "Extract"
+msgstr "Extracto"
+
+#: datea_follow/models.py:248
+msgid "name"
+msgstr "nombre"
+
+#: datea_follow/models.py:249
+msgid "url"
+msgstr "url"
+
+#: datea_follow/models.py:258 datea_mapping/models.py:99
+msgid "published"
+msgstr "publicado"
+
+#: datea_follow/models.py:260
+msgid "history item"
+msgstr "item de historial"
+
+#: datea_follow/templates/history/notice_footer.txt:2
+#, python-format
+msgid ""
+"In order to stop receiving email, you can change your notification settings "
+"at: http://%(domain)s%(url)s"
+msgstr ""
+"Para dejar de recibir estos mensajes, cambia tu configuración de "
+"notificaciones bajo: http://%(domain)s%(url)s"
+
+#: datea_follow/templates/ich/follow_widgets.html:9
+msgid "follow"
+msgstr "seguir"
+
+#: datea_follow/templates/ich/history.html:5
+msgid "{{ name }}'s report"
+msgstr "dateo de {{ name }}"
+
+#: datea_follow/templates/ich/history.html:6
+msgid "created a new report in"
+msgstr "hizo un dateo en"
+
+#: datea_follow/templates/ich/history.html:9
+msgid "replied to"
+msgstr ""
+
+#: datea_follow/templates/ich/history.html:12
+msgid "made a comment in"
+msgstr "comentó en"
+
+#: datea_follow/templates/ich/history.html:15
+msgid "now supports"
+msgstr "ahora apoya"
+
+#: datea_follow/templates/ich/history.html:18
+msgid "now follows"
+msgstr "ahora sigue"
+
+#: datea_follow/templates/ich/history.html:36
+msgid "read more"
+msgstr "leer más"
+
+#: datea_home/views.py:20
+msgid ""
+"A plattform to activate and channel community engagement. Keywords: civic "
+"engagement, social mapping, open source..."
+msgstr ""
+"Una plataforma para activar y canalizar la participación de tu comunidad."
+
+#: datea_home/templates/ich/datea_presentation.html:16
+msgid "initiate collective actions"
+msgstr "Inicia procesos participativos"
+
+#: datea_home/templates/ich/datea_presentation.html:23
+msgid "participate, share, support, comment"
+msgstr "Participa, comparte, comenta y apoya"
+
+#: datea_home/templates/ich/datea_presentation.html:30
+msgid "visualize actions in maps and charts"
+msgstr "Visualiza procesos en mapas y gráficas"
+
+#: datea_home/templates/ich/datea_presentation.html:57
+#: datea_profile/templates/ich/my_user_head.html:28
+msgid "no account yet?"
+msgstr "¿No eres datero?"
+
+#: datea_home/templates/ich/datea_presentation.html:59
+#: templates/registration/registration_complete.html:6
+#: templates/registration/registration_form.html:6
+#: templates/registration/registration_form.html:15
+msgid "Register"
+msgstr "Regístrate"
+
+#: datea_home/templates/ich/datea_presentation.html:76
+msgid "First time around here?"
+msgstr "Aún no has dateado?"
+
+#: datea_home/templates/ich/datea_presentation.html:81
+msgid "Search actions of the community, join and contribute."
+msgstr ""
+"Busca iniciativas de la comunidad, únete y contribuye."
+
+#: datea_home/templates/ich/datea_presentation.html:88
+msgid "Contribute, comment and support each other's contributions."
+msgstr "Datea en una iniciativa, comenta y apoya los dateos de los demás."
+
+#: datea_home/templates/ich/datea_presentation.html:95
+msgid ""
+"Create actions for others to participate in. <br/>Check your user's menu on "
+"the upper right corner."
+msgstr ""
+"Crea una iniciativa desde tu menú "
+"de usuario, arriba a la derecha."
+
+#: datea_image/forms.py:8
+msgid "Object Type"
+msgstr "Tipo de Objeto"
+
+#: datea_image/forms.py:9
+msgid "Object ID"
+msgstr "ID de Objeto"
+
+#: datea_image/forms.py:10
+msgid "Object field"
+msgstr "Campo del objeto"
+
+#: datea_image/forms.py:11
+msgid "Thumb preset"
+msgstr "pre-seteado de miniatura"
+
+#: datea_image/models.py:68 datea_mapping/models.py:109
+msgid "Images"
+msgstr "Imagenes"
+
+#: datea_image/templates/ich/image.html:20
+msgid "click to enlarge"
+msgstr "clic para agrandar"
+
+#: datea_mapping/models.py:36
+msgid "Item submitted success message"
+msgstr "Mensaje de éxito para ítem entregado"
+
+#: datea_mapping/models.py:40
+msgid ""
+"The message someone sees when succesfully filing a report (max. 140 "
+"characters)"
+msgstr "Mensaje de confirmación luego que alguien hizo un dateo "
+"(max 140 caracteres)."
+
+#: datea_mapping/models.py:42
+msgid "Default Item Color"
+msgstr "Color por defecto"
+
+#: datea_mapping/models.py:42
+msgid "Default color for map items (used when there's no categories defined)."
+msgstr ""
+"Color por defecto para dateos (se usa cuando no han sido definidas "
+"categorías)"
+
+#: datea_mapping/models.py:48
+msgid "Map item Categories"
+msgstr "Categorías para dateos"
+
+#: datea_mapping/models.py:51
+msgid "Categories for Mapped Items"
+msgstr "Categorías para dateos"
+
+#: datea_mapping/models.py:55
+msgid "Center"
+msgstr "Centro"
+
+#: datea_mapping/models.py:56
+msgid "Boundary"
+msgstr "Límite"
+
+#: datea_mapping/models.py:69
+msgid "Mappings"
+msgstr "Mapeos"
+
+#: datea_mapping/models.py:90
+msgid "map_item"
+msgstr ""
+
+#: datea_mapping/models.py:101
+msgid "new"
+msgstr "nuevo"
+
+#: datea_mapping/models.py:102
+msgid "reviewed"
+msgstr "revisado"
+
+#: datea_mapping/models.py:103
+msgid "solved"
+msgstr "solucionado"
+
+#: datea_mapping/models.py:105 datea_mapping/templates/ich/map_item.html:68
+#: datea_mapping/templates/ich/map_item.html:104
+#: datea_mapping/templates/ich/map_item.html:142
+msgid "status"
+msgstr "estado"
+
+#: datea_mapping/models.py:108
+msgid "Content"
+msgstr "Contenido"
+
+#: datea_mapping/models.py:112
+msgid "Position"
+msgstr "Posición"
+
+#: datea_mapping/models.py:113
+msgid "Address"
+msgstr "Dirección"
+
+#: datea_mapping/models.py:191
+msgid "/reports/"
+msgstr "/dateos/"
+
+#: datea_mapping/models.py:197
+msgid "Map Item"
+msgstr "Item de mapa"
+
+#: datea_mapping/models.py:198 datea_mapping/models.py:207
+msgid "Map Items"
+msgstr "Items de mapa"
+
+#: datea_mapping/models.py:208 datea_mapping/models.py:223
+msgid "Response"
+msgstr "Respuesta"
+
+#: datea_mapping/models.py:224
+msgid "Responses"
+msgstr "Respuestas"
+
+#: datea_mapping/templates/ich/map_item.html:10
+#: datea_profile/templates/ich/my_profile.html:44
+msgid "votes"
+msgstr "apoyos"
+
+#: datea_mapping/templates/ich/map_item.html:11
+#: datea_profile/templates/ich/my_profile.html:45
+msgid "vote"
+msgstr "apoyo"
+
+#: datea_mapping/templates/ich/map_item.html:30
+msgid "followers"
+msgstr "seguidores"
+
+#: datea_mapping/templates/ich/map_item.html:31
+msgid "follower"
+msgstr "seguidor"
+
+#: datea_mapping/templates/ich/map_item.html:57
+#: datea_mapping/templates/ich/map_item.html:84
+msgid "Read more"
+msgstr "Leer más"
+
+#: datea_mapping/templates/ich/map_item.html:58
+msgid "Zoom in"
+msgstr "Zoom"
+
+#: datea_mapping/templates/ich/map_item.html:85
+#: datea_mapping/templates/ich/map_item.html:112
+msgid "open in map"
+msgstr "abrir en mapa"
+
+#: datea_mapping/templates/ich/map_item.html:95
+msgid "edit"
+msgstr "editar"
+
+#: datea_mapping/templates/ich/map_item.html:96
+#: datea_mapping/templates/ich/map_item_form.html:205
+#: datea_mapping/templates/ich/mapping_form.html:190
+msgid "delete"
+msgstr "borrar"
+
+#: datea_mapping/templates/ich/map_item.html:97
+#: datea_mapping/templates/ich/mapping_tab_map_items.html:7
+msgid "Create new report"
+msgstr "Crear Dateo"
+
+#: datea_mapping/templates/ich/map_item.html:99
+msgid "back"
+msgstr "regresar"
+
+#: datea_mapping/templates/ich/map_item_form.html:9
+#: datea_mapping/templates/ich/map_item_form.html:101
+#: datea_mapping/templates/ich/mapping_tab_start.html:24
+msgid "report"
+msgstr "dateo"
+
+#: datea_mapping/templates/ich/map_item_form.html:27
+#: datea_mapping/templates/ich/map_item_form.html:72
+#: datea_mapping/templates/ich/map_item_form.html:91
+msgid "Step"
+msgstr "Paso"
+
+#: datea_mapping/templates/ich/map_item_form.html:27
+msgid "fill the following fields"
+msgstr "llena los siguientes campos"
+
+#: datea_mapping/templates/ich/map_item_form.html:31
+msgid "Select the apropiate category"
+msgstr "Selecciona la categoría apropiada"
+
+#: datea_mapping/templates/ich/map_item_form.html:41
+msgid "Give a description"
+msgstr "Descripción"
+
+#: datea_mapping/templates/ich/map_item_form.html:48
+msgid "Add images (optional)"
+msgstr "Añade imágenes (opcional)"
+
+#: datea_mapping/templates/ich/map_item_form.html:55
+#: datea_mapping/templates/ich/map_item_form.html:82
+#: templates/ich/pagination.html:16
+msgid "next"
+msgstr "siguiente"
+
+#: datea_mapping/templates/ich/map_item_form.html:66
+msgid "has no location"
+msgstr "no tiene ubicación"
+
+#: datea_mapping/templates/ich/map_item_form.html:68
+msgid "search location"
+msgstr "buscar lugar"
+
+#: datea_mapping/templates/ich/map_item_form.html:72
+msgid "locate your report"
+msgstr "ubica tu dateo"
+
+#: datea_mapping/templates/ich/map_item_form.html:79
+#: datea_mapping/templates/ich/map_item_form.html:98
+#: templates/ich/pagination.html:12
+msgid "previous"
+msgstr "anterior"
+
+#: datea_mapping/templates/ich/map_item_form.html:91
+msgid "Verify your data"
+msgstr "Verifica tus datos"
+
+#: datea_mapping/templates/ich/map_item_form.html:118
+#: datea_mapping/templates/ich/map_item_form.html:124
+#: datea_mapping/templates/ich/map_item_form.html:145
+msgid "change"
+msgstr "cambiar"
+
+#: datea_mapping/templates/ich/map_item_form.html:158
+#: templates/envelope/success.html:5
+msgid "Thank you!"
+msgstr "¡Gracias!"
+
+#: datea_mapping/templates/ich/map_item_form.html:162
+msgid "Your report has been successfully submitted."
+msgstr "Tu dateo se ha publicado exitosamente."
+
+#: datea_mapping/templates/ich/map_item_form.html:166
+msgid "Now you can share it"
+msgstr "Ahora puedes compartirlo"
+
+#: datea_mapping/templates/ich/map_item_form.html:187
+msgid "See my report"
+msgstr "Ver mi dateo"
+
+#: datea_mapping/templates/ich/map_item_form.html:196
+msgid "Are you sure you want to delete this report?"
+msgstr "Seguro que quieres borrar este dateo?"
+
+#: datea_mapping/templates/ich/map_item_form.html:199
+msgid "This action cannot be undone."
+msgstr "Esta acción es irreversible."
+
+#: datea_mapping/templates/ich/map_item_form.html:203
+#: datea_mapping/templates/ich/mapping_form.html:188
+msgid "cancel"
+msgstr "Cancelar"
+
+#: datea_mapping/templates/ich/map_item_response.html:8
+msgid "New reply"
+msgstr "Nueva respuesta"
+
+#: datea_mapping/templates/ich/mapping_admin.html:9
+#: datea_mapping/templates/ich/mapping_form.html:8
+msgid "back to mapping"
+msgstr "volver al mapeo"
+
+#: datea_mapping/templates/ich/mapping_admin.html:13
+#: datea_mapping/templates/ich/mapping_data_view.html:25
+msgid "filter"
+msgstr "filtrar"
+
+#: datea_mapping/templates/ich/mapping_admin.html:24
+msgid "No results were found. Check the filters above."
+msgstr "No seencontraron resultados. Revisa los filtros acá arriba."
+
+#: datea_mapping/templates/ich/mapping_admin.html:32
+msgid "Date"
+msgstr "Fecha"
+
+#: datea_mapping/templates/ich/mapping_admin.html:81
+msgid "New Reply"
+msgstr "Nueva respuesta"
+
+#: datea_mapping/templates/ich/mapping_admin.html:91
+msgid "Status"
+msgstr "Estado"
+
+#: datea_mapping/templates/ich/mapping_control_button.html:9
+msgid "Mapping Settings"
+msgstr "Configuración de Mapeo"
+
+#: datea_mapping/templates/ich/mapping_control_button.html:10
+msgid "Administer Content"
+msgstr "Administrar Dateos"
+
+#: datea_mapping/templates/ich/mapping_form.html:13
+msgid "Mapping settings"
+msgstr "Configuración para mapeo"
+
+#: datea_mapping/templates/ich/mapping_form.html:14
+msgid "Positioning"
+msgstr "Posicionamiento"
+
+#: datea_mapping/templates/ich/mapping_form.html:149
+msgid "Define center and boundary "
+msgstr "Definir centro y límites"
+
+#: datea_mapping/templates/ich/mapping_form.html:150
+msgid ""
+"Either boundary or position has to be defined in order to center the map. To "
+"edit them, click the \"Edit\" button at the map's upper right corner."
+msgstr ""
+"Es necesario definir los límites o el centro del mapa. Para ello edítalos "
+"cliqueando el botón \"Edit\" en esquina superior derecha del mapa."
+
+#: datea_mapping/templates/ich/mapping_form.html:159
+msgid "Item Categories"
+msgstr "Categorías de Ítems"
+
+#: datea_mapping/templates/ich/mapping_form.html:181
+msgid "Are you sure you want to delete this action?"
+msgstr "Seguro que quieres borrar esta iniciativa?"
+
+#: datea_mapping/templates/ich/mapping_form.html:184
+msgid ""
+"All reports, comments, votes etc will be deleted. This cannot be undone!"
+msgstr ""
+"Todos los dateos, comentarios, apoyos etc serán borrados. Esta acción es "
+"irreversible!"
+
+#: datea_mapping/templates/ich/mapping_sidebar_main.html:10
+#: datea_mapping/templates/ich/mapping_sidebar_main.html:11
+msgid "/mapping/"
+msgstr "/mapeo/"
+
+#: datea_mapping/templates/ich/mapping_sidebar_main.html:10
+msgid "Start"
+msgstr "Empezar"
+
+#: datea_mapping/templates/ich/mapping_sidebar_main.html:11
+#: datea_mapping/templates/ich/mapping_tab_start.html:23
+msgid "reports"
+msgstr "dateos"
+
+#: datea_mapping/templates/ich/mapping_sidebar_main.html:11
+msgid "Reports"
+msgstr "Dateos"
+
+#: datea_mapping/templates/ich/mapping_tab_start.html:37
+msgid "participants"
+msgstr "participantes"
+
+#: datea_mapping/templates/ich/mapping_tab_start.html:38
+msgid "participant"
+msgstr "participantes"
+
+#: datea_mapping/templates/ich/mapping_tab_start.html:44
+msgid "Create Report"
+msgstr "Crear Dateo"
+
+#: datea_mapping/templates/ich/mapping_tab_start.html:65
+msgid "about this action"
+msgstr "Acerca de esta iniciativa"
+
+#: datea_mapping/templates/ich/mapping_tab_start.html:74
+msgid "action creator"
+msgstr "usuario creador"
+
+#: datea_mapping/templates/ich/mapping_tab_start.html:90
+msgid "What happens with this information?"
+msgstr "¿Qué ocurrirá con esta información?"
+
+#: datea_mapping/templates/mail/dateamapitem/comment/mail_body_generic.txt:3
+#, python-format
+msgid "%(aname)s made a comment on %(rname)s's report:"
+msgstr "%(aname)s comentó el dateo de %(rname)s:"
+
+#: datea_mapping/templates/mail/dateamapitem/comment/mail_body_generic.txt:10
+#: datea_mapping/templates/mail/dateamapitem/follow/mail_body_generic.txt:7
+#: datea_mapping/templates/mail/dateamapitem/vote/mail_body_generic.txt:7
+#: datea_mapping/templates/mail/dateamapping/content/mail_body_generic.txt:7
+#: datea_mapping/templates/mail/dateamapping/content/mail_body_owner.txt:7
+#, python-format
+msgid ""
+"\n"
+"You can access the report at: http://%(domain)s%(url)s\n"
+msgstr ""
+"\n"
+"Accede al dateo bajo: http://%(domain)s%(url)s\n"
+
+#: datea_mapping/templates/mail/dateamapitem/comment/mail_body_owner.txt:3
+#, python-format
+msgid "%(aname)s made a comment on your report:"
+msgstr "%(aname)s comentó tu dateo:"
+
+#: datea_mapping/templates/mail/dateamapitem/comment/mail_body_owner.txt:10
+#: datea_mapping/templates/mail/dateamapitem/follow/mail_body_owner.txt:7
+#: datea_mapping/templates/mail/dateamapitem/reply/mail_body_generic.txt:10
+#: datea_mapping/templates/mail/dateamapitem/reply/mail_body_owner.txt:10
+#: datea_mapping/templates/mail/dateamapitem/vote/mail_body_owner.txt:7
+#, python-format
+msgid ""
+"\n"
+"You can access your report at: http://%(domain)s%(url)s\n"
+msgstr ""
+"\n"
+"Accede a tu dateo bajo: http://%(domain)s%(url)s\n"
+
+#: datea_mapping/templates/mail/dateamapitem/comment/mail_subject_generic.txt:1
+#, python-format
+msgid "%(aname)s commented %(rname)s's report:"
+msgstr "%(aname)s commentó el dateo de %(rname)s:"
+
+#: datea_mapping/templates/mail/dateamapitem/comment/mail_subject_owner.txt:1
+#, python-format
+msgid "%(aname)s commented your report:"
+msgstr "%(aname)s commentó tu dateo"
+
+#: datea_mapping/templates/mail/dateamapitem/follow/mail_body_generic.txt:3
+#, python-format
+msgid "%(uname)s now follows %(runame)s's report:"
+msgstr "%(uname)s ahora sigue el dateo de %(runame)s:"
+
+#: datea_mapping/templates/mail/dateamapitem/follow/mail_body_owner.txt:3
+#, python-format
+msgid "%(username)s now follows your report:"
+msgstr "%(username)s ahora sigue tu dateo:"
+
+#: datea_mapping/templates/mail/dateamapitem/follow/mail_subject_generic.txt:1
+#, python-format
+msgid "%(aname)s now follows %(rname)s's report:"
+msgstr "%(aname)s ahora sigue el dateo de %(rname)s:"
+
+#: datea_mapping/templates/mail/dateamapitem/follow/mail_subject_owner.txt:1
+#, python-format
+msgid "%(aname)s now follows your report:"
+msgstr "%(aname)s ahora sigue tu dateo:"
+
+#: datea_mapping/templates/mail/dateamapitem/reply/mail_body_generic.txt:3
+#, python-format
+msgid "%(aname)s replied to %(rname)s's report:"
+msgstr "%(aname)s respondió el dateo de %(rname)s:"
+
+#: datea_mapping/templates/mail/dateamapitem/reply/mail_body_generic.txt:7
+#: datea_mapping/templates/mail/dateamapitem/reply/mail_body_owner.txt:7
+msgid "Reply"
+msgstr "Respuesta"
+
+#: datea_mapping/templates/mail/dateamapitem/reply/mail_body_owner.txt:3
+#: datea_mapping/templates/mail/dateamapitem/reply/mail_subject_owner.txt:1
+#, python-format
+msgid "%(aname)s replied to your report:"
+msgstr "%(aname)s ha respondido tu dateo:"
+
+#: datea_mapping/templates/mail/dateamapitem/reply/mail_subject_generic.txt:1
+#, python-format
+msgid "%(aname)s replied %(rname)s's report:"
+msgstr "%(aname)s respondió el dateo de %(rname)s:"
+
+#: datea_mapping/templates/mail/dateamapitem/vote/mail_body_generic.txt:3
+#, python-format
+msgid "%(uname)s now supports %(runame)s's report:"
+msgstr "%(uname)s ahora apoya el dateo de %(runame)s:"
+
+#: datea_mapping/templates/mail/dateamapitem/vote/mail_body_owner.txt:3
+#, python-format
+msgid "%(username)s now supports your report:"
+msgstr "%(username)s ahora apoya tu dateo:"
+
+#: datea_mapping/templates/mail/dateamapitem/vote/mail_subject_generic.txt:1
+#, python-format
+msgid "%(aname)s now supports %(rname)s's report:"
+msgstr "%(aname)s ahora apoya el dateo de %(rname)s:"
+
+#: datea_mapping/templates/mail/dateamapitem/vote/mail_subject_owner.txt:1
+#, python-format
+msgid "%(aname)s supports your report:"
+msgstr "%(aname)s ahora apoya tu dateo:"
+
+#: datea_mapping/templates/mail/dateamapping/content/mail_body_generic.txt:3
+#: datea_mapping/templates/mail/dateamapping/content/mail_body_owner.txt:3
+#, python-format
+msgid "%(username)s created a report on %(aname)s:"
+msgstr "%(username)s dateó en %(aname)s:"
+
+#: datea_mapping/templates/mail/dateamapping/content/mail_subject_generic.txt:1
+#: datea_mapping/templates/mail/dateamapping/content/mail_subject_owner.txt:1
+msgid "new report in"
+msgstr "nuevo dateo en"
+
+#: datea_menu/models.py:35
+msgid "Menu title"
+msgstr "Título del menú"
+
+#: datea_menu/models.py:36
+msgid "Page title"
+msgstr "Título de la página"
+
+#: datea_menu/models.py:37
+msgid "Visible"
+msgstr ""
+
+#: datea_menu/models.py:39
+msgid "Page"
+msgstr "Página"
+
+#: datea_menu/models.py:40
+msgid "Menu root id"
+msgstr ""
+
+#: datea_menu/models.py:40
+msgid "String to identify this menu to the datea_menu template tags"
+msgstr ""
+
+#: datea_menu/models.py:41
+msgid "External url"
+msgstr "Urlexterna"
+
+#: datea_profile/models.py:19 datea_profile/templates/ich/my_user_edit.html:20
+msgid "Full name"
+msgstr "Nombre completo"
+
+#: datea_profile/models.py:20 datea_profile/templates/ich/my_user_edit.html:34
+msgid "Personal Message"
+msgstr "Mensaje personal"
+
+#: datea_profile/models.py:59
+msgid "Profile"
+msgstr "Perfil"
+
+#: datea_profile/models.py:60
+msgid "Profiles"
+msgstr "Perfiles"
+
+#: datea_profile/models.py:63 datea_profile/views.py:8
+#: datea_profile/templates/ich/profile_main_tabs.html:6
+#: datea_profile/templates/ich/profile_main_tabs.html:7
+msgid "/profile/"
+msgstr "/perfil/"
+
+#: datea_profile/templates/ich/my_user_edit.html:5
+msgid "My Profile"
+msgstr "Mi Perfil"
+
+#: datea_profile/templates/ich/my_user_edit.html:10
+msgid "Edit Profile"
+msgstr "Editar Perfil"
+
+#: datea_profile/templates/ich/my_user_edit.html:12
+msgid "Notifications"
+msgstr "Notificaciones"
+
+#: datea_profile/templates/ich/my_user_edit.html:27
+msgid "Email"
+msgstr "Email"
+
+#: datea_profile/templates/ich/my_user_edit.html:61
+msgid "Define which type of events trigger notifications sent to you by email."
+msgstr "Define la clase de eventos que envian notificaciones a tu correo."
+
+#: datea_profile/templates/ich/my_user_edit.html:126
+msgid "Close"
+msgstr "Cerrar"
+
+#: datea_profile/templates/ich/my_user_head.html:14
+msgid "Edit profile"
+msgstr "Editar perfil"
+
+#: datea_profile/templates/ich/my_user_head.html:15
+msgid "action/start"
+msgstr "accion/inicio"
+
+#: datea_profile/templates/ich/my_user_head.html:17
+msgid "Log out"
+msgstr "Salir"
+
+#: datea_profile/templates/ich/my_user_head.html:28
+msgid "register!"
+msgstr "¡Regístrate!"
+
+#: datea_profile/templates/ich/profile_main_tabs.html:6
+msgid "Actions"
+msgstr "Iniciativas"
+
+#: datea_profile/templates/ich/profile_main_tabs.html:7
+msgid "history"
+msgstr "historial"
+
+#: datea_profile/templates/ich/profile_main_tabs.html:7
+msgid "News/History"
+msgstr "Historial/Novedades"
+
+#: datea_profile/templates/social_auth/social-auth-login-links.html:3
+msgid "You can login with one of your accounts at:"
+msgstr "Puedes ingresar con una de tus cuentas en: "
+
+#: datea_profile/templatetags/datea_profile_tags.py:55
+msgid "anonimous"
+msgstr "Anónimo"
+
+#: datea_vote/templates/ich/vote_widgets.html:9
+msgid "support"
+msgstr "apoyar"
+
+#: templates/site-base.html:11 templates/site-base.html.py:44
+msgid "Home"
+msgstr "Inicio"
+
+#: templates/site-base.html:59
+msgid "a project by"
+msgstr "Un proyecto de"
+
+#: templates/envelope/contact.html:6
+msgid "Contact"
+msgstr "Contacto"
+
+#: templates/envelope/contact.html:14
+msgid "Send!"
+msgstr "Enviar!"
+
+#: templates/envelope/email_body.txt:2
+msgid "Message from the contact form"
+msgstr ""
+
+#: templates/envelope/email_body.txt:3
+msgid "Sender"
+msgstr ""
+
+#: templates/envelope/email_body.txt:5
+msgid "The message follows."
+msgstr ""
+
+#: templates/envelope/email_body.txt:11
+msgid "message sent with envelope - a contact form app for Django"
+msgstr ""
+
+#: templates/envelope/success.html:7
+msgid "Your message was sent succesfully. We'll get in touch with you asap!"
+msgstr "Tu mensaje se ha enviado con éxito. En breve nos pondremos en contacto contigo!"
+
+#: templates/envelope/success.html:8
+msgid "Back to home"
+msgstr "Ir a Incio"
+
+#: templates/ich/empty.html:4
+msgid "no items found"
+msgstr "no se encontraron resultados"
+
+#: templates/ich/pagination.html:8
+msgid "first"
+msgstr "primero"
+
+#: templates/ich/pagination.html:20
+msgid "last"
+msgstr "último"
+
+#: templates/registration/_bubble_login.html:5
+msgid "Already have an account?"
+msgstr "¿Ya tienes una cuenta?"
+
+#: templates/registration/_bubble_login.html:8
+#: templates/registration/login.html:3 templates/registration/login.html:6
+#: templates/registration/login.html:18
+msgid "Login"
+msgstr "Ingresa"
+
+#: templates/registration/_bubble_register.html:5
+#: templates/registration/login.html:21
+msgid "Need an account?"
+msgstr "¿Necesitas una cuenta?"
+
+#: templates/registration/_bubble_register.html:8
+msgid "register"
+msgstr "regístrate"
+
+#: templates/registration/activate.html:3
+#: templates/registration/activation_complete.html:3
+msgid "Activation complete"
+msgstr "Activación completa"
+
+#: templates/registration/activate.html:3
+msgid "Activation problem"
+msgstr "Problema en activación"
+
+#: templates/registration/activate.html:6
+#: templates/registration/activation_complete.html:6
+msgid "Account activation"
+msgstr "Activación de cuenta"
+
+#: templates/registration/activate.html:10
+#, python-format
+msgid "Thanks %(account)s, activation complete!  You may now"
+msgstr "¡Gracias %(account)s, activación completa! Debes conocer a"
+
+#: templates/registration/activate.html:10
+msgid " using the username and password you set at registration."
+msgstr " usando el usuario y clave que configuraste al registrarte"
+
+#: templates/registration/activate.html:12
+msgid ""
+"Oops &ndash; it seems that your activation key is invalid.  Please check the "
+"url again."
+msgstr ""
+"Uy &ndash; parece que tu llave de activación es inválida. Por favor revisa "
+"la URL de nuevo. "
+
+#: templates/registration/activation_complete.html:9
+msgid ""
+"\n"
+"Thanks, activation complete!  You may now login using the username and "
+"password you set at registration.\n"
+msgstr ""
+"\n"
+"Gracias, has activado tu cuenta! Puedes ingresar usando el usuario y clave "
+"que configuraste al registrarte.\n"
+
+#: templates/registration/activation_complete.html:15
+msgid "login"
+msgstr "ingresa"
+
+#: templates/registration/activation_email.txt:1
+#, python-format
+msgid ""
+"\n"
+"You have asked to register an account at %(sitename)s.  If this wasn't "
+"you, \n"
+"please ignore this email and your address will be removed from our records.\n"
+"\n"
+"To activate this account, please click the following link within the next \n"
+"%(days)s days:\n"
+"\n"
+"http://%(domain)s/accounts/activate/%(key)s\n"
+"\n"
+"Sincerely,\n"
+"\n"
+"The %(sitename)s Team\n"
+msgstr ""
+"\n"
+"Haz pedido registrar una cuenta en %(sitename)s. Si no lo hiciste, \n"
+"por favor ignora este correo electrónico y tu dirección será eliminada.\n"
+"\n"
+"Para activar esta cuenta, por favor haz click en el siguiente vínculo "
+"durante \n"
+"los siguientes %(days)s días:\n"
+"\n"
+"http://%(domain)s/accounts/activate/%(key)s\n"
+"\n"
+"Atentamente,\n"
+"\n"
+"El equipo de %(sitename)s\n"
+
+#: templates/registration/activation_email_subject.txt:1
+msgid "Account registration for "
+msgstr "Registro de cuenta para "
+
+#: templates/registration/login.html:12
+msgid "Or with your Datea account:"
+msgstr "O con tu cuenta de Datea:"
+
+#: templates/registration/login.html:21
+msgid "Forgot your password?"
+msgstr "¿Olvidaste tu clave?"
+
+#: templates/registration/logout.html:3
+msgid "Logged out"
+msgstr "Des-logueado"
+
+#: templates/registration/logout.html:6
+msgid "Successfully logged out!"
+msgstr "¡Salida exitosa!"
+
+#: templates/registration/password_change_done.html:3
+msgid "Password changed"
+msgstr "¡La clave ha sido cambiada exitosamente!"
+
+#: templates/registration/password_change_done.html:6
+msgid "Password successfully changed!"
+msgstr "¡La clave ha sido cambiada exitosamente!"
+
+#: templates/registration/password_change_form.html:3
+#: templates/registration/password_change_form.html:5
+#: templates/registration/password_change_form.html:11
+msgid "Change password"
+msgstr "Cambiar clave"
+
+#: templates/registration/password_change_form.html:7
+msgid "Change your password?"
+msgstr "Cambiar tu clave?"
+
+#: templates/registration/password_reset_complete.html:3
+msgid "Password reset complete"
+msgstr "Re-seteo de clave completado"
+
+#: templates/registration/password_reset_complete.html:6
+#: templates/registration/password_reset_confirm.html:6
+#: templates/registration/password_reset_done.html:3
+#: templates/registration/password_reset_done.html:6
+msgid "Password reset"
+msgstr "Re-seteo de clave completado"
+
+#: templates/registration/password_reset_complete.html:10
+#, python-format
+msgid ""
+"You may now &nbsp;<a class=\"btn btn-primary btn-pointy btn-large btn-"
+"uppercase\" href=\"%(login_url)s\">log in<div class=\"pointer\"></div></a>"
+msgstr ""
+"Ahora puedes &nbsp;<a class=\"btn btn-large btn-primary\" href="
+"\"%(login_url)s\">ingresar</a>"
+
+#: templates/registration/password_reset_confirm.html:3
+msgid "Confirm password reset"
+msgstr "Confirmar re-seteo de clave"
+
+#: templates/registration/password_reset_confirm.html:8
+msgid "Enter your new password below to reset your password"
+msgstr "Ingresa tu nueva clave abajo para re-setear tu clave"
+
+#: templates/registration/password_reset_confirm.html:11
+msgid "Set password"
+msgstr "Ingresa una clave"
+
+#: templates/registration/password_reset_email.html:2
+msgid "Greetings"
+msgstr "Saludos"
+
+#: templates/registration/password_reset_email.html:4
+#, python-format
+msgid ""
+"You are receiving this email because you\n"
+"requested that your password be reset on the %(sitename)s site. \n"
+"If you do not wish to reset your password, please ignore this message.\n"
+"\n"
+"To reset your password, please click the following link, or copy and paste "
+"it\n"
+"into your web browser:"
+msgstr ""
+"Has recibido este correo por que pediste\n"
+"que se tu clave en el sitio %(sitename)s sea re-seteada.\n"
+"Si no deseas re-setear tu clave, por favor ignora este mensaje.\n"
+"\n"
+"Para re-setear tu clave, por favor haz click en el siguiente vínculo, o "
+"copia y pégalo\n"
+"en tu navegador:"
+
+#: templates/registration/password_reset_email.html:13
+#, python-format
+msgid ""
+"Your username, in case you've forgotten: %(username)s\n"
+"\n"
+"\n"
+"Best regards,\n"
+"\n"
+"The %(sitename)s Team\n"
+msgstr ""
+"Tu usuario, en caso te has olvidado: %(username)s\n"
+"\n"
+"\n"
+"Saludos,\n"
+"\n"
+"El equipo de %(sitename)s\n"
+
+#: templates/registration/password_reset_form.html:4
+#: templates/registration/password_reset_form.html:14
+msgid "Reset password"
+msgstr "Re-setear clave"
+
+#: templates/registration/password_reset_form.html:7
+msgid "Recover password"
+msgstr "Recuperar clave"
+
+#: templates/registration/password_reset_form.html:9
+msgid ""
+"Forgot your password? Enter your email in the form below and we'll send you "
+"instructions for creating a new one"
+msgstr ""
+"¿Olvidaste tu clave? Ingresa tu correo en el formulario abajo y te "
+"mandaremos instrucciones para crear una nueva"
+
+#: templates/registration/registration_complete.html:3
+msgid "Activation email sent"
+msgstr "Mensaje de activación enviado"
+
+#: templates/registration/registration_complete.html:10
+msgid ""
+"\n"
+"An activation email has been sent.  Please check your email and click on the "
+"link to activate your account.\n"
+msgstr ""
+"\n"
+"Un mensaje de activación ha sido enviado. Por favor revisa tu correo y haz "
+"click en el vínculo para activar tu cuenta. \n"
+
+#: templates/registration/registration_form.html:3
+msgid "Register for an account"
+msgstr "Regístrate para obtener una cuenta"
+
+#: templates/registration/registration_form.html:10
+msgid "Or you can register an account here at Datea:"
+msgstr "O puedes registrar una cuenta aquí en Datea:"
+
+#: .\forms.py:33
+msgid "From"
+msgstr "Nombre"
+
+#: .\forms.py:35
+msgid "Subject"
+msgstr "Asunto"
+
+#: .\forms.py:36
+msgid "Message"
+msgstr "Mensage"
+
+
+#~ msgid "commented"
+#~ msgstr "comentó"
+
+#~ msgid "Latest events"
+#~ msgstr "Novedades"
+
+#~ msgid "Admin Panel"
+#~ msgstr "Panel de administración"
+
+#~ msgid "profile/"
+#~ msgstr "perfil/"

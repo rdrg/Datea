@@ -1,0 +1,190 @@
+{% load i18n verbatim_tag datea_category_tags datea_mapping_tags bootstrap_toolkit %}
+{% get_mapping_form as form %}
+<script id="mapping_form_tpl" type="text/html">
+	
+	<div id="mapping-head-form">
+		{% verbatim %}{{#url}}
+		<div class="pull-right back-button">
+				<a href="#{% verbatim %}{{ url }}{% endverbatim %}" class="prev-link"><span class="icon">&nbsp;</span>{% trans "back to mapping" %}</a>
+		</div>
+		{{/url}}{% endverbatim %}
+		
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="#mapping-settings" data-toggle="tab" class="edit-mapping-settings">1. {% trans 'Mapping settings' %}</a></li>
+			<li><a href="#mapping-boundary" data-toggle="tab" class="edit-mapping-boundary">2. {% trans 'Positioning' %}</a></li>
+			<li><a href="#mapping-categories" data-toggle="tab">3. {% trans 'Categories' %}</a></li>
+		</ul>
+	</div>
+	
+	<form id="mapping-form" action="" class="form form-horizontal">
+		
+		<div class="tab-content">
+			<div class="tab-pane active" id="mapping-settings">
+		
+				<div class="row">
+					<div class="span8">
+						
+						<div class="hide alert alert-error error-msg">
+							{% trans "Please fill out the fields marked in red." %}
+							<button class="close" data-dismiss="alert">×</button>
+						</div>
+								
+						{% with form.name as field %}
+						<div class="control-group required">
+							<label class="control-label">{{ field.label }}</label>
+							<div class="controls">
+								<input type="text" id="mapping-name-input" name="name" class="input-text span4" value="{% verbatim %}{{name}}{% endverbatim %}" />
+								{% if field.help_text %}<p class="help-block">{{ field.help_text }}</p>{% endif %}
+							</div>
+						</div>
+						{% endwith %}
+						{% with form.short_description as field %}
+						<div class="control-group required">
+							<label class="control-label">{{ field.label }}</label>
+							<div class="controls">
+								<textarea type="text" class="span6 autoresize" id="mapping-short-description-input" name="short_description" rows="1" maxlength="140" >{% verbatim %}{{short_description}}{% endverbatim %}</textarea>
+								{% if field.help_text %}<p class="help-block">{{ field.help_text }}</p>{% endif %}
+							</div>
+						</div>
+						{% endwith %}
+						{% with form.category as field %}
+						<div class="control-group required">
+							<label class="control-label">{{ field.label }}</label>
+							<div class="controls">
+								{{ field }}
+								{% comment %}
+								<select id="mapping-category-input" name="category" />
+									<option value=""> ---- </option>
+									{{% get_categories as categories %}
+									{% for cat in categories %}
+										<option value="{{ cat.id }}">{{ cat.name }}</option>
+									{% endfor %}}
+								</select>
+								{% endcomment %}
+								{% if field.help_text %}<p class="help-block">{{ field.help_text }}</p>{% endif %}
+							</div>
+						</div>
+						{% endwith %}
+						{% with form.published as field %}
+						<div class="control-group required">
+							<label class="control-label">{{ field.label }}</label>
+							<div class="controls">
+								<input type="checkbox" id="mapping-published-input" name="published" class="input-text span4" value="1" {% verbatim %}{{#published}}checked="checked"{{/published}}{% endverbatim %}" />
+								{% if field.help_text %}<p class="help-block">{{ field.help_text }}</p>{% endif %}
+							</div>
+						</div>
+						{% endwith %}
+						{% with form.end_date as field %}
+						<div class="control-group">
+							<label class="control-label">{{ field.label }}</label>
+							<div class="controls">								
+								<div class="input-append date datefield">
+    								<input size="16" class="input-small" type="text" value="{% verbatim %}{{end_date_date}}{% endverbatim %}" name="end_date_date" readonly><span class="add-on"><i class="icon-th"></i></span>
+								</div>
+								{% comment %}
+								&nbsp;&nbsp;
+                				<div class="input-append bootstrap-timepicker-component timefield">
+                    				<input type="text" class="input-mini" value="{% verbatim %}{{end_date_time}}{% endverbatim %}" name="end_date_time" readonly /><span class="add-on"><i class="icon-time"></i></span>
+                				</div>
+                				{% endcomment %}
+								{% if field.help_text %}<p class="help-block">{{ field.help_text }}</p>{% endif %}
+							</div>
+						</div>
+						{% endwith %}
+						{% with form.image as field %}
+						<div class="control-group required">
+							<label class="control-label">{{ field.label }}</label>
+							<div class="controls">
+								<div id="mapping-image-input-view"></div>
+							</div>
+						</div>
+						{% endwith %}
+						{% with form.hashtag as field %}
+						<div class="control-group">
+							<label class="control-label">{{ field.label }}</label>
+							<div class="controls">
+								<input type="text" id="mapping-hashtag-input" name="hashtag" class="input-text span2" value="{% verbatim %}{{hashtag}}{% endverbatim %}" />
+								{% if field.help_text %}<p class="help-block">{{ field.help_text }}</p>{% endif %}
+							</div>
+						</div>
+						{% endwith %}
+						{% with form.default_color as field %}
+						<div class="control-group required">
+							<label class="control-label">{{ field.label }}</label>
+							<div class="controls">
+								{% verbatim %}
+							    <input name="color" type="text" class="span2 colorfield" value="{{default_color}}" style="background-color: {{default_color}}" data-color-format="hex">
+							    {% endverbatim %}
+								{% if field.help_text %}<p class="help-block">{{ field.help_text }}</p>{% endif %}
+							</div>
+						</div>
+						{% endwith %}
+						{% with form.mission as field %}
+						<div class="control-group required">
+							<label class="control-label">{{ field.label }}</label>
+							<div class="controls">
+								<textarea name="mission" id="mapping-mission-input" maxlength="500" class="span6 autoresize double">{% verbatim %}{{mission}}{% endverbatim %}</textarea>
+								{% if field.help_text %}<p class="help-block">{{ field.help_text }}</p>{% endif %}
+							</div>
+						</div>
+						{% endwith %}
+						{% with form.information_destiny as field %}
+						<div class="control-group required">
+							<label class="control-label">{{ field.label }}</label>
+							<div class="controls">
+								<textarea name="information_destiny" id="mapping-mission-input" maxlength="500" class="span6 autoresize double">{% verbatim %}{{information_destiny}}{% endverbatim %}</textarea>
+								{% if field.help_text %}<p class="help-block">{{ field.help_text }}</p>{% endif %}
+							</div>
+						</div>
+						{% endwith %}
+					</div>
+				</div>	
+			</div>
+			<div class="tab-pane" id="mapping-boundary">
+				<div class="row">
+					<div class="span12">
+						<div class="map-settings-label">
+							<label><strong>{% trans "Define center and boundary "%}</strong></label>
+							<p>{% blocktrans %}Either boundary or position has to be defined in order to center the map. To edit them, click the "Edit" button at the map's upper right corner.{% endblocktrans %}</p>
+							<div id="edit-mapping-position"></div>
+						</div>
+					</div>
+				</div>
+			</div>		
+			<div class="tab-pane" id="mapping-categories">
+				<div class="row">
+					<div class="span8">
+						<label>{% trans "Item Categories" %}</label>
+						<div id="edit-mapping-categories"></div>
+					</div>
+				</div>
+			</div>
+			<div class="form-actions">
+				<button class="btn btn-large btn-primary save-mapping" type="button">{% trans "Save" %}</button>
+				<a class="btn btn-large  cancel-mapping" href="#{% verbatim %}{{ url }}{% endverbatim %}">Cancel</a>
+				<div class="pull-right">
+					<button class="btn btn-large btn-danger delete-mapping-ask" type="button">{% trans "Delete" %}</button>
+				</div>
+			</div>
+		</div>
+	</form>
+
+</script>
+
+
+{# MAPPING DELETE DIALOG #}
+<script id="mapping_delete_dialog_tpl" type="text/html">
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal">×</button>
+		<h3>{% trans "Are you sure you want to delete this action?" %}</h3>
+	</div>
+	<div class="modal-body">
+		<p>{% trans "All reports, comments, votes etc will be deleted. This cannot be undone!"%}</p>
+	</div>
+	<div class="modal-footer">
+		<div class="pull-left">
+			<button type="button" class="btn btn-large" data-dismiss="modal">{% trans "cancel" %}</button>
+		</div>
+		<button type="button" class="btn btn-large btn-danger delete-mapping">{% trans "delete" %}</button>
+	</div>
+</script>

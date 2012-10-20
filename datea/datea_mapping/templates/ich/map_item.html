@@ -1,0 +1,170 @@
+{% load i18n verbatim_tag %}
+{% verbatim %}
+{# MAP ITEM WIDGET STATS #}
+<script id="map_item_widget_stats_tpl" type="text/html">
+	<div class="stats">
+		{{#vote_count}}
+		<span class="stat vote_count">
+			<a title="ver detalle" href="#{{ url }}">
+				{{ vote_count }}
+				<span class="plural">{% trans "votes" %}</span>
+				<span class="singular" style="display:none">{% trans "vote" %}</span>
+			</a>
+		</span>
+		<span class="separator">|</span>
+		{{/vote_count}}
+		{{#comment_count}}
+		<span class="stat comment_count">
+			<a title="ver detalle" href="#{{ url }}">
+				{{ comment_count }}
+				<span class="plural">{% trans "comments" %}</span>
+				<span class="singular" style="display:none">{% trans "comment" %}</span>
+			</a>
+		</span>
+		<span class="separator">|</span>
+		{{/comment_count }}
+		{{#follow_count}}
+		<span class="stat follow_count">
+			<a title="ver detalle" href="#{{ url }}">
+				{{ follow_count }} 
+				<span class="plural">{% trans "followers" %}</span>
+				<span class="singular" style="display:none">{% trans "follower" %}</span>
+			</a>
+		</span>
+		<span class="separator">|</span>
+		{{/follow_count}}
+	</div>
+</script>
+
+{# MAP ITEM POPUP VIEW #}
+<script id="map_item_popup_tpl" type="text/html">
+	<div id="map-item-popup-{{ id }}" class="map-item popup">
+	
+		{{>post_user_data_tpl}}
+		
+		<div class="content">
+			{{#category}}
+				<div class="category">
+					<span class="badge badge-truncated" style="background-color: {{ color }}">{{ category_name }}</span>
+				</div>
+			{{/category}}
+			<div class="field">{{ extract }}</div>
+		</div>
+		
+		{{>map_item_widget_stats_tpl}}
+		
+		<div class="buttons">
+			<a class="btn btn-mini" href="#{{ url }}">{% trans "Read more" %}</a>
+			<a class="btn btn-mini popup-zoom" data-id="{{ id }}" href="#">{% trans "Zoom in" %}</a>
+		</div>
+	</div>
+</script>
+
+
+
+{# MAP ITEM TEASER VIEW #}
+<script id="map_item_teaser_tpl" type="text/html">
+	
+		<div class="status status-{{status}}" title="{% trans 'status'%}: {{status}}"></div>
+		
+		{{>post_user_data_tpl}}
+		
+		<div class="content">
+			{{#category}}
+				<div class="category">
+					<span class="badge" style="background-color: {{ color }}">{{ category_name }}</span>
+				</div>
+			{{/category}}
+			<div class="field">{{ extract }}</div>
+		</div>
+		
+		{{>map_item_widget_stats_tpl}}
+		
+		<div class="buttons">
+			<a class="btn btn-mini" href="#{{ url }}">{% trans "Read more" %}</a>&nbsp;
+			<a class="open-popup" href="#" data-id="{{ id }}" title="{% trans 'open in map'%}"><i class="mira"></i></a>
+		</div>
+		
+</script>
+
+
+{# MAP ITEM FULL VIEW #}
+<script id="map_item_full_tpl" type="text/html">
+	<div class="map-item-full-header">
+		<div class="pull-right">
+			<button type="button" class="btn hide edit-map-item item-control" data-id="{{id}}" title="{% trans 'edit' %}"><i class="icon-pencil"></i></button>
+			<button type="button" class="btn hide delete-map-item-ask item-control" data-id="{{id}}" title="{% trans 'delete' %}"><i class="icon-trash"></i></button>
+			{{#mapping_active}}<button class="btn btn-primary create-report" type="button">{% trans "Create new report" %}</button>{{/mapping_active}} 
+		</div>
+		<a href="#" class="back-to-list back-link"><span class="icon" data-step="1">&nbsp;</span>{% trans "back" %}</a>
+	</div>
+	<div class="scroll-area resize-target">
+		<div id="map-item-full-{{ id }}" class="map-item full">
+			
+			<div class="status status-{{status}}" title="{% trans 'status'%}: {{status}}"></div>
+			
+			{{>post_user_data_tpl}}
+			
+			<div class="content">
+				
+				<div class="category">
+					{{#category}}<span class="badge" style="background-color: {{ color }}">{{ category_name }}</span>&nbsp;{{/category}}
+					<a class="open-popup" href="#" data-id="{{ id }}" title="{% trans 'open in map' %}">
+						<i data-id="{{ id }}" class="mira"></i>
+					</a>
+				</div>
+				<div class="field">{{& content }}</div>
+			</div>
+			
+			<div class="images"></div>
+			
+			<div class="widgets">
+				<div class="share-group">
+					{{>fb_button_tpl}}
+					{{>tw_button_tpl}}
+				</div>
+				<div class="datea-widgets">
+				</div>
+			</div>
+	
+			<div class="replies" style="display:none"></div>
+			
+			<div class="comments"></div>
+		</div>
+	</div>
+</script>
+
+{# MAP ITEM ADMIN FULL VIEW #}
+<script id="map_item_admin_full_tpl" type="text/html">
+	<div id="map-item-admin-full{{ id }}" class="map-item admin-full">
+			<div class="item-left">	
+					
+					<div class="status status-{{status}}" title="{% trans 'status'%}: {{status}}"></div>
+					
+					{{>post_user_data_tpl}}
+					
+					<div class="content">
+						{{#category}}
+							<div class="category">
+								<span class="badge" style="background-color: {{ color }}">{{ category_name }}</span>
+							</div>
+						{{/category}}
+						<div class="field">{{& content }}</div>
+					</div>
+					
+					<div class="images"></div>
+					
+					{{>map_item_widget_stats_tpl}}
+										
+					<div class="replies" style="display:none"></div>
+		
+					<div class="comments"></div>
+			</div>
+			<div class="item-right">		
+				<div id="item-map-{{id}}"></div>
+			</div>
+	</div>
+</script>
+{% endverbatim %}
+
+

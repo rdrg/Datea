@@ -1,0 +1,307 @@
+
+span.caret2 {
+    background: url(../img/datea/caret.png) no-repeat center center;
+    width: 15px;
+    display:inline-block;
+    .ie7-inline-block();
+    .opacity(50);    
+}
+
+span.caret3 {
+    background: url(../img/datea/caret-gray.png) no-repeat center top;
+    width: 15px;
+    display: inline-block;
+    .ie7-inline-block();  
+}
+
+a.btn.dropdown-toggle span.caret, button.btn.dropdown-toggle span.caret {
+    background: url(../img/datea/caret.png) no-repeat top center;
+    width: 15px;
+    height: 10px;
+    display:inline-block;
+    .ie7-inline-block();
+    .opacity(25);
+    border:0px;
+    margin-top:5px;    
+}
+
+.btn-group.white {
+	a.btn.dropdown-toggle, button.btn.dropdown-toggle{
+		span.caret {
+			background: url(../img/datea/caret-white.png) no-repeat top center;
+			.opacity(95);
+		}
+		&:hover span.caret {
+   			.opacity(95);
+   		}
+	}
+}
+
+.btn-group.dropup {
+	a.btn.dropdown-toggle,  button.btn.dropdown-toggle { 
+		span.caret {
+			margin-top: 4px;
+			background: url(../img/datea/caret-invert.png) no-repeat top center;
+		}
+	}
+}
+
+a.btn.dropdown-toggle, button.btn.dropdown-toggle, {
+	&:hover span.caret2 {
+    	.opacity(100);
+   }
+   &:hover span.caret {
+   		.opacity(50);
+   }
+}
+
+
+.pagination {
+	li {
+		a {
+			color: @grayLight;
+		}
+		&.active, &:hover {
+			a {
+				color: @grayText;
+			}
+		}
+	}
+}
+
+.paginator {
+	li {
+		a {
+			padding: 1px 5px;
+			color: @grayTextDark;
+		}
+		float:left; display: block; 
+		padding: 0 4px;
+		&.separator { padding: 0px}
+		&.dots { padding: 0 10px;}
+		
+		&.first, &.last, &.next, &.prev {
+			padding: 0;
+		}
+		&.active a {
+			background-color: @amarillo;
+		}
+	}
+}
+
+.datea_widget_base() {
+	cursor: pointer;
+	overflow: hidden;
+	display: inline-block;
+	.ie7-inline-block();
+	
+	.widget-icon {
+		display: block;
+		float: left;
+	}
+	
+	.widget-text {
+		display: block;
+		float: left;
+	}
+	
+	.widget-hover-msg {
+		display: none;
+	}
+	
+	&.force-hover {
+		.widget-hover-msg { display: block;}
+		.widget-info { display: none;}
+	}
+	
+	&:hover {
+		.widget-hover-msg { display:block;}
+		.widget-info { display: none }
+	}
+	
+	&.after-click {
+		.widget-hover-msg { display: none}
+		.widget-info {display:block}
+	}
+}
+
+.datea_widget_small_base() {
+	.widget-icon {
+		width: 19px;
+		height: 16px;
+	}
+	.widget-text {
+		width: 51px;
+		height: @baseLineHeight +  @baseLineHeight - 8px;
+		padding-left: 4px;
+		.widget-hover-msg {
+			font-size: @baseFontSize - 2px;
+			line-height: @baseLineHeight - 6px;
+		}
+		.widget-info {
+			font-size: @baseFontSize - 2px;
+			line-height: @baseLineHeight - 6px;
+			margin:0px;
+			.widget-counter {padding-left:0px; color: @verde;}
+		}
+	}
+	&.read-only {
+		.widget-text {
+			.widget-hover-msg {
+				display: none !important;
+			}
+			.widget-info {
+				display: block !important;
+			}
+		}
+	}
+}
+
+.datea_widget_large_base() {
+	.widget-icon {
+		width: 35px;
+		height: 37px;
+	}
+	.widget-text {
+		padding-top: 2px;
+		width: 50px;
+		height: @baseLineHeight +  @baseLineHeight;
+		padding-left: 8px;
+		.widget-hover-msg {
+			font-size: @baseFontSize - 1px;
+			line-height: @baseLineHeight - 4px;
+		}
+		.widget-info {
+			font-size: @baseFontSize - 2px;
+			line-height: @baseLineHeight - 2px;
+			margin:0px;
+			.widget-counter {padding-left:0px; font-size: @baseFontSize + 2px;}
+		}
+	}
+	&.read-only {
+		.widget-text {
+			.widget-hover-msg {
+				display: none !important;
+			}
+			.widget-info {
+				display: block !important;
+			}
+		}
+	}
+}
+
+
+.follow-widget.full-small {
+	.datea_widget_base();
+	.datea_widget_small_base();
+	
+	.widget-icon { background: url(../img/datea/seguir.png) no-repeat 0px center; }
+	
+	&:hover .widget-icon { background: url(../img/datea/seguir.png) no-repeat -19px center; }
+	
+	&.active {
+		.widget-icon { background: url(../img/datea/seguir.png) no-repeat -19px center; }
+		&:hover .widget-icon { background: url(../img/datea/seguir.png) no-repeat -38px center; }
+	}
+	
+	&.after-click {
+		.widget-icon { background: url(../img/datea/seguir.png) no-repeat 0px center; }
+		&.active .widget-icon { background: url(../img/datea/seguir.png) no-repeat -19px center; }
+	}
+	
+	&.read-only {
+		cursor: default;
+		.widget-icon, &:hover .widget-icon { background: url(../img/datea/seguir.png) no-repeat -19px center; }
+		&.active {
+			.widget-icon { background: url(../img/datea/seguir.png) no-repeat -19px center; }
+			&:hover .widget-icon { background: url(../img/datea/seguir.png) no-repeat -19px center; }
+		}
+	}
+}
+
+.follow-widget.full-large {
+	.datea_widget_base();
+	.datea_widget_large_base();
+	
+	.widget-icon { background: url(../img/datea/seguir_large.png) no-repeat 0px center; }
+	
+	&:hover .widget-icon { background: url(../img/datea/seguir_large.png) no-repeat -35px center; }
+	
+	&.active {
+		.widget-icon { background: url(../img/datea/seguir_large.png) no-repeat -35px center; }
+		&:hover .widget-icon { background: url(../img/datea/seguir_large.png) no-repeat -70px center; }
+	}
+	
+	&.after-click {
+		.widget-icon { background: url(../img/datea/seguir_large.png) no-repeat 0px center; }
+		&.active .widget-icon { background: url(../img/datea/seguir_large.png) no-repeat -35px center; }
+	}
+	
+	&.read-only {
+		cursor: default;
+		.widget-icon, &:hover .widget-icon { background: url(../img/datea/seguir_large.png) no-repeat -35px center; }
+		&.active {
+			.widget-icon { background: url(../img/datea/seguir_large.png) no-repeat -35px center; }
+			&:hover .widget-icon { background: url(../img/datea/seguir_large.png) no-repeat -35px center; }
+		}
+	}
+}
+
+.follow-widget.button-small {
+	cursor: pointer;
+	a { display: inline-block; .ie7-inline-block(); &:hover {text-decoration: none}}
+	
+	.widget-label {
+		margin-right:22px;
+		color: @grayText;
+	}
+	
+	.widget-icon {
+		float:right;
+		width: 18px;
+		height: 18px;
+		background: url(../img/datea/seguir_estados.png) no-repeat -18px center;
+	}
+	
+	&:hover .widget-icon {
+		background: url(../img/datea/seguir_estados.png) no-repeat 0px center;
+	}
+	
+	&.active {
+		.widget-icon {
+			background: url(../img/datea/seguir_estados.png) no-repeat 0px center;
+		}
+		.widget-label {
+			color: @green;
+		}
+		&:hover {
+			.widget-icon { background: url(../img/datea/seguir_estados.png) no-repeat -36px center; }
+			.widget-label {color: @grayText;}
+		}
+	}
+	
+	&.after-click {
+		.widget-icon { background: url(../img/datea/seguir_estados.png) no-repeat -18px center; }
+		&.active .widget-icon { background: url(../img/datea/seguir_estados.png) no-repeat 0px center; }
+	}
+}
+
+
+.vote-widget.full-small {
+	.datea_widget_base();
+	.datea_widget_small_base();
+	
+	.widget-icon { background: url(../img/datea/apoyar.png) no-repeat 0px center; }
+	
+	&:hover .widget-icon { background: url(../img/datea/apoyar.png) no-repeat -19px center; }
+	
+	&.active {
+		.widget-icon { background: url(../img/datea/apoyar.png) no-repeat -19px center; }
+		&:hover .widget-icon { background: url(../img/datea/apoyar.png) no-repeat -19px center; }
+	}
+	
+	&.after-click {
+		.widget-icon { background: url(../img/datea/apoyar.png) no-repeat -19px center; }
+		&.active .widget-icon { background: url(../img/datea/apoyar.png) no-repeat 0px center; }
+	}
+}

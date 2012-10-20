@@ -1,0 +1,102 @@
+{% load i18n verbatim_tag %}
+<script id="mapping_tab_start_tpl" type="text/html">
+{% verbatim %}
+<div class="resize-target scroll-area">
+<h2>{{name}}</h2>
+<div class="mapping-header">
+	
+	{{#image_thumb}}
+	<div class="left-start-head">
+		<div class="image">
+			<img src="{{ image_thumb }}" alt="{{name}}" />
+		</div>
+	</div>
+	{{/image_thumb}}
+	
+	<div class="right-start-head">
+		<div class="short-description">{{short_description}}</div>
+		<div class="info">
+			<div class="stats">
+				{{#item_count}}
+					<div class="stat-line item_count">
+						<i class="icono comment"></i> {{item_count}} 
+						<span class="plural">{% trans "reports" %}</span>
+						<span class="singular" style="display:none">{% trans "report" %}</span>	
+					</div>
+				{{/item_count}} 
+				{{#comment_count}}
+					<div class="stat-line comment_count">
+						<i class="icono comment"></i> {{comment_count}} 
+						<span class="plural">{% trans "comments" %}</span>
+						<span class="singular" style="display:none">{% trans "comment" %}</span>	
+					</div>
+				{{/comment_count}}
+				{{#user_count}}
+					<div class="stat-line user_count">
+						<i class="icono follow"></i> {{user_count}} 
+						<span class="plural">{% trans "participants" %}</span>
+						<span class="singular" style="display:none">{% trans "participant" %}</span>	
+					</div>
+				{{/user_count}}
+			</div>
+			{{#mapping_active}}
+			<div class="create-button">
+				 <button type="button" class="btn btn-large btn-primary create-report">{% trans "Create Report" %}</button>
+			</div>
+			{{/mapping_active}}
+		</div>
+		{{#mapping_active_message}}
+			<div class="time-left">{{& mapping_active_message }}</div>
+		{{/mapping_active_message}}
+	</div>
+</div>
+
+<div class="pull-right">
+	<div class="follow-button"></div>	
+</div>
+
+<div class="share-group">
+	{{>fb_button_tpl}}
+	{{>tw_button_tpl}}
+</div>
+
+<div class="mapping-about">
+	
+	<h3>{% trans "about this action" %}</h3>
+	
+	<div class="user-info">
+		<div class="image">
+			<a href="#{{user.url}}" title="{% trans 'go to profile' %}">
+				<img src="{{user.profile.image}}" alt="" />
+			</a>
+		</div>
+		<div class="user-data">
+			<div class="sub">{% trans "action creator" %}</div>
+			<div class="uname">
+				<a href="#{{user.url}}" title="{% trans 'go to profile' %}">{{ user.username }}</a>
+			</div>
+			<div class="ubutton">
+				<a href="#{{ user.url }}" class="btn btn-mini">{% trans "go to profile" %}</a>
+			</div>
+		</div>
+	</div>
+
+	<div class="field">
+		<div class="field-label">{% trans "Mission / Objectives"%}</div>
+		<div class="field-content">{{ mission }}</div>
+	</div>
+	
+	<div class="field">
+		<div class="field-label">{% trans "What happens with this information?"%}</div>
+		<div class="field-content">{{ information_destiny }}</div>
+	</div>
+	
+	<div class="long_description field hide">
+		<div class="field-label">{% trans "Description"%}</div>
+		<div class="field-content">{{ long_description }}</div>
+	</div>
+	
+</div>
+{% endverbatim %}
+</div>
+</script>

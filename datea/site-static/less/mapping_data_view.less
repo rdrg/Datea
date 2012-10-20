@@ -1,0 +1,111 @@
+
+
+.data-view-head {
+	position:relative;
+	.clearfix();
+	.head-icon {
+		display: inline-block;
+		.ie7-inline-block();
+		height: 32px;
+		line-height: 32px;
+		vertical-align: text-bottom;
+		text-decoration:none;
+	}
+	.top-buttons {
+		.json {
+			width: 23px;
+			background: url(../img/datea/iconos-mapa-top.png) no-repeat -47px 0px;
+		}
+		
+		&.with-admin-button {
+			margin-right: 80px;
+		}
+	}	
+}
+
+.data-view-body{
+	z-index: 10;
+	position:relative;
+}
+
+
+.data-view-category-leyend {
+	padding: 10px 0;
+	list-style: none;
+	border-bottom: 1px solid #7f7f7f;
+	position:relative;
+	z-index: 1;
+	ul.category-leyend-group {
+		margin: 0px;
+		.clearfix();
+		li {
+			position: relative;
+			list-style: none;
+			line-height: @baseLineHeight - 3px !important;
+			list-style-position:inside;
+			float: left;
+			display: block;
+			width:25%;
+			.color-sample {
+				position: absolute;
+				top:0;
+				left:0;
+				width:15px;
+				margin-right:5px;
+			}
+			.name {
+				margin-left: 21px;
+				display: block;
+				float:left;
+				font-size: @baseFontSize - 1px;
+				padding-right: 6px;
+			}
+		}	
+	}
+}
+
+.data-view-filters {
+	position:relative;
+	z-index: 1;
+}
+
+.mapping-filters {
+	padding: 5px 0;
+	.clearfix();
+	.title {
+		font-weight: bold;
+		float: left;
+		display: block;
+		padding: 5px 0;
+		color: black;
+	}
+	ul.filters {
+		margin-left: 10px;
+		margin-bottom: 0px;
+		list-style: none;
+		float: left;
+		li.filter {
+			margin-right: 13px;
+			list-style: none;
+			float:left;
+			display: block;
+			button { 
+				.name {
+					color: @grayText;
+				}
+				.color-sample {
+					width: 15px;
+					display: inline-block;
+					.ie7-inline-block();
+					line-height: 15px;
+					height: 15px;
+					margin-right: 0px; 
+				}
+			}
+			
+			&:last-child {
+				margin-right: 0px;	
+			}
+		}
+	}
+}
