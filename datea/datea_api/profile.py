@@ -91,6 +91,12 @@ class UserResource(DateaBaseResource):
                 v_bundle = vote_rsc.full_dehydrate(v_bundle)
                 votes.append(v_bundle.data)
             bundle.data['votes'] = follows
+            
+            if 'api_key' in bundle.request.GET:
+                keyauth = ApiKeyAuthentication()
+                if keyauth.is_authenticated(bundle.request):
+                    if bundle.request.user and bundle.request.user == bundle.obj:
+                        bundle.data['email'] = bundle.obj.email
                 
         return bundle
     

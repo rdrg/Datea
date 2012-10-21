@@ -46,7 +46,7 @@ window.Datea.ProfileHomeView = Backbone.View.extend({
 			case 'actions': 
 				$('#profile-actions-tablink').tab('show');
 				break;
-			case 'history':
+			case gettext('history'):
 				$('#profile-history-tablink').tab('show');
 				break;
 		}	

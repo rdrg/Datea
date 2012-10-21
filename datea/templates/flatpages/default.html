@@ -1,18 +1,7 @@
-{% extends "site-base.html"%}
+{% extends "layouts/right_bar.html"%}
 
-{% block main_content %}
-<div class="row" id="{{ flatpage.id }}">
-	<div id="content" class="span12 dotted-bg-container">
-		<div class="dotted-bg">&nbsp;</div>
-		<div class="row">
-			<div class="span8">
-				<div class="dotted-inner">
-					<h1>{{flatpage.title}}</h1>
-				  	{{flatpage.content}}
-				</div>
-			</div>
-			<div class="span4"></div>
-		</div>
-	</div>
-</div>
-{% endblock main_content %}
+{% block left_content %}
+	<h1>{{flatpage.title}}</h1>
+  	{{flatpage.content}}
+{% endblock %}		
+

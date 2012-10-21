@@ -31,7 +31,7 @@ class DateaVote(models.Model):
         prof = self.user.get_profile()
         prof.vote_count += value
         prof.save()
-        
+        print "MODEL", self.object_type.lower()
         ctype = ContentType.objects.get(model=self.object_type.lower())
         receiver_obj = ctype.get_object_for_this_type(pk=self.object_id)
         if hasattr(receiver_obj, 'vote_count'):

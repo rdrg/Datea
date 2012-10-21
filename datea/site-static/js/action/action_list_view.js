@@ -151,7 +151,7 @@ window.Datea.MyActionListView = Datea.BaseActionListView.extend({
     	this.filter_options = [];
     	if (Datea.is_logged() && typeof(Datea.my_user_follows.find(function (f){ return f.get('object_type') == 'dateaaction'})) != 'undefined') {
     		this.has_actions = true;
-    		this.filter_options.push({value: 'my_actions', name: gettext('my actions')});
+    		this.filter_options.push({value: 'my_actions', name: gettext('actions followed')});
     		
     		if (this.model.find(function (action){
     				return action.get('user') == Datea.my_user.get('resource_uri');

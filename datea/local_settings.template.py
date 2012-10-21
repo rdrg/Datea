@@ -60,3 +60,12 @@ BLOG_FEED_CACHE_TIMEOUT = 3600
 BLOG_FEED_URL = 'http://blog.datea.pe/?feed=rss2'
 BLOG_URL = 'http://blog.datea.pe'
 BLOG_NAME = 'blog datero'
+
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        'ENGINE': 'haystack.backends.solr_backend.SolrEngine',
+        'URL': 'http://127.0.0.1:8983/solr'
+        # ...or for multicore.s..
+        # 'URL': 'http://127.0.0.1:8983/solr/mysite',
+    },
+}

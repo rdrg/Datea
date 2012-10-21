@@ -75,10 +75,9 @@ Datea.AppRouter = Backbone.Router.extend({
     action_create: function (action_type) {
     	screen_mode('normal');
     	this.current_view = 'action_create';
-    	if (action_type == gettext('mapping')) {
-			$main_content_wrap.html( ich.content_layout_single_tpl());
+    	if (action_type == gettext('mapping')) {    		
     		this.mapping = new Datea.MappingFormView({model: new Datea.Mapping()});
-    		$('#content').html(this.mapping.render().el);
+    		$main_content_wrap.html(this.mapping.render().el);
     		this.mapping.attach_map();
     	}	
     },

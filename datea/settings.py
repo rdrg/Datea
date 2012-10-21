@@ -1,11 +1,9 @@
 # Django settings for datea project.
 
-# local_settings.py can be used to override environment-specific settings
-# like database and email that differ between development and production.
-try:
-    from datea.local_settings import *
-except ImportError:
-    pass
+DEBUG = True
+TEMPLATE_DEBUG = DEBUG
+MAINTENANCE_MODE = False
+COMPRESS_ENABLED = True
 
 import os
 PROJECT_PATH = os.path.abspath(os.path.dirname(__file__))
@@ -14,6 +12,9 @@ TEMPLATE_DEBUG = DEBUG
 DEBUG_TOOLBAR_CONFIG = {
     'INTERCEPT_REDIRECTS': False,
 }
+
+from datea.local_settings import DATABASES
+
 
 #add middelware path to sys path
 #import sys
@@ -327,3 +328,11 @@ CKEDITOR_CONFIGS = {
         'width': 600,
     },
 }
+
+
+# local_settings.py can be used to override environment-specific settings
+# like database and email that differ between development and production.
+try:
+    from datea.local_settings import *
+except ImportError:
+    pass

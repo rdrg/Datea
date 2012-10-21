@@ -38,7 +38,7 @@ class DateaMenuItem(MPTTModel):
     parent = TreeForeignKey('self', null=True, blank=True, related_name='children')  
     page = models.ForeignKey(FlatPage, verbose_name=_('Page'), blank=True, null=True)
     menu_root_id = models.SlugField(_('Menu root id'), null=True, blank=True, help_text=_("String to identify this menu to the datea_menu template tags"))
-    external_url = models.URLField(_('External url'), verify_exists=False, null=True, blank=True)
+    external_url = models.CharField(_('External url'), null=True, blank=True, max_length=300)
     
     def __unicode__(self):
         return self.name 
