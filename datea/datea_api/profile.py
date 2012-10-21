@@ -92,8 +92,11 @@ class UserResource(DateaBaseResource):
                 votes.append(v_bundle.data)
             bundle.data['votes'] = follows
             
-            if bundle.request.user and bundle.request.user == bundle.obj:
-                bundle.data['email'] = bundle.obj.email
+            if 'api_key' in bundle.request.GET:
+                keyauth = ApiKeyAuthentication()
+                if keyauth.is_authenticated(bundle.request):
+                    if bundle.request.user and bundle.request.user == bundle.obj:
+                        bundle.data['email'] = bundle.obj.email
                 
         return bundle
     
