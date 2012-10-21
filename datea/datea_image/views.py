@@ -166,8 +166,8 @@ def save_image_api(request):
         print "form valid"
         
         # ADD DATEA IMAGE INSTANCE To EXISTING OBJECT
-        #if form.cleaned_data['object_id'] and form.cleaned_data['object_type'] and form.cleaned_data['object_field']:
-        if postdata['object_id'] and postdata['object_type'] and postdata['object_field']:
+        if form.cleaned_data['object_id'] and form.cleaned_data['object_type'] and form.cleaned_data['object_field']:
+        #if postdata['object_id'] and postdata['object_type'] and postdata['object_field']:
         
             # get model through content type, object instance, field class
             model = ContentType.objects.get(model= postdata['object_type'].lower())
@@ -242,7 +242,9 @@ def save_image_api(request):
         
         # JUST ADD IMAGE WITHOUT REFERENCING IT TO AN OBJECT
         else:
-            image_data = postdata['image']
+            #image_data = postdata['image']
+            image_data = postfiles['image']
+            print request
             image_instance = DateaImage(image=image_data, user=request.user)
             if 'order' in form.cleaned_data:
                 image_instance.order = form.cleaned_data['order']
@@ -267,12 +269,13 @@ def save_image_api(request):
         print "form invalid"
         print form.errors
 
-    context = Context({'data': data})
-    tpl = Template('<textarea data-type="application/json">{{ data|safe }}</textarea>')
+    #context = Context({'data': data})
+    #tpl = Template('<textarea data-type="application/json">{{ data|safe }}</textarea>')
        
-    return HttpResponse(tpl.render(context))
+    #return HttpResponse(tpl.render(context))
+    return HttpResponse(data, mimetype="apllication/json")
     
- 
+######################## image upload using base 64 string ################################# 
 #@ensure_csrf_cookie
 @csrf_exempt
 def mobile_image_save(request):
@@ -295,8 +298,8 @@ def mobile_image_save(request):
         print request.POST
         if request.POST.get('file'):
             #print('got file field')
-            file = ContentFile(base64.b64decode(request.POST.get('file')))
-            #file = cStringIO.StringIO(base64.b64decode(request.POST.get('file')))
+            #file = ContentFile(base64.b64decode(request.POST.get('file')))
+            file = cStringIO.StringIO(base64.b64decode(request.POST.get('file')))
             image = InMemoryUploadedFile(file,
                 field_name = 'file',
                 name = "generic.jpg",
@@ -304,117 +307,118 @@ def mobile_image_save(request):
                 size = sys.getsizeof(file),
                 charset=None)
             request.FILES[u'image'] = image
+
             print "posted files: ", request.FILES
 
         postdata = request.POST
         
         postfiles = request.FILES
 
-    form = ImageUploadForm(request.POST, request.FILES)
+    #form = ImageUploadForm(request.POST, request.FILES)
     
-    if form.is_valid():
-        print "form valid"
+    #if form.is_valid():
+    #print "form valid"
+    
+    # ADD DATEA IMAGE INSTANCE To EXISTING OBJECT
+    #if form.cleaned_data['object_id'] and form.cleaned_data['object_type'] and form.cleaned_data['object_field']:
+    if postdata['object_id'] and postdata['object_type'] and postdata['object_field']:
+    
+        # get model through content type, object instance, field class
+        model = ContentType.objects.get(model= postdata['object_type'].lower())
+        object = model.get_object_for_this_type(pk=postdata['object_id'])
         
-        # ADD DATEA IMAGE INSTANCE To EXISTING OBJECT
-        #if form.cleaned_data['object_id'] and form.cleaned_data['object_type'] and form.cleaned_data['object_field']:
-        if postdata['object_id'] and postdata['object_type'] and postdata['object_field']:
-        
-            # get model through content type, object instance, field class
-            model = ContentType.objects.get(model= postdata['object_type'].lower())
-            object = model.get_object_for_this_type(pk=postdata['object_id'])
+        # Only access image if object is owned by user or user.is_staff
+        # TODO: implement better permissions with something like django-guardian
+        if object.user == request.user or request.user.is_staff:
+            field_name = postdata['object_field']
+            field = object._meta.get_field(field_name)
+            image_data = postfiles['image']
             
-            # Only access image if object is owned by user or user.is_staff
-            # TODO: implement better permissions with something like django-guardian
-            if object.user == request.user or request.user.is_staff:
-                field_name = postdata['object_field']
-                field = object._meta.get_field(field_name)
-                image_data = postfiles['image']
+            # field is foreign key 
+            if type(field) in [ForeignKey, OneToOneField]:
+                image_instance = getattr(object, field_name)
                 
-                # field is foreign key 
-                if type(field) in [ForeignKey, OneToOneField]:
-                    image_instance = getattr(object, field_name)
-                    
-                    # create new DateaImage and save to objects foreignkey field 
-                    if not image_instance:
-                        image_instance = DateaImage(image=image_data, user=request.user)
-                        image_instance.save()
-                        setattr(object, field_name, image_instance)
-                        object.save()
-                    
-                    # update existing image 
-                    else:
+                # create new DateaImage and save to objects foreignkey field 
+                if not image_instance:
+                    image_instance = DateaImage(image=image_data, user=request.user)
+                    image_instance.save()
+                    setattr(object, field_name, image_instance)
+                    object.save()
+                
+                # update existing image 
+                else:
+                    image_instance.image = image_data
+                    image_instance.save()
+            
+            elif type(field) == ManyToManyField:
+                m2m = getattr(object, field_name)
+                
+                #if image_order specified, check if image exists
+                if 'image_order' in request.POST and request.POST['image_order']:
+                    order = request.POST['image_order']
+                    # update existing image
+                    try:
+                        image_instance = m2m.get(order=order)
                         image_instance.image = image_data
                         image_instance.save()
-                
-                elif type(field) == ManyToManyField:
-                    m2m = getattr(object, field_name)
-                    
-                    #if image_order specified, check if image exists
-                    if 'image_order' in request.POST and request.POST['image_order']:
-                        order = request.POST['image_order']
-                        # update existing image
-                        try:
-                            image_instance = m2m.get(order=order)
-                            image_instance.image = image_data
-                            image_instance.save()
-                        # create new with specified order
-                        except:
-                            image_instance = DateaImage(image=image_data, user=request.user, order=order)
-                            image_instance.save()
-                            m2m.add(image_instance)
-                    
-                    # create new image with corresponding order (last + 1)
-                    else:
-                        if m2m.count() == 0:
-                            order = 0
-                        else:
-                            order = m2m.order_by('order')[0].order + 1
+                    # create new with specified order
+                    except:
                         image_instance = DateaImage(image=image_data, user=request.user, order=order)
                         image_instance.save()
-                        m2m.add(image_instance)    
+                        m2m.add(image_instance)
                 
-                # create image resource
-                ir = ImageResource()
-                im_bundle = ir.build_bundle(obj=image_instance)
-                im_bundle = ir.full_dehydrate(im_bundle)
-                
-                data = {'ok': True, 'message':'Everything\'s fine', 'resource': im_bundle.data }
-                if postdata['thumb_preset']:
-                    try:
-                        data['resource']['thumb'] = image_instance.get_thumb(postdata['thumb_preset'])
-                    except:
-                        pass
-                               
-                data = simplejson.dumps(data)
-            else:
-                data = simplejson.dumps({'ok': False, 'message': 'Permission denied'})
-        
-        # JUST ADD IMAGE WITHOUT REFERENCING IT TO AN OBJECT
-        else:
-            image_data = postdata['image']
-            image_instance = DateaImage(image=image_data, user=request.user)
-            if 'order' in form.cleaned_data:
-                image_instance.order = form.cleaned_data['order']
-            image_instance.save()
+                # create new image with corresponding order (last + 1)
+                else:
+                    if m2m.count() == 0:
+                        order = 0
+                    else:
+                        order = m2m.order_by('order')[0].order + 1
+                    image_instance = DateaImage(image=image_data, user=request.user, order=order)
+                    image_instance.save()
+                    m2m.add(image_instance)    
             
             # create image resource
             ir = ImageResource()
             im_bundle = ir.build_bundle(obj=image_instance)
             im_bundle = ir.full_dehydrate(im_bundle)
             
-            data = {'ok': True, 'message':'Everything\'s fine', 'resource': im_bundle.data}
+            data = {'ok': True, 'message':'Everything\'s fine', 'resource': im_bundle.data }
             if postdata['thumb_preset']:
-                    try:
-                        data['resource']['thumb'] = image_instance.image[postdata['thumb_preset']].url
-                    except:
-                        pass
-            
+                try:
+                    data['resource']['thumb'] = image_instance.get_thumb(postdata['thumb_preset'])
+                except:
+                    pass
+                           
             data = simplejson.dumps(data)
-             
+        else:
+            data = simplejson.dumps({'ok': False, 'message': 'Permission denied'})
+    
+    # JUST ADD IMAGE WITHOUT REFERENCING IT TO AN OBJECT
     else:
-        data = simplejson.dumps({'ok': False, 'message': form.errors})
-        print "form invalid"
-        print form.errors
+        image_data = postdata['image']
+        image_instance = DateaImage(image=image_data, user=request.user)
+        if 'order' in postdata:
+            image_instance.order = form.cleaned_data['order']
+        image_instance.save()
+        
+        # create image resource
+        ir = ImageResource()
+        im_bundle = ir.build_bundle(obj=image_instance)
+        im_bundle = ir.full_dehydrate(im_bundle)
+        
+        data = {'ok': True, 'message':'Everything\'s fine', 'resource': im_bundle.data}
+        if postdata['thumb_preset']:
+                try:
+                    data['resource']['thumb'] = image_instance.image[postdata['thumb_preset']].url
+                except:
+                    pass
+        
+        data = simplejson.dumps(data)
+             
+    #else:
+    #   data = simplejson.dumps({'ok': False, 'message': form.errors})
+    #   print "form invalid"
+    #   print form.errors
 
     context = Context({'data': data})
     tpl = Template('<textarea data-type="application/json">{{ data|safe }}</textarea>')
