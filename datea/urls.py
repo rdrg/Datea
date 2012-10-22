@@ -10,7 +10,7 @@ admin.autodiscover()
 from datea_api.auth import Accounts
 from datea_api.profile import ProfileResource,UserResource
 from datea_api.mapping import MappingResource, MappingFullResource, MapItemResource,MapItemResponseResource
-from datea_api.category import FreeCategoryResource
+from datea_api.category import FreeCategoryResource, CategoryResource
 from datea_api.vote import VoteResource
 from datea_api.image import ImageResource
 from datea_api.action import ActionResource
@@ -37,6 +37,7 @@ v1_api.register(CommentResource())
 v1_api.register(FollowResource())
 v1_api.register(HistoryResource())
 v1_api.register(NotifySettingsResource())
+v1_api.register(CategoryResource())
 
 js_info_dict = {
     'packages': ('datea',),
