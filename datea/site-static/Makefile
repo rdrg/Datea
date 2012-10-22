@@ -19,7 +19,7 @@ build:
 #	@recess --compress ${DATEA_LESS} > ${DATEA}
 #	@recess --compress ${DATEA_RESPONSIVE_LESS} > ${DATEA_RESPONSIVE}
 #	@echo "Compiling LESS with Recess...               ${CHECK} Done"
-	@echo "Compiling LESS with LessC... 
+	@echo "Compiling LESS with LessC..." 
 	@echo "todo bien"
 
 #

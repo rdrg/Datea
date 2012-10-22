@@ -68,6 +68,7 @@ Datea.AppRouter = Backbone.Router.extend({
     // new action homeview -> select which action type to create
     action_start: function () {
     	screen_mode('normal');
+    	this.current_view = 'action_start';
     	$main_content_wrap.html(new Datea.ActionStartView().render().el);
     },
     
@@ -85,6 +86,7 @@ Datea.AppRouter = Backbone.Router.extend({
     //////////////////////// PROFILES ////////////////////////////////
     
     open_user_profile: function (user_id, tab) {
+    	
 		screen_mode('normal');
 		
 		if (typeof(tab) == 'undefined') tab = 'actions';

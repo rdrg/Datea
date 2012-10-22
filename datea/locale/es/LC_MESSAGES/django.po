@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-10-19 22:42-0500\n"
+"POT-Creation-Date: 2012-10-21 19:41-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -139,6 +139,7 @@ msgid "/"
 msgstr "/"
 
 #: datea_action/templates/ich/action_create.html:6
+#: datea_profile/templates/ich/my_profile.html:20
 #: datea_profile/templates/ich/my_user_head.html:15
 msgid "Create action"
 msgstr "Crear iniciativa"
@@ -184,19 +185,19 @@ msgid "Go"
 msgstr "Ir"
 
 #: datea_action/templates/ich/action_list_item.html:45
-#: datea_profile/templates/ich/my_profile.html:27
+#: datea_profile/templates/ich/my_profile.html:32
 msgid "contributions"
 msgstr "dateos"
 
 #: datea_action/templates/ich/action_list_item.html:46
-#: datea_profile/templates/ich/my_profile.html:28
+#: datea_profile/templates/ich/my_profile.html:33
 msgid "contribution"
 msgstr "dateo"
 
 #: datea_action/templates/ich/action_list_item.html:55
 #: datea_mapping/templates/ich/map_item.html:20
 #: datea_mapping/templates/ich/mapping_tab_start.html:30
-#: datea_profile/templates/ich/my_profile.html:36
+#: datea_profile/templates/ich/my_profile.html:41
 msgid "comments"
 msgstr "comentarios"
 
@@ -206,7 +207,7 @@ msgstr "comentarios"
 #: datea_mapping/templates/ich/mapping_tab_start.html:31
 #: datea_mapping/templates/mail/dateamapitem/comment/mail_body_generic.txt:7
 #: datea_mapping/templates/mail/dateamapitem/comment/mail_body_owner.txt:7
-#: datea_profile/templates/ich/my_profile.html:37
+#: datea_profile/templates/ich/my_profile.html:42
 msgid "comment"
 msgstr "comentario"
 
@@ -586,20 +587,15 @@ msgstr "Aún no has dateado?"
 
 #: datea_home/templates/ich/datea_presentation.html:81
 msgid "Search actions of the community, join and contribute."
-msgstr ""
-"Busca iniciativas de la comunidad, únete y contribuye."
+msgstr "Busca iniciativas de la comunidad, únete a ellas y siguelas."
 
 #: datea_home/templates/ich/datea_presentation.html:88
 msgid "Contribute, comment and support each other's contributions."
 msgstr "Datea en una iniciativa, comenta y apoya los dateos de los demás."
 
 #: datea_home/templates/ich/datea_presentation.html:95
-msgid ""
-"Create actions for others to participate in. <br/>Check your user's menu on "
-"the upper right corner."
-msgstr ""
-"Crea una iniciativa desde tu menú "
-"de usuario, arriba a la derecha."
+msgid "Create actions for others to participate in."
+msgstr "Crea una iniciativa desde tu menú de usuario, arriba a la derecha."
 
 #: datea_image/forms.py:8
 msgid "Object Type"
@@ -633,8 +629,8 @@ msgstr "Mensaje de éxito para ítem entregado"
 msgid ""
 "The message someone sees when succesfully filing a report (max. 140 "
 "characters)"
-msgstr "Mensaje de confirmación luego que alguien hizo un dateo "
-"(max 140 caracteres)."
+msgstr ""
+"Mensaje de confirmación luego que alguien hizo un dateo (max 140 caracteres)."
 
 #: datea_mapping/models.py:42
 msgid "Default Item Color"
@@ -721,12 +717,12 @@ msgid "Responses"
 msgstr "Respuestas"
 
 #: datea_mapping/templates/ich/map_item.html:10
-#: datea_profile/templates/ich/my_profile.html:44
+#: datea_profile/templates/ich/my_profile.html:49
 msgid "votes"
 msgstr "apoyos"
 
 #: datea_mapping/templates/ich/map_item.html:11
-#: datea_profile/templates/ich/my_profile.html:45
+#: datea_profile/templates/ich/my_profile.html:50
 msgid "vote"
 msgstr "apoyo"
 
@@ -1146,6 +1142,11 @@ msgstr "Perfiles"
 msgid "/profile/"
 msgstr "/perfil/"
 
+#: datea_profile/templates/ich/my_profile.html:19
+#: datea_profile/templates/ich/my_user_head.html:14
+msgid "Edit profile"
+msgstr "Editar perfil"
+
 #: datea_profile/templates/ich/my_user_edit.html:5
 msgid "My Profile"
 msgstr "Mi Perfil"
@@ -1169,10 +1170,6 @@ msgstr "Define la clase de eventos que envian notificaciones a tu correo."
 #: datea_profile/templates/ich/my_user_edit.html:126
 msgid "Close"
 msgstr "Cerrar"
-
-#: datea_profile/templates/ich/my_user_head.html:14
-msgid "Edit profile"
-msgstr "Editar perfil"
 
 #: datea_profile/templates/ich/my_user_head.html:15
 msgid "action/start"
@@ -1244,7 +1241,9 @@ msgstr ""
 
 #: templates/envelope/success.html:7
 msgid "Your message was sent succesfully. We'll get in touch with you asap!"
-msgstr "Tu mensaje se ha enviado con éxito. En breve nos pondremos en contacto contigo!"
+msgstr ""
+"Tu mensaje se ha enviado con éxito. En breve nos pondremos en contacto "
+"contigo!"
 
 #: templates/envelope/success.html:8
 msgid "Back to home"
@@ -1506,18 +1505,14 @@ msgstr "Regístrate para obtener una cuenta"
 msgid "Or you can register an account here at Datea:"
 msgstr "O puedes registrar una cuenta aquí en Datea:"
 
-#: .\forms.py:33
-msgid "From"
-msgstr "Nombre"
+#~ msgid "From"
+#~ msgstr "Nombre"
 
-#: .\forms.py:35
-msgid "Subject"
-msgstr "Asunto"
+#~ msgid "Subject"
+#~ msgstr "Asunto"
 
-#: .\forms.py:36
-msgid "Message"
-msgstr "Mensage"
-
+#~ msgid "Message"
+#~ msgstr "Mensage"
 
 #~ msgid "commented"
 #~ msgstr "comentó"
