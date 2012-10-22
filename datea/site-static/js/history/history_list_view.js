@@ -58,7 +58,7 @@ window.Datea.HistoryView = Backbone.View.extend({
 					self.selected_mode = val;
 					self.page = 0;
 				}
-				self.fetch_actions();
+				self.fetch_models();
 			}
 		});
 		this.$el.find('.filter').html(this.history_filter.render().el);

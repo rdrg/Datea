@@ -8,6 +8,8 @@ window.Datea.ProfileHomeView = Backbone.View.extend({
 	
 	render: function (ev) {
 		
+		var is_own = Datea.is_logged() && this.model.get('id') == Datea.my_user.get('id');
+		
 		// set base template
 		this.$el.html( ich.content_layout_right_bar_tpl({dotted_bg:true}));
 		
@@ -62,7 +64,7 @@ window.Datea.ProfileHomeView = Backbone.View.extend({
 	reset_events: function() {
 		this.undelegateEvents();
     	this.delegateEvents();
-	}
+	},
 		
 });
 

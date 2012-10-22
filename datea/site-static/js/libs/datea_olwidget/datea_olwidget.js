@@ -1557,7 +1557,7 @@ olwidget.Popup = OpenLayers.Class(OpenLayers.Popup.Framed, {
             this.relativePosition = relativePosition;
         }
         if (separator === undefined) {
-            this.separator = ' of ';
+            this.separator = ' '+gettext('of')+' ';
         } else {
             this.separator = separator;
         }
