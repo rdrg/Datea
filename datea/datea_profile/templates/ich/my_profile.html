@@ -10,11 +10,16 @@
 			</div>
 			{{>profile_stats_tpl}}
 		</div>
-		<div class="profile-extra">
-			<div class="message">{{ profile.message }}</div>
-		</div>
 	</div>
-	
+	<div class="profile-extra">
+		<div class="message">{{ profile.message }}</div>
+	</div>
+	{{#show_user_actions}}
+	<div class="profile-actions">
+		<button type="button" class="btn edit-profile">{% trans "Edit profile" %}</button> &nbsp;
+		<a class="btn" href="#{{ action_create_link }}">{% trans "Create action" %}</a> 
+	</div>
+	{{/show_user_actions}}
 </div>
 </script>
 
