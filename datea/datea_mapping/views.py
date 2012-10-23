@@ -9,6 +9,12 @@ from django.contrib.sites.models import Site
 from django.conf import settings
 from django.utils.html import strip_tags
 from django.utils.text import Truncator
+import unicodecsv
+from django.utils.translation import ugettext as _
+from django.contrib.sites.models import Site
+from datetime import datetime
+from django.template.defaultfilters import slugify
+
 
 
 def get_mapping(request, mapping_id):
@@ -68,6 +74,48 @@ def get_circle(request):
     return HttpResponse(img_data, mimetype="image/png")
 
 
-def get_mapping_test(request):
-    render_to_response('test/mapping.html')
+def csv_export(request, mapping_id):
+    
+    mapping = DateaMapping.objects.get(id=mapping_id)
+    filename = slugify(mapping.name)+'_'+datetime.now().strftime('%d-%m-%Y')
+    
+    response = HttpResponse(mimetype='text/csv')
+    response['Content-Disposition'] = 'attachment; filename="'+filename+'.csv"'
+    writer = unicodecsv.writer(response, encoding='utf-8')
+    
+    writer.writerow([_('Username'),_('Created'), _('Category'),_('Content'), _('Status'), _('Images'), _('Latitude'), _('Longitude'), 'URL'])
+    
+    site = Site.objects.get_current()
+    host = 'http://'+site.domain
+    
+    for item in DateaMapItem.objects.filter(action__id=mapping_id, published=True).order_by('created'):
+        
+        images = []
+        if item.images.count() > 0:
+            for img in item.images.all():
+                images.append(host+img.image.path)
+        images = ','.join(images)
+        
+        category = ''
+        if hasattr(item.category, 'name'):
+            category = item.category.name
+            
+        lat = lng = ''
+        if item.position:
+            lat = item.position.x
+            lng = item.position.y
+        
+        writer.writerow([
+            item.user.username,
+            item.created.isoformat(),
+            category,
+            item.content,
+            _(item.status),
+            images,
+            lat,
+            lng,
+            host+item.get_absolute_url(),
+        ])
+        
+    return response
 
