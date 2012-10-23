@@ -15,5 +15,6 @@ urlpatterns = patterns("datea.datea_mapping.views",
     url(r"^png/piecluster$", 'get_pie_cluster'),
     url("^png/svgcircle", 'get_circle'),
     
-    url("^mapping_test.html", 'get_mapping_test')
+    # CSV EXPORT
+    url(r"csv_export/mapping/(?P<mapping_id>[0-9]+)/$", 'csv_export', name='csv_export')
 )
