@@ -99,6 +99,11 @@ def csv_export(request, mapping_id):
         category = ''
         if hasattr(item.category, 'name'):
             category = item.category.name
+            
+        lat = lng = ''
+        if item.position:
+            lat = item.position.x
+            lng = item.position.y
         
         writer.writerow([
             item.user.username,
@@ -107,8 +112,8 @@ def csv_export(request, mapping_id):
             item.content,
             _(item.status),
             images,
-            str(item.position.x),
-            str(item.position.y),
+            lat,
+            lng,
             host+item.get_absolute_url(),
         ])
         
