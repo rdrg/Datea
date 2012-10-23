@@ -126,7 +126,8 @@
   		
   		{# external js libs #}
   		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
-  		<script src="{{STATIC_URL}}js/libs/datea_openlayers/OpenLayers.datea-web.js"></script>
+  		{# <script src="{{STATIC_URL}}js/libs/datea_openlayers/OpenLayers.datea-web.js"></script> #}
+  		<script src="{{STATIC_URL}}OpenLayers-2.12/OpenLayers.debug.js"></script> 
   		<script type="text/javascript">OpenLayers.ImgPath = "/static/img/openlayers/";</script>
   		{#<script src='http://openstreetmap.org/openlayers/OpenStreetMap.js'></script>#}
   		
