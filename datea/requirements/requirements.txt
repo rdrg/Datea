@@ -38,8 +38,11 @@ pysolr==2.1.0-beta
 python-dateutil==1.5
 python-memcached==1.48
 python-openid==2.2.5
+python-twitter==0.8.2
+simplejson==2.6.2
 slimit==0.7.4
 sorl-thumbnail==11.12
 svgwrite==1.0.1
 #svgwrite==0.2.4
+unicodecsv==0.9.0
 wsgiref==0.1.2
