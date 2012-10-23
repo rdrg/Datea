@@ -1018,7 +1018,6 @@ olwidget.EditableLayer = OpenLayers.Class(olwidget.BaseVectorLayer, {
     
     // Callback for openlayers "featureadded"
     addModel: function(event) {
-    	
     	// check boundary (only on points for the moment)
     	if(!this.checkBoundary(event)) return;
     	
@@ -1049,7 +1048,6 @@ olwidget.EditableLayer = OpenLayers.Class(olwidget.BaseVectorLayer, {
     
     // Callback for openlayers "featuremodified"
     modifyModel: function(event) {
-    	
     	// check boundary (only on points for the moment)
     	if(!this.checkBoundary(event)) return;
     	
