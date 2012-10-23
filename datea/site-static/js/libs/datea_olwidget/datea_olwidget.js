@@ -426,7 +426,7 @@ olwidget.BaseVectorLayer = OpenLayers.Class(OpenLayers.Layer.Vector, {
                     {context: this.opts.overlayStyleContext}),
                 "select": new OpenLayers.Style(this.opts.selectOverlayStyle,
                    {context: this.opts.overlayStyleContext}),
-                "temporary": new OpenLayers.Style({display: "none"})
+                //"temporary": new OpenLayers.Style({display: "none"})
             });
         }
         if (this.opts.paging === true) {
@@ -1018,7 +1018,6 @@ olwidget.EditableLayer = OpenLayers.Class(olwidget.BaseVectorLayer, {
     
     // Callback for openlayers "featureadded"
     addModel: function(event) {
-    	
     	// check boundary (only on points for the moment)
     	if(!this.checkBoundary(event)) return;
     	
@@ -1049,7 +1048,6 @@ olwidget.EditableLayer = OpenLayers.Class(olwidget.BaseVectorLayer, {
     
     // Callback for openlayers "featuremodified"
     modifyModel: function(event) {
-    	
     	// check boundary (only on points for the moment)
     	if(!this.checkBoundary(event)) return;
     	
@@ -1267,6 +1265,14 @@ olwidget.EditableLayerSwitcher = OpenLayers.Class(OpenLayers.Control.LayerSwitch
         if (this.map.selectControl) {
             this.map.selectControl.deactivate();
         }
+        
+        /*
+        console.log(layer);
+        if (layer.defaultControl.displayClass == 'olControlDrawFeaturePoint') {
+        	
+        }else{
+        	
+        }*/
 
     },
     setChecked: function(layer) {
