@@ -49,14 +49,6 @@ window.Datea.MappingMainView = Backbone.View.extend({
 			'class': 'mapping-content',
 		}));
 		
-		// include sidebar view 
-		this.sidebar_view = new Datea.MappingSidebar({
-			el: this.$el.find('#left-content'),
-			model: this.model,
-			map_items: this.map_items,
-		});
-		//this.sidebar_view.render();
-		
 		// include data-view
 		this.data_view = new Datea.MappingDataView({
 			model: this.map_items, // MODEL is MAP_ITEM COLLECTION
@@ -64,6 +56,14 @@ window.Datea.MappingMainView = Backbone.View.extend({
 			el: this.$el.find('#right-content')
 		});
 		this.data_view.render();
+		
+		// include sidebar view 
+		this.sidebar_view = new Datea.MappingSidebar({
+			el: this.$el.find('#left-content'),
+			model: this.model,
+			map_items: this.map_items,
+		});
+		//this.sidebar_view.render();
 				
 		return this;
 	},

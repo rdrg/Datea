@@ -30,15 +30,6 @@ window.Datea.MappingDataView = Backbone.View.extend({
 		this.$el.html( ich.mapping_data_view_tpl(context));
 		this.filter_items();
 		
-		// add map
-		this.mapView = new Datea.MappingDataViewMap({
-			model: this.model,
-			render_items: this.render_items,
-			mapModel: this.mappingModel,
-			el: this.$el.find('#map-data-view'),	
-		});
-		this.mapView.render();
-		
 		// add categories
 		var categories = this.mappingModel.get('item_categories');
 		
@@ -111,7 +102,16 @@ window.Datea.MappingDataView = Backbone.View.extend({
 			callback: function () { self.filter_items(); self.mapView.redraw(self.render_items); }
 		});
 		this.$el.find('.time-filter').html(this.time_filter.render().el);
-				
+		
+		
+		// add map at the end cause of resizing issues
+		this.mapView = new Datea.MappingDataViewMap({
+			model: this.model,
+			render_items: this.render_items,
+			mapModel: this.mappingModel,
+			el: this.$el.find('#map-data-view'),	
+		});
+		this.mapView.render();		
 	},
 	
 	filter_items: function () {
