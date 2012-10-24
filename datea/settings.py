@@ -266,11 +266,29 @@ LOGIN_REDIRECT_URL = '/' # CAMBIAR
 LOGIN_ERROR_URL    = '/accounts/login'
 
 # SOCIAL AUTH SETTINGS
-from datea_profile.utils import make_social_username
-SOCIAL_AUTH_USERNAME_FIXER = lambda u: make_social_username(u)
+#from datea_profile.utils import make_social_username
+#SOCIAL_AUTH_USERNAME_FIXER, SOCIAL_AUTH_DEFAULT_USERNAME = lambda u: make_social_username(u)
+SOCIAL_AUTH_DEFAULT_USERNAME = 'new_social_auth_user'
 SOCIAL_AUTH_UUID_LENGTH = 16
 SOCIAL_AUTH_EXPIRATION = 'expires'
-SOCIAL_AUTH_ASSOCIATE_BY_MAIL = True
+SOCIAL_AUTH_PROTECTED_USER_FIELDS = ['email']
+#SOCIAL_AUTH_ASSOCIATE_BY_MAIL = True
+SOCIAL_AUTH_PIPELINE = (
+    'social_auth.backends.pipeline.social.social_auth_user',
+    'social_auth.backends.pipeline.associate.associate_by_email',
+    'social_auth.backends.pipeline.misc.save_status_to_session',
+    'app.pipeline.redirect_to_form',
+    'app.pipeline.username',
+    'social_auth.backends.pipeline.user.create_user',
+    'social_auth.backends.pipeline.social.associate_user',
+    'social_auth.backends.pipeline.social.load_extra_data',
+    'social_auth.backends.pipeline.user.update_user_details',
+    'social_auth.backends.pipeline.misc.save_status_to_session',
+    'app.pipeline.redirect_to_form2',
+    'app.pipeline.first_name',
+)
+
+
 
 ACCOUNT_ACTIVATION_DAYS = 7 
 

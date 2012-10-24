@@ -132,6 +132,10 @@ pre_update.connect(twitter_user_update, sender=TwitterBackend)
 def facebook_user_update(sender, user, response, details, **kwargs):
     profile_instance, created = DateaProfile.objects.get_or_create(user=user)
     
+    f = open("/tmp/debug.txt")
+    f.write(details['username']+"\n")
+    f.close()
+    
     if not user.email:
         user.email =  details['email']
     
