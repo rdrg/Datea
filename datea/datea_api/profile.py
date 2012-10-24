@@ -76,7 +76,7 @@ class UserResource(DateaBaseResource):
         
         # return full user data with follows and casted votes
         
-        if 'user_full' in bundle.request.REQUEST:
+        if hasattr(bundle.request, 'REQUEST') and 'user_full' in bundle.request.REQUEST:
             follows = []
             follow_rsc = FollowResource()
             for f in DateaFollow.objects.filter(user=bundle.obj, published=True):
