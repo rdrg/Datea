@@ -202,7 +202,7 @@ window.Datea.MapItemFormView = Backbone.View.extend({
         			{coordinates: [results[0].geometry.viewport.getNorthEast().lng(), results[0].geometry.viewport.getNorthEast().lat()], type: "Point"},
         			{coordinates: [results[0].geometry.viewport.getSouthWest().lng(), results[0].geometry.viewport.getSouthWest().lat()], type: "Point"},
         		];
-        		self.map_view.set_model(self.model, zoom_bounds);
+        		self.map_view.set_model_from_search(self.model, zoom_bounds);
         	
       		} else {
         		var input = $('.search-address', self.$el);
@@ -262,9 +262,9 @@ window.Datea.MapItemPointFieldView = Backbone.View.extend({
     	return this;
 	},
 	
-	set_model: function(model, zoom_bounds) {
-		this.pointLayer.layer.mapModel = model;
-		this.pointLayer.layer.destroyFeatures();
+	set_model_from_search: function(model, zoom_bounds) {
+		this.pointLayer.mapModel = model;
+		this.pointLayer.destroyFeatures();
 		this.pointLayer.readModel(zoom_bounds);
 	},
 	
