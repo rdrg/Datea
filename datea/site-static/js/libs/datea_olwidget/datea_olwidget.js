@@ -765,6 +765,7 @@ olwidget.EditableLayer = OpenLayers.Class(olwidget.BaseVectorLayer, {
         // force non-clustering, it doesn't make sense for editable maps.
         this.opts.cluster = false;
         this.buildControls();
+        this.initBoundary();
         this.readModel();
         // init undo stack
         if (this.opts.geometry != 'point' || this.opts.isCollection) {
@@ -946,7 +947,8 @@ olwidget.EditableLayer = OpenLayers.Class(olwidget.BaseVectorLayer, {
             }
         }
     },
-    readModel: function() {
+    readModel: function(zoom_bounds) {   	
+    	
         if (this.features) {
             this.removeFeatures(this.features);
         }
@@ -991,28 +993,15 @@ olwidget.EditableLayer = OpenLayers.Class(olwidget.BaseVectorLayer, {
                 this.numGeom = 0;
             }
         }
-        // CREATE BOUNDARY LAYER IF NECESARY
-        if (typeof(this.boundaryData) != 'undefined' && this.boundaryData != null) {
-
-        	var gjson = new OpenLayers.Format.GeoJSON();
-        	var collection = gjson.read(
-        		JSON.stringify(this.boundaryData)
-        	, 'FeatureCollection');
-        	
-        	this.boundaryPolygon = olwidget.transformVector(collection[0],
-                    this.map.displayProjection,
+        if (typeof(zoom_bounds) != 'undefined') {
+        	var bounds = new OpenLayers.Bounds();
+        	for (i in zoom_bounds) {
+        		bounds.extend(new OpenLayers.LonLat(zoom_bounds[i].coordinates[0], zoom_bounds[i].coordinates[1]));
+        	}
+        	bounds = bounds.transform(this.map.displayProjection,
                     this.map.getProjectionObject());
-                    
-            this.boundaryPolygon.style = {
-            	'strokeWidth': 3,
-    			'strokeOpacity': 1,
-    			'strokeColor': '#ecff00',
-    			'fillOpacity': 0,
-            };
-      
-        	this.boundaryLayer = new OpenLayers.Layer.Vector("Boundary");
-        	this.boundaryLayer.addFeatures(this.boundaryPolygon);
-			this.map.addLayer(this.boundaryLayer);
+            this.map.zoomToExtent(bounds);
+			this.map.zoomTo(Math.min(this.map.getZoom(), this.map.opts.zoomToDataExtentMin)); 
         }
     },
     
@@ -1112,6 +1101,32 @@ olwidget.EditableLayer = OpenLayers.Class(olwidget.BaseVectorLayer, {
     	);
     },
     
+    initBoundary: function() {
+    	// CREATE BOUNDARY LAYER IF NECESARY
+        if (typeof(this.boundaryData) != 'undefined' && this.boundaryData != null) {
+
+        	var gjson = new OpenLayers.Format.GeoJSON();
+        	var collection = gjson.read(
+        		JSON.stringify(this.boundaryData)
+        	, 'FeatureCollection');
+        	
+        	this.boundaryPolygon = olwidget.transformVector(collection[0],
+                    this.map.displayProjection,
+                    this.map.getProjectionObject());
+                    
+            this.boundaryPolygon.style = {
+            	'strokeWidth': 3,
+    			'strokeOpacity': 1,
+    			'strokeColor': '#ecff00',
+    			'fillOpacity': 0,
+            };
+      
+        	this.boundaryLayer = new OpenLayers.Layer.Vector("Boundary");
+        	this.boundaryLayer.addFeatures(this.boundaryPolygon);
+			this.map.addLayer(this.boundaryLayer);
+        }
+    },
+    
     checkBoundary: function(event) {
     	
     	// remove alert popup
@@ -1125,7 +1140,11 @@ olwidget.EditableLayer = OpenLayers.Class(olwidget.BaseVectorLayer, {
     	if (this.opts.geometry != 'point' || typeof(this.boundaryPolygon) == 'undefined') return true;
     		
 		var point = new OpenLayers.Geometry.Point(event.feature.geometry.x, event.feature.geometry.y);
-		if (!this.boundaryPolygon.geometry.containsPoint(point)){
+		this.pointInsideBoundary(point);
+    },
+    
+    pointInsideBoundary: function(point) {
+    	if (!this.boundaryPolygon.geometry.containsPoint(point)){
 			this.alert_popup = new OpenLayers.Popup.FramedCloud("Aviso",
                     	event.feature.geometry.getBounds().getCenterLonLat(),
                         null,
@@ -1151,7 +1170,13 @@ olwidget.EditableLayer = OpenLayers.Class(olwidget.BaseVectorLayer, {
     	this.initCenter();
     },
     
-    initCenter: function () {
+    initCenter: function (bounds) {
+    	
+    	if (typeof(bounds) != 'undefined') {
+    		this.map.zoomToExtent(bounds);
+			this.map.zoomTo(Math.min(this.map.getZoom(), this.map.opts.zoomToDataExtentMin));
+    	}
+    	
     	if (this.features.length > 0) {
 			this.map.zoomToExtent(this.features[0].geometry.getBounds());
 			this.map.zoomTo(Math.min(this.map.getZoom(), this.map.opts.zoomToDataExtentMin));
