@@ -18,7 +18,7 @@ django-extensions==0.8
 django-honeypot==0.3.0
 django-mptt==0.5.2
 #-e git://github.com/rdrg/olwidget.git#egg=django_olwidget
--e git://github.com/rdrg/olwidget.git#egg=django_olwidget
+-e git://github.com/rdrg/olwidget.git#egg=django-olwidget
 django-registration==0.8
 django-social-auth==0.7.7
 -e git://github.com/toastdriven/django-tastypie.git@e08b4f683ea907328538598a33626503d30f8075#egg=django_tastypie-dev

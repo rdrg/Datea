@@ -8,6 +8,15 @@ COMPRESS_ENABLED = True
 import os
 PROJECT_PATH = os.path.abspath(os.path.dirname(__file__))
 
+
+# local_settings.py can be used to override environment-specific settings
+# like database and email that differ between development and production.
+try:
+    from datea.local_settings import *
+except ImportError:
+    pass
+
+
 TEMPLATE_DEBUG = DEBUG
 DEBUG_TOOLBAR_CONFIG = {
     'INTERCEPT_REDIRECTS': False,
