@@ -22,7 +22,6 @@ Datea.mapping_resize_layout =  function () {
 			});
 		}
 		if (typeof(Datea.main_map) != 'undefined') {
-			alert("hey");
 			Datea.main_map.updateSize();
 			Datea.main_item_layer.reload();
 		}
@@ -32,7 +31,6 @@ Datea.mapping_resize_layout =  function () {
 			$map_div.removeClass('resized').css('height', '500px');
 			$('.scroll-area.resize-target').removeAttr('style');
 			if (typeof(Datea.main_map) != 'undefined') {
-				alert("hey 2");
 				Datea.main_map.updateSize();
 				Datea.main_item_layer.reload();
 			}
