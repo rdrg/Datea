@@ -95,11 +95,15 @@ from social_auth.backends.google import GoogleOAuth2Backend
 
 from urllib2 import urlopen, HTTPError
 from django.template.defaultfilters import slugify
+from utils import make_social_username
 
 #+++++++++++++++++++++    
 # Update Twitter user and profile data with oauth response
 def twitter_user_update(sender, user, response, details, **kwargs):
     profile_instance, created = DateaProfile.objects.get_or_create(user=user)
+    
+    if details['username'] != user.username:
+        user.username = make_social_username(details['username'])
     
     if not profile_instance.full_name:
         if details['first_name'] != '' or details['last_name'] != '':
@@ -137,6 +141,10 @@ def facebook_user_update(sender, user, response, details, **kwargs):
     f.write("user username: "+user.username+"\n")
     f.close()
     
+    if details['username'] != user.username:
+        user.username = make_social_username(details['username'])
+        
+    
     if not user.email:
         user.email =  details['email']
     
@@ -172,6 +180,9 @@ pre_update.connect(facebook_user_update, sender=FacebookBackend)
 def google_user_update(sender, user, response, details, **kwargs):
     
     profile_instance, created = DateaProfile.objects.get_or_create(user=user)
+    
+    if details['username'] != user.username:
+        user.username = make_social_username(details['username'])
     
     if not user.email:
         user.email = details['email']
