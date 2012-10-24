@@ -201,6 +201,7 @@ window.Datea.MappingDataViewMap = Backbone.View.extend({
 			}
 			
 			this.map = new Datea.olwidget.Map("map-data-view", [this.itemLayer], mapOptions);
+			Datea.main_map = this.map;
 		}
 	},
 	

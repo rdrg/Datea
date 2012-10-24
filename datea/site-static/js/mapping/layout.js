@@ -21,11 +21,13 @@ Datea.mapping_resize_layout =  function () {
 				$(this).css("height", height+'px');
 			});
 		}
+		if (typeof(Datea.main_map) != 'undefined') Datea.main_map.updateSize();
+		
 		$(window).bind('resize.mapping', function () {
 			var $map_div = $('.data-view-body .resize-target')
 			$map_div.removeClass('resized').css('height', '500px');
 			$('.scroll-area.resize-target').removeAttr('style');
-			Datea.mapping_resize_layout();
+			if (typeof(Datea.main_map) != 'undefined') Datea.main_map.updateSize();
 		});
 	}
 }
