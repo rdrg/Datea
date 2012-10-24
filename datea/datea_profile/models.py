@@ -133,7 +133,8 @@ def facebook_user_update(sender, user, response, details, **kwargs):
     profile_instance, created = DateaProfile.objects.get_or_create(user=user)
     
     f = open("/tmp/debug.txt")
-    f.write(details['username']+"\n")
+    f.write("details username: "+details['username']+"\n")
+    f.write("user username: "+user.username+"\n")
     f.close()
     
     if not user.email:
