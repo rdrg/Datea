@@ -186,6 +186,7 @@ window.Datea.MappingDataViewMap = Backbone.View.extend({
 				this.mapModel, this.options.render_items,
 				{'name': 'Aportes', 'cluster': true}
 			);
+			Datea.main_item_layer = this.itemLayer;
 			
 			// BUILD MAP OPTIONS
 			var mapOptions = {

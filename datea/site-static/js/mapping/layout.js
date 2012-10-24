@@ -21,13 +21,21 @@ Datea.mapping_resize_layout =  function () {
 				$(this).css("height", height+'px');
 			});
 		}
-		if (typeof(Datea.main_map) != 'undefined') Datea.main_map.updateSize();
+		if (typeof(Datea.main_map) != 'undefined') {
+			alert("hey");
+			Datea.main_map.updateSize();
+			Datea.main_item_layer.reload();
+		}
 		
 		$(window).bind('resize.mapping', function () {
 			var $map_div = $('.data-view-body .resize-target')
 			$map_div.removeClass('resized').css('height', '500px');
 			$('.scroll-area.resize-target').removeAttr('style');
-			if (typeof(Datea.main_map) != 'undefined') Datea.main_map.updateSize();
+			if (typeof(Datea.main_map) != 'undefined') {
+				alert("hey 2");
+				Datea.main_map.updateSize();
+				Datea.main_item_layer.reload();
+			}
 		});
 	}
 }
