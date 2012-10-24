@@ -43,6 +43,5 @@ simplejson==2.6.2
 slimit==0.7.4
 sorl-thumbnail==11.12
 svgwrite==1.0.1
-#svgwrite==0.2.4
 unicodecsv==0.9.0
 wsgiref==0.1.2

@@ -75,7 +75,8 @@ class UserResource(DateaBaseResource):
         bundle.data['url'] = bundle.obj.profile.get_absolute_url()
         
         # return full user data with follows and casted votes
-        if 'user_full' in bundle.request.GET:
+        
+        if 'user_full' in bundle.request.REQUEST:
             follows = []
             follow_rsc = FollowResource()
             for f in DateaFollow.objects.filter(user=bundle.obj, published=True):
@@ -91,12 +92,13 @@ class UserResource(DateaBaseResource):
                 v_bundle = vote_rsc.full_dehydrate(v_bundle)
                 votes.append(v_bundle.data)
             bundle.data['votes'] = follows
-            
-            if 'api_key' in bundle.request.GET:
+
+            if 'api_key' in bundle.request.REQUEST:
                 keyauth = ApiKeyAuthentication()
                 if keyauth.is_authenticated(bundle.request):
                     if bundle.request.user and bundle.request.user == bundle.obj:
                         bundle.data['email'] = bundle.obj.email
+                        print bundle.data
                 
         return bundle
     
