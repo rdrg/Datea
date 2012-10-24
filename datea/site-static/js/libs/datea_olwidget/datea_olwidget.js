@@ -946,7 +946,7 @@ olwidget.EditableLayer = OpenLayers.Class(olwidget.BaseVectorLayer, {
             }
         }
     },
-    readModel: function() {
+    readModel: function(zoom_bounds) {
         if (this.features) {
             this.removeFeatures(this.features);
         }
@@ -990,6 +990,16 @@ olwidget.EditableLayer = OpenLayers.Class(olwidget.BaseVectorLayer, {
             } else {
                 this.numGeom = 0;
             }
+             if (typeof(zoom_bounds) != 'undefined') {
+                var bounds = new OpenLayers.Bounds();
+                for (i in zoom_bounds) {
+	                        bounds.extend(new OpenLayers.LonLat(zoom_bounds[i].coordinates[0], zoom_bounds[i].coordinates[1]));
+                }
+                bounds = bounds.transform(this.map.displayProjection,
+                 		this.map.getProjectionObject());
+            	this.map.zoomToExtent(bounds);
+                this.map.zoomTo(Math.min(this.map.getZoom(), this.map.opts.zoomToDataExtentMin)); 
+	        }
         }
         // CREATE BOUNDARY LAYER IF NECESARY
         if (typeof(this.boundaryData) != 'undefined' && this.boundaryData != null) {
