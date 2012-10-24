@@ -282,6 +282,7 @@ SOCIAL_AUTH_UUID_LENGTH = 16
 SOCIAL_AUTH_EXPIRATION = 'expires'
 SOCIAL_AUTH_PROTECTED_USER_FIELDS = ['email']
 #SOCIAL_AUTH_ASSOCIATE_BY_MAIL = True
+'''
 SOCIAL_AUTH_PIPELINE = (
     'social_auth.backends.pipeline.social.social_auth_user',
     'social_auth.backends.pipeline.associate.associate_by_email',
@@ -296,7 +297,7 @@ SOCIAL_AUTH_PIPELINE = (
     'app.pipeline.redirect_to_form2',
     'app.pipeline.first_name',
 )
-
+'''
 
 
 ACCOUNT_ACTIVATION_DAYS = 7 
