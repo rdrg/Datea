@@ -1,5 +1,5 @@
 from django.template.defaultfilters import slugify
-from social_auth.models import User
+from django.contrib.auth.models import User
 
 def make_social_username(username):
     index = 0
