@@ -28,6 +28,7 @@ window.Datea.VoteWidgetView = Backbone.View.extend({
 			});
 		}
 		this.$el.addClass(this.options.style);
+		if (this.options.read_only) this.$el.addClass('read-only');
 	},
 	
 	events: {
@@ -62,6 +63,9 @@ window.Datea.VoteWidgetView = Backbone.View.extend({
 
 	
 	vote: function(ev) {
+		
+		if (this.options.read_only) return;
+		
 		// for the moment, votes cannot be deleted
 		if (this.model.isNew()) {
 			Datea.show_small_loading(this.$el);

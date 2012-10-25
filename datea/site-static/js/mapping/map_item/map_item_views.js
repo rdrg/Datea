@@ -76,7 +76,8 @@ window.Datea.MapItemFullView = Backbone.View.extend({
 			object_name: gettext('report'),
 			followed_model: this.model,
 			type: 'full',
-			style: 'full-small', 
+			style: 'full-small',
+			read_only: !Datea.is_logged(), 
 		});
 		$widgets.append(this.follow_widget.render().el);
 		
@@ -87,7 +88,8 @@ window.Datea.MapItemFullView = Backbone.View.extend({
 			object_id: this.model.get('id'),
 			object_name: gettext('report'),
 			voted_model: this.model,
-			style: 'full-small' 
+			style: 'full-small',
+			read_only: !Datea.is_logged(), 
 		});
 		$widgets.append(this.vote_widget.render().el);
 		
