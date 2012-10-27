@@ -1,0 +1,4 @@
+- links de usuarios con espacios
+- acciones de perfil de usuario (no el propio) no salen bien.
+- revisar explorer
+- 
