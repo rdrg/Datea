@@ -75,30 +75,23 @@ window.Datea.HistoryView = Backbone.View.extend({
     	
     	switch(this.selected_mode) {
     	
-    		case 'combined':
-    			$.extend(params, {
-    				following_user: this.user_model.get('id')
-    			});
-    			break;
     		case 'contributions':
-    			$.extend(params, {
-    				following_user: this.user_model.get('id'), 
-    				sender_type: 'map_item'
-    			});
+    			params.sender_type = 'map_item';
     			break;
     		case 'comments':
-    			$.extend(params,{
-    				following_user: this.user_model.get('id'), 
-    				sender_type: 'comment'
-    			});
+    			params.sender_type = 'comment';
     			break;
     		case 'votes':
-    			$.extend(params,{
-    				following_user: this.user_model.get('id'), 
-    				sender_type: 'vote'
-    			});
+    			params.sender_type = 'vote';
     			break;
     	}
+    	
+    	if (Datea.is_logged() && Datea.my_user.get('id') == this.user_model.get('id')) {
+    		params.following_user = this.user_model.get('id'); 
+    	}else{
+    		params.user_id = this.user_model.get('id');
+    	}
+    	
     	this.model.fetch({ data: params});
     },
     

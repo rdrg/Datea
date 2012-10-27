@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-10-21 19:41-0500\n"
+"POT-Creation-Date: 2012-10-27 10:29-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -27,7 +27,7 @@ msgstr "Información acerca de nuestros servicios"
 
 #: datea_action/models.py:36 datea_channel/models.py:10
 #: datea_comment/models.py:12 datea_image/models.py:15
-#: datea_mapping/models.py:92 datea_mapping/models.py:204
+#: datea_mapping/models.py:97 datea_mapping/models.py:209
 #: datea_profile/models.py:16
 msgid "User"
 msgstr "Usuario"
@@ -58,13 +58,13 @@ msgid "If checked, action becomes visible to others"
 msgstr "Controla si la iniciativa es visible públicamente"
 
 #: datea_action/models.py:43 datea_comment/models.py:13
-#: datea_follow/models.py:26 datea_mapping/models.py:95
-#: datea_mapping/models.py:205 datea_profile/models.py:17
+#: datea_follow/models.py:26 datea_mapping/models.py:100
+#: datea_mapping/models.py:210 datea_profile/models.py:17
 msgid "created"
 msgstr "creado"
 
-#: datea_action/models.py:44 datea_mapping/models.py:96
-#: datea_mapping/models.py:206
+#: datea_action/models.py:44 datea_mapping/models.py:101
+#: datea_mapping/models.py:211
 msgid "modified"
 msgstr "modificado"
 
@@ -85,7 +85,7 @@ msgid "A twitter hashtag for your action"
 msgstr "Un hashtag de twitter para compartir tu iniciativa."
 
 #: datea_action/models.py:48 datea_category/models.py:59
-#: datea_mapping/models.py:120
+#: datea_mapping/models.py:125 datea_mapping/views.py:86
 #: datea_mapping/templates/ich/mapping_admin.html:85
 #: templates/envelope/email_body.txt:4
 msgid "Category"
@@ -144,7 +144,7 @@ msgstr "/"
 msgid "Create action"
 msgstr "Crear iniciativa"
 
-#: datea_action/templates/ich/action_create.html:13 datea_mapping/models.py:68
+#: datea_action/templates/ich/action_create.html:13 datea_mapping/models.py:70
 msgid "Mapping"
 msgstr "Mapeo"
 
@@ -156,7 +156,7 @@ msgstr "Mapeo comunitario de problemas y soluciones para mejorar tu ciudad."
 msgid "action/create/"
 msgstr "accion/crear/"
 
-#: datea_action/templates/ich/action_create.html:18 datea_mapping/models.py:17
+#: datea_action/templates/ich/action_create.html:18 datea_mapping/models.py:19
 msgid "mapping"
 msgstr "mapeo"
 
@@ -381,30 +381,30 @@ msgstr "Borrar"
 msgid "Add Category"
 msgstr "Añade una Categoría"
 
-#: datea_channel/models.py:15 datea_mapping/models.py:20
+#: datea_channel/models.py:15 datea_mapping/models.py:22
 #: datea_mapping/templates/ich/mapping_tab_start.html:85
 msgid "Mission / Objectives"
 msgstr "Misión / Objetivos"
 
-#: datea_channel/models.py:15 datea_mapping/models.py:24
+#: datea_channel/models.py:15 datea_mapping/models.py:26
 msgid "max. 500 characters"
 msgstr "máx. 500 letras"
 
-#: datea_channel/models.py:16 datea_mapping/models.py:26
+#: datea_channel/models.py:16 datea_mapping/models.py:28
 msgid "What happens with the data?"
 msgstr "¿Qué ocurrirá con los datos?"
 
-#: datea_channel/models.py:16 datea_mapping/models.py:28
+#: datea_channel/models.py:16 datea_mapping/models.py:30
 msgid ""
 "Who receives the information and what happens with it? (max 500 characters)"
 msgstr "¿Quién recibe la información y que pasa con ella? (máx. 500 letras)"
 
-#: datea_channel/models.py:17 datea_mapping/models.py:31
+#: datea_channel/models.py:17 datea_mapping/models.py:33
 #: datea_mapping/templates/ich/mapping_tab_start.html:95
 msgid "Description"
 msgstr "Descripción"
 
-#: datea_channel/models.py:17 datea_mapping/models.py:34
+#: datea_channel/models.py:17 datea_mapping/models.py:36
 msgid "Long description (optional)"
 msgstr "Descripción larga (opcional)"
 
@@ -501,7 +501,7 @@ msgstr "nombre"
 msgid "url"
 msgstr "url"
 
-#: datea_follow/models.py:258 datea_mapping/models.py:99
+#: datea_follow/models.py:258 datea_mapping/models.py:104
 msgid "published"
 msgstr "publicado"
 
@@ -532,7 +532,7 @@ msgstr "hizo un dateo en"
 
 #: datea_follow/templates/ich/history.html:9
 msgid "replied to"
-msgstr ""
+msgstr "respondió el"
 
 #: datea_follow/templates/ich/history.html:12
 msgid "made a comment in"
@@ -613,7 +613,8 @@ msgstr "Campo del objeto"
 msgid "Thumb preset"
 msgstr "pre-seteado de miniatura"
 
-#: datea_image/models.py:68 datea_mapping/models.py:109
+#: datea_image/models.py:68 datea_mapping/models.py:114
+#: datea_mapping/views.py:86
 msgid "Images"
 msgstr "Imagenes"
 
@@ -621,100 +622,121 @@ msgstr "Imagenes"
 msgid "click to enlarge"
 msgstr "clic para agrandar"
 
-#: datea_mapping/models.py:36
+#: datea_mapping/models.py:38
 msgid "Item submitted success message"
 msgstr "Mensaje de éxito para ítem entregado"
 
-#: datea_mapping/models.py:40
+#: datea_mapping/models.py:42
 msgid ""
 "The message someone sees when succesfully filing a report (max. 140 "
 "characters)"
 msgstr ""
 "Mensaje de confirmación luego que alguien hizo un dateo (max 140 caracteres)."
 
-#: datea_mapping/models.py:42
+#: datea_mapping/models.py:44
 msgid "Default Item Color"
 msgstr "Color por defecto"
 
-#: datea_mapping/models.py:42
+#: datea_mapping/models.py:44
 msgid "Default color for map items (used when there's no categories defined)."
 msgstr ""
 "Color por defecto para dateos (se usa cuando no han sido definidas "
 "categorías)"
 
-#: datea_mapping/models.py:48
+#: datea_mapping/models.py:50
 msgid "Map item Categories"
 msgstr "Categorías para dateos"
 
-#: datea_mapping/models.py:51
+#: datea_mapping/models.py:53
 msgid "Categories for Mapped Items"
 msgstr "Categorías para dateos"
 
-#: datea_mapping/models.py:55
+#: datea_mapping/models.py:57
 msgid "Center"
 msgstr "Centro"
 
-#: datea_mapping/models.py:56
+#: datea_mapping/models.py:58
 msgid "Boundary"
 msgstr "Límite"
 
-#: datea_mapping/models.py:69
+#: datea_mapping/models.py:71
 msgid "Mappings"
 msgstr "Mapeos"
 
-#: datea_mapping/models.py:90
+#: datea_mapping/models.py:95
 msgid "map_item"
 msgstr ""
 
-#: datea_mapping/models.py:101
+#: datea_mapping/models.py:106
 msgid "new"
 msgstr "nuevo"
 
-#: datea_mapping/models.py:102
+#: datea_mapping/models.py:107
 msgid "reviewed"
 msgstr "revisado"
 
-#: datea_mapping/models.py:103
+#: datea_mapping/models.py:108
 msgid "solved"
 msgstr "solucionado"
 
-#: datea_mapping/models.py:105 datea_mapping/templates/ich/map_item.html:68
+#: datea_mapping/models.py:110 datea_mapping/templates/ich/map_item.html:68
 #: datea_mapping/templates/ich/map_item.html:104
 #: datea_mapping/templates/ich/map_item.html:142
 msgid "status"
 msgstr "estado"
 
-#: datea_mapping/models.py:108
+#: datea_mapping/models.py:113 datea_mapping/views.py:86
 msgid "Content"
 msgstr "Contenido"
 
-#: datea_mapping/models.py:112
+#: datea_mapping/models.py:117
 msgid "Position"
 msgstr "Posición"
 
-#: datea_mapping/models.py:113
+#: datea_mapping/models.py:118
 msgid "Address"
 msgstr "Dirección"
 
-#: datea_mapping/models.py:191
+#: datea_mapping/models.py:196
 msgid "/reports/"
 msgstr "/dateos/"
 
-#: datea_mapping/models.py:197
+#: datea_mapping/models.py:202
 msgid "Map Item"
 msgstr "Item de mapa"
 
-#: datea_mapping/models.py:198 datea_mapping/models.py:207
+#: datea_mapping/models.py:203 datea_mapping/models.py:212
 msgid "Map Items"
 msgstr "Items de mapa"
 
-#: datea_mapping/models.py:208 datea_mapping/models.py:223
+#: datea_mapping/models.py:213 datea_mapping/models.py:228
 msgid "Response"
 msgstr "Respuesta"
 
-#: datea_mapping/models.py:224
+#: datea_mapping/models.py:229
 msgid "Responses"
 msgstr "Respuestas"
+
+#: datea_mapping/views.py:86
+#, fuzzy
+msgid "Username"
+msgstr "Usuario"
+
+#: datea_mapping/views.py:86
+msgid "Created"
+msgstr "Creado"
+
+#: datea_mapping/views.py:86 datea_mapping/templates/ich/mapping_admin.html:91
+msgid "Status"
+msgstr "Estado"
+
+#: datea_mapping/views.py:86
+msgid "Latitude"
+msgstr "Latitud"
+
+#: datea_mapping/views.py:86
+msgid "Longitude"
+msgstr "Longitud"
 
 #: datea_mapping/templates/ich/map_item.html:10
 #: datea_profile/templates/ich/my_profile.html:49
@@ -884,10 +906,6 @@ msgstr "Fecha"
 #: datea_mapping/templates/ich/mapping_admin.html:81
 msgid "New Reply"
 msgstr "Nueva respuesta"
-
-#: datea_mapping/templates/ich/mapping_admin.html:91
-msgid "Status"
-msgstr "Estado"
 
 #: datea_mapping/templates/ich/mapping_control_button.html:9
 msgid "Mapping Settings"

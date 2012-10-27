@@ -27,7 +27,7 @@ $(document).ready(function() {
 	});
 	
 	$(document).on('click', '.datefield input',{},function(){
-		$(this).value('');
+		$(this).val('');
 	});
 	
 	$(document).on('mouseenter', '.timefield',{},function(){

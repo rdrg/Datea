@@ -122,7 +122,7 @@ Datea.AppRouter = Backbone.Router.extend({
     		  			with_action_ids: 1,
     		  		},
     				success: function (model, response) {
-	    				self.other_profile_view = new Datea.ProfileHomeView({model: model});
+	    				self.other_profile_view = new Datea.ProfileHomeView({model: user});
 	    				self.other_profile_view.render();
 	    				$main_content_wrap.html(self.other_profile_view.el);
 	    				self.other_profile_view.open_tab(tab);

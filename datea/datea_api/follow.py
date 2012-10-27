@@ -45,10 +45,14 @@ class HistoryResource(DateaBaseResource):
         return bundle
     
     def apply_filters(self, request, applicable_filters):
-        if hasattr(request, 'GET') and 'following_user' in request.GET:
-            follow_keys = [f.follow_key for f in DateaFollow.objects.filter(user__id=int(request.GET['following_user']))]
-            applicable_filters['follow_key__in'] = follow_keys
-        return self.get_object_list(request).filter(**applicable_filters)
+        if hasattr(request, 'GET'):
+            if 'following_user' in request.GET:
+                follow_keys = [f.follow_key for f in DateaFollow.objects.filter(user__id=int(request.GET['following_user']))]
+                applicable_filters['follow_key__in'] = follow_keys
+            elif 'user_id' in request.GET:
+                applicable_filters['user__pk'] = request.GET['user_id']
+        #return self.get_object_list(request).filter(**applicable_filters)
+        return super(HistoryResource, self).apply_filters(request, applicable_filters)
     
     def apply_sorting(self, obj_list, options=None):
         return obj_list.distinct('created','history_key').order_by('-created','history_key')
