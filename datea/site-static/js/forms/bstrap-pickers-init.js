@@ -26,6 +26,10 @@ $(document).ready(function() {
 		}
 	});
 	
+	$(document).on('click', '.datefield input',{},function(){
+		$(this).value('');
+	});
+	
 	$(document).on('mouseenter', '.timefield',{},function(){
 		if (!$(this).hasClass('processed')) {
 			$(this).addClass('processed');

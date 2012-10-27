@@ -35,9 +35,8 @@ window.Datea.BaseActionListView = Backbone.View.extend({
     },
     
     render_filter: function() {
-    	this.build_filter_options();
-    	var self = this;
     	
+    	var self = this;
     	var div_class = 'no-bg';
     	if (this.options.add_class == 'unlogged') div_cass = div_class +" white"; 
     	
@@ -219,7 +218,7 @@ window.Datea.ProfileActionListView = Datea.BaseActionListView.extend({
     	this.user_model = this.options.user_model;
     	this.model = new Datea.ActionCollection();
     	this.model.bind("reset", this.reset_event, this);
-    	this.selected_mode = 'actions';
+    	this.selected_mode = 'user_actions';
     	this.items_per_page = 8;
     	this.page = 0;
 		this.pager_view = new Datea.PaginatorView({
@@ -231,17 +230,18 @@ window.Datea.ProfileActionListView = Datea.BaseActionListView.extend({
     
     // build filter options according to user
     build_filter_options: function () {
-    	var format = gettext("%(uname)s's actions");
-    	var action_str = interpolate(format, {'uname': this.user_model.get('username')}, true);   
-    	this.filter_options = [
-    		{value: 'actions', name: action_str},
-        ];
         var self = this;
-        if (this.model.find(function(a){ return a.get('user_url') == self.user_model.get('url')})) {
-        	var format = gettext("actions created by %(uname)s");
-        	var created_str = interpolate(format, {'uname': self.user_model.get('username')}, true);
-        	self.filter_options.push({value: 'user_actions', name: created_str}); 
+        this.filter_options = [];
+        if (this.user_model.get('actions').length > 0) {
+    		var format = gettext("actions by %(uname)s");
+    		var created_str = interpolate(format, {'uname': this.user_model.get('username')}, true);
+    		this.filter_options.push({value: 'user_actions', name: created_str}); 
+        }else{
+        	this.selected_mode = 'actions_followed';
         }
+        var format = gettext("actions followed by %(uname)s");
+    	var action_str = interpolate(format, {'uname': this.user_model.get('username')}, true);   
+    	this.filter_options.push({value: 'actions_followed', name: action_str});
     },
 
     fetch_models: function (page) {
@@ -259,14 +259,13 @@ window.Datea.ProfileActionListView = Datea.BaseActionListView.extend({
     	}
     	
     	switch(this.selected_mode) {
-    		case 'actions':
-    			params['following_user'] = Datea.my_user.get('id');
-    			break;
     		case 'user_actions':
-    			params['user_id'] = Datea.my_user.get('id');
+    			params['user_id'] = this.user_model.get('id');
+    			break;
+    		case 'actions_followed':
+				params['following_user'] = this.user_model.get('id');
     			break;
     	}
-    	
     	this.model.fetch({ data: params});
     },
 	

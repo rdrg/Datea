@@ -16,8 +16,10 @@ routes[gettext('mapping')+'/:map_id/:tab_id/'] = 'open_mapping_tab';
 routes[gettext('mapping')+'/:map_id/'+gettext('reports')+'/:item_id'] = 'open_mapping_item';
 routes[gettext('mapping')+'/:map_id/:tab_id/:method_id'] = 'open_mapping_tab';
 
-
-var $main_content_wrap = $('#main-content-wrap');
+$(document).ready(function(){
+	$main_content_wrap = $('#main-content-wrap');
+	Datea.show_big_loading($main_content_wrap);
+});
 
 // Main App Router for the Datea Plattform in the client
 Datea.AppRouter = Backbone.Router.extend({
@@ -115,8 +117,12 @@ Datea.AppRouter = Backbone.Router.extend({
     		  	Datea.show_big_loading($main_content_wrap);
     		  	var self = this;
     		  	user.fetch({
+    		  		data: {
+    		  			user_full: 1,
+    		  			with_action_ids: 1,
+    		  		},
     				success: function (model, response) {
-	    				self.other_profile_view = new Datea.ProfileHomeView({model: user});
+	    				self.other_profile_view = new Datea.ProfileHomeView({model: model});
 	    				self.other_profile_view.render();
 	    				$main_content_wrap.html(self.other_profile_view.el);
 	    				self.other_profile_view.open_tab(tab);

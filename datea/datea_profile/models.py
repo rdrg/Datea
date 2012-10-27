@@ -102,7 +102,8 @@ from utils import make_social_username
 def twitter_user_update(sender, user, response, details, **kwargs):
     profile_instance, created = DateaProfile.objects.get_or_create(user=user)
     
-    if details['username'] != user.username:
+    uname = slugify(details['username'])
+    if uname != user.username:
         user.username = make_social_username(details['username'])
     
     if not profile_instance.full_name:
@@ -141,7 +142,8 @@ def facebook_user_update(sender, user, response, details, **kwargs):
     f.write("user username: "+user.username+"\n")
     f.close()
     
-    if details['username'] != user.username:
+    uname = slugify(details['username'])
+    if uname != user.username:
         user.username = make_social_username(details['username'])
         
     
@@ -181,7 +183,8 @@ def google_user_update(sender, user, response, details, **kwargs):
     
     profile_instance, created = DateaProfile.objects.get_or_create(user=user)
     
-    if details['username'] != user.username:
+    uname = slugify(details['username'])
+    if uname != user.username:
         user.username = make_social_username(details['username'])
     
     if not user.email:

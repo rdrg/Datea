@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import ugettext
 from django.utils.html import strip_tags
+from django.template.defaultfilters import slugify
 
 from datea.datea_image.models import DateaImage 
 from datea.datea_action.models import DateaAction
@@ -10,6 +11,7 @@ from datea.datea_category.models import DateaCategory, DateaFreeCategory
 from mptt.fields import TreeForeignKey, TreeManyToManyField
 from django.db.models.signals import post_save, m2m_changed
 from signals import map_item_response_created
+
 
         
 class DateaMapping(DateaAction):
@@ -75,6 +77,9 @@ class DateaMapping(DateaAction):
         if self.center == None and self.boundary != None:
             self.center = self.boundary.centroid
             self.center.srid = self.boundary.get_srid()
+            
+        if self.slug == '':
+            self.slug = slugify(self.name)
         
         self.save_base()
         super(DateaMapping, self).save(*args, **kwargs)

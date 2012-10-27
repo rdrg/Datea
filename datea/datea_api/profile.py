@@ -7,6 +7,8 @@ from tastypie.authentication import Authentication
 from tastypie.authorization import Authorization
 from django.conf.urls.defaults import url
 
+from datea.datea_action.models import DateaAction
+from datea.datea_api.action import ActionResource
 from datea.datea_follow.models import DateaFollow
 from datea.datea_api.follow import FollowResource
 from datea.datea_vote.models import DateaVote
@@ -91,14 +93,16 @@ class UserResource(DateaBaseResource):
                 v_bundle = vote_rsc.build_bundle(obj=v)
                 v_bundle = vote_rsc.full_dehydrate(v_bundle)
                 votes.append(v_bundle.data)
-            bundle.data['votes'] = follows
+            bundle.data['votes'] = votes
+            
+            if 'with_action_ids' in bundle.request.REQUEST:
+                bundle.data['actions'] = [a.id for a in DateaAction.objects.filter(user=bundle.obj)]
 
             if 'api_key' in bundle.request.REQUEST:
                 keyauth = ApiKeyAuthentication()
                 if keyauth.is_authenticated(bundle.request):
                     if bundle.request.user and bundle.request.user == bundle.obj:
                         bundle.data['email'] = bundle.obj.email
-                        print bundle.data
                 
         return bundle
     
@@ -120,7 +124,7 @@ class UserResource(DateaBaseResource):
     def prepend_urls(self):
         return [
             url(r"^(?P<resource_name>%s)/(?P<pk>[0-9]+)/$" % self._meta.resource_name, self.wrap_view('dispatch_detail'), name="api_dispatch_detail"),
-            url(r"^(?P<resource_name>%s)/(?P<username>[\w\d_.-]+)/$" % self._meta.resource_name, self.wrap_view('dispatch_detail'), name="api_dispatch_detail"),
+            url(r"^(?P<resource_name>%s)/(?P<username>[\w\d\ _.-]+)/$" % self._meta.resource_name, self.wrap_view('dispatch_detail'), name="api_dispatch_detail"),
         ]
             
     class Meta:
