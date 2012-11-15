@@ -163,7 +163,6 @@ def save_image_api(request):
     form = ImageUploadForm(request.POST, request.FILES)
 
     if form.is_valid():
-        print "form valid"
         
         # ADD DATEA IMAGE INSTANCE To EXISTING OBJECT
         if form.cleaned_data['object_id'] and form.cleaned_data['object_type'] and form.cleaned_data['object_field']:
@@ -244,7 +243,6 @@ def save_image_api(request):
         else:
             #image_data = postdata['image']
             image_data = postfiles['image']
-            print request
             image_instance = DateaImage(image=image_data, user=request.user)
             if 'order' in form.cleaned_data:
                 image_instance.order = form.cleaned_data['order']
@@ -266,8 +264,6 @@ def save_image_api(request):
              
     else:
         data = simplejson.dumps({'ok': False, 'message': form.errors})
-        print "form invalid"
-        print form.errors
 
     #context = Context({'data': data})
     #tpl = Template('<textarea data-type="application/json">{{ data|safe }}</textarea>')
