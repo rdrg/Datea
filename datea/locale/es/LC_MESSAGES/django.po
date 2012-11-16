@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-11-16 16:42-0500\n"
+"POT-Creation-Date: 2012-11-16 16:54-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1440,6 +1440,14 @@ msgstr "Ingresa tu nueva clave abajo para re-setear tu clave"
 #: templates/registration/password_reset_confirm.html:11
 msgid "Set password"
 msgstr "Ingresa una clave"
+
+#: templates/registration/password_reset_done.html:11
+msgid ""
+"We have sent you an email with a link to reset your password.  Please check\n"
+"your email and click the link to continue.\n"
+msgstr ""
+"Un mensaje de activación ha sido enviado. Por favor revisa tu correo y haz \n"
+"click en el vínculo para activar tu cuenta. \n"
 
 #: templates/registration/password_reset_email.html:2
 msgid "Greetings"
