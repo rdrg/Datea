@@ -1,3 +1,5 @@
+{{site}}, {{site.name}}, {{site.domain}}
+
 {% load i18n %}{% blocktrans with site as site and expiration_days as days and activation_key as key %}
 You have asked to register an account at {{ site.name }}.  If this wasn't you, 
 please ignore this email and your address will be removed from our records.
