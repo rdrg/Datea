@@ -12,6 +12,18 @@ def get_feed_from_cache():
     return cache.get("blog_feed")
 
 
+
+#def get_feed_entries(num_entries):
+#    feed = get_feed_from_cache()
+#    return feed["entries"][:num_entries]
+
+#feed was returning as None this is a
+#temporal workaround
+
 def get_feed_entries(num_entries):
     feed = get_feed_from_cache()
-    return feed["entries"][:num_entries]
+    if feed == None:
+        return []
+    else:
+        return feed["entries"][:num_entries]
+
