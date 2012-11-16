@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-10-27 10:29-0500\n"
+"POT-Creation-Date: 2012-11-16 16:42-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1413,15 +1413,12 @@ msgid "Change your password?"
 msgstr "Cambiar tu clave?"
 
 #: templates/registration/password_reset_complete.html:3
-msgid "Password reset complete"
-msgstr "Re-seteo de clave completado"
-
 #: templates/registration/password_reset_complete.html:6
 #: templates/registration/password_reset_confirm.html:6
 #: templates/registration/password_reset_done.html:3
 #: templates/registration/password_reset_done.html:6
 msgid "Password reset"
-msgstr "Re-seteo de clave completado"
+msgstr "Re-seteo de clave"
 
 #: templates/registration/password_reset_complete.html:10
 #, python-format
@@ -1522,6 +1519,9 @@ msgstr "Regístrate para obtener una cuenta"
 #: templates/registration/registration_form.html:10
 msgid "Or you can register an account here at Datea:"
 msgstr "O puedes registrar una cuenta aquí en Datea:"
+
+#~ msgid "Password reset complete"
+#~ msgstr "Re-seteo de clave completado"
 
 #~ msgid "From"
 #~ msgstr "Nombre"
