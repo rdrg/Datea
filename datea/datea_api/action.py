@@ -68,8 +68,8 @@ class ActionResource(ModelResource):
         order_by = request.GET.get('order_by', '-created')
         if order_by in ['distance', '-distance']:
             if 'lat' in request.GET and 'lng' in request.GET:
-                point = Point(request.GET['lng'], request.GET['lat'])
-                sqs = sqs.distance(point).order_by(order_by)
+                point = Point(float(request.GET['lng']), float(request.GET['lat']))
+                sqs = sqs.distance('position', point).order_by(order_by)
             else:
                 order_by = '-created'
                 

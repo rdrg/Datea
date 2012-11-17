@@ -130,7 +130,7 @@ class MapItemResource(DateaBaseGeoResource):
         return bundle
     
     def hydrate(self, bundle):
-
+        
         bundle.obj.action_id = int(bundle.data['action'].strip('/').split('/')[-1]) # UGLY HACK -> tatstypie can't find resource by resource uri???
         if ( 'category' in bundle.data 
             and bundle.data['category'] 
