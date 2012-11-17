@@ -11,7 +11,7 @@ from haystack.query import SearchQuerySet
 from haystack.inputs import AutoQuery
 from tastypie.utils import trailing_slash
 from django.http import Http404
-from django.core.paginator import Paginator, InvalidPage
+from django.core.paginator import Paginator, InvalidPage, EmptyPage
 from django.contrib.gis.geos import Point
 
 
@@ -76,11 +76,19 @@ class ActionResource(ModelResource):
         if order_by not in ['distance', '-distance']:
             sqs = sqs.order_by(order_by)
 
-        paginator = Paginator(sqs, 15)
+        if 'limit' in request.GET:
+            result_limit = int(request.GET.get('limit',1))
+        else:
+            result_limit = 15
+
+        print 'result limit: ', result_limit
+        paginator = Paginator(sqs, result_limit)
 
         try:
-            page = paginator.page(int(request.GET.get('page', 1)))
-        except InvalidPage:
+            print int(request.GET.get('page'))
+            page = paginator.page(int(request.GET.get('page',1)))
+            #page = paginator.page(2)
+        except EmptyPage:
             raise Http404("Sorry, no results on that page.")
         
         objects = []
@@ -90,9 +98,10 @@ class ActionResource(ModelResource):
             bundle = self.full_dehydrate(bundle)
             objects.append(bundle)
 
+
         object_list = {
             'meta': {
-                'limit': 15,
+                'limit': result_limit,
                 'next': page.has_next(),
                 'previous': page.has_previous(),
                 'total_count': sqs.count(),
