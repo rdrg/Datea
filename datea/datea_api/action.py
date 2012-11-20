@@ -11,7 +11,7 @@ from haystack.query import SearchQuerySet
 from haystack.inputs import AutoQuery
 from tastypie.utils import trailing_slash
 from django.http import Http404
-from django.core.paginator import Paginator, InvalidPage
+from django.core.paginator import Paginator, InvalidPage, EmptyPage
 from django.contrib.gis.geos import Point
 
 
@@ -69,7 +69,7 @@ class ActionResource(ModelResource):
         # make the search query 
         # (using leave action classes because the parent action class somehow doesn't work in haystack) 
         sqs = SearchQuerySet().models(DateaMapping).load_all().filter(**q_args)
-        
+                  
         order_by = request.GET.get('order_by', '-created').split(',')
         
         if 'distance' in order_by:
@@ -81,8 +81,6 @@ class ActionResource(ModelResource):
                 
         if 'distance' not in order_by:
             sqs = sqs.order_by(*order_by)
-        
-        print "ORDER BY", order_by
         
         paginator = Paginator(sqs, limit)
 
@@ -97,6 +95,7 @@ class ActionResource(ModelResource):
             bundle = self.build_bundle(obj=result.object, request=request)
             bundle = self.full_dehydrate(bundle)
             objects.append(bundle)
+
 
         object_list = {
             'meta': {
