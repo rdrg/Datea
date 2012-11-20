@@ -44,6 +44,10 @@ class MappingIndex(indexes.RealTimeSearchIndex, indexes.Indexable):
     position = indexes.LocationField(model_attr='center', null=True)
     created = indexes.DateTimeField(model_attr='created')
     modified = indexes.DateTimeField(model_attr='modified')
+    item_count = indexes.IntegerField(model_attr='item_count', null=True)
+    follow_count = indexes.IntegerField(model_attr='follow_count', null=True)
+    comment_count = indexes.IntegerField(model_attr='comment_count', null=True)
+    user_count = indexes.IntegerField(model_attr='user_count', null=True)
     
     def get_model(self):
         return DateaMapping

@@ -39,9 +39,14 @@ class ActionResource(ModelResource):
         ]
         
     def get_search(self, request, **kwargs):
+        
         self.method_check(request, allowed=['get'])
         self.is_authenticated(request)
         self.throttle_check(request)
+        
+        limit = int(request.GET.get('limit', 15))
+        offset = int(request.GET.get('offset', 0))
+        page = (offset / limit) + 1
 
         # Do the query
         q_args = {'published': True}
@@ -65,21 +70,24 @@ class ActionResource(ModelResource):
         # (using leave action classes because the parent action class somehow doesn't work in haystack) 
         sqs = SearchQuerySet().models(DateaMapping).load_all().filter(**q_args)
         
-        order_by = request.GET.get('order_by', '-created')
-        if order_by in ['distance', '-distance']:
+        order_by = request.GET.get('order_by', '-created').split(',')
+        
+        if 'distance' in order_by:
             if 'lat' in request.GET and 'lng' in request.GET:
                 point = Point(float(request.GET['lng']), float(request.GET['lat']))
-                sqs = sqs.distance('position', point).order_by(order_by)
+                sqs = sqs.distance('position', point).order_by(*order_by)
             else:
-                order_by = '-created'
+                order_by = ['-created']
                 
-        if order_by not in ['distance', '-distance']:
-            sqs = sqs.order_by(order_by)
-
-        paginator = Paginator(sqs, 15)
+        if 'distance' not in order_by:
+            sqs = sqs.order_by(*order_by)
+        
+        print "ORDER BY", order_by
+        
+        paginator = Paginator(sqs, limit)
 
         try:
-            page = paginator.page(int(request.GET.get('page', 1)))
+            page = paginator.page(page)
         except InvalidPage:
             raise Http404("Sorry, no results on that page.")
         
@@ -92,11 +100,11 @@ class ActionResource(ModelResource):
 
         object_list = {
             'meta': {
-                'limit': 15,
+                'limit': limit,
                 'next': page.has_next(),
                 'previous': page.has_previous(),
                 'total_count': sqs.count(),
-                'offset': request.GET.get('page', 0)
+                'offset': offset
             },
             'objects': objects,
         }
