@@ -168,7 +168,15 @@
 
     <field name="category_id" type="long" indexed="true" stored="true" multiValued="false" />
 
+    <field name="user_count" type="long" indexed="true" stored="true" multiValued="false" />
+
+    <field name="follow_count" type="long" indexed="true" stored="true" multiValued="false" />
+
+    <field name="item_count" type="long" indexed="true" stored="true" multiValued="false" />
+
     <field name="featured" type="boolean" indexed="true" stored="true" multiValued="false" />
+
+    <field name="comment_count" type="long" indexed="true" stored="true" multiValued="false" />
 
   </fields>
 
