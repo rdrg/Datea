@@ -16,11 +16,11 @@ window.Datea.BaseActionListView = Backbone.View.extend({
     initialize: function () {
     	this.model = new Datea.ActionCollection();
     	this.model.bind("reset", this.reset_event, this);
-    	this.items_per_page = 8;
+    	this.items_per_page = 10;
     	this.page = 0;
 		this.pager_view = new Datea.PaginatorView({
 			items_per_page: this.items_per_page,
-			adjacent_pages: 1,
+			adjacent_pages: 2,
 		});
 		this.search_str = '';
 		if (this.options.add_class) this.$el.addClass(this.options.add_class);
@@ -219,11 +219,11 @@ window.Datea.ProfileActionListView = Datea.BaseActionListView.extend({
     	this.model = new Datea.ActionCollection();
     	this.model.bind("reset", this.reset_event, this);
     	this.selected_mode = 'user_actions';
-    	this.items_per_page = 8;
+    	this.items_per_page = 10;
     	this.page = 0;
 		this.pager_view = new Datea.PaginatorView({
 			items_per_page: this.items_per_page,
-			adjacent_pages: 1,
+			adjacent_pages: 2,
 		});
 		this.search_str = '';
     },
