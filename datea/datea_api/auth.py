@@ -57,6 +57,12 @@ class Accounts(ModelResource):
         args = {'username':postData['username'],
                 'email' : postData['email'],
                 'password1' : postData['password']}
+        
+        if User.objects.filter(email=postData['email']).count() > 0:
+            return self.create_response(request,{
+                    'status': SYSTEM_ERROR,
+                    'error': 'duplicate email '})
+        
         print "post data"
         print args
         print "trying to create account"
