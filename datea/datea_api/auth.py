@@ -48,7 +48,7 @@ class Accounts(ModelResource):
             ]
 
     def create(self, request, **kwargs):
-        print "@ create account"
+        #print "@ create account"
         self.method_check(request, allowed=['post'])
         
         backend = get_backend('registration.backends.default.DefaultBackend')
@@ -61,14 +61,14 @@ class Accounts(ModelResource):
         if User.objects.filter(email=postData['email']).count() > 0:
             return self.create_response(request,{
                     'status': SYSTEM_ERROR,
-                    'error': 'duplicate email '})
+                    'error': 'duplicate email'})
         
-        print "post data"
-        print args
-        print "trying to create account"
+        #print "post data"
+        #print args
+        #print "trying to create account"
         newUser = backend.register(request,**args)
         
-        print "user created"
+        #print "user created"
         if newUser:
             return self.create_response(request,{'status': OK,
                 'message': 'Please check your email !!'})
