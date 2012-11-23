@@ -32,6 +32,11 @@ class FollowResource(DateaBaseResource):
         limit = 50
         always_return_data = True
         
+    def create_response(self, *args, **kwargs):
+        response = super(FollowResource, self).create_response(*args, **kwargs)
+        response['Access-Control-Allow-Origin'] = '*'
+        return response
+        
         
 class HistoryResource(DateaBaseResource):
     
