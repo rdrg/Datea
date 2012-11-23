@@ -23,6 +23,11 @@ END_POINT_NAME = 'accounts'
 class Accounts(ModelResource):
     class Meta:
         allowed_methods = ['post']
+        
+    def create_response(self, *args, **kwargs):
+        response = super(Accounts, self).create_response(*args, **kwargs)
+        response['Access-Control-Allow-Origin'] = '*'
+        return response
 
     def override_urls(self):
         return [
