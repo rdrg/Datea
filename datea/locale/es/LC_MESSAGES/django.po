@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-11-24 09:39-0500\n"
+"POT-Creation-Date: 2012-11-24 09:52-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1234,9 +1234,14 @@ msgid ""
 "We're sorry, but the page you are looking for does not exist anymore. We've "
 "recently changed our plattform and are in the process of uploading our old "
 "content, so check back again soon."
-msgstr "Lo sentimos, pero la página que buscas ya no existe. Hemos "
-"hecho cambios recientes en nuestra plataforma y estamos en proceso de subir "
-"nuestro contenido anterior, asi que vuelve pronto!"
+msgstr ""
+"Lo sentimos, pero la página que buscas ya no existe. Hemos hecho cambios "
+"recientes en nuestra plataforma y estamos en proceso de subir nuestro "
+"contenido anterior, asi que vuelve pronto!"
+
+#: templates/404.html:7
+msgid "Go to home"
+msgstr "Ir a Inicio"
 
 #: templates/site-base.html:11 templates/site-base.html.py:44
 msgid "Home"
@@ -1278,7 +1283,7 @@ msgstr ""
 
 #: templates/envelope/success.html:8
 msgid "Back to home"
-msgstr "Ir a Incio"
+msgstr "Ir a Inicio"
 
 #: templates/ich/empty.html:4
 msgid "no items found"
