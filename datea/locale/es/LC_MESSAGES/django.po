@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-11-16 17:00-0500\n"
+"POT-Creation-Date: 2012-11-24 09:39-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1224,6 +1224,19 @@ msgstr "Anónimo"
 #: datea_vote/templates/ich/vote_widgets.html:9
 msgid "support"
 msgstr "apoyar"
+
+#: templates/404.html:4
+msgid "Fail!"
+msgstr ""
+
+#: templates/404.html:5
+msgid ""
+"We're sorry, but the page you are looking for does not exist anymore. We've "
+"recently changed our plattform and are in the process of uploading our old "
+"content, so check back again soon."
+msgstr "Lo sentimos, pero la página que buscas ya no existe. Hemos "
+"hecho cambios recientes en nuestra plataforma y estamos en proceso de subir "
+"nuestro contenido anterior, asi que vuelve pronto!"
 
 #: templates/site-base.html:11 templates/site-base.html.py:44
 msgid "Home"
