@@ -36,7 +36,7 @@ class DateaAction(models.Model):
     user = models.ForeignKey(User, verbose_name=_('User'), related_name="actions")
     
     name = models.CharField(_("Name"), max_length=100)
-    slug = models.SlugField(_("Slug"), max_length=30, help_text=_("A string of text as a short id for use at the url of this map (alphanumeric and dashes only"))
+    slug = models.SlugField(_("Slug"), max_length=120, help_text=_("A string of text as a short id for use at the url of this map (alphanumeric and dashes only"))
     published = models.BooleanField(_("Published"), default=True, help_text=_("If checked, action becomes visible to others"))
     
     # timestamps

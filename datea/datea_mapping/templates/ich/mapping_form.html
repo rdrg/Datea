@@ -33,7 +33,7 @@
 						<div class="control-group required">
 							<label class="control-label">{{ field.label }}</label>
 							<div class="controls">
-								<input type="text" id="mapping-name-input" name="name" class="input-text span4" value="{% verbatim %}{{name}}{% endverbatim %}" />
+								<input type="text" id="mapping-name-input" name="name" class="input-text span4" value="{% verbatim %}{{name}}{% endverbatim %}" maxlength="100" />
 								{% if field.help_text %}<p class="help-block">{{ field.help_text }}</p>{% endif %}
 							</div>
 						</div>
