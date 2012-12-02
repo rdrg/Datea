@@ -1,4 +1,8 @@
 
+.msg.unpublished {
+  color: @errorText;
+}
+
 #action-control {
 	background-color: white;
 
@@ -119,6 +123,10 @@
 						display:inline-block;
 						.ie7-inline-block();
 					}
+					.unpublished {
+					  margin-top: 4px;
+					  font-size: @baseFontSize - 1px;
+					}
 					.clearfix();
 				}
 			}
@@ -163,3 +171,7 @@
 		}
 	}
 }
+
+
+
+
