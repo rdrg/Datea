@@ -2,7 +2,7 @@
 {% verbatim %}
 <script id="action_list_item_tpl" type="text/html">
 	{#<div class="category">{{ category.name }}</div>#}
-	<div class="action-teaser">
+	<div class="action-teaser{{#unpublished}} unpublished{{/unpublished}}">
 		{{#image}}
 		<div class="teaser-image">
 			<a href="#{{ url }}">
@@ -28,6 +28,7 @@
 				<div class="pull-right">
 					<div class="follow-button"></div>
 					<a href="#{{ url }}" class="btn btn-pointy">{% trans "Go" %}<div class="pointer">&nbsp;</div></a>
+					{{#unpublished}}<div class="msg unpublished">{% trans "unpublished" %}</div>{{/unpublished}}
 				</div>	
 				{{>action_stats_tpl}}
 			</div>

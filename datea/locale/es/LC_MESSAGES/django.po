@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-11-24 09:52-0500\n"
+"POT-Creation-Date: 2012-12-02 06:55-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -174,9 +174,9 @@ msgid "by"
 msgstr "por"
 
 #: datea_action/templates/ich/action_list_item.html:19
-#: datea_mapping/templates/ich/mapping_tab_start.html:69
-#: datea_mapping/templates/ich/mapping_tab_start.html:76
-#: datea_mapping/templates/ich/mapping_tab_start.html:79
+#: datea_mapping/templates/ich/mapping_tab_start.html:70
+#: datea_mapping/templates/ich/mapping_tab_start.html:77
+#: datea_mapping/templates/ich/mapping_tab_start.html:80
 msgid "go to profile"
 msgstr "ver perfil"
 
@@ -184,50 +184,54 @@ msgstr "ver perfil"
 msgid "Go"
 msgstr "Ir"
 
-#: datea_action/templates/ich/action_list_item.html:45
+#: datea_action/templates/ich/action_list_item.html:31
+msgid "unpublished"
+msgstr "des-publicado"
+
+#: datea_action/templates/ich/action_list_item.html:46
 #: datea_profile/templates/ich/my_profile.html:32
 msgid "contributions"
 msgstr "dateos"
 
-#: datea_action/templates/ich/action_list_item.html:46
+#: datea_action/templates/ich/action_list_item.html:47
 #: datea_profile/templates/ich/my_profile.html:33
 msgid "contribution"
 msgstr "dateo"
 
-#: datea_action/templates/ich/action_list_item.html:55
+#: datea_action/templates/ich/action_list_item.html:56
 #: datea_mapping/templates/ich/map_item.html:20
-#: datea_mapping/templates/ich/mapping_tab_start.html:30
+#: datea_mapping/templates/ich/mapping_tab_start.html:31
 #: datea_profile/templates/ich/my_profile.html:41
 msgid "comments"
 msgstr "comentarios"
 
-#: datea_action/templates/ich/action_list_item.html:56
+#: datea_action/templates/ich/action_list_item.html:57
 #: datea_comment/templates/ich/comment.html:29
 #: datea_mapping/templates/ich/map_item.html:21
-#: datea_mapping/templates/ich/mapping_tab_start.html:31
+#: datea_mapping/templates/ich/mapping_tab_start.html:32
 #: datea_mapping/templates/mail/dateamapitem/comment/mail_body_generic.txt:7
 #: datea_mapping/templates/mail/dateamapitem/comment/mail_body_owner.txt:7
 #: datea_profile/templates/ich/my_profile.html:42
 msgid "comment"
 msgstr "comentario"
 
-#: datea_action/templates/ich/action_list_item.html:65
+#: datea_action/templates/ich/action_list_item.html:66
 msgid "users"
 msgstr "usuarios"
 
-#: datea_action/templates/ich/action_list_item.html:66
+#: datea_action/templates/ich/action_list_item.html:67
 msgid "user"
 msgstr "usuario"
 
-#: datea_action/templates/ich/action_list_item.html:75
+#: datea_action/templates/ich/action_list_item.html:76
 msgid "{{ days_left }} days left"
 msgstr "quedan {{ days_left }} días"
 
-#: datea_action/templates/ich/action_list_item.html:79
+#: datea_action/templates/ich/action_list_item.html:80
 msgid "last day"
 msgstr "último día"
 
-#: datea_action/templates/ich/action_list_item.html:83
+#: datea_action/templates/ich/action_list_item.html:84
 msgid "action expired"
 msgstr "iniciativa concluida"
 
@@ -382,7 +386,7 @@ msgid "Add Category"
 msgstr "Añade una Categoría"
 
 #: datea_channel/models.py:15 datea_mapping/models.py:22
-#: datea_mapping/templates/ich/mapping_tab_start.html:85
+#: datea_mapping/templates/ich/mapping_tab_start.html:86
 msgid "Mission / Objectives"
 msgstr "Misión / Objetivos"
 
@@ -400,7 +404,7 @@ msgid ""
 msgstr "¿Quién recibe la información y que pasa con ella? (máx. 500 letras)"
 
 #: datea_channel/models.py:17 datea_mapping/models.py:33
-#: datea_mapping/templates/ich/mapping_tab_start.html:95
+#: datea_mapping/templates/ich/mapping_tab_start.html:96
 msgid "Description"
 msgstr "Descripción"
 
@@ -791,7 +795,7 @@ msgstr "regresar"
 
 #: datea_mapping/templates/ich/map_item_form.html:9
 #: datea_mapping/templates/ich/map_item_form.html:101
-#: datea_mapping/templates/ich/mapping_tab_start.html:24
+#: datea_mapping/templates/ich/mapping_tab_start.html:25
 msgid "report"
 msgstr "dateo"
 
@@ -960,7 +964,7 @@ msgid "Start"
 msgstr "Empezar"
 
 #: datea_mapping/templates/ich/mapping_sidebar_main.html:11
-#: datea_mapping/templates/ich/mapping_tab_start.html:23
+#: datea_mapping/templates/ich/mapping_tab_start.html:24
 msgid "reports"
 msgstr "dateos"
 
@@ -968,27 +972,31 @@ msgstr "dateos"
 msgid "Reports"
 msgstr "Dateos"
 
-#: datea_mapping/templates/ich/mapping_tab_start.html:37
+#: datea_mapping/templates/ich/mapping_tab_start.html:17
+msgid "this action is unpublished"
+msgstr "esta iniciativa no esta publicada"
+
+#: datea_mapping/templates/ich/mapping_tab_start.html:38
 msgid "participants"
 msgstr "participantes"
 
-#: datea_mapping/templates/ich/mapping_tab_start.html:38
+#: datea_mapping/templates/ich/mapping_tab_start.html:39
 msgid "participant"
 msgstr "participantes"
 
-#: datea_mapping/templates/ich/mapping_tab_start.html:44
+#: datea_mapping/templates/ich/mapping_tab_start.html:45
 msgid "Create Report"
 msgstr "Crear Dateo"
 
-#: datea_mapping/templates/ich/mapping_tab_start.html:65
+#: datea_mapping/templates/ich/mapping_tab_start.html:66
 msgid "about this action"
 msgstr "Acerca de esta iniciativa"
 
-#: datea_mapping/templates/ich/mapping_tab_start.html:74
+#: datea_mapping/templates/ich/mapping_tab_start.html:75
 msgid "action creator"
 msgstr "usuario creador"
 
-#: datea_mapping/templates/ich/mapping_tab_start.html:90
+#: datea_mapping/templates/ich/mapping_tab_start.html:91
 msgid "What happens with this information?"
 msgstr "¿Qué ocurrirá con esta información?"
 

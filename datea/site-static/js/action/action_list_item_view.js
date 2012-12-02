@@ -26,6 +26,7 @@ window.Datea.ActionListItemView = Backbone.View.extend({
 				context.active_message = ich.action_expired_tpl({}, true);
 			}
 		}
+		context.unpublished = !context.published;
 		
   		this.$el.html(ich.action_list_item_tpl(context));
   
