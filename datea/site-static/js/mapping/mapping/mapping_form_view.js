@@ -12,7 +12,6 @@ window.Datea.MappingFormView = Backbone.View.extend({
 	initialize: function() {
 		//this.model.bind("reset", this.render, this);
         //this.model.bind("sync", this.sync_event, this);
-        
         if (this.model.attributes.item_categories) {
         	this.item_cat_col = new Datea.FreeCategoryCollection(this.model.attributes.item_categories);
         }else{
@@ -36,6 +35,8 @@ window.Datea.MappingFormView = Backbone.View.extend({
 			}
 			context.end_date_time = formatDateFromISO(context.end_date, "HH:MM");
 		}
+		if (this.model.isNew()) context.published = true;
+		
 		var page_title = context.action_name+' '+gettext('mapping');
 		if (context.name && context.name != '') page_title= page_title+': '+context.name;
 		this.$el.html(ich.mapping_admin_zone_head_tpl({page_title: page_title}));

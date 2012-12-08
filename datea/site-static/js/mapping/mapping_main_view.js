@@ -23,23 +23,19 @@ window.Datea.MappingMainView = Backbone.View.extend({
 	render: function (eventName) {
 		
 		// end date
-		if (this.model.get('end_date') == null) {
-			this.model.set('mapping_active', true);
-		}else{
+		if (this.model.get('end_date') != null) {
 			var now = new Date();
 			now.setHours(0,0,0,0);
 			var end = datedayFromISO(this.model.get('end_date'));
 			if (now <= end) {
-				this.model.set('mapping_active', true);
 				var days_left = Math.ceil((end.getTime()-now.getTime())/86400000);
 				if (days_left > 0) {
-					this.model.set('mapping_active_message', ich.action_days_left_tpl({days_left: days_left}, true));
+					this.model.set('active_message', ich.action_days_left_tpl({days_left: days_left}, true));
 				}else{
-					this.model.set('mapping_active_message', ich.action_last_day_tpl({days_left: days_left}, true));
+					this.model.set('active_message', ich.action_last_day_tpl({days_left: days_left}, true));
 				}
 			}else{
-				this.model.set('mapping_active', false);
-				this.model.set('mapping_active_message', ich.action_expired_tpl({}, true));
+				this.model.set('active_message', ich.action_expired_tpl({}, true));
 			}
 		}
 		
