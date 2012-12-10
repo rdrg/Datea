@@ -13,8 +13,10 @@ If you are interested in using or contributing to this project,
 or want toknow a litle bit more about us or the plattform, 
 please feel free to contact us at contacto@datea.pe
 
+Basic install instructions for local development can be found at INSTALL.txt
+
 If you want to know a little bit more about the installation 
-requirements,you can take a look at the datea/requirements folder.
+requirements, you can take a look at the datea/requirements folder.
 
 If interested in in a deployment or new feature, we also provide 
 commercial support.
