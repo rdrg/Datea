@@ -1,7 +1,7 @@
 
 1. install packages:
 
-	postressql(9.x), postgis (1.5), GEOS (3.3, 3.2, 3.1, 3.0), Proj4 (4.7, 4.6, 4.5, 4.4), GDAL (1.8, 1.7, 1.6, 1.5, 1.4)
+	postressql(9.x), postgis (1.5.x, 2.x), GEOS (3.3, 3.2, 3.1, 3.0), Proj4 (4.7, 4.6, 4.5, 4.4), GDAL (1.8, 1.7, 1.6, 1.5, 1.4)
 	
 	ubuntu: apt-get install postgresql postgis postgresql-9.1-postgis libgeos-3.2.2 libproj0 libgdal1-1.7.0 libpq-dev pgadmin3
 
@@ -14,32 +14,45 @@
 
 2. change postgres user password
 	
+	( as root)
 	$ sudo su - postgres
 	$ psql -d postgres -U postgres
 	$ alter user postgres with password 'your_password';
 	$ \q
 	
-3. create spatial database template:
-
-	ubuntu/debian: 
-		$ sudo su - postgres
-		$ sh create_template_postgis-debian.sh
-    
-    archlinux:
-        $ sudo su - postgres
-        $ sh create_template_postgis-1.5.sh
-
-	instructions from: https://docs.djangoproject.com/en/1.4/ref/contrib/gis/install/#spatialdb-template
-	
-
-4. create db:
-	createdb -T template_postgis <db name>
-	
-5. give privileges to some user over the database
+3. give privileges to some user over the database
 	sudo su - postgres
 	createuser --createdb <username: system user name that will connect to the db>
 	
-6. fire up pgadmin and change the ownership of the database to from user postgres to your user. 
-   I don't use postgres normally. Just guessing around here... 	
+4. create spatial database template (ONLY postgis 1.5.x):
+
+	for postgis 1.5.x:
+		ubuntu/debian: 
+			$ sudo su - postgres
+			$ sh create_template_postgis-debian.sh
+	    
+	    archlinux:
+	        $ sudo su - postgres
+	        $ sh create_template_postgis-1.5.sh
+
+		instructions from: https://docs.djangoproject.com/en/1.4/ref/contrib/gis/install/#spatialdb-template
+	
+
+5. create db:
+
+	(with your user, not as root)
+
+	for postgis 1.5.x:
+		createdb -T template_postgis <db name>
+		
+	for postgis 2.x:
+		$ createdb <db name>
+		$ psql <db name>
+		$ CREATE EXTENSION postgis;
+		$ CREATE EXTENSION postgis_topology;
+		$ \q
+		
+		instructions: https://docs.djangoproject.com/en/dev/ref/contrib/gis/install/postgis/#installing-postgis
+
 	 
 	

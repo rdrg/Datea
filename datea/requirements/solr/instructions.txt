@@ -1,24 +1,25 @@
 
 based on http://django-haystack.readthedocs.org/en/latest/installing_search_engines.html
-
 requirements: jre and jetty
 
-cd somewhere 
-wget http://apache.mirrors.tds.net/lucene/solr/3.6.1/apache-solr-3.6.1.tgz
-tar xvzf apache-solr-3.6.1.tgz
+$ cd <somewhere suitable> 
+$ wget http://apache.mirrors.tds.net/lucene/solr/3.6.1/apache-solr-3.6.1.tgz
+$ tar xvzf apache-solr-3.6.1.tgz
 
-cp schema.xml path-to-apache-sorl/example/sorl/conf/ (use schema.xml in this directory)
+(using the schema.xml file in this directory)
+$ cp schema.xml path-to-apache-sorl/example/sorl/conf/ 
 
-cd example
-java -jar start.jar
+$ cd example
+$ java -jar start.jar
 
-or tor un more than one instance on a machine, specify a different port 
+or to run more than one instance on a machine, specify a different port 
 and index location as follows:
 
-java -Dsolr.data.dir=<path> -Djetty.port=<port f.e.8984 instead of 8983> -jar start.jar
+$ java -Dsolr.data.dir=<path> -Djetty.port=<port f.e.8984 instead of 8983> -jar start.jar
 
 then execute the following django commands:
 
-./manage.py rebuild_index
+$ cd <datea app dir>
+$ ./manage.py rebuild_index
 
 the indexing process runs in realtime at the moment. Later on, I'll probably try with a cron script.  
