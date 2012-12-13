@@ -3,13 +3,13 @@
 <script id="action_list_item_tpl" type="text/html">
 	{#<div class="category">{{ category.name }}</div>#}
 	<div class="action-teaser{{#unpublished}} unpublished{{/unpublished}}">
-		{{#image}}
+		{{#image_thumb}}
 		<div class="teaser-image">
 			<a href="#{{ url }}">
-				<img src="{{image}}" alt="">
+				<img src="{{image_thumb}}" alt="">
 			</a>
 		</div>
-		{{/image}}
+		{{/image_thumb}}
 		
 		<div class="teaser-content {{#image}}with-image{{/image}}">
 			<div class="pull-right right-corner">
