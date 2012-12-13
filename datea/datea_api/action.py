@@ -27,10 +27,17 @@ class ActionResource(ModelResource):
     def dehydrate(self, bundle):
         bundle.data['url'] = bundle.obj.get_absolute_url()
         bundle.data['type'] = _(bundle.obj.action_type)
-        bundle.data['image'] = bundle.obj.get_image_thumb()
+        bundle.data['image_thumb'] = bundle.obj.get_image_thumb()
+        bundle.data['image_thumb_medium'] = bundle.obj.get_image_thumb('image_thumb_medium')
         bundle.data['username'] = bundle.obj.user.username
         bundle.data['user_url'] = bundle.obj.user.profile.get_absolute_url()
         bundle.data['is_active'] = bundle.obj.is_active()
+        # add some child class fields from mapping 
+        # (TODO: this fields should probably belog to the action model!)
+        if hasattr(bundle.obj, 'mission'):
+            bundle.data['mission'] = bundle.obj.mission
+        if hasattr(bundle.obj, 'information_destiny'):
+            bundle.data['information_destiny'] = bundle.obj.information_destiny
         return bundle
     
     def prepend_urls(self):
