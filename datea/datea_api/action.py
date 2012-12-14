@@ -38,7 +38,7 @@ class ActionResource(ModelResource):
         #    bundle.data['mission'] = bundle.obj.mission
         #if hasattr(bundle.obj, 'information_destiny'):
         #    bundle.data['information_destiny'] = bundle.obj.information_destiny
-        #return bundle
+        return bundle
     
     def prepend_urls(self):
         return [
