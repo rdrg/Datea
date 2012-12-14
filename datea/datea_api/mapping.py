@@ -168,7 +168,8 @@ class MapItemResource(DateaBaseGeoResource):
             'action': ALL_WITH_RELATIONS,
             'id': ['exact'],
             'created': ['range', 'gt', 'gte', 'lt', 'lte'],
-            'position': ['distance', 'contained','latitude', 'longitude']
+            'position': ['distance', 'contained','latitude', 'longitude'],
+            'published': ['exact']
         }
         ordering = ['created']
         limit = 500
