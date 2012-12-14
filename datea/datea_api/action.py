@@ -34,11 +34,11 @@ class ActionResource(ModelResource):
         bundle.data['is_active'] = bundle.obj.is_active()
         # add some child class fields from mapping 
         # (TODO: this fields should probably belog to the action model!)
-        if hasattr(bundle.obj, 'mission'):
-            bundle.data['mission'] = bundle.obj.mission
-        if hasattr(bundle.obj, 'information_destiny'):
-            bundle.data['information_destiny'] = bundle.obj.information_destiny
-        return bundle
+        #if hasattr(bundle.obj, 'mission'):
+        #    bundle.data['mission'] = bundle.obj.mission
+        #if hasattr(bundle.obj, 'information_destiny'):
+        #    bundle.data['information_destiny'] = bundle.obj.information_destiny
+        #return bundle
     
     def prepend_urls(self):
         return [
