@@ -22,6 +22,9 @@ def home(request):
                 }, context_instance=RequestContext(request))
 
 
+
+
+
 def redirect_to_hash(request, path):
     
     return HttpResponseRedirect('/#/'+path)
