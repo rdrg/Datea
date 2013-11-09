@@ -12,6 +12,9 @@ from mptt.fields import TreeForeignKey, TreeManyToManyField
 from django.db.models.signals import post_save, m2m_changed
 from signals import map_item_response_created
 
+from django.template.loader import get_template
+from django.template import Context
+from django.core.mail import send_mail
 
         
 class DateaMapping(DateaAction):
@@ -233,3 +236,26 @@ def on_response_save(sender, instance, **kwargs):
     instance.update_item_stats()
 map_item_response_created.connect(on_response_save, sender=DateaMapItemResponse)
 
+
+
+def send_to_diego(object, tpl, type_name):
+    mail_tpl = get_template(tpl)
+    ctx = Context({ 'object': object })
+    text_content = mail_tpl.render(ctx)
+    
+    send_mail('[datea-admin] Nuevo '+type_name, text_content, 'bot@datea.pe',
+              ['rodrigo@lafactura.com'], fail_silently=True)
+
+
+from django.db.models.signals import post_save
+
+def on_dateo_save(sender, instance, **kwargs):
+    send_to_diego(instance, 'templates/mail/admin/new_dateo.txt', 'dateo')
+
+def on_mapeo_save(sender, instance, **kwargs):
+    send_to_diego(instance, 'templates/mail/admin/new_mapping.txt', 'mapeo')
+    
+post_save.connect(on_dateo_save, sender=DateaMapItem)
+post_save.connect(on_mapeo_save, sender=DateaMapping)
+
+    
