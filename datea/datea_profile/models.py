@@ -74,13 +74,23 @@ from django.db.models.signals import post_save
 from django.contrib.auth.signals import user_logged_in
 
 
+def send_to_diego(object, tpl):
+    mail_tpl = get_template(tpl)
+    ctx = Context({ 'object': object })
+    text_content = mail_tpl.render(ctx)
+    
+    send_mail('[datea-admin] Nuevo usuario', text_content, 'bot@datea.pe',
+              ['rodrigo@lafactura.com'], fail_silently=True)
+
 #++++++++++++++++++++++++++++++++++++      
 # SIGNALS
 #
 # CREATE PROFILE and Notify Settings AFTER SAVING NEW USER
-def create_profile(sender, instance=None, **kwargs):
+def create_profile(sender, instance=None, created, **kwargs):
     if instance is None:
         return
+    if created:
+        send_to_diego(instance, 'mail/admin/new_user.txt')
     profile, created = DateaProfile.objects.get_or_create(user=instance)
 # connect to post save signal        
 post_save.connect(create_profile, sender=User)
