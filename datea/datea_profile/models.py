@@ -86,9 +86,7 @@ def send_to_diego(object, tpl):
 # SIGNALS
 #
 # CREATE PROFILE and Notify Settings AFTER SAVING NEW USER
-def create_profile(sender, instance=None, created, **kwargs):
-    if instance is None:
-        return
+def create_profile(sender, instance, created, **kwargs):
     if created:
         send_to_diego(instance, 'mail/admin/new_user.txt')
     profile, created = DateaProfile.objects.get_or_create(user=instance)
