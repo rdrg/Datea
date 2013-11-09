@@ -250,10 +250,10 @@ def send_to_diego(object, tpl, type_name):
 from django.db.models.signals import post_save
 
 def on_dateo_save(sender, instance, **kwargs):
-    send_to_diego(instance, 'templates/mail/admin/new_dateo.txt', 'dateo')
+    send_to_diego(instance, 'mail/admin/new_dateo.txt', 'dateo')
 
 def on_mapeo_save(sender, instance, **kwargs):
-    send_to_diego(instance, 'templates/mail/admin/new_mapping.txt', 'mapeo')
+    send_to_diego(instance, 'mail/admin/new_mapping.txt', 'mapeo')
     
 post_save.connect(on_dateo_save, sender=DateaMapItem)
 post_save.connect(on_mapeo_save, sender=DateaMapping)
