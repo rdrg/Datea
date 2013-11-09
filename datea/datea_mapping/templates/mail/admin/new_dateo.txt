@@ -1,0 +1,9 @@
+Hola,
+
+un nuevo DATEO ha sido creado:
+
+http://datea.pe{{object.get_absolute_url}}
+
+saludos,
+
+bot datero
