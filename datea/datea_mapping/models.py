@@ -247,17 +247,17 @@ def send_to_diego(object, tpl, type_name):
               ['rodrigo@lafactura.com'], fail_silently=True)
 
 
-from django.db.models.signals import post_save, pre_save
+from django.db.models.signals import post_save
 
-def on_dateo_save(sender, instance, **kwargs):
-    if not instance.pk:
+def on_dateo_save(sender, instance, created, **kwargs):
+    if created:
         send_to_diego(instance, 'mail/admin/new_dateo.txt', 'dateo')
 
-def on_mapeo_save(sender, instance, **kwargs):
-    if not instance.pk:
+def on_mapeo_save(sender, instance, created, **kwargs):
+    if created:
         send_to_diego(instance, 'mail/admin/new_mapping.txt', 'mapeo')
     
-pre_save.connect(on_dateo_save, sender=DateaMapItem)
-pre_save.connect(on_mapeo_save, sender=DateaMapping)
+post_save.connect(on_dateo_save, sender=DateaMapItem)
+post_save.connect(on_mapeo_save, sender=DateaMapping)
 
     
