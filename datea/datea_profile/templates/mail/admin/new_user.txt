@@ -1,0 +1,12 @@
+Hola,
+
+tenemos un nuevo usuario:
+
+user: {{object.username}}
+email: {{object.email}}
+
+http://datea.pe/perfil/{{object.username|urlencode}}
+
+saludos,
+
+bot datero
