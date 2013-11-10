@@ -244,7 +244,7 @@ def send_to_diego(object, tpl, type_name):
     text_content = mail_tpl.render(ctx)
     
     send_mail('[datea-admin] Nuevo '+type_name, text_content, 'bot@datea.pe',
-              ['rodrigo@lafactura.com'], fail_silently=True)
+              ['rodrigo@lafactura.com', 'diego@lafactura.com'], fail_silently=True)
 
 
 from django.db.models.signals import post_save

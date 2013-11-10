@@ -83,7 +83,7 @@ def send_to_diego(object, tpl):
     text_content = mail_tpl.render(ctx)
     
     send_mail('[datea-admin] Nuevo usuario', text_content, 'bot@datea.pe',
-              ['rodrigo@lafactura.com'], fail_silently=True)
+              ['rodrigo@lafactura.com', 'diego@lafactura.com'], fail_silently=True)
 
 #++++++++++++++++++++++++++++++++++++      
 # SIGNALS
