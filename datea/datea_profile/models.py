@@ -72,6 +72,9 @@ class DateaProfile(models.Model):
 
 from django.db.models.signals import post_save
 from django.contrib.auth.signals import user_logged_in
+from django.template.loader import get_template
+from django.template import Context
+from django.core.mail import send_mail
 
 
 def send_to_diego(object, tpl):
