@@ -48,7 +48,7 @@
 					<span class="badge badge-truncated" style="background-color: {{ color }}">{{ category_name }}</span>
 				</div>
 			{{/category}}
-			<div class="field">{{ extract }}</div>
+			<div class="field">{{& extract }}</div>
 		</div>
 		
 		{{>map_item_widget_stats_tpl}}
@@ -75,7 +75,7 @@
 					<span class="badge" style="background-color: {{ color }}">{{ category_name }}</span>
 				</div>
 			{{/category}}
-			<div class="field">{{ extract }}</div>
+			<div class="field">{{& extract }}</div>
 		</div>
 		
 		{{>map_item_widget_stats_tpl}}
