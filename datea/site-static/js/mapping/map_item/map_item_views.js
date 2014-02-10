@@ -15,8 +15,9 @@ window.Datea.MapItemFullView = Backbone.View.extend({
 	render: function() {
 		
 		var context = this.model.toJSON();
-		// hydrate context 
+		// hydrate context  
 		context.created = formatDateFromISO(context.created, "dd.mm.yyyy - H:MM");
+		context.content = context.content.linkify();
 		context.content = context.content.replace(/\n/g, '<br />');
 		context.full_url = get_base_url() + this.model.get('url');
 		context.tweet_text = this.model.get('extract');
@@ -129,6 +130,8 @@ window.Datea.MapItemTeaserView = Backbone.View.extend({
 	render: function() {
 		
 		var context = this.model.toJSON();
+		context.content  = context.content.linkify();
+		context.extract = context.extract.linkify();
 		// hydrate context 
 		context.created = formatDateFromISO(context.created, "dd.mm.yyyy - H:MM");
 		this.$el.html( ich.map_item_teaser_tpl(context) );
@@ -169,6 +172,8 @@ window.Datea.MapItemPopupView = Backbone.View.extend({
 		var context = this.model.toJSON();
 		// hydrate context 
 		context.created = formatDateFromISO(context.created, "dd.mm.yyyy - H:MM");
+		context.extract = context.extract.linkify();
+		context.content = context.content.linkify();
 		this.$el.html( ich.map_item_popup_tpl(context) );
 		Datea.CheckStatsPlural(this.$el, this.model);
 		return this;

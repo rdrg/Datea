@@ -433,4 +433,7 @@ def delete_image(request, pk):
     except:
         pass
     
-    
+"""
+def get_image(request, pk, size):
+    a =1
+""" 
